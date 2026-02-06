@@ -1,0 +1,67 @@
+.p-ai-report {
+    @apply p-8;
+}
+
+.p-ai-report__header {
+    @apply mb-8;
+}
+
+.p-ai-report__title {
+    @apply text-2xl font-bold text-gray-900 mb-2;
+}
+
+.dark .p-ai-report__title {
+    @apply text-white;
+}
+
+.p-ai-report__desc {
+    @apply text-sm text-gray-500;
+}
+
+.p-ai-report__grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6;
+}
+
+.p-ai-report__card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col hover:border-primary/50 transition-colors;
+}
+
+.dark .p-ai-report__card {
+    @apply bg-surface-dark border-gray-800 hover:border-primary/50;
+}
+
+.p-ai-report__card-header {
+    @apply flex items-start justify-between mb-4;
+}
+
+.p-ai-report__stock {
+    @apply flex flex-col;
+}
+
+.p-ai-report__stock-name {
+    @apply text-lg font-bold text-gray-900;
+}
+
+.dark .p-ai-report__stock-name {
+    @apply text-white;
+}
+
+.p-ai-report__stock-code {
+    @apply text-xs text-gray-400;
+}
+
+.p-ai-report__date {
+    @apply text-xs text-gray-500;
+}
+
+.p-ai-report__summary {
+    @apply text-sm text-gray-600 mb-6 leading-relaxed flex-1;
+}
+
+.dark .p-ai-report__summary {
+    @apply text-gray-400;
+}
+
+.p-ai-report__actions {
+    @apply flex space-x-2 mt-auto;
+}

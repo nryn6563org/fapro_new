@@ -1,0 +1,121 @@
+.c-right-panel {
+    @apply h-full bg-white transition-all duration-300;
+}
+
+.dark .c-right-panel {
+    @apply bg-surface-dark;
+}
+
+.c-right-panel__inner {
+    @apply flex flex-col h-full p-6 space-y-8 overflow-y-auto;
+}
+
+.c-right-panel__section {
+    @apply space-y-4;
+}
+
+.c-right-panel__header {
+    @apply flex items-center justify-between mb-2;
+}
+
+.c-right-panel__title {
+    @apply text-sm font-bold text-gray-900;
+}
+
+.dark .c-right-panel__title {
+    @apply text-white;
+}
+
+.c-right-panel__action-btn {
+    @apply p-1 text-gray-400 hover:text-primary transition-colors flex items-center justify-center;
+}
+
+/* Calendar Placeholder Styles */
+.c-calendar-placeholder {
+    @apply p-4 rounded-xl border border-gray-100 bg-gray-50;
+}
+
+.dark .c-calendar-placeholder {
+    @apply border-gray-700 bg-gray-800/50;
+}
+
+.c-calendar-placeholder__header {
+    @apply flex items-center justify-between mb-4 text-xs font-medium text-gray-600;
+}
+
+.dark .c-calendar-placeholder__header {
+    @apply text-gray-400;
+}
+
+.c-calendar-placeholder__month {
+    @apply mx-2;
+}
+
+.c-calendar-placeholder__grid {
+    @apply grid grid-cols-7 gap-1 text-[10px] text-center;
+}
+
+.c-calendar-placeholder__day {
+    @apply py-1.5 rounded-md hover:bg-white cursor-pointer transition-colors;
+}
+
+.dark .c-calendar-placeholder__day {
+    @apply hover:bg-gray-700;
+}
+
+.c-calendar-placeholder__day--today {
+    @apply bg-primary text-white;
+}
+
+.c-calendar-placeholder__day--has-event {
+    @apply font-bold text-primary;
+}
+
+.dark .c-calendar-placeholder__day--has-event {
+    @apply text-primary-light;
+}
+
+/* Issue Item Styles */
+.c-right-panel__issue-list {
+    @apply space-y-4;
+}
+
+.c-issue-item {
+    @apply space-y-1.5;
+}
+
+.c-issue-item__header {
+    @apply flex items-center justify-between;
+}
+
+.c-issue-item__badge {
+    @apply px-1.5 py-0.5 text-[10px] font-bold rounded;
+}
+
+.c-issue-item__badge--news {
+    @apply bg-blue-50 text-blue-500;
+}
+
+.c-issue-item__badge--issue {
+    @apply bg-orange-50 text-orange-500;
+}
+
+.c-issue-item__badge--social {
+    @apply bg-purple-50 text-purple-500;
+}
+
+.dark .c-issue-item__badge--news { @apply bg-blue-900/30 text-blue-400; }
+.dark .c-issue-item__badge--issue { @apply bg-orange-900/30 text-orange-400; }
+.dark .c-issue-item__badge--social { @apply bg-purple-900/30 text-purple-400; }
+
+.c-issue-item__time {
+    @apply text-[10px] text-gray-400;
+}
+
+.c-issue-item__content {
+    @apply text-xs text-gray-600 leading-snug break-all;
+}
+
+.dark .c-issue-item__content {
+    @apply text-gray-400;
+}

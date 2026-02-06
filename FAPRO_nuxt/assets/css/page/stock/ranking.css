@@ -1,0 +1,109 @@
+.p-ranking {
+    @apply p-8;
+}
+
+.p-ranking__header {
+    @apply mb-8;
+}
+
+.p-ranking__title {
+    @apply text-2xl font-bold text-gray-900 mb-2;
+}
+
+.dark .p-ranking__title {
+    @apply text-white;
+}
+
+.p-ranking__desc {
+    @apply text-sm text-gray-500;
+}
+
+.p-ranking__content {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden;
+}
+
+.dark .p-ranking__content {
+    @apply bg-surface-dark border-gray-800;
+}
+
+.p-ranking__table-wrapper {
+    @apply w-full overflow-x-auto;
+}
+
+.p-ranking__table {
+    @apply w-full text-left border-collapse;
+}
+
+.p-ranking__th {
+    @apply px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider bg-gray-50 border-b border-gray-100;
+}
+
+.dark .p-ranking__th {
+    @apply bg-gray-900/50 border-gray-700 text-gray-400;
+}
+
+.p-ranking__tr {
+    @apply hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0;
+}
+
+.dark .p-ranking__tr {
+    @apply hover:bg-gray-800/50 border-gray-800;
+}
+
+.p-ranking__td {
+    @apply px-6 py-4 text-sm text-gray-900;
+}
+
+.dark .p-ranking__td {
+    @apply text-gray-300;
+}
+
+.p-ranking__td--rank {
+    @apply font-bold text-gray-400;
+}
+
+.p-ranking__stock-info {
+    @apply flex flex-col;
+}
+
+.p-ranking__stock-name {
+    @apply font-bold text-gray-900;
+}
+
+.dark .p-ranking__stock-name {
+    @apply text-white;
+}
+
+.p-ranking__stock-code {
+    @apply text-xs text-gray-400;
+}
+
+.p-ranking__td--price,
+.p-ranking__td--change {
+    @apply font-medium;
+}
+
+.p-ranking__badge {
+    @apply px-2.5 py-1 text-xs font-bold rounded-full;
+}
+
+.p-ranking__badge--buy {
+    @apply bg-red-50 text-red-500;
+}
+
+.p-ranking__badge--strong-buy {
+    @apply bg-red-100 text-red-600;
+}
+
+.p-ranking__badge--sell {
+    @apply bg-blue-50 text-blue-500;
+}
+
+.p-ranking__badge--hold {
+    @apply bg-gray-100 text-gray-500;
+}
+
+.dark .p-ranking__badge--buy { @apply bg-red-900/20 text-red-400; }
+.dark .p-ranking__badge--strong-buy { @apply bg-red-900/40 text-red-300; }
+.dark .p-ranking__badge--sell { @apply bg-blue-900/20 text-blue-400; }
+.dark .p-ranking__badge--hold { @apply bg-gray-700 text-gray-400; }

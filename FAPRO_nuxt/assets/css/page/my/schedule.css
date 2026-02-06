@@ -1,0 +1,217 @@
+.p-schedule {
+    @apply p-8 h-full flex flex-col;
+}
+
+.p-schedule__header {
+    @apply flex items-center justify-between mb-6 flex-shrink-0;
+}
+
+.p-schedule__title {
+    @apply text-2xl font-bold text-gray-900 mb-1;
+}
+
+.dark .p-schedule__title {
+    @apply text-white;
+}
+
+.p-schedule__desc {
+    @apply text-sm text-gray-500;
+}
+
+.p-schedule__content {
+    @apply flex gap-6 flex-1 min-h-0;
+}
+
+.p-schedule__calendar-wrapper {
+    @apply flex-1 bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col overflow-hidden;
+}
+
+.dark .p-schedule__calendar-wrapper {
+    @apply bg-surface-dark border-gray-800;
+}
+
+.p-schedule__nav {
+    @apply p-4 flex items-center justify-center border-b border-gray-100;
+}
+
+.dark .p-schedule__nav {
+    @apply border-gray-800;
+}
+
+.p-schedule__current-month {
+    @apply text-lg font-bold text-gray-900 mx-4;
+}
+
+.dark .p-schedule__current-month {
+    @apply text-white;
+}
+
+.p-schedule__grid-header {
+    @apply grid grid-cols-7 border-b border-gray-100 bg-gray-50;
+}
+
+.dark .p-schedule__grid-header {
+    @apply bg-gray-900/50 border-gray-800;
+}
+
+.p-schedule__day-name {
+    @apply py-2 text-center text-xs font-bold text-gray-500;
+}
+
+.p-schedule__grid {
+    @apply flex-1 grid grid-cols-7 auto-rows-fr;
+}
+
+.p-schedule__cell {
+    @apply border-r border-b border-gray-100 p-2 min-h-[100px] flex flex-col relative;
+}
+
+.dark .p-schedule__cell {
+    @apply border-gray-800;
+}
+
+.p-schedule__cell:nth-child(7n) {
+    @apply border-r-0;
+}
+
+.p-schedule__cell--today {
+    @apply bg-blue-50/30;
+}
+
+.p-schedule__cell--other-month {
+    @apply bg-gray-50/50 text-gray-400;
+}
+
+.dark .p-schedule__cell--other-month {
+    @apply bg-black/20 text-gray-600;
+}
+
+.p-schedule__date-num {
+    @apply text-sm font-medium text-gray-700 mb-1 inline-block w-6 h-6 text-center leading-6 rounded-full;
+}
+
+.dark .p-schedule__date-num {
+    @apply text-gray-300;
+}
+
+.p-schedule__cell--today .p-schedule__date-num {
+    @apply bg-primary text-white;
+}
+
+.p-schedule__events {
+    @apply space-y-1 overflow-hidden;
+}
+
+.p-schedule__event {
+    @apply text-[10px] px-1.5 py-0.5 rounded truncate font-medium;
+}
+
+.p-schedule__event--meeting { @apply bg-blue-100 text-blue-700; }
+.p-schedule__event--consultation { @apply bg-purple-100 text-purple-700; }
+.p-schedule__event--seminar { @apply bg-orange-100 text-orange-700; }
+.p-schedule__event--task { @apply bg-gray-100 text-gray-700; }
+
+.dark .p-schedule__event--meeting { @apply bg-blue-900/40 text-blue-300; }
+.dark .p-schedule__event--consultation { @apply bg-purple-900/40 text-purple-300; }
+.dark .p-schedule__event--seminar { @apply bg-orange-900/40 text-orange-300; }
+.dark .p-schedule__event--task { @apply bg-gray-700 text-gray-300; }
+
+.p-schedule__sidebar {
+    @apply w-80 bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col;
+}
+
+.dark .p-schedule__sidebar {
+    @apply bg-surface-dark border-gray-800;
+}
+
+.p-schedule__sidebar-title {
+    @apply text-lg font-bold text-gray-900 mb-6;
+}
+
+.dark .p-schedule__sidebar-title {
+    @apply text-white;
+}
+
+.p-schedule__sync-card {
+    @apply mb-8 pb-8 border-b border-gray-100;
+}
+
+.dark .p-schedule__sync-card {
+    @apply border-gray-800;
+}
+
+.p-schedule__sync-title {
+    @apply text-sm font-bold text-gray-900 mb-4;
+}
+
+.dark .p-schedule__sync-title {
+    @apply text-white;
+}
+
+.p-schedule__sync-items {
+    @apply space-y-4;
+}
+
+.p-schedule__sync-item {
+    @apply flex items-center justify-between;
+}
+
+.c-toggle {
+    @apply relative inline-block w-10 h-6;
+}
+
+.c-toggle input {
+    @apply opacity-0 w-0 h-0;
+}
+
+.c-toggle__slider {
+    @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-200 transition-all duration-300 rounded-full before:absolute before:content-[''] before:h-5 before:w-5 before:left-0.5 before:bottom-0.5 before:bg-white before:transition-all before:duration-300 before:rounded-full;
+}
+
+.c-toggle input:checked + .c-toggle__slider {
+    @apply bg-primary;
+}
+
+.c-toggle input:checked + .c-toggle__slider:before {
+    @apply transform translate-x-4;
+}
+
+.dark .c-toggle__slider {
+    @apply bg-gray-700;
+}
+
+.p-schedule__event-list {
+    @apply space-y-4 overflow-y-auto flex-1;
+}
+
+.p-schedule__list-item {
+    @apply flex gap-4 p-3 rounded-lg border border-transparent hover:border-gray-100 hover:bg-gray-50 transition-all;
+}
+
+.dark .p-schedule__list-item {
+    @apply hover:border-gray-700 hover:bg-gray-800;
+}
+
+.p-schedule__list-item--meeting { @apply border-l-4 border-l-blue-500; }
+.p-schedule__list-item--consultation { @apply border-l-4 border-l-purple-500; }
+.p-schedule__list-item--seminar { @apply border-l-4 border-l-orange-500; }
+
+.p-schedule__time {
+    @apply text-sm font-bold text-gray-500;
+}
+
+.p-schedule__item-content {
+    @apply flex flex-col;
+}
+
+.p-schedule__item-title {
+    @apply text-sm font-bold text-gray-900;
+}
+
+.dark .p-schedule__item-title {
+    @apply text-white;
+}
+
+.p-schedule__item-desc {
+    @apply text-xs text-gray-500;
+}

@@ -1,0 +1,28 @@
+.p-quant {
+    @apply p-8;
+}
+
+.p-quant__header {
+    @apply mb-8;
+}
+
+.p-quant__title {
+    @apply text-2xl font-bold text-gray-900 mb-2;
+}
+
+.dark .p-quant__title {
+    @apply text-white;
+}
+
+.p-quant__desc {
+    @apply text-sm text-gray-500;
+}
+
+.p-quant__grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+/* Override FunctionQuantCard for height consistency in grid */
+.p-quant__card {
+    @apply h-full min-h-[160px];
+}

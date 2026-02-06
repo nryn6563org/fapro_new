@@ -1,0 +1,65 @@
+.c-header {
+    @apply h-16 border-b border-gray-200 bg-white transition-all duration-300;
+}
+
+.dark .c-header {
+    @apply border-gray-700 bg-surface-dark;
+}
+
+.c-header__inner {
+    @apply flex items-center justify-between h-full px-6;
+}
+
+.c-header__search {
+    @apply flex-1 max-w-md;
+}
+
+.c-header__search-input-wrapper {
+    @apply relative flex items-center;
+}
+
+.c-header__search-icon {
+    @apply absolute left-3 text-gray-400;
+}
+
+.c-header__search-input {
+    @apply w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-gray-200 bg-gray-50 outline-none transition-all duration-200;
+    @apply focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary;
+}
+
+.dark .c-header__search-input {
+    @apply border-gray-600 bg-gray-800 text-gray-200;
+    @apply focus:border-primary-light focus:bg-gray-700;
+}
+
+.c-header__actions {
+    @apply flex items-center space-x-4;
+}
+
+.c-header__action-btn {
+    @apply p-2 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors flex items-center justify-center;
+}
+
+.dark .c-header__action-btn {
+    @apply text-gray-400 hover:bg-gray-700;
+}
+
+.c-header__profile {
+    @apply flex items-center space-x-3 pl-4 border-l border-gray-200;
+}
+
+.dark .c-header__profile {
+    @apply border-gray-700;
+}
+
+.c-header__avatar {
+    @apply flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold text-xs;
+}
+
+.c-header__avatar-text {
+    @apply leading-none;
+}
+
+.c-header__sr-only {
+    @apply sr-only;
+}

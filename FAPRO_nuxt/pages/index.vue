@@ -1,120 +1,91 @@
 <template>
-  <!-- Dashboard 메인 페이지 -->
-  <div class="dashboard-page">
-    <div class="dashboard-page__header">
-      <h1 class="dashboard-page__title">환영합니다! 오늘도 좋은 하루 되세요.</h1>
-    </div>
+  <div class="p-dashboard">
+    <header class="p-dashboard__header">
+      <h1 class="p-dashboard__title">대시보드</h1>
+      <p class="p-dashboard__welcome">환영합니다! 오늘도 좋은 하루 되세요.</p>
+    </header>
 
-    <!-- 종목 보드 영역 -->
-    <div class="dashboard-page__board-wrapper dashboard-page__board-wrapper--stock">
-      <div class="dashboard-page__board-header">
-        <div class="dashboard-page__board-title-group">
-          <div class="dashboard-page__board-deco-bar"></div>
-          <h2 class="dashboard-page__board-title">종목 보드 :: 시총 101위 이하의 중소형주 대상</h2>
+    <div class="p-dashboard__grid">
+      <!-- Stock Board (Bubble Chart) -->
+      <div class="p-dashboard__card--full">
+        <PageDashboardStockBoard />
+      </div>
+
+      <!-- Quant Stocks -->
+      <FunctionCard 
+        title="퀀트 종목" 
+        title-icon="PieChart" 
+        title-icon-color="purple"
+      >
+        <template #header-actions>
+          <button class="c-btn c-btn--ghost c-btn--xs">전체보기</button>
+        </template>
+        
+        <div class="p-dashboard__quant-grid">
+          <FunctionQuantCard 
+            type="aggressive"
+            algorithm="Talos"
+            :monthly-return="12.5"
+            :total-return="145.2"
+          />
+          <FunctionQuantCard 
+            type="neutral"
+            algorithm="Rolan"
+            :monthly-return="-2.4"
+            :total-return="89.3"
+          />
         </div>
-        <div class="dashboard-page__update-info">
-          <span class="dashboard-page__update-date">{{ currentDate }}</span>
-          <span class="dashboard-page__update-divider">|</span>
-          <span class="dashboard-page__update-time">{{ currentTime }} 업데이트</span>
-        </div>
-      </div>
+      </FunctionCard>
 
-      <div class="dashboard-page__board-grid">
-        <!-- AI리포트 생성 종목 (Full Width) -->
-        <AiReportCard :current-time="currentTime" />
+      <!-- AI Reports -->
+      <FunctionCard 
+        title="최신 AI 리포트" 
+        title-icon="FileText" 
+        title-icon-color="green"
+      >
+        <template #header-actions>
+          <button class="c-btn c-btn--ghost c-btn--xs">전체보기</button>
+        </template>
+        <PageDashboardReportList :reports="reports" />
+      </FunctionCard>
 
-        <!-- 이슈발생종목 -->
-        <IssueStocksCard :current-time="currentTime" />
-
-        <!-- 고객보유종목 랭킹 (추가) -->
-        <RankingStockCard />
-
-        <!-- 종목발굴 (추가) -->
-        <DiscoveryStockCard />
-
-        <!-- 라씨 시그널 발생 종목 -->
-        <SignalStocksCard :current-time="currentTime" />
-
-        <!-- 퀀트 종목 -->
-        <QuantStocksCard :current-time="currentTime" />
-      </div>
-    </div>
-
-    <!-- 고객/일정 관리 보드 영역 -->
-    <div class="dashboard-page__board-wrapper dashboard-page__board-wrapper--customer">
-      <div class="dashboard-page__board-header">
-        <div class="dashboard-page__board-title-group">
-          <div class="dashboard-page__board-deco-bar dashboard-page__board-deco-bar--green"></div>
-          <h2 class="dashboard-page__board-title">고객/일정 관리 보드</h2>
-        </div>
-      </div>
-
-      <div class="dashboard-page__board-grid">
-        <!-- 고객 통계 (ECharts) -->
-        <CustomerStatsCard :current-time="currentTime" />
-
-        <!-- 상담내역 -->
-        <ConsultationCard />
-
-        <!-- 고객랭킹 (추가) -->
-        <CustomerRankingCard />
-
-        <!-- 고객수익률 (추가) -->
-        <CustomerReturnCard />
-      </div>
+      <!-- Stock Signals -->
+      <FunctionCard 
+        title="실시간 시그널" 
+        title-icon="Zap" 
+        title-icon-color="yellow"
+      >
+        <template #header-actions>
+          <button class="c-btn c-btn--ghost c-btn--xs">전체보기</button>
+        </template>
+        <PageDashboardSignalList :signals="signals" />
+      </FunctionCard>
     </div>
   </div>
 </template>
 
 <script>
-import AiReportCard from '~/components/dashboard/AiReportCard.vue'
-import IssueStocksCard from '~/components/dashboard/IssueStocksCard.vue'
-import RankingStockCard from '~/components/dashboard/RankingStockCard.vue'
-import DiscoveryStockCard from '~/components/dashboard/DiscoveryStockCard.vue'
-import SignalStocksCard from '~/components/dashboard/SignalStocksCard.vue'
-import QuantStocksCard from '~/components/dashboard/QuantStocksCard.vue'
-import CustomerStatsCard from '~/components/dashboard/CustomerStatsCard.vue'
-import ConsultationCard from '~/components/dashboard/ConsultationCard.vue'
-import CustomerRankingCard from '~/components/dashboard/CustomerRankingCard.vue'
-import CustomerReturnCard from '~/components/dashboard/CustomerReturnCard.vue'
-
-/**
- * Dashboard 메인 페이지 컴포넌트
- */
 export default {
   name: 'DashboardPage',
-  components: {
-    AiReportCard,
-    IssueStocksCard,
-    RankingStockCard,
-    DiscoveryStockCard,
-    SignalStocksCard,
-    QuantStocksCard,
-    CustomerStatsCard,
-    ConsultationCard,
-    CustomerRankingCard,
-    CustomerReturnCard
-  },
   data() {
     return {
-      currentDate: '2026.02.05',
-      currentTime: '14:23'
-    }
-  },
-  mounted() {
-    this.updateTime()
-    setInterval(this.updateTime, 60000)
-  },
-  methods: {
-    updateTime() {
-      const now = new Date()
-      this.currentDate = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')}`
-      this.currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
+      reports: [
+        { name: '삼성전자', code: '005930', change: 2.3, date: '01-30' },
+        { name: '현대차', code: '005380', change: -1.2, date: '01-30' },
+        { name: 'NAVER', code: '035420', change: -0.5, date: '01-29' },
+        { name: '카카오', code: '035720', change: 3.1, date: '01-29' }
+      ],
+      signals: [
+        { type: 'buy', typeName: '매수', name: '카카오뱅크', price: 29200, change: 2.5 },
+        { type: 'buy', typeName: '매수', name: 'SK하이닉스', price: 135000, change: 2.3 },
+        { type: 'sell', typeName: '매도', name: 'LG에너지솔루션', price: 445000, change: -5.9 },
+        { type: 'sell', typeName: '매도', name: '삼성바이오', price: 895000, change: 2.9 }
+      ]
     }
   }
 }
 </script>
 
 <style scoped>
-@import "~/assets/css/dashboard/style.css";
+@import '@/assets/css/page/dashboard.css';
 </style>

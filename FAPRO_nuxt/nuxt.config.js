@@ -1,66 +1,54 @@
 export default {
+  // Target: https://go.nuxtjs.dev/config-target
+  target: "static",
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'FaPRO',
-    htmlAttrs: {
-      lang: 'ko'
-    },
-    meta: [
-      { charset: 'utf-8' },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
-      },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
-    ],
-    link: [{ rel: 'stylesheet', url: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-std.min.css', crossorigin: 'anonymous' }],
-    script: [{ src: 'https://cdn.jsdelivr.net/gh/KaneCohen/modal-vanilla@master/dist/index.js', defer: true }]
+    title: "FAPRO - Financial Advisor Pro",
+    htmlAttrs: { lang: "ko" },
+    meta: [{ charset: "utf-8" }, { name: "viewport", content: "width=device-width, initial-scale=1" }, { hid: "description", name: "description", content: "" }, { name: "format-detection", content: "telephone=no" }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/css/common/common.css', 'animate.css/animate.css'],
+  css: ["@/assets/css/main.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: '~/plugins/echarts.js', ssr: false },
-    { src: '~/plugins/swiper.js', ssr: false }
-  ],
+  plugins: [{ src: "@/plugins/echarts.js", mode: "client" }, { src: "@/plugins/swiper.js", mode: "client" }, { src: "@/plugins/lucide.js" }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: [
+    // Area: Layout regions (no prefix)
+    { path: "~/components/area", prefix: "", pathPrefix: false },
+    // Function: Reusable UI blocks (Function prefix)
+    { path: "~/components/function", prefix: "Function", pathPrefix: false },
+    // Page: Page-specific sub-blocks (Page prefix + directory logic)
+    { path: "~/components/page", prefix: "Page", pathPrefix: true }
+  ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/tailwindcss'],
+  buildModules: ["@nuxtjs/composition-api/module", "@nuxtjs/color-mode"],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ["@nuxtjs/axios"],
+
+  // Color mode configuration
+  colorMode: {
+    classSuffix: ""
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    publicPath: '/_nuxt/',
+    transpile: ["lucide-vue"],
+    babel: {
+      plugins: ["@babel/plugin-proposal-optional-chaining", "@babel/plugin-proposal-nullish-coalescing-operator"]
+    },
+    // Manual PostCSS 8 configuration for Tailwind 3 compatibility
     postcss: {
-      postcssOptions: {
-        plugins: {
-          autoprefixer: {} // 기본 설정 사용
-        }
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {}
       }
     }
-  },
-  pageTransition: {
-    name: 'page',
-    mode: 'out-in',
-    // Vue transition 속성에 animate.css 클래스 매핑
-    enterActiveClass: 'animate__animated animate__fadeIn animate__faster',
-    leaveActiveClass: 'animate__animated animate__fadeOut animate__faster'
-  },
-  router: {
-    // 환경에 따라 베이스 경로 설정: 개발 환경은 루트, 프로덕션은 /RassiAdmin/
-    base: '/FaPRO/'
-  },
-  target: 'static',
-  server: {
-    port: 8000,
-    host: '0.0.0.0'
   }
-}
+};

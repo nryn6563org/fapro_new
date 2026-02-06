@@ -1,0 +1,99 @@
+.p-discovery {
+    @apply p-8;
+}
+
+.p-discovery__header {
+    @apply mb-8;
+}
+
+.p-discovery__title {
+    @apply text-2xl font-bold text-gray-900 mb-2;
+}
+
+.dark .p-discovery__title {
+    @apply text-white;
+}
+
+.p-discovery__desc {
+    @apply text-sm text-gray-500;
+}
+
+.p-discovery__search-section {
+    @apply mb-12 bg-white rounded-xl p-8 border border-gray-100 shadow-sm text-center;
+}
+
+.dark .p-discovery__search-section {
+    @apply bg-surface-dark border-gray-800;
+}
+
+.p-discovery__search-bar {
+    @apply flex items-center max-w-2xl mx-auto bg-gray-50 rounded-full px-6 py-3 border border-gray-200 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all;
+}
+
+.dark .p-discovery__search-bar {
+    @apply bg-gray-900 border-gray-700;
+}
+
+.p-discovery__search-icon {
+    @apply text-gray-400 mr-4;
+}
+
+.p-discovery__input {
+    @apply flex-1 bg-transparent border-0 outline-none text-gray-900 placeholder-gray-400;
+}
+
+.dark .p-discovery__input {
+    @apply text-white;
+}
+
+.p-discovery__subtitle {
+    @apply text-lg font-bold text-gray-900 mb-6;
+}
+
+.dark .p-discovery__subtitle {
+    @apply text-white;
+}
+
+.p-discovery__grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6;
+}
+
+.p-discovery__card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col hover:-translate-y-1 transition-transform duration-300;
+}
+
+.dark .p-discovery__card {
+    @apply bg-surface-dark border-gray-800;
+}
+
+.p-discovery__card-header {
+    @apply flex items-center mb-4;
+}
+
+.p-discovery__score {
+    @apply text-2xl font-bold text-primary mr-4;
+}
+
+.p-discovery__stock-info {
+    @apply flex flex-col;
+}
+
+.p-discovery__stock-name {
+    @apply font-bold text-gray-900;
+}
+
+.dark .p-discovery__stock-name {
+    @apply text-white;
+}
+
+.p-discovery__stock-sector {
+    @apply text-xs text-gray-500;
+}
+
+.p-discovery__reason {
+    @apply text-sm text-gray-600 mb-6 flex-1 leading-relaxed;
+}
+
+.dark .p-discovery__reason {
+    @apply text-gray-400;
+}

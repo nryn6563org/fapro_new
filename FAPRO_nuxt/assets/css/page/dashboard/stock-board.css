@@ -1,0 +1,47 @@
+.c-stock-board {
+    @apply bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col h-full;
+}
+
+.dark .c-stock-board {
+    @apply bg-surface-dark border-gray-800;
+}
+
+.c-stock-board__header {
+    @apply flex items-center justify-between mb-6;
+}
+
+.c-stock-board__title {
+    @apply text-lg font-bold text-gray-900;
+}
+
+.dark .c-stock-board__title {
+    @apply text-white;
+}
+
+.c-stock-board__actions {
+    @apply flex space-x-2;
+}
+
+.c-stock-board__filter {
+    @apply px-3 py-1.5 text-xs font-medium text-gray-500 rounded-lg hover:bg-gray-50 transition-colors;
+}
+
+.dark .c-stock-board__filter {
+    @apply text-gray-400 hover:bg-gray-800;
+}
+
+.c-stock-board__filter--active {
+    @apply bg-gray-900 text-white;
+}
+
+.dark .c-stock-board__filter--active {
+    @apply bg-white text-gray-900;
+}
+
+.c-stock-board__chart-container {
+    @apply flex-1 w-full min-h-[300px] relative;
+}
+
+.c-stock-board__chart {
+    @apply w-full h-full;
+}

@@ -1,0 +1,119 @@
+.p-dashboard {
+    @apply space-y-6;
+}
+
+.p-dashboard__header {
+    @apply mb-8;
+}
+
+.p-dashboard__title {
+    @apply text-xl font-bold text-gray-900;
+}
+
+.dark .p-dashboard__title {
+    @apply text-white;
+}
+
+.p-dashboard__welcome {
+    @apply text-sm text-gray-500 mt-1;
+}
+
+.p-dashboard__grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+}
+
+.p-dashboard__card--full {
+    @apply lg:col-span-2;
+}
+
+/* Tabs */
+.p-dashboard__tabs {
+    @apply flex p-1 bg-gray-100 rounded-lg;
+}
+
+.dark .p-dashboard__tabs {
+    @apply bg-gray-800;
+}
+
+.p-dashboard__tab {
+    @apply px-4 py-1.5 text-[10px] font-medium rounded-md text-gray-500 transition-all duration-200;
+}
+
+.p-dashboard__tab--active {
+    @apply bg-white text-primary shadow-sm;
+}
+
+.dark .p-dashboard__tab--active {
+    @apply bg-gray-700 text-white;
+}
+
+/* Bubble Chart */
+.p-dashboard__bubble-chart-wrapper {
+    @apply h-[400px] flex items-center justify-center bg-gradient-to-br from-orange-50/50 to-blue-50/50 rounded-xl border border-gray-50;
+}
+
+.dark .p-dashboard__bubble-chart-wrapper {
+    @apply from-orange-900/10 to-blue-900/10 border-gray-700/50;
+}
+
+.p-dashboard__bubble-chart {
+    @apply w-full h-full;
+}
+
+/* Lists */
+.p-dashboard__report-list,
+.p-dashboard__signal-list {
+    @apply space-y-4;
+}
+
+.p-report-item,
+.p-signal-item {
+    @apply flex items-center justify-between p-3 rounded-xl border border-transparent hover:border-gray-100 hover:bg-gray-50/50 transition-all duration-200;
+}
+
+.dark .p-report-item:hover,
+.dark .p-signal-item:hover {
+    @apply border-gray-700 bg-gray-800/30;
+}
+
+.p-report-item__info,
+.p-signal-item__main {
+    @apply flex items-center gap-2;
+}
+
+.p-report-item__name,
+.p-signal-item__name {
+    @apply text-sm font-semibold text-gray-900;
+}
+
+.dark .p-report-item__name,
+.dark .p-signal-item__name {
+    @apply text-gray-200;
+}
+
+.p-report-item__code,
+.p-report-item__date,
+.p-signal-item__price {
+    @apply text-xs font-medium;
+}
+
+.p-report-item__meta {
+    @apply flex flex-col items-end;
+}
+
+.p-report-item__change {
+    @apply text-xs font-bold;
+}
+
+.p-report-item__change--positive, .p-signal-item__price--positive { @apply text-red-500; }
+.p-report-item__change--negative, .p-signal-item__price--negative { @apply text-blue-500; }
+
+.p-signal-item__badge {
+    @apply px-1.5 py-0.5 rounded text-[10px] font-bold;
+}
+
+.p-signal-item__badge--buy { @apply bg-red-100 text-red-500; }
+.p-signal-item__badge--sell { @apply bg-blue-100 text-blue-500; }
+
+.dark .p-signal-item__badge--buy { @apply bg-red-900/30 text-red-400; }
+.dark .p-signal-item__badge--sell { @apply bg-blue-900/30 text-blue-400; }

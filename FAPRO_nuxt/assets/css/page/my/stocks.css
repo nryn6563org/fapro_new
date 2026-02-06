@@ -1,0 +1,115 @@
+.p-my-stocks {
+    @apply p-8;
+}
+
+.p-my-stocks__header {
+    @apply mb-8;
+}
+
+.p-my-stocks__title {
+    @apply text-2xl font-bold text-gray-900 mb-2;
+}
+
+.dark .p-my-stocks__title {
+    @apply text-white;
+}
+
+.p-my-stocks__desc {
+    @apply text-sm text-gray-500;
+}
+
+.p-my-stocks__grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+.p-my-stocks__card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:border-primary/50 transition-all;
+}
+
+.dark .p-my-stocks__card {
+    @apply bg-surface-dark border-gray-800 hover:border-primary/50;
+}
+
+.p-my-stocks__card-header {
+    @apply flex items-start justify-between mb-4;
+}
+
+.p-my-stocks__info {
+    @apply flex flex-col;
+}
+
+.p-my-stocks__name {
+    @apply font-bold text-gray-900 text-lg;
+}
+
+.dark .p-my-stocks__name {
+    @apply text-white;
+}
+
+.p-my-stocks__code {
+    @apply text-xs text-gray-400;
+}
+
+.p-my-stocks__price-area {
+    @apply flex items-baseline gap-2 mb-6;
+}
+
+.p-my-stocks__price {
+    @apply text-2xl font-bold text-gray-900;
+}
+
+.dark .p-my-stocks__price {
+    @apply text-white;
+}
+
+.p-my-stocks__change {
+    @apply text-sm font-bold;
+}
+
+.p-my-stocks__ai-analysis {
+    @apply bg-gray-50 rounded-lg p-4;
+}
+
+.dark .p-my-stocks__ai-analysis {
+    @apply bg-gray-800/50;
+}
+
+.p-my-stocks__ai-label {
+    @apply text-xs text-gray-500 block mb-1;
+}
+
+.p-my-stocks__ai-score {
+    @apply flex items-baseline mb-2;
+}
+
+.p-my-stocks__score-val {
+    @apply text-lg font-bold text-primary mr-1;
+}
+
+.p-my-stocks__score-total {
+    @apply text-xs text-gray-400;
+}
+
+.p-my-stocks__ai-comment {
+    @apply text-xs text-gray-600 leading-snug;
+}
+
+.dark .p-my-stocks__ai-comment {
+    @apply text-gray-400;
+}
+
+.p-my-stocks__add-btn {
+    @apply flex flex-col items-center justify-center min-h-[250px] border-2 border-dashed border-gray-200 rounded-xl hover:border-primary hover:bg-gray-50 transition-all cursor-pointer;
+}
+
+.dark .p-my-stocks__add-btn {
+    @apply border-gray-700 hover:bg-gray-800;
+}
+
+.p-my-stocks__add-icon {
+    @apply text-gray-300 mb-2;
+}
+
+.p-my-stocks__add-text {
+    @apply text-sm font-bold text-gray-400;
+}
