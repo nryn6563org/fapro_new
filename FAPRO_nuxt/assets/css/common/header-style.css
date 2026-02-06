@@ -1,0 +1,104 @@
+.header-container {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb; /* Gray-200 */
+  padding-left: 1.5rem; /* px-6 */
+  padding-right: 1.5rem;
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem;
+  height: 4rem; /* h-16 */
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* space-x-4 */
+}
+
+.header-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  color: #111827; /* Gray-900 */
+}
+
+.header-search-section {
+  flex: 1;
+  max-width: 42rem; /* max-w-2xl */
+  margin-left: 2rem; /* mx-8 */
+  margin-right: 2rem;
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem; /* left-3 */
+  top: 50%;
+  transform: translateY(-50%);
+  height: 1.25rem; /* h-5 */
+  width: 1.25rem; /* w-5 */
+  color: #9ca3af; /* Gray-400 */
+}
+
+.search-input {
+  padding-left: 2.5rem; /* pl-10 */
+  padding-right: 1rem; /* pr-4 */
+  padding-top: 0.5rem; /* py-2 */
+  padding-bottom: 0.5rem;
+  width: 100%;
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  border-radius: 0.375rem; /* rounded-md */
+  outline: none;
+  transition: all 0.2s;
+}
+
+.search-input:focus {
+  border-color: #3b82f6; /* focus:ring-blue-500 */
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* space-x-4 */
+}
+
+.user-avatar-link {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 9999px;
+  width: 2.5rem; /* w-10 */
+  height: 2.5rem; /* h-10 */
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.settings-button {
+  padding: 0.5rem; /* p-2 */
+  border-radius: 9999px;
+  color: #9ca3af;
+  transition-property: background-color;
+  transition-duration: 200ms;
+}
+
+.settings-button:hover {
+  background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
+
+.settings-icon {
+  height: 1.25rem; /* h-5 */
+  width: 1.25rem; /* w-5 */
+}
+

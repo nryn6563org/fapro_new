@@ -1,0 +1,1085 @@
+/* Dashboard Page Styles */
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dashboard-page__header {
+  padding-bottom: 0.5rem;
+}
+
+.dashboard-page__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Board Sections */
+.dashboard-page__board-wrapper {
+  border: 2px solid #3b82f6;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: rgba(239, 246, 255, 0.3);
+}
+
+.dashboard-page__board-wrapper--customer {
+  border-color: #10b981;
+  background-color: rgba(236, 253, 245, 0.3);
+  margin-top: 1.5rem;
+}
+
+.dashboard-page__board-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.dashboard-page__board-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-page__board-deco-bar {
+  width: 0.25rem;
+  height: 1.5rem;
+  background-color: #3b82f6;
+  border-radius: 0.125rem;
+}
+
+.dashboard-page__board-deco-bar--green {
+  background-color: #10b981;
+}
+
+.dashboard-page__board-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.dashboard-page__update-info {
+  font-size: 0.75rem;
+  color: #4b5563;
+}
+
+.dashboard-page__update-date {
+  font-weight: 500;
+}
+
+.dashboard-page__update-divider {
+  margin: 0 0.25rem;
+}
+
+.dashboard-page__board-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .dashboard-page__board-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-page__board-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .dashboard-page__board-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Card Common */
+.dashboard-card {
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 480px;
+}
+
+.dashboard-card--ai-report {
+  border-color: #bbf7d0;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-card--ai-report {
+    grid-column: span 3 / span 3;
+  }
+}
+
+.dashboard-card__header {
+  padding: 0.75rem;
+  padding-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.dashboard-card__header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-card__title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.dashboard-card__title-icon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.dashboard-card__title-icon--green {
+  color: #10b981;
+}
+
+.dashboard-card__title-text {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.dashboard-card__header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-card__update-time {
+  font-size: 10px;
+  color: #6b7280;
+}
+
+.dashboard-card__refresh-btn {
+  color: #9ca3af;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.dashboard-card__refresh-btn:hover {
+  color: #4b5563;
+}
+
+.dashboard-card__refresh-icon {
+  height: 0.875rem;
+  width: 0.875rem;
+}
+
+.dashboard-card__content {
+  padding: 0.75rem;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.dashboard-card__content--scrollable {
+  overflow: hidden;
+}
+
+.dashboard-card__stock-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+  min-height: 0;
+}
+
+.dashboard-card__stock-item {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  border: 1px solid #e5e7eb;
+}
+
+.dashboard-card__stock-item--hover {
+  transition: all 0.2s;
+}
+
+.dashboard-card__stock-item--hover:hover {
+  border-color: #86efac;
+  background-color: #f0fdf4;
+}
+
+.dashboard-card__stock-deco {
+  width: 0.25rem;
+  height: auto;
+  border-radius: 0.125rem;
+  flex-shrink: 0;
+}
+
+.dashboard-card__stock-deco--green {
+  background-color: #10b981;
+}
+
+.dashboard-card__stock-info-wrapper {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dashboard-card__stock-main {
+  flex-shrink: 0;
+  min-width: 0;
+  max-width: 28rem;
+}
+
+.dashboard-card__stock-header-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.dashboard-card__stock-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #111827;
+  text-decoration: none;
+}
+
+.dashboard-card__stock-name:hover {
+  text-decoration: underline;
+}
+
+.dashboard-card__stock-change {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.dashboard-card__stock-change--up {
+  color: #ef4444;
+}
+
+.dashboard-card__stock-change--down {
+  color: #3b82f6;
+}
+
+.dashboard-card__stock-badge-new {
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 10px;
+  height: 1rem;
+  padding: 0 0.375rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.dashboard-card__stock-summary {
+  font-size: 0.75rem;
+  color: #4b5563;
+  margin-bottom: 0.125rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-card__stock-time {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.dashboard-card__stock-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.dashboard-page__btn-stock {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.dashboard-page__btn-stock--orange {
+  background-color: #f97316;
+  border-color: #f97316;
+  color: #ffffff;
+}
+
+.dashboard-page__btn-stock--orange:hover {
+  background-color: #ea580c;
+}
+
+.dashboard-page__btn-stock--secondary {
+  background-color: #ffffff;
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+.dashboard-page__btn-stock--secondary:hover {
+  background-color: #f9fafb;
+}
+
+.dashboard-page__btn-stock--active {
+  background-color: #374151;
+  border-color: #374151;
+  color: #ffffff;
+}
+
+.dashboard-card__view-more {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 0.25rem;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.dashboard-card__view-more--green {
+  color: #16a34a;
+  border-color: #bbf7d0;
+}
+
+.dashboard-card__view-more--green:hover {
+  color: #15803d;
+  background-color: #f0fdf4;
+}
+
+.dashboard-card--issue-stocks {
+  border-color: #fed7aa;
+}
+
+.dashboard-card__header-main--column {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.dashboard-card__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-card__title-icon--orange {
+  color: #f97316;
+}
+
+.dashboard-card__tab-group {
+  display: flex;
+  gap: 0.25rem;
+  background-color: #f3f4f6;
+  border-radius: 0.25rem;
+  padding: 0.125rem;
+}
+
+.dashboard-card__tab-group--center {
+  justify-content: center;
+}
+
+.dashboard-card__tab-btn {
+  flex: 1;
+  padding: 0.25rem 1rem;
+  border-radius: 0.125rem;
+  font-size: 10px;
+  font-weight: 500;
+  color: #4b5563;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dashboard-card__tab-btn:hover {
+  color: #111827;
+}
+
+.dashboard-card__tab-btn--active {
+  background-color: #f97316;
+  color: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-card__content--horizontal {
+  flex-direction: row;
+  gap: 0.75rem;
+  overflow: hidden;
+}
+
+.dashboard-card__visual-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dashboard-card__visual-container {
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-card__visual-container--orange {
+  background: linear-gradient(to bottom right, #fff7ed, #fefce8);
+  border-color: #fed7aa;
+}
+
+.dashboard-card__view-more--orange {
+  color: #ea580c;
+  border-color: #fed7aa;
+}
+
+.dashboard-card__view-more--orange:hover {
+  color: #c2410c;
+  background-color: #fff7ed;
+}
+
+.dashboard-card__detail-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.dashboard-card__detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dashboard-card__detail-block {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem;
+}
+
+.dashboard-card__detail-block--compact {
+  padding: 0.5rem;
+}
+
+.dashboard-card__detail-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-card__detail-title-accent {
+  color: #4b5563;
+  font-weight: 400;
+}
+
+.dashboard-card__detail-chart-wrapper {
+  height: 180px;
+}
+
+.dashboard-card__detail-subtitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-card__minor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.dashboard-card__minor-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #f9fafb;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.dashboard-card__minor-item--hover {
+  transition: all 0.2s;
+}
+
+.dashboard-card__minor-item--hover:hover {
+  background-color: #fff7ed;
+  border-color: #fed7aa;
+}
+
+.dashboard-card__minor-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-card__minor-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.dashboard-card__minor-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.dashboard-card__minor-change {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.dashboard-card__minor-change--up {
+  color: #ef4444;
+}
+
+.dashboard-card__minor-change--down {
+  color: #3b82f6;
+}
+
+.dashboard-card__news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.dashboard-card__news-item {
+  padding-bottom: 0.25rem;
+}
+
+.dashboard-card__news-item:not(:last-child) {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.dashboard-card__news-title {
+  font-size: 10px;
+  color: #111827;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.dashboard-card__news-meta {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 9px;
+  color: #9ca3af;
+  margin-top: 0.125rem;
+}
+
+.dashboard-card__empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.dashboard-card__empty-icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  color: #d1d5db;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-card__empty-text {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.dashboard-card__empty-subtext {
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+.dashboard-card--customer-ranking {
+  border-color: #e9d5ff;
+}
+
+.dashboard-card__rank-badge--purple {
+  background-color: #f3e8ff;
+  color: #7e22ce;
+}
+
+.dashboard-card__rank-right {
+  text-align: right;
+}
+
+.dashboard-card__rank-value--purple {
+  font-size: 10px;
+  font-weight: 700;
+  color: #9333ea;
+}
+
+.dashboard-card--customer-return {
+  border-color: #fed7aa;
+}
+
+.dashboard-card__distribution-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+  padding: 0 0.25rem;
+}
+
+.dashboard-card__distribution-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dashboard-card__distribution-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.dashboard-card__distribution-label {
+  color: #4b5563;
+}
+
+.dashboard-card__distribution-meta {
+  color: #9ca3af;
+}
+
+.dashboard-card__progress-track {
+  width: 100%;
+  height: 0.375rem;
+  background-color: #f3f4f6;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.dashboard-card__progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: all 0.5s;
+}
+
+.dashboard-card__progress-fill--high {
+  background-color: #ef4444;
+}
+
+.dashboard-card__progress-fill--medium {
+  background-color: #fb923c;
+}
+
+.dashboard-card__progress-fill--low {
+  background-color: #9ca3af;
+}
+
+.dashboard-card__return-sections {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
+  padding: 0 0.25rem;
+}
+
+.dashboard-card__return-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-card__return-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.dashboard-card__return-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.dashboard-card__return-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid transparent;
+}
+
+.dashboard-card__return-item--top {
+  background-color: #fef2f2;
+  border-color: #fee2e2;
+}
+
+.dashboard-card__return-item--bottom {
+  background-color: #eff6ff;
+  border-color: #dbeafe;
+}
+
+.dashboard-card__return-user {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.dashboard-card__return-item--top .dashboard-card__return-user {
+  color: #b91c1c;
+}
+
+.dashboard-card__return-item--bottom .dashboard-card__return-user {
+  color: #1d4ed8;
+}
+
+.dashboard-card__return-value {
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.dashboard-card__return-value--loss {
+  color: #2563eb;
+}
+
+/* End of Dashboard Styles */
+
+
+/* Signal Stocks Section */
+
+.dashboard-card--signal-stocks {
+  border-color: #e9d5ff;
+}
+
+.dashboard-card__title-icon--purple {
+  color: #a855f7;
+}
+
+.dashboard-card__signal-summary {
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid #f3f4f6;
+  margin-bottom: 0.25rem;
+}
+
+.dashboard-card__signal-summary-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-card__signal-stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.dashboard-card__signal-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-card__signal-stat-label {
+  font-size: 0.75rem;
+  color: #374151;
+}
+
+.dashboard-card__signal-stat-value {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.dashboard-card__signal-stat-value--buy {
+  color: #ef4444;
+}
+
+.dashboard-card__signal-stat-value--sell {
+  color: #3b82f6;
+}
+
+.dashboard-card__signal-stat-unit {
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+.dashboard-card__signal-stat-divider {
+  width: 1px;
+  height: 1.5rem;
+  background-color: #e5e7eb;
+}
+
+.dashboard-card__signal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+  min-height: 0;
+}
+
+.dashboard-card__signal-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem;
+  border-radius: 0.25rem;
+  border: 1px solid #f3f4f6;
+  text-decoration: none;
+  background-color: rgba(249, 250, 251, 0.5);
+}
+
+.dashboard-card__signal-item--hover {
+  transition: all 0.2s;
+}
+
+.dashboard-card__signal-item--hover:hover {
+  border-color: #d8b4fe;
+  background-color: #faf5ff;
+}
+
+.dashboard-card__signal-badge {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-card__signal-badge--buy {
+  background-color: #ef4444;
+}
+
+.dashboard-card__signal-badge--sell {
+  background-color: #3b82f6;
+}
+
+.dashboard-card__signal-time {
+  font-size: 10px;
+  color: #9ca3af;
+  width: 2.5rem;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.dashboard-card__signal-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dashboard-card__signal-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.125rem;
+}
+
+.dashboard-card__signal-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111827;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-card__signal-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-card__signal-price-label {
+  font-size: 10px;
+  color: #6b7280;
+}
+
+.dashboard-card__signal-price-value {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.dashboard-card__signal-sell-info {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dashboard-card__signal-price-bold {
+  color: #111827;
+  font-weight: 600;
+}
+
+.dashboard-card__signal-price-profit {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.dashboard-card__view-more--purple {
+  color: #9333ea;
+  border-color: #e9d5ff;
+}
+
+.dashboard-card__view-more--purple:hover {
+  color: #7e22ce;
+  background-color: #faf5ff;
+}
+
+
+/* Quant Stocks Section */
+
+.dashboard-card--quant-stocks {
+  border-color: #c7d2fe;
+}
+
+.dashboard-card__title-icon--indigo {
+  color: #6366f1;
+}
+
+.dashboard-card__performance-summary {
+  background-color: #eef2ff;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid #e0e7ff;
+  margin-bottom: 0.25rem;
+}
+
+.dashboard-card__performance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-card__performance-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #4338ca;
+}
+
+.dashboard-card__performance-select {
+  background-color: transparent;
+  font-size: 10px;
+  border: none;
+  color: #4f46e5;
+  font-weight: 700;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dashboard-card__performance-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.dashboard-card__performance-name {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.dashboard-card__performance-value {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #ef4444;
+}
+
+.dashboard-card__rank-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding: 0 0.25rem;
+}
+
+.dashboard-card__rank-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.dashboard-card__rank-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dashboard-card__rank-badge--gold {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.dashboard-card__rank-badge--normal {
+  background-color: #e5e7eb;
+  color: #6b7280;
+}
+
+.dashboard-card__rank-value--profit {
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #ef4444;
+}
+
+.dashboard-card__view-more--indigo {
+  color: #4f46e5;
+  border-color: #c7d2fe;
+}
+
+.dashboard-card__view-more--indigo:hover {
+  color: #4338ca;
+  background-color: #eef2ff;
+}
+
+
+.dashboard-card__rank-number {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #6b7280;
+  width: 1.25rem;
+}

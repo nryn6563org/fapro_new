@@ -1,0 +1,226 @@
+/* AI Discovery Page Styling */
+
+.ai-discovery-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ai-discovery-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.ai-discovery-page__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ai-discovery-page__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.ai-discovery-page__subtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.ai-discovery-page__btn-refresh {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ai-discovery-page__btn-refresh:hover {
+  background-color: #f9fafb;
+}
+
+.ai-discovery-page__refresh-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Stats Section */
+.ai-discovery-page__stats {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .ai-discovery-page__stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.ai-discovery-page__theme-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left-width: 4px;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.2s;
+}
+
+.ai-discovery-page__theme-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Theme Colors */
+.ai-discovery-page__theme-card--green { border-left-color: #10b981; }
+.ai-discovery-page__theme-card--blue { border-left-color: #3b82f6; }
+.ai-discovery-page__theme-card--purple { border-left-color: #a855f7; }
+
+.ai-discovery-page__theme-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ai-discovery-page__theme-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: #9ca3af;
+}
+
+.ai-discovery-page__theme-count {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.ai-discovery-page__theme-count--green { color: #059669; }
+.ai-discovery-page__theme-count--blue { color: #2563eb; }
+.ai-discovery-page__theme-count--purple { color: #7e22ce; }
+
+.ai-discovery-page__theme-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.ai-discovery-page__theme-desc {
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+/* List Section */
+.ai-discovery-page__list-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ai-discovery-page__list-header {
+  padding: 1rem 1.5rem;
+  background-color: rgba(249, 250, 251, 0.5);
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.ai-discovery-page__list-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.ai-discovery-page__list-content {
+  padding: 0;
+}
+
+.ai-discovery-page__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-discovery-page__item {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ai-discovery-page__item:hover {
+  background-color: rgba(240, 253, 244, 0.3);
+}
+
+.ai-discovery-page__item:last-child {
+  border-bottom: none;
+}
+
+.ai-discovery-page__item-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ai-discovery-page__item-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ai-discovery-page__item-name {
+  font-weight: 700;
+  color: #111827;
+}
+
+.ai-discovery-page__item-code {
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+.ai-discovery-page__item-type {
+  padding: 0.125rem 0.375rem;
+  background-color: #dcfce7;
+  color: #15803d;
+  font-size: 9px;
+  font-weight: 700;
+  border-radius: 9999px;
+}
+
+.ai-discovery-page__item-reason {
+  font-size: 11px;
+  color: #6b7280;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ai-discovery-page__item-aside {
+  text-align: right;
+}
+
+.ai-discovery-page__item-score {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.ai-discovery-page__item-score-label {
+  font-size: 9px;
+  color: #9ca3af;
+}

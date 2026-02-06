@@ -1,0 +1,395 @@
+/* Investment Info Page Styling */
+
+.investment-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.investment-page__header {
+  margin-bottom: 1.5rem;
+}
+
+.investment-page__title {
+  font-size: 1.875rem;
+  font-weight: 900;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.investment-page__subtitle {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* Category Tabs */
+.investment-page__tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.investment-page__tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: all 0.2s;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  color: #4b5563;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.investment-page__tab-btn:hover {
+  background-color: #f9fafb;
+}
+
+.investment-page__tab-btn--active {
+  background-color: #111827;
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+/* Product Cards Grid */
+.investment-page__product-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .investment-page__product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.investment-page__product-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.investment-page__product-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.investment-page__product-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #f9fafb;
+}
+
+.investment-page__header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.investment-page__product-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #111827;
+}
+
+.investment-page__product-desc {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+  line-height: 1.625;
+}
+
+.investment-page__header-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.investment-page__badge {
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.investment-page__badge--type {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.investment-page__badge--risk-high { background-color: #fee2e2; color: #b91c1c; }
+.investment-page__badge--risk-medium { background-color: #ffedd5; color: #c2410c; }
+.investment-page__badge--risk-low { background-color: #dcfce7; color: #15803d; }
+
+.investment-page__badge--rating-aaa { background-color: #dbeafe; color: #1d4ed8; }
+.investment-page__badge--rating-aa { background-color: #dcfce7; color: #15803d; }
+.investment-page__badge--rating-a { background-color: #fef9c3; color: #a16207; }
+
+.investment-page__card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* AI Summary Box */
+.investment-page__ai-summary {
+  padding: 1rem;
+  background-image: linear-gradient(to bottom right, rgba(238, 242, 255, 0.5), rgba(250, 245, 255, 0.5));
+  border-radius: 1rem;
+  border: 1px solid rgba(224, 231, 255, 0.5);
+}
+
+.investment-page__ai-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.investment-page__ai-label {
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #4f46e5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.investment-page__ai-text {
+  font-size: 0.75rem;
+  color: #4b5563;
+  line-height: 1.625;
+  font-weight: 500;
+}
+
+/* Return Rate Display */
+.investment-page__return-box {
+  padding: 1.25rem;
+  border-radius: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.investment-page__return-box--plus { background-color: #fef2f2; }
+.investment-page__return-box--minus { background-color: #eff6ff; }
+
+.investment-page__return-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 700;
+}
+
+.investment-page__return-value {
+  font-size: 1.875rem;
+  font-weight: 900;
+}
+
+.investment-page__return-value--plus { color: #dc2626; }
+.investment-page__return-value--minus { color: #2563eb; }
+
+/* Product Details Table */
+.investment-page__details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.investment-page__details-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+}
+
+.investment-page__details-label {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.investment-page__details-value {
+  color: #111827;
+  font-weight: 700;
+}
+
+.investment-page__btn-detail {
+  width: 100%;
+  padding: 0.875rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 900;
+  color: #374151;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 0.5rem;
+}
+
+.investment-page__btn-detail:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+}
+
+/* YouTube Section */
+.investment-page__youtube-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #f3f4f6;
+  margin-bottom: 2rem;
+}
+
+.investment-page__youtube-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.investment-page__youtube-icon {
+  width: 2rem;
+  height: 2rem;
+  color: #dc2626;
+}
+
+.investment-page__youtube-all-btn {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #6b7280;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.investment-page__youtube-all-btn:hover {
+  color: #111827;
+}
+
+.investment-page__youtube-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .investment-page__youtube-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .investment-page__youtube-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.investment-page__video-card {
+  background-color: #ffffff;
+  border: 1px solid #f3f4f6;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.investment-page__video-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.investment-page__video-thumb-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.investment-page__video-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.investment-page__video-card:hover .investment-page__video-thumb {
+  transform: scale(1.1);
+}
+
+.investment-page__video-duration {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.investment-page__play-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.investment-page__video-card:hover .investment-page__play-overlay {
+  opacity: 1;
+}
+
+.investment-page__video-info {
+  padding: 1.25rem;
+}
+
+.investment-page__video-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #111827;
+  line-clamp: 2;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.2s;
+}
+
+.investment-page__video-card:hover .investment-page__video-title {
+  color: #2563eb;
+}
+
+.investment-page__video-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #9ca3af;
+}
