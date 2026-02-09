@@ -2,7 +2,10 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
   router: {
-    base: "/FAPRO_nuxt/"
+    // [GitHub Pages Deployment]
+    // If your repository name is different, change this value.
+    // Example: If your repo is 'my-project', set base to '/my-project/'
+    base: "/fapro-nuxt/"
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
