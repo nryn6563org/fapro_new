@@ -1,5 +1,5 @@
 .c-quant-stocks {
-    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-full;
+    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-[600px];
 }
 
 .c-quant-stocks__header {
@@ -31,7 +31,7 @@
 }
 
 .c-quant-stocks__body {
-    @apply p-4 flex-1;
+    @apply p-[0_16px_16px] flex-1 h-[492px];
 }
 
 .c-strategy-tabs {
@@ -69,14 +69,42 @@
 .c-performance-value--up { @apply text-red-500; }
 .c-performance-value--down { @apply text-blue-500; }
 
+.c-quant-stocks__list-header {
+    @apply flex items-center justify-between mt-6 mb-3;
+}
+
+.c-quant-stocks__list-title {
+    @apply text-sm font-bold text-indigo-600;
+}
+
+.c-quant-stocks__period-select {
+    @apply flex items-center gap-1 text-xs font-bold text-indigo-500 border border-indigo-100 rounded-lg px-2 py-1 bg-indigo-50 hover:bg-indigo-100 transition-colors;
+}
+
+.c-quant-stocks__list {
+    @apply flex-1 space-y-2 overflow-y-auto pr-1;
+}
+
+.c-stock-item {
+    @apply flex items-center p-3 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100/50 dark:border-blue-900/20 hover:bg-blue-100/50 transition-colors;
+}
+
+.c-stock-item__rank {
+    @apply w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold mr-3 shadow-md shadow-blue-500/20;
+}
+
+.c-stock-item__name {
+    @apply flex-1 text-sm font-bold text-gray-800 dark:text-gray-200;
+}
+
+.c-stock-item__return {
+    @apply text-sm font-black text-red-500;
+}
+
 .c-quant-stocks__footer {
-    @apply p-3 px-4 text-center border-t border-gray-50 dark:border-gray-800 flex items-center justify-between;
+    @apply p-3 pt-0 text-center border-t border-gray-50 dark:border-gray-800 mt-auto;
 }
 
-.c-quant-stocks__footer-label {
-    @apply text-[10px] text-gray-500 dark:text-gray-400 font-black;
-}
-
-.c-quant-stocks__select {
-    @apply text-[10px] bg-transparent border-none outline-none text-gray-400 font-bold cursor-pointer;
+.c-quant-stocks__more-btn {
+    @apply text-[11px] text-gray-500 dark:text-gray-400 font-bold hover:underline;
 }

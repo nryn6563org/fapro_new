@@ -2,6 +2,9 @@
   <header class="c-header">
     <div class="c-header__inner">
       <div class="c-header__left">
+        <button class="c-header__toggle" @click="$emit('toggle')" aria-label="메뉴 토글">
+          <Menu :size="24" />
+        </button>
         <h1 class="c-header__logo">FA Pro</h1>
       </div>
       
@@ -18,30 +21,7 @@
           </div>
         </div>
         
-        <!-- AI Report Alert Banner -->
-        <transition name="t-fade-up" mode="out-in">
-          <div v-if="isVisible && currentReport" :key="currentReport.id" class="c-header__ai-banner">
-            <nuxt-link to="/stock/reports" class="c-header__ai-link">
-              <div class="c-header__ai-content">
-                <div class="c-header__ai-main">
-                  <Sparkles class="c-header__ai-sparkle" :size="18" />
-                  <div class="c-header__ai-text-group">
-                    <FileText class="c-header__ai-doc-icon" :size="16" />
-                    <span class="c-header__ai-stock">{{ currentReport.stock }}</span>
-                    <span class="c-header__ai-type">{{ currentReport.type }} 생성</span>
-                  </div>
-                </div>
-                
-                <div class="c-header__ai-meta">
-                  <span class="c-header__ai-time">{{ currentReport.time }}</span>
-                  <TrendingUp class="c-header__ai-trend" :size="16" />
-                </div>
-              </div>
-              <!-- Shimmer effect overlay in CSS -->
-              <div class="c-header__ai-shimmer"></div>
-            </nuxt-link>
-          </div>
-        </transition>
+    <!-- AI Report Alert Banner Removed -->
       </div>
 
       <div class="c-header__right">
@@ -65,49 +45,16 @@
 </template>
 
 <script>
-import { Search, Sparkles, FileText, TrendingUp, Sun, Moon, Settings } from 'lucide-vue'
+import { Search, Sun, Moon, Settings, Menu } from 'lucide-vue'
 
 export default {
   name: 'HeaderComponent',
   components: {
     Search,
-    Sparkles,
-    FileText,
-    TrendingUp,
+    Menu,
     Sun,
     Moon,
     Settings
-  },
-  data() {
-    return {
-      currentReportIndex: 0,
-      isVisible: true,
-      mockReports: [
-        { id: 1, stock: "삼성전자", type: "AI 리포트", time: "1분 전" },
-        { id: 2, stock: "SK하이닉스", type: "AI 분석", time: "3분 전" },
-        { id: 3, stock: "NAVER", type: "AI 리포트", time: "5분 전" },
-        { id: 4, stock: "카카오", type: "AI 시그널", time: "7분 전" },
-        { id: 5, stock: "LG에너지솔루션", type: "AI 리포트", time: "10분 전" },
-      ],
-      interval: null
-    }
-  },
-  computed: {
-    currentReport() {
-      return this.mockReports[this.currentReportIndex]
-    }
-  },
-  mounted() {
-    this.interval = setInterval(() => {
-      this.isVisible = false
-      setTimeout(() => {
-        this.currentReportIndex = (this.currentReportIndex + 1) % this.mockReports.length
-        this.isVisible = true
-      }, 300)
-    }, 4000)
-  },
-  beforeDestroy() {
-    if (this.interval) clearInterval(this.interval)
   },
   methods: {
     toggleTheme() {

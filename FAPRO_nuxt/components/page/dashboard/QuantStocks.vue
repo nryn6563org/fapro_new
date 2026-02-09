@@ -46,25 +46,40 @@
           </p>
         </div>
       </div>
+
+      <!-- List Header -->
+      <div class="c-quant-stocks__list-header">
+        <span class="c-quant-stocks__list-title">수익률 TOP 5</span>
+        <button class="c-quant-stocks__period-select">
+          <span>1개월</span>
+          <ChevronDown :size="12" />
+        </button>
+      </div>
+
+      <!-- Stock List -->
+      <div class="c-quant-stocks__list">
+        <div v-for="stock in topStocks" :key="stock.id" class="c-stock-item">
+          <div class="c-stock-item__rank">{{ stock.rank }}</div>
+          <span class="c-stock-item__name">{{ stock.name }}</span>
+          <span class="c-stock-item__return">+{{ stock.return }}%</span>
+        </div>
+      </div>
     </div>
     
     <div class="c-quant-stocks__footer">
-      <span class="c-quant-stocks__footer-label">수익률 TOP 5</span>
-      <select class="c-quant-stocks__select">
-        <option>1개월</option>
-        <option>3개월</option>
-        <option>총수익률</option>
-      </select>
+      <button class="c-quant-stocks__more-btn">
+        더보기
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-import { BarChart3, RefreshCw } from 'lucide-vue'
+import { BarChart3, RefreshCw, ChevronDown } from 'lucide-vue'
 
 export default {
   name: 'DashboardQuantStocks',
-  components: { BarChart3, RefreshCw },
+  components: { BarChart3, RefreshCw, ChevronDown },
   data() {
     return {
       activeTab: 'talos',
@@ -77,7 +92,14 @@ export default {
         talos: { m1: 15.8, m3: 24.5, total: 52.8 },
         roland: { m1: 8.2, m3: 12.4, total: 31.5 },
         mistral: { m1: 4.5, m3: 7.9, total: 18.2 }
-      }
+      },
+      topStocks: [
+        { id: 1, rank: 1, name: "에코프로비엠", return: 28.5 },
+        { id: 2, rank: 2, name: "포스코퓨처엠", return: 24.3 },
+        { id: 3, rank: 3, name: "LG에너지솔루션", return: 18.7 },
+        { id: 4, rank: 4, name: "삼성SDI", return: 16.2 },
+        { id: 5, rank: 5, name: "SK이노베이션", return: 14.8 }
+      ]
     }
   },
   computed: {

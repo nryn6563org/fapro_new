@@ -26,7 +26,7 @@
         </div>
       </div>
 
-      <div class="c-discovery-list no-scrollbar">
+      <div class="c-discovery-list">
         <div v-for="stock in stocks" :key="stock.id" class="c-discovery-item">
           <div class="c-discovery-item__main">
             <div class="c-discovery-item__score-badge">

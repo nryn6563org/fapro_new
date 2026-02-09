@@ -14,18 +14,19 @@
     </div>
 
     <div class="c-customer-events__body">
-      <div class="c-event-list no-scrollbar">
+      <div class="c-event-list">
         <div 
           v-for="event in events" 
           :key="event.id"
           class="c-event-item"
+          :style="{ borderColor: event.bgColor }"
         >
           <div class="c-event-item__time">{{ event.time }}</div>
           <div class="c-event-item__customer">
             <span class="c-event-item__name">{{ event.customerName }}</span>
             <span class="c-event-item__label">고객</span>
           </div>
-          <div class="c-event-item__content" :style="{ backgroundColor: event.bgColor, borderColor: event.borderColor, border: '1px solid' }">
+          <div class="c-event-item__content" :style="{ backgroundColor: event.bgColor, borderColor: event.bgColor }">
             <p class="c-event-item__text" :style="{ color: event.color }">
               {{ event.eventText }}
             </p>

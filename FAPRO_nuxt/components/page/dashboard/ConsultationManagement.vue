@@ -24,7 +24,7 @@
         </button>
       </div>
 
-      <div class="c-consult-list no-scrollbar">
+      <div class="c-consult-list">
         <div 
           v-for="(item, index) in consultations" 
           :key="index"

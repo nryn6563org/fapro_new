@@ -1,5 +1,5 @@
 .c-customer-ranking {
-    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-full;
+    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-[600px];
 }
 
 .c-customer-ranking__header {
@@ -11,7 +11,7 @@
 }
 
 .c-customer-ranking__icon {
-    @apply text-blue-500;
+    @apply text-yellow-500;
 }
 
 .c-customer-ranking__title {
@@ -31,48 +31,49 @@
 }
 
 .c-customer-ranking__body {
-    @apply p-4 flex-1;
+    @apply p-4 flex-1 flex flex-col h-[498px] overflow-y-auto;
 }
 
-.c-ranking-rows {
-    @apply space-y-1 h-[280px] overflow-y-auto;
+.c-ranking-tabs {
+    @apply flex items-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 mb-4;
 }
 
-.c-ranking-row {
-    @apply py-3 flex items-center justify-between border-b border-gray-50 dark:border-gray-800 last:border-0 hover:bg-gray-50/50 dark:hover:bg-gray-800/30 transition-colors;
+.c-ranking-tab {
+    @apply flex-1 py-1.5 text-[11px] text-gray-400 font-medium rounded-md transition-all;
 }
 
-.c-ranking-row__main {
-    @apply flex items-center gap-3 flex-1;
+.c-ranking-tab--active {
+    @apply bg-yellow-500 text-white font-bold shadow-sm;
 }
 
-.c-ranking-row__indicator {
-    @apply w-2 h-2 rounded-full;
+.c-person-ranking-list {
+    @apply flex-1 space-y-1 min-h-0;
 }
 
-.c-ranking-row__name {
-    @apply text-[11px] font-bold text-gray-800 dark:text-gray-100 truncate w-20;
+.c-person-ranking-item {
+    @apply flex items-center py-2 px-3 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-colors;
 }
 
-.c-ranking-row__bar-container {
-    @apply flex-1 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden mx-2;
+.c-person-ranking-item__rank {
+    @apply text-[12px] font-black w-8 text-gray-400;
 }
 
-.c-ranking-row__bar {
-    @apply h-full rounded-full transition-all duration-500;
+.c-person-ranking-item__rank--1 { @apply text-yellow-500 text-[14px]; }
+.c-person-ranking-item__rank--2 { @apply text-yellow-600/80; }
+.c-person-ranking-item__rank--3 { @apply text-yellow-600/60; }
+
+.c-person-ranking-item__name {
+    @apply flex-1 text-[12px] font-bold text-gray-700 dark:text-gray-300;
 }
 
-.c-ranking-row__stats {
-    @apply flex items-center gap-4 text-right;
+.c-person-ranking-item__value {
+    @apply text-[12px] font-black text-red-500;
 }
 
-.c-ranking-row__change {
-    @apply text-[10px] font-black w-10;
+.c-customer-ranking__footer {
+    @apply p-3 border-t border-gray-50 dark:border-gray-800 text-center;
 }
 
-.c-ranking-row__change--up { @apply text-red-500; }
-.c-ranking-row__change--down { @apply text-blue-500; }
-
-.c-ranking-row__holders {
-    @apply text-[9px] text-gray-400 dark:text-gray-500 w-16 font-medium;
+.c-customer-ranking__more-btn {
+    @apply text-[11px] text-yellow-600 dark:text-yellow-400 font-black hover:underline;
 }

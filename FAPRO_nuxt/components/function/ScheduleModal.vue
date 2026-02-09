@@ -1,0 +1,126 @@
+<template>
+  <transition name="zoom">
+    <div v-if="isOpen" class="c-modal-overlay" @click.self="$emit('close')">
+      <div class="c-schedule-modal">
+        <header class="c-schedule-modal__header">
+          <h3 class="c-schedule-modal__title">{{ date }} 일정</h3>
+          <button class="c-schedule-modal__close" @click="$emit('close')">
+            <X :size="20" />
+          </button>
+        </header>
+        
+        <div class="c-schedule-modal__content">
+          <div v-if="schedules.length === 0" class="c-schedule-modal__empty">
+            일정이 없습니다.
+          </div>
+          <div v-else class="c-schedule-list">
+            <div v-for="(item, index) in schedules" :key="index" class="c-schedule-item">
+              <h4 class="c-schedule-item__title">{{ item.title }}</h4>
+              <p class="c-schedule-item__desc">{{ item.description }}</p>
+              <div class="c-schedule-item__meta">
+                <span class="c-schedule-item__target">Target: {{ item.target }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <footer class="c-schedule-modal__footer">
+          <button class="c-schedule-modal__btn" @click="$emit('close')">일정 관리로 이동</button>
+        </footer>
+      </div>
+    </div>
+  </transition>
+</template>
+
+<script>
+import { X } from 'lucide-vue'
+
+export default {
+  name: 'ScheduleModal',
+  components: { X },
+  props: {
+    isOpen: Boolean,
+    date: String,
+    schedules: {
+      type: Array,
+      default: () => []
+    }
+  }
+}
+</script>
+
+<style scoped>
+.c-modal-overlay {
+  @apply fixed inset-0 z-[1000] flex items-center justify-center bg-black/50 backdrop-blur-sm;
+}
+
+.c-schedule-modal {
+  @apply bg-white dark:bg-gray-900 w-full max-w-sm rounded-2xl shadow-2xl overflow-hidden;
+}
+
+.c-schedule-modal__header {
+  @apply flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-800;
+}
+
+.c-schedule-modal__title {
+  @apply text-lg font-bold text-gray-900 dark:text-gray-100;
+}
+
+.c-schedule-modal__close {
+  @apply text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors;
+}
+
+.c-schedule-modal__content {
+  @apply p-5 max-h-[400px] overflow-y-auto;
+}
+
+.c-schedule-list {
+  @apply space-y-4;
+}
+
+.c-schedule-item {
+  @apply bg-gray-50 dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700;
+}
+
+.c-schedule-item__title {
+  @apply text-sm font-bold text-gray-900 dark:text-gray-100 mb-1;
+}
+
+.c-schedule-item__desc {
+  @apply text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-2;
+}
+
+.c-schedule-item__target {
+  @apply text-[10px] font-medium text-blue-500 bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded-full;
+}
+
+.c-schedule-modal__empty {
+  @apply text-center py-10 text-gray-400 text-sm;
+}
+
+.c-schedule-modal__footer {
+  @apply p-5 bg-gray-50 dark:bg-gray-800/50 flex justify-center;
+}
+
+.c-schedule-modal__btn {
+  @apply w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-blue-500/20 active:scale-95 text-sm;
+}
+
+/* Zoom Transition */
+.zoom-enter-active, .zoom-leave-active {
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.zoom-enter-active .c-modal-overlay, .zoom-leave-active .c-modal-overlay {
+  transition: opacity 0.25s ease;
+}
+
+.zoom-enter, .zoom-leave-to {
+  opacity: 0;
+}
+
+.zoom-enter .c-schedule-modal, .zoom-leave-to .c-schedule-modal {
+  transform: scale(0.9) translateY(10px);
+  opacity: 0;
+}
+</style>

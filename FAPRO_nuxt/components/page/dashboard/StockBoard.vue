@@ -2,7 +2,6 @@
   <div class="c-stock-board">
     <div class="c-stock-board__header">
       <div class="c-stock-board__title-group">
-        <h2 class="c-stock-board__main-title">종목 보드 :: 시총 101위 이하의 중소형주 대상</h2>
         <div class="c-stock-board__sub-title-group">
           <div class="c-stock-board__sub-title-dot"></div>
           <h3 class="c-stock-board__sub-title">AI 이슈포착</h3>
@@ -28,14 +27,19 @@
     </div>
     
     <div class="c-stock-board__body">
-      <client-only>
-        <VChart 
-          class="c-stock-board__chart" 
-          :option="chartOption" 
-          autoresize 
-          @click="handleChartClick"
-        />
-      </client-only>
+      <div class="c-stock-board__left-panel">
+        <client-only>
+          <VChart 
+            class="c-stock-board__chart" 
+            :option="chartOption" 
+            autoresize 
+            @click="handleChartClick"
+          />
+        </client-only>
+        <div class="c-stock-board__left-footer">
+          <button class="c-stock-board__more-btn">더보기</button>
+        </div>
+      </div>
       
       <div class="c-stock-board__detail-panel">
         <div v-if="!selectedIssue" class="c-stock-board__empty-detail">
@@ -44,15 +48,16 @@
         </div>
         
         <div v-else class="c-issue-detail">
-          <div class="c-issue-detail__header">
-            <span class="c-issue-detail__badge" :style="{ backgroundColor: selectedIssue.color }">ISSUE</span>
-            <h4 class="c-issue-detail__title">{{ selectedIssue.name.replace('\n', ' ') }}</h4>
-          </div>
-          
-          <div class="c-issue-detail__content">
+          <div class="c-issue-detail__content p-dashboard__custom-scrollbar">
             <div class="c-issue-detail__chart-section">
-              <h5 class="c-issue-detail__section-title">{{ selectedIssue.name.replace('\n', ' ') }} 검색빈도 및 종목 누적 등락률</h5>
               <div class="c-issue-detail__chart-container">
+                <div class="c-issue-detail__header-row">
+                  <h4 class="c-issue-detail__title" :style="{ color: selectedIssue.color }">
+                    {{ selectedIssue.name.replace('\n', ' ') }}
+                  </h4>
+                  <span class="c-issue-detail__divider">|</span>
+                  <h5 class="c-issue-detail__chart-title">검색빈도 및 종목 누적 등락률</h5>
+                </div>
                 <client-only>
                   <VChart :option="detailChartOption" autoresize />
                 </client-only>
@@ -85,15 +90,8 @@
             </div>
           </div>
           
-          <button class="c-issue-detail__more" @click="selectedIssue = null">
-            닫기
-          </button>
         </div>
       </div>
-    </div>
-
-    <div class="c-stock-board__footer">
-      <button class="c-stock-board__more-btn">더보기</button>
     </div>
   </div>
 </template>
@@ -200,6 +198,11 @@ export default {
     }
   },
   computed: {
+    /**
+     * 메인 버블 차트 옵션 생성 (ECharts)
+     * - 국내/미국 탭에 따라 데이터가 변경됨
+     * - 각 버블은 이슈를 나타내며 크기는 중요도를 의미함
+     */
     chartOption() {
       return {
         tooltip: { trigger: 'item', formatter: '{b}' },
@@ -208,26 +211,32 @@ export default {
           type: 'graph',
           layout: 'force',
           data: this.chartData[this.activeTab],
-          draggable: true,
+          draggable: true, // 드래그 가능 여부
           label: { show: true, position: 'inside', formatter: '{b}', fontSize: 11, fontWeight: 'bold', color: '#fff' },
-          force: { repulsion: 120, edgeLength: 10 },
+          force: { repulsion: 120, edgeLength: 10 }, // 버블 간 인력 및 거리 설정
           itemStyle: { shadowBlur: 10, shadowColor: 'rgba(0,0,0,0.1)' }
         }]
       }
     },
+    /**
+     * 상세 보기 패널의 차트 옵션 생성 (Dual Axis Chart)
+     * - 좌측 Y축: 누적 등락률 (영역 차트)
+     * - 우측 Y축: 검색 빈도 (라인 차트)
+     */
     detailChartOption() {
       if (!this.selectedIssue) return {}
       
       const { dates, searchVolume, returns } = this.selectedIssue.history
       
       return {
-        grid: { top: 30, right: 40, bottom: 20, left: 40, containLabel: true },
+        grid: { top: 30, right: 20, bottom: 20, left: 20, containLabel: true },
         tooltip: { trigger: 'axis' },
         xAxis: {
           type: 'category',
           data: dates,
           axisLine: { lineStyle: { color: '#E5E7EB' } },
-          axisLabel: { color: '#9CA3AF', fontSize: 10 }
+          axisLabel: { color: '#9CA3AF', fontSize: 10 },
+          boundaryGap: false // 차트 좌우 여백 제거
         },
         yAxis: [
           {
@@ -278,6 +287,11 @@ export default {
     }
   },
   methods: {
+    /**
+     * 차트 버블 클릭 핸들러
+     * @param {Object} params - ECharts 이벤트 파라미터
+     * 선택된 이슈 데이터를 업데이트하고 상세 정보를 표시함
+     */
     handleChartClick(params) {
       if (params.data) {
         this.selectedIssue = params.data
@@ -285,6 +299,7 @@ export default {
     }
   },
   watch: {
+    // 탭 변경 시 상세 보기 초기화
     activeTab() {
       this.selectedIssue = null
     }

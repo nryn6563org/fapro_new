@@ -32,7 +32,7 @@
         </div>
       </div>
 
-      <div class="c-signal-rows no-scrollbar">
+      <div class="c-signal-rows">
         <div v-for="signal in signals" :key="signal.id" class="c-signal-row">
           <div class="c-signal-row__info">
             <div class="c-signal-row__time">{{ signal.time }}</div>

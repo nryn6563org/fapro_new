@@ -2,11 +2,11 @@
   <div class="c-customer-ranking">
     <div class="c-customer-ranking__header">
       <div class="c-customer-ranking__title-group">
-        <TrendingUp class="c-customer-ranking__icon" :size="18" />
-        <h3 class="c-customer-ranking__title">고객 보유종목 랭킹</h3>
+        <Trophy class="c-customer-ranking__icon" :size="18" />
+        <h3 class="c-customer-ranking__title">고객랭킹</h3>
       </div>
       <div class="c-customer-ranking__info">
-        <span class="c-customer-ranking__time">08:45</span>
+        <span class="c-customer-ranking__time">10:48</span>
         <button class="c-customer-ranking__refresh">
           <RefreshCw :size="14" />
         </button>
@@ -14,44 +14,72 @@
     </div>
 
     <div class="c-customer-ranking__body">
-      <div class="c-ranking-rows no-scrollbar">
-        <div v-for="(item, index) in ranking" :key="item.name" class="c-ranking-row">
-          <div class="c-ranking-row__main">
-            <div class="c-ranking-row__indicator" :style="{ backgroundColor: item.indicatorColor }"></div>
-            <span class="c-ranking-row__name">{{ item.name }}</span>
-            <div class="c-ranking-row__bar-container">
-              <div class="c-ranking-row__bar" :style="{ width: item.percent + '%', backgroundColor: item.barColor }"></div>
-            </div>
-          </div>
-          <div class="c-ranking-row__stats">
-            <span class="c-ranking-row__change" :class="item.change >= 0 ? 'c-ranking-row__change--up' : 'c-ranking-row__change--down'">
-              {{ item.change >= 0 ? '+' : '' }}{{ item.change }}%
-            </span>
-            <span class="c-ranking-row__holders">고객 {{ item.holders }}명 보유</span>
-          </div>
+      <div class="c-ranking-tabs">
+        <button 
+          v-for="tab in tabs" 
+          :key="tab.id"
+          @click="activeTab = tab.id"
+          class="c-ranking-tab"
+          :class="{ 'c-ranking-tab--active': activeTab === tab.id }"
+        >
+          {{ tab.label }}
+        </button>
+      </div>
+
+      <div class="c-person-ranking-list">
+        <div v-for="(item, index) in rankings[activeTab]" :key="index" class="c-person-ranking-item">
+          <span class="c-person-ranking-item__rank" :class="`c-person-ranking-item__rank--${index+1}`">{{ index + 1 }}</span>
+          <span class="c-person-ranking-item__name">{{ item.name }}</span>
+          <span class="c-person-ranking-item__value">{{ item.value }}</span>
         </div>
       </div>
+    </div>
+
+    <div class="c-customer-ranking__footer">
+      <button class="c-customer-ranking__more-btn">더보기</button>
     </div>
   </div>
 </template>
 
 <script>
-import { TrendingUp, RefreshCw } from 'lucide-vue'
+import { Trophy, RefreshCw } from 'lucide-vue'
 
 export default {
   name: 'DashboardCustomerRanking',
-  components: { TrendingUp, RefreshCw },
+  components: { Trophy, RefreshCw },
   data() {
     return {
-      ranking: [
-        { name: '삼성전자', change: 2.3, holders: 23, indicatorColor: '#2563EB', barColor: '#EF4444', percent: 80 },
-        { name: 'SK하이닉스', change: 1.8, holders: 18, indicatorColor: '#9333EA', barColor: '#EF4444', percent: 70 },
-        { name: 'NAVER', change: -0.5, holders: 15, indicatorColor: '#16A34A', barColor: '#3B82F6', percent: 60 },
-        { name: '카카오', change: 3.1, holders: 12, indicatorColor: '#CA8A04', barColor: '#EF4444', percent: 50 },
-        { name: '기아', change: -1.2, holders: 10, indicatorColor: '#EA580C', barColor: '#3B82F6', percent: 45 },
-        { name: '현대차', change: 0.8, holders: 8, indicatorColor: '#DC2626', barColor: '#EF4444', percent: 40 },
-        { name: 'LG엔솔', change: 2.5, holders: 6, indicatorColor: '#0891B2', barColor: '#EF4444', percent: 35 }
-      ]
+      activeTab: 'return',
+      tabs: [
+        { id: 'return', label: '수익률TOP' },
+        { id: 'amount', label: '투자금액TOP' },
+        { id: 'count', label: '상담횟수TOP' }
+      ],
+      rankings: {
+        return: [
+          { name: '김철수', value: '+18.5%' },
+          { name: '이영희', value: '+15.2%' },
+          { name: '박민수', value: '+14.8%' },
+          { name: '정수진', value: '+13.2%' },
+          { name: '최현우', value: '+12.7%' },
+          { name: '강민지', value: '+11.9%' },
+          { name: '윤서연', value: '+11.3%' }
+        ],
+        amount: [
+           { name: '이민호', value: '12.5억' },
+           { name: '박서준', value: '8.2억' },
+           { name: '송혜교', value: '7.5억' },
+           { name: '현빈', value: '6.8억' },
+           { name: '손예진', value: '5.4억' }
+        ],
+        count: [
+           { name: '유재석', value: '15회' },
+           { name: '강호동', value: '12회' },
+           { name: '신동엽', value: '10회' },
+           { name: '이경규', value: '8회' },
+           { name: '박명수', value: '7회' }
+        ]
+      }
     }
   }
 }

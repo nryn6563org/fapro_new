@@ -6,25 +6,7 @@
     @apply w-16;
 }
 
-.c-sidebar__header {
-    @apply flex items-center justify-between h-16 px-6 border-b border-[#1F2937];
-}
-
-.c-sidebar--minimized .c-sidebar__header {
-    @apply px-0 justify-center;
-}
-
-.c-sidebar__logo-wrapper {
-    @apply flex items-center;
-}
-
-.c-sidebar__logo {
-    @apply text-xl font-bold text-white;
-}
-
-.c-sidebar__toggle {
-    @apply text-gray-400 hover:text-white transition-colors flex items-center justify-center p-1 rounded-md hover:bg-[#1F2937];
-}
+/* Sidebar Header Removed */
 
 .c-sidebar__nav {
     @apply flex-1 px-4 py-4 space-y-2 overflow-y-auto;
@@ -99,7 +81,7 @@
 }
 
 .c-sidebar__label {
-    @apply text-sm font-medium;
+    @apply text-sm font-medium whitespace-nowrap;
 }
 
 .c-sidebar__footer {
@@ -120,4 +102,17 @@
 
 .c-sidebar__logout-label {
     @apply ml-3;
+}
+
+.c-sidebar--minimized .c-sidebar__label,
+.c-sidebar--minimized .c-sidebar__logout-label {
+    @apply hidden;
+}
+
+.c-sidebar--minimized .c-sidebar__submenu {
+    @apply ml-0 border-none space-y-1;
+}
+
+.c-sidebar--minimized .c-sidebar__subitem {
+    @apply justify-center px-2;
 }

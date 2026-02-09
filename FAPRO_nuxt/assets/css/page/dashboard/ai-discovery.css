@@ -1,5 +1,5 @@
 .c-ai-discovery {
-    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-full;
+    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-[600px];
 }
 
 .c-ai-discovery__header {
@@ -31,11 +31,11 @@
 }
 
 .c-ai-discovery__body {
-    @apply p-4 flex-1;
+    @apply p-4 pr-2 flex-1 flex flex-col min-h-0;
 }
 
 .c-discovery-summary {
-    @apply bg-blue-50/30 dark:bg-blue-900/5 border border-blue-100/50 dark:border-blue-900/20 rounded-2xl p-4 mb-4 text-center;
+    @apply bg-blue-50/30 dark:bg-blue-900/5 border border-blue-100/50 dark:border-blue-900/20 rounded-2xl p-4 mb-4 text-center w-[calc(100%-8px)];
 }
 
 .c-discovery-summary__label {
@@ -71,7 +71,7 @@
 }
 
 .c-discovery-list {
-    @apply space-y-2 h-[180px] overflow-y-auto;
+    @apply space-y-2 flex-1 overflow-y-auto min-h-0 pr-2;
 }
 
 .c-discovery-item {

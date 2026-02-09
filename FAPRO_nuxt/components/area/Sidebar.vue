@@ -1,25 +1,17 @@
 <template>
   <aside class="c-sidebar" :class="{'c-sidebar--minimized': isMinimized}">
-    <div class="c-sidebar__header">
-      <div v-if="!isMinimized" class="c-sidebar__logo-wrapper">
-        <span class="c-sidebar__logo">FA Pro</span>
-      </div>
-      <button class="c-sidebar__toggle" @click="$emit('toggle')" aria-label="메뉴 토글">
-        <ChevronRight v-if="isMinimized" :size="20" />
-        <ChevronLeft v-else :size="20" />
-      </button>
-    </div>
+    <!-- 상단 헤더 영역 (제거됨) -->
 
     <nav class="c-sidebar__nav">
-      <!-- Dashboard Section -->
+      <!-- 대시보드 섹션 -->
       <div class="c-sidebar__section">
         <nuxt-link to="/" class="c-sidebar__item" exact-active-class="c-sidebar__item--active">
           <LayoutDashboard class="c-sidebar__icon" :size="20" />
-          <span v-if="!isMinimized" class="c-sidebar__label">대시보드</span>
+          <span class="c-sidebar__label">대시보드</span>
         </nuxt-link>
       </div>
 
-      <!-- Stock Management -->
+      <!-- 종목 관리 섹션 -->
       <div class="c-sidebar__section">
         <button 
           v-if="!isMinimized"
@@ -36,11 +28,8 @@
             :size="16" 
           />
         </button>
-        <div v-else class="c-sidebar__item">
-          <TrendingUp class="c-sidebar__icon" :size="20" />
-        </div>
 
-        <div v-if="!isMinimized && openSections.includes('stock')" class="c-sidebar__submenu">
+        <div v-if="isMinimized || openSections.includes('stock')" class="c-sidebar__submenu">
           <nuxt-link to="/stock/ranking" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
             <Crown class="c-sidebar__icon" :size="16" />
             <span class="c-sidebar__label">고객 보유 종목 랭킹</span>
@@ -68,7 +57,7 @@
         </div>
       </div>
 
-      <!-- Customer Management -->
+      <!-- 고객 관리 섹션 -->
       <div class="c-sidebar__section">
         <button 
           v-if="!isMinimized"
@@ -85,11 +74,8 @@
             :size="16" 
           />
         </button>
-        <div v-else class="c-sidebar__item">
-          <Users class="c-sidebar__icon" :size="20" />
-        </div>
 
-        <div v-if="!isMinimized && openSections.includes('customer')" class="c-sidebar__submenu">
+        <div v-if="isMinimized || openSections.includes('customer')" class="c-sidebar__submenu">
           <nuxt-link to="/customer/statistics" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
             <PieChart class="c-sidebar__icon" :size="16" />
             <span class="c-sidebar__label">고객 통계</span>
@@ -105,7 +91,7 @@
         </div>
       </div>
 
-      <!-- MY -->
+      <!-- MY(마이페이지) 섹션 -->
       <div class="c-sidebar__section">
         <button 
           v-if="!isMinimized"
@@ -122,11 +108,8 @@
             :size="16" 
           />
         </button>
-        <div v-else class="c-sidebar__item">
-          <UserCircle class="c-sidebar__icon" :size="20" />
-        </div>
 
-        <div v-if="!isMinimized && openSections.includes('my')" class="c-sidebar__submenu">
+        <div v-if="isMinimized || openSections.includes('my')" class="c-sidebar__submenu">
           <nuxt-link to="/my/schedule" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
             <Calendar class="c-sidebar__icon" :size="16" />
             <span class="c-sidebar__label">일정관리</span>
@@ -222,10 +205,16 @@ export default {
   },
   data() {
     return {
+      // 열려있는 하위 메뉴 섹션 ID 목록
       openSections: ['stock', 'customer', 'my']
     }
   },
   methods: {
+    /**
+     * 사이드바 섹션(카테고리) 토글 함수
+     * @param {string} section - 토글할 섹션 ID ('stock', 'customer', 'my')
+     * 이미 열려있으면 닫고, 닫혀있으면 엽니다.
+     */
     toggleSection(section) {
       if (this.openSections.includes(section)) {
         this.openSections = this.openSections.filter(s => s !== section)

@@ -1,0 +1,75 @@
+/* Positioning Wrapper */
+.c-ai-banner-pos {
+    @apply fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50;
+    @apply min-w-[320px] max-w-[400px];
+}
+
+/* Animated Content */
+.c-ai-banner {
+    @apply bg-white dark:bg-gray-800 rounded-full shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden;
+    /* Ensure no transform here to avoid conflict with animate.css */
+}
+
+.c-ai-banner__link {
+    @apply block px-5 py-3 relative overflow-hidden;
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600;
+}
+
+.c-ai-banner__content {
+    @apply flex items-center justify-between relative z-10 text-white;
+}
+
+.c-ai-banner__main {
+    @apply flex items-center gap-3;
+}
+
+.c-ai-banner__sparkle {
+    @apply text-yellow-300 animate-pulse;
+}
+
+.c-ai-banner__text-group {
+    @apply flex items-center gap-2;
+}
+
+.c-ai-banner__doc-icon {
+    @apply opacity-90;
+}
+
+.c-ai-banner__stock {
+    @apply font-bold text-sm tracking-wide;
+}
+
+.c-ai-banner__type {
+    @apply text-blue-100 text-xs bg-blue-500/30 px-2 py-0.5 rounded-full;
+}
+
+.c-ai-banner__meta {
+    @apply flex items-center gap-2 ml-4;
+}
+
+.c-ai-banner__time {
+    @apply text-blue-100 text-xs;
+}
+
+.c-ai-banner__trend {
+    @apply text-yellow-300;
+}
+
+.c-ai-banner__shimmer {
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none;
+    animation: shimmer 3s infinite;
+    transform: skewX(-20deg);
+}
+
+.c-ai-banner__close {
+    @apply absolute top-1/2 -translate-y-1/2 right-2 p-1 text-white/50 hover:text-white transition-colors z-20 hidden;
+}
+
+.c-ai-banner:hover .c-ai-banner__close {
+    @apply block;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-150%) skewX(-20deg); }
+    100% { transform: translateX(150%) skewX(-20deg); }
+}

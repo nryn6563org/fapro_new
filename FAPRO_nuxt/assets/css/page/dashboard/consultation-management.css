@@ -1,5 +1,5 @@
 .c-consultation-management {
-    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-full;
+    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-[600px];
 }
 
 .c-consultation-management__header {
@@ -31,7 +31,7 @@
 }
 
 .c-consultation-management__body {
-    @apply p-4 flex-1;
+    @apply p-4 pr-2 flex-1 flex flex-col h-[498px];
 }
 
 .c-consult-calendar-nav {
@@ -47,7 +47,7 @@
 }
 
 .c-consult-list {
-    @apply space-y-3 h-[280px] overflow-y-auto pr-1;
+    @apply space-y-3 flex-1 overflow-y-auto pr-2 min-h-0;
 }
 
 .c-consult-item {

@@ -10,13 +10,13 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@/assets/css/main.css"],
+  // Global CSS: https://gonuxtjs.dev/config-css
+  css: ["@/assets/css/main.css", "@/assets/css/lib/animate.min.css"],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "@/plugins/echarts.js", mode: "client" }, { src: "@/plugins/swiper.js", mode: "client" }, { src: "@/plugins/lucide.js" }],
+  // Plugins to run before rendering page: https://gonuxtjs.dev/config-plugins
+  plugins: [{ src: "@/plugins/echarts.js", mode: "client" }, { src: "@/plugins/swiper.js", mode: "client" }, { src: "@/plugins/lucide.js" }, { src: "@/plugins/v-calendar.js", mode: "client" }],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
+  // Auto import components: https://gonuxtjs.dev/config-components
   components: [
     // Area: Layout regions (no prefix)
     { path: "~/components/area", prefix: "", pathPrefix: false },
@@ -27,7 +27,7 @@ export default {
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/composition-api/module", "@nuxtjs/color-mode"],
+  buildModules: ["@nuxtjs/composition-api/module", "@nuxtjs/color-mode", "@nuxtjs/tailwindcss"],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxtjs/axios"],
@@ -43,11 +43,12 @@ export default {
     babel: {
       plugins: ["@babel/plugin-proposal-optional-chaining", "@babel/plugin-proposal-nullish-coalescing-operator"]
     },
-    // Manual PostCSS 8 configuration for Tailwind 3 compatibility
     postcss: {
-      plugins: {
-        tailwindcss: {},
-        autoprefixer: {}
+      postcssOptions: {
+        plugins: {
+          tailwindcss: {},
+          autoprefixer: {}
+        }
       }
     }
   }

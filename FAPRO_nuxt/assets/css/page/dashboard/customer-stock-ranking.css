@@ -1,0 +1,90 @@
+.c-customer-stock-ranking {
+    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-[600px];
+}
+
+.c-customer-stock-ranking__header {
+    @apply p-4 border-b border-gray-50 dark:border-gray-800 flex items-center justify-between;
+}
+
+.c-customer-stock-ranking__title-group {
+    @apply flex items-center gap-2;
+}
+
+.c-customer-stock-ranking__icon {
+    @apply text-blue-500;
+}
+
+.c-customer-stock-ranking__title {
+    @apply text-sm font-bold text-gray-800 dark:text-gray-200;
+}
+
+.c-customer-stock-ranking__info {
+    @apply flex items-center gap-4;
+}
+
+.c-customer-stock-ranking__time {
+    @apply text-[10px] text-gray-400 font-medium;
+}
+
+.c-customer-stock-ranking__refresh {
+    @apply text-gray-300 hover:text-gray-500 transition-colors;
+}
+
+.c-customer-stock-ranking__body {
+    @apply p-4 pr-2 pt-0 w-full flex-1 flex flex-col min-h-0;
+}
+
+.c-ranking-rows {
+    @apply space-y-1 flex-1 min-h-0 overflow-y-auto pr-2;
+}
+
+.c-ranking-row {
+    @apply py-3 flex items-center justify-between border-b border-gray-50 dark:border-gray-800 last:border-0 hover:bg-gray-50/50 dark:hover:bg-gray-800/30 transition-colors;
+}
+
+.c-ranking-row__main {
+    @apply flex items-center gap-3 flex-1;
+}
+
+.c-ranking-row__rank {
+    @apply text-xs font-bold text-gray-400 w-4 text-center mr-1;
+}
+
+.c-ranking-row__indicator {
+    @apply w-2 h-2 rounded-full;
+}
+
+.c-ranking-row__name {
+    @apply text-[11px] font-bold text-gray-800 dark:text-gray-100 truncate w-20;
+}
+
+.c-ranking-row__bar-container {
+    @apply flex-1 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden mx-2;
+}
+
+.c-ranking-row__bar {
+    @apply h-full rounded-full transition-all duration-500;
+}
+
+.c-ranking-row__stats {
+    @apply flex items-center gap-4 text-right;
+}
+
+.c-ranking-row__change {
+    @apply text-[10px] font-black w-10;
+}
+
+.c-ranking-row__change--up { @apply text-red-500; }
+.c-ranking-row__change--down { @apply text-blue-500; }
+
+.c-ranking-row__holders {
+    @apply text-[9px] text-gray-400 dark:text-gray-500 w-16 font-medium;
+}
+
+.c-customer-stock-ranking__footer {
+    @apply p-3 pt-0 text-center border-t border-gray-50 dark:border-gray-800 mt-auto;
+}
+
+.c-customer-stock-ranking__more-btn {
+    @apply text-[11px] text-gray-500 dark:text-gray-400 font-bold hover:underline;
+}

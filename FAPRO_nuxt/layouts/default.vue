@@ -1,17 +1,19 @@
 <template>
   <div class="l-default" :class="{'l-default--minimized': isSidebarMinimized}">
-    <Sidebar 
-      class="l-default__sidebar" 
-      :is-minimized="isSidebarMinimized"
-      @toggle="isSidebarMinimized = !isSidebarMinimized"
-    />
-    <main class="l-default__main">
-      <Header class="l-default__header" />
-      <div class="l-default__inner">
-        <Nuxt class="l-default__content" />
-        <RightPanel class="l-default__right-panel" />
-      </div>
-    </main>
+    <Header @toggle="isSidebarMinimized = !isSidebarMinimized" />
+    <div class="l-default__body">
+      <Sidebar 
+        class="l-default__sidebar" 
+        :is-minimized="isSidebarMinimized"
+      />
+      <main class="l-default__main">
+        <div class="l-default__inner">
+          <Nuxt class="l-default__content" />
+          <RightPanel class="l-default__right-panel" />
+        </div>
+      </main>
+    </div>
+    <AIBanner />
   </div>
 </template>
 

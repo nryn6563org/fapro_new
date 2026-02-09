@@ -1,9 +1,9 @@
 .c-stock-board {
-    @apply bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-full;
+    @apply bg-white dark:bg-gray-900 rounded-3xl p-4 pr-2 shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-[500px];
 }
 
 .c-stock-board__header {
-    @apply flex items-center justify-between mb-6;
+    @apply flex items-center justify-between mb-6 pr-2;
 }
 
 .c-stock-board__main-title {
@@ -43,15 +43,23 @@
 }
 
 .c-stock-board__body {
-    @apply flex-1 flex min-h-[400px] border-t border-gray-50 dark:border-gray-800 mt-4 pt-4;
+    @apply flex-1 flex min-h-0 border-t border-gray-50 dark:border-gray-800 gap-4;
+}
+
+.c-stock-board__left-panel {
+    @apply flex-[1.5] flex flex-col bg-gray-50 dark:bg-gray-800/50 rounded-2xl overflow-hidden;
 }
 
 .c-stock-board__chart {
-    @apply flex-[1.5] h-full;
+    @apply flex-1 h-full w-full;
+}
+
+.c-stock-board__left-footer {
+    @apply p-2.5 text-center bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm;
 }
 
 .c-stock-board__detail-panel {
-    @apply flex-1 bg-gray-50/50 dark:bg-gray-800/30 rounded-2xl p-6 border border-gray-50 dark:border-gray-800/50 flex flex-col;
+    @apply flex-1 flex flex-col min-h-0 pl-2 pr-2;
 }
 
 .c-stock-board__empty-detail {
@@ -67,29 +75,19 @@
 }
 
 .c-issue-detail {
-    @apply flex-1 flex flex-col;
-}
-
-.c-issue-detail__header {
-    @apply flex items-center gap-3 mb-6;
+    @apply flex-1 flex flex-col min-h-0;
 }
 
 .c-issue-detail__badge {
-    @apply px-2 py-0.5 rounded text-[9px] font-black text-white;
+    @apply hidden;
 }
 
 .c-issue-detail__title {
-    @apply text-base font-black text-gray-900 dark:text-white tracking-tight;
+    @apply text-[11px] font-black uppercase tracking-widest;
 }
 
 .c-issue-detail__content {
     @apply flex-1 space-y-8 overflow-y-auto pr-2;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.c-issue-detail__content::-webkit-scrollbar {
-    display: none;
 }
 
 .c-issue-detail__chart-section {
@@ -97,7 +95,23 @@
 }
 
 .c-issue-detail__chart-container {
-    @apply w-full h-[180px] bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-2;
+    @apply w-full h-[200px] bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 flex flex-col overflow-hidden;
+}
+
+.c-issue-detail__header-row {
+    @apply flex items-center gap-2 mb-1 px-4 pt-4;
+}
+
+.c-issue-detail__title {
+    @apply text-[11px] font-black uppercase tracking-widest;
+}
+
+.c-issue-detail__divider {
+    @apply text-[10px] text-gray-300 dark:text-gray-600;
+}
+
+.c-issue-detail__chart-title {
+    @apply text-[11px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest;
 }
 
 .c-issue-detail__section-title {
@@ -156,13 +170,6 @@
     @apply text-[10px] text-gray-400 font-medium;
 }
 
-.c-issue-detail__more {
-    @apply mt-auto py-3 border border-gray-200 dark:border-gray-700 rounded-2xl text-[11px] font-black text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all;
-}
-
-.c-stock-board__footer {
-    @apply border-t border-gray-50 dark:border-gray-800 p-3 text-center;
-}
 
 .c-stock-board__more-btn {
     @apply text-[11px] text-green-600 dark:text-green-400 font-black hover:underline;

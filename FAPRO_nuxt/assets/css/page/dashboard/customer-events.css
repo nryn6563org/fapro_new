@@ -1,5 +1,5 @@
 .c-customer-events {
-    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-full;
+    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-[400px];
 }
 
 .c-customer-events__header {
@@ -31,11 +31,11 @@
 }
 
 .c-customer-events__body {
-    @apply p-4 flex-1 overflow-hidden;
+    @apply p-4 pr-2 flex-1 overflow-hidden flex flex-col;
 }
 
 .c-event-list {
-    @apply grid grid-cols-2 gap-3 h-[280px] overflow-y-auto pr-1;
+    @apply grid grid-cols-2 gap-3 flex-1 overflow-y-auto pr-2 min-h-0;
 }
 
 .c-event-item {
