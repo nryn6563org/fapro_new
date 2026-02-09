@@ -1,0 +1,75 @@
+.c-customer-events {
+    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-full;
+}
+
+.c-customer-events__header {
+    @apply p-4 border-b border-gray-50 dark:border-gray-800 flex items-center justify-between;
+}
+
+.c-customer-events__title-group {
+    @apply flex items-center gap-2;
+}
+
+.c-customer-events__icon {
+    @apply text-orange-500;
+}
+
+.c-customer-events__title {
+    @apply text-sm font-bold text-gray-800 dark:text-gray-200;
+}
+
+.c-customer-events__info {
+    @apply flex items-center gap-4;
+}
+
+.c-customer-events__time {
+    @apply text-[10px] text-gray-400 font-medium;
+}
+
+.c-customer-events__refresh {
+    @apply text-gray-300 hover:text-gray-500 transition-colors;
+}
+
+.c-customer-events__body {
+    @apply p-4 flex-1 overflow-hidden;
+}
+
+.c-event-list {
+    @apply grid grid-cols-2 gap-3 h-[280px] overflow-y-auto pr-1;
+}
+
+.c-event-item {
+    @apply p-3 bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50 rounded-2xl hover:shadow-md transition-all cursor-pointer;
+}
+
+.c-event-item__time {
+    @apply text-gray-400 text-[9px] mb-2;
+}
+
+.c-event-item__customer {
+    @apply flex items-center gap-1.5 mb-2;
+}
+
+.c-event-item__name {
+    @apply text-xs font-bold text-gray-900 dark:text-gray-100;
+}
+
+.c-event-item__label {
+    @apply text-[9px] text-gray-400 font-medium;
+}
+
+.c-event-item__content {
+    @apply border rounded-xl px-2.5 py-2;
+}
+
+.c-event-item__text {
+    @apply text-[10px] font-extrabold leading-tight;
+}
+
+.c-customer-events__footer {
+    @apply p-3 text-center border-t border-gray-50 dark:border-gray-800;
+}
+
+.c-customer-events__more-btn {
+    @apply text-xs text-green-600 dark:text-green-400 font-bold hover:underline;
+}

@@ -7,11 +7,15 @@
 }
 
 .c-sidebar__header {
-    @apply flex items-center h-16 px-6 border-b border-[#1F2937];
+    @apply flex items-center justify-between h-16 px-6 border-b border-[#1F2937];
 }
 
 .c-sidebar--minimized .c-sidebar__header {
     @apply px-0 justify-center;
+}
+
+.c-sidebar__logo-wrapper {
+    @apply flex items-center;
 }
 
 .c-sidebar__logo {
@@ -19,11 +23,11 @@
 }
 
 .c-sidebar__toggle {
-    @apply text-gray-400 hover:text-white transition-colors flex items-center justify-center w-full h-full;
+    @apply text-gray-400 hover:text-white transition-colors flex items-center justify-center p-1 rounded-md hover:bg-[#1F2937];
 }
 
 .c-sidebar__nav {
-    @apply flex-1 px-4 py-6 space-y-8 overflow-y-auto;
+    @apply flex-1 px-4 py-4 space-y-2 overflow-y-auto;
 }
 
 .c-sidebar--minimized .c-sidebar__nav {
@@ -34,12 +38,8 @@
     @apply space-y-1;
 }
 
-.c-sidebar__title {
-    @apply px-4 mb-2 text-[10px] font-semibold text-gray-500 uppercase tracking-wider;
-}
-
 .c-sidebar__item {
-    @apply flex items-center px-4 py-2.5 rounded-lg transition-all duration-200;
+    @apply flex items-center px-4 py-2.5 rounded-lg transition-all duration-200 cursor-pointer;
 }
 
 .c-sidebar--minimized .c-sidebar__item {
@@ -54,6 +54,34 @@
     @apply bg-primary text-white;
 }
 
+.c-sidebar__category-toggle {
+    @apply flex items-center justify-between w-full px-4 py-2.5 rounded-lg transition-all duration-200 text-left hover:bg-[#1F2937] hover:text-white;
+}
+
+.c-sidebar__category-title {
+    @apply flex items-center;
+}
+
+.c-sidebar__arrow {
+    @apply transition-transform duration-200 opacity-50;
+}
+
+.c-sidebar__arrow--open {
+    @apply rotate-90 opacity-100;
+}
+
+.c-sidebar__submenu {
+    @apply mt-1 ml-4 space-y-1 border-l border-[#1F2937];
+}
+
+.c-sidebar__subitem {
+    @apply flex items-center px-4 py-2 rounded-lg text-sm text-gray-500 transition-all duration-200 hover:bg-[#1F2937] hover:text-white;
+}
+
+.c-sidebar__subitem--active {
+    @apply text-white font-semibold;
+}
+
 .c-sidebar__icon {
     @apply flex-shrink-0 mr-3 opacity-70;
 }
@@ -63,7 +91,10 @@
 }
 
 .c-sidebar__item:hover .c-sidebar__icon,
-.c-sidebar__item--active .c-sidebar__icon {
+.c-sidebar__item--active .c-sidebar__icon,
+.c-sidebar__category-toggle:hover .c-sidebar__icon,
+.c-sidebar__subitem:hover .c-sidebar__icon,
+.c-sidebar__subitem--active .c-sidebar__icon {
     @apply opacity-100;
 }
 

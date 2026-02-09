@@ -1,9 +1,12 @@
 <template>
   <aside class="c-sidebar" :class="{'c-sidebar--minimized': isMinimized}">
     <div class="c-sidebar__header">
-      <button class="c-sidebar__toggle" @click="$emit('toggle')">
-        <LayoutDashboard v-if="isMinimized" :size="20" />
-        <span v-else class="c-sidebar__logo">FA Pro</span>
+      <div v-if="!isMinimized" class="c-sidebar__logo-wrapper">
+        <span class="c-sidebar__logo">FA Pro</span>
+      </div>
+      <button class="c-sidebar__toggle" @click="$emit('toggle')" aria-label="메뉴 토글">
+        <ChevronRight v-if="isMinimized" :size="20" />
+        <ChevronLeft v-else :size="20" />
       </button>
     </div>
 
@@ -18,30 +21,137 @@
 
       <!-- Stock Management -->
       <div class="c-sidebar__section">
-        <h2 v-if="!isMinimized" class="c-sidebar__title">종목관리</h2>
-        <nuxt-link to="/stock/ranking" class="c-sidebar__item" active-class="c-sidebar__item--active"><BarChart3 class="c-sidebar__icon" :size="20" /><span v-if="!isMinimized" class="c-sidebar__label">종목랭킹</span></nuxt-link>
-        <nuxt-link to="/stock/reports" class="c-sidebar__item" active-class="c-sidebar__item--active"><FileText class="c-sidebar__icon" :size="20" /><span v-if="!isMinimized" class="c-sidebar__label">AI 리포트</span></nuxt-link>
-        <nuxt-link to="/stock/signals" class="c-sidebar__item" active-class="c-sidebar__item--active"><Zap class="c-sidebar__icon" :size="20" /><span v-if="!isMinimized" class="c-sidebar__label">시그널</span></nuxt-link>
-        <nuxt-link to="/stock/quant" class="c-sidebar__item" active-class="c-sidebar__item--active"><PieChart class="c-sidebar__icon" :size="20" /><span v-if="!isMinimized" class="c-sidebar__label">퀀트</span></nuxt-link>
-        <nuxt-link to="/stock/discovery" class="c-sidebar__item" active-class="c-sidebar__item--active"><Search class="c-sidebar__icon" :size="20" /><span v-if="!isMinimized" class="c-sidebar__label">AI종목발굴</span></nuxt-link>
+        <button 
+          v-if="!isMinimized"
+          class="c-sidebar__category-toggle" 
+          @click="toggleSection('stock')"
+        >
+          <div class="c-sidebar__category-title">
+            <TrendingUp class="c-sidebar__icon" :size="20" />
+            <span class="c-sidebar__label">종목관리</span>
+          </div>
+          <ChevronRight 
+            class="c-sidebar__arrow" 
+            :class="{'c-sidebar__arrow--open': openSections.includes('stock')}" 
+            :size="16" 
+          />
+        </button>
+        <div v-else class="c-sidebar__item">
+          <TrendingUp class="c-sidebar__icon" :size="20" />
+        </div>
+
+        <div v-if="!isMinimized && openSections.includes('stock')" class="c-sidebar__submenu">
+          <nuxt-link to="/stock/ranking" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <Crown class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">고객 보유 종목 랭킹</span>
+          </nuxt-link>
+          <nuxt-link to="/stock/reports" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <FileText class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">AI리포트 생성 종목</span>
+          </nuxt-link>
+          <nuxt-link to="/stock/issue" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <AlertCircle class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">이슈 발생 종목</span>
+          </nuxt-link>
+          <nuxt-link to="/stock/signals" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <Activity class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">라씨시그널 발생 종목</span>
+          </nuxt-link>
+          <nuxt-link to="/stock/quant" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <Calculator class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">퀀트 종목</span>
+          </nuxt-link>
+          <nuxt-link to="/stock/discovery" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <Sparkles class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">AI종목발굴</span>
+          </nuxt-link>
+        </div>
       </div>
 
       <!-- Customer Management -->
       <div class="c-sidebar__section">
-        <h2 v-if="!isMinimized" class="c-sidebar__title">고객관리</h2>
-        <nuxt-link to="/customer/statistics" class="c-sidebar__item" active-class="c-sidebar__item--active"><LineChart class="c-sidebar__icon" :size="20" /><span v-if="!isMinimized" class="c-sidebar__label">고객통계</span></nuxt-link>
-        <nuxt-link to="/customer/list" class="c-sidebar__item" active-class="c-sidebar__item--active"><Users class="c-sidebar__icon" :size="20" /><span v-if="!isMinimized" class="c-sidebar__label">고객목록</span></nuxt-link>
-        <nuxt-link to="/customer/consultation" class="c-sidebar__item" active-class="c-sidebar__item--active"><MessageCircle class="c-sidebar__icon" :size="20" /><span v-if="!isMinimized" class="c-sidebar__label">상담관리</span></nuxt-link>
+        <button 
+          v-if="!isMinimized"
+          class="c-sidebar__category-toggle" 
+          @click="toggleSection('customer')"
+        >
+          <div class="c-sidebar__category-title">
+            <Users class="c-sidebar__icon" :size="20" />
+            <span class="c-sidebar__label">고객 관리</span>
+          </div>
+          <ChevronRight 
+            class="c-sidebar__arrow" 
+            :class="{'c-sidebar__arrow--open': openSections.includes('customer')}" 
+            :size="16" 
+          />
+        </button>
+        <div v-else class="c-sidebar__item">
+          <Users class="c-sidebar__icon" :size="20" />
+        </div>
+
+        <div v-if="!isMinimized && openSections.includes('customer')" class="c-sidebar__submenu">
+          <nuxt-link to="/customer/statistics" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <PieChart class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">고객 통계</span>
+          </nuxt-link>
+          <nuxt-link to="/customer/list" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <Crown class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">고객 리스트</span>
+          </nuxt-link>
+          <nuxt-link to="/customer/consultation" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <MessageSquare class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">고객 상담 노트</span>
+          </nuxt-link>
+        </div>
       </div>
 
       <!-- MY -->
       <div class="c-sidebar__section">
-        <h2 v-if="!isMinimized" class="c-sidebar__title">MY</h2>
-        <nuxt-link to="/my/schedule" class="c-sidebar__item" active-class="c-sidebar__item--active"><Calendar class="c-sidebar__icon" :size="20" /><span v-if="!isMinimized" class="c-sidebar__label">일정관리</span></nuxt-link>
-        <nuxt-link to="/my/stocks" class="c-sidebar__item" active-class="c-sidebar__item--active"><Star class="c-sidebar__icon" :size="20" /><span v-if="!isMinimized" class="c-sidebar__label">관심종목</span></nuxt-link>
-        <nuxt-link to="/my/investment" class="c-sidebar__item" active-class="c-sidebar__item--active"><BookOpen class="c-sidebar__icon" :size="20" /><span v-if="!isMinimized" class="c-sidebar__label">투자정보</span></nuxt-link>
-        <nuxt-link to="/my/info" class="c-sidebar__item" active-class="c-sidebar__item--active"><User class="c-sidebar__icon" :size="20" /><span v-if="!isMinimized" class="c-sidebar__label">나의당보</span></nuxt-link>
-        <nuxt-link to="/my/payment" class="c-sidebar__item" active-class="c-sidebar__item--active"><CreditCard class="c-sidebar__icon" :size="20" /><span v-if="!isMinimized" class="c-sidebar__label">결제정보</span></nuxt-link>
+        <button 
+          v-if="!isMinimized"
+          class="c-sidebar__category-toggle" 
+          @click="toggleSection('my')"
+        >
+          <div class="c-sidebar__category-title">
+            <UserCircle class="c-sidebar__icon" :size="20" />
+            <span class="c-sidebar__label">MY</span>
+          </div>
+          <ChevronRight 
+            class="c-sidebar__arrow" 
+            :class="{'c-sidebar__arrow--open': openSections.includes('my')}" 
+            :size="16" 
+          />
+        </button>
+        <div v-else class="c-sidebar__item">
+          <UserCircle class="c-sidebar__icon" :size="20" />
+        </div>
+
+        <div v-if="!isMinimized && openSections.includes('my')" class="c-sidebar__submenu">
+          <nuxt-link to="/my/schedule" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <Calendar class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">일정관리</span>
+          </nuxt-link>
+          <nuxt-link to="/my/stocks" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <Briefcase class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">MY종목</span>
+          </nuxt-link>
+          <nuxt-link to="/my/investment" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <Wallet class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">투자정보</span>
+          </nuxt-link>
+          <nuxt-link to="/my/info" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <Info class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">나의정보</span>
+          </nuxt-link>
+          <nuxt-link to="/my/payment" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <CreditCard class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">결제정보</span>
+          </nuxt-link>
+          <nuxt-link to="/my/faq" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
+            <HelpCircle class="c-sidebar__icon" :size="16" />
+            <span class="c-sidebar__label">FAQ</span>
+          </nuxt-link>
+        </div>
       </div>
     </nav>
 
@@ -55,12 +165,73 @@
 </template>
 
 <script>
+import { 
+  ChevronRight, 
+  ChevronLeft, 
+  LayoutDashboard, 
+  TrendingUp, 
+  Crown, 
+  FileText, 
+  AlertCircle, 
+  Activity, 
+  Calculator, 
+  Sparkles, 
+  Users, 
+  PieChart, 
+  MessageSquare, 
+  UserCircle, 
+  Calendar, 
+  Briefcase, 
+  Wallet, 
+  Info, 
+  CreditCard, 
+  HelpCircle, 
+  LogOut 
+} from 'lucide-vue'
+
 export default {
   name: 'SidebarComponent',
+  components: {
+    ChevronRight,
+    ChevronLeft,
+    LayoutDashboard,
+    TrendingUp,
+    Crown,
+    FileText,
+    AlertCircle,
+    Activity,
+    Calculator,
+    Sparkles,
+    Users,
+    PieChart,
+    MessageSquare,
+    UserCircle,
+    Calendar,
+    Briefcase,
+    Wallet,
+    Info,
+    CreditCard,
+    HelpCircle,
+    LogOut
+  },
   props: {
     isMinimized: {
       type: Boolean,
       default: false
+    }
+  },
+  data() {
+    return {
+      openSections: ['stock', 'customer', 'my']
+    }
+  },
+  methods: {
+    toggleSection(section) {
+      if (this.openSections.includes(section)) {
+        this.openSections = this.openSections.filter(s => s !== section)
+      } else {
+        this.openSections.push(section)
+      }
     }
   }
 }

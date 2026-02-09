@@ -1,0 +1,109 @@
+.p-stock-signal {
+    @apply space-y-6;
+}
+
+.p-stock-signal__header {
+    @apply flex items-center justify-between mb-6;
+}
+
+.p-stock-signal__title {
+    @apply text-xl font-bold text-gray-900;
+}
+
+.dark .p-stock-signal__title {
+    @apply text-white;
+}
+
+.p-stock-signal__subtitle {
+    @apply text-sm text-gray-500 mt-1;
+}
+
+/* Status Banner */
+.p-stock-signal__banner {
+    @apply bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/10 dark:to-purple-900/20 border border-purple-200 dark:border-purple-900/30 p-6 rounded-2xl;
+}
+
+.p-stock-signal__banner-title {
+    @apply text-sm font-bold text-purple-900 dark:text-purple-300 mb-4 text-center;
+}
+
+.p-stock-signal__banner-grid {
+    @apply grid grid-cols-2 gap-4;
+}
+
+.p-stock-signal__banner-card {
+    @apply flex flex-col items-center gap-1 p-4 bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-white/50 dark:border-gray-800;
+}
+
+/* Timeline */
+.p-stock-signal__timeline-container {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-8 relative;
+}
+
+.p-stock-signal__timeline-col {
+    @apply relative pl-8;
+}
+
+.p-stock-signal__timeline-line {
+    @apply absolute left-3 top-0 bottom-0 w-0.5;
+}
+
+.p-stock-signal__timeline-line--buy { @apply bg-red-100 dark:bg-red-900/30; }
+.p-stock-signal__timeline-line--sell { @apply bg-blue-100 dark:bg-blue-900/30; }
+
+.p-stock-signal__timeline-item {
+    @apply relative mb-4 last:mb-0;
+}
+
+.p-stock-signal__timeline-dot {
+    @apply absolute -left-[27px] top-4 w-4 h-4 rounded-full border-2 border-white dark:border-gray-900 shadow-sm z-10;
+}
+
+.p-stock-signal__timeline-dot--buy { @apply bg-red-500; }
+.p-stock-signal__timeline-dot--sell { @apply bg-blue-500; }
+
+.p-stock-signal__timeline-card {
+    @apply p-4 rounded-xl border transition-all hover:shadow-md cursor-pointer;
+}
+
+.p-stock-signal__timeline-card--buy { @apply bg-red-50/50 dark:bg-red-900/10 border-red-100 dark:border-red-900/30; }
+.p-stock-signal__timeline-card--sell { @apply bg-blue-50/50 dark:bg-blue-900/10 border-blue-100 dark:border-blue-900/30; }
+
+/* Ranking Lists */
+.p-stock-signal__rank-item {
+    @apply p-4 bg-gradient-to-r rounded-xl border border-transparent hover:border-gray-200 transition-all mb-2.5 last:mb-0;
+}
+
+.p-stock-signal__rank-item--holding { 
+    @apply from-orange-50 to-transparent dark:from-orange-900/10 border-orange-100 dark:border-orange-900/30; 
+}
+
+.p-stock-signal__rank-item--rapid { 
+    @apply from-yellow-50 to-transparent dark:from-yellow-900/10 border-yellow-100 dark:border-yellow-900/30; 
+}
+
+.p-stock-signal__rank-idx {
+    @apply flex items-center justify-center w-6 h-6 rounded-full text-[10px] font-bold text-white;
+}
+
+/* Briefing Cards */
+.p-stock-signal__brief-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+}
+
+.p-stock-signal__brief-card {
+    @apply bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl overflow-hidden hover:shadow-lg transition-all flex flex-col;
+}
+
+.p-stock-signal__brief-img {
+    @apply aspect-video w-full object-cover;
+}
+
+/* Customer Modal Specifics */
+.c-customer-list-item {
+    @apply p-3 border border-gray-100 dark:border-gray-800 rounded-xl cursor-pointer transition-all hover:bg-gray-50 dark:hover:bg-gray-800 flex items-center gap-3;
+}
+
+.c-customer-list-item--selected {
+    @apply border-orange-500 bg-orange-50 dark:bg-orange-900/10;
+}

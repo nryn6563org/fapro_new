@@ -1,21 +1,33 @@
 .c-right-panel {
-    @apply h-full bg-white transition-all duration-300;
+    @apply h-full bg-white border-l border-gray-100 transition-all duration-300 overflow-hidden;
 }
 
 .dark .c-right-panel {
-    @apply bg-surface-dark;
+    @apply bg-surface-dark border-gray-700;
 }
 
 .c-right-panel__inner {
-    @apply flex flex-col h-full p-6 space-y-8 overflow-y-auto;
+    @apply flex flex-col h-full;
 }
 
 .c-right-panel__section {
-    @apply space-y-4;
+    @apply p-6 border-b border-gray-100;
+}
+
+.dark .c-right-panel__section {
+    @apply border-gray-700;
+}
+
+.c-right-panel__section--flex {
+    @apply flex-1 flex flex-col min-h-0 overflow-hidden border-b-0;
 }
 
 .c-right-panel__header {
-    @apply flex items-center justify-between mb-2;
+    @apply flex items-center justify-between mb-4;
+}
+
+.c-right-panel__title-group {
+    @apply flex items-center space-x-2;
 }
 
 .c-right-panel__title {
@@ -26,96 +38,185 @@
     @apply text-white;
 }
 
-.c-right-panel__action-btn {
-    @apply p-1 text-gray-400 hover:text-primary transition-colors flex items-center justify-center;
+.c-right-panel__link,
+.c-right-panel__refresh {
+    @apply p-1.5 rounded-lg text-gray-400 hover:bg-gray-50 hover:text-primary transition-all;
 }
 
-/* Calendar Placeholder Styles */
-.c-calendar-placeholder {
-    @apply p-4 rounded-xl border border-gray-100 bg-gray-50;
+.dark .c-right-panel__link,
+.dark .c-right-panel__refresh {
+    @apply hover:bg-gray-700 text-gray-500 hover:text-primary-light;
 }
 
-.dark .c-calendar-placeholder {
-    @apply border-gray-700 bg-gray-800/50;
+.c-right-panel__refresh--spinning {
+    @apply animate-spin text-primary;
 }
 
-.c-calendar-placeholder__header {
-    @apply flex items-center justify-between mb-4 text-xs font-medium text-gray-600;
+.c-right-panel__meta {
+    @apply mb-4 space-y-2;
 }
 
-.dark .c-calendar-placeholder__header {
-    @apply text-gray-400;
+.c-right-panel__desc {
+    @apply text-xs text-gray-500 leading-relaxed;
 }
 
-.c-calendar-placeholder__month {
-    @apply mx-2;
+.c-right-panel__time-row {
+    @apply flex justify-end;
 }
 
-.c-calendar-placeholder__grid {
-    @apply grid grid-cols-7 gap-1 text-[10px] text-center;
+.c-right-panel__time {
+    @apply text-[10px] font-mono text-gray-400;
 }
 
-.c-calendar-placeholder__day {
-    @apply py-1.5 rounded-md hover:bg-white cursor-pointer transition-colors;
+/* Calendar Widget */
+.c-calendar-widget {
+    @apply bg-gray-50 rounded-xl p-4 border border-gray-100;
 }
 
-.dark .c-calendar-placeholder__day {
+.dark .c-calendar-widget {
+    @apply bg-gray-800/50 border-gray-700;
+}
+
+.c-calendar-widget__header {
+    @apply flex items-center justify-between mb-3 px-1;
+}
+
+.c-calendar-widget__nav-btn {
+    @apply p-1 rounded-md text-gray-400 hover:bg-white hover:shadow-sm transition-all;
+}
+
+.dark .c-calendar-widget__nav-btn {
     @apply hover:bg-gray-700;
 }
 
-.c-calendar-placeholder__day--today {
-    @apply bg-primary text-white;
+.c-calendar-widget__month {
+    @apply text-xs font-bold text-gray-700;
 }
 
-.c-calendar-placeholder__day--has-event {
-    @apply font-bold text-primary;
+.dark .c-calendar-widget__month {
+    @apply text-gray-300;
 }
 
-.dark .c-calendar-placeholder__day--has-event {
-    @apply text-primary-light;
+.c-calendar-widget__grid {
+    @apply grid grid-cols-7 gap-1;
 }
 
-/* Issue Item Styles */
-.c-right-panel__issue-list {
+.c-calendar-widget__day {
+    @apply flex items-center justify-center h-8 w-8 text-[10px] text-gray-500 rounded-lg transition-all;
+}
+
+.c-calendar-widget__day--today {
+    @apply bg-primary text-white font-bold shadow-md shadow-primary/20;
+}
+
+.c-calendar-widget__day--has-event {
+    @apply relative font-semibold text-gray-900;
+}
+
+.c-calendar-widget__day--has-event::after {
+    @apply content-[''] absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full;
+}
+
+.dark .c-calendar-widget__day--has-event {
+    @apply text-gray-200;
+}
+
+/* Timeline */
+.c-right-panel__scroll-area {
+    @apply flex-1 overflow-y-auto pr-1;
+}
+
+.c-right-panel__timeline {
     @apply space-y-4;
 }
 
 .c-issue-item {
-    @apply space-y-1.5;
+    @apply p-4 rounded-xl border border-gray-100 bg-white transition-all duration-300;
+    @apply hover:border-primary/30 hover:shadow-lg hover:shadow-gray-100 hover:-translate-y-0.5;
+}
+
+.dark .c-issue-item {
+    @apply border-gray-700 bg-gray-800/30 hover:shadow-none hover:bg-gray-800/50;
 }
 
 .c-issue-item__header {
-    @apply flex items-center justify-between;
+    @apply flex items-center justify-between mb-3;
 }
 
-.c-issue-item__badge {
-    @apply px-1.5 py-0.5 text-[10px] font-bold rounded;
+.c-issue-item__badges {
+    @apply flex items-center flex-wrap gap-2;
 }
 
-.c-issue-item__badge--news {
-    @apply bg-blue-50 text-blue-500;
+.c-issue-item__stock-group {
+    @apply flex items-center space-x-1;
 }
 
-.c-issue-item__badge--issue {
-    @apply bg-orange-50 text-orange-500;
+.c-issue-item__stock {
+    @apply text-xs font-bold text-gray-900;
 }
 
-.c-issue-item__badge--social {
-    @apply bg-purple-50 text-purple-500;
+.dark .c-issue-item__stock {
+    @apply text-white;
 }
 
-.dark .c-issue-item__badge--news { @apply bg-blue-900/30 text-blue-400; }
-.dark .c-issue-item__badge--issue { @apply bg-orange-900/30 text-orange-400; }
-.dark .c-issue-item__badge--social { @apply bg-purple-900/30 text-purple-400; }
-
-.c-issue-item__time {
+.c-issue-item__code {
     @apply text-[10px] text-gray-400;
 }
 
-.c-issue-item__content {
-    @apply text-xs text-gray-600 leading-snug break-all;
+.c-issue-item__side {
+    @apply flex items-center space-x-2;
 }
 
-.dark .c-issue-item__content {
-    @apply text-gray-400;
+.c-issue-item__title {
+    @apply text-xs font-bold text-gray-800 mb-1 leading-snug;
+}
+
+.dark .c-issue-item__title {
+    @apply text-gray-200;
+}
+
+.c-issue-item__content {
+    @apply text-xs text-gray-500 leading-relaxed mb-3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.c-issue-item__footer {
+    @apply flex items-center justify-between;
+}
+
+.c-issue-item__time-rel {
+    @apply text-[10px] text-gray-400;
+}
+
+.c-issue-item__holders {
+    @apply flex items-center space-x-1 text-[10px] font-medium text-primary;
+}
+
+/* Badges */
+.c-badge {
+    @apply px-1.5 py-0.5 rounded text-[10px] font-bold uppercase;
+}
+
+.c-badge--signal { @apply bg-emerald-100 text-emerald-600; }
+.c-badge--issue { @apply bg-red-100 text-red-600; }
+.c-badge--news { @apply bg-blue-100 text-blue-600; }
+.c-badge--disclosure { @apply bg-purple-100 text-purple-600; }
+.c-badge--holders { @apply bg-primary/10 text-primary; }
+
+/* Bell Animation */
+.c-issue-item__bell {
+    @apply text-red-500 animate-[ring_2s_infinite];
+}
+
+@keyframes ring {
+    0% { transform: rotate(0); }
+    10% { transform: rotate(15deg); }
+    20% { transform: rotate(-15deg); }
+    30% { transform: rotate(10deg); }
+    40% { transform: rotate(-10deg); }
+    50% { transform: rotate(0); }
+    100% { transform: rotate(0); }
 }

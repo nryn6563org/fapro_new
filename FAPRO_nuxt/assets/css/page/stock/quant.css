@@ -1,28 +1,95 @@
-.p-quant {
-    @apply p-8;
+.p-stock-quant {
+    @apply space-y-6;
 }
 
-.p-quant__header {
-    @apply mb-8;
+.p-stock-quant__header {
+    @apply flex items-center justify-between mb-6;
 }
 
-.p-quant__title {
-    @apply text-2xl font-bold text-gray-900 mb-2;
+.p-stock-quant__title {
+    @apply text-xl font-bold text-gray-900;
 }
 
-.dark .p-quant__title {
+.dark .p-stock-quant__title {
     @apply text-white;
 }
 
-.p-quant__desc {
-    @apply text-sm text-gray-500;
+.p-stock-quant__subtitle {
+    @apply text-sm text-gray-500 mt-1;
 }
 
-.p-quant__grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+/* Strategy Tabs */
+.p-stock-quant__tabs {
+    @apply flex gap-3 p-1 bg-gray-50 dark:bg-gray-800 rounded-xl mb-6;
 }
 
-/* Override FunctionQuantCard for height consistency in grid */
-.p-quant__card {
-    @apply h-full min-h-[160px];
+.p-stock-quant__tab {
+    @apply flex-1 py-3 px-4 rounded-lg text-sm font-bold transition-all text-gray-400;
+}
+
+.p-stock-quant__tab--active {
+    @apply bg-white dark:bg-gray-900 text-primary shadow-sm;
+}
+
+/* Strategy Info */
+.p-stock-quant__info-grid {
+    @apply grid grid-cols-1 md:grid-cols-5 gap-3 mt-6;
+}
+
+.p-stock-quant__info-item {
+    @apply bg-gray-50 dark:bg-gray-800/50 p-4 rounded-xl;
+}
+
+.p-stock-quant__info-label {
+    @apply text-[10px] text-gray-400 font-bold mb-1;
+}
+
+.p-stock-quant__info-value {
+    @apply text-sm font-bold text-gray-900 dark:text-white;
+}
+
+/* Performance Section */
+.p-stock-quant__perf {
+    @apply flex flex-col lg:flex-row gap-6 bg-gradient-to-br from-primary/5 to-white dark:to-gray-900 p-6 rounded-2xl border border-primary/10 shadow-sm;
+}
+
+.p-stock-quant__chart-area {
+    @apply flex-1 min-h-[300px] bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-4 relative;
+}
+
+.p-stock-quant__stats-sidebar {
+    @apply w-full lg:w-72 flex flex-col gap-3;
+}
+
+.p-stock-quant__stat-card {
+    @apply flex items-center justify-between p-4 bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm;
+}
+
+.p-stock-quant__stat-card--highlight {
+    @apply border-primary/30 bg-primary/5;
+}
+
+.p-stock-quant__stat-label {
+    @apply text-xs font-bold text-gray-500;
+}
+
+.p-stock-quant__stat-value {
+    @apply text-lg font-bold;
+}
+
+/* Table Enhancements */
+.c-quant-table {
+    @apply w-full text-left border-collapse;
+}
+
+.c-quant-table th {
+    @apply py-3 px-4 bg-gray-50 dark:bg-gray-800/50 text-xs font-bold text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-gray-800;
+}
+
+.c-quant-table td {
+    @apply py-4 px-4 text-sm border-b border-gray-50 dark:border-gray-800;
+}
+
+.c-quant-table tr:hover td {
+    @apply bg-gray-50/50 dark:bg-gray-800/30;
 }

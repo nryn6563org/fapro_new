@@ -1,0 +1,82 @@
+.p-stock-issue {
+    @apply space-y-6;
+}
+
+.p-stock-issue__header {
+    @apply flex items-center justify-between mb-6;
+}
+
+.p-stock-issue__title {
+    @apply text-xl font-bold text-gray-900;
+}
+
+.dark .p-stock-issue__title {
+    @apply text-white;
+}
+
+.p-stock-issue__subtitle {
+    @apply text-sm text-gray-500 mt-1;
+}
+
+/* Bubble Chart Area */
+.p-stock-issue__bubble-area {
+    @apply bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 mb-8 overflow-hidden relative min-h-[400px];
+}
+
+.p-stock-issue__bubble {
+    @apply cursor-pointer transition-all duration-300 hover:brightness-110;
+}
+
+.p-stock-issue__bubble--active {
+    @apply drop-shadow-[0_0_15px_rgba(239,68,68,0.4)];
+}
+
+/* Issue Card */
+.c-issue-card {
+    @apply p-5 rounded-2xl border-l-4 border-orange-500 bg-orange-50/50 dark:bg-orange-900/20 mb-4 hover:shadow-md transition-all cursor-pointer;
+}
+
+.c-issue-card--active {
+    @apply border-red-500 bg-red-50/50 dark:bg-red-900/20;
+}
+
+.c-issue-card__title {
+    @apply text-base font-bold text-orange-900 dark:text-orange-200 mb-1;
+}
+
+.c-issue-card--active .c-issue-card__title {
+    @apply text-red-900 dark:text-red-200;
+}
+
+.c-issue-card__content {
+    @apply text-sm text-gray-700 dark:text-gray-300 mb-4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.c-issue-card__stocks {
+    @apply flex flex-wrap gap-2;
+}
+
+.c-issue-stock-tag {
+    @apply px-3 py-1.5 bg-white dark:bg-gray-800 border border-orange-100 dark:border-orange-900/30 rounded-lg text-xs font-bold transition-all hover:shadow-sm;
+}
+
+/* Modal Specifics */
+.c-issue-modal-news {
+    @apply space-y-1 mb-4;
+}
+
+.c-issue-modal-news__item {
+    @apply text-xs text-gray-500 dark:text-gray-400 flex items-start gap-1.5;
+}
+
+.c-trend-chart {
+    @apply w-full h-64 bg-gray-50 dark:bg-gray-800/50 rounded-xl flex items-center justify-center border border-gray-100 dark:border-gray-800;
+}
+
+.c-report-summary {
+    @apply bg-orange-50/50 dark:bg-orange-900/10 border border-orange-100 dark:border-orange-900/30 rounded-xl p-4 text-sm text-gray-700 dark:text-gray-300 leading-relaxed;
+}

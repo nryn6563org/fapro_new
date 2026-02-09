@@ -1,0 +1,99 @@
+.c-report-list {
+    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col;
+}
+
+.c-report-list__header {
+    @apply p-4 border-b border-gray-50 dark:border-gray-800 flex items-center justify-between;
+}
+
+.c-report-list__title-group {
+    @apply flex items-center gap-2;
+}
+
+.c-report-list__icon {
+    @apply text-green-600;
+}
+
+.c-report-list__title {
+    @apply text-sm font-bold text-gray-800 dark:text-gray-200;
+}
+
+.c-report-list__info {
+    @apply flex items-center gap-4;
+}
+
+.c-report-list__time {
+    @apply text-[10px] text-gray-400 font-medium;
+}
+
+.c-report-list__refresh {
+    @apply text-gray-300 hover:text-gray-500 transition-colors;
+}
+
+.c-report-list__body {
+    @apply divide-y divide-gray-50 dark:divide-gray-800;
+}
+
+.c-report-row {
+    @apply p-4 hover:bg-gray-50/50 dark:hover:bg-gray-800/30 transition-colors;
+}
+
+.c-report-row__main {
+    @apply flex items-center justify-between;
+}
+
+.c-report-row__content {
+    @apply flex-1;
+}
+
+.c-report-row__stock {
+    @apply flex items-center gap-2 mb-1;
+}
+
+.c-report-row__name {
+    @apply text-sm font-bold text-gray-900 dark:text-gray-100;
+}
+
+.c-report-row__change {
+    @apply text-xs font-bold;
+}
+
+.c-report-row__change--up {
+    @apply text-red-500;
+}
+
+.c-report-row__change--down {
+    @apply text-blue-500;
+}
+
+.c-report-row__description {
+    @apply text-xs text-gray-500 dark:text-gray-400 truncate;
+}
+
+.c-report-row__date {
+    @apply text-[10px] text-gray-400 mt-1 block;
+}
+
+.c-report-row__actions {
+    @apply flex items-center gap-1.5;
+}
+
+.c-btn-action {
+    @apply px-3 py-2 rounded-lg text-[10px] font-bold transition-all flex items-center gap-1;
+}
+
+.c-btn-action--primary {
+    @apply bg-orange-500 text-white hover:bg-orange-600 shadow-sm shadow-orange-500/10;
+}
+
+.c-btn-action--outline {
+    @apply border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800;
+}
+
+.c-report-list__footer {
+    @apply p-3 text-center border-t border-gray-50 dark:border-gray-800;
+}
+
+.c-report-list__more-btn {
+    @apply text-xs text-green-600 dark:text-green-400 font-bold hover:underline;
+}

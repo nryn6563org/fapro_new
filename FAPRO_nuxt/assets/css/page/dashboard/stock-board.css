@@ -1,47 +1,169 @@
 .c-stock-board {
-    @apply bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col h-full;
-}
-
-.dark .c-stock-board {
-    @apply bg-surface-dark border-gray-800;
+    @apply bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-full;
 }
 
 .c-stock-board__header {
     @apply flex items-center justify-between mb-6;
 }
 
-.c-stock-board__title {
-    @apply text-lg font-bold text-gray-900;
+.c-stock-board__main-title {
+    @apply text-lg font-black text-gray-900 dark:text-white tracking-tight;
 }
 
-.dark .c-stock-board__title {
-    @apply text-white;
+.c-stock-board__sub-title-group {
+    @apply flex items-center gap-2 mt-1;
+}
+
+.c-stock-board__sub-title-dot {
+    @apply w-1.5 h-1.5 rounded-full bg-orange-500;
+}
+
+.c-stock-board__sub-title {
+    @apply text-sm font-bold text-gray-600 dark:text-gray-400;
 }
 
 .c-stock-board__actions {
-    @apply flex space-x-2;
+    @apply flex items-center gap-4;
 }
 
-.c-stock-board__filter {
-    @apply px-3 py-1.5 text-xs font-medium text-gray-500 rounded-lg hover:bg-gray-50 transition-colors;
+.c-tab-group {
+    @apply flex bg-gray-100 dark:bg-gray-800 p-1 rounded-xl;
 }
 
-.dark .c-stock-board__filter {
-    @apply text-gray-400 hover:bg-gray-800;
+.c-tab-item {
+    @apply px-4 py-1.5 text-[11px] font-bold rounded-lg transition-all text-gray-500 dark:text-gray-400;
 }
 
-.c-stock-board__filter--active {
-    @apply bg-gray-900 text-white;
+.c-tab-item--active {
+    @apply bg-orange-500 text-white shadow-md shadow-orange-500/20;
 }
 
-.dark .c-stock-board__filter--active {
-    @apply bg-white text-gray-900;
+.c-stock-board__refresh {
+    @apply text-gray-300 hover:text-gray-500 dark:hover:text-gray-200 transition-colors;
 }
 
-.c-stock-board__chart-container {
-    @apply flex-1 w-full min-h-[300px] relative;
+.c-stock-board__body {
+    @apply flex-1 flex min-h-[400px] border-t border-gray-50 dark:border-gray-800 mt-4 pt-4;
 }
 
 .c-stock-board__chart {
-    @apply w-full h-full;
+    @apply flex-[1.5] h-full;
+}
+
+.c-stock-board__detail-panel {
+    @apply flex-1 bg-gray-50/50 dark:bg-gray-800/30 rounded-2xl p-6 border border-gray-50 dark:border-gray-800/50 flex flex-col;
+}
+
+.c-stock-board__empty-detail {
+    @apply flex-1 flex flex-col items-center justify-center text-center opacity-40;
+}
+
+.c-stock-board__empty-icon {
+    @apply text-4xl mb-3;
+}
+
+.c-stock-board__empty-text {
+    @apply text-xs font-bold leading-relaxed text-gray-500;
+}
+
+.c-issue-detail {
+    @apply flex-1 flex flex-col;
+}
+
+.c-issue-detail__header {
+    @apply flex items-center gap-3 mb-6;
+}
+
+.c-issue-detail__badge {
+    @apply px-2 py-0.5 rounded text-[9px] font-black text-white;
+}
+
+.c-issue-detail__title {
+    @apply text-base font-black text-gray-900 dark:text-white tracking-tight;
+}
+
+.c-issue-detail__content {
+    @apply flex-1 space-y-8 overflow-y-auto pr-2;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.c-issue-detail__content::-webkit-scrollbar {
+    display: none;
+}
+
+.c-issue-detail__chart-section {
+    @apply space-y-3;
+}
+
+.c-issue-detail__chart-container {
+    @apply w-full h-[180px] bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-2;
+}
+
+.c-issue-detail__section-title {
+    @apply text-[11px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3;
+}
+
+.c-issue-detail__stocks-section {
+    @apply space-y-3;
+}
+
+.c-issue-detail__stock-list {
+    @apply divide-y divide-gray-50 dark:divide-gray-800;
+}
+
+.c-issue-detail__stock-item {
+    @apply flex items-center justify-between py-3;
+}
+
+.c-issue-detail__stock-main {
+    @apply flex items-center gap-2;
+}
+
+.c-issue-detail__stock-dot {
+    @apply w-1.5 h-1.5 rounded-full;
+}
+
+.c-issue-detail__stock-name {
+    @apply text-sm font-bold text-gray-800 dark:text-gray-200;
+}
+
+.c-issue-detail__stock-change {
+    @apply text-sm font-black text-gray-400;
+}
+
+.c-issue-detail__stock-change.is-positive {
+    @apply text-red-500;
+}
+
+.c-issue-detail__news-section {
+    @apply space-y-3;
+}
+
+.c-issue-detail__news-list {
+    @apply space-y-4;
+}
+
+.c-issue-detail__news-item {
+    @apply space-y-1 cursor-pointer;
+}
+
+.c-issue-detail__news-title {
+    @apply text-xs font-bold text-gray-700 dark:text-gray-300 leading-relaxed group-hover:text-primary transition-colors;
+}
+
+.c-issue-detail__news-time {
+    @apply text-[10px] text-gray-400 font-medium;
+}
+
+.c-issue-detail__more {
+    @apply mt-auto py-3 border border-gray-200 dark:border-gray-700 rounded-2xl text-[11px] font-black text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all;
+}
+
+.c-stock-board__footer {
+    @apply border-t border-gray-50 dark:border-gray-800 p-3 text-center;
+}
+
+.c-stock-board__more-btn {
+    @apply text-[11px] text-green-600 dark:text-green-400 font-black hover:underline;
 }

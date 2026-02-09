@@ -1,109 +1,164 @@
-.p-ranking {
-    @apply p-8;
+.p-stock-ranking {
+    @apply space-y-6;
 }
 
-.p-ranking__header {
-    @apply mb-8;
+.p-stock-ranking__header {
+    @apply flex items-center justify-between mb-8;
 }
 
-.p-ranking__title {
-    @apply text-2xl font-bold text-gray-900 mb-2;
+.p-stock-ranking__title-group {
+    @apply space-y-1;
 }
 
-.dark .p-ranking__title {
+.p-stock-ranking__title {
+    @apply text-xl font-bold text-gray-900;
+}
+
+.dark .p-stock-ranking__title {
     @apply text-white;
 }
 
-.p-ranking__desc {
+.p-stock-ranking__subtitle {
     @apply text-sm text-gray-500;
 }
 
-.p-ranking__content {
-    @apply bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden;
+.p-stock-ranking__actions {
+    @apply flex items-center gap-3;
 }
 
-.dark .p-ranking__content {
-    @apply bg-surface-dark border-gray-800;
+.p-stock-ranking__search {
+    @apply relative;
 }
 
-.p-ranking__table-wrapper {
-    @apply w-full overflow-x-auto;
+.p-stock-ranking__search-icon {
+    @apply absolute left-3 top-1/2 -translate-y-1/2 text-gray-400;
 }
 
-.p-ranking__table {
-    @apply w-full text-left border-collapse;
+.p-stock-ranking__search-input {
+    @apply pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all w-64;
 }
 
-.p-ranking__th {
-    @apply px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider bg-gray-50 border-b border-gray-100;
+.dark .p-stock-ranking__search-input {
+    @apply bg-gray-800 border-gray-700 text-white;
 }
 
-.dark .p-ranking__th {
-    @apply bg-gray-900/50 border-gray-700 text-gray-400;
+/* Stats Cards */
+.p-stock-ranking__stats {
+    @apply grid grid-cols-1 md:grid-cols-4 gap-4 mb-6;
 }
 
-.p-ranking__tr {
-    @apply hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-0;
+/* Ranking List */
+.p-stock-ranking__list {
+    @apply space-y-3;
 }
 
-.dark .p-ranking__tr {
-    @apply hover:bg-gray-800/50 border-gray-800;
+/* Stock Item */
+.c-ranking-item {
+    @apply flex items-center gap-4 p-4 bg-white border border-gray-100 rounded-xl hover:border-primary/40 hover:shadow-sm transition-all;
 }
 
-.p-ranking__td {
-    @apply px-6 py-4 text-sm text-gray-900;
+.dark .c-ranking-item {
+    @apply bg-gray-900 border-gray-800;
 }
 
-.dark .p-ranking__td {
-    @apply text-gray-300;
+.c-ranking-item__rank {
+    @apply flex items-center justify-center w-10 flex-shrink-0;
 }
 
-.p-ranking__td--rank {
-    @apply font-bold text-gray-400;
+.c-ranking-item__rank-text {
+    @apply text-lg font-bold text-gray-400;
 }
 
-.p-ranking__stock-info {
-    @apply flex flex-col;
+.c-ranking-item__rank-icon {
+    @apply text-2xl;
 }
 
-.p-ranking__stock-name {
-    @apply font-bold text-gray-900;
+.c-ranking-item__content {
+    @apply flex-1 min-w-0;
 }
 
-.dark .p-ranking__stock-name {
+.c-ranking-item__top {
+    @apply flex items-center gap-2 mb-1.5 flex-wrap;
+}
+
+.c-ranking-item__name {
+    @apply text-base font-bold text-gray-900 hover:text-primary hover:underline transition-colors;
+}
+
+.dark .c-ranking-item__name {
     @apply text-white;
 }
 
-.p-ranking__stock-code {
+.c-ranking-item__code {
     @apply text-xs text-gray-400;
 }
 
-.p-ranking__td--price,
-.p-ranking__td--change {
-    @apply font-medium;
+.c-ranking-item__change {
+    @apply text-sm font-bold;
 }
 
-.p-ranking__badge {
-    @apply px-2.5 py-1 text-xs font-bold rounded-full;
+.c-ranking-item__badges {
+    @apply flex flex-wrap gap-1;
 }
 
-.p-ranking__badge--buy {
-    @apply bg-red-50 text-red-500;
+.c-ranking-item__meta {
+    @apply flex items-center gap-3 text-xs text-gray-500;
 }
 
-.p-ranking__badge--strong-buy {
-    @apply bg-red-100 text-red-600;
+.c-ranking-item__meta-highlight {
+    @apply font-semibold text-primary;
 }
 
-.p-ranking__badge--sell {
-    @apply bg-blue-50 text-blue-500;
+.c-ranking-item__actions {
+    @apply flex items-center gap-1 flex-shrink-0;
 }
 
-.p-ranking__badge--hold {
-    @apply bg-gray-100 text-gray-500;
+.c-ranking-item__action-btn {
+    @apply p-2 rounded-lg transition-colors;
 }
 
-.dark .p-ranking__badge--buy { @apply bg-red-900/20 text-red-400; }
-.dark .p-ranking__badge--strong-buy { @apply bg-red-900/40 text-red-300; }
-.dark .p-ranking__badge--sell { @apply bg-blue-900/20 text-blue-400; }
-.dark .p-ranking__badge--hold { @apply bg-gray-700 text-gray-400; }
+.c-ranking-item__action-btn--orange { @apply text-orange-500 hover:bg-orange-50; }
+.c-ranking-item__action-btn--purple { @apply text-purple-500 hover:bg-purple-50; }
+.c-ranking-item__action-btn--blue { @apply text-blue-500 hover:bg-blue-50; }
+.c-ranking-item__action-btn--green { @apply text-green-500 hover:bg-green-50; }
+.c-ranking-item__action-btn--gray { @apply text-gray-500 hover:bg-gray-100; }
+
+.dark .c-ranking-item__action-btn--orange { @apply hover:bg-orange-900/30; }
+/* ... other dark states if needed */
+
+/* Modal Styles */
+.c-modal-overlay {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[100] p-4;
+}
+
+.c-modal {
+    @apply bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[85vh] flex flex-col overflow-hidden;
+}
+
+.c-modal__header {
+    @apply flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-800 bg-gradient-to-r from-primary to-primary-dark text-white;
+}
+
+.c-modal__title-group {
+    @apply flex items-center gap-3;
+}
+
+.c-modal__title {
+    @apply text-lg font-bold;
+}
+
+.c-modal__subtitle {
+    @apply text-sm opacity-80;
+}
+
+.c-modal__close {
+    @apply p-2 hover:bg-white/20 rounded-full transition-all;
+}
+
+.c-modal__body {
+    @apply flex-1 p-6 overflow-y-auto;
+}
+
+.c-modal__footer {
+    @apply p-4 border-t border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 flex justify-end;
+}

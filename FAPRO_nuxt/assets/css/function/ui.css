@@ -26,6 +26,11 @@
 .c-card__title-icon--orange { @apply text-orange-500; }
 .c-card__title-icon--green { @apply text-green-500; }
 .c-card__title-icon--yellow { @apply text-yellow-500; }
+.c-card__title-icon--purple { @apply text-purple-500; }
+.c-card__title-icon--red { @apply text-red-500; }
+.c-badge--holders { @apply bg-primary/10 text-primary; }
+.c-card__title-icon--blue { @apply text-blue-500; }
+.c-card__title-icon--indigo { @apply text-indigo-500; }
 
 .c-card__content {
     @apply p-5;
@@ -54,6 +59,17 @@
 .dark .c-badge--warning { @apply bg-orange-900/30 text-orange-400; }
 .dark .c-badge--danger { @apply bg-red-900/30 text-red-400; }
 
+/* Badge Status Variants */
+.c-badge--status-buySignal { @apply bg-red-50 text-red-500 border-red-100; }
+.c-badge--status-sellSignal { @apply bg-blue-50 text-blue-500 border-blue-100; }
+.c-badge--status-issue { @apply bg-orange-50 text-orange-500 border-orange-100; }
+.c-badge--status-aiReport { @apply bg-purple-50 text-purple-500 border-purple-100; }
+.c-badge--status-aiRecommend { @apply bg-indigo-50 text-indigo-500 border-indigo-100; }
+.c-badge--status-popular { @apply bg-gray-50 text-gray-500 border-gray-100; }
+
+.dark .c-badge--status-buySignal { @apply bg-red-900/30 text-red-400 border-red-900/50; }
+.dark .c-badge--status-issue { @apply bg-orange-900/30 text-orange-400 border-orange-900/50; }
+
 /* Button Component */
 .c-btn {
     @apply inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer outline-none;
@@ -74,3 +90,12 @@
 .c-btn--xs { @apply px-2 py-1 text-[10px]; }
 .c-btn--sm { @apply px-3 py-1.5 text-xs; }
 .c-btn--full { @apply w-full; }
+
+/* Utilities */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}

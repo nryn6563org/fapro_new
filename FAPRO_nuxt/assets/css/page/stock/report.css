@@ -1,0 +1,166 @@
+.p-stock-report {
+    @apply space-y-6;
+}
+
+.p-stock-report__header {
+    @apply flex items-center justify-between mb-8;
+}
+
+.p-stock-report__title-group {
+    @apply space-y-1;
+}
+
+.p-stock-report__title {
+    @apply text-xl font-bold text-gray-900;
+}
+
+.dark .p-stock-report__title {
+    @apply text-white;
+}
+
+.p-stock-report__subtitle {
+    @apply text-sm text-gray-500;
+}
+
+/* Date Selector */
+.p-stock-report__date-selector {
+    @apply flex items-center justify-center gap-3 py-6 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl mb-6;
+}
+
+.p-stock-report__date-nav {
+    @apply p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-30 disabled:cursor-not-allowed transition-all;
+}
+
+.p-stock-report__categories {
+    @apply flex items-center gap-2 overflow-x-auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.p-stock-report__categories::-webkit-scrollbar {
+    display: none;
+}
+
+.p-stock-report__date-list {
+    @apply flex items-center gap-2 overflow-x-auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.p-stock-report__date-list::-webkit-scrollbar {
+    display: none;
+}
+
+.p-stock-report__date-btn {
+    @apply px-4 py-2 rounded-xl border border-gray-100 dark:border-gray-800 transition-all flex flex-col items-center gap-1 min-w-[80px];
+}
+
+.p-stock-report__date-btn--active {
+    @apply border-primary bg-primary/5 text-primary shadow-sm;
+}
+
+.p-stock-report__date-label {
+    @apply text-sm font-bold;
+}
+
+.p-stock-report__date-count {
+    @apply text-[10px] text-gray-400 font-medium;
+}
+
+/* Report Card */
+.c-report-card {
+    @apply border border-gray-100 dark:border-gray-800 rounded-2xl bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-all overflow-hidden mb-4;
+}
+
+.c-report-card--new {
+    @apply border-green-500/30 bg-gradient-to-br from-green-500/5 to-white dark:to-gray-900;
+}
+
+.c-report-card__inner {
+    @apply p-5;
+}
+
+.c-report-card__meta {
+    @apply flex items-center gap-2 text-[10px] text-gray-400 font-medium border-b border-gray-50 dark:border-gray-800 pb-3 mb-3;
+}
+
+.c-report-card__badge-new {
+    @apply bg-green-500 text-white px-1.5 py-0.5 rounded flex items-center gap-0.5 animate-pulse;
+}
+
+.c-report-card__header {
+    @apply flex items-center justify-between gap-4 mb-4;
+}
+
+.c-report-card__stock {
+    @apply flex items-center gap-2 flex-wrap;
+}
+
+.c-report-card__name {
+    @apply text-lg font-bold text-gray-900 dark:text-white hover:text-primary hover:underline transition-all;
+}
+
+.c-report-card__code {
+    @apply text-sm text-gray-400;
+}
+
+.c-report-card__change {
+    @apply text-xs font-bold px-2 py-0.5 rounded;
+}
+
+.c-report-card__change--positive { @apply bg-red-50 text-red-500; }
+.c-report-card__change--negative { @apply bg-blue-50 text-blue-500; }
+
+.c-report-card__content {
+    @apply space-y-2 mb-4;
+}
+
+.c-report-card__row {
+    @apply flex items-start gap-3;
+}
+
+.c-report-card__row-label {
+    @apply text-[10px] font-bold flex-shrink-0 mt-1;
+}
+
+.c-report-card__row-label--summary { @apply text-primary; }
+.c-report-card__row-label--reason { @apply text-orange-500; }
+
+.c-report-card__row-text {
+    @apply text-sm text-gray-700 dark:text-gray-300 leading-relaxed;
+}
+
+.c-report-card__actions {
+    @apply flex flex-col gap-2;
+}
+
+.c-report-card__main-actions {
+    @apply flex items-center gap-2;
+}
+
+.c-report-card__history-toggle {
+    @apply flex items-center justify-center gap-2 w-full py-2 text-xs font-bold text-gray-400 bg-gray-50/50 dark:bg-gray-800/30 rounded-lg hover:bg-gray-100 transition-all;
+}
+
+/* History Dropdown */
+.c-report-history {
+    @apply border-t border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/30 p-4 space-y-2;
+}
+
+.c-report-history__item {
+    @apply bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-xl p-3 hover:border-primary/30 transition-all;
+}
+
+.c-report-history__header {
+    @apply flex items-center justify-between mb-2;
+}
+
+.c-report-history__meta {
+    @apply flex items-center gap-2;
+}
+
+.c-report-history__date {
+    @apply text-[10px] text-gray-400 font-medium;
+}
+
+.c-report-history__text {
+    @apply text-xs text-gray-600 dark:text-gray-400 leading-relaxed;
+}
