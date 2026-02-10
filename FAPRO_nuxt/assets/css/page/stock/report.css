@@ -22,6 +22,26 @@
     @apply text-sm text-gray-500;
 }
 
+.p-stock-report__actions {
+    @apply flex items-center gap-3;
+}
+
+.p-stock-report__search {
+    @apply relative;
+}
+
+.p-stock-report__search-icon {
+    @apply absolute left-3 top-1/2 -translate-y-1/2 text-gray-400;
+}
+
+.p-stock-report__search-input {
+    @apply pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all w-64;
+}
+
+.dark .p-stock-report__search-input {
+    @apply bg-gray-800 border-gray-700 text-white;
+}
+
 /* Date Selector */
 .p-stock-report__date-selector {
     @apply flex items-center justify-center gap-3 py-6 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl mb-6;

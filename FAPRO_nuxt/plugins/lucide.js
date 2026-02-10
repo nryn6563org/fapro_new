@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Search, Moon, Sun, Settings, LayoutDashboard, BarChart3, FileText, Zap, PieChart, LineChart, Users, MessageCircle, MessageSquare, Calendar, Star, LogOut, Plus, ChevronLeft, ChevronRight, RefreshCw, AlertCircle, BookOpen, CreditCard, User, Monitor, TrendingUp, Shield, Sparkles, Upload, Download, UserPlus, Crown, Activity, Calculator, Briefcase, Wallet, Info, HelpCircle, Bell, Newspaper, Building2, X } from "lucide-vue";
+import { Search, Moon, Sun, Settings, LayoutDashboard, BarChart3, FileText, Zap, PieChart, LineChart, Users, MessageCircle, MessageSquare, Calendar, Star, LogOut, Plus, ChevronLeft, ChevronRight, RefreshCw, AlertCircle, BookOpen, CreditCard, User, Monitor, TrendingUp, Shield, Sparkles, Upload, Download, UserPlus, Crown, Activity, Calculator, Briefcase, Wallet, Info, HelpCircle, Bell, Newspaper, Building2, X, Brain, Award, UserCheck, History, ChevronDown, File } from "lucide-vue";
 
 const icons = {
   Search,
@@ -43,7 +43,13 @@ const icons = {
   Bell,
   Newspaper,
   Building2,
-  X
+  X,
+  Brain,
+  Award,
+  UserCheck,
+  History,
+  ChevronDown,
+  File
 };
 
 Object.entries(icons).forEach(([name, icon]) => {

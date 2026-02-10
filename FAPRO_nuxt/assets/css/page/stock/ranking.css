@@ -1,15 +1,24 @@
+/**
+ * 종목 랭킹 페이지 스타일
+ * BEM 네이밍 규칙 및 Tailwind CSS v3 @apply 문법을 사용합니다.
+ */
+
+/* 랭킹 페이지 메인 컨테이너 */
 .p-stock-ranking {
     @apply space-y-6;
 }
 
+/* 헤더 영역 */
 .p-stock-ranking__header {
     @apply flex items-center justify-between mb-8;
 }
 
+/* 헤더 타이틀 그룹 */
 .p-stock-ranking__title-group {
     @apply space-y-1;
 }
 
+/* 메인 타이틀 */
 .p-stock-ranking__title {
     @apply text-xl font-bold text-gray-900;
 }
@@ -18,22 +27,27 @@
     @apply text-white;
 }
 
+/* 서브 타이틀 */
 .p-stock-ranking__subtitle {
     @apply text-sm text-gray-500;
 }
 
+/* 상단 액션 바 (검색 등) */
 .p-stock-ranking__actions {
     @apply flex items-center gap-3;
 }
 
+/* 검색창 컨테이너 */
 .p-stock-ranking__search {
     @apply relative;
 }
 
+/* 검색 아이콘 */
 .p-stock-ranking__search-icon {
     @apply absolute left-3 top-1/2 -translate-y-1/2 text-gray-400;
 }
 
+/* 검색 입력 필드 */
 .p-stock-ranking__search-input {
     @apply pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all w-64;
 }
@@ -42,17 +56,21 @@
     @apply bg-gray-800 border-gray-700 text-white;
 }
 
-/* Stats Cards */
+/* 상단 통계 카드 그리드 */
 .p-stock-ranking__stats {
     @apply grid grid-cols-1 md:grid-cols-4 gap-4 mb-6;
 }
 
-/* Ranking List */
+/* 랭킹 리스트 컨테이너 */
 .p-stock-ranking__list {
     @apply space-y-3;
 }
 
-/* Stock Item */
+/**
+ * 프로젝트 내 개별 종목 아이템 컴포넌트 (c-ranking-item)
+ */
+
+/* 종목 아이템 카드 */
 .c-ranking-item {
     @apply flex items-center gap-4 p-4 bg-white border border-gray-100 rounded-xl hover:border-primary/40 hover:shadow-sm transition-all;
 }
@@ -61,26 +79,32 @@
     @apply bg-gray-900 border-gray-800;
 }
 
+/* 순위 표시 영역 */
 .c-ranking-item__rank {
     @apply flex items-center justify-center w-10 flex-shrink-0;
 }
 
+/* 순위 텍스트 */
 .c-ranking-item__rank-text {
     @apply text-lg font-bold text-gray-400;
 }
 
+/* 순위 이모지/아이콘 */
 .c-ranking-item__rank-icon {
     @apply text-2xl;
 }
 
+/* 본문 컨텐츠 영역 */
 .c-ranking-item__content {
     @apply flex-1 min-w-0;
 }
 
+/* 상단 정보 그룹 (이름, 코드, 등락) */
 .c-ranking-item__top {
     @apply flex items-center gap-2 mb-1.5 flex-wrap;
 }
 
+/* 종목명 (링크) */
 .c-ranking-item__name {
     @apply text-base font-bold text-gray-900 hover:text-primary hover:underline transition-colors;
 }
@@ -89,34 +113,52 @@
     @apply text-white;
 }
 
+/* 종목코드 */
 .c-ranking-item__code {
     @apply text-xs text-gray-400;
 }
 
+/* 등락률 */
 .c-ranking-item__change {
     @apply text-sm font-bold;
 }
 
+/* 등락률 - 상승 */
+.c-ranking-item__change--up {
+    @apply text-red-500;
+}
+
+/* 등락률 - 하락 */
+.c-ranking-item__change--down {
+    @apply text-blue-500;
+}
+
+/* 종목 상태 뱃지 그룹 */
 .c-ranking-item__badges {
     @apply flex flex-wrap gap-1;
 }
 
+/* 하단 메타 정보 (보유 고객 수 등) */
 .c-ranking-item__meta {
     @apply flex items-center gap-3 text-xs text-gray-500;
 }
 
+/* 하단 메타 정보 강조 텍스트 */
 .c-ranking-item__meta-highlight {
     @apply font-semibold text-primary;
 }
 
+/* 종목 액션 버튼 그룹 */
 .c-ranking-item__actions {
     @apply flex items-center gap-1 flex-shrink-0;
 }
 
+/* 공통 액션 버튼 스타일 */
 .c-ranking-item__action-btn {
     @apply p-2 rounded-lg transition-colors;
 }
 
+/* 컬러별 버튼 변형 */
 .c-ranking-item__action-btn--orange { @apply text-orange-500 hover:bg-orange-50; }
 .c-ranking-item__action-btn--purple { @apply text-purple-500 hover:bg-purple-50; }
 .c-ranking-item__action-btn--blue { @apply text-blue-500 hover:bg-blue-50; }
@@ -124,41 +166,7 @@
 .c-ranking-item__action-btn--gray { @apply text-gray-500 hover:bg-gray-100; }
 
 .dark .c-ranking-item__action-btn--orange { @apply hover:bg-orange-900/30; }
-/* ... other dark states if needed */
-
-/* Modal Styles */
-.c-modal-overlay {
-    @apply fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[100] p-4;
-}
-
-.c-modal {
-    @apply bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[85vh] flex flex-col overflow-hidden;
-}
-
-.c-modal__header {
-    @apply flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-800 bg-gradient-to-r from-primary to-primary-dark text-white;
-}
-
-.c-modal__title-group {
-    @apply flex items-center gap-3;
-}
-
-.c-modal__title {
-    @apply text-lg font-bold;
-}
-
-.c-modal__subtitle {
-    @apply text-sm opacity-80;
-}
-
-.c-modal__close {
-    @apply p-2 hover:bg-white/20 rounded-full transition-all;
-}
-
-.c-modal__body {
-    @apply flex-1 p-6 overflow-y-auto;
-}
-
-.c-modal__footer {
-    @apply p-4 border-t border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 flex justify-end;
-}
+.dark .c-ranking-item__action-btn--purple { @apply hover:bg-purple-900/30; }
+.dark .c-ranking-item__action-btn--blue { @apply hover:bg-blue-900/30; }
+.dark .c-ranking-item__action-btn--green { @apply hover:bg-green-900/30; }
+.dark .c-ranking-item__action-btn--gray { @apply hover:bg-gray-800; }

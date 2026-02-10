@@ -76,44 +76,57 @@
       </template>
     </div>
 
-    <!-- Modals (Placeholders) -->
-    <transition name="t-fade">
-      <div v-if="activeModal" class="c-modal-overlay" @click.self="activeModal = null">
-        <div class="c-modal">
-          <div class="c-modal__header">
-            <div class="c-modal__title-group">
-              <component :is="activeModalIcon" :size="20" />
-              <div>
-                <h3 class="c-modal__title">{{ activeModalTitle }}</h3>
-                <p class="c-modal__subtitle">{{ activeStock.name }} ({{ activeStock.code }})</p>
-              </div>
-            </div>
-            <button class="c-modal__close" @click="activeModal = null">
-              <X :size="20" />
-            </button>
-          </div>
-          <div class="c-modal__body">
-            <!-- Modal Content Placeholder -->
-            <div class="py-20 text-center">
-              <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-4">
-                <component :is="activeModalIcon" :size="32" />
-              </div>
-              <h4 class="text-lg font-bold mb-2">{{ activeModalTitle }} 서비스 준비중</h4>
-              <p class="text-gray-500 text-sm">리포트 및 고객 데이터를 정합성 있게 분석 중입니다.</p>
-            </div>
-          </div>
-          <div class="c-modal__footer">
-            <button class="c-btn c-btn--ghost c-btn--sm" @click="activeModal = null">닫기</button>
-          </div>
-        </div>
-      </div>
-    </transition>
+    <!-- Modals -->
+    <RelatedCustomersModal
+      :is-open="activeModal === 'customers'"
+      :stock-name="activeStock.name"
+      :stock-code="activeStock.code"
+      :customers="activeStock.relatedCustomers || []"
+      @close="activeModal = null"
+    />
+
+    <ReportSummaryModal
+      :is-open="activeModal === 'script'"
+      :stock-name="activeStock.name"
+      :stock-code="activeStock.code"
+      :summary="activeStock.fullReport?.summary"
+      :reason="activeStock.reason"
+      @close="activeModal = null"
+    />
+
+    <StockReportModal
+      :is-open="activeModal === 'report'"
+      :stock-name="activeStock.name"
+      :stock-code="activeStock.code"
+      :report="activeStock"
+      @close="activeModal = null"
+    />
   </div>
 </template>
 
 <script>
+import ReportCard from '@/components/page/stock/report/ReportCard.vue'
+import RelatedCustomersModal from '@/components/page/stock/report/modal/RelatedCustomersModal.vue'
+import ReportSummaryModal from '@/components/page/stock/report/modal/ReportSummaryModal.vue'
+import StockReportModal from '@/components/page/stock/report/modal/StockReportModal.vue'
+import { Search, RefreshCw, ChevronLeft, ChevronRight, X, Users, FileText, File } from 'lucide-vue'
+
 export default {
   name: 'AIReportPage',
+  components: {
+    ReportCard,
+    RelatedCustomersModal,
+    ReportSummaryModal,
+    StockReportModal,
+    Search,
+    RefreshCw,
+    ChevronLeft,
+    ChevronRight,
+    X,
+    Users,
+    FileText,
+    File
+  },
   data() {
     return {
       searchQuery: '',
@@ -186,22 +199,6 @@ export default {
     },
     activeStock() {
       return this.reports.find(s => s.code === this.activeStockCode) || {};
-    },
-    activeModalTitle() {
-      const titles = {
-        customers: '관련 고객 목록',
-        report: 'AI 상세 리포트',
-        script: '요약 스크립트'
-      };
-      return titles[this.activeModal] || '';
-    },
-    activeModalIcon() {
-      const icons = {
-        customers: 'Users',
-        report: 'FileText',
-        script: 'DocumentIcon'
-      };
-      return icons[this.activeModal] || 'HelpCircle';
     }
   },
   methods: {

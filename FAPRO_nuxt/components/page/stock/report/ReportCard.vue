@@ -56,7 +56,7 @@
             class="c-btn c-btn--ghost c-btn--sm px-4 bg-indigo-50 text-indigo-600 border border-indigo-100 flex-1"
             @click="$emit('show-script', report.code)"
           >
-            <DocumentIcon :size="16" class="mr-1.5" />
+            <File :size="16" class="mr-1.5" />
             요약
           </button>
         </div>
@@ -97,8 +97,18 @@
 </template>
 
 <script>
+import { Sparkles, UserCheck, FileText, File, History, ChevronDown } from 'lucide-vue'
+
 export default {
   name: 'StockReportCard',
+  components: {
+    Sparkles,
+    UserCheck,
+    FileText,
+    File,
+    History,
+    ChevronDown
+  },
   props: {
     report: {
       type: Object,
