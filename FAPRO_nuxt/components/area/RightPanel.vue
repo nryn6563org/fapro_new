@@ -5,7 +5,7 @@
       <section class="c-right-panel__section">
         <header class="c-section-header">
           <h2 class="c-section-header__title">일정 관리</h2>
-          <button class="c-section-header__action">
+          <button class="c-section-header__action" @click="goToSchedulePage">
             <Plus :size="16" />
           </button>
         </header>
@@ -139,47 +139,12 @@ export default {
       lastRefreshed: '2026.02.09 13:27:37',
       isScheduleModalOpen: false,
       isIssueModalOpen: false,
-      selectedDate: null,
-      selectedDateLabel: '',
-      selectedDaySchedules: [],
       selectedIssue: {},
       selectAttribute: {
         highlight: {
           color: 'blue',
           fillMode: 'solid',
         },
-      },
-      calendarAttributes: [
-        {
-          key: 'today',
-          highlight: {
-            color: 'blue',
-            fillMode: 'solid',
-          },
-          dates: new Date(2026, 1, 9),
-        },
-        {
-          key: 'schedules',
-          dot: 'blue',
-          dates: [
-            new Date(2026, 1, 4),
-            new Date(2026, 1, 6),
-            new Date(2026, 1, 11),
-            new Date(2026, 1, 15),
-            new Date(2026, 1, 20),
-          ],
-        }
-      ],
-      schedulesData: {
-        '2026-02-04': [
-          { title: '월간 리포트 작성', description: '고객 월간 리포트 작성 마감일', target: 'VIP 50 members' }
-        ],
-        '2026-02-06': [
-          { title: '신규 고객 미팅', description: '자산 배분 전략 상담', target: 'John Doe' }
-        ],
-        '2026-02-11': [
-          { title: '시장 분석 회의', description: '반도체 섹터 전망 논의', target: 'Team A' }
-        ]
       },
       timelineEvents: [
         { id: 1, type: 'signal', typeLabel: '신호', badgeColor: 'c-tag--signal', dotBorder: 'c-dot--signal', stockName: '삼성전자', stockCode: '005930', title: '매수 시그널 발생', desc: '라씨 AI 매수 신호 포착, 거래량 급증 감지', time: '5분 전', holders: 87, hasAlarm: true },
@@ -191,13 +156,42 @@ export default {
       ]
     }
   },
+  computed: {
+    selectedDate: {
+      get() {
+        return this.$store.state.schedule.selectedDate
+      },
+      set(val) {
+        this.$store.dispatch('schedule/updateSelectedDate', val)
+      }
+    },
+    selectedDateLabel() {
+      const date = this.selectedDate
+      return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`
+    },
+    selectedDaySchedules() {
+      const d = this.selectedDate
+      const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+      return this.$store.getters['schedule/getSchedulesByDate'](dateStr)
+    },
+    calendarAttributes() {
+      const scheduleDates = Object.keys(this.$store.state.schedule.schedules).map(dateStr => new Date(dateStr))
+      return [
+        {
+          key: 'schedules',
+          dot: 'blue',
+          dates: scheduleDates
+        }
+      ]
+    }
+  },
   methods: {
-    onDayClick(day) {
-      this.selectedDate = day.date; // Explicitly update bound model
-      const dateStr = day.id; // YYYY-MM-DD
-      this.selectedDateLabel = dateStr.replace(/-/g, '.');
-      this.selectedDaySchedules = this.schedulesData[dateStr] || [];
-      this.isScheduleModalOpen = true;
+    async onDayClick(day) {
+      this.selectedDate = day.date
+      
+      // Small delay to allow selection highlight to move visually before modal opens
+      await new Promise(resolve => setTimeout(resolve, 100))
+      this.isScheduleModalOpen = true
     },
     openFeedModal(event) {
       this.selectedIssue = event;
@@ -206,6 +200,9 @@ export default {
     refreshFeed() {
       const now = new Date();
       this.lastRefreshed = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+    },
+    goToSchedulePage() {
+      this.$router.push('/my/schedule')
     }
   }
 }
@@ -251,15 +248,23 @@ export default {
   @apply text-gray-300 dark:text-gray-600 !important;
 }
 
-::v-deep .vc-highlight {
-  @apply bg-blue-500 text-white !important;
+::v-deep .vc-day.is-today .vc-day-content {
+  @apply border bg-blue-500 font-bold !important;
 }
 
-::v-deep .vc-highlight span{
+::v-deep .vc-day.is-today .vc-highlight {
+  @apply bg-blue-500 !important;
+}
+
+::v-deep .vc-day.is-today.vc-day-box-center-center .vc-day-content {
   @apply text-white !important;
 }
 
-::v-deep .vc-day.is-today .vc-day-content {
+::v-deep .vc-highlight {
+  @apply bg-red-500 text-white !important;
+}
+
+::v-deep .vc-highlight span{
   @apply text-white !important;
 }
 

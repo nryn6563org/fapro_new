@@ -3,9 +3,10 @@ export default {
   target: "static",
   router: {
     // [GitHub Pages Deployment]
-    // If your repository name is different, change this value.
-    // Example: If your repo is 'my-project', set base to '/my-project/'
-    base: "/fapro-nuxt/"
+    // Your site is at https://nryn6563org.github.io/fapro_new/
+    // So the base MUST be "/fapro_new/" (with slashes).
+    // Using "/" will cause 404 errors because it looks at the root domain.
+    base: "/fapro_new/"
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -43,8 +44,15 @@ export default {
     classSuffix: ""
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
+  // Static Generation Configuration
+  generate: {
+    nojekyll: true,
+    fallback: "404.html"
+  },
+
+  // Build Configuration: https://gonuxtjs.dev/config-build
   build: {
+    publicPath: "/fapro_new/assets/",
     transpile: ["lucide-vue"],
     babel: {
       plugins: ["@babel/plugin-proposal-optional-chaining", "@babel/plugin-proposal-nullish-coalescing-operator"]

@@ -132,16 +132,16 @@
 .c-dot--social { @apply border-pink-500; }
 
 .c-timeline__content {
-    @apply flex-1 pb-6 pl-[2px];
+    @apply flex-1 mb-6 pl-[2px];
 }
 
 /* Feed Card */
 .c-feed-card {
-    @apply relative p-[0.5rem_1.5rem_1rem_0] bg-white dark:bg-gray-800/30 rounded-xl hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-all;
+    @apply relative p-[0.5rem_1.5rem_1rem_0.25rem] bg-white dark:bg-gray-800/30 rounded-xl hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-all cursor-pointer;
 }
 
 .c-feed-card__header {
-    @apply flex items-center justify-between mb-3;
+    @apply flex items-center gap-2 mb-3;
 }
 
 .c-feed-card__stock-info {
@@ -160,7 +160,7 @@
 .c-tag--social { @apply bg-pink-500; }
 
 .c-feed-card__stock-name {
-    @apply w-[68px] overflow-hidden line-clamp-1 text-sm font-bold text-gray-900 dark:text-gray-100;
+    @apply max-w-[68px] overflow-hidden line-clamp-1 text-sm font-bold text-gray-900 dark:text-gray-100;
 }
 
 .c-feed-card__stock-code {
@@ -192,7 +192,7 @@
 
 /* Body */
 .c-feed-card__body {
-    @apply space-y-1;
+    @apply space-y-1 pl-[2px];
 }
 
 .c-feed-card__title {

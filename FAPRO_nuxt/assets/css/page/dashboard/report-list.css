@@ -1,5 +1,5 @@
 .c-report-list {
-    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-[400px];
+    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-[600px];
 }
 
 .c-report-list__header {
@@ -31,11 +31,11 @@
 }
 
 .c-report-list__body {
-    @apply flex-1 overflow-y-auto min-h-0 p-4 space-y-3;
+    @apply flex-1 min-h-0 p-4 pr-2 space-y-3;
 }
 
 .c-report-row__container{
-    @apply space-y-3;
+    @apply space-y-3  overflow-y-auto pr-2;
 }
 
 .c-report-row {
