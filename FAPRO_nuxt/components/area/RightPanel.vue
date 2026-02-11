@@ -17,6 +17,7 @@
               v-model="selectedDate"
               is-expanded
               trim-weeks
+              :is-dark="$colorMode.value === 'dark'"
               :attributes="calendarAttributes"
               :select-attribute="selectAttribute"
               :masks="{ title: 'YYYY.MM' }"
@@ -41,12 +42,12 @@
         <header class="c-feed-header">
           <div class="c-feed-header__top">
             <h2 class="c-feed-header__title">실시간 이슈/이벤트</h2>
-            <button class="c-feed-header__refresh" @click="refreshFeed">
-              <RefreshCw :size="12" />
-            </button>
           </div>
           <p class="c-feed-header__desc">고객 보유 종목 랭킹 top10 종목과 내 관심목의 이벤트 발생내역을 실시간으로 알려드립니다.</p>
           <div class="c-feed-header__meta">
+            <button class="c-feed-header__refresh" @click="refreshFeed">
+              <RefreshCw :size="12" />
+            </button>
             <span class="c-feed-header__time">{{ lastRefreshed }}</span>
           </div>
         </header>
@@ -152,7 +153,11 @@ export default {
         { id: 3, type: 'issue', typeLabel: '이슈', badgeColor: 'c-tag--issue', dotBorder: 'c-dot--issue', stockName: '현대차', stockCode: '005380', title: '급등 이슈 발생', desc: '미국 전기차 보조금 확대 소식에 7.2% 급등', time: '23분 전', holders: 63 },
         { id: 4, type: 'disclosure', typeLabel: '공시', badgeColor: 'c-tag--disclosure', dotBorder: 'c-dot--disclosure', stockName: 'NAVER', stockCode: '035420', title: '자사주 매입 공시', desc: '1,000억원 규모 자사주 매입 결정 공시', time: '35분 전', holders: 41 },
         { id: 5, type: 'report', typeLabel: '리포트', badgeColor: 'c-tag--report', dotBorder: 'c-dot--report', stockName: '카카오', stockCode: '035720', title: '투자의견 상향', desc: '광고 매출 회복세, 목표주가 7만원 상향 조정', time: '47분 전', holders: 38 },
-        { id: 6, type: 'social', typeLabel: '소셜', badgeColor: 'c-tag--social', dotBorder: 'c-dot--social', stockName: 'LG에너지솔루션', stockCode: '373220', title: '소셜 언급량 급증', desc: '배터리 수주 관련 긍정적 여론 확산', time: '1시간 전', holders: 45 }
+        { id: 6, type: 'social', typeLabel: '소셜', badgeColor: 'c-tag--social', dotBorder: 'c-dot--social', stockName: 'LG에너지솔루션', stockCode: '373220', title: '소셜 언급량 급증', desc: '배터리 수주 관련 긍정적 여론 확산', time: '1시간 전', holders: 45 },
+        { id: 7, type: 'signal', typeLabel: '신호', badgeColor: 'c-tag--signal', dotBorder: 'c-dot--signal', stockName: '기아', stockCode: '000270', title: '강력 매수 신호', desc: 'AI 분석 결과 실적 개선 기대감 고조', time: '1.5시간 전', holders: 32 },
+        { id: 8, type: 'news', typeLabel: '뉴스', badgeColor: 'c-tag--news', dotBorder: 'c-dot--news', stockName: '셀트리온', stockCode: '068270', title: '신약 승인 대기', desc: 'EMA 최종 승인 결과 발표 임박', time: '2시간 전', holders: 74 },
+        { id: 9, type: 'issue', typeLabel: '이슈', badgeColor: 'c-tag--issue', dotBorder: 'c-dot--issue', stockName: 'POSCO홀딩스', stockCode: '005490', title: '리튬 사업 확대', desc: '해외 리튬 염호 추가 확보 계약 체결', time: '3시간 전', holders: 58 },
+        { id: 10, type: 'report', typeLabel: '리포트', badgeColor: 'c-tag--report', dotBorder: 'c-dot--report', stockName: '에코프로비엠', stockCode: '247540', title: '목표주가 제시', desc: '양극재 출하량 증가로 수익성 개선 전망', time: '4시간 전', holders: 49 }
       ]
     }
   },
@@ -221,7 +226,7 @@ export default {
 }
 
 ::v-deep .vc-title {
-  @apply text-[11px] font-bold text-gray-700 dark:text-gray-300 !important;
+  @apply text-[11px] font-extrabold text-gray-700 dark:text-gray-100 !important;
 }
 
 ::v-deep .vc-nav-arrow {
@@ -241,15 +246,15 @@ export default {
 }
 
 ::v-deep .vc-day-content {
-  @apply text-[10px] font-medium text-gray-700 dark:text-gray-300 transition-all hover:bg-white dark:hover:bg-gray-700 w-7 h-7 !important;
+  @apply text-[10px] font-semibold text-gray-700 dark:text-gray-100 transition-all w-7 h-7 !important;
 }
 
 ::v-deep .vc-day.is-not-in-month .vc-day-content {
-  @apply text-gray-300 dark:text-gray-600 !important;
+  @apply text-gray-300 dark:text-gray-100 !important;
 }
 
 ::v-deep .vc-day.is-today .vc-day-content {
-  @apply border bg-blue-500 font-bold !important;
+  @apply font-bold text-blue-500 !important;
 }
 
 ::v-deep .vc-day.is-today .vc-highlight {

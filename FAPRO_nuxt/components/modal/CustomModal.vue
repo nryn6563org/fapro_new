@@ -74,5 +74,5 @@ export default {
 </script>
 
 <style scoped>
-@import '@/assets/css/page/dashboard/custom-modal.css';
+@import '@/assets/css/modal/custom-modal.css';
 </style>

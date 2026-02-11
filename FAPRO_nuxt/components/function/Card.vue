@@ -35,6 +35,3 @@ export default {
 }
 </script>
 
-<style scoped>
-/* Styles are imported globally but defined in assets/css/function/ui.css */
-</style>

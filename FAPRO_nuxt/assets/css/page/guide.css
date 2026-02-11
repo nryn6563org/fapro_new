@@ -1,0 +1,163 @@
+/* 가이드 페이지 전용 레이아웃 스타일 */
+.c-guide {
+  padding: 40px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  color: #334155;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.c-guide__header {
+  margin-bottom: 40px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 24px;
+}
+
+.c-guide__header h1 {
+  font-size: 34px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
+}
+
+.c-guide__header p {
+  color: #64748b;
+  font-size: 16px;
+}
+
+.c-guide__section {
+  margin-bottom: 50px;
+}
+
+.c-guide__section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.c-guide__section-title::before {
+  content: '';
+  width: 4px;
+  height: 18px;
+  background: #3b82f6;
+  border-radius: 2px;
+}
+
+.c-guide__tree {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.tree-root {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tree-children {
+  list-style: none;
+  padding-left: 28px;
+  border-left: 1px dashed #cbd5e1;
+  margin-left: 10px;
+}
+
+.tree-item {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s;
+}
+
+.tree-item:hover {
+  transform: translateX(5px);
+}
+
+.tree-icon {
+  font-size: 20px;
+}
+
+.tree-name {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.tree-desc {
+  font-size: 14px;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.tree-related {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.tag {
+  font-size: 11px;
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid #bfdbfe;
+  font-weight: 500;
+}
+
+/* 룰 카드 섹션 */
+.rules-container {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .rules-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.rule-card {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.rule-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.rule-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.rule-card li {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 20px;
+}
+
+.rule-card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  font-weight: bold;
+}

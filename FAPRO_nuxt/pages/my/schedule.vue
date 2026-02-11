@@ -39,6 +39,7 @@
             <v-calendar
               v-model="selectedDate"
               is-expanded
+              :is-dark="$colorMode.value === 'dark'"
               class="p-schedule-v-calendar"
               :attributes="calendarAttributes"
               :select-attribute="selectAttribute"

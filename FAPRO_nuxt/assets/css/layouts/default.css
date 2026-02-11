@@ -27,7 +27,7 @@
 }
 
 .l-default__right-panel {
-    @apply w-80 flex-shrink-0 border-l border-gray-100 hidden xl:block;
+    @apply w-[360px] flex-shrink-0 border-l border-gray-100 hidden xl:block;
 }
 
 .dark .l-default__right-panel {

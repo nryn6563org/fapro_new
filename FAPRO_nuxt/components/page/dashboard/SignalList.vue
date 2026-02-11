@@ -18,12 +18,12 @@
         <div class="c-signal-summary__main">
           <p class="c-signal-summary__label">오늘의 AI 매매신호 현황</p>
           <div class="c-signal-summary__counts">
-            <!-- Buy Circle -->
+            <!-- 매수 서클 -->
             <div class="c-signal-circle c-signal-circle--buy">
               <span class="c-signal-circle__label">매수</span>
               <span class="c-signal-circle__value">{{ buyCount }}종목</span>
             </div>
-            <!-- Sell Circle -->
+            <!-- 매도 서클 -->
             <div class="c-signal-circle c-signal-circle--sell">
               <span class="c-signal-circle__label">매도</span>
               <span class="c-signal-circle__value">{{ sellCount }}종목</span>

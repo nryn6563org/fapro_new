@@ -42,7 +42,7 @@
           @click="selectedDate = date.value"
         >
           <div class="flex items-center gap-1">
-            <span v-if="date.value === today" class="text-[9px] font-bold text-primary">오늘</span>
+            <span v-if="date.value === today" class="text-[10px] font-bold text-primary">오늘</span>
             <span class="p-stock-report__date-label">{{ date.value }}</span>
           </div>
           <span class="p-stock-report__date-count">{{ date.count }}건</span>

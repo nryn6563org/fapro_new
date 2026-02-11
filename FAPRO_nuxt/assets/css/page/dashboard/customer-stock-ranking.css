@@ -78,7 +78,7 @@
 .c-ranking-row__change--down { @apply text-blue-500; }
 
 .c-ranking-row__holders {
-    @apply text-[9px] text-gray-400 dark:text-gray-500 w-16 font-medium;
+    @apply text-[10px] text-gray-400 dark:text-gray-500 w-16 font-medium;
 }
 
 .c-customer-stock-ranking__footer {

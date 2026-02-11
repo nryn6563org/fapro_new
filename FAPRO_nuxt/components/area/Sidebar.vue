@@ -6,7 +6,7 @@
       <!-- 대시보드 섹션 -->
       <div class="c-sidebar__section">
         <nuxt-link to="/" class="c-sidebar__item" exact-active-class="c-sidebar__item--active">
-          <LayoutDashboard class="c-sidebar__icon text-purple-500" :size="20" />
+          <LayoutDashboard class="c-sidebar__icon c-sidebar__icon--dashboard" :size="20" />
           <span class="c-sidebar__label">대시보드</span>
         </nuxt-link>
       </div>
@@ -19,7 +19,7 @@
           @click="toggleSection('stock')"
         >
           <div class="c-sidebar__category-title">
-            <TrendingUp class="c-sidebar__icon text-blue-500" :size="20" />
+            <TrendingUp class="c-sidebar__icon c-sidebar__icon--stock" :size="20" />
             <span class="c-sidebar__label">종목관리</span>
           </div>
           <ChevronRight 
@@ -31,27 +31,27 @@
 
         <div v-if="isMinimized || openSections.includes('stock')" class="c-sidebar__submenu">
           <nuxt-link to="/stock/ranking" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <Crown class="c-sidebar__icon text-yellow-500" :size="16" />
+            <Crown class="c-sidebar__icon c-sidebar__icon--ranking" :size="16" />
             <span class="c-sidebar__label">고객 보유 종목 랭킹</span>
           </nuxt-link>
           <nuxt-link to="/stock/reports" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <FileText class="c-sidebar__icon text-green-500" :size="16" />
+            <FileText class="c-sidebar__icon c-sidebar__icon--reports" :size="16" />
             <span class="c-sidebar__label">AI리포트 생성 종목</span>
           </nuxt-link>
           <nuxt-link to="/stock/issue" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <AlertCircle class="c-sidebar__icon text-red-500" :size="16" />
+            <AlertCircle class="c-sidebar__icon c-sidebar__icon--issue" :size="16" />
             <span class="c-sidebar__label">이슈 발생 종목</span>
           </nuxt-link>
           <nuxt-link to="/stock/signals" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <Activity class="c-sidebar__icon text-indigo-500" :size="16" />
+            <Activity class="c-sidebar__icon c-sidebar__icon--signals" :size="16" />
             <span class="c-sidebar__label">라씨시그널 발생 종목</span>
           </nuxt-link>
           <nuxt-link to="/stock/quant" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <Calculator class="c-sidebar__icon text-pink-500" :size="16" />
+            <Calculator class="c-sidebar__icon c-sidebar__icon--quant" :size="16" />
             <span class="c-sidebar__label">퀀트 종목</span>
           </nuxt-link>
           <nuxt-link to="/stock/discovery" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <Sparkles class="c-sidebar__icon text-violet-500" :size="16" />
+            <Sparkles class="c-sidebar__icon c-sidebar__icon--discovery" :size="16" />
             <span class="c-sidebar__label">AI종목발굴</span>
           </nuxt-link>
         </div>
@@ -65,7 +65,7 @@
           @click="toggleSection('customer')"
         >
           <div class="c-sidebar__category-title">
-            <Users class="c-sidebar__icon text-teal-500" :size="20" />
+            <Users class="c-sidebar__icon c-sidebar__icon--customer" :size="20" />
             <span class="c-sidebar__label">고객 관리</span>
           </div>
           <ChevronRight 
@@ -77,15 +77,15 @@
 
         <div v-if="isMinimized || openSections.includes('customer')" class="c-sidebar__submenu">
           <nuxt-link to="/customer/statistics" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <PieChart class="c-sidebar__icon text-cyan-500" :size="16" />
+            <PieChart class="c-sidebar__icon c-sidebar__icon--statistics" :size="16" />
             <span class="c-sidebar__label">고객 통계</span>
           </nuxt-link>
           <nuxt-link to="/customer/list" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <Crown class="c-sidebar__icon text-orange-500" :size="16" />
+            <Crown class="c-sidebar__icon c-sidebar__icon--list" :size="16" />
             <span class="c-sidebar__label">고객 리스트</span>
           </nuxt-link>
           <nuxt-link to="/customer/consultation" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <MessageSquare class="c-sidebar__icon text-orange-400" :size="16" />
+            <MessageSquare class="c-sidebar__icon c-sidebar__icon--consultation" :size="16" />
             <span class="c-sidebar__label">고객 상담 노트</span>
           </nuxt-link>
         </div>
@@ -99,7 +99,7 @@
           @click="toggleSection('my')"
         >
           <div class="c-sidebar__category-title">
-            <UserCircle class="c-sidebar__icon text-indigo-600" :size="20" />
+            <UserCircle class="c-sidebar__icon c-sidebar__icon--my" :size="20" />
             <span class="c-sidebar__label">MY</span>
           </div>
           <ChevronRight 
@@ -111,27 +111,27 @@
 
         <div v-if="isMinimized || openSections.includes('my')" class="c-sidebar__submenu">
           <nuxt-link to="/my/schedule" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <Calendar class="c-sidebar__icon text-blue-400" :size="16" />
+            <Calendar class="c-sidebar__icon c-sidebar__icon--schedule" :size="16" />
             <span class="c-sidebar__label">일정관리</span>
           </nuxt-link>
           <nuxt-link to="/my/stocks" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <Briefcase class="c-sidebar__icon text-amber-600" :size="16" />
+            <Briefcase class="c-sidebar__icon c-sidebar__icon--mystocks" :size="16" />
             <span class="c-sidebar__label">MY종목</span>
           </nuxt-link>
           <nuxt-link to="/my/investment" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <Wallet class="c-sidebar__icon text-emerald-600" :size="16" />
+            <Wallet class="c-sidebar__icon c-sidebar__icon--investment" :size="16" />
             <span class="c-sidebar__label">투자정보</span>
           </nuxt-link>
           <nuxt-link to="/my/info" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <Info class="c-sidebar__icon text-sky-500" :size="16" />
+            <Info class="c-sidebar__icon c-sidebar__icon--info" :size="16" />
             <span class="c-sidebar__label">나의정보</span>
           </nuxt-link>
           <nuxt-link to="/my/payment" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <CreditCard class="c-sidebar__icon text-rose-500" :size="16" />
+            <CreditCard class="c-sidebar__icon c-sidebar__icon--payment" :size="16" />
             <span class="c-sidebar__label">결제정보</span>
           </nuxt-link>
           <nuxt-link to="/my/faq" class="c-sidebar__subitem" active-class="c-sidebar__subitem--active">
-            <HelpCircle class="c-sidebar__icon text-slate-500" :size="16" />
+            <HelpCircle class="c-sidebar__icon c-sidebar__icon--faq" :size="16" />
             <span class="c-sidebar__label">FAQ</span>
           </nuxt-link>
         </div>

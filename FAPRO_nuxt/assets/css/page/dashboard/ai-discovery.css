@@ -107,7 +107,7 @@
 }
 
 .c-discovery-item__tag {
-    @apply px-1.5 py-0.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-[8px] text-gray-400 dark:text-gray-500 font-bold;
+    @apply px-1.5 py-0.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-[10px] text-gray-400 dark:text-gray-500 font-bold;
 }
 
 .c-discovery-item__action {

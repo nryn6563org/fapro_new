@@ -86,7 +86,7 @@
 }
 
 .c-feed-header__meta {
-    @apply flex items-center justify-end;
+    @apply flex items-center justify-end gap-1;
 }
 
 .c-feed-header__time {
@@ -96,11 +96,11 @@
 /* Timeline */
 
 .c-right-panel__section--feed {
-    @apply h-[calc(100%-87px)];
+    @apply flex flex-col flex-1 min-h-0;
 }
 
 .c-timeline {
-    @apply space-y-0 overflow-y-auto no-scrollbar pb-20;
+    @apply flex-1 space-y-0 overflow-y-auto pb-20;
 }
 
 .c-timeline__item {
@@ -160,7 +160,7 @@
 .c-tag--social { @apply bg-pink-500; }
 
 .c-feed-card__stock-name {
-    @apply max-w-[68px] overflow-hidden line-clamp-1 text-sm font-bold text-gray-900 dark:text-gray-100;
+    @apply max-w-[100px] overflow-hidden line-clamp-1 text-sm font-bold text-gray-900 dark:text-gray-100;
 }
 
 .c-feed-card__stock-code {
@@ -168,15 +168,15 @@
 }
 
 .c-feed-card__actions {
-    @apply flex items-center gap-2 pr-1; /* Add padding to make room for absolute bell */
+    @apply flex items-center gap-2;
 }
 
 .c-feed-card__holders {
-    @apply flex items-center gap-1 px-1.5 py-0.5 rounded border border-blue-100 dark:border-blue-900/30 text-[9px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/10 transition-all;
+    @apply flex items-center gap-1 px-1.5 py-0.5 rounded border border-blue-100 dark:border-blue-900/30 text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/10 transition-all;
 }
 
 .c-feed-card__alarm-wrapper {
-    @apply absolute top-2 right-2 flex items-center justify-center w-5 h-5;
+    @apply flex items-center justify-center w-5 h-5;
 }
 
 .c-feed-card__alarm-wrapper--ping::after {

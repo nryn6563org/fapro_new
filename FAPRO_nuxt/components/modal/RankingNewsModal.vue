@@ -122,11 +122,5 @@ export default {
 </script>
 
 <style scoped>
-/* 외부 스타일 시트 임포트 */
 @import '@/assets/css/page/stock/modal/ranking-news-modal.css';
-
-/* Lucide 아이콘 색상 유지용 (Tailwind @apply로 제어하기 어려운 경우) */
-.c-ranking-news-modal__icon {
-  color: #ffffff;
-}
 </style>

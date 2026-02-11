@@ -17,7 +17,7 @@
 
         <div class="c-ranking-modal__body">
           <div class="space-y-6">
-            <!-- Summary Section -->
+            <!-- 요약 섹션 -->
             <section>
               <h4 class="text-sm font-bold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-2">
                 <span class="w-1 h-4 bg-orange-500 rounded-full"></span>
@@ -30,7 +30,7 @@
               </div>
             </section>
 
-            <!-- Keywords Section -->
+            <!-- 키워드 섹션 -->
             <section>
               <h4 class="text-sm font-bold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-2">
                 <span class="w-1 h-4 bg-blue-500 rounded-full"></span>
@@ -44,7 +44,7 @@
               </div>
             </section>
 
-            <!-- Detailed Link/Download Section -->
+            <!-- 상세 링크/다운로드 섹션 -->
             <section class="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-2xl border border-gray-100 dark:border-gray-700/50">
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
@@ -99,41 +99,5 @@ export default {
 </script>
 
 <style scoped>
-/* Scoped styles that follow BEM but also reuse global tokens */
-.c-modal-overlay {
-  @apply fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-sm;
-}
-
-.c-ranking-modal {
-  @apply bg-white dark:bg-gray-900 w-full max-w-lg rounded-2xl shadow-2xl flex flex-col max-h-[90vh] overflow-hidden;
-}
-
-.c-ranking-modal__header {
-  @apply flex items-center justify-between p-6 bg-gradient-to-r from-orange-500 to-orange-400 text-white;
-}
-
-.c-ranking-modal__title-group {
-  @apply flex items-center gap-3;
-}
-
-.c-ranking-modal__title {
-  @apply text-lg font-bold;
-}
-
-.c-ranking-modal__subtitle {
-  @apply text-xs opacity-90;
-}
-
-.c-ranking-modal__close {
-  @apply text-white/80 hover:text-white transition-colors bg-white/10 hover:bg-white/20 p-2 rounded-full;
-}
-
-.c-ranking-modal__body {
-  @apply p-6 overflow-y-auto flex-1;
-}
-
-.c-ranking-modal__footer {
-  @apply p-4 border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/50 flex justify-end;
-}
-
+@import '@/assets/css/modal/ranking-insight-modal.css';
 </style>

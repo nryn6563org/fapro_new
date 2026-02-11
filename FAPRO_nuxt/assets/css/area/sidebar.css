@@ -80,6 +80,27 @@
     @apply opacity-100;
 }
 
+/* Iconic Colors for Sidebar Items */
+.c-sidebar__icon--dashboard { @apply text-purple-500; }
+.c-sidebar__icon--stock { @apply text-blue-500; }
+.c-sidebar__icon--ranking { @apply text-yellow-500; }
+.c-sidebar__icon--reports { @apply text-green-500; }
+.c-sidebar__icon--issue { @apply text-red-500; }
+.c-sidebar__icon--signals { @apply text-indigo-500; }
+.c-sidebar__icon--quant { @apply text-pink-500; }
+.c-sidebar__icon--discovery { @apply text-violet-500; }
+.c-sidebar__icon--customer { @apply text-teal-500; }
+.c-sidebar__icon--statistics { @apply text-cyan-500; }
+.c-sidebar__icon--list { @apply text-orange-500; }
+.c-sidebar__icon--consultation { @apply text-orange-400; }
+.c-sidebar__icon--my { @apply text-indigo-600; }
+.c-sidebar__icon--schedule { @apply text-blue-400; }
+.c-sidebar__icon--mystocks { @apply text-amber-600; }
+.c-sidebar__icon--investment { @apply text-emerald-600; }
+.c-sidebar__icon--info { @apply text-sky-500; }
+.c-sidebar__icon--payment { @apply text-rose-500; }
+.c-sidebar__icon--faq { @apply text-slate-500; }
+
 .c-sidebar__label {
     @apply text-sm font-medium whitespace-nowrap;
 }

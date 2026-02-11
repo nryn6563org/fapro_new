@@ -43,7 +43,7 @@
 }
 
 .c-event-item__time {
-    @apply text-gray-400 text-[9px] mb-2;
+    @apply text-gray-400 text-[10px] mb-2;
 }
 
 .c-event-item__customer {
@@ -55,12 +55,31 @@
 }
 
 .c-event-item__label {
-    @apply text-[9px] text-gray-400 font-medium;
+    @apply text-[10px] text-gray-400 font-medium;
 }
 
 .c-event-item__content {
-    @apply border rounded-xl px-2.5 py-2;
+    @apply border rounded-xl px-2.5 py-2 transition-colors;
 }
+
+/* Event Types Styling */
+.c-event-item--profit .c-event-item__content { @apply bg-red-50 dark:bg-red-500/10 border-red-100 dark:border-red-500/30; }
+.c-event-item--profit .c-event-item__text { @apply text-red-500 dark:text-red-400; }
+
+.c-event-item--loss .c-event-item__content { @apply bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-500/30; }
+.c-event-item--loss .c-event-item__text { @apply text-blue-500 dark:text-blue-400; }
+
+.c-event-item--report .c-event-item__content { @apply bg-emerald-50 dark:bg-emerald-500/10 border-emerald-100 dark:border-emerald-500/30; }
+.c-event-item--report .c-event-item__text { @apply text-emerald-500 dark:text-emerald-400; }
+
+.c-event-item--up .c-event-item__content { @apply bg-red-50 dark:bg-red-500/10 border-red-100 dark:border-red-500/30; }
+.c-event-item--up .c-event-item__text { @apply text-red-500 dark:text-red-400; }
+
+.c-event-item--disclosure .c-event-item__content { @apply bg-purple-50 dark:bg-purple-500/10 border-purple-100 dark:border-purple-500/30; }
+.c-event-item--disclosure .c-event-item__text { @apply text-purple-500 dark:text-purple-400; }
+
+.c-event-item--issue .c-event-item__content { @apply bg-orange-50 dark:bg-orange-500/10 border-orange-100 dark:border-orange-500/30; }
+.c-event-item--issue .c-event-item__text { @apply text-orange-500 dark:text-orange-400; }
 
 .c-event-item__text {
     @apply text-[10px] font-extrabold leading-tight;

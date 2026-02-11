@@ -75,7 +75,7 @@
 }
 
 .c-consult-item__status {
-    @apply px-1.5 py-0.5 rounded text-[9px] font-bold;
+    @apply px-1.5 py-0.5 rounded text-[10px] font-bold;
 }
 
 .c-consult-item__status--pending { @apply bg-blue-500 text-white; }

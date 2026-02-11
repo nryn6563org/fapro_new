@@ -59,7 +59,7 @@
 }
 
 .c-performance-label {
-    @apply text-[9px] text-gray-400 font-bold mb-1;
+    @apply text-[10px] text-gray-400 font-bold mb-1;
 }
 
 .c-performance-value {
