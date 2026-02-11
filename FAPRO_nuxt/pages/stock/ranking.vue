@@ -101,6 +101,13 @@
       :stock-name="activeStock.name"
       :stock-code="activeStock.code"
       @close="activeModal = null"
+      @show-summary="activeModal = 'summary'"
+    />
+
+    <SummaryScriptModal
+      :is-open="activeModal === 'summary'"
+      :stock-name="activeStock.name"
+      @close="activeModal = 'report'"
     />
 
     <RankingInsightModal
@@ -128,11 +135,12 @@
 
 <script>
 import RankingStockItem from '@/components/page/stock/ranking/StockItem.vue'
-import RankingCustomerModal from '@/components/page/stock/ranking/modal/RankingCustomerModal.vue'
-import RankingAIReportModal from '@/components/page/stock/ranking/modal/RankingAIReportModal.vue'
-import RankingInsightModal from '@/components/page/stock/ranking/modal/RankingInsightModal.vue'
-import RankingNewsModal from '@/components/page/stock/ranking/modal/RankingNewsModal.vue'
-import RankingCommunityModal from '@/components/page/stock/ranking/modal/RankingCommunityModal.vue'
+import RankingCustomerModal from '@/components/modal/RankingCustomerModal.vue'
+import RankingAIReportModal from '@/components/modal/RankingAIReportModal.vue'
+import SummaryScriptModal from '@/components/modal/SummaryScriptModal.vue'
+import RankingInsightModal from '@/components/modal/RankingInsightModal.vue'
+import RankingNewsModal from '@/components/modal/RankingNewsModal.vue'
+import RankingCommunityModal from '@/components/modal/RankingCommunityModal.vue'
 import { Search, RefreshCw, Award, Users, TrendingUp, Crown, X, FileText, Newspaper, MessageSquare, Brain, AlertCircle, HelpCircle } from 'lucide-vue'
 
 export default {
@@ -141,6 +149,7 @@ export default {
     RankingStockItem,
     RankingCustomerModal,
     RankingAIReportModal,
+    SummaryScriptModal,
     RankingInsightModal,
     RankingNewsModal,
     RankingCommunityModal,

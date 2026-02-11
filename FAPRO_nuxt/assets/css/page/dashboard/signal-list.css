@@ -1,5 +1,5 @@
 .c-signal-list {
-    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-[400px];
+    @apply bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-[600px];
 }
 
 .c-signal-list__header {
@@ -35,38 +35,57 @@
 }
 
 .c-signal-summary {
-    @apply bg-blue-50/30 dark:bg-blue-900/5 border border-blue-100/50 dark:border-blue-900/20 rounded-2xl p-4 mb-4 w-[calc(100%-8px)];
+    @apply p-4;
 }
 
 .c-signal-summary__main {
-    @apply text-center;
+    @apply text-center pr-2;
 }
 
 .c-signal-summary__label {
-    @apply text-[10px] text-gray-500 dark:text-gray-400 mb-1 font-bold;
+    @apply text-sm text-gray-800 dark:text-gray-100 mb-6 font-bold;
 }
 
 .c-signal-summary__counts {
-    @apply flex items-center justify-center gap-6;
+    @apply flex items-center justify-center gap-8 mb-6;
 }
 
-.c-signal-summary__item {
-    @apply text-center;
+.c-signal-circle {
+    @apply w-24 h-24 rounded-full border flex flex-col items-center justify-center gap-1;
 }
 
-.c-signal-summary__type {
-    @apply block text-[9px] text-gray-400 uppercase font-bold;
+.c-signal-circle--buy {
+    @apply border-red-400 bg-white dark:bg-gray-800;
 }
 
-.c-signal-summary__value {
-    @apply text-xl font-black;
+.c-signal-circle--sell {
+    @apply border-blue-400 bg-white dark:bg-gray-800;
 }
 
-.c-signal-summary__value--buy { @apply text-red-500; }
-.c-signal-summary__value--sell { @apply text-blue-500; }
+.c-signal-circle__label {
+    @apply text-xs font-bold;
+}
 
-.c-signal-summary__unit {
-    @apply text-[9px] text-gray-400 ml-0.5;
+.c-signal-circle__value {
+    @apply text-lg font-bold;
+}
+
+.c-signal-circle--buy .c-signal-circle__label,
+.c-signal-circle--buy .c-signal-circle__value {
+    @apply text-red-500;
+}
+
+.c-signal-circle--sell .c-signal-circle__label,
+.c-signal-circle--sell .c-signal-circle__value {
+    @apply text-blue-500;
+}
+
+.c-signal-notice {
+    @apply bg-gray-100 dark:bg-gray-800 rounded-lg py-3 px-4 text-center;
+}
+
+.c-signal-notice__text {
+    @apply text-xs font-medium text-gray-700 dark:text-gray-300;
 }
 
 .c-signal-rows {
@@ -74,46 +93,38 @@
 }
 
 .c-signal-row {
-    @apply py-3 flex items-center justify-between border-b border-gray-50 dark:border-gray-800 last:border-0;
+    @apply py-3 flex items-center justify-between border-b border-gray-200 dark:border-gray-800 last:border-0;
 }
 
 .c-signal-row__time {
-    @apply text-[10px] text-gray-400 mb-0.5;
+    @apply text-[10px] text-gray-400 h-5 leading-5;
 }
 
 .c-signal-row__name {
-    @apply text-sm font-bold text-gray-900 dark:text-gray-100;
+    @apply text-sm font-bold text-gray-900 dark:text-gray-100 h-5 leading-5;
 }
 
 .c-signal-row__details {
-    @apply flex items-center gap-3;
+    @apply flex flex-col items-end;
 }
 
 .c-signal-row__prices {
-    @apply text-right;
-}
-
-.c-signal-row__price-label {
-    @apply text-[9px] text-gray-400;
-}
-
-.c-signal-row__change {
-    @apply text-[10px] font-bold;
+    @apply flex items-center gap-1 text-[11px] font-medium text-gray-500 dark:text-gray-100 h-5 leading-5;
 }
 
 .c-signal-row__change--buy { @apply text-red-500; }
 .c-signal-row__change--sell { @apply text-blue-500; }
 
 .c-signal-badge {
-    @apply px-2.5 py-1 rounded-lg text-[10px] font-black text-white shadow-sm;
+    @apply px-1.5 h-5 leading-[21px] rounded text-[10px] font-medium text-white;
 }
 
 .c-signal-badge--buy {
-    @apply bg-red-500 shadow-red-500/20;
+    @apply bg-red-500;
 }
 
 .c-signal-badge--sell {
-    @apply bg-blue-500 shadow-blue-500/20;
+    @apply bg-blue-500;
 }
 
 .c-signal-list__footer {

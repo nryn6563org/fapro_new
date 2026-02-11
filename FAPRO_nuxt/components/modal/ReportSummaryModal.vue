@@ -1,5 +1,5 @@
 <template>
-  <transition name="zoom">
+  <transition name="modal-fade">
     <div v-if="isOpen" class="c-modal-overlay" @click.self="$emit('close')">
       <div class="c-report-modal">
         <header class="c-report-modal__header">
@@ -96,12 +96,4 @@ export default {
   @apply p-5 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900;
 }
 
-/* Animations included globally or inherited */
-.zoom-enter-active, .zoom-leave-active {
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.zoom-enter, .zoom-leave-to {
-  opacity: 0;
-  transform: scale(0.95);
-}
 </style>

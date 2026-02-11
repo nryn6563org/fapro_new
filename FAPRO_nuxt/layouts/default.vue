@@ -1,6 +1,7 @@
 <template>
   <div class="l-default" :class="{'l-default--minimized': isSidebarMinimized}">
     <Header @toggle="isSidebarMinimized = !isSidebarMinimized" />
+    <AIBanner />
     <div class="l-default__body">
       <Sidebar 
         class="l-default__sidebar" 
@@ -12,9 +13,8 @@
           <RightPanel class="l-default__right-panel" />
         </div>
       </main>
-    </div>
-    <AIBanner />
   </div>
+</div>
 </template>
 
 <script>

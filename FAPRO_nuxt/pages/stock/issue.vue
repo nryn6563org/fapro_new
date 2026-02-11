@@ -1,12 +1,12 @@
 <template>
   <div class="p-stock-issue">
-    <!-- Header -->
+    <!-- 헤더 영역 -->
     <header class="p-stock-issue__header">
       <div class="p-stock-issue__title-group">
-        <h1 class="p-stock-issue__title">이슈발생종목</h1>
-        <p class="p-stock-issue__subtitle">시장 주요 이슈와 연관 종목의 흐름을 확인하세요.</p>
+        <h1 class="p-stock-issue__title">AI 이슈포착</h1>
+        <p class="p-stock-issue__subtitle">시장 주요 이슈와 연관 종목의 흐름을 실시간으로 확인하세요.</p>
       </div>
-      <div class="p-stock-ranking__actions">
+      <div class="flex gap-4">
         <div class="p-stock-ranking__search">
           <Search class="p-stock-ranking__search-icon" :size="16" />
           <input 
@@ -23,281 +23,324 @@
       </div>
     </header>
 
-    <!-- Bubble Chart Section -->
-    <div class="c-card p-6">
-      <div class="flex items-center justify-between mb-6">
-        <div class="flex gap-2">
-          <button 
-            v-for="t in ['ai', 'us', 'supply']" 
-            :key="t"
-            class="c-btn c-btn--sm"
-            :class="bubbleTab === t ? 'c-btn--primary' : 'c-btn--ghost border border-gray-100'"
-            @click="bubbleTab = t"
-          >
-            {{ t === 'ai' ? 'AI이슈포착' : t === 'us' ? '미국이슈포착' : '이슈수급강도' }}
-          </button>
-        </div>
-        <div class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
-          Interactive Mood Map
-        </div>
-      </div>
-
-      <div class="p-stock-issue__bubble-area">
-        <svg width="100%" height="400" viewBox="0 0 700 400" class="overflow-visible">
-          <defs>
-            <filter id="bubble-shadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.1" />
-            </filter>
-            <radialGradient id="bubble-grad" cx="30%" cy="30%" r="70%">
-              <stop offset="0%" stop-color="white" stop-opacity="0.3" />
-              <stop offset="100%" stop-color="white" stop-opacity="0" />
-            </radialGradient>
-          </defs>
-          
-          <g v-for="b in bubbleData" :key="b.id" class="p-stock-issue__bubble" :class="{'p-stock-issue__bubble--active': selectedBubble === b.id}" @click="selectedBubble = b.id">
-            <circle :cx="b.x" :cy="b.y" :r="b.size" :fill="selectedBubble === b.id ? '#ef4444' : b.color" :fill-opacity="selectedBubble === b.id ? 1 : 0.7" filter="url(#bubble-shadow)" />
-            <circle :cx="b.x" :cy="b.y" :r="b.size" fill="url(#bubble-grad)" />
-            <text 
-              :x="b.x" :y="b.y" 
-              text-anchor="middle" dominant-baseline="middle" 
-              fill="white" class="text-[11px] font-bold pointer-events-none select-none"
+    <!-- 메인 스플릿 뷰 -->
+    <div class="p-stock-issue__split-view">
+      <!-- 좌측: 버블 차트 영역 -->
+      <section class="p-stock-issue__bubble-container">
+        <div class="p-stock-issue__bubble-header">
+          <div class="flex gap-2">
+            <button 
+              v-for="t in ['ai', 'us']" 
+              :key="t"
+              class="c-tab-btn"
+              :class="bubbleTab === t ? 'c-tab-btn--active' : 'c-tab-btn--inactive'"
+              @click="bubbleTab = t"
             >
-              <tspan v-for="(line, i) in b.name.split(' ')" :key="i" :x="b.x" :dy="i === 0 ? 0 : 14">{{ line }}</tspan>
-            </text>
-          </g>
-        </svg>
-      </div>
-    </div>
-
-    <!-- Issue List -->
-    <div class="space-y-4">
-      <div 
-        v-for="issue in filteredIssues" 
-        :key="issue.id"
-        class="c-issue-card"
-        :class="{'c-issue-card--active': selectedBubble === issue.id}"
-        @click="openIssueModal(issue)"
-      >
-        <div class="flex items-start justify-between mb-2">
-          <h3 class="c-issue-card__title">{{ issue.issueName }}</h3>
-          <span class="text-[10px] text-gray-400 font-bold">{{ issue.date }}</span>
-        </div>
-        <p class="c-issue-card__content">{{ issue.issueContent }}</p>
-        <div class="c-issue-card__stocks">
-          <nuxt-link 
-            v-for="s in issue.relatedStocks.slice(0, 5)" 
-            :key="s.code"
-            :to="`/stock/detail/${s.code}`"
-            class="c-issue-stock-tag"
-            :class="s.change >= 0 ? 'text-red-500 border-red-100' : 'text-blue-500 border-blue-100'"
-            @click.stop
-          >
-            {{ s.name }} {{ s.change >= 0 ? '+' : '' }}{{ s.change }}%
-          </nuxt-link>
-          <span v-if="issue.relatedStocks.length > 5" class="text-[10px] text-gray-400 flex items-center ml-1">
-            외 {{ issue.relatedStocks.length - 5 }}개
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Issue Detail Modal -->
-    <transition name="t-fade">
-      <div v-if="issueModal" class="c-modal-overlay" @click.self="issueModal = null">
-        <div class="c-modal max-w-4xl">
-          <div class="c-modal__header">
-            <div class="c-modal__title-group">
-              <AlertCircle :size="20" class="text-orange-500" />
-              <div>
-                <h3 class="c-modal__title">이슈 상세분석</h3>
-                <p class="c-modal__subtitle">{{ issueModal.issueName }}</p>
-              </div>
-            </div>
-            <button class="c-modal__close" @click="issueModal = null">
-              <X :size="20" />
+              {{ t === 'ai' ? '한국 이슈' : '미국 이슈' }}
             </button>
           </div>
-          <div class="c-modal__body">
-            <!-- News feed -->
-            <div class="c-issue-modal-news mb-6">
-              <div v-for="(news, idx) in issueModal.news" :key="idx" class="c-issue-modal-news__item">
-                <FileText :size="12" class="mt-0.5 text-gray-400" />
-                {{ news }}
+          <div class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+            Interactive Issue Map
+          </div>
+        </div>
+        
+        <div ref="bubbleChart" class="p-stock-issue__bubble-area">
+          <!-- D3가 여기에 SVG를 생성합니다 -->
+        </div>
+      </section>
+
+      <!-- 우측: 상세 정보 패널 -->
+      <section v-if="selectedIssueData" class="p-stock-issue__detail-panel">
+        <div class="c-detail-card">
+          <header class="c-detail-card__header">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="c-detail-card__title">
+                <Brain :size="20" class="text-primary" />
+                {{ selectedIssueData.issueName }}
+              </h3>
+              <span class="text-[10px] text-gray-400 font-bold">최근 업데이트: {{ selectedIssueData.date }}</span>
+            </div>
+            <div class="flex gap-3">
+              <div class="flex-1 p-3 bg-gray-50 dark:bg-gray-800/50 rounded-xl">
+                <p class="text-[10px] text-gray-400 font-bold mb-1">검색 빈도</p>
+                <p class="text-lg font-black text-gray-900 dark:text-white">{{ selectedIssueData.searchCount.toLocaleString() }}건</p>
+              </div>
+              <div class="flex-1 p-3 bg-gray-50 dark:bg-gray-800/50 rounded-xl">
+                <p class="text-[10px] text-gray-400 font-bold mb-1">평균 등락률</p>
+                <p class="text-lg font-black" :class="selectedIssueData.avgChange >= 0 ? 'text-red-500' : 'text-blue-500'">
+                  {{ selectedIssueData.avgChange >= 0 ? '+' : '' }}{{ selectedIssueData.avgChange }}%
+                </p>
+              </div>
+            </div>
+          </header>
+
+          <div class="c-detail-card__body">
+            <!-- 트렌드 차트 (ApexCharts) -->
+            <div>
+              <h4 class="text-xs font-bold text-gray-900 dark:text-white mb-3">검색 추이 및 누적 등락률</h4>
+              <div class="c-chart-container">
+                <client-only>
+                  <apexchart 
+                    type="line" 
+                    height="100%" 
+                    :options="chartOptions" 
+                    :series="chartSeries"
+                  />
+                </client-only>
               </div>
             </div>
 
-            <!-- Tabs -->
-            <div class="flex border-b border-gray-100 dark:border-gray-800 mb-6">
-              <button 
-                v-for="t in ['trend', 'supply']" 
-                :key="t"
-                class="px-6 py-3 text-sm font-bold transition-all border-b-2"
-                :class="modalTab === t ? 'text-primary border-primary' : 'text-gray-400 border-transparent'"
-                @click="modalTab = t"
-              >
-                {{ t === 'trend' ? '이슈 검색추이' : '이슈 수급동향' }}
-              </button>
-            </div>
-
-            <!-- Tab Content -->
-            <div class="space-y-6">
-              <div class="c-trend-chart">
-                <div class="text-center opacity-50">
-                  <BarChart :size="48" class="mx-auto mb-2 text-primary" />
-                  <p class="text-xs font-bold">{{ modalTab === 'trend' ? 'Trend Visualization Area' : 'Supply Analysis Area' }}</p>
-                  <p class="text-[10px]">Real-time chart integration in progress</p>
-                </div>
+            <!-- 연관 종목 리스트 -->
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="text-xs font-bold text-gray-900 dark:text-white">연관 종목</h4>
+                <button class="text-[10px] text-primary font-bold hover:underline">더보기</button>
               </div>
-
-              <!-- Related Stocks -->
-              <div>
-                <h4 class="text-xs font-bold text-gray-900 dark:text-white mb-3">연관 종목 분석</h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <div 
-                    v-for="s in issueModal.relatedStocks" 
-                    :key="s.code"
-                    class="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-800 flex items-center justify-between"
-                  >
-                    <div>
-                      <nuxt-link :to="`/stock/detail/${s.code}`" class="text-sm font-bold hover:text-primary transition-colors">{{ s.name }}</nuxt-link>
-                      <div class="text-[10px] text-gray-400">{{ s.code }} · {{ s.price.toLocaleString() }}원</div>
-                    </div>
-                    <div class="flex items-center gap-3">
-                      <div class="text-sm font-bold" :class="s.change >= 0 ? 'text-red-500' : 'text-blue-500'">
-                        {{ s.change >= 0 ? '+' : '' }}{{ s.change }}%
-                      </div>
-                      <button 
-                        v-if="s.hasAiReport" 
-                        class="c-btn c-btn--primary c-btn--xs px-2"
-                        @click="openAiReport(s)"
-                      >
-                        AI리포트
-                      </button>
-                    </div>
+              <div class="c-related-stocks">
+                <div 
+                  v-for="s in selectedIssueData.relatedStocks" 
+                  :key="s.code"
+                  class="c-related-stock-item"
+                >
+                  <div class="c-related-stock-info">
+                    <span class="c-related-stock-name">{{ s.name }}</span>
+                    <span class="c-related-stock-code">{{ s.code }}</span>
+                  </div>
+                  <div class="c-related-stock-price">
+                    <span class="c-related-stock-val">{{ s.price.toLocaleString() }}원</span>
+                    <span class="c-related-stock-change" :class="s.change >= 0 ? 'text-red-500' : 'text-blue-500'">
+                      {{ s.change >= 0 ? '+' : '' }}{{ s.change }}%
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </transition>
 
-    <!-- AI Report Modal (Popup) -->
-    <transition name="t-fade">
-      <div v-if="aiReportStock" class="c-modal-overlay" @click.self="aiReportStock = null">
-        <div class="c-modal max-w-lg">
-          <div class="c-modal__header bg-primary text-white">
-            <div class="c-modal__title-group">
-              <Zap :size="20" />
-              <div>
-                <h3 class="c-modal__title text-white">{{ aiReportStock.name }} AI Report</h3>
-                <p class="c-modal__subtitle text-white/70">{{ aiReportStock.code }} 실시간 분석</p>
-              </div>
+            <!-- 이슈 요약 -->
+            <div class="c-issue-summary">
+              <h5 class="c-issue-summary__title">이슈 요약</h5>
+              <p class="c-issue-summary__text">{{ selectedIssueData.issueContent }}</p>
             </div>
-            <button class="c-modal__close text-white hover:bg-white/10" @click="aiReportStock = null">
-              <X :size="20" />
-            </button>
-          </div>
-          <div class="c-modal__body">
-            <div class="c-report-summary mb-6">
-              {{ aiReportStock.name }}는 해당 이슈와 관련하여 기술적/기본적 분석 결과 매우 높은 연관성을 보이고 있습니다. 인프라 구축 및 초기 선점 효과로 인하여 단기 상승 모멘텀이 강화될 것으로 예측됩니다.
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                <div class="text-[10px] text-gray-400 font-bold mb-1">상승 가능성</div>
-                <div class="text-lg font-bold text-red-500">85%</div>
-              </div>
-              <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
-                <div class="text-[10px] text-gray-400 font-bold mb-1">AI 투자 의견</div>
-                <div class="text-lg font-bold text-primary">적극 매수</div>
-              </div>
-            </div>
-          </div>
-          <div class="c-modal__footer">
-            <nuxt-link :to="`/stock/detail/${aiReportStock.code}`" class="c-btn c-btn--primary w-full">상세 분석 리포트 전체보기</nuxt-link>
           </div>
         </div>
-      </div>
-    </transition>
+      </section>
+
+      <!-- 선택되지 않았을 때의 상태 -->
+      <section v-else class="p-stock-issue__detail-panel">
+        <div class="c-detail-card h-full flex items-center justify-center p-12 text-center">
+          <div class="opacity-30">
+            <div class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MousePointer2 :size="32" class="text-gray-400" />
+            </div>
+            <p class="text-sm font-bold text-gray-500">좌측의 이슈 버블을 선택하여<br/>상세 분석 내용을 확인하세요.</p>
+          </div>
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 
 <script>
+import { Search, RefreshCw, Brain, X, MousePointer2 } from 'lucide-vue'
+
 export default {
+  /**
+   * 이슈발생종목 페이지 (AI 이슈포착)
+   * D3.js 기반의 인터랙티브 버블 차트와 ApexCharts 기반의 트렌드 분석을 결합하여
+   * 시장의 주요 이슈를 시각화합니다.
+   */
   name: 'StockIssuePage',
+  components: { Search, RefreshCw, Brain, X, MousePointer2 },
   data() {
     return {
       searchQuery: '',
       bubbleTab: 'ai',
-      modalTab: 'trend',
-      selectedBubble: null,
-      issueModal: null,
-      aiReportStock: null,
-      bubbleData: [
-        { id: 1, x: 150, y: 180, size: 100, name: '전고체 배터리', color: '#ff6b6b' },
-        { id: 2, x: 350, y: 150, size: 85, name: '바이오 신약', color: '#ff8787' },
-        { id: 3, x: 280, y: 250, size: 95, name: '2차전지', color: '#ffa94d' },
-        { id: 4, x: 520, y: 140, size: 75, name: '반도체 장비', color: '#ff922b' },
-        { id: 5, x: 200, y: 320, size: 70, name: '수소경제', color: '#ff6b9d' },
-        { id: 6, x: 450, y: 250, size: 110, name: 'AI 데이터센터', color: '#ef4444' }
-      ],
+      selectedIssue: 1, // 기본 선택 이슈 ID
+      d3: null,
+      simulation: null,
       issues: [
         { 
           id: 1,
           issueName: "전고체 배터리", 
-          issueContent: "글로벌 완성차 업체와 대규모 배터리 공급 계약 체결로 향후 3년간 안정적인 매출 확보. 전고체 배터리 기술 상용화 기대.", 
-          date: "2026-02-02",
-          news: [
-            "[매경] LG에너지솔루션, 전고체 배터리 양산 로드맵 공개... 2027년 상용화 목표",
-            "[한경] 삼성SDI, 차세대 전고체 배터리 기술로 글로벌 완성차 3곳과 공급 계약"
-          ],
+          issueContent: "차세대 배터리로 각광받는 전고체 배터리의 상용화 로드맵이 가속화되면서 시장의 관심이 집중되고 있습니다. 특히 글로벌 완성차 업체와의 대규모 공급 계약이 체결되면서 안정적인 매출 확보가 기대됩니다.", 
+          date: "2026-02-10",
+          searchCount: 12540,
+          avgChange: 4.5,
+          color: '#ff6b6b',
+          size: 100,
           relatedStocks: [
-            { name: "LG에너지솔루션", code: "373220", change: 4.2, price: 428000, hasAiReport: true },
-            { name: "삼성SDI", code: "006400", change: 3.8, price: 482000, hasAiReport: true },
-            { name: "포스코퓨처엠", code: "003670", change: 5.1, price: 352000, hasAiReport: true }
-          ]
+            { name: "LG에너지솔루션", code: "373220", change: 4.2, price: 428000 },
+            { name: "삼성SDI", code: "006400", change: 3.8, price: 482000 },
+            { name: "포스코퓨처엠", code: "003670", change: 5.1, price: 352000 }
+          ],
+          trend: [10, 15, 25, 40, 65, 85, 100] // 검색 트렌드 데이터
         },
         { 
-          id: 6,
-          issueName: "AI 데이터센터 투자", 
-          issueContent: "글로벌 빅테크 기업들의 AI 데이터센터 투자 확대로 관련 인프라 수요 급증. 냉각 시스템, 전력 공급 등 수혜 예상.", 
-          date: "2026-02-01",
-          news: [
-            "[블로터] 빅테크 AI 데이터센터 투자 100조 돌파... SK하이닉스 수혜 기대"
-          ],
+          id: 2,
+          issueName: "AI 데이터센터", 
+          issueContent: "빅테크 기업들의 AI 인프라 투자 확대로 인해 데이터센터 수요가 폭증하고 있습니다. 냉각 솔루션 및 고성능 메모리 반도체 관련 종목들이 강세를 보이고 있습니다.", 
+          date: "2026-02-10",
+          searchCount: 8900,
+          avgChange: 2.3,
+          color: '#ff922b',
+          size: 85,
           relatedStocks: [
-            { name: "SK하이닉스", code: "000660", change: 1.8, price: 142000, hasAiReport: true },
-            { name: "삼성전자", code: "005930", change: 2.3, price: 68000, hasAiReport: true }
-          ]
+            { name: "SK하이닉스", code: "000660", change: 1.8, price: 142000 },
+            { name: "삼성전자", code: "005930", change: 2.3, price: 68000 }
+          ],
+          trend: [40, 45, 52, 58, 65, 75, 82]
+        },
+        { 
+          id: 3,
+          issueName: "바이오 신약", 
+          issueContent: "임상 3상 성공 소식 및 FDA 승인 기대감이 고조되며 바이오 섹터가 활기를 띠고 있습니다. 주요 제약사와 기술 수출 계약이 체결되며 기업 가치가 재평가되고 있습니다.", 
+          date: "2026-02-09",
+          searchCount: 6200,
+          avgChange: -1.2,
+          color: '#4db8ff',
+          size: 70,
+          relatedStocks: [
+            { name: "셀트리온", code: "068270", change: -0.5, price: 178000 },
+            { name: "삼성바이오로직스", code: "207940", change: -1.8, price: 812000 }
+          ],
+          trend: [20, 25, 22, 18, 25, 30, 24]
+        },
+        { 
+          id: 4,
+          issueName: "자율주행 L4", 
+          issueContent: "완전 자율주행 기술인 레벨4 상용화 테스트 결과가 긍정적으로 발표되면서 V2X 및 관련 센서 업계의 모멘텀이 강화되고 있습니다.", 
+          date: "2026-02-10",
+          searchCount: 4500,
+          avgChange: 1.1,
+          color: '#fab005',
+          size: 60,
+          relatedStocks: [
+            { name: "현대모비스", code: "012330", change: 1.2, price: 235000 },
+            { name: "HL만도", code: "204320", change: 0.8, price: 42000 }
+          ],
+          trend: [5, 10, 15, 12, 18, 25, 28]
         }
       ]
     }
   },
   computed: {
-    filteredIssues() {
-      if (!this.searchQuery) return this.issues;
-      const q = this.searchQuery.toLowerCase();
-      return this.issues.filter(i => 
-        i.issueName.toLowerCase().includes(q) || 
-        i.relatedStocks.some(s => s.name.toLowerCase().includes(q))
-      );
+    selectedIssueData() {
+      return this.issues.find(i => i.id === this.selectedIssue)
+    },
+    chartOptions() {
+      return {
+        chart: {
+          id: 'trend-chart',
+          toolbar: { show: false },
+          fontFamily: 'Pretendard, sans-serif'
+        },
+        stroke: { curve: 'smooth', width: 2 },
+        colors: ['#3b82f6'],
+        fill: {
+          type: 'gradient',
+          gradient: { shadeIntensity: 1, opacityFrom: 0.4, opacityTo: 0, stops: [0, 90, 100] }
+        },
+        xaxis: {
+          categories: ['6일전', '5일전', '4일전', '3일전', '2일전', '어제', '오늘'],
+          labels: { style: { colors: '#94a3b8', fontSize: '10px' } },
+          axisBorder: { show: false },
+          axisTicks: { show: false }
+        },
+        yaxis: {
+          show: false
+        },
+        grid: {
+          borderColor: '#f1f5f9',
+          strokeDashArray: 4,
+          xaxis: { lines: { show: true } }
+        },
+        tooltip: { theme: 'dark' }
+      }
+    },
+    chartSeries() {
+      if (!this.selectedIssueData) return []
+      return [{
+        name: '검색 지수',
+        data: this.selectedIssueData.trend
+      }]
+    }
+  },
+  mounted() {
+    this.initBubbleChart()
+  },
+  watch: {
+    bubbleTab() {
+      // 탭 전환 시 차트 재배치 (예시용 데이터 변경)
+      this.initBubbleChart()
     }
   },
   methods: {
+    initBubbleChart() {
+      // 클라이언트 사이드에서만 D3 초기화
+      if (process.client && window.d3) {
+        const d3 = window.d3
+        const container = this.$refs.bubbleChart
+        container.innerHTML = '' // 초기화
+
+        const width = container.clientWidth
+        const height = container.clientHeight || 600
+
+        const svg = d3.select(container)
+          .append('svg')
+          .attr('width', width)
+          .attr('height', height)
+          .attr('viewBox', `0 0 ${width} ${height}`)
+          .style('overflow', 'visible')
+
+        const nodes = this.issues.map(i => ({ ...i }))
+
+        // Force Simulation 설정
+        this.simulation = d3.forceSimulation(nodes)
+          .force('charge', d3.forceManyBody().strength(50))
+          .force('center', d3.forceCenter(width / 2, height / 2))
+          .force('collision', d3.forceCollide().radius(d => d.size / 2 + 10))
+          .on('tick', () => {
+            bubbleGroups.attr('transform', d => `translate(${d.x}, ${d.y})`)
+          })
+
+        const bubbleGroups = svg.selectAll('.bubble-group')
+          .data(nodes)
+          .enter()
+          .append('g')
+          .attr('class', 'bubble-group bubble-node')
+          .on('click', (event, d) => {
+            this.selectedIssue = d.id
+          })
+
+        // 버블 원형
+        bubbleGroups.append('circle')
+          .attr('r', d => d.size / 2)
+          .attr('fill', d => d.color)
+          .attr('fill-opacity', 0.8)
+          .attr('stroke', d => d.color)
+          .attr('stroke-width', 2)
+          .style('filter', 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))')
+
+        // 버블 텍스트
+        bubbleGroups.append('text')
+          .attr('class', 'bubble-text')
+          .attr('dy', '.35em')
+          .attr('fill', 'white')
+          .attr('text-anchor', 'middle')
+          .style('font-size', d => Math.max(10, d.size / 8) + 'px')
+          .text(d => d.issueName)
+      }
+    },
     refreshIssues() {
-      alert('이슈 데이터가 갱신되었습니다.');
-    },
-    openIssueModal(issue) {
-      this.issueModal = issue;
-      this.modalTab = 'trend';
-    },
-    openAiReport(stock) {
-      this.aiReportStock = stock;
+      this.initBubbleChart()
     }
   }
 }
 </script>
+
+<style scoped>
+@import '@/assets/css/page/stock/issue.css';
+</style>
 
 <style scoped>
 @import '@/assets/css/page/stock/issue.css';

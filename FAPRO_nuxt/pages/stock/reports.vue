@@ -106,9 +106,9 @@
 
 <script>
 import ReportCard from '@/components/page/stock/report/ReportCard.vue'
-import RelatedCustomersModal from '@/components/page/stock/report/modal/RelatedCustomersModal.vue'
-import ReportSummaryModal from '@/components/page/stock/report/modal/ReportSummaryModal.vue'
-import StockReportModal from '@/components/page/stock/report/modal/StockReportModal.vue'
+import RelatedCustomersModal from '@/components/modal/RelatedCustomersModal.vue'
+import ReportSummaryModal from '@/components/modal/ReportSummaryModal.vue'
+import StockReportModal from '@/components/modal/StockReportModal.vue'
 import { Search, RefreshCw, ChevronLeft, ChevronRight, X, Users, FileText, File } from 'lucide-vue'
 
 export default {

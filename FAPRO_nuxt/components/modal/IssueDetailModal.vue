@@ -1,5 +1,5 @@
 <template>
-  <transition name="zoom">
+  <transition name="modal-fade">
     <div v-if="isOpen" class="c-modal-overlay" @click.self="$emit('close')">
       <div class="c-issue-modal">
         <header class="c-issue-modal__header">
@@ -159,21 +159,5 @@ export default {
 .c-tag--report { @apply bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400 px-1.5 py-0.5 rounded-md; }
 .c-tag--social { @apply bg-pink-100 text-pink-600 dark:bg-pink-900/30 dark:text-pink-400 px-1.5 py-0.5 rounded-md; }
 
-/* Zoom Transition */
-.zoom-enter-active, .zoom-leave-active {
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.zoom-enter-active .c-modal-overlay, .zoom-leave-active .c-modal-overlay {
-  transition: opacity 0.25s ease;
-}
-
-.zoom-enter, .zoom-leave-to {
-  opacity: 0;
-}
-
-.zoom-enter .c-issue-modal, .zoom-leave-to .c-issue-modal {
-  transform: scale(0.9) translateY(10px);
-  opacity: 0;
-}
+/* Zoom Transition - REMOVED (Sent to global modal-animation.css) */
 </style>

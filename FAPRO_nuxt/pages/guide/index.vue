@@ -123,13 +123,20 @@ export default {
               ]
             },
             {
-              name: 'page', type: 'folder', desc: '도메인별 특화 컴포넌트 (BEM 적용 필수)',
+              name: 'page', type: 'folder', desc: '도메인별 특화 컴포넌체 (BEM 적용 필수)',
               children: [
                 { 
                   name: 'stock/ranking', type: 'folder', desc: '랭킹 페이지 전용 모달 및 아이템',
                   children: [
                     { name: 'StockItem.vue', type: 'file', desc: '랭킹 개별 종목 행 아이템' },
                     { name: 'modal/RankingNewsModal.vue', type: 'file', desc: '뉴스 요약 팝업' },
+                  ]
+                },
+                { 
+                  name: 'stock/report', type: 'folder', desc: '리포트 관련 모달',
+                  children: [
+                    { name: 'modal/StockReportModal.vue', type: 'file', desc: 'AI 상세 리포트 모달 (Figma 동기화)' },
+                    { name: 'modal/SummaryScriptModal.vue', type: 'file', desc: '요약 스크립트 모달 ( 신규)' },
                   ]
                 }
               ]
@@ -141,7 +148,14 @@ export default {
           type: 'folder',
           children: [
             { name: 'main.css', type: 'file', desc: '전역 Tailwind 설정 및 베이스 스타일' },
-            { name: 'page/**/*.css', type: 'file', desc: '페이지별 개별 스타일 파일 (분리 관리)' },
+            { 
+              name: 'page/stock/modal', type: 'folder', desc: '종목 관련 모달 개별 스타일',
+              children: [
+                { name: 'ranking-news-modal.css', type: 'file' },
+                { name: 'stock-report-modal.css', type: 'file' },
+                { name: 'summary-script-modal.css', type: 'file' },
+              ]
+            }
           ]
         }
       ]

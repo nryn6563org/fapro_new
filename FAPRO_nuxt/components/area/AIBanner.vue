@@ -1,93 +1,114 @@
 <template>
   <div class="c-ai-banner-pos">
     <transition
-      enter-active-class="animate__animated animate__fadeInUp"
-      leave-active-class="animate__animated animate__fadeOutDown"
+      enter-active-class="animate__animated animate__fadeInDown"
+      leave-active-class="animate__animated animate__fadeOutUp"
+      mode="out-in"
     >
-      <div v-if="isVisible && currentReport" class="c-ai-banner">
-        <nuxt-link to="/stock/reports" class="c-ai-banner__link">
-          <div class="c-ai-banner__content">
-            <div class="c-ai-banner__main">
-              <Sparkles class="c-ai-banner__sparkle" :size="18" />
-              <div class="c-ai-banner__text-group">
-                <FileText class="c-ai-banner__doc-icon" :size="16" />
-                <span class="c-ai-banner__stock">{{ currentReport.stock }}</span>
-                <span class="c-ai-banner__type">{{ currentReport.type }} 생성</span>
-              </div>
-            </div>
-            
-            <div class="c-ai-banner__meta">
-              <span class="c-ai-banner__time">{{ currentReport.time }}</span>
-              <TrendingUp class="c-ai-banner__trend" :size="16" />
-            </div>
+      <div 
+        v-if="isVisible" 
+        class="c-ai-banner"
+        @mouseenter="pauseCycle"
+        @mouseleave="resumeCycle"
+      >
+        <div class="c-ai-banner__content">
+          <Sparkles class="c-ai-banner__icon-sparkle" :size="16" />
+          <div class="c-ai-banner__text">
+            <span class="c-ai-banner__stock">{{ currentItem.stock }}</span>
+            <span class="c-ai-banner__type">{{ currentItem.type }}</span>
+            <span class="c-ai-banner__time">{{ currentItem.time }}</span>
           </div>
-          <!-- Shimmer effect overlay -->
-          <div class="c-ai-banner__shimmer"></div>
-        </nuxt-link>
-        <button class="c-ai-banner__close" @click="closeBanner">
-          <X :size="16" />
-        </button>
+          <TrendingUp class="c-ai-banner__icon-trend" :size="16" />
+        </div>
       </div>
     </transition>
   </div>
 </template>
 
 <script>
-import { Sparkles, FileText, TrendingUp, X } from 'lucide-vue'
+import { Sparkles, TrendingUp } from 'lucide-vue'
 
 export default {
   name: 'AIBanner',
   components: {
     Sparkles,
-    FileText,
-    TrendingUp,
-    X
+    TrendingUp
   },
   data() {
     return {
-      currentReportIndex: 0,
-      isVisible: true,
-      mockReports: [
-        { id: 1, stock: "삼성전자", type: "AI 리포트", time: "1분 전" },
-        { id: 2, stock: "SK하이닉스", type: "AI 분석", time: "3분 전" },
-        { id: 3, stock: "NAVER", type: "AI 리포트", time: "5분 전" },
-        { id: 4, stock: "카카오", type: "AI 시그널", time: "7분 전" },
-        { id: 5, stock: "LG에너지솔루션", type: "AI 리포트", time: "10분 전" },
+      bannerItems: [
+        { stock: "삼성전자", type: "AI 리포트", time: "1분 전" },
+        { stock: "SK하이닉스", type: "AI 분석", time: "3분 전" },
+        { stock: "NAVER", type: "AI 리포트", time: "5분 전" },
+        { stock: "카카오", type: "AI 시그널", time: "7분 전" },
+        { stock: "LG에너지솔루션", type: "AI 리포트", time: "10분 전" },
+        { stock: "한미반도체", type: "AI 포착", time: "12분 전" },
+        { stock: "현대차", type: "AI 리포트", time: "15분 전" },
+        { stock: "POSCO홀딩스", type: "AI 분석", time: "18분 전" },
+        { stock: "에코프로", type: "AI 시그널", time: "20분 전" },
+        { stock: "삼성바이오로직스", type: "AI 리포트", time: "25분 전" },
       ],
-      interval: null
-    }
-  },
-  mounted() {
-    this.startBannerCycle()
-  },
-  beforeDestroy() {
-    if (this.interval) clearTimeout(this.interval)
-  },
-  methods: {
-    startBannerCycle() {
-      // Show immediately
-      this.isVisible = true
-      
-      this.interval = setTimeout(() => {
-        // Hide after 8 seconds
-        this.isVisible = false
-        
-        // Wait for slide down animation (1000ms) then change data
-        this.interval = setTimeout(() => {
-          this.currentReportIndex = (this.currentReportIndex + 1) % this.mockReports.length
-          // Recursively call to show again
-          this.startBannerCycle()
-        }, 1000) 
-      }, 8000)
-    },
-    closeBanner() {
-      this.isVisible = false
-      if (this.interval) clearTimeout(this.interval)
+      currentIndex: 0,
+      isVisible: false,
+      cycleTimeout: null,
+      isPaused: false
     }
   },
   computed: {
-    currentReport() {
-      return this.mockReports[this.currentReportIndex]
+    currentItem() {
+      return this.bannerItems[this.currentIndex]
+    }
+  },
+  mounted() {
+    // Initial delay before showing first item
+    this.startCycle()
+  },
+  beforeDestroy() {
+    this.clearCycle()
+  },
+  methods: {
+    startCycle() {
+      // Show Item
+      this.isVisible = true
+
+      // Stay for 8 seconds, then hide
+      this.cycleTimeout = setTimeout(() => {
+        if (!this.isPaused) {
+          this.hideAndNext()
+        }
+      }, 8000)
+    },
+    hideAndNext() {
+      this.isVisible = false
+      
+      // Wait 3 seconds (transition time + gap), then show next
+      // Assuming transition takes ~1s, we wait 3s total gap
+      // Actually animate.css default is 1s. User asked "3초뒤 다른 내용". It implies 3s gap.
+      this.cycleTimeout = setTimeout(() => {
+        this.currentIndex = (this.currentIndex + 1) % this.bannerItems.length
+        this.startCycle()
+      }, 3000)
+    },
+    clearCycle() {
+      if (this.cycleTimeout) {
+        clearTimeout(this.cycleTimeout)
+        this.cycleTimeout = null
+      }
+    },
+    pauseCycle() {
+      this.isPaused = true
+      this.clearCycle() 
+      // Keep visible
+    },
+    resumeCycle() {
+      if (this.isPaused) {
+        this.isPaused = false
+        // Resume hiding after short delay or full delay? 
+        // Let's just restart the hide timer for full 8s to be safe/simple
+        this.cycleTimeout = setTimeout(() => {
+          this.hideAndNext()
+        }, 8000)
+      }
     }
   }
 }

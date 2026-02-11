@@ -151,11 +151,3 @@
   @apply p-4 border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/50 flex justify-end;
 }
 
-/* 애니메이션: Zoom */
-.zoom-enter-active, .zoom-leave-active {
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.zoom-enter, .zoom-leave-to {
-  opacity: 0;
-  transform: scale(0.9) translateY(10px);
-}

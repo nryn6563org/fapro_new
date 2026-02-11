@@ -1,5 +1,5 @@
 <template>
-  <transition name="zoom">
+  <transition name="modal-fade">
     <div v-if="isOpen" class="c-modal-overlay" @click.self="$emit('close')">
       <div class="c-ranking-modal">
         <header class="c-ranking-modal__header">
@@ -155,11 +155,4 @@ export default {
   @apply p-4 border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/50 flex justify-end;
 }
 
-.zoom-enter-active, .zoom-leave-active {
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.zoom-enter, .zoom-leave-to {
-  opacity: 0;
-  transform: scale(0.9) translateY(10px);
-}
 </style>

@@ -1,13 +1,13 @@
 .p-stock-issue {
-    @apply space-y-6;
+    @apply space-y-6 max-w-[1400px] mx-auto;
 }
 
 .p-stock-issue__header {
-    @apply flex items-center justify-between mb-6;
+    @apply flex items-center justify-between mb-8;
 }
 
 .p-stock-issue__title {
-    @apply text-xl font-bold text-gray-900;
+    @apply text-2xl font-black text-gray-900;
 }
 
 .dark .p-stock-issue__title {
@@ -15,68 +15,125 @@
 }
 
 .p-stock-issue__subtitle {
-    @apply text-sm text-gray-500 mt-1;
+    @apply text-sm text-gray-400 mt-1;
 }
 
-/* Bubble Chart Area */
+/* Split Layout */
+.p-stock-issue__split-view {
+    @apply grid grid-cols-1 lg:grid-cols-12 gap-6 items-start;
+}
+
+/* 좌측 버블 차트 영역 */
+.p-stock-issue__bubble-container {
+    @apply lg:col-span-7 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden flex flex-col min-h-[600px];
+}
+
+.p-stock-issue__bubble-header {
+    @apply p-6 border-b border-gray-50 dark:border-gray-800 flex items-center justify-between;
+}
+
 .p-stock-issue__bubble-area {
-    @apply bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 mb-8 overflow-hidden relative min-h-[400px];
+    @apply flex-1 relative overflow-hidden;
 }
 
-.p-stock-issue__bubble {
-    @apply cursor-pointer transition-all duration-300 hover:brightness-110;
+/* D3 버블 스타일 */
+.bubble-node {
+    @apply cursor-pointer transition-all duration-300;
 }
 
-.p-stock-issue__bubble--active {
-    @apply drop-shadow-[0_0_15px_rgba(239,68,68,0.4)];
+.bubble-node:hover {
+    @apply brightness-110 shadow-lg;
 }
 
-/* Issue Card */
-.c-issue-card {
-    @apply p-5 rounded-2xl border-l-4 border-orange-500 bg-orange-50/50 dark:bg-orange-900/20 mb-4 hover:shadow-md transition-all cursor-pointer;
+.bubble-text {
+    @apply select-none pointer-events-none font-bold text-center;
 }
 
-.c-issue-card--active {
-    @apply border-red-500 bg-red-50/50 dark:bg-red-900/20;
+/* 우측 상세 패널 영역 */
+.p-stock-issue__detail-panel {
+    @apply lg:col-span-5 space-y-6;
 }
 
-.c-issue-card__title {
-    @apply text-base font-bold text-orange-900 dark:text-orange-200 mb-1;
+.c-detail-card {
+    @apply bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden flex flex-col;
 }
 
-.c-issue-card--active .c-issue-card__title {
-    @apply text-red-900 dark:text-red-200;
+.c-detail-card__header {
+    @apply p-6 border-b border-gray-50 dark:border-gray-800;
 }
 
-.c-issue-card__content {
-    @apply text-sm text-gray-700 dark:text-gray-300 mb-4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+.c-detail-card__title {
+    @apply text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2;
 }
 
-.c-issue-card__stocks {
-    @apply flex flex-wrap gap-2;
+.c-detail-card__subtitle {
+    @apply text-xs text-gray-400 mt-1;
 }
 
-.c-issue-stock-tag {
-    @apply px-3 py-1.5 bg-white dark:bg-gray-800 border border-orange-100 dark:border-orange-900/30 rounded-lg text-xs font-bold transition-all hover:shadow-sm;
+.c-detail-card__body {
+    @apply p-6 space-y-6;
 }
 
-/* Modal Specifics */
-.c-issue-modal-news {
-    @apply space-y-1 mb-4;
+/* ApexCharts 컨테이너 */
+.c-chart-container {
+    @apply w-full h-[250px] bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-4;
 }
 
-.c-issue-modal-news__item {
-    @apply text-xs text-gray-500 dark:text-gray-400 flex items-start gap-1.5;
+/* 연관 종목 리스트 */
+.c-related-stocks {
+    @apply space-y-3;
 }
 
-.c-trend-chart {
-    @apply w-full h-64 bg-gray-50 dark:bg-gray-800/50 rounded-xl flex items-center justify-center border border-gray-100 dark:border-gray-800;
+.c-related-stock-item {
+    @apply flex items-center justify-between p-4 rounded-xl border border-gray-50 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors;
 }
 
-.c-report-summary {
-    @apply bg-orange-50/50 dark:bg-orange-900/10 border border-orange-100 dark:border-orange-900/30 rounded-xl p-4 text-sm text-gray-700 dark:text-gray-300 leading-relaxed;
+.c-related-stock-info {
+    @apply flex flex-col;
+}
+
+.c-related-stock-name {
+    @apply text-sm font-bold text-gray-900 dark:text-white;
+}
+
+.c-related-stock-code {
+    @apply text-[10px] text-gray-400;
+}
+
+.c-related-stock-price {
+    @apply flex flex-col items-end;
+}
+
+.c-related-stock-val {
+    @apply text-sm font-bold;
+}
+
+.c-related-stock-change {
+    @apply text-[10px] font-medium;
+}
+
+/* 이슈 요약 */
+.c-issue-summary {
+    @apply bg-gray-50 dark:bg-gray-800/30 p-4 rounded-xl space-y-2;
+}
+
+.c-issue-summary__title {
+    @apply text-xs font-bold text-gray-500 uppercase tracking-tighter;
+}
+
+.c-issue-summary__text {
+    @apply text-xs text-gray-600 dark:text-gray-400 leading-relaxed;
+}
+
+/* 탭 버튼 */
+.c-tab-btn {
+    @apply px-4 py-2 rounded-lg text-xs font-bold transition-all;
+}
+
+.c-tab-btn--active {
+    @apply bg-primary text-white shadow-md shadow-primary/20;
+}
+
+.c-tab-btn--inactive {
+    @apply bg-gray-100 dark:bg-gray-800 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-700;
 }

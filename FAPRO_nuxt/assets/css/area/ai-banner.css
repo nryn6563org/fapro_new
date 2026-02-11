@@ -1,75 +1,54 @@
-/* Positioning Wrapper */
+/* Ticker Container - Transparent & Fixed Height */
 .c-ai-banner-pos {
-    @apply fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50;
-    @apply min-w-[320px] max-w-[400px];
+    @apply fixed left-0 right-0 z-30 pointer-events-none flex justify-center items-start;
+    top: 74px; /* Header height (h-16) */
+    height: 0; /* Removing height so it doesn't push layout, just overlays */
 }
 
-/* Animated Content */
+/* Validates that the banner is visible */
 .c-ai-banner {
-    @apply bg-white dark:bg-gray-800 rounded-full shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden;
-    /* Ensure no transform here to avoid conflict with animate.css */
-}
-
-.c-ai-banner__link {
-    @apply block px-5 py-3 relative overflow-hidden;
-    @apply bg-gradient-to-r from-blue-600 to-indigo-600;
+    @apply pointer-events-auto cursor-pointer;
+    @apply px-6 py-2.5 rounded-full shadow-lg shadow-blue-500/20;
+    @apply bg-gradient-to-r from-blue-600/90 to-cyan-500/90 backdrop-blur-md;
+    @apply text-white flex items-center justify-center border border-white/10;
+    
+    /* Ensure transform pivot is center for safety, though animate.css handles it */
 }
 
 .c-ai-banner__content {
-    @apply flex items-center justify-between relative z-10 text-white;
-}
-
-.c-ai-banner__main {
     @apply flex items-center gap-3;
 }
 
-.c-ai-banner__sparkle {
+.c-ai-banner__icon-sparkle {
     @apply text-yellow-300 animate-pulse;
 }
 
-.c-ai-banner__text-group {
-    @apply flex items-center gap-2;
-}
-
-.c-ai-banner__doc-icon {
-    @apply opacity-90;
+.c-ai-banner__text {
+    @apply flex items-center gap-2 text-sm font-medium;
 }
 
 .c-ai-banner__stock {
-    @apply font-bold text-sm tracking-wide;
+    @apply font-bold text-base tracking-wide;
 }
 
 .c-ai-banner__type {
-    @apply text-blue-100 text-xs bg-blue-500/30 px-2 py-0.5 rounded-full;
-}
-
-.c-ai-banner__meta {
-    @apply flex items-center gap-2 ml-4;
+    @apply text-xs font-bold px-2 py-0.5 rounded-full bg-white/20 text-white backdrop-blur-sm;
 }
 
 .c-ai-banner__time {
-    @apply text-blue-100 text-xs;
+    @apply text-xs text-blue-100 opacity-90;
 }
 
-.c-ai-banner__trend {
-    @apply text-yellow-300;
+.c-ai-banner__icon-trend {
+    @apply text-white ml-1;
 }
 
-.c-ai-banner__shimmer {
-    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none;
-    animation: shimmer 3s infinite;
-    transform: skewX(-20deg);
-}
-
-.c-ai-banner__close {
-    @apply absolute top-1/2 -translate-y-1/2 right-2 p-1 text-white/50 hover:text-white transition-colors z-20 hidden;
-}
-
-.c-ai-banner:hover .c-ai-banner__close {
-    @apply block;
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-150%) skewX(-20deg); }
-    100% { transform: translateX(150%) skewX(-20deg); }
+/* Keyframes */
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }

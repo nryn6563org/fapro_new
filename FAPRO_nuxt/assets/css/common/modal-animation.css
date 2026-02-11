@@ -1,0 +1,45 @@
+/* =========================================
+   Shared Modal Animation (Fade + Zoom)
+   ========================================= */
+
+/* Overlay Fade In/Out */
+.modal-fade-enter-active, .modal-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-fade-enter, .modal-fade-leave-to {
+  opacity: 0;
+}
+
+/* Model Content Zoom In/Out 
+   Targeting the direct child of the overlay (the modal box)
+*/
+.modal-fade-enter-active > *:first-child {
+  animation: modal-zoom-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-fade-leave-active > *:first-child {
+  animation: modal-zoom-out 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@keyframes modal-zoom-in {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes modal-zoom-out {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}

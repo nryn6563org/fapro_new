@@ -1,5 +1,5 @@
 <template>
-  <transition name="zoom">
+  <transition name="modal-fade">
     <!-- 모달 오버레이: 배경 클릭 시 닫기 기능 -->
     <div v-if="isOpen" class="c-news-modal-overlay" @click.self="$emit('close')">
       <!-- 랭킹 뉴스 모달 메인 컨테이너 -->

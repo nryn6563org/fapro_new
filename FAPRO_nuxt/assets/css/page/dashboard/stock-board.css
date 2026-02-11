@@ -1,21 +1,18 @@
 .c-stock-board {
-    @apply bg-white dark:bg-gray-900 rounded-3xl p-4 pr-2 shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-[500px];
+    @apply bg-white dark:bg-gray-900 rounded-3xl p-5 shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col h-[520px];
 }
 
+/* Header & Tabs */
 .c-stock-board__header {
-    @apply flex items-center justify-between mb-6 pr-2;
+    @apply flex items-center justify-between mb-4;
 }
 
-.c-stock-board__main-title {
-    @apply text-lg font-black text-gray-900 dark:text-white tracking-tight;
+.c-stock-board__title-group {
+    @apply flex items-center gap-4;
 }
 
 .c-stock-board__sub-title-group {
-    @apply flex items-center gap-2 mt-1;
-}
-
-.c-stock-board__sub-title-dot {
-    @apply w-1.5 h-1.5 rounded-full bg-orange-500;
+    @apply flex items-center gap-2;
 }
 
 .c-stock-board__sub-title {
@@ -31,146 +28,290 @@
 }
 
 .c-tab-item {
-    @apply px-4 py-1.5 text-[11px] font-bold rounded-lg transition-all text-gray-500 dark:text-gray-400;
+    @apply px-4 py-1.5 text-[10.5px] font-bold rounded-lg transition-all text-gray-500 dark:text-gray-400 cursor-pointer;
 }
 
 .c-tab-item--active {
     @apply bg-orange-500 text-white shadow-md shadow-orange-500/20;
 }
 
-.c-stock-board__refresh {
-    @apply text-gray-300 hover:text-gray-500 dark:hover:text-gray-200 transition-colors;
+.c-link-more {
+    @apply text-xs font-bold text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors ml-2;
 }
 
+/* Body Layout */
 .c-stock-board__body {
-    @apply flex-1 flex min-h-0 border-t border-gray-50 dark:border-gray-800 gap-4;
+    @apply flex-1 flex min-h-0 gap-6 mt-2;
 }
 
-.c-stock-board__left-panel {
-    @apply flex-[1.5] flex flex-col bg-gray-50 dark:bg-gray-800/50 rounded-2xl overflow-hidden;
+/* Left: Bubble Chart (40%) */
+.c-stock-board__chart-area {
+    @apply flex-[0.8] flex flex-col relative bg-white dark:bg-gray-800/30 rounded-2xl overflow-hidden;
 }
 
-.c-stock-board__chart {
-    @apply flex-1 h-full w-full;
+.c-bubble-container {
+    @apply flex-1 w-full bg-gray-200/20;
 }
 
-.c-stock-board__left-footer {
-    @apply p-2.5 text-center bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm;
+.c-chart-timestamp {
+    @apply absolute bottom-3 right-4 text-[10px] font-medium text-gray-400;
 }
 
-.c-stock-board__detail-panel {
-    @apply flex-1 flex flex-col min-h-0 pl-2 pr-2;
+/* Right: Detail Area (60%) */
+.c-stock-board__detail-area {
+    @apply flex-[1.2] flex flex-col min-h-0 overflow-hidden;
 }
 
-.c-stock-board__empty-detail {
-    @apply flex-1 flex flex-col items-center justify-center text-center opacity-40;
+.c-empty-state {
+    @apply flex-1 flex items-center justify-center text-center opacity-40;
 }
 
-.c-stock-board__empty-icon {
-    @apply text-4xl mb-3;
+.c-empty-state p {
+    @apply text-xs font-bold leading-relaxed text-gray-400;
 }
 
-.c-stock-board__empty-text {
-    @apply text-xs font-bold leading-relaxed text-gray-500;
+.c-issue-insights {
+    @apply flex-1 flex flex-col space-y-6 overflow-y-auto pr-3;
 }
 
-.c-issue-detail {
-    @apply flex-1 flex flex-col min-h-0;
+/* Detail Elements */
+.c-insight-header {
+    @apply flex items-center justify-between border-b border-gray-100 dark:border-gray-800 pb-3;
 }
 
-.c-issue-detail__badge {
-    @apply hidden;
+.c-insight-title {
+    @apply text-[17px] font-bold text-gray-900 dark:text-white leading-tight;
 }
 
-.c-issue-detail__title {
-    @apply text-[11px] font-black uppercase tracking-widest;
+/* Chart Section */
+.c-chart-section {
+    @apply space-y-2;
 }
 
-.c-issue-detail__content {
-    @apply flex-1 space-y-8 overflow-y-auto pr-2;
+.c-chart-labels {
+    @apply flex justify-between items-center px-1;
 }
 
-.c-issue-detail__chart-section {
-    @apply space-y-3;
+.c-label-cumulative {
+    @apply text-[10px] font-bold text-gray-400;
 }
 
-.c-issue-detail__chart-container {
-    @apply w-full h-[200px] bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 flex flex-col overflow-hidden;
+.c-label-search {
+    @apply text-[10px] font-bold text-gray-400;
 }
 
-.c-issue-detail__header-row {
-    @apply flex items-center gap-2 mb-1 px-4 pt-4;
+.c-apex-container {
+    @apply w-full h-[160px];
 }
 
-.c-issue-detail__title {
-    @apply text-[11px] font-black uppercase tracking-widest;
+/* Stock Section */
+.c-section-header {
+    @apply flex items-center justify-between mb-2;
 }
 
-.c-issue-detail__divider {
-    @apply text-[10px] text-gray-300 dark:text-gray-600;
+.c-section-label {
+    @apply text-xs font-black text-gray-900 dark:text-gray-100;
 }
 
-.c-issue-detail__chart-title {
-    @apply text-[11px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest;
+.c-section-legend {
+    @apply flex items-center gap-1.5;
 }
 
-.c-issue-detail__section-title {
-    @apply text-[11px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3;
+.c-legend-line {
+    @apply w-3 h-0.5 rounded-full;
 }
 
-.c-issue-detail__stocks-section {
-    @apply space-y-3;
+.c-legend-text {
+    @apply text-[10px] font-bold text-gray-400;
 }
 
-.c-issue-detail__stock-list {
-    @apply divide-y divide-gray-50 dark:divide-gray-800;
+.c-stock-list-box {
+    @apply bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-100 dark:border-gray-800;
 }
 
-.c-issue-detail__stock-item {
-    @apply flex items-center justify-between py-3;
+.c-stock-grid {
+    @apply grid grid-cols-3 gap-x-4 gap-y-2;
 }
 
-.c-issue-detail__stock-main {
+.c-stock-item {
     @apply flex items-center gap-2;
 }
 
-.c-issue-detail__stock-dot {
-    @apply w-1.5 h-1.5 rounded-full;
+.c-stock-marker {
+    @apply w-2.5 h-0.5 rounded-sm;
 }
 
-.c-issue-detail__stock-name {
-    @apply text-sm font-bold text-gray-800 dark:text-gray-200;
+.c-stock-name {
+    @apply text-[12px] font-bold text-gray-700 dark:text-gray-300;
 }
 
-.c-issue-detail__stock-change {
-    @apply text-sm font-black text-gray-400;
+.c-stock-val {
+    @apply text-[11px] font-black;
 }
 
-.c-issue-detail__stock-change.is-positive {
+.c-stock-val.is-up {
     @apply text-red-500;
 }
 
-.c-issue-detail__news-section {
-    @apply space-y-3;
+/* News Section */
+.c-news-section {
+    @apply py-1;
 }
 
-.c-issue-detail__news-list {
-    @apply space-y-4;
+.c-news-title {
+    @apply text-[13px] font-bold text-gray-800 dark:text-gray-200 mb-2;
 }
 
-.c-issue-detail__news-item {
-    @apply space-y-1 cursor-pointer;
+.c-news-item {
+    @apply relative;
 }
 
-.c-issue-detail__news-title {
-    @apply text-xs font-bold text-gray-700 dark:text-gray-300 leading-relaxed group-hover:text-primary transition-colors;
+.c-news-summary {
+    @apply text-[11px] font-medium text-gray-500 dark:text-gray-400 leading-[1.6] line-clamp-3;
 }
 
-.c-issue-detail__news-time {
+.c-news-link {
+    @apply text-[10px] font-bold text-gray-400 hover:text-orange-500;
+}
+
+/* USA Insights */
+.c-insight-points {
+    @apply pt-2;
+}
+
+.c-point-list {
+    @apply space-y-2;
+}
+
+.c-point-item {
+    @apply flex gap-2 text-[12px] font-medium text-gray-600 dark:text-gray-400 leading-relaxed;
+}
+
+.c-point-bullet {
+    @apply text-gray-300 flex-shrink-0;
+}
+
+/* USA Reasons */
+.c-reason-list {
+    @apply space-y-2;
+}
+
+.c-reason-item {
+    @apply p-3 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-800;
+}
+
+.c-reason-header {
+    @apply flex items-center justify-between mb-1.5;
+}
+
+.c-reason-stock-info {
+    @apply flex items-center gap-2;
+}
+
+.c-stock-symbol {
+    @apply text-[10px] font-black text-blue-500 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-1.5 py-0.5 rounded;
+}
+
+.c-stock-badge {
+    @apply text-[10px] font-black text-red-500 bg-red-50 dark:bg-red-900/30 px-2 py-0.5 rounded-md;
+}
+
+.c-reason-text {
+    @apply text-[11px] font-bold text-gray-500 dark:text-gray-400;
+}
+
+/* D3 Overrides */
+.bubble-group {
+    @apply transition-all duration-300;
+}
+
+.bubble-group:hover {
+    @apply opacity-80;
+}
+
+/* =========================================
+   USA Tab Specific Styles
+   ========================================= */
+
+/* Summary Box */
+.c-us-summary-box {
+    @apply bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 mb-6 border border-gray-100 dark:border-gray-800;
+}
+
+.c-us-summary-title {
+    @apply text-[15px] font-bold text-gray-900 dark:text-white mb-3 leading-snug;
+}
+
+.c-us-summary-list {
+    @apply space-y-1.5 overflow-y-auto pr-1;
+    height: 125px; /* 5 items * (~20px line + 6px gap) */
+}
+
+.c-us-summary-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.c-us-summary-list::-webkit-scrollbar-thumb {
+    @apply bg-gray-200 dark:bg-gray-700 rounded-full;
+}
+
+.c-us-summary-list li {
+    @apply text-[12px] text-gray-600 dark:text-gray-400 leading-relaxed pl-3 relative;
+}
+
+.c-bullet {
+    @apply absolute left-0 top-0 text-gray-400;
+}
+
+/* Table Section */
+.c-us-table-section {
+    @apply flex-1 flex flex-col min-h-0;
+}
+
+.c-label-date {
     @apply text-[10px] text-gray-400 font-medium;
 }
 
+.c-us-reason-table {
+    @apply flex flex-col gap-2;
+}
 
-.c-stock-board__more-btn {
-    @apply text-[11px] text-green-600 dark:text-green-400 font-black hover:underline;
+.c-us-reason-row {
+    @apply flex items-center justify-between p-3 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700/50 rounded-xl shadow-sm hover:shadow-md transition-shadow;
+}
+
+.c-us-reason-info {
+    @apply flex-1 min-w-0 mr-4;
+}
+
+.c-us-code-name {
+    @apply flex items-center gap-2 mb-1;
+}
+
+.c-us-code {
+    @apply text-[11px] font-bold text-blue-500 bg-blue-50 dark:bg-blue-900/30 px-1.5 py-0.5 rounded;
+}
+
+.c-us-name {
+    @apply text-[13px] font-bold text-gray-900 dark:text-white;
+}
+
+.c-us-reason-text {
+    @apply text-[12px] text-gray-500 dark:text-gray-400 truncate;
+}
+
+.c-us-rate-box {
+    @apply flex-shrink-0;
+}
+
+.c-us-rate {
+    @apply flex items-center justify-center w-[70px] h-[32px] rounded-lg text-[12px] font-bold bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-300;
+}
+
+.c-us-rate.is-up {
+    @apply bg-red-50 text-red-500 dark:bg-red-900/20 dark:text-red-400;
+}
+
+.c-us-rate.is-down {
+    @apply bg-blue-50 text-blue-500 dark:bg-blue-900/20 dark:text-blue-400;
 }

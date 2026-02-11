@@ -1,5 +1,5 @@
 <template>
-  <transition name="zoom">
+  <transition name="modal-fade">
     <div v-if="isOpen" class="c-modal-overlay" @click.self="$emit('close')">
       <div class="c-schedule-modal">
         <header class="c-schedule-modal__header">
@@ -106,21 +106,4 @@ export default {
   @apply w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-blue-500/20 active:scale-95 text-sm;
 }
 
-/* Zoom Transition */
-.zoom-enter-active, .zoom-leave-active {
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.zoom-enter-active .c-modal-overlay, .zoom-leave-active .c-modal-overlay {
-  transition: opacity 0.25s ease;
-}
-
-.zoom-enter, .zoom-leave-to {
-  opacity: 0;
-}
-
-.zoom-enter .c-schedule-modal, .zoom-leave-to .c-schedule-modal {
-  transform: scale(0.9) translateY(10px);
-  opacity: 0;
-}
 </style>

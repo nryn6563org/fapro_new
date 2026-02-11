@@ -1,0 +1,55 @@
+/**
+ * 요약 스크립트 모달 스타일 (Figma 디자인 반영)
+ * BEM 네이밍 규칙을 따르며 Tailwind CSS v3 @apply 문법을 사용합니다.
+ */
+
+/* 모달 오버레이 */
+.c-summary-modal-overlay {
+  @apply fixed inset-0 z-[1100] flex items-center justify-center bg-black/60 backdrop-blur-sm;
+}
+
+/* 요약 스크립트 모달 컨테이너 */
+.c-summary-modal {
+  @apply bg-white dark:bg-gray-900 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col;
+}
+
+/* 모달 헤더 */
+.c-summary-modal__header {
+  @apply flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-800;
+}
+
+/* 헤더 타이틀 */
+.c-summary-modal__title {
+  @apply text-lg font-bold text-gray-900 dark:text-white;
+}
+
+/* 닫기 버튼 */
+.c-summary-modal__close {
+  @apply text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors;
+}
+
+/* 모달 컨텐츠 영역 */
+.c-summary-modal__content {
+  @apply p-8;
+}
+
+/* 스크립트 텍스트 박스 */
+.c-summary-modal__script-box {
+  @apply bg-gray-50 dark:bg-gray-800/50 p-6 rounded-2xl border border-gray-100 dark:border-gray-800 min-h-[200px];
+}
+
+/* 스크립트 텍스트 */
+.c-summary-modal__text {
+  @apply text-base leading-loose text-gray-700 dark:text-gray-300;
+}
+
+/* 모달 푸터 */
+.c-summary-modal__footer {
+  @apply p-6 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900;
+}
+
+/* 스크립트 복사 버튼 (전체 너비 보라색 버튼) */
+.c-summary-modal__btn--copy {
+  @apply w-full py-4 bg-[#7C3AED] text-white rounded-xl font-bold hover:bg-[#6D28D9] transition-all shadow-lg shadow-purple-500/20 flex items-center justify-center gap-2;
+}
+

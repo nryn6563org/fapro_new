@@ -18,16 +18,20 @@
         <div class="c-signal-summary__main">
           <p class="c-signal-summary__label">오늘의 AI 매매신호 현황</p>
           <div class="c-signal-summary__counts">
-            <div class="c-signal-summary__item">
-              <span class="c-signal-summary__type">매수</span>
-              <span class="c-signal-summary__value c-signal-summary__value--buy">2</span>
-              <span class="c-signal-summary__unit">종목</span>
+            <!-- Buy Circle -->
+            <div class="c-signal-circle c-signal-circle--buy">
+              <span class="c-signal-circle__label">매수</span>
+              <span class="c-signal-circle__value">{{ buyCount }}종목</span>
             </div>
-            <div class="c-signal-summary__item">
-              <span class="c-signal-summary__type">매도</span>
-              <span class="c-signal-summary__value c-signal-summary__value--sell">2</span>
-              <span class="c-signal-summary__unit">종목</span>
+            <!-- Sell Circle -->
+            <div class="c-signal-circle c-signal-circle--sell">
+              <span class="c-signal-circle__label">매도</span>
+              <span class="c-signal-circle__value">{{ sellCount }}종목</span>
             </div>
+          </div>
+          
+          <div class="c-signal-notice">
+            <p class="c-signal-notice__text">곧 새로운 AI매매신호가 발생됩니다.</p>
           </div>
         </div>
       </div>
@@ -39,15 +43,15 @@
             <div class="c-signal-row__name">{{ signal.name }}</div>
           </div>
           <div class="c-signal-row__details">
-            <div class="c-signal-row__prices">
-              <div class="c-signal-row__price-label">{{ signal.type === 'buy' ? '매수가' : '매도가' }} {{ signal.price.toLocaleString() }}원</div>
-              <div class="c-signal-row__change" :class="signal.type === 'buy' ? 'c-signal-row__change--buy' : 'c-signal-row__change--sell'">
-                수익률 {{ signal.change >= 0 ? '+' : '' }}{{ signal.change }}%
-              </div>
-            </div>
             <span class="c-signal-badge" :class="signal.type === 'buy' ? 'c-signal-badge--buy' : 'c-signal-badge--sell'">
-              오늘{{ signal.typeName }}
+              오늘 {{ signal.typeName }}
             </span>
+            <div class="c-signal-row__prices">
+              <span class="c-signal-row__price">{{ signal.type === 'buy' ? '매수가' : '매도가' }} {{ signal.price.toLocaleString() }}원</span>
+              <span class="c-signal-row__change" :class="signal.type === 'buy' ? 'c-signal-row__change--buy' : 'c-signal-row__change--sell'">
+                수익률 {{ signal.change >= 0 ? '+' : '' }}{{ signal.change }}%
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -73,6 +77,14 @@ export default {
         { id: 3, type: 'sell', typeName: '매도', name: 'LG에너지솔루션', code: '373220', price: 445000, change: -5.9, time: '09:45' },
         { id: 4, type: 'sell', typeName: '매도', name: '삼성바이오', code: '207940', price: 895000, change: 2.9, time: '09:15' }
       ]
+    }
+  },
+  computed: {
+    buyCount() {
+      return this.signals.filter(s => s.type === 'buy').length
+    },
+    sellCount() {
+      return this.signals.filter(s => s.type === 'sell').length
     }
   }
 }

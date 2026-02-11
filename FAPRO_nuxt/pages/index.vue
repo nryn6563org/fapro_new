@@ -22,14 +22,14 @@
           <div class="p-board-grid__item--12">
             <PageDashboardStockBoard />
           </div>
-          <div class="p-board-grid__item--12">
-            <PageDashboardReportList />
-          </div>
           <div class="p-board-grid__item--8">
-            <PageDashboardCustomerEvents />
+            <PageDashboardReportList />
           </div>
           <div class="p-board-grid__item--4">
             <PageDashboardSignalList />
+          </div>
+          <div class="p-board-grid__item--12">
+            <PageDashboardCustomerEvents />
           </div>
           <div class="p-board-grid__item--4">
             <PageDashboardQuantStocks />
@@ -65,7 +65,7 @@
     </div>
 
     <!-- Customization Modal -->
-    <PageDashboardCustomModal 
+    <CustomModal 
       :is-open="isModalOpen" 
       @close="isModalOpen = false"
       @apply="handleApplyCustom"
@@ -84,7 +84,7 @@ import PageDashboardAIDiscovery from '@/components/page/dashboard/AIDiscovery.vu
 import PageDashboardConsultationManagement from '@/components/page/dashboard/ConsultationManagement.vue'
 import PageDashboardCustomerReturn from '@/components/page/dashboard/CustomerReturn.vue'
 import PageDashboardCustomerRanking from '@/components/page/dashboard/CustomerRanking.vue'
-import PageDashboardCustomModal from '@/components/page/dashboard/CustomModal.vue'
+import CustomModal from '@/components/modal/CustomModal.vue'
 import { Settings } from 'lucide-vue'
 
 export default {
@@ -100,7 +100,7 @@ export default {
     PageDashboardConsultationManagement,
     PageDashboardCustomerReturn,
     PageDashboardCustomerRanking,
-    PageDashboardCustomModal,
+    CustomModal,
     Settings 
   },
   data() {

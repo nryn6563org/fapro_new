@@ -1,35 +1,37 @@
 <template>
-  <div v-if="isOpen" class="c-custom-modal-overlay" @click.self="close">
-    <div class="c-custom-modal">
-      <div class="c-custom-modal__header">
-        <h3 class="c-custom-modal__title">대시보드 커스텀하기</h3>
-        <button class="c-custom-modal__close" @click="close">
-          <X :size="20" />
-        </button>
-      </div>
-      
-      <div class="c-custom-modal__body">
-        <p class="c-custom-modal__description">화면에 표시할 항목을 선택해주세요.</p>
+  <transition name="modal-fade">
+    <div v-if="isOpen" class="c-custom-modal-overlay" @click.self="close">
+      <div class="c-custom-modal">
+        <div class="c-custom-modal__header">
+          <h3 class="c-custom-modal__title">대시보드 커스텀하기</h3>
+          <button class="c-custom-modal__close" @click="close">
+            <X :size="20" />
+          </button>
+        </div>
         
-        <div class="c-custom-modal__list">
-          <div v-for="item in items" :key="item.id" class="c-custom-modal__item">
-            <span class="c-custom-modal__item-name">{{ item.name }}</span>
-            <button 
-              class="c-toggle-switch" 
-              :class="{ 'c-toggle-switch--active': item.visible }"
-              @click="toggleItem(item)"
-            >
-              <div class="c-toggle-switch__handle"></div>
-            </button>
+        <div class="c-custom-modal__body">
+          <p class="c-custom-modal__description">화면에 표시할 항목을 선택해주세요.</p>
+          
+          <div class="c-custom-modal__list">
+            <div v-for="item in items" :key="item.id" class="c-custom-modal__item">
+              <span class="c-custom-modal__item-name">{{ item.name }}</span>
+              <button 
+                class="c-toggle-switch" 
+                :class="{ 'c-toggle-switch--active': item.visible }"
+                @click="toggleItem(item)"
+              >
+                <div class="c-toggle-switch__handle"></div>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="c-custom-modal__footer">
-        <button class="c-btn-apply" @click="apply">적용하기</button>
+        
+        <div class="c-custom-modal__footer">
+          <button class="c-btn-apply" @click="apply">적용하기</button>
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>

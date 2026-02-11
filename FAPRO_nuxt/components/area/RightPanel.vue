@@ -119,8 +119,8 @@
 
 <script>
 import { Plus, ChevronLeft, ChevronRight, RefreshCw, User, Bell } from 'lucide-vue'
-import ScheduleModal from '@/components/function/ScheduleModal.vue'
-import IssueDetailModal from '@/components/function/IssueDetailModal.vue'
+import IssueDetailModal from '@/components/modal/IssueDetailModal.vue'
+import ScheduleModal from '@/components/modal/ScheduleModal.vue'
 
 export default {
   name: 'RightPanelComponent',

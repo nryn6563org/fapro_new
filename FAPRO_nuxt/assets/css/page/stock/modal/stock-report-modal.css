@@ -1,11 +1,11 @@
 /**
- * AI 상세 리포트 모달 스타일
+ * AI 상세 리포트 모달 스타일 (Figma 디자인 반영)
  * BEM 네이밍 규칙을 따르며 Tailwind CSS v3 @apply 문법을 사용합니다.
  */
 
 /* 모달 오버레이 */
 .c-report-modal-overlay {
-  @apply fixed inset-0 z-[1000] flex items-center justify-center bg-black/50 backdrop-blur-sm;
+  @apply fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-sm;
 }
 
 /* 리포트 모달 컨테이너 */
@@ -18,124 +18,84 @@
   @apply max-w-2xl;
 }
 
-/* 모달 헤더 */
+/* 모달 헤더: 피그마 스타일에 맞춰 보라색 배경으로 변경 */
 .c-report-modal__header {
-  @apply flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/50;
+  @apply flex items-center justify-between p-6 bg-[#7C3AED] text-white;
 }
 
 /* 헤더 타이틀 그룹 */
 .c-report-modal__title-group {
-  @apply flex items-center gap-2;
+  @apply flex flex-col gap-1;
 }
 
 /* 메인 타이틀 */
 .c-report-modal__title {
-  @apply text-lg font-bold text-gray-900 dark:text-gray-100;
+  @apply text-xl font-bold;
 }
 
-/* 서브 타이틀 */
-.c-report-modal__subtitle {
-  @apply text-sm text-gray-400 font-medium;
+/* 종목코드 표시 */
+.c-report-modal__code {
+  @apply text-xs opacity-80;
 }
 
-/* 닫기 버튼 */
+/* 닫기 버튼 (헤더 내부) */
 .c-report-modal__close {
-  @apply text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors;
+  @apply text-white/80 hover:text-white transition-colors p-1;
 }
 
 /* 모달 컨텐츠 영역 */
 .c-report-modal__content {
-  @apply p-0 overflow-y-auto flex-1;
+  @apply p-0 overflow-y-auto flex-1 bg-white dark:bg-gray-900;
 }
 
 /* 컨텐츠 내부 패딩 및 간격 */
 .c-report-modal__body {
-  @apply p-6 space-y-6;
+  @apply p-8 space-y-8;
 }
 
-/* 투자의견 섹션 */
-.c-investment-opinion {
-  @apply flex items-center gap-4 bg-gray-50 dark:bg-gray-800 p-4 rounded-xl;
+/* 리포트 섹션 */
+.c-report-section {
+  @apply space-y-3;
 }
 
-/* 의견 아이템 (의견, 목표주가) */
-.c-investment-opinion__item {
-  @apply text-center px-4 border-r border-gray-200 dark:border-gray-700;
+/* 섹션 타이틀: 피그마에 맞춰 강조색 제거하고 깔끔한 폰트로 변경 */
+.c-report-section__title {
+  @apply text-base font-bold text-gray-900 dark:text-white flex items-center gap-2;
 }
 
-/* 의견 아이템 레이블 */
-.c-investment-opinion__label {
-  @apply block text-xs text-gray-500 mb-1;
+/* 섹션 타이틀 접두사 (도트 등) */
+.c-report-section__title::before {
+  content: '';
+  @apply w-1.5 h-1.5 bg-[#7C3AED] rounded-full;
 }
 
-/* 의견 값 (BUY 등) */
-.c-investment-opinion__value {
-  @apply block text-xl font-bold;
+/* 리포트 텍스트 스타일: 섹션별 텍스트 박스 형태 고려 */
+.c-report-section__content {
+  @apply text-sm leading-relaxed text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 p-4 rounded-xl;
 }
 
-.c-investment-opinion__value--buy {
-  @apply text-red-500;
-}
-
-/* 목표가 값 */
-.c-investment-opinion__price {
-  @apply block text-xl font-bold text-gray-900 dark:text-white;
-}
-
-/* AI 신뢰도 영역 */
-.c-investment-confidence {
-  @apply flex-1;
-}
-
-/* 신뢰도 바 배경 */
-.c-confidence-bar {
-  @apply w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5;
-}
-
-/* 신뢰도 바 채우기 */
-.c-confidence-bar__fill {
-  @apply bg-primary h-2.5 rounded-full;
-}
-
-/* 신뢰도 수치 텍스트 */
-.c-investment-confidence__value {
-  @apply block text-right text-xs text-primary font-bold mt-1;
-}
-
-/* 리포트 섹션 타이틀 */
-.c-report-section-title {
-  @apply text-lg font-bold mb-3 border-l-4 border-primary pl-3 text-gray-900 dark:text-white;
-}
-
-/* 리포트 리스트 스타일 */
-.c-report-list {
-  @apply space-y-2 list-disc list-inside text-sm text-gray-700 dark:text-gray-300;
-}
-
-/* 리포트 텍스트 스타일 */
-.c-report-text {
-  @apply text-sm leading-relaxed text-gray-600 dark:text-gray-400;
-}
-
-.c-report-text--mb {
-  @apply mb-4;
-}
-
-/* 면책 조항 섹션 */
+/* 면책 조항 */
 .c-report-disclaimer {
-  @apply bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg text-xs text-gray-400 leading-normal;
+  @apply text-[11px] text-gray-400 leading-normal pt-4 border-t border-gray-100 dark:border-gray-800;
 }
 
-/* 모달 푸터 */
+/* 모달 푸터: 버튼 영역 */
 .c-report-modal__footer {
-  @apply p-5 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900;
+  @apply p-6 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 flex justify-end gap-3;
 }
 
-/* 애니메이션: Zoom */
-.zoom-enter-active, .zoom-leave-active {
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+/* 푸터 전용 버튼 스타일 */
+.c-report-modal__btn {
+  @apply px-5 py-2.5 rounded-lg text-sm font-medium transition-all flex items-center gap-2;
 }
-.zoom-enter, .zoom-leave-to {
-  opacity: 0;
-  transform: scale(0.95);
+
+/* 보라색 아웃라인 버튼 (요약 보기, 듣기) */
+.c-report-modal__btn--purple {
+  @apply border border-[#7C3AED] text-[#7C3AED] hover:bg-[#7C3AED]/5;
 }
+
+/* 회색 아웃라인 버튼 (닫기) */
+.c-report-modal__btn--gray {
+  @apply border border-gray-200 text-gray-500 hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800;
+}
+
