@@ -1,0 +1,42 @@
+/* Tailwind directives container for component */
+
+.investment-page {
+  @apply min-h-screen bg-white dark:bg-slate-950 p-6;
+}
+
+/* Header */
+.investment-page__header {
+  @apply mb-8;
+}
+.investment-page__h1 {
+  @apply text-3xl font-black text-slate-900 dark:text-white mb-1 m-0;
+}
+.investment-page__h1-desc {
+  @apply text-slate-500 dark:text-slate-400 m-0;
+}
+
+/* Card General */
+.investment-page__card-outer {
+  @apply bg-white dark:bg-slate-900 rounded-2xl border-2 border-amber-500 shadow-xl overflow-hidden;
+}
+.investment-page__card-header {
+  @apply px-6 py-4 bg-gradient-to-r from-orange-50 to-white dark:from-slate-800 dark:to-slate-900 border-b-2 border-amber-500;
+}
+.investment-page__header-icon-box {
+  @apply w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center shadow-lg shadow-amber-500/30;
+}
+.investment-page__card-title {
+  @apply text-xl font-black text-slate-900 dark:text-white m-0;
+}
+.investment-page__badge {
+  @apply ml-auto px-3 py-1 bg-amber-500 text-white text-[10px] font-black rounded-full;
+}
+
+.investment-page__card-content {
+  @apply p-6;
+}
+
+/* Reports Grid */
+.investment-page__reports-grid {
+  @apply space-y-4;
+}

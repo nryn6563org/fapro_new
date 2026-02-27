@@ -1,0 +1,63 @@
+/* components/modal/ModalVanilla.css */
+/* modal-vanilla가 사용하는 Bootstrap 클래스명들을 BEM/Tailwind 규칙에 맞춰 덮어씁니다. */
+
+/* 모달 컨테이너 (고정) */
+.modal {
+  @apply fixed inset-0 z-[100] hidden overflow-y-auto overflow-x-hidden pt-10 px-4 pb-20 text-center sm:block sm:p-0;
+}
+
+/* modal-vanilla가 JS로 .in을 붙여 표시합니다. (.show를 쓰는 버전도 있으나 modal-vanilla는 .in 일 수 있습니다. 둘 다 지원) */
+.modal.in,
+.modal.show {
+  @apply block;
+}
+
+/* 페이드 애니메이션 */
+.modal.fade {
+  @apply transition-opacity duration-300 opacity-0;
+}
+
+.modal.fade.in,
+.modal.fade.show {
+  @apply opacity-100;
+}
+
+/* 백드롭 (배경) */
+.modal-backdrop {
+  @apply fixed inset-0 z-[90] bg-slate-900 bg-opacity-60 transition-opacity;
+}
+
+.modal-backdrop.fade {
+  @apply opacity-0;
+}
+
+.modal-backdrop.in,
+.modal-backdrop.show {
+  @apply opacity-100;
+}
+
+/* 다이얼로그 (중앙 정렬 및 여백) */
+.modal-dialog {
+  /* 화면 중앙에 위치시키기 위해 inline-block 트릭 사용 */
+  @apply inline-block bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all align-middle sm:max-w-2xl w-full relative z-[100] my-8;
+}
+
+.modal-content {
+  @apply flex flex-col bg-white border-0 rounded-xl outline-none w-full relative h-full;
+}
+
+.modal-header {
+  @apply flex items-center justify-between px-6 py-4 border-b border-slate-200;
+}
+
+.modal-close-btn {
+  @apply bg-transparent border-0 outline-none cursor-pointer p-1 -mr-1 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors;
+}
+
+.modal-body {
+  @apply p-6 relative flex-auto text-slate-600;
+}
+
+.modal-footer {
+  @apply flex items-center justify-end px-6 py-4 border-t border-slate-200 gap-3 bg-slate-50;
+}

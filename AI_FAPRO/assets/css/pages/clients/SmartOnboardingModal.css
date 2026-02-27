@@ -1,0 +1,95 @@
+/* Tailwind directives container */
+
+.onboarding-modal {
+  @apply fixed inset-0 z-[100] flex items-center justify-center p-4;
+}
+
+.onboarding-modal__overlay {
+  @apply absolute inset-0 bg-slate-900/60 backdrop-blur-sm;
+}
+
+.onboarding-modal__container {
+  @apply relative w-full max-w-3xl max-h-[90vh] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl overflow-y-auto border-2 border-slate-100 dark:border-slate-800;
+}
+
+/* Header */
+.onboarding-modal__header {
+  @apply px-8 py-6 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 sticky top-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-10;
+}
+.onboarding-modal__icon-box {
+  @apply w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg shadow-orange-500/20;
+}
+.onboarding-modal__title {
+  @apply text-2xl font-black text-slate-900 dark:text-white m-0;
+}
+.onboarding-modal__subtitle {
+  @apply text-sm text-slate-500 dark:text-slate-400 mt-1 m-0;
+}
+.onboarding-modal__close {
+  @apply p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors border-0 bg-transparent cursor-pointer text-slate-400;
+}
+
+/* Content */
+.onboarding-modal__content {
+  @apply p-8;
+}
+
+/* Extraction Area */
+.onboarding-modal__extract-area {
+  @apply p-6 bg-gradient-to-br from-teal-50/50 to-white dark:from-slate-800 dark:to-slate-900 border-2 border-dashed border-teal-500/50 rounded-2xl mb-8 shadow-inner;
+}
+.onboarding-modal__extract-icon-box {
+  @apply w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center;
+}
+.onboarding-modal__extract-title {
+  @apply text-base font-black text-slate-900 dark:text-white m-0;
+}
+.onboarding-modal__extract-subtitle {
+  @apply text-xs text-slate-500 dark:text-slate-400 m-0;
+}
+
+.onboarding-modal__textarea {
+  @apply w-full mt-4 p-4 bg-white dark:bg-slate-800 border-2 border-teal-500/10 rounded-xl text-sm font-bold focus:outline-none focus:border-teal-500 transition-all dark:text-white placeholder-slate-300;
+}
+
+.onboarding-modal__extract-btn-outline {
+  @apply px-4 py-2 bg-transparent text-slate-400 text-xs font-black border-2 border-slate-200 dark:border-slate-700 rounded-lg hover:border-slate-300 transition-all cursor-pointer;
+}
+.onboarding-modal__extract-btn-primary {
+  @apply flex items-center px-4 py-2 bg-teal-500 text-white text-xs font-black rounded-lg hover:bg-teal-600 transition-all shadow-lg shadow-teal-500/20 border-0 cursor-pointer disabled:opacity-50;
+}
+
+/* Form */
+.onboarding-modal__form-label {
+  @apply text-xs font-black text-slate-400 dark:text-slate-500 mb-2;
+}
+
+.onboarding-modal__input {
+  @apply w-full h-11 px-4 bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 rounded-xl text-sm font-bold focus:outline-none focus:border-teal-500 transition-all dark:text-white;
+}
+
+.onboarding-modal__type-btn {
+  @apply px-4 py-1.5 text-xs font-black rounded-lg border-2 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 transition-all bg-transparent cursor-pointer;
+}
+.onboarding-modal__type-btn--active {
+  @apply border-teal-500 bg-teal-500 text-white shadow-lg shadow-teal-500/20;
+}
+
+/* AI Hint */
+.onboarding-modal__ai-hint {
+  @apply mt-8 flex gap-3 p-4 bg-amber-50 dark:bg-amber-900/10 border-l-4 border-amber-500 rounded-r-xl;
+}
+
+/* Footer */
+.onboarding-modal__footer {
+  @apply px-8 py-6 border-t border-slate-100 dark:border-slate-800 flex justify-end gap-3 sticky bottom-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md;
+}
+.onboarding-modal__btn {
+  @apply flex items-center px-8 py-3 rounded-xl text-sm font-black transition-all border-0 cursor-pointer;
+}
+.onboarding-modal__btn--outline {
+  @apply bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-slate-200;
+}
+.onboarding-modal__btn--primary {
+  @apply bg-gradient-to-r from-teal-500 to-teal-700 text-white hover:scale-105 active:scale-95 shadow-lg shadow-teal-500/20;
+}

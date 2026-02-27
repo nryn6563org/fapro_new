@@ -1,0 +1,307 @@
+// Mock 고객 데이터
+export const mockCustomers = [
+  {
+    id: 1,
+    name: '김철수',
+    portfolio: '중소형주 집중',
+    investmentStyle: '공격투자',
+    targetStock: ['펄어비스', '카카오게임즈'],
+    aum: '12억원',
+    cashBalance: '3.2억원',
+    cashRatio: '26.7%',
+    recent3MonthReturn: '+18.5%',
+    totalProfit: '+2.2억원',
+    highWeightStock: '펄어비스 (25%)',
+    profitContributor: '펄어비스',
+    aiKeyword: '고성장 게임주에 집중 투자 중이며, 신작 출시 앞둔 종목에 관심이 높습니다.',
+    aiStrategy: '수익률이 높은 상태이므로 일부 익절 후 안정적 종목으로 리밸런싱을 제안하세요.'
+  },
+  {
+    id: 2,
+    name: '이영희',
+    portfolio: '바이오·헬스케어 중심',
+    investmentStyle: '안정추구',
+    targetStock: ['알테오젠'],
+    aum: '8억원',
+    cashBalance: '1.8억원',
+    cashRatio: '22.5%',
+    recent3MonthReturn: '+22.3%',
+    totalProfit: '+1.8억원',
+    highWeightStock: '알테오젠 (30%)',
+    profitContributor: '알테오젠',
+    aiKeyword: '바이오 신약 개발 기업에 장기 투자 성향을 가지고 있습니다.',
+    aiStrategy:
+      '높은 수익률을 기록 중이며, 추가 상승 여력이 있는 바이오 종목을 제안할 타이밍입니다.'
+  },
+  {
+    id: 3,
+    name: '박민준',
+    portfolio: '2차전지·친환경',
+    investmentStyle: '적극투자',
+    targetStock: ['에코프로비엠', '셀트리온제약'],
+    aum: '15억원',
+    cashBalance: '4.5억원',
+    cashRatio: '30%',
+    recent3MonthReturn: '-8.2%',
+    totalLoss: '-1.2억원',
+    highWeightStock: '에코프로비엠 (28%)',
+    lossContributor: '에코프로비엠',
+    aiKeyword: '2차전지 섹터에 집중 투자했으나 최근 조정을 받고 있습니다.',
+    aiStrategy: '손실 종목의 손절 여부를 검토하고, 업황 회복 시 재진입 전략을 제시하세요.'
+  }
+]
+
+// AI 매매신호 종목 데이터
+export const allAIStocks = [
+  {
+    ticker: '263750',
+    name: '펄어비스',
+    price: 42500,
+    changePercent: 7.19,
+    action: 'buy',
+    matchReason: '단기 급등 모멘텀 포착'
+  },
+  {
+    ticker: '293490',
+    name: '카카오게임즈',
+    price: 34850,
+    changePercent: -2.3,
+    action: 'sell',
+    matchReason: '목표가 도달, 익절 타이밍'
+  },
+  {
+    ticker: '196170',
+    name: '알테오젠',
+    price: 285000,
+    changePercent: 6.65,
+    action: 'buy',
+    matchReason: '실적 서프라이즈 및 FDA 승인 임박'
+  },
+  {
+    ticker: '247540',
+    name: '에코프로비엠',
+    price: 178500,
+    changePercent: 5.24,
+    action: 'buy',
+    matchReason: '대규모 공급계약 체결'
+  },
+  {
+    ticker: '096530',
+    name: '씨젠',
+    price: 45200,
+    changePercent: -1.8,
+    action: 'sell',
+    matchReason: '지지선 이탈, 손절 권장'
+  },
+  {
+    ticker: '068760',
+    name: '셀트리온제약',
+    price: 92300,
+    changePercent: 4.65,
+    action: 'buy',
+    matchReason: '기관 매집 신호 강화'
+  }
+]
+
+export const todayProposalCustomers = [
+  {
+    id: 1,
+    name: '김철수',
+    portfolio: '중소형주 집중',
+    investmentStyle: '공격투자',
+    targetStock: ['펄어비스', '카카오게임즈'],
+    action: 'buy',
+    reason: '게임주 모멘텀 강화, 신작 출시 임박으로 단기 급등 가능성 높음'
+  },
+  {
+    id: 2,
+    name: '이영희',
+    portfolio: '바이오·헬스케어 중심',
+    investmentStyle: '안정추구',
+    targetStock: ['알테오젠'],
+    action: 'buy',
+    reason: '바이오 신약 승인 임박, 장기 성장 가능성 우수'
+  },
+  {
+    id: 3,
+    name: '박민준',
+    portfolio: '2차전지·친환경',
+    investmentStyle: '적극투자',
+    targetStock: ['에코프로비엠'],
+    action: 'sell',
+    reason: '손실 확대 방지를 위한 손절 권장, 업황 회복 시 재진입 전략 필요'
+  },
+  {
+    id: 4,
+    name: '최은정',
+    portfolio: '반도체·IT 중심',
+    investmentStyle: '공격투자',
+    targetStock: ['원익IPS', '테스'],
+    action: 'buy',
+    reason: '반도체 업황 회복 신호, HBM 수혜주로 추가 상승 여력 보유'
+  },
+  {
+    id: 5,
+    name: '정하윤',
+    portfolio: '성장주 분산투자',
+    investmentStyle: '안정추구',
+    targetStock: ['셀트리온제약'],
+    action: 'buy',
+    reason: '제약주 강세 지속, 기관 매집 신호로 중장기 투자 적기'
+  }
+]
+
+export const todayProposalStocks = [
+  {
+    ticker: '263750',
+    name: '펄어비스',
+    price: '42,500원',
+    change: '+7.19%',
+    action: 'buy',
+    customers: ['김철수', '정하윤'],
+    reason: '거래량 급증 및 52주 신고가 돌파, 골든크로스 형성'
+  },
+  {
+    ticker: '196170',
+    name: '알테오젠',
+    price: '285,000원',
+    change: '+6.65%',
+    action: 'buy',
+    customers: ['이영희', '박민준'],
+    reason: '4분기 실적 서프라이즈, FDA 신약 승인 임박'
+  },
+  {
+    ticker: '247540',
+    name: '에코프로비엠',
+    price: '178,500원',
+    change: '+5.24%',
+    action: 'buy',
+    customers: ['박민준', '최은정'],
+    reason: '북미 완성차 업체와 장기 공급계약 체결'
+  },
+  {
+    ticker: '240810',
+    name: '원익IPS',
+    price: '52,300원',
+    change: '+8.45%',
+    action: 'buy',
+    customers: ['최은정', '김철수'],
+    reason: 'HBM 장비 수주 급증, 삼성전자 협력 강화로 실적 개선 기대'
+  },
+  {
+    ticker: '095610',
+    name: '테스',
+    price: '28,750원',
+    change: '+9.12%',
+    action: 'buy',
+    customers: ['최은정', '정하윤'],
+    reason: '반도체 검사장비 수요 증가, 해외 대형 고객사 신규 계약 체결'
+  }
+]
+
+export const todayIssueStocks = [
+  {
+    ticker: '293490',
+    name: '카카오게임즈',
+    price: '34,850원',
+    change: '-2.3%',
+    action: 'sell',
+    customers: ['김철수'],
+    reason: '목표 수익률 도달, 상승 쐐기형 패턴 완성으로 조정 가능성',
+    issues: [{ type: '중립', text: '목표가 도달로 익절 타이밍' }]
+  },
+  {
+    ticker: '096530',
+    name: '씨젠',
+    price: '45,200원',
+    change: '-1.8%',
+    action: 'sell',
+    customers: ['이영희'],
+    reason: '주요 지지선 이탈, 외국인 및 기관 연속 순매도',
+    issues: [{ type: '부정적', text: '지지선 하향 이탈' }]
+  },
+  {
+    ticker: '214450',
+    name: '파마리서치',
+    price: '18,950원',
+    change: '-3.2%',
+    action: 'sell',
+    customers: ['이영희', '박민준'],
+    reason: '임상 3상 결과 지연 우려, 단기 조정 구간 진입',
+    issues: [{ type: '부정적', text: '임상 일정 지연 이슈' }]
+  },
+  {
+    ticker: '122870',
+    name: 'YG엔터테인먼트',
+    price: '47,600원',
+    change: '-4.5%',
+    action: 'sell',
+    customers: ['김철수', '정하윤'],
+    reason: '주가 급등 후 차익실현 물량 출회, RSI 과매수 구간',
+    issues: [{ type: '중립', text: '과열 구간 진입, 단기 조정 예상' }]
+  },
+  {
+    ticker: '950140',
+    name: '잉글우드랩',
+    price: '22,100원',
+    change: '-5.8%',
+    action: 'sell',
+    customers: ['최은정'],
+    reason: '매출 가이던 하향 조정, 목표주가 하락',
+    issues: [{ type: '부정적', text: '실적 전망 악화' }]
+  }
+]
+
+export const customerIntelligence = {
+  cashHolding: [
+    {
+      id: 1,
+      name: '김철수',
+      aum: '12억원',
+      cashBalance: '3.2억원',
+      cashRatio: '26.7%',
+      investmentStyle: '공격투자',
+      aiKeyword: '고성장 게임주에 집중 투자 중이며, 현금 비중이 높아 추가 투자 여력이 충분합니다.'
+    },
+    {
+      id: 2,
+      name: '이영희',
+      aum: '8억원',
+      cashBalance: '1.8억원',
+      cashRatio: '22.5%',
+      investmentStyle: '안정추구',
+      aiKeyword: '바이오 신약 개발 기업에 장기 투자 성향을 가지고 있습니다.'
+    }
+  ],
+  topPerforming: [
+    {
+      id: 1,
+      name: '김철수',
+      recent3MonthReturn: '+18.5%',
+      totalProfit: '+2.2억원',
+      highWeightStock: '펄어비스 (25%)',
+      profitContributor: '펄어비스',
+      aiStrategy: '수익률이 높은 상태이므로 일부 익절 후 리밸런싱을 제안하세요.'
+    },
+    {
+      id: 2,
+      name: '이영희',
+      recent3MonthReturn: '+22.3%',
+      totalProfit: '+1.8억원',
+      highWeightStock: '알테오젠 (30%)',
+      profitContributor: '알테오젠',
+      aiStrategy: '높은 수익률을 기록 중이며, 추가 상승 여력이 있는 바이오 종목 제안.'
+    }
+  ],
+  declining: [
+    {
+      id: 3,
+      name: '박민준',
+      recent3MonthReturn: '-8.2%',
+      totalLoss: '-1.2억원',
+      highWeightStock: '에코프로비엠 (28%)',
+      lossContributor: '에코프로비엠',
+      aiStrategy: '손실 종목의 손절 여부를 검토하고, 분산 투자를 권장합니다.'
+    }
+  ]
+}

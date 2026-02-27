@@ -1,0 +1,42 @@
+/* Tailwind directives container for component */
+
+.strategic-page {
+  @apply p-6 space-y-6 max-w-7xl mx-auto;
+}
+
+/* Header */
+.strategic-page__header {
+  @apply flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm;
+}
+.strategic-page__title {
+  @apply text-3xl font-bold text-slate-900 dark:text-white m-0;
+}
+.strategic-page__subtitle {
+  @apply text-slate-600 dark:text-slate-400 mt-1 m-0;
+}
+
+/* Actions */
+.strategic-page__actions {
+  @apply flex items-center gap-4;
+}
+.strategic-page__info {
+  @apply text-right;
+}
+.strategic-page__info-text {
+  @apply text-sm text-slate-600 dark:text-slate-400 m-0;
+}
+.strategic-page__info-highlight {
+  @apply font-semibold text-teal-500;
+}
+.strategic-page__info-time {
+  @apply text-xs text-slate-500 dark:text-slate-500 mt-1;
+}
+
+.strategic-page__refresh-btn {
+  @apply w-9 h-9 flex items-center justify-center rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors cursor-pointer;
+}
+
+/* Card List */
+.strategic-page__card-list {
+  @apply space-y-4;
+}

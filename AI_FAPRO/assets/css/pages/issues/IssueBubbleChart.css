@@ -1,0 +1,89 @@
+/* Tailwind directives container for component */
+
+.issue-chart {
+  @apply relative h-[600px] bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900 rounded-xl border-2 border-slate-200 dark:border-slate-800 p-4 overflow-hidden shadow-inner;
+}
+
+/* Tabs */
+.issue-chart__tabs {
+  @apply absolute top-4 left-4 z-10;
+}
+.issue-chart__tabs-container {
+  @apply flex items-center gap-2 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-lg border border-slate-300 dark:border-slate-700 shadow-sm p-1;
+}
+.issue-chart__tab {
+  @apply px-3 py-1.5 text-xs font-medium rounded-md transition-colors border-0 bg-transparent cursor-pointer text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800;
+}
+.issue-chart__tab--active {
+  @apply bg-teal-500 text-white hover:bg-teal-600;
+}
+
+/* Area */
+.issue-chart__area {
+  @apply relative w-full h-full;
+}
+
+/* Bubble Wrapper */
+.issue-chart__bubble-wrapper {
+  @apply absolute transition-all duration-500 ease-out;
+}
+.issue-chart__bubble-wrapper--selected {
+  @apply z-20;
+}
+
+/* Bubble */
+.issue-chart__bubble {
+  @apply w-full h-full rounded-full shadow-lg border-0 cursor-pointer flex flex-col items-center justify-center text-white transition-all overflow-visible relative;
+}
+.issue-chart__bubble--up {
+  @apply bg-gradient-to-br from-red-500 to-red-600 hover:shadow-red-500/50;
+}
+.issue-chart__bubble--down {
+  @apply bg-gradient-to-br from-blue-500 to-blue-600 hover:shadow-blue-500/50;
+}
+.issue-chart__bubble--neutral {
+  @apply bg-gradient-to-br from-slate-400 to-slate-500 hover:shadow-slate-500/50;
+}
+
+/* Interaction Effects */
+.issue-chart__bubble:hover {
+  @apply scale-110 z-10;
+}
+.issue-chart__bubble:active {
+  @apply scale-95;
+}
+.issue-chart__bubble--selected {
+  @apply ring-4 ring-amber-500 ring-offset-2 dark:ring-offset-slate-950 scale-105;
+}
+
+.issue-chart__bubble-content {
+  @apply flex flex-col items-center text-center px-2;
+}
+.issue-chart__icon {
+  @apply w-5 h-5 mb-1 opacity-80;
+}
+.issue-chart__name {
+  @apply font-bold text-sm leading-tight;
+}
+.issue-chart__percent {
+  @apply text-xs font-semibold mt-1 opacity-90;
+}
+
+/* Tooltip */
+.issue-chart__tooltip {
+  @apply absolute -bottom-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-slate-900 text-white text-[10px] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10;
+}
+
+/* Footer */
+.issue-chart__footer {
+  @apply absolute bottom-2 right-2 z-10;
+}
+.issue-chart__time-badge {
+  @apply flex items-center gap-1.5 px-2.5 py-1 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-full border border-slate-300 dark:border-slate-700 shadow-sm;
+}
+.issue-chart__footer-icon {
+  @apply w-3 h-3 text-slate-500;
+}
+.issue-chart__footer-text {
+  @apply text-[10px] text-slate-600 dark:text-slate-400;
+}

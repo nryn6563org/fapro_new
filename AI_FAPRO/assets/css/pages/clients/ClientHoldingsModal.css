@@ -1,0 +1,111 @@
+/* Tailwind directives container */
+
+.holdings-modal {
+  @apply fixed inset-0 z-[100] flex items-center justify-center p-4;
+}
+
+.holdings-modal__overlay {
+  @apply absolute inset-0 bg-slate-900/60 backdrop-blur-sm;
+}
+
+.holdings-modal__container {
+  @apply relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl overflow-y-auto border-2 border-slate-100 dark:border-slate-800;
+}
+
+/* Header */
+.holdings-modal__header {
+  @apply px-8 py-6 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 sticky top-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-10;
+}
+.holdings-modal__icon-box {
+  @apply w-12 h-12 bg-gradient-to-br from-teal-500 to-teal-700 rounded-2xl flex items-center justify-center shadow-lg shadow-teal-500/20;
+}
+.holdings-modal__title {
+  @apply text-2xl font-black text-slate-900 dark:text-white m-0;
+}
+.holdings-modal__subtitle {
+  @apply text-sm text-slate-500 dark:text-slate-400 mt-1 m-0;
+}
+.holdings-modal__close {
+  @apply p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors border-0 bg-transparent cursor-pointer text-slate-400;
+}
+
+/* Content */
+.holdings-modal__content {
+  @apply p-8;
+}
+
+/* Table */
+.holdings-modal__table-wrapper {
+  @apply border-2 border-slate-50 dark:border-slate-800 rounded-2xl overflow-hidden mb-8;
+}
+.holdings-modal__table {
+  @apply w-full border-collapse;
+}
+.holdings-modal__th {
+  @apply bg-slate-50 dark:bg-slate-800/50 p-4 text-xs font-black text-slate-500 dark:text-slate-400 uppercase text-left;
+}
+.holdings-modal__td {
+  @apply p-4 border-b border-slate-50 dark:border-slate-800 text-sm dark:text-slate-300;
+}
+
+/* Summary */
+.holdings-modal__summary {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4 mb-8;
+}
+.holdings-modal__sum-card {
+  @apply p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl border-2 border-slate-100 dark:border-slate-700 flex flex-col;
+}
+.holdings-modal__sum-label {
+  @apply text-xs font-black text-slate-400 dark:text-slate-500 mb-2;
+}
+.holdings-modal__sum-value {
+  @apply text-xl font-black text-slate-900 dark:text-white;
+}
+.holdings-modal__sum-card--up {
+  @apply bg-red-50 border-red-100 dark:bg-red-900/10 dark:border-red-900/30;
+}
+.holdings-modal__sum-value--up {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.holdings-modal__sum-card--down {
+  @apply bg-blue-50 border-blue-100 dark:bg-blue-900/10 dark:border-blue-900/30;
+}
+.holdings-modal__sum-value--down {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+/* Buttons */
+.holdings-modal__calc-btn {
+  @apply flex items-center justify-center px-10 py-5 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl font-black text-lg hover:scale-105 active:scale-95 transition-all shadow-xl shadow-orange-500/30 border-0 cursor-pointer;
+}
+
+/* AI Analysis Section */
+.holdings-modal__analysis {
+  @apply bg-white dark:bg-slate-900 rounded-2xl p-6 border-2 border-slate-50 dark:border-slate-800;
+}
+.holdings-modal__ai-tag {
+  @apply flex gap-4 p-6 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-slate-800 dark:to-slate-900 border-l-8 border-amber-500 rounded-r-2xl;
+}
+
+.holdings-modal__suggestions {
+  @apply mt-6 pt-6 border-t border-amber-200 dark:border-slate-700;
+}
+.holdings-modal__suggest-tag {
+  @apply px-4 py-2 bg-white dark:bg-slate-800 border-2 border-teal-500/30 rounded-full text-xs font-black text-teal-600 dark:text-teal-400 shadow-sm hover:border-teal-500 transition-all;
+}
+
+/* Transitions */
+.fade-up-enter-active {
+  @apply transition-all duration-500 ease-out;
+}
+.fade-up-enter {
+  @apply opacity-0 translate-y-10;
+}
+
+.fade-in-enter-active {
+  @apply transition-opacity duration-700;
+}
+.fade-in-enter {
+  @apply opacity-0;
+}

@@ -1,0 +1,113 @@
+/* Tailwind directives container for component */
+.trading-signal-card {
+  @apply p-4 border-b border-slate-100 dark:border-slate-800 transition-all space-y-3 relative;
+}
+.trading-signal-card:last-child {
+  @apply border-b-0;
+}
+.trading-signal-card:hover {
+  @apply bg-slate-50/50 dark:bg-slate-800/30;
+}
+
+/* Header Box */
+.trading-signal-card__header-box {
+  @apply p-4 bg-gradient-to-br from-slate-50 to-white dark:from-slate-800 dark:to-slate-900 border-2 border-slate-200 dark:border-slate-700 rounded-lg;
+}
+
+/* Info Left */
+.trading-signal-card__time-badge {
+  @apply flex items-center gap-2 mb-1;
+}
+.trading-signal-card__time-text {
+  @apply text-xs font-semibold;
+}
+/* 매수/매도별 컬러는 부모 페이지에서 혹은 여기서 정의 */
+.trading-signal-card__time-text--buy {
+  @apply text-red-500 dark:text-red-400;
+}
+.trading-signal-card__time-text--sell {
+  @apply text-blue-500 dark:text-blue-400;
+}
+
+.trading-signal-card__name {
+  @apply text-xl font-bold text-slate-900 dark:text-white mb-2;
+}
+.trading-signal-card__price-row {
+  @apply flex items-center justify-between;
+}
+.trading-signal-card__price {
+  @apply text-base font-bold;
+}
+.trading-signal-card__change {
+  @apply text-sm font-semibold text-blue-600 dark:text-blue-400; /* usually sell change */
+}
+
+/* Actions */
+.trading-signal-card__actions {
+  @apply flex items-center gap-2 pt-3 mt-3 border-t border-slate-100 dark:border-slate-700;
+}
+.trading-signal-card__btn-detail {
+  @apply flex-1 flex items-center justify-center py-1.5 text-sm rounded border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 transition-colors;
+}
+.trading-signal-card__btn-report {
+  @apply flex-1 flex items-center justify-center py-1.5 text-sm rounded bg-teal-500 hover:bg-teal-600 text-white transition-colors border border-transparent;
+}
+.trading-signal-card__btn-icon {
+  @apply mr-1.5;
+}
+
+/* Reason Box */
+.trading-signal-card__reason-box {
+  @apply p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg;
+}
+.trading-signal-card__reason-title {
+  @apply text-xs font-bold text-slate-700 dark:text-slate-300 mb-2;
+}
+.trading-signal-card__reason-text {
+  @apply text-xs text-slate-600 dark:text-slate-400 leading-relaxed;
+}
+
+/* Detail Box */
+.trading-signal-card__detail-box {
+  @apply p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg mt-3 overflow-hidden transition-all duration-300;
+}
+
+/* Table Wrapper */
+.trading-signal-card__table-wrapper {
+  @apply bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden;
+}
+.trading-signal-card__table {
+  @apply w-full text-xs text-left;
+}
+.trading-signal-card__th {
+  @apply py-2 px-3 font-semibold text-slate-700 bg-slate-100 border-b border-slate-200 dark:text-slate-300 dark:bg-slate-800 dark:border-slate-700;
+}
+.trading-signal-card__td {
+  @apply py-2 px-3 border-b border-slate-100 text-slate-600 dark:border-slate-700 dark:text-slate-400;
+}
+.trading-signal-card__td--last {
+  @apply border-0;
+}
+.trading-signal-card__table-right {
+  @apply text-right;
+}
+
+/* Badges & Return Classes */
+.trading-signal-card__badge {
+  @apply text-[10px] px-2 py-0.5 rounded-full font-medium inline-block;
+}
+.trading-signal-card__badge--buy {
+  @apply bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300;
+}
+.trading-signal-card__badge--sell {
+  @apply bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300;
+}
+.trading-signal-card__return--positive {
+  @apply text-red-600 dark:text-red-400 font-semibold;
+}
+.trading-signal-card__return--negative {
+  @apply text-blue-600 dark:text-blue-400 font-semibold;
+}
+.trading-signal-card__return--neutral {
+  @apply text-slate-400 font-semibold;
+}

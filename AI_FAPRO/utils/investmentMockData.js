@@ -1,0 +1,135 @@
+export const faSummaries = [
+  {
+    type: 'issue',
+    title: '오늘 주요 이슈 요약',
+    color: 'from-[#F59E0B] to-orange-600',
+    borderColor: 'border-[#F59E0B]/30',
+    bgColor: 'from-orange-50/50 to-white',
+    issues: [
+      { name: '반도체 HBM3E 수주 기대감' },
+      { name: '2차전지 북미 공장 가동률 상승' },
+      { name: '바이오 FDA 승인 지연' },
+      { name: '외국인·기관 동반 순매수' },
+      { name: '환율 1,330원대 안정화' },
+      { name: '게임 업종 실적 호조' },
+      { name: '전기차 배터리 수주 증가' },
+      { name: 'AI 반도체 공급 부족' },
+      { name: '중국 경기 회복 기대' },
+      { name: '금리 인하 기대감' },
+      { name: '원자재 가격 안정화' },
+      { name: '수출 회복세 지속' }
+    ],
+    summary:
+      '오늘 국내 증시는 외국인과 기관의 동반 순매수에 힘입어 코스피가 2,650선을 회복하며 강세를 보였습니다. 특히 반도체 업종에서 삼성전자와 SK하이닉스의 HBM3E 수주 기대감이 고조되며 업종을 이끌었고, 2차전지 분야에서는 LG에너지솔루션의 북미 공장 가동률 상승 소식이 긍정적으로 작용했습니다. 한편 바이오 업종은 FDA 신약 승인 지연 우려로 차익 실현 매물이 나오며 약세를 보였으나, 전반적으로 환율이 1,330원대로 안정화되고 미 연준의 금리 동결 전망이 우세한 가운데 시장 심리는 양호한 편입니다.'
+  },
+  {
+    type: 'news',
+    title: '3시간 주요 뉴스 요약',
+    color: 'from-[#14B8A6] to-teal-600',
+    borderColor: 'border-[#14B8A6]/30',
+    bgColor: 'from-teal-50/50 to-white',
+    newsItems: [
+      { title: '한국거래소, AI 기반 시장 감시 시스템 고도화 추진', time: '14:30' },
+      { title: '현대차·기아, 전기차 글로벌 판매 1월 20% 급증', time: '14:15' },
+      { title: "카카오, 생성형 AI 챗봇 '카나나' 베타 서비스 개시", time: '13:45' },
+      { title: '네이버, 하이퍼클로바X 기반 검색 개편 본격화', time: '13:20' },
+      { title: '금융위, 증권사 AI 투자자문 규제 샌드박스 승인', time: '12:50' },
+      { title: '삼성전자, 차세대 갤럭시 AI 기능 공개', time: '12:30' },
+      { title: 'LG화학, ESG 경영 우수 기업 선정', time: '12:00' },
+      { title: 'SK텔레콤, 6G 통신 기술 개발 가속화', time: '11:45' },
+      { title: '포스코, 그린수소 생산 설비 투자 확대', time: '11:20' },
+      { title: 'KB금융, 디지털 뱅킹 플랫폼 업그레이드', time: '11:00' },
+      { title: '신한은행, AI 기반 자산관리 서비스 출시', time: '10:40' },
+      { title: 'CJ제일제당, 글로벌 식품 시장 공략 강화', time: '10:15' }
+    ],
+    summary:
+      '최근 3시간 동안 국내 주요 기업들의 AI 기술 투자와 디지털 전환이 주목받고 있습니다. 한국거래소는 AI 기반 시장 감시 시스템 고도화를 발표했으며, 카카오와 네이버는 각각 생성형 AI 챗봇과 하이퍼클로바X 기반 검색 서비스를 선보이며 AI 경쟁을 가속화하고 있습니다. 자동차 업계에서는 현대차와 기아의 전기차 글로벌 판매가 1월 기준 전년 대비 20% 급증하며 전기차 시장의 성장세를 입증했습니다.'
+  },
+  {
+    type: 'usIssue',
+    title: '미국 이슈 요약',
+    color: 'from-blue-500 to-blue-600',
+    borderColor: 'border-blue-500/30',
+    bgColor: 'from-blue-50/50 to-white',
+    newsItems: [
+      { title: 'S&P500 사상 최고치 경신', source: 'Bloomberg', time: '15:30' },
+      { title: '엔비디아 AI 가속기 신제품 발표 예고', source: 'Reuters', time: '14:45' },
+      { title: '연준 파월 의장 금리 정책 발언', source: 'WSJ', time: '14:20' },
+      { title: '테슬라 4680 배터리 양산 본격화', source: 'CNBC', time: '13:50' },
+      { title: '미 고용지표 예상 상회', source: 'Bloomberg', time: '13:30' },
+      { title: '마이크로소프트 AI 투자 확대', source: 'Financial Times', time: '12:45' },
+      { title: '애플 비전프로 판매 호조', source: 'Reuters', time: '12:20' },
+      { title: '아마존 클라우드 사업 성장', source: 'WSJ', time: '11:50' },
+      { title: '메타 AI 광고 플랫폼 업그레이드', source: 'CNBC', time: '11:30' }
+    ],
+    summary:
+      '오늘 미국 증시는 빅테크 기업들의 실적 호조와 AI 관련 긍정적인 뉴스에 힘입어 S&P500 지수가 사상 최고치를 경신했습니다. 특히 엔비디아가 차세대 AI 가속기 신제품 발표를 예고하면서 시간외 거래에서 5% 급등했으며, 이는 AI 반도체 업계 전반에 긍정적인 영향을 미쳤습니다.'
+  },
+  {
+    type: 'stock',
+    title: '오늘의 특징주 요약',
+    color: 'from-violet-500 to-violet-600',
+    borderColor: 'border-violet-500/30',
+    bgColor: 'from-violet-50/50 to-white',
+    stocks: [
+      { name: '펄어비스', code: '263750', change: '+7.19%' },
+      { name: '에코프로비엠', code: '247540', change: '+5.24%' },
+      { name: '알테오젠', code: '196170', change: '+4.82%' },
+      { name: 'LG에너지솔루션', code: '373220', change: '+3.45%' },
+      { name: '카카오게임즈', code: '293490', change: '+6.28%' },
+      { name: '위메이드', code: '112040', change: '+5.91%' },
+      { name: '셀트리온제약', code: '068760', change: '+4.15%' },
+      { name: '엘앤에프', code: '066970', change: '+3.87%' },
+      { name: '포스코퓨처엠', code: '003670', change: '+2.94%' }
+    ],
+    summary:
+      '오늘 AI 기반 종목 발굴 시스템은 펄어비스를 최고점인 92점으로 선정했습니다. 신작 게임의 흥행 기대감과 내부자 매수 시그널이 동시에 포착되었기 때문입니다. 에코프로비엠은 북미 장기 공급계약 체결 소식에 5.24% 급등하며 2차전지 업종을 견인했고, 알테오젠은 FDA 승인 기대감으로 기관의 집중 매수를 받았습니다.'
+  }
+]
+
+export const brokerReports = [
+  {
+    title: '펄어비스: 2026년 실적 전망 상향',
+    ticker: '263750',
+    date: '2026년 2월 12일',
+    broker: 'KB증권',
+    targetPrice: '48,000원',
+    opinion: 'Buy',
+    analyst: '김영준',
+    priceChange: '상향',
+    description: '2026년 실적 전망 상향'
+  },
+  {
+    title: '카카오게임즈: 신작 라인업 기대감 부각',
+    ticker: '293490',
+    date: '2026년 2월 11일',
+    broker: '신한투자증권',
+    targetPrice: '42,000원',
+    opinion: 'Outperform',
+    analyst: '이수진',
+    priceChange: '유지',
+    description: '신작 라인업 기대감 부각'
+  },
+  {
+    title: '알테오젠: FDA 승인 모멘텀 주목',
+    ticker: '196170',
+    date: '2026년 2월 10일',
+    broker: '미래에셋증권',
+    targetPrice: '350,000원',
+    opinion: 'Strong Buy',
+    analyst: '박민수',
+    priceChange: '상향',
+    description: 'FDA 승인 모멘텀 주목'
+  },
+  {
+    title: '에코프로비엠: 북미 시장 진출 가속화',
+    ticker: '247540',
+    date: '2026년 2월 9일',
+    broker: 'NH투자증권',
+    targetPrice: '195,000원',
+    opinion: 'Buy',
+    analyst: '최재원',
+    priceChange: '상향',
+    description: '북미 시장 진출 가속화'
+  }
+]

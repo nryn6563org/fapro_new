@@ -1,0 +1,51 @@
+/* 
+  Sidebar Styles
+  ---------------------
+  BEM Block: app-sidebar
+*/
+
+/* 1. Sidebar Container */
+.app-sidebar {
+  @apply bg-[#0F172A] text-white flex flex-col shadow-xl relative transition-all duration-300 ease-in-out w-[280px];
+}
+
+.app-sidebar--collapsed {
+  @apply w-[80px];
+}
+
+/* 2. Logo Section */
+.app-sidebar__logo-container {
+  @apply h-16 flex items-center justify-between px-6 border-b border-slate-700;
+}
+
+.app-sidebar__logo-wrapper {
+  @apply flex items-center gap-2;
+}
+
+.app-sidebar__logo-icon {
+  @apply w-8 h-8 bg-gradient-to-br from-[#F59E0B] to-[#14B8A6] rounded-lg flex items-center justify-center;
+}
+
+.app-sidebar__logo-text {
+  @apply font-semibold text-lg;
+}
+
+/* 3. Toggle Button */
+.app-sidebar__toggle-btn {
+  @apply absolute -right-3 top-20 w-6 h-6 bg-[#F59E0B] rounded-full flex items-center justify-center shadow-lg hover:bg-[#F59E0B]/90 transition-colors z-10;
+}
+
+/* 4. Navigation */
+.app-sidebar__nav {
+  @apply flex-1 py-6 overflow-y-auto;
+}
+
+/* Animations */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}

@@ -1,0 +1,31 @@
+/* Detail Section */
+.issues-page__detail-section {
+  @apply relative;
+}
+
+/* Transitions */
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  @apply transition-all duration-500 ease-out;
+}
+.fade-slide-enter,
+.fade-slide-leave-to {
+  @apply opacity-0 translate-y-10;
+}
+
+/* Custom Scrollbar for side panel */
+.issues-page__analysis-section ::-webkit-scrollbar {
+  @apply w-1.5;
+}
+.issues-page__analysis-section ::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+.issues-page__analysis-section ::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full;
+}
+.dark .issues-page__analysis-section ::-webkit-scrollbar-thumb {
+  @apply bg-slate-800;
+}
+.issues-page__analysis-section ::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400;
+}

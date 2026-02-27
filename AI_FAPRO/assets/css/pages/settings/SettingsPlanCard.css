@@ -1,0 +1,43 @@
+/* Tailwind directives container */
+
+.plan-card {
+  @apply relative p-6 rounded-xl border-2 transition-all cursor-pointer bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-slate-300;
+}
+
+.plan-card--active {
+  @apply border-[#14B8A6] bg-[#14B8A6]/5;
+}
+
+.plan-card--pro.plan-card--active {
+  @apply border-[#F59E0B] bg-gradient-to-br from-[#F59E0B]/10 to-[#F59E0B]/5;
+}
+
+.plan-card__check {
+  @apply absolute top-4 right-4 w-6 h-6 rounded-full flex items-center justify-center;
+}
+.plan-card__check--basic {
+  @apply bg-[#14B8A6];
+}
+.plan-card__check--pro {
+  @apply bg-[#F59E0B];
+}
+
+.plan-card__title {
+  @apply text-xl font-black text-slate-900 dark:text-white m-0;
+}
+
+.plan-card__price {
+  @apply text-2xl font-black text-slate-900 dark:text-white m-0;
+}
+
+.plan-card__period {
+  @apply text-xs font-medium text-slate-500 uppercase tracking-tighter;
+}
+
+.plan-card__divider {
+  @apply h-px bg-slate-200 dark:bg-slate-800 my-4;
+}
+
+.plan-card__feature {
+  @apply flex items-start gap-2;
+}

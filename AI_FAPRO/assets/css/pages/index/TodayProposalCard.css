@@ -1,0 +1,136 @@
+/*
+  TodayProposalCard Styles
+  ------------------------
+  BEM Block: today-proposal
+*/
+
+/* Wrapper */
+.today-proposal {
+  @apply space-y-4;
+}
+
+/* Header */
+.today-proposal__header {
+  @apply flex items-center gap-2;
+}
+
+.today-proposal__title {
+  @apply text-2xl font-bold text-[#0F172A] dark:text-white;
+}
+
+.today-proposal__badge {
+  @apply bg-[#14B8A6] hover:bg-[#0D9488] text-white px-2 py-1 rounded text-xs font-semibold;
+}
+
+/* Grid */
+.today-proposal__grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+}
+
+/* 
+  BEM Block: proposal-card
+*/
+.proposal-card {
+  @apply border-l-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700;
+}
+
+.proposal-card--teal {
+  @apply border-l-[#14B8A6];
+}
+.proposal-card--orange {
+  @apply border-l-[#F59E0B];
+}
+.proposal-card--violet {
+  @apply border-l-violet-500;
+}
+
+.proposal-card__header {
+  @apply p-4 pb-3 border-b border-slate-100 dark:border-slate-700;
+}
+
+.proposal-card__header-content {
+  @apply flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2;
+}
+
+.proposal-card__title {
+  @apply text-base font-bold text-slate-800 dark:text-slate-100;
+}
+
+.proposal-card__desc {
+  @apply text-xs text-slate-500 dark:text-slate-400 mt-1;
+}
+
+.proposal-card__body {
+  @apply p-4 space-y-2 max-h-[400px] overflow-y-auto;
+}
+
+/*
+  BEM Block: proposal-item
+*/
+.proposal-item {
+  @apply p-3 bg-slate-50 dark:bg-slate-700/50 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors cursor-pointer border border-transparent dark:border-slate-600;
+}
+
+.proposal-item__top {
+  @apply flex items-start justify-between mb-1 gap-2;
+}
+
+.proposal-item__info {
+  @apply flex-1 min-w-0;
+}
+
+.proposal-item__name-row {
+  @apply flex items-center gap-2 flex-wrap;
+}
+
+.proposal-item__name {
+  @apply font-bold text-sm text-[#0F172A] dark:text-white;
+}
+
+.proposal-item__meta {
+  @apply text-xs text-slate-500 dark:text-slate-400 mt-1;
+}
+
+.proposal-item__bottom {
+  @apply text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-2 pt-2 border-t border-slate-200 dark:border-slate-600;
+}
+
+/* Global Badges/Buttons inside component */
+.badge {
+  @apply rounded-full px-2 py-0.5 text-xs font-medium font-sans inline-block whitespace-nowrap;
+}
+.badge--teal {
+  @apply bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200;
+}
+.badge--orange {
+  @apply bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200;
+}
+.badge--violet {
+  @apply bg-violet-100 text-violet-800 dark:bg-violet-900 dark:text-violet-200;
+}
+
+.badge--outline {
+  @apply border text-[10px];
+}
+.badge--outline-red {
+  @apply border-red-300 text-red-700 bg-red-50 dark:border-red-800 dark:text-red-400 dark:bg-red-900/30;
+}
+.badge--outline-blue {
+  @apply border-blue-300 text-blue-700 bg-blue-50 dark:border-blue-800 dark:text-blue-400 dark:bg-blue-900/30;
+}
+
+.btn {
+  @apply rounded-md font-medium transition-colors flex justify-center items-center shadow-sm;
+}
+.btn--sm {
+  @apply h-7 px-3 text-xs flex-shrink-0;
+}
+.btn--teal {
+  @apply bg-[#14B8A6] hover:bg-[#0D9488] text-white;
+}
+.btn--orange {
+  @apply bg-[#F59E0B] hover:bg-[#D97706] text-white;
+}
+.btn--violet {
+  @apply bg-violet-600 hover:bg-violet-700 text-white;
+}

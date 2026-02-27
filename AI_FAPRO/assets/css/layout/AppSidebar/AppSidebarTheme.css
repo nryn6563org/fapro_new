@@ -1,0 +1,10 @@
+/* 
+  Theme button append
+*/
+.app-sidebar__theme-btn {
+  @apply bg-slate-800 hover:bg-slate-700 text-slate-300 w-8 h-8 rounded-lg flex items-center justify-center transition-colors shadow-sm cursor-pointer;
+}
+
+.app-sidebar__user-btn {
+  @apply bg-slate-800 hover:bg-slate-700 text-slate-300 flex-1 px-3 py-2 rounded-lg flex items-center justify-center gap-2 transition-colors text-xs font-medium shadow-sm cursor-pointer;
+}

@@ -1,0 +1,159 @@
+/*
+  CustomerIntelligenceCard Styles
+  -------------------------------
+  BEM Block: intelligence-section
+*/
+
+/* Wrapper */
+.intelligence-section {
+  @apply mt-8;
+}
+
+/* Header */
+.intelligence-section__header {
+  @apply flex items-center gap-2 mb-6;
+}
+
+.intelligence-section__title {
+  @apply text-2xl font-bold text-[#0F172A] dark:text-white;
+}
+
+.badge--violet-solid {
+  @apply bg-violet-600 hover:bg-violet-700 text-white rounded-full px-2 py-0.5 text-xs font-medium;
+}
+
+/* Grid */
+.intelligence-section__grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+}
+
+/* 
+  BEM Block: intelligence-card
+*/
+.intelligence-card {
+  @apply border-l-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700;
+}
+
+.intelligence-card--amber {
+  @apply border-l-amber-500;
+}
+.intelligence-card--emerald {
+  @apply border-l-emerald-500;
+}
+.intelligence-card--rose {
+  @apply border-l-rose-500;
+}
+
+.intelligence-card__header {
+  @apply p-4 pb-3 border-b border-slate-100 dark:border-slate-700;
+}
+
+.intelligence-card__header-content {
+  @apply flex items-center justify-between mb-2;
+}
+
+.intelligence-card__title {
+  @apply text-sm font-bold text-slate-800 dark:text-slate-100;
+}
+
+.intelligence-card__desc {
+  @apply text-xs text-slate-500 dark:text-slate-400 leading-relaxed;
+}
+
+.badge--amber {
+  @apply bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300 rounded-full px-2 py-0.5 text-xs font-medium;
+}
+.badge--emerald {
+  @apply bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 rounded-full px-2 py-0.5 text-xs font-medium;
+}
+.badge--rose {
+  @apply bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300 rounded-full px-2 py-0.5 text-xs font-medium;
+}
+
+.intelligence-card__body {
+  @apply p-4 space-y-2;
+}
+
+/*
+  BEM Block: intelligence-item
+*/
+.intelligence-item {
+  @apply p-2.5 bg-slate-50 dark:bg-slate-700/50 rounded-lg border border-slate-200 dark:border-slate-600 transition-all;
+}
+
+.intelligence-item--hover-amber {
+  @apply hover:border-amber-300 dark:hover:border-amber-500;
+}
+.intelligence-item--hover-emerald {
+  @apply hover:border-emerald-300 dark:hover:border-emerald-500;
+}
+.intelligence-item--hover-rose {
+  @apply hover:border-rose-300 dark:hover:border-rose-500;
+}
+
+.intelligence-item__content {
+  @apply flex-1 min-w-0 mb-2;
+}
+
+.intelligence-item__name {
+  @apply font-bold text-sm text-[#0F172A] dark:text-white mb-1.5;
+}
+
+.intelligence-item__stats {
+  @apply space-y-1 text-xs;
+}
+
+/* BEM Block: stat-row */
+.stat-row {
+  @apply flex justify-between gap-2;
+}
+.stat-row__label {
+  @apply text-slate-500 dark:text-slate-400;
+}
+.stat-row__value {
+  @apply text-slate-700 dark:text-slate-300 truncate text-right;
+}
+
+/*
+  BEM Block: intelligence-alert
+*/
+.intelligence-alert {
+  @apply rounded px-2 py-1.5 mb-2;
+}
+.intelligence-alert--amber {
+  @apply bg-amber-50 dark:bg-amber-900/20;
+}
+.intelligence-alert--emerald {
+  @apply bg-emerald-50 dark:bg-emerald-900/20;
+}
+.intelligence-alert--rose {
+  @apply bg-rose-50 dark:bg-rose-900/20;
+}
+
+.intelligence-alert__title--amber {
+  @apply text-amber-700 dark:text-amber-400;
+}
+.intelligence-alert__title--emerald {
+  @apply text-emerald-700 dark:text-emerald-400;
+}
+.intelligence-alert__title--rose {
+  @apply text-rose-700 dark:text-rose-400;
+}
+
+.intelligence-alert__text {
+  @apply text-xs text-slate-700 dark:text-slate-300 leading-relaxed line-clamp-2;
+}
+
+/* Button modifiers */
+.btn--block {
+  @apply w-full h-7 text-xs flex items-center justify-center;
+}
+.btn--amber-solid {
+  @apply bg-amber-600 hover:bg-amber-700 text-white rounded-md transition-colors;
+}
+.btn--emerald-solid {
+  @apply bg-emerald-600 hover:bg-emerald-700 text-white rounded-md transition-colors;
+}
+.btn--rose-solid {
+  @apply bg-rose-600 hover:bg-rose-700 text-white rounded-md transition-colors;
+}

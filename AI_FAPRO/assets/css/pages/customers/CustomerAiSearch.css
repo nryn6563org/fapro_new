@@ -1,0 +1,60 @@
+/* Tailwind directives container */
+
+.customer-ai-search__card {
+  @apply bg-gradient-to-br from-[#14B8A6]/10 to-[#14B8A6]/5 border border-[#14B8A6]/20 rounded-xl p-6 mb-8 dark:from-slate-900/50 dark:to-slate-950/50;
+}
+
+/* Header */
+.customer-ai-search__header {
+  @apply flex items-start justify-between mb-4;
+}
+.customer-ai-search__icon-box {
+  @apply w-10 h-10 bg-[#14B8A6] rounded-lg flex items-center justify-center;
+}
+.customer-ai-search__title {
+  @apply text-lg font-semibold text-slate-900 dark:text-white m-0;
+}
+.customer-ai-search__subtitle {
+  @apply text-sm text-slate-600 dark:text-slate-400 m-0;
+}
+.customer-ai-search__main-btn {
+  @apply flex items-center bg-[#14B8A6] hover:bg-[#14B8A6]/90 text-white text-sm px-4 py-2 rounded-lg font-bold border-0 cursor-pointer;
+}
+
+/* Input */
+.customer-ai-search__input-wrapper {
+  @apply relative mb-4;
+}
+.customer-ai-search__input-icon {
+  @apply absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400;
+}
+.customer-ai-search__input {
+  @apply w-full pl-12 pr-4 py-4 text-base border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/50 dark:text-white;
+}
+.customer-ai-search__search-btn {
+  @apply absolute right-2 top-1/2 -translate-y-1/2 bg-[#14B8A6] hover:bg-[#14B8A6]/90 text-white px-6 py-2 rounded-lg border-0 cursor-pointer font-bold;
+}
+
+/* Hint */
+.customer-ai-search__hint {
+  @apply flex items-center gap-2 text-sm text-slate-600 dark:text-slate-500 mb-4;
+}
+
+/* Recommendations */
+.customer-ai-search__recommend-list {
+  @apply space-y-2 mb-4;
+}
+.customer-ai-search__recommend-item {
+  @apply px-4 py-2 bg-white dark:bg-slate-900 rounded-lg text-sm text-slate-700 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer transition-colors border border-slate-200 dark:border-slate-800;
+}
+
+/* Filters */
+.customer-ai-search__filters {
+  @apply flex items-center gap-2 flex-wrap;
+}
+.customer-ai-search__filter-btn {
+  @apply px-4 py-1.5 rounded-full text-sm font-medium transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 border border-slate-300 dark:border-slate-800 cursor-pointer;
+}
+.customer-ai-search__filter-btn--active {
+  @apply bg-[#14B8A6] text-white border-[#14B8A6];
+}

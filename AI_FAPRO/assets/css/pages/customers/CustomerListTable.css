@@ -1,0 +1,72 @@
+/* Tailwind directives container */
+
+.customer-table {
+  @apply bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden;
+}
+
+.customer-table__wrapper {
+  @apply overflow-x-auto;
+}
+
+.customer-table__main {
+  @apply w-full border-collapse;
+}
+
+.customer-table__head {
+  @apply bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800;
+}
+
+.customer-table__th {
+  @apply px-6 py-4 text-left text-sm font-semibold text-slate-700 dark:text-slate-400;
+}
+
+.customer-table__row {
+  @apply hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors border-b border-slate-100 dark:border-slate-800 last:border-0;
+}
+
+.customer-table__td {
+  @apply px-6 py-4;
+}
+
+.customer-table__name-box {
+  @apply flex items-center gap-3;
+}
+
+.customer-table__avatar {
+  @apply w-8 h-8 bg-gradient-to-br from-[#14B8A6] to-[#0D9488] rounded-full flex items-center justify-center;
+}
+
+.customer-table__name {
+  @apply font-medium text-slate-900 dark:text-white;
+}
+
+.customer-table__td--slate {
+  @apply text-slate-700 dark:text-slate-300;
+}
+
+.customer-table__td--notes {
+  @apply text-slate-600 dark:text-slate-500 text-sm;
+}
+
+/* Badges */
+.customer-table__type-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+}
+.customer-table__type-badge--aggressive {
+  @apply bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400;
+}
+.customer-table__type-badge--neutral {
+  @apply bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400;
+}
+.customer-table__type-badge--stable {
+  @apply bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400;
+}
+
+/* Chips */
+.customer-table__info-chip {
+  @apply w-6 h-6 bg-[#14B8A6] rounded-full flex items-center justify-center hover:bg-[#0D9488] transition-colors cursor-pointer border-0;
+}
+
+.customer-table__detail-btn {
+  @apply inline-flex items-center bg-transparent text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-sm border-0 cursor-pointer p-0;
+}

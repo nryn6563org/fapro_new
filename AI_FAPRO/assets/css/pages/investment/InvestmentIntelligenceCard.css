@@ -1,0 +1,138 @@
+/* Tailwind directives container for component */
+
+.intelligence-card {
+  @apply rounded-2xl border-2 shadow-lg overflow-hidden transition-all duration-500;
+}
+
+/* Header */
+.intelligence-card__header {
+  @apply px-6 py-4 flex items-center justify-between;
+}
+.intelligence-card__header-left {
+  @apply flex items-center gap-3;
+}
+.intelligence-card__icon-box {
+  @apply w-10 h-10 bg-gradient-to-br rounded-xl flex items-center justify-center shadow-sm;
+}
+.intelligence-card__icon {
+  @apply w-5 h-5 text-white;
+}
+
+.intelligence-card__title-area {
+  @apply flex flex-col;
+}
+.intelligence-card__title {
+  @apply text-xl font-black text-slate-900 dark:text-white m-0;
+}
+.intelligence-card__subtitle {
+  @apply text-xs text-slate-500 mt-1 m-0;
+}
+
+/* Controls */
+.intelligence-card__controls {
+  @apply flex items-center gap-3;
+}
+.intelligence-card__dots {
+  @apply flex items-center gap-1.5;
+}
+.intelligence-card__dot {
+  @apply w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700 transition-all border-0 cursor-pointer;
+}
+.intelligence-card__dot--active {
+  @apply w-6 bg-teal-500 shadow-sm shadow-teal-500/50;
+}
+.intelligence-card__refresh {
+  @apply w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border-0 bg-transparent cursor-pointer text-slate-400;
+}
+
+/* Content Area */
+.intelligence-card__content {
+  @apply px-6 pb-6;
+}
+
+/* Issues */
+.intelligence-card__issues {
+  @apply flex flex-wrap gap-2 mb-4;
+}
+.intelligence-card__issue-tag {
+  @apply px-4 py-2 bg-white dark:bg-slate-800 border border-orange-200 dark:border-orange-800 rounded-full text-sm font-bold text-slate-900 dark:text-white hover:border-orange-400 transition-colors shadow-sm;
+}
+
+/* Stocks */
+.intelligence-card__stocks {
+  @apply grid grid-cols-2 md:grid-cols-3 gap-2 mb-4;
+}
+.intelligence-card__stock-tag {
+  @apply px-3 py-2 bg-white dark:bg-slate-800 border border-violet-200 dark:border-violet-800 rounded-xl flex flex-col hover:border-violet-400 transition-colors shadow-sm;
+}
+.intelligence-card__stock-name {
+  @apply text-sm font-black text-slate-900 dark:text-white;
+}
+.intelligence-card__stock-change {
+  @apply text-xs font-bold mt-1;
+}
+
+/* News List */
+.intelligence-card__news-list {
+  @apply space-y-2 mb-4 max-h-48 overflow-y-auto pr-2 custom-scrollbar;
+}
+.intelligence-card__news-item {
+  @apply p-3 bg-white dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-800 rounded-xl hover:border-teal-500/30 transition-all shadow-sm;
+}
+.intelligence-card__news-title {
+  @apply text-sm font-bold text-slate-900 dark:text-white m-0;
+}
+.intelligence-card__news-source {
+  @apply text-[10px] font-black px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-500 rounded;
+}
+.intelligence-card__news-time {
+  @apply text-[10px] text-slate-400;
+}
+
+/* Summary Box */
+.intelligence-card__summary-box {
+  @apply p-4 rounded-xl border-2 text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium;
+}
+.intelligence-card__summary-box--orange {
+  @apply bg-orange-50/50 border-orange-100 dark:bg-amber-900/10 dark:border-amber-900/40;
+}
+.intelligence-card__summary-box--teal {
+  @apply bg-teal-50/50 border-teal-100 dark:bg-teal-900/10 dark:border-teal-900/40;
+}
+.intelligence-card__summary-box--blue {
+  @apply bg-blue-50/50 border-blue-100 dark:bg-blue-900/10 dark:border-blue-900/40;
+}
+.intelligence-card__summary-box--purple {
+  @apply bg-violet-50/50 border-violet-100 dark:bg-violet-900/10 dark:border-violet-900/40;
+}
+
+/* Transitions */
+.fade-slide-up-enter-active,
+.fade-slide-up-leave-active {
+  @apply transition-all duration-300;
+}
+.fade-slide-up-enter {
+  @apply opacity-0 translate-y-2;
+}
+.fade-slide-up-leave-to {
+  @apply opacity-0 -translate-y-2;
+}
+
+.fade-slide-right-enter-active,
+.fade-slide-right-leave-active {
+  @apply transition-all duration-500;
+}
+.fade-slide-right-enter {
+  @apply opacity-0 translate-x-4;
+}
+.fade-slide-right-leave-to {
+  @apply opacity-0 -translate-x-4;
+}
+
+/* Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  @apply w-1.5;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 dark:bg-slate-800 rounded-full;
+}

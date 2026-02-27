@@ -1,0 +1,175 @@
+/* Tailwind directives container for component */
+
+.analysis-side {
+  @apply h-[600px] overflow-y-auto;
+}
+
+.analysis-side__card {
+  @apply bg-gradient-to-br from-orange-50/50 to-white dark:from-slate-900/50 dark:to-slate-900 border-2 border-amber-500/30 dark:border-amber-500/20 rounded-xl p-4 h-full;
+}
+
+/* Header */
+.analysis-side__header {
+  @apply flex items-center justify-between mb-4;
+}
+.analysis-side__title-info {
+  @apply flex items-center gap-3;
+}
+.analysis-side__icon-box {
+  @apply w-10 h-10 rounded-full flex items-center justify-center;
+}
+.analysis-side__icon-box--up {
+  @apply bg-gradient-to-br from-red-500 to-red-600;
+}
+.analysis-side__icon-box--down {
+  @apply bg-gradient-to-br from-blue-500 to-blue-600;
+}
+.analysis-side__icon-box--neutral {
+  @apply bg-gradient-to-br from-slate-400 to-slate-500;
+}
+
+.analysis-side__icon {
+  @apply w-5 h-5 text-white;
+}
+
+.analysis-side__title {
+  @apply text-xl font-bold text-slate-900 dark:text-white m-0;
+}
+.analysis-side__subtitle {
+  @apply text-sm text-slate-600 dark:text-slate-400 m-0;
+}
+.analysis-side__change-text--up {
+  @apply text-red-600 dark:text-red-400 font-bold;
+}
+.analysis-side__change-text--down {
+  @apply text-blue-600 dark:text-blue-400 font-bold;
+}
+.analysis-side__change-text--neutral {
+  @apply text-slate-600 font-bold;
+}
+
+.analysis-side__intensity {
+  @apply flex items-center gap-2;
+}
+.analysis-side__intensity-label {
+  @apply text-xs text-slate-500 dark:text-slate-500;
+}
+.analysis-side__intensity-bars {
+  @apply flex items-center gap-1;
+}
+.analysis-side__bar {
+  @apply w-1.5 h-6 rounded-full;
+}
+.analysis-side__bar--high {
+  @apply bg-rose-500;
+}
+.analysis-side__bar--mid {
+  @apply bg-orange-500;
+}
+.analysis-side__bar--low {
+  @apply bg-slate-400;
+}
+.analysis-side__bar--empty {
+  @apply bg-slate-200 dark:bg-slate-800;
+}
+
+.analysis-side__divider {
+  @apply my-4 h-px bg-slate-200 dark:bg-slate-800;
+}
+
+/* Tabs */
+.analysis-side__tabs {
+  @apply mb-4;
+}
+.analysis-side__tabs-list {
+  @apply grid grid-cols-2 gap-2 mb-3 bg-slate-100 dark:bg-slate-800 p-1 rounded-lg;
+}
+.analysis-side__tab-btn {
+  @apply flex items-center justify-center py-2 text-xs font-medium rounded-md border-0 bg-transparent cursor-pointer text-slate-600 dark:text-slate-400 transition-all;
+}
+.analysis-side__tab-btn--active {
+  @apply bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm;
+}
+
+.analysis-side__content-box {
+  @apply p-3 rounded-lg border;
+}
+.analysis-side__content-box--reason {
+  @apply bg-white dark:bg-slate-900 border-amber-500/30;
+}
+.analysis-side__content-box--outlook {
+  @apply bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/10 border-blue-200 dark:border-blue-800;
+}
+.analysis-side__text {
+  @apply text-sm text-slate-700 dark:text-slate-300 leading-relaxed m-0;
+}
+
+/* Stocks Section */
+.analysis-side__stocks-section {
+  @apply mb-4;
+}
+.analysis-side__section-label {
+  @apply flex items-center gap-2 mb-3;
+}
+.analysis-side__section-icon {
+  @apply w-4 h-4 text-teal-500;
+}
+.analysis-side__section-title {
+  @apply font-semibold text-sm text-slate-900 dark:text-white m-0;
+}
+
+.analysis-side__stocks-grid {
+  @apply flex flex-wrap gap-2;
+}
+.analysis-side__stock-tag {
+  @apply flex items-center gap-2 px-3 py-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-teal-500 transition-colors;
+}
+.analysis-side__stock-name {
+  @apply text-sm font-bold text-slate-900 dark:text-white;
+}
+.analysis-side__stock-change {
+  @apply text-sm font-semibold flex items-center gap-1;
+}
+
+/* News Section */
+.analysis-side__news-section {
+  @apply space-y-2;
+}
+.analysis-side__news-box {
+  @apply p-3 bg-gradient-to-br from-teal-50 to-white dark:from-teal-900/10 dark:to-slate-900 rounded-lg border border-teal-500/30;
+}
+.analysis-side__news-text {
+  @apply text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-3 m-0;
+}
+.analysis-side__sources {
+  @apply flex items-center gap-2 pt-2 border-t border-teal-500/20;
+}
+.analysis-side__sources-label {
+  @apply text-[10px] text-slate-500;
+}
+.analysis-side__sources-list {
+  @apply flex items-center gap-2;
+}
+.analysis-side__source-item {
+  @apply flex items-center gap-1.5 px-2 py-0.5 bg-white dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700;
+}
+.analysis-side__source-fav {
+  @apply w-3.5 h-3.5 object-contain;
+}
+.analysis-side__source-name {
+  @apply text-[10px] font-medium text-slate-700 dark:text-slate-400;
+}
+
+/* Empty State */
+.analysis-side__empty {
+  @apply h-full flex flex-col items-center justify-center text-center text-slate-400 dark:text-slate-600;
+}
+.analysis-side__empty-icon {
+  @apply w-16 h-16 mb-4 opacity-20;
+}
+.analysis-side__empty-title {
+  @apply text-lg font-semibold m-0;
+}
+.analysis-side__empty-desc {
+  @apply text-sm mt-2 m-0;
+}

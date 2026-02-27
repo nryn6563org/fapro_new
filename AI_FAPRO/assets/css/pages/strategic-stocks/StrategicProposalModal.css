@@ -1,0 +1,211 @@
+/* Tailwind directives container for component */
+
+.strategic-modal__dialog {
+  @apply max-w-2xl max-h-[90vh];
+}
+
+/* Header */
+.strategic-modal__header {
+  @apply relative p-5 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-t-xl;
+}
+.strategic-modal__title {
+  @apply text-xl font-bold text-slate-900 dark:text-white m-0;
+}
+.strategic-modal__subtitle {
+  @apply text-sm text-slate-600 dark:text-slate-400 mt-1 m-0;
+}
+.strategic-modal__close-btn {
+  @apply absolute top-4 right-4 p-2 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border-0 bg-transparent cursor-pointer;
+}
+
+/* Body */
+.strategic-modal__body {
+  @apply p-6 space-y-6 bg-white dark:bg-slate-900 overflow-y-auto max-h-[calc(90vh-80px)];
+}
+
+/* Info Card */
+.strategic-modal__info-card {
+  @apply bg-slate-50 dark:bg-slate-800/50 rounded-lg p-4 border border-slate-100 dark:border-slate-800;
+}
+.strategic-modal__info-header {
+  @apply flex items-center justify-between mb-3;
+}
+.strategic-modal__info-left {
+  @apply flex items-center gap-3;
+}
+.strategic-modal__stock-name {
+  @apply text-lg font-bold text-slate-900 dark:text-white m-0;
+}
+.strategic-modal__badge {
+  @apply px-2 py-0.5 rounded text-xs font-semibold bg-teal-500 text-white;
+}
+.strategic-modal__stock-code {
+  @apply text-xs text-slate-500 font-mono;
+}
+
+.strategic-modal__stats-grid {
+  @apply grid grid-cols-3 gap-4 text-sm;
+}
+.strategic-modal__stat-col {
+  @apply flex flex-col gap-1;
+}
+.strategic-modal__stat-label {
+  @apply text-slate-500 dark:text-slate-400 text-xs;
+}
+.strategic-modal__stat-value {
+  @apply font-semibold text-slate-900 dark:text-white;
+}
+.strategic-modal__stat-change {
+  @apply font-semibold;
+}
+.strategic-modal__stat-change--up {
+  @apply text-red-600 dark:text-red-400;
+}
+.strategic-modal__stat-change--down {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+/* Section */
+.strategic-modal__section {
+  @apply rounded-lg p-4 border-l-4;
+}
+.strategic-modal__section--upside {
+  @apply bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/10 border-teal-500;
+}
+.strategic-modal__section-header {
+  @apply flex items-center gap-2 mb-3;
+}
+.strategic-modal__section-icon {
+  @apply w-5 h-5;
+}
+.strategic-modal__section-title {
+  @apply font-semibold text-slate-900 dark:text-white m-0;
+}
+
+.strategic-modal__point-list {
+  @apply space-y-2;
+}
+.strategic-modal__point-item {
+  @apply flex items-start gap-2;
+}
+.strategic-modal__point-bullet {
+  @apply w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0;
+}
+.strategic-modal__point-text {
+  @apply text-sm text-slate-700 dark:text-slate-300 m-0 leading-relaxed;
+}
+
+/* Forms */
+.strategic-modal__form-group {
+  @apply space-y-2;
+}
+.strategic-modal__form-label {
+  @apply block text-sm font-semibold text-slate-900 dark:text-white;
+}
+.strategic-modal__form-header {
+  @apply flex items-center justify-between;
+}
+
+.strategic-modal__textarea {
+  @apply w-full min-h-[100px] p-3 text-sm rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white resize-none focus:outline-none focus:ring-2 focus:ring-teal-500;
+}
+
+.strategic-modal__btn-preview {
+  @apply flex items-center px-2 py-1 text-xs border border-slate-300 dark:border-slate-700 rounded text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer bg-transparent;
+}
+
+/* Upload Box */
+.strategic-modal__upload-box {
+  @apply border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-lg p-6 text-center bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer;
+}
+.strategic-modal__upload-label {
+  @apply cursor-pointer block;
+}
+.strategic-modal__upload-icon {
+  @apply w-8 h-8 text-slate-400 mx-auto mb-2;
+}
+.strategic-modal__upload-text {
+  @apply text-sm text-slate-600 dark:text-slate-400 m-0;
+}
+.strategic-modal__upload-text--highlight {
+  @apply text-teal-500 font-semibold;
+}
+.strategic-modal__upload-subtext {
+  @apply text-xs text-slate-400 mt-1 m-0;
+}
+
+/* Attached Files */
+.strategic-modal__file-list {
+  @apply mt-3 space-y-2;
+}
+.strategic-modal__file-item {
+  @apply flex items-center justify-between bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-2 rounded-lg;
+}
+.strategic-modal__file-info {
+  @apply flex items-center gap-2;
+}
+.strategic-modal__file-name {
+  @apply text-sm text-slate-700 dark:text-slate-300;
+}
+.strategic-modal__file-size {
+  @apply text-xs text-slate-400;
+}
+.strategic-modal__file-remove {
+  @apply p-1 text-slate-400 hover:text-red-500 bg-transparent border-0 cursor-pointer;
+}
+
+/* Client List */
+.strategic-modal__client-list {
+  @apply border border-slate-200 dark:border-slate-700 rounded-lg max-h-[200px] overflow-y-auto bg-white dark:bg-slate-900;
+}
+.strategic-modal__client-item {
+  @apply flex items-center gap-3 p-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors;
+}
+.strategic-modal__client-item--border {
+  @apply border-b border-slate-100 dark:border-slate-800;
+}
+.strategic-modal__client-checkbox {
+  @apply w-4 h-4 rounded border-slate-300 text-teal-600 focus:ring-teal-500 dark:border-slate-600 dark:bg-slate-700;
+}
+.strategic-modal__client-label {
+  @apply flex-1 cursor-pointer;
+}
+.strategic-modal__client-info {
+  @apply flex items-center justify-between;
+}
+.strategic-modal__client-name {
+  @apply text-sm font-semibold text-slate-900 dark:text-white m-0;
+}
+.strategic-modal__client-email {
+  @apply text-xs text-slate-500 dark:text-slate-400 m-0;
+}
+.strategic-modal__client-portfolio {
+  @apply text-right;
+}
+.strategic-modal__client-portfolio-label {
+  @apply text-xs text-slate-400 dark:text-slate-500 m-0;
+}
+.strategic-modal__client-portfolio-value {
+  @apply text-sm font-semibold text-slate-700 dark:text-slate-300 m-0;
+}
+
+.strategic-modal__client-summary {
+  @apply text-xs text-slate-500 dark:text-slate-400 text-right mt-2;
+}
+.strategic-modal__client-summary-count {
+  @apply font-semibold text-teal-500;
+}
+
+/* Actions */
+.strategic-modal__actions {
+  @apply flex gap-3 pt-4 border-t border-slate-200 dark:border-slate-800;
+}
+.strategic-modal__btn-outline {
+  @apply flex-1 py-2 text-sm font-semibold rounded-lg border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 bg-transparent transition-colors cursor-pointer;
+}
+.strategic-modal__btn-primary {
+  @apply flex-1 flex items-center justify-center py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white border-0 transition-colors cursor-pointer opacity-100 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+.strategic-modal__btn-secondary {
+  @apply flex-1 flex items-center justify-center py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white border-0 transition-colors cursor-pointer opacity-100 disabled:opacity-50 disabled:cursor-not-allowed;
+}

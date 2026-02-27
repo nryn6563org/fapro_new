@@ -1,0 +1,47 @@
+/* Tailwind directives container */
+
+.day-view {
+  @apply h-full overflow-auto bg-white dark:bg-slate-900;
+}
+
+.day-view__container {
+  @apply min-w-[600px];
+}
+
+/* Header */
+.day-view__header {
+  @apply grid grid-cols-[100px_1fr] border-b border-slate-200 dark:border-slate-800 sticky top-0 bg-white dark:bg-slate-900 z-10 shadow-sm;
+}
+
+.day-view__time-label {
+  @apply p-6 border-r border-slate-200 dark:border-slate-800 text-[10px] font-black text-slate-400 dark:text-slate-600 uppercase;
+}
+
+.day-view__day-info {
+  @apply p-6 text-center border-r border-slate-200 dark:border-slate-800;
+}
+
+.day-view__date-num {
+  @apply text-4xl font-light text-slate-700 dark:text-slate-300;
+}
+
+.day-view__date-num--today {
+  @apply w-16 h-16 mx-auto bg-blue-600 text-white rounded-full flex items-center justify-center font-black shadow-xl shadow-blue-500/30;
+}
+
+/* Grid */
+.day-view__row {
+  @apply grid grid-cols-[100px_1fr] border-b border-slate-100 dark:border-slate-800;
+}
+
+.day-view__hour-label {
+  @apply p-4 text-[11px] font-black text-slate-400 dark:text-slate-600 text-right pr-6 border-r border-slate-200 dark:border-slate-800 h-24 flex items-start justify-end;
+}
+
+.day-view__slot {
+  @apply border-r border-slate-100 dark:border-slate-800 p-2 relative h-24 flex flex-col gap-1 overflow-y-auto;
+}
+
+.day-view__event {
+  @apply text-white p-3 rounded-xl cursor-not-allowed hover:scale-[1.01] transition-all shadow-lg;
+}

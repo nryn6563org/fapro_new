@@ -1,0 +1,122 @@
+/* Tailwind directives container for component */
+.signals-page {
+  @apply p-6 space-y-6 max-w-7xl mx-auto;
+}
+
+/* Header */
+.signals-page__header {
+  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4;
+}
+.signals-page__title {
+  @apply text-3xl font-bold text-slate-900 dark:text-white;
+}
+.signals-page__subtitle {
+  @apply text-slate-600 dark:text-slate-400 mt-1 text-sm;
+}
+.signals-page__action-box {
+  @apply flex items-center gap-4;
+}
+.signals-page__time-info {
+  @apply text-right;
+}
+.signals-page__time-text {
+  @apply text-sm font-semibold text-slate-900 dark:text-white;
+}
+.signals-page__time-label {
+  @apply text-xs text-slate-500 dark:text-slate-400;
+}
+.signals-page__refresh-btn {
+  @apply flex items-center gap-2 px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-colors shadow-sm;
+}
+.signals-page__refresh-icon {
+  @apply w-4 h-4;
+}
+.signals-page__refresh-text {
+  @apply text-sm font-semibold;
+}
+
+/* Grid Layout */
+.signals-page__grid {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+}
+
+/* Column General */
+.signals-page__column {
+  @apply border-2 rounded-xl bg-white dark:bg-slate-900 shadow-lg overflow-hidden flex flex-col h-[calc(100vh-200px)] min-h-[600px];
+}
+
+/* Buy Column Specifics */
+.signals-page__column--buy {
+  @apply border-red-300 dark:border-red-900/50;
+}
+.signals-page__column-header--buy {
+  @apply bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/40 dark:to-red-900/20 border-b border-red-200 dark:border-red-900/50;
+}
+.signals-page__column-icon-bg--buy {
+  @apply bg-red-500;
+}
+.signals-page__column-badge--buy {
+  @apply bg-red-500 text-white;
+}
+
+/* Sell Column Specifics */
+.signals-page__column--sell {
+  @apply border-blue-300 dark:border-blue-900/50;
+}
+.signals-page__column-header--sell {
+  @apply bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-900/20 border-b border-blue-200 dark:border-blue-900/50;
+}
+.signals-page__column-icon-bg--sell {
+  @apply bg-blue-500;
+}
+.signals-page__column-badge--sell {
+  @apply bg-blue-500 text-white;
+}
+
+/* Column Header Common */
+.signals-page__column-header {
+  @apply flex items-center justify-between p-4;
+}
+.signals-page__column-title-box {
+  @apply flex items-center gap-3;
+}
+.signals-page__column-icon-bg {
+  @apply w-10 h-10 rounded-lg flex items-center justify-center text-white;
+}
+.signals-page__column-icon {
+  @apply w-6 h-6;
+}
+.signals-page__column-title {
+  @apply text-lg font-bold text-slate-800 dark:text-slate-100;
+}
+.signals-page__column-badge {
+  @apply px-2.5 py-0.5 rounded-full text-xs font-semibold;
+}
+
+/* Column Content Area */
+.signals-page__column-content {
+  @apply flex-1 overflow-y-auto;
+}
+
+/* Custom styles for AI Report Modal dialog wrapper */
+.ai-report-modal__dialog {
+  @apply max-w-5xl md:max-w-7xl mx-auto mt-10;
+}
+.ai-report-modal__header {
+  @apply bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 flex items-center justify-between rounded-t-xl;
+}
+.ai-report-modal__header-left {
+  @apply flex flex-col gap-1;
+}
+.ai-report-modal__title {
+  @apply text-2xl font-bold m-0 flex-1;
+}
+.ai-report-modal__ticker {
+  @apply text-lg text-slate-300 ml-2;
+}
+.ai-report-modal__close-btn {
+  @apply p-2 hover:bg-white/10 rounded-full transition-colors text-white border-0 bg-transparent cursor-pointer;
+}
+.ai-report-modal__content {
+  @apply p-0 m-0 bg-white dark:bg-slate-900;
+}

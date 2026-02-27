@@ -1,0 +1,41 @@
+/* Tailwind directives container */
+
+.month-view {
+  @apply p-4 h-full overflow-auto;
+}
+
+.month-view__grid {
+  @apply grid grid-cols-7 gap-px bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-800;
+}
+
+.month-view__th {
+  @apply bg-slate-50 dark:bg-slate-900 p-2 text-center text-sm font-bold uppercase;
+}
+
+.month-view__cell {
+  @apply bg-white dark:bg-slate-950 h-32 p-2 relative flex flex-col;
+}
+
+.month-view__cell--empty {
+  @apply bg-slate-50/50 dark:bg-slate-900/50;
+}
+
+.month-view__day-num {
+  @apply text-sm mb-1 flex items-center justify-center;
+}
+
+.month-view__day-num--today {
+  @apply w-6 h-6 bg-blue-600 text-white rounded-full font-black;
+}
+
+.month-view__events {
+  @apply space-y-1 mt-1;
+}
+
+.month-view__event-tag {
+  @apply text-white text-[10px] px-1.5 py-0.5 rounded truncate font-medium;
+}
+
+.month-view__more {
+  @apply text-[10px] text-slate-500 dark:text-slate-600 px-1 font-bold;
+}

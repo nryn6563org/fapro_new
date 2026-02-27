@@ -1,0 +1,33 @@
+/* Tailwind directives container */
+
+.customers-page {
+  @apply min-h-screen bg-white dark:bg-slate-950 p-8;
+}
+
+/* Header */
+.customers-page__header {
+  @apply flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8;
+}
+.customers-page__h1 {
+  @apply text-3xl font-bold text-slate-900 dark:text-white m-0;
+}
+.customers-page__h1-desc {
+  @apply text-sm text-slate-500 mt-1 m-0;
+}
+
+.customers-page__header-actions {
+  @apply flex items-center gap-3;
+}
+
+.customers-page__btn-amber {
+  @apply flex items-center bg-[#F59E0B] hover:bg-[#F59E0B]/90 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-amber-500/20 hover:scale-105 active:scale-95 transition-all border-0 cursor-pointer;
+}
+
+.customers-page__btn-outline {
+  @apply flex items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 px-6 py-3 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all cursor-pointer;
+}
+
+/* Content Area */
+.customers-page__content {
+  @apply max-w-7xl mx-auto;
+}

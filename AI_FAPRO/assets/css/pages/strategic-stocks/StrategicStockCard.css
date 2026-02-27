@@ -1,0 +1,130 @@
+/* Tailwind directives container for component */
+
+.strategic-card {
+  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden hover:shadow-md transition-shadow relative;
+}
+
+/* Header / Collapsed View */
+.strategic-card__header {
+  @apply p-4 cursor-pointer;
+}
+.strategic-card__header-content {
+  @apply flex items-start justify-between;
+}
+.strategic-card__info-main {
+  @apply flex-1;
+}
+
+.strategic-card__code {
+  @apply text-xs text-slate-400 dark:text-slate-500 mb-1 font-mono;
+}
+.strategic-card__title-row {
+  @apply flex items-center gap-2 mb-3;
+}
+.strategic-card__name {
+  @apply text-lg font-bold text-slate-900 dark:text-white m-0;
+}
+.strategic-card__badge {
+  @apply inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-teal-500 text-white;
+}
+
+.strategic-card__stats-row {
+  @apply flex flex-wrap items-center gap-4 mb-3;
+}
+.strategic-card__stat-item {
+  @apply flex items-center gap-2;
+}
+.strategic-card__stat-label {
+  @apply text-xs text-slate-500 dark:text-slate-400;
+}
+.strategic-card__stat-value {
+  @apply font-semibold text-slate-900 dark:text-white text-sm;
+}
+.strategic-card__stat-change {
+  @apply font-semibold text-sm;
+}
+.strategic-card__stat-change--up {
+  @apply text-red-600 dark:text-red-400;
+}
+.strategic-card__stat-change--down {
+  @apply text-blue-600 dark:text-blue-400;
+}
+.strategic-card__stat-value--muted {
+  @apply text-sm text-slate-700 dark:text-slate-300;
+}
+
+.strategic-card__reason-box {
+  @apply flex items-start gap-2;
+}
+.strategic-card__reason-icon {
+  @apply w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0;
+}
+.strategic-card__reason-text {
+  @apply text-xs text-slate-600 dark:text-slate-400 leading-relaxed;
+}
+.strategic-card__reason-label {
+  @apply text-amber-600 dark:text-amber-500 font-medium;
+}
+
+.strategic-card__arrow-box {
+  @apply ml-4 flex-shrink-0;
+}
+.strategic-card__arrow-icon {
+  @apply w-5 h-5 text-slate-400 dark:text-slate-500 transition-transform duration-300;
+}
+.strategic-card__arrow-icon--expanded {
+  @apply rotate-90;
+}
+
+/* Expanded Content */
+.strategic-card__expanded {
+  @apply border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950;
+}
+.strategic-card__expanded-inner {
+  @apply p-4 space-y-4;
+}
+
+/* Detail Sections */
+.strategic-card__detail-section {
+  @apply rounded-lg p-4 border-l-4;
+}
+.strategic-card__detail-section--upside {
+  @apply bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/10 border-teal-500;
+}
+.strategic-card__detail-section--risk {
+  @apply bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/10 border-red-500;
+}
+.strategic-card__detail-section--evidence {
+  @apply bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900/50 border-slate-400;
+}
+
+.strategic-card__section-header {
+  @apply flex items-center gap-2 mb-3;
+}
+.strategic-card__section-icon {
+  @apply w-5 h-5;
+}
+.strategic-card__section-title {
+  @apply font-semibold text-slate-900 dark:text-white m-0;
+}
+
+.strategic-card__point-list {
+  @apply space-y-2;
+}
+.strategic-card__point-item {
+  @apply flex items-start gap-2;
+}
+.strategic-card__point-bullet {
+  @apply w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0;
+}
+.strategic-card__point-text {
+  @apply text-sm text-slate-700 dark:text-slate-300;
+}
+
+/* Action Button */
+.strategic-card__action-row {
+  @apply flex justify-end pt-2;
+}
+.strategic-card__btn-propose {
+  @apply flex items-center px-4 py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white transition-colors border-0 cursor-pointer shadow-sm;
+}

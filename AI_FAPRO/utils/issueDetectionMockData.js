@@ -1,0 +1,669 @@
+export const featuredStocks = [
+  {
+    ticker: '263750',
+    name: '펄어비스',
+    price: 42500,
+    change: 2850,
+    changePercent: 7.19,
+    marketCap: '1.2조',
+    sector: '게임 소프트웨어',
+    signalStrength: 92,
+    alphaScore: 87,
+    riskGrade: '중',
+    recommendPossibility: '높음',
+    discoveryReasons: [
+      '거래량 급증 감지: 최근 3일간 평균 거래량의 3.2배 기록',
+      '실적 서프라이즈: 4분기 영업이익 예상치 18% 상회, 신작 게임 흥행 성공',
+      '내부자 매수: 이번 주 최대주주 및 경영진이 50억원 규모 자사주 매수',
+      '수급 불균형: 공매도 비중 34% 감소, 기관 보유 비중 7% 증가'
+    ],
+    clientSummary:
+      '펄어비스는 주요 증권사의 레이더에 잡히지 않은 매력적인 중소형 성장주 기회를 제공합니다. 우리 AI 모델은 이번 주 여러 긍정적 시그널의 수렴을 식별했습니다: 예상치를 18% 상회한 뛰어난 실적, 경영진의 확신을 나타내는 상당한 내부자 매수 활동, 그리고 기관의 축적을 보여주는 기술적 모멘텀.',
+    riskFactors: [
+      '제한된 애널리스트 커버리지(6개 회사만)로 인한 높은 변동성 리스크',
+      '게임 업계 경쟁 심화 및 신작 게임 흥행 불확실성'
+    ]
+  },
+  {
+    ticker: '196170',
+    name: '알테오젠',
+    price: 285000,
+    change: 17800,
+    changePercent: 6.65,
+    marketCap: '5.8조',
+    sector: '바이오의약품',
+    signalStrength: 88,
+    alphaScore: 91,
+    riskGrade: '중',
+    recommendPossibility: '매우높음',
+    discoveryReasons: [
+      '파이프라인 진전: FDA 신약 승인 기대감 고조, 3상 임상 성공',
+      '실적 개선: 기술이전 계약 체결로 매출 가시성 확보',
+      '해외 기관 매수: 글로벌 바이오 전문 펀드의 지분 확대',
+      '밸류에이션 매력: 글로벌 바이오 대비 낮은 PSR 배수'
+    ],
+    clientSummary:
+      '알테오젠은 국내 바이오 혁신 기업으로 독자 기술력을 바탕으로 글로벌 제약사와 파트너십을 확대하고 있습니다. FDA 승인 임박과 추가 기술이전 가능성은 중장기 성장 모멘텀을 제공합니다.',
+    riskFactors: [
+      '임상 실패 리스크 및 FDA 승인 지연 가능성',
+      '경쟁 바이오 기업의 유사 파이프라인 개발'
+    ]
+  },
+  {
+    ticker: '247540',
+    name: '에코프로비엠',
+    price: 178500,
+    change: 8900,
+    changePercent: 5.24,
+    marketCap: '8.3조',
+    sector: '2차전지 소재',
+    signalStrength: 85,
+    alphaScore: 83,
+    riskGrade: '중',
+    recommendPossibility: '높음',
+    discoveryReasons: [
+      '수주 확대: 북미 완성차 업체와 장기 공급계약 체결',
+      '증설 계획: 2026년 생산능력 2배 확대 예정',
+      '기술 경쟁력: 하이니켈 양극재 분야 시장 점유율 1위',
+      '정책 수혜: 미국 IRA 법안 수혜 기업'
+    ],
+    clientSummary:
+      '에코프로비엠은 2차전지 소재 핵심 기업으로 글로벌 전기차 성장세와 함께 수혜가 예상됩니다. 북미 시장 진출 가속화와 기술 우위는 장기 성장 동력을 제공합니다.',
+    riskFactors: ['원자재 가격 변동성 리스크', '중국 경쟁사의 저가 공세']
+  },
+  {
+    ticker: '068760',
+    name: '셀트리온제약',
+    price: 92300,
+    change: 4100,
+    changePercent: 4.65,
+    marketCap: '3.2조',
+    sector: '제약',
+    signalStrength: 82,
+    alphaScore: 78,
+    riskGrade: '저',
+    recommendPossibility: '높음',
+    discoveryReasons: [
+      '신약 출시: 자가면역질환 치료제 글로벌 판매 개시',
+      '수익성 개선: 영업이익률 전년 대비 5%p 상승',
+      '배당 확대: 배당성향 30%로 상향 발표',
+      '밸류에이션 저평가: PER 12배로 제약업 평균 대비 할인'
+    ],
+    clientSummary:
+      '셀트리온제약은 안정적인 현금흐름과 배당 매력을 갖춘 중소형 제약주입니다. 신약 포트폴리오 확대와 수익성 개선은 재평가 계기가 될 전망입니다.',
+    riskFactors: ['제네릭 경쟁 심화', '건강보험 약가 인하 압력']
+  },
+  {
+    ticker: '293490',
+    name: '카카오게임즈',
+    price: 34850,
+    change: 1320,
+    changePercent: 3.93,
+    marketCap: '1.5조',
+    sector: '게임 소프트웨어',
+    signalStrength: 79,
+    alphaScore: 74,
+    riskGrade: '중',
+    recommendPossibility: '보통',
+    discoveryReasons: [
+      '신작 흥행: 신규 모바일 게임 출시 후 매출 급증',
+      '해외 진출: 일본·동남아 시장 공략 본격화',
+      'IP 확보: 인기 웹툰 게임화 라이선스 다수 확보',
+      '수급 개선: 최근 2주간 외국인·기관 순매수 전환'
+    ],
+    clientSummary:
+      '카카오게임즈는 탄탄한 IP 기반과 카카오 플랫폼 시너지를 활용한 게임 퍼블리셔입니다. 신작 라인업과 해외 시장 진출은 실적 모멘텀을 제공할 것으로 예상됩니다.',
+    riskFactors: ['게임 업종 특성상 흥행 불확실성', '모바일 게임 시장 경쟁 심화']
+  },
+  {
+    ticker: '096530',
+    name: '씨젠',
+    price: 45200,
+    change: 1410,
+    changePercent: 3.22,
+    marketCap: '2.1조',
+    sector: '체외진단',
+    signalStrength: 76,
+    alphaScore: 72,
+    riskGrade: '중',
+    recommendPossibility: '보통',
+    discoveryReasons: [
+      '해외 매출 성장: 북미·유럽 시장 진단기기 판매 확대',
+      '제품 포트폴리오 다각화: 암 조기진단 제품 출시',
+      '수익성 회복: 코로나 이후 정상화, 영업이익률 25% 회복',
+      '밸류에이션 매력: PBR 1.2배로 역사적 저점 수준'
+    ],
+    clientSummary:
+      '씨젠은 체외진단 분야 글로벌 경쟁력을 갖춘 기업으로 코로나 이후 정상화 단계에 진입했습니다. 신규 제품 라인업과 해외 시장 확대는 안정적 성장을 뒷받침할 전망입니다.',
+    riskFactors: ['코로나 진단 매출 감소 지속', '글로벌 진단기기 업체와의 경쟁']
+  },
+  {
+    ticker: '112040',
+    name: '위메이드',
+    price: 58700,
+    change: 2900,
+    changePercent: 5.19,
+    marketCap: '2.4조',
+    sector: '게임 소프트웨어',
+    signalStrength: 74,
+    alphaScore: 69,
+    riskGrade: '고',
+    recommendPossibility: '보통',
+    discoveryReasons: [
+      '블록체인 게임 선도: 미르4 글로벌 흥행 지속',
+      '웹3 생태계 확장: 위믹스 플랫폼 파트너사 증가',
+      '신작 기대감: 나이트크로우 일본 출시 성공',
+      '수익구조 다각화: 플랫폼 수수료 매출 증가'
+    ],
+    clientSummary:
+      '위메이드는 블록체인 게임 분야 퍼스트 무버로서 웹3 게임 생태계를 선도하고 있습니다. 미르 IP 활용과 플랫폼 확장은 중장기 성장 동력을 제공합니다.',
+    riskFactors: ['암호화폐 시장 변동성 영향', '블록체인 게임 규제 리스크']
+  },
+  {
+    ticker: '058470',
+    name: '리노공업',
+    price: 168000,
+    change: 7200,
+    changePercent: 4.48,
+    marketCap: '2.8조',
+    sector: '반도체 장비·부품',
+    signalStrength: 71,
+    alphaScore: 85,
+    riskGrade: '중',
+    recommendPossibility: '높음',
+    discoveryReasons: [
+      '애플 공급망 진입: 아이폰 신모델 테스트 소켓 독점 공급',
+      '실적 모멘텀: 1분기 영업이익 전년 대비 40% 증가',
+      '기술력 인정: 미세 피치 소켓 분야 글로벌 점유율 1위',
+      '수주 증가: 주요 고객사 신규 프로젝트 수주'
+    ],
+    clientSummary:
+      '리노공업은 반도체 테스트 소켓 분야의 숨은 강자로 글로벌 IT 기업들의 핵심 파트너입니다. 기술 경쟁력과 고객사 다변화는 안정적 성장을 가능하게 합니다.',
+    riskFactors: ['주요 고객사 매출 의존도 높음', '반도체 경기 변동성']
+  }
+]
+
+export const issueData = [
+  {
+    id: 1,
+    name: 'AI반도체',
+    changePercent: 8.5,
+    type: 'up',
+    size: 140,
+    position: { top: '15%', left: '12%' },
+    relatedStocks: ['058470', '263750', '196170', '247540', '068760'],
+    aiReason:
+      '글로벌 AI 반도체 수요가 전년 대비 340% 급증하며 HBM 메모리 및 테스트 소켓 관련 중소형주들이 수혜를 입고 있습니다. 엔비디아와 AMD의 차세대 GPU 출시 가속화로 공급망 전반의 실적 개선이 예상되며, 특히 국내 중소형 부품 업체들의 점유율 확대가 확인되고 있습니다.',
+    outlook:
+      '단기적으로 AI 반도체 수요 급증세가 2026년 상반기까지 지속될 것으로 전망됩니다. 엔비디아의 B200 시리즈 본격 출하와 함께 HBM3E 및 HBM4 관련 테스트 장비 수주가 Q2에 집중될 것으로 예상되며, 국내 협력사들의 분기 실적 개선이 가시화될 전망입니다. 중장기적으로는 AI 데이터센터 투자 확대와 엣지 AI 반도체 시장 성장으로 2027년까지 연평균 30% 이상의 시장 성장률이 예상됩니다.',
+    newsSummary:
+      '엔비디아가 차세대 AI칩 생산을 30% 증산한다고 발표하며 국내 협력사들의 수주 전망이 밝아졌습니다. SK하이닉스의 HBM3E 공급 확대 소식과 함께 관련 테스트 장비 및 소재 업체들의 실적 개선이 예상되고 있습니다.',
+    newsSources: [
+      { name: '한국경제', favicon: 'https://www.hankyung.com/favicon.ico' },
+      { name: '매일경제', favicon: 'https://www.mk.co.kr/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+2.4% → +5.8%',
+      relatedStocksCount: '18종목 → 30종목',
+      avgPriceChange: '+3.5% → +8.7%',
+      intensityChange: '중강도 → 고강도',
+      issueDate: '2026-01-26',
+      description:
+        '지난주 대비 이슈 강도가 크게 강화되었으며, 관련 종목 수와 평균 등락률이 모두 상승했습니다.'
+    },
+    issueDate: '2026.02.09',
+    updatedAt: '14:30'
+  },
+  {
+    id: 2,
+    name: '바이오신약',
+    changePercent: 6.2,
+    type: 'up',
+    size: 130,
+    position: { top: '8%', left: '35%' },
+    relatedStocks: ['196170', '068760', '096530', '293490', '112040'],
+    aiReason:
+      'FDA 및 EMA의 바이오시밀러 승인 가속화와 함께 국내 바이오 기업들의 글로벌 기술이전 계약이 증가하고 있습니다. 특히 자가면역질환 및 항암 치료제 파이프라인을 보유한 중소형 바이오 기업들에 대한 글로벌 빅파마의 관심이 높아지며 밸류에이션 재평가가 진행 중입니다.',
+    outlook:
+      '2026년 상반기 중 국내 주요 바이오 기업 3~4곳의 FDA 승인 결과가 발표될 예정으로, 승인 성공 시 관련 기업들의 주가 재평가가 예상됩니다. 글로벌 제약사들의 바이오시밀러 및 신약 기술이전 수요가 지속적으로 증가하고 있어, 파이프라인 가치가 우수한 중소형 바이오 기업들의 M&A 및 라이선싱 딜이 활발해질 전망입니다. 다만 임상 결과 및 규제 리스크에 대한 면밀한 모니터링이 필요합니다.',
+    newsSummary:
+      '알테오젠이 글로벌 제약사와 신규 기술이전 계약을 체결했으며, 셀트리온제약은 자가면역질환 치료제의 FDA 승인 심사가 순조롭게 진행 중이라는 소식이 전해졌습니다.',
+    newsSources: [
+      { name: '조선비즈', favicon: 'https://biz.chosun.com/favicon.ico' },
+      { name: '연합뉴스', favicon: 'https://www.yna.co.kr/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+4.8% → +6.2%',
+      relatedStocksCount: '9종목 → 17종목',
+      avgPriceChange: '+2.1% → +5.9%',
+      intensityChange: '중강도 → 중강도',
+      issueDate: '2026-02-01',
+      description: 'FDA 승인 기대감이 높아지며 지난주 대비 이슈 강도와 관련 종목 수가 증가했습니다.'
+    },
+    issueDate: '2026.02.08',
+    updatedAt: '16:45'
+  },
+  {
+    id: 3,
+    name: '2차전지',
+    changePercent: 4.8,
+    type: 'up',
+    size: 120,
+    position: { top: '25%', left: '28%' },
+    relatedStocks: ['247540', '058470', '263750', '196170', '068760'],
+    aiReason:
+      '미국 IRA 법안과 유럽 배터리 규제 강화로 북미 및 유럽 시장 진출 기업들의 수주 가시성이 크게 개선되고 있습니다. 하이니켈 양극재와 차세대 배터리 소재 기술을 보유한 국내 중소형 기업들이 글로벌 완성차 업체들과의 장기 공급계약을 체결하며 실적 모멘텀이 강화되고 있습니다.',
+    outlook:
+      '북미 및 유럽의 전기차 보급 확대로 2026년 하반기부터 양극재 및 배터리 소재 수요가 본격 증가할 전망입니다. 특히 IRA 법안의 현지 생산 요건으로 국내 기업들의 북미 공장 증설이 가속화되며 2027년부터 본격적인 매출 기여가 예상됩니다. 전고체 배터리 및 차세대 소재 기술을 확보한 기업들은 2028년 이후 프리미엄 밸류에이션을 받을 가능성이 높습니다.',
+    newsSummary:
+      '테슬라와 GM이 2026년까지 북미 배터리 공급망 확대를 발표하며 국내 양극재 업체들의 수혜가 예상됩니다. 에코프로비엠은 북미 2개 완성차 업체와 장기 계약을 체결했습니다.',
+    newsSources: [
+      { name: '서울경제', favicon: 'https://www.sedaily.com/favicon.ico' },
+      { name: '전자신문', favicon: 'https://www.etnews.com/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+3.2% → +4.8%',
+      relatedStocksCount: '14종목 → 20종목',
+      avgPriceChange: '+1.8% → +4.2%',
+      intensityChange: '저강도 → 중강도',
+      issueDate: '2026-02-03',
+      description: '북미 시장 진출 가시화로 지난주 대비 이슈 강도가 증가했습니다.'
+    },
+    issueDate: '2026.02.10',
+    updatedAt: '10:15'
+  },
+  {
+    id: 4,
+    name: '게임IP',
+    changePercent: -2.1,
+    type: 'down',
+    size: 110,
+    position: { top: '50%', left: '15%' },
+    relatedStocks: ['293490', '112040', '263750', '058470', '096530'],
+    aiReason:
+      '모바일 게임 시장의 경쟁 심화와 글로벌 게임 소비 둔화로 단기 실적 압력이 예상됩니다. 그러나 웹툰 기반 IP 게임화와 블록체인 게임 생태계 확장을 추진하는 기업들은 중장기 성장 잠재력을 유지하고 있어 변동성 장세에서 선별적 접근이 필요한 상황입니다.',
+    outlook:
+      '단기적으로는 모바일 게임 시장 침체로 실적 부진이 지속될 것으로 보이나, 2026년 하반기부터 웹툰 IP 기반 게임 출시가 본격화되며 반등 계기가 마련될 전망입니다. 특히 글로벌 OTT 플랫폼과의 협업을 통한 IP 확장 전략이 성공할 경우 2027년부터 새로운 성장 사이클이 시작될 가능성이 있습니다. 웹3 게임 생태계는 아직 초기 단계로 단기 수익화는 제한적이나, 장기 관점에서 모니터링이 필요합니다.',
+    newsSummary:
+      '글로벌 모바일 게임 시장이 전년 대비 5% 축소되며 업계 전반의 실적 우려가 커지고 있으나, 웹툰 IP 기반 게임과 웹3 게임 생태계는 새로운 성장 동력으로 주목받고 있습니다.',
+    newsSources: [
+      { name: '게임메카', favicon: 'https://www.gamemeca.com/favicon.ico' },
+      { name: '디지털데일리', favicon: 'https://www.ddaily.co.kr/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+0.5% → -2.1%',
+      relatedStocksCount: '22종목 → 19종목',
+      avgPriceChange: '+1.2% → -0.6%',
+      intensityChange: '중강도 → 저강도',
+      issueDate: '2026-02-04',
+      description:
+        '게임 시장 침체로 지난주 대비 이슈 강도가 약화되었으며, 관련 종목 수도 감소했습니다.'
+    },
+    issueDate: '2026.02.07',
+    updatedAt: '09:20'
+  },
+  {
+    id: 5,
+    name: '진단기기',
+    changePercent: 0.3,
+    type: 'neutral',
+    size: 95,
+    position: { top: '65%', left: '8%' },
+    relatedStocks: ['096530', '068760', '196170', '247540', '293490'],
+    aiReason:
+      '코로나 이후 정상화 과정에서 진단기기 업체들의 실적이 안정화 단계에 진입했습니다. 암 조기진단 및 유자 검사 등 신규 제품 포트폴리오 다각화가 진행 중이며, 해외 시장 진출 확대로 매출 구조 개선이 기대되나 단기 주가 모멘텀은 제한적입니다.',
+    outlook:
+      '단기적으로는 코로나 진단 수요 감소로 실적 정체가 지속될 전망이나, 2026년 하반기부터 암 조기진단 및 유전자 검사 등 신규 제품군의 매출 기여가 가시화될 것으로 예상됩니다. 특히 유럽 및 동남아 시장 진출이 본격화되면서 2027년부터 해외 매출 비중이 30% 이상으로 확대될 가능성이 있습니다. 다만 단기 주가 모멘텀은 제한적이므로 중장기 관점의 접근이 필요합니다.',
+    newsSummary:
+      "씨젠이 암 조기진단 플랫폼 '올플렉스'를 유럽 시장에 출시하며 포트폴리오 다각화에 나섰습니다. 코로나 진단 매출 감소를 신규 제품군으로 보완하는 전략이 가시화되고 있습니다.",
+    newsSources: [
+      { name: '메디컬타임즈', favicon: 'https://www.medicaltimes.com/favicon.ico' },
+      { name: '청년의사', favicon: 'https://www.docdocdoc.co.kr/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '-0.2% → +0.3%',
+      relatedStocksCount: '15종목 → 16종목',
+      avgPriceChange: '+0.1% → +0.3%',
+      intensityChange: '저강도 → 저강도',
+      issueDate: '2026-02-06',
+      description:
+        '신규 제품 출시로 이슈 강도가 소폭 증가했으나, 전체적으로는 안정적인 흐름을 보이고 있습니다.'
+    },
+    issueDate: '2026.02.06',
+    updatedAt: '13:50'
+  },
+  {
+    id: 6,
+    name: '메타버스',
+    changePercent: -3.5,
+    type: 'down',
+    size: 105,
+    position: { top: '42%', left: '42%' },
+    relatedStocks: ['263750', '293490', '112040', '058470', '247540'],
+    aiReason:
+      '글로벌 메타버스 투자 감소와 수익화 모델의 불확실성으로 관련 기업들의 단기 실적 전망이 약화되고 있습니다. 그러나 AI 기반 콘텐츠 생성과 가상 경제 생태계 구축에 집중하는 기업들은 차별화된 성장 기회를 확보할 가능성이 있어 장기 관점의 모니터링이 필요합니다.',
+    outlook:
+      '단기적으로는 글로벌 빅테크의 메타버스 투자 축소로 업계 전반의 실적 부진이 2026년까지 지속될 전망입니다. 그러나 AI 기반 아바타 생성 및 가상 공간 자동 구축 기술이 상용화되는 2027년 이후부터는 새로운 성장 모멘텀이 형성될 가능성이 있습니다. 특히 엔터테인먼트 및 교육 분야에서 메타버스 활용이 확대되며 틈새 시장에서 수익화에 성공하는 기업들이 등장할 것으로 예상됩니다.',
+    newsSummary:
+      '메타와 마이크로소프트가 메타버스 투자 규모를 축소하며 관련 업체들의 단기 실적 압력이 예상됩니다. 다만 AI 기반 콘텐츠 생성 기술을 보유한 기업들은 차별화 기회를 모색 중입니다.',
+    newsSources: [
+      { name: '아이뉴스24', favicon: 'https://www.inews24.com/favicon.ico' },
+      { name: 'ZDNet Korea', favicon: 'https://zdnet.co.kr/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '-1.2% → -3.5%',
+      relatedStocksCount: '25종목 → 21종목',
+      avgPriceChange: '-0.8% → -3.1%',
+      intensityChange: '중강도 → 중강도',
+      issueDate: '2026-01-29',
+      description:
+        '빅테크 투자 축소로 지난주 대비 이슈 강도가 크게 약화되었으며, 관련 종목 수도 감소했습니다.'
+    },
+    issueDate: '2026.02.05',
+    updatedAt: '11:40'
+  },
+  {
+    id: 7,
+    name: '방산수출',
+    changePercent: 12.3,
+    type: 'up',
+    size: 155,
+    position: { top: '18%', left: '55%' },
+    relatedStocks: ['058470', '263750', '196170', '247540', '112040'],
+    aiReason:
+      '한국 방산의 글로벌 수출이 역대 최고치를 기록하며 관련 중소형 부품 및 시스템 업체들의 수주 잔고가 급증하고 있습니다. 폴란드, 루마니아 등 유럽 국가들과의 대규모 방산 계약 체결로 향후 3~5년간 안정적인 매출 성장이 예상되며, 국내 중소형 협력사들의 수혜가 본격화되고 있습니다.',
+    outlook:
+      '폴란드, 루마니아 등과 체결한 대규모 방산 계약의 납품이 2026년 하반기부터 본격화되며 관련 협력사들의 실적 개선이 가시화될 전망입니다. 향후 3~5년간 안정적인 수주 잔고가 확보되어 있어 중장기 성장 가시성이 높으며, 특히 항공기 부품, 장갑차 시스템, 정밀 유도무기 관련 중소형 업체들의 수혜가 클 것으로 예상됩니다. 중동 및 동남아 추가 수출 가능성도 높아 2027년 이후 추가 성장 모멘텀이 기대됩니다.',
+    newsSummary:
+      '한국이 폴란드와 총 15조원 규모의 방산 수출 계약을 체결하며 국내 협력사들의 수주 잔고가 급증했습니다. 리노공업 등 반도체 장비 업체들도 군수용 반도체 부품 수요 증가로 수혜가 예상됩니다.',
+    newsSources: [
+      { name: '디펜스타임즈', favicon: 'https://www.defensetimes.co.kr/favicon.ico' },
+      { name: '뉴스1', favicon: 'https://www.news1.kr/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+4.5% → +12.3%',
+      relatedStocksCount: '23종목 → 38종목',
+      avgPriceChange: '+5.8% → +13.9%',
+      intensityChange: '고강도 → 최고강도',
+      issueDate: '2026-01-28',
+      description:
+        '폴란드 대규모 계약 체결로 지난주 대비 이슈 강도가 급증하며 역대 최고 수준을 기록했습니다.'
+    },
+    issueDate: '2026.02.11',
+    updatedAt: '15:20'
+  },
+  {
+    id: 8,
+    name: '우주항공',
+    changePercent: 5.7,
+    type: 'up',
+    size: 115,
+    position: { top: '48%', left: '68%' },
+    relatedStocks: ['196170', '058470', '068760', '247540', '263750'],
+    aiReason:
+      '누리호 발사 성공과 민간 우주 산업 육성 정책으로 국내 우주항공 부품 기업들의 기술 경쟁력이 주목받고 있습니다. 위성 발사체 부품, 항공기 경량 소재 등 틈새 시장에서 글로벌 수주를 확대하는 중소형주들이 장기 성장 모멘텀을 확보하고 있습니다.',
+    outlook:
+      '정부의 우주 산업 육성 정책과 민간 우주 기업 육성 계획으로 2027년부터 관련 중소형 부품 업체들의 수혜가 본격화될 전망입니다. 특히 위성 발사체 부품, 우주용 전자장비, 항공기 경량 소재 분야에서 글로벌 기업들과의 협력이 확대되며 수주 증가가 예상됩니다. 다만 우주 산업은 초기 단계로 단기 실적 기여는 제한적이며, 3~5년 중장기 관점의 투자 접근이 필요합니다.',
+    newsSummary:
+      '누리호 3차 발사 성공으로 국내 우주 산업 생태계가 본격화되고 있으며, 정부가 2030년까지 1조원 규모의 우주 산업 육성 펀드 조성을 발표했습니다.',
+    newsSources: [
+      { name: 'YTN 사이언스', favicon: 'https://science.ytn.co.kr/favicon.ico' },
+      { name: '뉴시스', favicon: 'https://newsis.com/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+3.1% → +5.7%',
+      relatedStocksCount: '18종목 → 25종목',
+      avgPriceChange: '+2.2% → +6.1%',
+      intensityChange: '중강도 → 고강도',
+      issueDate: '2026-01-31',
+      description:
+        '누리호 발사 성공과 정부 지원 정책 발표로 지난주 대비 이슈 강도가 크게 증가했습니다.'
+    },
+    issueDate: '2026.02.10',
+    updatedAt: '12:00'
+  },
+  {
+    id: 9,
+    name: 'ESG솔루션',
+    changePercent: 3.2,
+    type: 'up',
+    size: 100,
+    position: { top: '70%', left: '35%' },
+    relatedStocks: ['247540', '068760', '196170', '096530', '293490'],
+    aiReason:
+      'EU 탄소국경조정제도(CBAM) 시행과 글로벌 ESG 공시 의무화로 기업들의 탄소 배출 관리 솔루션 도입이 급증하고 있습니다. 에너지 효율화, 탄소 포집 기술, ESG 데이터 관리 플랫폼을 보유한 중소형 기업들이 수혜를 입으며 신규 시장 선점 기회를 맞이하고 있습니다.',
+    outlook:
+      'EU CBAM 본격 시행과 국내 ESG 공시 의무화로 2026년 하반기부터 ESG 솔루션 수요가 급증할 전망입니다. 특히 탄소 배출 관리, ESG 데이터 플랫폼, 에너지 효율화 솔루션 분야에서 신규 계약이 증가하며 관련 기업들의 실적 개선이 예상됩니다. 2027년부터는 글로벌 기업들의 공급망 ESG 관리 강화로 해외 진출 기회도 확대될 것으로 보이며, 연평균 20% 이상의 시장 성장률이 전망됩니다.',
+    newsSummary:
+      'EU가 탄소국경조정제도(CBAM) 본격 시행을 앞두고 국내 수출 기업들의 ESG 솔루션 도입이 가속화되고 있습니다. 탄소 배출 관리 및 모니터링 플랫폼 수요가 급증하고 있습니다.',
+    newsSources: [
+      { name: '이투데이', favicon: 'https://www.etoday.co.kr/favicon.ico' },
+      { name: '그린포스트코리아', favicon: 'https://www.greenpostkorea.co.kr/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+1.8% → +3.2%',
+      relatedStocksCount: '17종목 → 26종목',
+      avgPriceChange: '+1.2% → +3.3%',
+      intensityChange: '저강도 → 중강도',
+      issueDate: '2026-02-02',
+      description:
+        'EU CBAM 본격 시행 임박으로 지난주 대비 이슈 강도와 관련 종목 수가 크게 증가했습니다.'
+    },
+    issueDate: '2026.02.09',
+    updatedAt: '08:30'
+  },
+  {
+    id: 10,
+    name: '로봇자동화',
+    changePercent: 7.1,
+    type: 'up',
+    size: 125,
+    position: { top: '62%', left: '58%' },
+    relatedStocks: ['068760', '058470', '247540', '112040', '196170'],
+    aiReason:
+      '제조업 인력난 심화와 스마트 팩토리 구축 확대로 산업용 로봇 및 자동화 시스템 수요가 급증하고 있습니다. 협동로봇, 물류 자동화, AI 비전 검사 솔루션을 공급하는 중소형 기업들이 대기업 생산라인에 진입하며 매출 성장세가 가속화되고 있습니다.',
+    outlook:
+      '삼성전자, 현대차 등 주요 대기업들의 스마트 팩토리 투자 확대로 2026년 협동로봇 및 자동화 시스템 수요가 전년 대비 40% 이상 증가할 전망입니다. 특히 AI 비전 검사, 물류 자동화 분야에서 신규 수주가 집중되며 관련 중소형 업체들의 실적 호조가 예상됩니다. 2027년 이후에는 중소 제조업체들의 자동화 도입도 본격화되며 시장이 더욱 확대될 것으로 전망되며, 연평균 25% 이상의 고성장이 기대됩니다.',
+    newsSummary:
+      '삼성전자와 현대차가 스마트 팩토리 투자를 30% 확대하며 국내 로봇 자동화 업체들의 수주 전망이 밝아졌습니다. 협동로봇 시장이 연평균 25% 성장하며 새로운 기회가 열리고 있습니다.',
+    newsSources: [
+      { name: '로봇신문', favicon: 'https://www.irobotnews.com/favicon.ico' },
+      { name: '파이낸셜뉴스', favicon: 'https://www.fnnews.com/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+4.2% → +7.1%',
+      relatedStocksCount: '21종목 → 32종목',
+      avgPriceChange: '+2.9% → +7.7%',
+      intensityChange: '중강도 → 고강도',
+      issueDate: '2026-01-30',
+      description: '대기업 스마트 팩토리 투자 확대 발표로 지난주 대비 이슈 강도가 급증했습니다.'
+    },
+    issueDate: '2026.02.11',
+    updatedAt: '16:10'
+  }
+]
+
+export const largeCapIssueData = [
+  {
+    id: 101,
+    name: '반도체',
+    changePercent: 5.8,
+    type: 'up',
+    size: 150,
+    position: { top: '18%', left: '15%' },
+    relatedStocks: ['005930', '000660', '051910'],
+    aiReason:
+      '삼성전자와 SK하이닉스의 HBM3E 양산 본격화로 메모리 반도체 슈퍼사이클 진입이 가시화되고 있습니다. AI 서버용 고대역폭 메모리 수요가 폭발적으로 증가하며 영업이익률 개선이 예상됩니다.',
+    outlook:
+      '2026년 상반기 메모리 반도체 가격 상승세가 지속될 전망이며, 삼성전자의 파운드리 사업부도 3nm 공정 수율 개선으로 턴어라운드가 기대됩니다. HBM 시장은 2027년까지 연평균 50% 이상 성장이 예상됩니다.',
+    newsSummary:
+      '삼성전자가 HBM3E 12단 제품 양산을 시작하며 엔비디아향 공급을 확대합니다. SK하이닉스는 HBM4 개발을 가속화하고 있습니다.',
+    newsSources: [
+      { name: '한국경제', favicon: 'https://www.hankyung.com/favicon.ico' },
+      { name: '매일경제', favicon: 'https://www.mk.co.kr/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+3.2% → +5.8%',
+      relatedStocksCount: '3종목 → 5종목',
+      avgPriceChange: '+2.1% → +5.5%',
+      intensityChange: '중강도 → 고강도',
+      issueDate: '2026-02-05',
+      description: 'HBM 수요 급증으로 지난주 대비 이슈 강도가 크게 상승했습니다.'
+    },
+    issueDate: '2026.02.15',
+    updatedAt: '15:20'
+  },
+  {
+    id: 102,
+    name: '자동차',
+    changePercent: 4.2,
+    type: 'up',
+    size: 135,
+    position: { top: '12%', left: '40%' },
+    relatedStocks: ['005380', '012330', '000270'],
+    aiReason:
+      '현대차그룹의 전기차 판매 급증과 기아의 북미 시장 점유율 확대로 실적 개선이 예상됩니다. 특히 전기차 전용 플랫폼 기반 신차 출시로 수익성이 크게 개선되고 있습니다.',
+    outlook:
+      '북미와 유럽의 전기차 보조금 정책 지속으로 2026년 글로벌 전기차 판매가 전년 대비 30% 이상 증가할 전망입니다. 현대차의 아이오닉 시리즈와 기아의 EV 라인업이 주요 성장 동력이 될 것으로 예상됩니다.',
+    newsSummary:
+      '현대차가 1월 전기차 판매 신기록을 경신했으며, 기아는 북미 시장 점유율 1위를 달성했습니다.',
+    newsSources: [
+      { name: '조선비즈', favicon: 'https://biz.chosun.com/favicon.ico' },
+      { name: '연합뉴스', favicon: 'https://www.yna.co.kr/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+2.8% → +4.2%',
+      relatedStocksCount: '3종목 → 4종목',
+      avgPriceChange: '+1.5% → +3.9%',
+      intensityChange: '저강도 → 중강도',
+      issueDate: '2026-02-08',
+      description: '전기차 판매 호조로 지난주 대비 이슈 강도가 증가했습니다.'
+    },
+    issueDate: '2026.02.14',
+    updatedAt: '14:45'
+  },
+  {
+    id: 103,
+    name: '2차전지',
+    changePercent: 6.5,
+    type: 'up',
+    size: 145,
+    position: { top: '28%', left: '25%' },
+    relatedStocks: ['373220', '096770'],
+    aiReason:
+      'LG에너지솔루션의 북미 공장 가동률 상승과 삼성SDI의 각형 배터리 수주 확대로 실적 모멘텀이 강화되고 있습니다. IRA 법안 수혜로 북미 매출이 급증하고 있습니다.',
+    outlook:
+      '2026년 하반기부터 북미 완성차 업체들의 전기차 생산 확대로 배터리 수요가 폭발적으로 증가할 전망입니다. 전고체 배터리 양산 준비도 순조롭게 진행되고 있어 2027년부터 프리미엄 밸류에이션이 기대됩니다.',
+    newsSummary:
+      'LG에너지솔루션이 GM과 추가 배터리 공급 계약을 체결했으며, 삼성SDI는 BMW향 각형 배터리 공급을 확대합니다.',
+    newsSources: [
+      { name: '서울경제', favicon: 'https://www.sedaily.com/favicon.ico' },
+      { name: '전자신문', favicon: 'https://www.etnews.com/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+4.1% → +6.5%',
+      relatedStocksCount: '2종목 → 3종목',
+      avgPriceChange: '+2.8% → +6.2%',
+      intensityChange: '중강도 → 고강도',
+      issueDate: '2026-02-07',
+      description: '북미 수주 확대로 지난주 대비 이슈 강도가 급등했습니다.'
+    },
+    issueDate: '2026.02.16',
+    updatedAt: '16:30'
+  },
+  {
+    id: 104,
+    name: '바이오',
+    changePercent: -1.8,
+    type: 'down',
+    size: 120,
+    position: { top: '52%', left: '18%' },
+    relatedStocks: ['207940', 'celltrion'],
+    aiReason:
+      '셀트리온의 바이오시밀러 가격 경쟁 심화와 삼성바이오로직스의 단기 실적 부진으로 조정을 받고 있습니다. 그러나 중장기적으로는 글로벌 바이오시밀러 시장 확대 수혜가 예상됩니다.',
+    outlook:
+      '단기적으로는 가격 경쟁 심화로 마진 압박이 지속되겠으나, 2026년 하반기부터 신규 바이오시밀러 출시와 CMO 수주 확대로 반등이 기대됩니다. 글로벌 제약사들의 아웃소싱 확대는 장기 성장 동력입니다.',
+    newsSummary:
+      '셀트리온의 유럽 바이오시밀러 판매가 가격 경쟁으로 다소 부진하나, 삼성바이오로직스는 신규 CMO 계약 체결로 장기 성장 기반을 강화하고 있습니다.',
+    newsSources: [
+      { name: '팜이데일리', favicon: 'https://www.pharmnews.com/favicon.ico' },
+      { name: '약업신문', favicon: 'https://www.yakup.com/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+0.5% → -1.8%',
+      relatedStocksCount: '2종목 → 2종목',
+      avgPriceChange: '+0.3% → -1.5%',
+      intensityChange: '저강도 → 중강도',
+      issueDate: '2026-02-10',
+      description: '가격 경쟁 심화로 지난주 대비 하락 전환했습니다.'
+    },
+    issueDate: '2026.02.13',
+    updatedAt: '11:20'
+  },
+  {
+    id: 105,
+    name: '금융',
+    changePercent: 3.5,
+    type: 'up',
+    size: 125,
+    position: { top: '35%', left: '55%' },
+    relatedStocks: ['055550', '086790', '105560'],
+    aiReason:
+      '한국은행의 금리 동결과 부동산 시장 회복 기대감으로 은행주들의 순이자마진(NIM) 개선이 예상됩니다. KB금융과 신한지주의 배당 확대 발표도 긍정적입니다.',
+    outlook:
+      '2026년 상반기 금리 인하 가능성이 낮아지며 NIM 방어가 가능할 전망입니다. 부동산 PF 리스크도 점차 완화되고 있어 신용비용 감소가 기대됩니다. 배당 수익률도 4% 이상으로 매력적입니다.',
+    newsSummary:
+      'KB금융이 분기 배당을 확대하고, 신한지주는 자사주 매입을 발표하며 주주환원 정책을 강화하고 있습니다.',
+    newsSources: [
+      { name: '이데일리', favicon: 'https://www.edaily.co.kr/favicon.ico' },
+      { name: '파이낸셜뉴스', favicon: 'https://www.fnnews.com/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+1.9% → +3.5%',
+      relatedStocksCount: '3종목 → 4종목',
+      avgPriceChange: '+1.2% → +3.1%',
+      intensityChange: '저강도 → 중강도',
+      issueDate: '2026-02-09',
+      description: '주주환원 정책 강화로 지난주 대비 상승세가 확대되었습니다.'
+    },
+    issueDate: '2026.02.17',
+    updatedAt: '13:15'
+  },
+  {
+    id: 106,
+    name: '화학',
+    changePercent: 2.8,
+    type: 'up',
+    size: 115,
+    position: { top: '45%', left: '68%' },
+    relatedStocks: ['051910', '009830'],
+    aiReason:
+      'LG화학의 배터리 소재 사업 분할과 롯데케미칼의 친환경 소재 투자 확대로 사업 구조 개선이 진행되고 있습니다. 원유 가격 안정화도 긍정적 요인입니다.',
+    outlook:
+      '2026년 하반기부터 배터리 소재와 바이오 플라스틱 등 고부가가치 제품 비중 확대로 수익성 개선이 본격화될 전망입니다. 전통 석유화학 사업은 구조조정을 통해 효율화가 진행 중입니다.',
+    newsSummary:
+      'LG화학이 배터리 소재 사업 분할 계획을 발표했으며, 롯데케미칼은 친환경 소재 생산 라인 증설에 1조원을 투자한다고 밝혔습니다.',
+    newsSources: [
+      { name: 'chemical news', favicon: 'https://www.chemicalnews.co.kr/favicon.ico' },
+      { name: '아주경제', favicon: 'https://www.ajunews.com/favicon.ico' }
+    ],
+    prevComparison: {
+      changeRate: '+1.5% → +2.8%',
+      relatedStocksCount: '2종목 → 3종목',
+      avgPriceChange: '+0.9% → +2.5%',
+      intensityChange: '저강도 → 중강도',
+      issueDate: '2026-02-11',
+      description: '사업 구조 개선 기대감으로 지난주 대비 상승폭이 확대되었습니다.'
+    },
+    issueDate: '2026.02.18',
+    updatedAt: '10:40'
+  }
+]
+
+export const sampleClients = [
+  { id: 1, name: '김영희', email: 'kim.younghee@example.com', phone: '010-1234-5678' },
+  { id: 2, name: '이철수', email: 'lee.chulsoo@example.com', phone: '010-2345-6789' },
+  { id: 3, name: '박지민', email: 'park.jimin@example.com', phone: '010-3456-7890' },
+  { id: 4, name: '정수현', email: 'jung.soohyun@example.com', phone: '010-4567-8901' },
+  { id: 5, name: '최민준', email: 'choi.minjun@example.com', phone: '010-5678-9012' }
+]
