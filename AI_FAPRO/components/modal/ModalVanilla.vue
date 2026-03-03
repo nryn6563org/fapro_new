@@ -1,11 +1,11 @@
 <template>
-  <div ref="modal" class="modal fade" tabindex="-1" role="dialog" v-show="isOpen">
+  <div v-show="isOpen" ref="modal" class="modal fade" tabindex="-1" role="dialog">
     <div :class="['modal-dialog', customDialogClass]" role="document">
       <div class="modal-content">
         <div v-if="title || $slots.header" class="modal-header">
           <slot name="header">
             <h5 class="modal-title font-bold text-lg text-slate-800">{{ title }}</h5>
-            <button type="button" class="modal-close-btn" @click="close" aria-label="Close">
+            <button type="button" class="modal-close-btn" aria-label="Close" @click="close">
               <x-icon size="20" class="text-slate-500 hover:text-slate-800 transition-colors" />
             </button>
           </slot>
@@ -54,6 +54,16 @@ export default {
       modalInstance: null
     }
   },
+  watch: {
+    isOpen(val) {
+      if (val) {
+        this.modalInstance.show()
+      } else if (this.modalInstance && this.modalInstance._visible) {
+        // 모달이 열려 있는 상태에서만 hide() 호출 (내부적으로 classList 참조 에러 방지)
+        this.modalInstance.hide()
+      }
+    }
+  },
   mounted() {
     // modal-vanilla 초기화
     this.modalInstance = new Modal({
@@ -73,25 +83,17 @@ export default {
       this.modalInstance.show()
     }
   },
-  watch: {
-    isOpen(val) {
-      if (val) {
-        this.modalInstance.show()
-      } else {
-        this.modalInstance.hide()
-      }
+  beforeDestroy() {
+    if (this.modalInstance && this.modalInstance._visible) {
+      // 컴포넌트 파괴 시 모달이 열려 있는 경우에만 안전하게 닫음
+      this.modalInstance.hide()
     }
   },
   methods: {
     close() {
-      if (this.modalInstance) {
+      if (this.modalInstance && this.modalInstance._visible) {
         this.modalInstance.hide()
       }
-    }
-  },
-  beforeDestroy() {
-    if (this.modalInstance) {
-      this.modalInstance.hide()
     }
   }
 }

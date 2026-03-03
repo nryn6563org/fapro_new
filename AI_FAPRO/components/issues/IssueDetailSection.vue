@@ -241,7 +241,7 @@
       <!-- News Detail -->
       <div v-if="issue.newsSummary" class="issue-detail__news-detail">
         <div class="issue-detail__section-label">
-          <newspaper-icon class="issue-detail__section-icon text-teal-500" />
+          <book-open-icon class="issue-detail__section-icon text-teal-500" />
           <h5 class="issue-detail__section-title">관력 뉴스 상세</h5>
         </div>
         <div class="issue-detail__news-content">
@@ -305,7 +305,8 @@ import {
   PercentIcon,
   TargetIcon,
   ZapIcon,
-  ChevronRightIcon
+  ChevronRightIcon,
+  BookOpenIcon
 } from 'vue-feather-icons'
 import { featuredStocks } from '~/utils/issueDetectionMockData.js'
 import '~/assets/css/pages/issues/IssueDetailSection.css'
@@ -319,7 +320,8 @@ export default {
     PercentIcon,
     TargetIcon,
     ZapIcon,
-    ChevronRightIcon
+    ChevronRightIcon,
+    BookOpenIcon
   },
   props: {
     issue: {

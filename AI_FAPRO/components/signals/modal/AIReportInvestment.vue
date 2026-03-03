@@ -81,7 +81,7 @@
     <div class="ai-report-investment__card">
       <div class="ai-report-investment__card-header ai-report-investment__card-header--highlight">
         <h3 class="ai-report-investment__card-title">
-          <sparkles-icon size="16" class="ai-report-investment__icon-amber" /> AI추천사유
+          <zap-icon size="16" class="ai-report-investment__icon-amber" /> AI추천사유
         </h3>
       </div>
       <div class="ai-report-investment__card-body ai-report-investment__card-body--padded">
@@ -102,13 +102,13 @@
 /**
  * 기능: AI 리포트의 투자 브리프 및 차트 영역 (좌측 상단부)
  */
-import { SparklesIcon } from 'vue-feather-icons'
+import { ZapIcon } from 'vue-feather-icons'
 import '~/assets/css/pages/signals/modal/AIReportInvestment.css'
 
 export default {
   name: 'AIReportInvestment',
   components: {
-    SparklesIcon
+    ZapIcon
   },
   props: {
     signal: {
