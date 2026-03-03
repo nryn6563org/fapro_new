@@ -121,16 +121,16 @@
   @apply mb-6;
 }
 .issue-detail__table-wrapper {
-  @apply border-2 border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden bg-white dark:bg-slate-900 shadow-sm;
+  @apply border-2 border-slate-400 dark:border-slate-800 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-900 shadow-sm;
 }
 .issue-detail__table {
   @apply w-full text-sm border-collapse;
 }
 .issue-detail__th {
-  @apply bg-slate-50 dark:bg-slate-800 px-4 py-3 font-bold text-slate-700 dark:text-slate-300 border-b-2 border-slate-200 dark:border-slate-800;
+  @apply bg-slate-200 dark:bg-slate-800 px-4 py-3 font-bold text-slate-700 dark:text-slate-300 border-b-2 border-slate-400 dark:border-slate-800;
 }
 .issue-detail__td {
-  @apply px-4 py-3 border-t border-slate-100 dark:border-slate-800;
+  @apply px-4 py-3 border-t border-slate-300 dark:border-slate-800;
 }
 .issue-detail__row--highlight {
   @apply bg-amber-50/30 dark:bg-amber-900/10;
@@ -201,7 +201,7 @@
   @apply space-y-2;
 }
 .issue-detail__news-item {
-  @apply flex items-start gap-3 p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:shadow-md transition-all;
+  @apply flex items-start gap-3 p-4 bg-slate-100 dark:bg-slate-800 border border-slate-400 dark:border-slate-700 rounded-lg hover:shadow-md transition-all;
 }
 .issue-detail__news-fav {
   @apply w-5 h-5 mt-0.5 object-contain flex-shrink-0 rounded;
@@ -212,7 +212,7 @@
 
 /* Footer Section */
 .issue-detail__footer {
-  @apply pt-4 border-t-2 border-slate-200 dark:border-slate-800;
+  @apply pt-4 border-t-2 border-slate-400 dark:border-slate-800;
 }
 .issue-detail__btn-propose {
   @apply w-full flex items-center justify-center bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all text-base border-0 cursor-pointer;

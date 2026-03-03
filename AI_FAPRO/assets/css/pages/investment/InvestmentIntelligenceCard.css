@@ -1,31 +1,31 @@
 /* Tailwind directives container for component */
 
 .intelligence-card {
-  @apply rounded-2xl border-2 shadow-lg overflow-hidden transition-all duration-500;
+  @apply bg-slate-100 dark:bg-slate-800/80 rounded-2xl border border-slate-300 dark:border-slate-700/50 shadow-sm hover:shadow-md overflow-hidden transition-all duration-500;
 }
 
 /* Header */
 .intelligence-card__header {
-  @apply px-6 py-4 flex items-center justify-between;
+  @apply px-6 py-5 flex items-center justify-between border-b border-gray-50 dark:border-slate-700/50;
 }
 .intelligence-card__header-left {
   @apply flex items-center gap-3;
 }
 .intelligence-card__icon-box {
-  @apply w-10 h-10 bg-gradient-to-br rounded-xl flex items-center justify-center shadow-sm;
+  @apply w-10 h-10 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center shadow-sm text-white;
 }
 .intelligence-card__icon {
-  @apply w-5 h-5 text-white;
+  @apply w-5 h-5;
 }
 
 .intelligence-card__title-area {
   @apply flex flex-col;
 }
 .intelligence-card__title {
-  @apply text-xl font-black text-slate-900 dark:text-white m-0;
+  @apply text-2xl font-black text-slate-900 dark:text-white m-0 tracking-tight;
 }
 .intelligence-card__subtitle {
-  @apply text-xs text-slate-500 mt-1 m-0;
+  @apply text-[11px] text-slate-500 mt-1 m-0;
 }
 
 /* Controls */
@@ -36,74 +36,74 @@
   @apply flex items-center gap-1.5;
 }
 .intelligence-card__dot {
-  @apply w-2 h-2 rounded-full bg-slate-200 dark:bg-slate-700 transition-all border-0 cursor-pointer;
+  @apply w-2 h-2 rounded-full bg-gray-200 dark:bg-slate-700 transition-all border-0 cursor-pointer;
 }
 .intelligence-card__dot--active {
-  @apply w-6 bg-teal-500 shadow-sm shadow-teal-500/50;
+  @apply w-6 bg-primary shadow-sm shadow-primary/30;
 }
 .intelligence-card__refresh {
-  @apply w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors border-0 bg-transparent cursor-pointer text-slate-400;
+  @apply w-8 h-8 flex items-center justify-center rounded-xl hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors border border-transparent hover:border-slate-400 dark:hover:border-slate-600 bg-transparent cursor-pointer text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-primary-light;
 }
 
 /* Content Area */
 .intelligence-card__content {
-  @apply px-6 pb-6;
+  @apply px-6 pb-6 pt-5;
 }
 
 /* Issues */
 .intelligence-card__issues {
-  @apply flex flex-wrap gap-2 mb-4;
+  @apply flex flex-wrap gap-2.5 mb-5;
 }
 .intelligence-card__issue-tag {
-  @apply px-4 py-2 bg-white dark:bg-slate-800 border border-orange-200 dark:border-orange-800 rounded-full text-sm font-bold text-slate-900 dark:text-white hover:border-orange-400 transition-colors shadow-sm;
+  @apply px-4 py-1.5 bg-gray-50/50 dark:bg-slate-700/30 border border-slate-400 dark:border-slate-600/50 rounded-full text-[11px] font-bold text-slate-700 dark:text-slate-200 hover:border-primary dark:hover:border-primary-light transition-all shadow-sm cursor-pointer;
 }
 
 /* Stocks */
 .intelligence-card__stocks {
-  @apply grid grid-cols-2 md:grid-cols-3 gap-2 mb-4;
+  @apply grid grid-cols-2 md:grid-cols-3 gap-3 mb-5;
 }
 .intelligence-card__stock-tag {
-  @apply px-3 py-2 bg-white dark:bg-slate-800 border border-violet-200 dark:border-violet-800 rounded-xl flex flex-col hover:border-violet-400 transition-colors shadow-sm;
+  @apply p-4 bg-gray-50/50 dark:bg-slate-700/30 border border-transparent dark:border-slate-600/50 rounded-xl flex flex-col hover:border-primary dark:hover:border-primary-light transition-all shadow-sm cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700 hover:-translate-y-0.5;
 }
 .intelligence-card__stock-name {
-  @apply text-sm font-black text-slate-900 dark:text-white;
+  @apply text-[13px] font-bold text-slate-800 dark:text-white;
 }
 .intelligence-card__stock-change {
-  @apply text-xs font-bold mt-1;
+  @apply text-[11px] font-bold mt-1.5;
 }
 
 /* News List */
 .intelligence-card__news-list {
-  @apply space-y-2 mb-4 max-h-48 overflow-y-auto pr-2 custom-scrollbar;
+  @apply space-y-3 mb-5 max-h-[220px] overflow-y-auto pr-2;
 }
 .intelligence-card__news-item {
-  @apply p-3 bg-white dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-800 rounded-xl hover:border-teal-500/30 transition-all shadow-sm;
+  @apply p-4 bg-slate-100 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700/50 flex flex-col gap-2 rounded-xl hover:border-primary/50 dark:hover:border-primary-light/50 transition-all shadow-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-700 hover:-translate-y-0.5;
 }
 .intelligence-card__news-title {
-  @apply text-sm font-bold text-slate-900 dark:text-white m-0;
+  @apply text-sm font-bold text-slate-800 dark:text-white m-0 leading-snug;
 }
 .intelligence-card__news-source {
-  @apply text-[10px] font-black px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-500 rounded;
+  @apply text-[10px] font-bold px-2 py-0.5 bg-gray-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded inline-block w-fit;
 }
 .intelligence-card__news-time {
-  @apply text-[10px] text-slate-400;
+  @apply text-[10px] text-slate-400 mt-1;
 }
 
 /* Summary Box */
 .intelligence-card__summary-box {
-  @apply p-4 rounded-xl border-2 text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium;
+  @apply p-5 rounded-2xl border text-[13px] text-slate-700 dark:text-slate-200 leading-relaxed font-medium;
 }
 .intelligence-card__summary-box--orange {
-  @apply bg-orange-50/50 border-orange-100 dark:bg-amber-900/10 dark:border-amber-900/40;
+  @apply bg-amber-50/50 border-amber-100 dark:bg-amber-900/10 dark:border-amber-900/30;
 }
 .intelligence-card__summary-box--teal {
-  @apply bg-teal-50/50 border-teal-100 dark:bg-teal-900/10 dark:border-teal-900/40;
+  @apply bg-emerald-50/50 border-emerald-100 dark:bg-emerald-900/10 dark:border-emerald-900/30;
 }
 .intelligence-card__summary-box--blue {
-  @apply bg-blue-50/50 border-blue-100 dark:bg-blue-900/10 dark:border-blue-900/40;
+  @apply bg-primary-light/30 border-primary/20 dark:bg-primary-900/10 dark:border-primary-900/30;
 }
 .intelligence-card__summary-box--purple {
-  @apply bg-violet-50/50 border-violet-100 dark:bg-violet-900/10 dark:border-violet-900/40;
+  @apply bg-violet-50/50 border-violet-100 dark:bg-violet-900/10 dark:border-violet-900/30;
 }
 
 /* Transitions */
@@ -130,9 +130,9 @@
 }
 
 /* Scrollbar */
-.custom-scrollbar::-webkit-scrollbar {
+.intelligence-card__news-list::-webkit-scrollbar {
   @apply w-1.5;
 }
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-slate-200 dark:bg-slate-800 rounded-full;
+.intelligence-card__news-list::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 dark:bg-slate-700 rounded-full;
 }

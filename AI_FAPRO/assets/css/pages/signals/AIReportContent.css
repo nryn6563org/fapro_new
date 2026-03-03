@@ -1,76 +1,29 @@
-/* Tailwind directives container for component */
+/*
+  AI Report Content Wrapper
+  -------------------------
+  BEM Block: ai-report-content
+*/
 
 .ai-report-content {
-  @apply p-6 bg-slate-50 dark:bg-slate-950 min-h-[500px];
+  @apply w-full h-full;
 }
 
-.ai-report-content__grid {
+.ai-report-content__layout {
+  @apply flex flex-col w-full;
+}
+
+.ai-report-content__grid-top {
   @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
 }
-.ai-report-content__col-main {
-  @apply lg:col-span-2 space-y-6;
-}
-.ai-report-content__col-side {
-  @apply space-y-6;
+
+.ai-report-content__col-left {
+  @apply lg:col-span-2 space-y-6 flex flex-col;
 }
 
-.ai-report-content__card {
-  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm overflow-hidden;
-}
-.ai-report-content__card--highlight {
-  @apply border-teal-200 dark:border-teal-900 shadow-md;
+.ai-report-content__col-right {
+  @apply lg:col-span-1 space-y-6 flex flex-col;
 }
 
-.ai-report-content__card-header {
-  @apply px-4 py-3 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/20;
-}
-.ai-report-content__card-title {
-  @apply text-base font-bold text-slate-800 dark:text-slate-100 m-0;
-}
-.ai-report-content__card-subtitle {
-  @apply text-sm font-semibold text-slate-700 dark:text-slate-300 m-0;
-}
-
-.ai-report-content__card-body {
-  @apply p-4;
-}
-.ai-report-content__text {
-  @apply text-sm text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-line;
-}
-.ai-report-content__text-sm {
-  @apply text-xs text-slate-500 dark:text-slate-400;
-}
-
-.ai-report-content__section-title {
-  @apply text-lg font-bold text-slate-900 dark:text-white mb-4;
-}
-.ai-report-content__factors {
-  @apply pt-4;
-}
-.ai-report-content__factors-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
-}
-.ai-report-content__list {
-  @apply list-none pl-0 m-0 space-y-2;
-}
-.ai-report-content__list-item {
-  @apply text-xs flex items-start text-slate-600 dark:text-slate-400;
-}
-.ai-report-content__list-item::before {
-  content: '•';
-  @apply text-slate-400 dark:text-slate-500 mr-2 mt-0.5;
-}
-
-.ai-report-content__summary-row {
-  @apply flex items-center justify-between;
-}
-.ai-report-content__summary-label {
-  @apply text-sm text-slate-500 dark:text-slate-400;
-}
-.ai-report-content__summary-value {
-  @apply text-base font-bold text-slate-900 dark:text-white;
-}
-
-.ai-report-content__btn-primary {
-  @apply w-full flex items-center justify-center py-2.5 px-4 bg-teal-500 hover:bg-teal-600 text-white text-sm font-semibold rounded-lg transition-colors border-0 cursor-pointer;
+.ai-report-content__full-width {
+  @apply w-full;
 }

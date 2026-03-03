@@ -58,9 +58,8 @@
             type="checkbox"
             :checked="cal.checked"
             @change="$emit('toggle-calendar', cal.id)"
-            class="schedule-sidebar__checkbox"
+            :class="['schedule-sidebar__checkbox', cal.color.replace('bg-', 'text-')]"
           />
-          <div :class="['schedule-sidebar__color-box', cal.color]"></div>
           <span class="schedule-sidebar__filter-label">{{ cal.name }}</span>
         </label>
       </div>

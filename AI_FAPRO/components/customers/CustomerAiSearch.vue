@@ -63,7 +63,7 @@
       </div>
 
       <!-- Filter Types -->
-      <div class="customer-ai-search__filters">
+      <div class="customer-ai-search__filters mt-4">
         <span class="text-sm font-medium text-slate-700 dark:text-slate-400 mr-2">
           ▼ 투자유형 필터:
         </span>

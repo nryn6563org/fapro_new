@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --text-min-size: 12px;
+  }
+  
+  html {
+    font-size: 14px; /* Move baseline up */
+  }
+
+  body {
+    /* Made it darker */
+    @apply antialiased bg-slate-100 text-[#666] dark:bg-slate-950 dark:text-gray-100;
+  }
+
+  /* Enforce min font size on basic text elements */
+  p, span, div, a, button, input, label {
+    font-size: max(14px, 1em); /* Base 14px, absolute min scale handles at comp level */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-slate-800 dark:text-white font-bold tracking-tight;
+    font-size: 18px !important; /* Standardize specific h1~h6 sizes to be identical visually as requested */
+    color: #333 !important; /* Darker than default text */
+  }
+
+  .text-lightest {
+    color: #999;
+  }
+}

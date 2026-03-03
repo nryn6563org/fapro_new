@@ -1,23 +1,12 @@
 /* Tailwind directives container */
 
-.settings-billing__card {
-  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm mt-6;
-}
-
-.settings-billing__header {
-  @apply bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex items-center gap-2;
-}
-
-.settings-billing__title {
-  @apply text-lg font-bold text-slate-900 dark:text-white m-0;
-}
 
 .settings-billing__info-box {
-  @apply p-4 bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800;
+  @apply p-4 bg-slate-200 dark:bg-slate-950 rounded-xl border border-slate-400 dark:border-slate-800;
 }
 
 .settings-billing__change-btn {
-  @apply px-4 py-1.5 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold rounded-lg hover:bg-slate-100 transition-all cursor-pointer;
+  @apply px-4 py-1.5 border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-xs font-bold rounded-lg hover:bg-slate-100 transition-all cursor-pointer;
 }
 
 .settings-billing__divider {
@@ -25,7 +14,7 @@
 }
 
 .settings-billing__action-btn {
-  @apply w-full flex items-center justify-start px-4 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all cursor-pointer;
+  @apply w-full flex items-center justify-start px-4 py-3 bg-slate-100 dark:bg-slate-800 border border-slate-400 dark:border-slate-800 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all cursor-pointer;
 }
 
 .settings-billing__action-btn--danger {

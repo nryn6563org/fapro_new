@@ -1,7 +1,7 @@
 /* Tailwind directives container */
 
 .plan-card {
-  @apply relative p-6 rounded-xl border-2 transition-all cursor-pointer bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-slate-300;
+  @apply relative p-6 rounded-xl border-2 transition-all cursor-pointer bg-slate-100 dark:bg-slate-900 border-slate-400 dark:border-slate-800 hover:border-slate-300;
 }
 
 .plan-card--active {

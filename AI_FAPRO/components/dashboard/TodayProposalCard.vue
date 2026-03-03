@@ -1,12 +1,14 @@
 <template>
-  <div class="today-proposal">
-    <div class="today-proposal__header">
-      <h2 class="today-proposal__title">오늘의 제안</h2>
-      <span class="badge today-proposal__badge">실시간 업데이트</span>
+  <div class="proposal-wrapper animate__animated animate__fadeInUp">
+    <!-- View All Header -->
+    <div class="proposal-header">
+      <h2 class="proposal-header__title">오늘의 제안</h2>
+      <span class="badge badge--teal" style="margin-left:8px;">실시간 업데이트</span>
     </div>
 
+    <!-- Cards Container -->
     <div class="today-proposal__grid">
-      <!-- Target Customers -->
+      <!-- 1) Buy Target -->
       <article class="proposal-card proposal-card--teal">
         <header class="proposal-card__header">
           <div class="proposal-card__header-content">
@@ -34,8 +36,8 @@
                   {{ item.portfolio }} · {{ item.investmentStyle }}
                 </div>
               </div>
-              <button class="btn btn--sm btn--teal" @click="$emit('propose', 'customer', item)">
-                <send-icon size="12" class="mr-1" /> 제안하기
+              <button class="btn btn--sm btn--teal" @click="openProposalModal('customer', item)">
+                <send-icon size="12" class="btn__icon" /> 제안하기
               </button>
             </div>
             <div class="proposal-item__bottom">
@@ -67,13 +69,13 @@
                 </div>
                 <div class="proposal-item__meta">
                   {{ item.price }}
-                  <span :class="item.change.startsWith('+') ? 'text-red-500' : 'text-blue-500'">{{
+                  <span :class="item.change.startsWith('+') ? 'proposal-item__change--up' : 'proposal-item__change--down'">{{
                     item.change
                   }}</span>
                 </div>
               </div>
-              <button class="btn btn--sm btn--orange" @click="$emit('propose', 'stock', item)">
-                <send-icon size="12" class="mr-1" /> 제안하기
+              <button class="btn btn--sm btn--orange" @click="openProposalModal('stock', item)">
+                <send-icon size="12" class="btn__icon" /> 제안하기
               </button>
             </div>
             <div class="proposal-item__bottom">
@@ -104,13 +106,13 @@
                 </div>
                 <div class="proposal-item__meta">
                   {{ item.price }}
-                  <span :class="item.change.startsWith('+') ? 'text-red-500' : 'text-blue-500'">{{
+                  <span :class="item.change.startsWith('+') ? 'proposal-item__change--up' : 'proposal-item__change--down'">{{
                     item.change
                   }}</span>
                 </div>
               </div>
-              <button class="btn btn--sm btn--violet" @click="$emit('propose', 'issue', item)">
-                <send-icon size="12" class="mr-1" /> 제안하기
+              <button class="btn btn--sm btn--violet" @click="openProposalModal('issue', item)">
+                <send-icon size="12" class="btn__icon" /> 제안하기
               </button>
             </div>
             <div class="proposal-item__bottom">
@@ -124,8 +126,10 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import { SendIcon } from 'vue-feather-icons'
 import { todayProposalCustomers, todayProposalStocks, todayIssueStocks } from '~/utils/mockData.js'
+import TodayProposalModal from '~/components/dashboard/TodayProposalModal.vue'
 
 export default {
   name: 'TodayProposalCard',
@@ -135,6 +139,29 @@ export default {
       customers: todayProposalCustomers,
       stocks: todayProposalStocks,
       issues: todayIssueStocks
+    }
+  },
+  methods: {
+    openProposalModal(type, data) {
+      const ModalWrapper = Vue.extend(TodayProposalModal)
+      const instance = new ModalWrapper({
+        propsData: {
+          proposalType: type,
+          proposalData: data
+        }
+      })
+      instance.$on('close-modal', () => {
+        this.$modalV.hide()
+      })
+      instance.$mount()
+      this.$modalV.show({
+        content: instance.$el,
+        buttons: [],
+        closeButton: false,
+        onHidden: () => {
+          instance.$destroy()
+        }
+      })
     }
   }
 }

@@ -2,35 +2,74 @@
 
 /* 1. 기본 레이아웃 및 모달 컨테이너 (Rule 12: CSS Hierarchy) */
 .customer-detail {
-  @apply relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-h-[90vh] overflow-y-auto;
+  @apply relative bg-slate-100 dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-h-[90vh] overflow-y-auto border border-slate-300 dark:border-slate-800;
 }
 
 /* 2. 헤더 섹션 (Header) */
 .customer-detail__header {
-  @apply sticky top-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-8 py-6 flex items-center justify-between z-10;
+  @apply sticky top-0 bg-slate-100 dark:bg-slate-900 border-b border-slate-300 dark:border-slate-800 px-8 py-6 flex items-center justify-between z-10;
 }
+.customer-detail__header-left {
+  @apply flex items-center gap-4;
+}
+.customer-detail__header-right {
+  @apply flex items-center gap-2;
+}
+
 .customer-detail__avatar {
-  @apply w-12 h-12 bg-gradient-to-br from-[#14B8A6] to-[#0D9488] rounded-full flex items-center justify-center;
+  @apply w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center shadow-sm;
 }
-.customer-detail__title {
-  @apply text-2xl font-bold text-slate-900 dark:text-white m-0;
+.customer-detail__avatar-icon {
+  @apply w-6 h-6 text-white;
 }
-.customer-detail__subtitle {
-  @apply text-sm text-slate-500 m-0;
+
+.customer-detail__name {
+  @apply text-3xl font-black text-slate-900 dark:text-gray-50 flex items-center gap-2;
 }
+.customer-detail__status {
+  @apply bg-primary text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full ml-2 shadow-sm;
+}
+.customer-detail__org {
+  @apply text-base text-slate-600 dark:text-slate-300 font-bold mt-2 flex items-center gap-1.5;
+}
+
 .customer-detail__edit-btn {
-  @apply flex items-center bg-[#14B8A6] hover:bg-[#14B8A6]/90 text-white px-4 py-2 rounded-lg font-bold border-0 cursor-pointer;
+  @apply flex items-center bg-primary hover:bg-primary-hover text-white px-4 py-2.5 rounded-xl text-[13px] font-bold border-0 cursor-pointer transition-all shadow-sm hover:-translate-y-0.5 shadow-primary/20;
 }
+.customer-detail__btn-icon {
+  @apply w-4 h-4 mr-2;
+}
+
 .customer-detail__close-btn {
-  @apply p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border-0 bg-transparent cursor-pointer;
+  @apply p-2 text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-white border-0 bg-transparent cursor-pointer transition-colors;
+}
+.customer-detail__close-icon {
+  @apply w-5 h-5;
+}
+
+/* 3-2. Action Buttons */
+.customer-detail__actions {
+  @apply flex gap-3 mt-4;
+}
+.customer-detail__btn {
+  @apply flex-1 flex py-3 justify-center items-center gap-2 px-5 bg-slate-100 dark:bg-slate-800 border-2 border-slate-400 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-200 text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-700 hover:border-primary/50 dark:hover:border-primary-light/50 transition-all cursor-pointer shadow-sm;
 }
 
 /* 3. 본문 섹션 (Body Content) */
+/* Modal Base Settings */
+.customer-detail-content {
+  @apply py-2;
+}
 .customer-detail__body {
   @apply p-8;
 }
+
+.customer-detail__grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8 mb-8;
+}
+
 .customer-detail__section-title {
-  @apply text-sm font-semibold text-slate-500 mb-4;
+  @apply text-[11px] font-bold text-slate-500 mb-4 uppercase tracking-wider;
 }
 
 /* 기본 정보 리스트 (Left Section) */
@@ -41,16 +80,16 @@
   @apply flex items-start gap-3;
 }
 .customer-detail__info-icon {
-  @apply w-5 h-5 text-[#14B8A6] mt-0.5;
+  @apply w-5 h-5 text-primary mt-0.5;
 }
 .customer-detail__info-content {
   @apply space-y-1;
 }
 .customer-detail__info-label {
-  @apply text-xs text-slate-500 m-0;
+  @apply text-[11px] text-slate-500 m-0 font-medium;
 }
 .customer-detail__info-value {
-  @apply text-slate-900 dark:text-slate-300 font-medium m-0;
+  @apply text-[13px] text-slate-800 dark:text-slate-200 font-bold m-0;
 }
 .customer-detail__info-value--bold {
   @apply font-bold text-xl;
@@ -58,51 +97,51 @@
 
 /* 4. 투자유형 배지 (Badges) */
 .customer-detail__type-badge {
-  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  @apply inline-flex items-center px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide;
 }
 .customer-detail__type-badge--aggressive {
-  @apply bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400;
+  @apply bg-red-50 text-red-600 dark:bg-red-900/30 dark:text-red-400;
 }
 .customer-detail__type-badge--neutral {
-  @apply bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400;
+  @apply bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400;
 }
 .customer-detail__type-badge--stable {
-  @apply bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400;
+  @apply bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400;
 }
 
 /* 5. 보유종목 테이블 (Right Section) */
 .customer-detail__holdings-box {
-  @apply bg-slate-50 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden;
+  @apply bg-gray-50/50 dark:bg-slate-900 rounded-xl border border-slate-300 dark:border-slate-800 overflow-hidden;
 }
 .customer-detail__holdings-table {
   @apply w-full border-collapse;
 }
 .customer-detail__th {
-  @apply bg-slate-100 dark:bg-slate-800 px-4 py-3 text-left text-xs font-semibold text-slate-600 dark:text-slate-400;
+  @apply bg-gray-50 dark:bg-slate-800/80 px-4 py-3 text-left text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider border-b border-slate-300 dark:border-slate-700/50;
 }
 .customer-detail__td {
-  @apply px-4 py-3 text-sm text-slate-900 dark:text-slate-300 border-b border-slate-200 dark:border-slate-800;
+  @apply px-4 py-3 text-[13px] text-slate-800 dark:text-slate-300 border-b border-gray-50 dark:border-slate-800 bg-slate-100 dark:bg-slate-900;
 }
 .customer-detail__holding-name {
-  @apply font-medium;
+  @apply font-bold;
 }
 .customer-detail__holding-qty {
-  @apply text-slate-600 dark:text-slate-400;
+  @apply text-[11px] font-bold text-slate-500 dark:text-slate-400;
 }
 .customer-detail__holding-val {
-  @apply font-semibold;
+  @apply font-bold;
 }
 
 /* 6. 특이사항 섹션 (Notes) */
 .customer-detail__notes-box {
-  @apply bg-gradient-to-br from-[#F59E0B]/10 to-[#F59E0B]/5 border border-[#F59E0B]/20 rounded-xl p-4;
+  @apply bg-amber-50/50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30 rounded-xl p-5;
 }
 .customer-detail__notes-content {
   @apply flex items-start gap-3;
 }
 .customer-detail__notes-icon {
-  @apply w-5 h-5 text-[#F59E0B] mt-0.5 flex-shrink-0;
+  @apply w-5 h-5 text-amber-500 dark:text-amber-400 mt-0.5 flex-shrink-0;
 }
 .customer-detail__notes-text {
-  @apply text-slate-700 dark:text-slate-300 m-0;
+  @apply text-[13px] font-medium text-slate-700 dark:text-slate-300 m-0 leading-relaxed;
 }

@@ -1,7 +1,7 @@
 /* Tailwind directives container */
 
 .schedule-page {
-  @apply h-screen flex flex-col bg-white dark:bg-slate-950 overflow-hidden;
+  @apply h-screen flex flex-col bg-slate-100 dark:bg-slate-950 overflow-hidden;
 }
 
 .schedule-page__body {
@@ -9,5 +9,5 @@
 }
 
 .schedule-page__main {
-  @apply flex-1 overflow-auto bg-white dark:bg-slate-950;
+  @apply flex-1 overflow-auto bg-slate-100 dark:bg-slate-950;
 }

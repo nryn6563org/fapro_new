@@ -1,7 +1,7 @@
 /* Tailwind directives container */
 
 .schedule-header {
-  @apply flex items-center justify-between px-6 py-3 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900;
+  @apply flex items-center justify-between px-6 py-3 border-b border-slate-400 dark:border-slate-800 bg-slate-100 dark:bg-slate-900;
 }
 
 .schedule-header__left {
@@ -17,7 +17,7 @@
 }
 
 .schedule-header__today-btn {
-  @apply ml-4 px-4 py-1.5 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm rounded hover:bg-slate-50 dark:hover:bg-slate-700 font-medium transition-colors cursor-pointer dark:text-slate-300;
+  @apply ml-4 px-4 py-1.5 border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-sm rounded hover:bg-slate-200 dark:hover:bg-slate-700 font-medium transition-colors cursor-pointer dark:text-slate-300;
 }
 
 .schedule-header__nav-btn {
@@ -37,7 +37,7 @@
 }
 
 .schedule-header__search-input {
-  @apply pl-9 w-64 h-9 border border-slate-200 dark:border-slate-800 rounded-lg bg-slate-50 dark:bg-slate-950 focus:bg-white dark:focus:bg-slate-800 focus:outline-none transition-all text-sm;
+  @apply pl-9 pr-4 w-64 h-9 border border-slate-400 dark:border-slate-800 rounded-lg bg-slate-200 dark:bg-slate-950 focus:bg-slate-100 dark:focus:bg-slate-800 focus:outline-none transition-all text-sm;
 }
 
 .schedule-header__sync-badge {
@@ -51,11 +51,11 @@
 }
 
 .schedule-header__sync-btn {
-  @apply flex items-center px-4 py-1.5 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs rounded hover:bg-slate-50 transition-all cursor-pointer font-bold;
+  @apply flex items-center px-4 py-1.5 border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-xs rounded hover:bg-slate-200 transition-all cursor-pointer font-bold;
 }
 
 .schedule-header__ext-btn {
-  @apply flex items-center px-4 py-1.5 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs rounded hover:bg-slate-50 transition-all cursor-pointer dark:text-slate-400;
+  @apply flex items-center px-4 py-1.5 border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-xs rounded hover:bg-slate-200 transition-all cursor-pointer dark:text-slate-400;
 }
 
 .schedule-header__view-select {
@@ -65,5 +65,5 @@
   @apply px-4 py-1 rounded-md text-sm font-bold bg-transparent border-0 cursor-pointer text-slate-500 hover:text-slate-700 transition-colors;
 }
 .schedule-header__view-btn--active {
-  @apply bg-white dark:bg-slate-700 text-blue-700 dark:text-blue-400 shadow-sm;
+  @apply bg-blue-50 dark:bg-slate-700 text-blue-600 dark:text-blue-400;
 }

@@ -1,0 +1,178 @@
+/*
+  AI Report Stock Info Subcomponent
+  ---------------------------------
+  BEM Block: ai-report-stock
+*/
+
+.ai-report-stock {
+  @apply space-y-6;
+}
+
+.ai-report-stock__card {
+  @apply bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-400 dark:border-slate-700 shadow-sm overflow-hidden;
+}
+
+.ai-report-stock__card-header {
+  @apply p-4 bg-slate-200/50 dark:bg-slate-800/80;
+}
+
+.ai-report-stock__card-title {
+  @apply text-[15px] font-bold text-slate-800 dark:text-slate-100;
+}
+
+.ai-report-stock__card-body {
+  @apply p-5;
+}
+
+.ai-report-stock__card-body--padded {
+  @apply pt-0; /* Using pt-0 to let header naturally flow without bottom border padding */
+}
+
+/* Price Info List */
+.ai-report-stock__info-list {
+  @apply space-y-2.5 mt-2;
+}
+
+.ai-report-stock__info-row {
+  @apply flex items-center justify-between text-xs;
+}
+
+.ai-report-stock__info-label {
+  @apply text-slate-500 dark:text-slate-400;
+}
+
+.ai-report-stock__info-value {
+  @apply font-bold text-slate-900 dark:text-slate-100;
+}
+
+/* Theme List */
+.ai-report-stock__theme-wrapper {
+  @apply space-y-4 mt-2;
+}
+
+.ai-report-stock__theme-list {
+  @apply space-y-2 text-xs border-b border-slate-300 dark:border-slate-700/50 pb-3;
+}
+
+.ai-report-stock__theme-row {
+  @apply flex items-center justify-between;
+}
+
+.ai-report-stock__theme-label {
+  @apply text-slate-500 dark:text-slate-400;
+}
+
+.ai-report-stock__theme-value {
+  @apply font-semibold text-slate-900 dark:text-slate-100;
+}
+
+/* Opinion Ranking */
+.ai-report-stock__opinion-box {
+  @apply space-y-2 mt-3;
+}
+
+.ai-report-stock__opinion-header {
+  @apply text-xs font-bold text-slate-900 dark:text-slate-100 flex items-center justify-between;
+}
+
+.ai-report-stock__opinion-highlight {
+  @apply text-teal-600 dark:text-teal-400;
+}
+
+.ai-report-stock__ranking {
+  @apply space-y-1;
+}
+
+.ai-report-stock__ranking-header {
+  @apply flex items-center justify-between text-[10px] text-slate-400;
+}
+
+.ai-report-stock__ranking-bar-wrapper {
+  @apply relative h-8 flex items-center;
+}
+
+.ai-report-stock__ranking-bar {
+  @apply absolute inset-0 flex overflow-hidden rounded-[2px];
+}
+
+.ai-report-stock__ranking-marker {
+  @apply absolute top-0 bottom-0 flex items-center transform -translate-x-1/2;
+}
+
+.ai-report-stock__ranking-triangle {
+  @apply w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-slate-900 dark:border-t-slate-100 drop-shadow-sm;
+}
+
+.ai-report-stock__ranking-ticks {
+  @apply flex items-center justify-between text-[9px] text-slate-400 dark:text-slate-500 px-0.5 mt-1;
+}
+
+.ai-report-stock__ranking-labels {
+  @apply flex items-center justify-between text-[10px] text-slate-600 dark:text-slate-400 font-medium mt-1;
+}
+
+/* Target Price */
+.ai-report-stock__target-price {
+  @apply space-y-2 border-t border-slate-300 dark:border-slate-700/50 pt-3 mt-3;
+}
+
+.ai-report-stock__target-price-title {
+  @apply text-xs font-bold text-slate-900 dark:text-slate-100;
+}
+
+.ai-report-stock__target-price-values {
+  @apply text-right space-y-1;
+}
+
+.ai-report-stock__target-price-main {
+  @apply text-2xl font-bold text-slate-900 dark:text-slate-100;
+}
+
+.ai-report-stock__target-price-unit {
+  @apply text-sm text-slate-500 dark:text-slate-400 font-normal;
+}
+
+.ai-report-stock__target-price-sub {
+  @apply text-lg font-semibold text-slate-600 dark:text-slate-400;
+}
+
+.ai-report-stock__target-price-sub-unit {
+  @apply text-xs text-slate-500 dark:text-slate-400 font-normal;
+}
+
+/* Radar Chart */
+.ai-report-stock__radar-wrapper {
+  @apply relative w-full aspect-square mt-2 flex items-center justify-center p-2 mb-2;
+}
+
+.ai-report-stock__radar-bg-line {
+  @apply stroke-slate-200 dark:stroke-slate-700;
+}
+
+.ai-report-stock__radar-data-polygon {
+  @apply fill-teal-500/20 dark:fill-teal-400/20 stroke-teal-500 stroke-2;
+}
+
+.ai-report-stock__radar-axis-text {
+  @apply text-[11px] fill-slate-500 dark:fill-slate-400 font-medium;
+}
+
+.ai-report-stock__radar-data-point {
+  @apply fill-teal-500 dark:fill-teal-400;
+}
+
+.ai-report-stock__radar-stats {
+  @apply grid grid-cols-2 gap-2 mt-4 text-xs;
+}
+
+.ai-report-stock__radar-stat-item {
+  @apply text-center bg-slate-200 dark:bg-slate-800/80 p-2 rounded-lg;
+}
+
+.ai-report-stock__radar-stat-label {
+  @apply text-slate-500 dark:text-slate-400 mb-1 font-medium;
+}
+
+.ai-report-stock__radar-stat-value {
+  @apply font-bold text-slate-800 dark:text-slate-200 text-sm;
+}

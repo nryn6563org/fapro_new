@@ -8,7 +8,7 @@
       </div>
       <div class="customers-page__header-actions">
         <button class="customers-page__btn-amber" @click="handleAction('스마트 온보딩')">
-          <sparkles-icon class="w-4 h-4 mr-2" />
+          <zap-icon class="w-4 h-4 mr-2" />
           스마트온보딩
         </button>
         <button class="customers-page__btn-outline" @click="handleAction('템플릿 다운로드')">
@@ -55,6 +55,8 @@
  * 기능: 고객 목록 메인 페이지 (고객 관리)
  * Rule 7: Modal-Vanilla 연동 완료
  */
+import Vue from 'vue'
+import { ZapIcon, DownloadIcon, UploadIcon } from 'vue-feather-icons'
 import CustomerUploadArea from '~/components/customers/CustomerUploadArea.vue'
 import CustomerAiSearch from '~/components/customers/CustomerAiSearch.vue'
 import CustomerListTable from '~/components/customers/CustomerListTable.vue'
@@ -65,7 +67,6 @@ import {
   recentCustomerSearches,
   customerQuickFilters
 } from '~/utils/customerMockData.js'
-import { ZapIcon, DownloadIcon, UploadIcon } from 'vue-feather-icons'
 import '~/assets/css/pages/customers/CustomersPage.css'
 
 export default {
@@ -74,8 +75,6 @@ export default {
     CustomerUploadArea,
     CustomerAiSearch,
     CustomerListTable,
-    CustomerDetailModal,
-    CustomerHoldingsModal,
     ZapIcon,
     DownloadIcon,
     UploadIcon
@@ -114,27 +113,45 @@ export default {
       this.searchQuery = query
     },
     onViewDetail(customer) {
-      // Rule 7: Modal-Vanilla 사용
-      this.$modalV.show({
-        content: CustomerDetailModal,
-        props: { customer },
-        on: {
-          close: () => {
-            /* 모달 내 닫기 버튼 대응 */
-          }
-        }
+      const ComponentClass = Vue.extend(CustomerDetailModal)
+      const instance = new ComponentClass({
+        propsData: { customer }
+      })
+      instance.$mount()
+
+      const modal = this.$modalV.show({
+        content: instance.$el,
+        backdrop: true,
+        keyboard: true
+      })
+
+      modal.on('hidden', () => {
+        instance.$destroy()
+      })
+
+      instance.$on('close', () => {
+        modal.hide()
       })
     },
     onViewHoldings(customer) {
-      // Rule 7: Modal-Vanilla 사용
-      this.$modalV.show({
-        content: CustomerHoldingsModal,
-        props: { customer },
-        on: {
-          close: () => {
-            /* 모달 내 닫기 버튼 대응 */
-          }
-        }
+      const ComponentClass = Vue.extend(CustomerHoldingsModal)
+      const instance = new ComponentClass({
+        propsData: { customer }
+      })
+      instance.$mount()
+
+      const modal = this.$modalV.show({
+        content: instance.$el,
+        backdrop: true,
+        keyboard: true
+      })
+
+      modal.on('hidden', () => {
+        instance.$destroy()
+      })
+
+      instance.$on('close', () => {
+        modal.hide()
       })
     },
     handleAction(name) {

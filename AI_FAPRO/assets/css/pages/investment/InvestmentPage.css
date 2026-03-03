@@ -1,7 +1,7 @@
 /* Tailwind directives container for component */
 
 .investment-page {
-  @apply min-h-screen bg-white dark:bg-slate-950 p-6;
+  @apply min-h-screen bg-slate-100 dark:bg-slate-950 p-6;
 }
 
 /* Header */
@@ -17,7 +17,7 @@
 
 /* Card General */
 .investment-page__card-outer {
-  @apply bg-white dark:bg-slate-900 rounded-2xl border-2 border-amber-500 shadow-xl overflow-hidden;
+  @apply bg-slate-100 dark:bg-slate-900 rounded-2xl border-2 border-amber-500 shadow-xl overflow-hidden;
 }
 .investment-page__card-header {
   @apply px-6 py-4 bg-gradient-to-r from-orange-50 to-white dark:from-slate-800 dark:to-slate-900 border-b-2 border-amber-500;

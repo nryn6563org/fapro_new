@@ -45,9 +45,6 @@
         />
       </div>
     </div>
-
-    <!-- Detail Modal -->
-    <a-i-report-detail-modal :is-open="isModalOpen" :report="activeReport" @close="closeReport" />
   </div>
 </template>
 
@@ -55,6 +52,7 @@
 /**
  * 기능: AI 종목발굴(인텔리전스 리포트) 페이지
  */
+import Vue from 'vue'
 import { FileTextIcon, CalendarIcon, ClockIcon, RefreshCwIcon } from 'vue-feather-icons'
 import AIReportCard from '~/components/discovery/AIReportCard.vue'
 import AIReportDetailModal from '~/components/discovery/AIReportDetailModal.vue'
@@ -68,16 +66,13 @@ export default {
     CalendarIcon,
     ClockIcon,
     RefreshCwIcon,
-    AIReportCard,
-    AIReportDetailModal
+    AIReportCard
   },
   data() {
     return {
       aiReports,
       currentTime: new Date(),
-      timer: null,
-      isModalOpen: false,
-      activeReport: null
+      timer: null
     }
   },
   computed: {
@@ -104,14 +99,25 @@ export default {
       // To simulate refresh UX
     },
     openReport(report) {
-      this.activeReport = report
-      this.isModalOpen = true
-    },
-    closeReport() {
-      this.isModalOpen = false
-      setTimeout(() => {
-        this.activeReport = null
-      }, 300)
+      const ComponentClass = Vue.extend(AIReportDetailModal)
+      const instance = new ComponentClass({
+        propsData: { report, isOpen: true }
+      })
+      instance.$mount()
+
+      const modal = this.$modalV.show({
+        content: instance.$el,
+        backdrop: true,
+        keyboard: true
+      })
+
+      modal.on('hidden', () => {
+        instance.$destroy()
+      })
+
+      instance.$on('close', () => {
+        modal.hide()
+      })
     }
   }
 }

@@ -8,50 +8,54 @@
       <!-- Account Management -->
       <settings-account-section />
 
-      <!-- Billing & Subscription -->
+      <!-- Billing & Payment Information -->
       <div class="settings-page__card mt-6">
         <div class="settings-page__header">
           <credit-card-icon class="settings-page__header-icon w-5 h-5" />
-          <h2 class="settings-page__h2">구독 및 결제</h2>
+          <h2 class="settings-page__h2">결제 정보</h2>
         </div>
 
         <div class="p-6 space-y-6">
-          <label class="text-xs font-bold text-slate-500 uppercase">현재 구독 플랜</label>
-          <div class="grid md:grid-cols-2 gap-4">
-            <settings-plan-card
-              type="basic"
-              label="일반"
-              :price="100000"
-              :active="subscriptionPlan === 'basic'"
-              :features="basicFeatures"
-              @select="subscriptionPlan = 'basic'"
-            />
-            <settings-plan-card
-              type="pro"
-              label="Pro"
-              :price="150000"
-              :active="subscriptionPlan === 'pro'"
-              :features="proFeatures"
-              @select="subscriptionPlan = 'pro'"
-            />
-          </div>
+          <!-- Subscription Plans -->
+          <div>
+            <label class="text-xs font-bold text-slate-500 uppercase block mb-4">현재 구독 플랜</label>
+            <div class="grid md:grid-cols-2 gap-4">
+              <settings-plan-card
+                type="basic"
+                label="일반"
+                :price="100000"
+                :active="subscriptionPlan === 'basic'"
+                :features="basicFeatures"
+                @select="subscriptionPlan = 'basic'"
+              />
+              <settings-plan-card
+                type="pro"
+                label="Pro"
+                :price="150000"
+                :active="subscriptionPlan === 'pro'"
+                :features="proFeatures"
+                @select="subscriptionPlan = 'pro'"
+              />
+            </div>
 
-          <!-- Upgrade/Status -->
-          <button
-            v-if="subscriptionPlan === 'basic'"
-            class="settings-page__upgrade-btn"
-            @click="upgradeToPro"
-          >
-            <star-icon class="w-4 h-4 mr-2" />
-            Pro 플랜으로 업그레이드
-          </button>
-          <div v-else class="settings-page__pro-status">
-            <div class="flex items-center gap-2 text-sm font-black text-[#F59E0B]">
-              <star-icon class="w-4 h-4" />
-              Pro 플랜 이용 중
+            <!-- Upgrade/Status -->
+            <button
+              v-if="subscriptionPlan === 'basic'"
+              class="settings-page__upgrade-btn mt-4"
+              @click="upgradeToPro"
+            >
+              <star-icon class="w-4 h-4 mr-2" />
+              Pro 플랜으로 업그레이드
+            </button>
+            <div v-else class="settings-page__pro-status mt-4">
+              <div class="flex items-center gap-2 text-sm font-black text-[#F59E0B]">
+                <star-icon class="w-4 h-4" />
+                Pro 플랜 이용 중
+              </div>
             </div>
           </div>
 
+          <!-- Payment Info Component -->
           <div v-if="subscriptionPlan === 'pro'" class="pt-2">
             <settings-billing-info
               :payment-method="paymentMethod"

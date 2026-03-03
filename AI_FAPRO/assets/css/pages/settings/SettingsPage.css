@@ -1,11 +1,15 @@
 /* Tailwind directives container */
 
 .settings-page {
-  @apply min-h-screen bg-slate-50 dark:bg-slate-950 p-8;
+  @apply min-h-screen bg-slate-200 dark:bg-slate-950 p-8;
 }
 
 .settings-page__container {
-  @apply max-w-3xl mx-auto;
+  @apply max-w-[1600px] mx-auto;
+}
+
+.settings-page__title-wrapper {
+  @apply mb-8;
 }
 
 .settings-page__title {
@@ -13,24 +17,57 @@
 }
 
 .settings-page__card {
-  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-xl;
+  @apply bg-slate-100 dark:bg-slate-900 border border-slate-400 dark:border-slate-800 rounded-2xl overflow-hidden shadow-xl;
+}
+
+.settings-page__card--mt-6 {
+  @apply mt-6;
 }
 
 .settings-page__header {
-  @apply bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex items-center gap-2;
+  @apply bg-slate-200 dark:bg-slate-950 border-b border-slate-400 dark:border-slate-800 px-6 py-4 flex items-center gap-2;
 }
+
 .settings-page__header-icon {
-  @apply text-slate-700 dark:text-slate-400;
+  @apply text-slate-700 dark:text-slate-400 w-5 h-5;
 }
 
 .settings-page__h2 {
   @apply text-lg font-bold text-slate-900 dark:text-white m-0;
 }
 
+.settings-page__content {
+  @apply p-6 space-y-6;
+}
+
+.settings-page__label {
+  @apply text-xs font-bold text-slate-500 uppercase;
+}
+
+.settings-page__grid {
+  @apply grid md:grid-cols-2 gap-4;
+}
+
 .settings-page__upgrade-btn {
   @apply w-full flex items-center justify-center py-4 bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white rounded-xl text-lg font-black shadow-lg shadow-amber-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all border-0 cursor-pointer;
 }
 
+.settings-page__btn-icon {
+  @apply w-4 h-4 mr-2;
+}
+
 .settings-page__pro-status {
   @apply p-4 bg-gradient-to-r from-[#F59E0B]/10 to-transparent rounded-xl border border-[#F59E0B]/20;
+}
+
+.settings-page__status-text {
+  @apply flex items-center gap-2 text-sm font-black text-[#F59E0B];
+}
+
+.settings-page__status-icon {
+  @apply w-4 h-4;
+}
+
+.settings-page__billing-wrapper {
+  @apply pt-2;
 }

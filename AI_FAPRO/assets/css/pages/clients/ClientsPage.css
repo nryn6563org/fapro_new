@@ -1,7 +1,7 @@
 /* Tailwind directives container */
 
 .clients-page {
-  @apply min-h-screen bg-white dark:bg-slate-950 p-6;
+  @apply min-h-screen bg-slate-100 dark:bg-slate-950 p-6;
 }
 
 /* Header */
@@ -24,12 +24,12 @@
 }
 
 .clients-page__btn-outline {
-  @apply flex items-center gap-2 px-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all cursor-pointer;
+  @apply flex items-center gap-2 px-4 py-3 bg-slate-100 dark:bg-slate-900 border border-slate-400 dark:border-slate-800 text-slate-600 dark:text-slate-400 rounded-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer;
 }
 
 /* Content Area */
 .clients-page__content {
-  @apply max-w-7xl mx-auto;
+  @apply max-w-[1600px] mx-auto;
 }
 
 .clients-page__section {

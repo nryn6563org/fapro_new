@@ -10,12 +10,12 @@
 }
 
 .issue-proposal__modal {
-  @apply relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-slate-200 dark:border-slate-800;
+  @apply relative w-full max-w-4xl max-h-[90vh] bg-slate-100 dark:bg-slate-900 rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-slate-400 dark:border-slate-800;
 }
 
 /* Header */
 .issue-proposal__header {
-  @apply flex items-center justify-between p-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50;
+  @apply flex items-center justify-between p-6 border-b border-slate-400 dark:border-slate-800 bg-slate-200 dark:bg-slate-800/50;
 }
 .issue-proposal__title {
   @apply text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3 m-0;
@@ -66,15 +66,15 @@
   @apply text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 flex items-center;
 }
 .issue-proposal__textarea {
-  @apply min-h-[100px] p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-700 dark:text-slate-300 focus:ring-2 focus:ring-teal-500 outline-none transition-all;
+  @apply min-h-[100px] p-3 rounded-lg border border-slate-400 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-sm text-slate-700 dark:text-slate-300 focus:ring-2 focus:ring-teal-500 outline-none transition-all;
 }
 
 /* Client List */
 .issue-proposal__client-list {
-  @apply border border-slate-200 dark:border-slate-700 rounded-lg max-h-[150px] overflow-y-auto bg-slate-50 dark:bg-slate-900/50;
+  @apply border border-slate-400 dark:border-slate-700 rounded-lg max-h-[150px] overflow-y-auto bg-slate-200 dark:bg-slate-900/50;
 }
 .issue-proposal__client-item {
-  @apply flex items-center gap-3 p-3 border-b border-slate-200 dark:border-slate-800 last:border-0 hover:bg-white dark:hover:bg-slate-800 transition-colors;
+  @apply flex items-center gap-3 p-3 border-b border-slate-400 dark:border-slate-800 last:border-0 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors;
 }
 .issue-proposal__checkbox {
   @apply w-4 h-4 rounded border-slate-300 text-teal-600 focus:ring-teal-500;
@@ -97,7 +97,7 @@
   @apply grid grid-cols-3 gap-3;
 }
 .issue-proposal__method-btn {
-  @apply relative flex flex-col items-center justify-center py-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-500 transition-all cursor-pointer hover:border-teal-500/50;
+  @apply relative flex flex-col items-center justify-center py-4 rounded-xl border-2 border-slate-400 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-500 transition-all cursor-pointer hover:border-teal-500/50;
 }
 .issue-proposal__method-btn--active-email {
   @apply border-teal-500 bg-teal-50 text-teal-600 dark:bg-teal-900/20 dark:text-teal-400;
@@ -115,10 +115,10 @@
 
 /* Footer */
 .issue-proposal__footer {
-  @apply p-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 flex items-center gap-3;
+  @apply p-6 border-t border-slate-400 dark:border-slate-800 bg-slate-200 dark:bg-slate-800/50 flex items-center gap-3;
 }
 .issue-proposal__btn-cancel {
-  @apply flex-1 py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors cursor-pointer;
+  @apply flex-1 py-3 px-4 rounded-xl border border-slate-400 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors cursor-pointer;
 }
 .issue-proposal__btn-send {
   @apply flex-[2] py-3 px-4 rounded-xl bg-teal-500 hover:bg-teal-600 text-white font-bold flex items-center justify-center shadow-lg transition-all border-0 cursor-pointer disabled:bg-slate-300 disabled:cursor-not-allowed disabled:shadow-none;

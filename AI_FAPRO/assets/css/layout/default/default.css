@@ -6,7 +6,7 @@
 
 /* 1. Base wrapper */
 .main-layout {
-  @apply flex h-screen bg-slate-50;
+  @apply flex h-screen bg-slate-100 dark:bg-slate-950;
 }
 
 /* 2. Content area wrapper */

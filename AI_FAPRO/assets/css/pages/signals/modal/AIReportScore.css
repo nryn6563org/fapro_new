@@ -1,0 +1,115 @@
+/*
+  AI Report Score Subcomponent
+  ----------------------------
+  BEM Block: ai-report-score
+*/
+
+.ai-report-score {
+  @apply space-y-6;
+}
+
+.ai-report-score__card {
+  @apply bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-400 dark:border-slate-700 shadow-sm overflow-hidden;
+}
+
+.ai-report-score__card-header {
+  @apply p-4 border-b border-slate-300 dark:border-slate-700/50 bg-slate-200/50 dark:bg-slate-800/80;
+}
+
+.ai-report-score__card-header--cyan {
+  @apply bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20;
+}
+
+.ai-report-score__card-title {
+  @apply text-[15px] font-bold text-slate-800 dark:text-slate-100;
+}
+
+.ai-report-score__card-title--between {
+  @apply flex items-center justify-between;
+}
+
+.ai-report-score__card-subtitle {
+  @apply text-sm font-bold text-slate-800 dark:text-slate-200;
+}
+
+.ai-report-score__total {
+  @apply text-teal-600 dark:text-teal-400 font-bold;
+}
+
+.ai-report-score__card-body {
+  @apply p-5;
+}
+
+.ai-report-score__card-body--padded {
+  @apply pt-4;
+}
+
+.ai-report-score__card-body--factors {
+  @apply space-y-2;
+}
+
+/* Progress Bars */
+.ai-report-score__progress-list {
+  @apply space-y-3.5;
+}
+
+.ai-report-score__progress-item {
+  @apply flex items-center gap-3 w-full bg-transparent;
+}
+
+.ai-report-score__progress-label {
+  @apply w-32 text-[13px] text-slate-700 dark:text-slate-300;
+}
+
+.ai-report-score__progress-bar {
+  @apply flex-1 h-6 bg-slate-100 dark:bg-slate-700/50 rounded-full overflow-hidden;
+}
+
+.ai-report-score__progress-fill {
+  @apply h-full transition-all duration-500 ease-out;
+}
+
+.ai-report-score__progress-fill--green {
+  @apply bg-green-500 dark:bg-green-400;
+}
+
+.ai-report-score__progress-fill--red {
+  @apply bg-red-500 dark:bg-red-400;
+}
+
+.ai-report-score__progress-fill--yellow {
+  @apply bg-amber-500 dark:bg-amber-400;
+}
+
+.ai-report-score__progress-value {
+  @apply w-12 text-right font-bold text-slate-900 dark:text-slate-100 text-sm;
+}
+
+/* Factor Reviews */
+.ai-report-score__factors {
+  @apply space-y-4;
+}
+
+.ai-report-score__section-title {
+  @apply text-base font-bold text-slate-900 dark:text-slate-100;
+}
+
+.ai-report-score__factors-grid {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.ai-report-score__list {
+  @apply space-y-2.5;
+}
+
+.ai-report-score__list-item {
+  @apply flex items-start gap-2 text-xs;
+}
+
+.ai-report-score__list-bullet {
+  @apply text-slate-400 dark:text-slate-500 mt-[1px];
+}
+
+.ai-report-score__list-text {
+  @apply text-slate-600 dark:text-slate-400 leading-snug;
+}

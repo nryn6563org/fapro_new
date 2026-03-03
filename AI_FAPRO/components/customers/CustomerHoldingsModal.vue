@@ -3,22 +3,22 @@
     <div class="customer-holdings__modal animate__animated animate__zoomIn">
       <!-- Header -->
       <div class="customer-holdings__header">
-        <div class="flex items-center gap-4">
+        <div class="customer-holdings__header-left">
           <div class="customer-holdings__avatar">
-            <user-icon class="w-6 h-6 text-white" />
+            <user-icon class="customer-holdings__avatar-icon" />
           </div>
           <div>
             <h2 class="customer-holdings__title">{{ customer.name }}</h2>
             <p class="customer-holdings__subtitle">보유종목 상세 정보</p>
           </div>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="customer-holdings__header-right">
           <button class="customer-holdings__edit-btn" @click="handleEdit">
-            <edit-icon class="w-4 h-4 mr-2" />
+            <edit-icon class="customer-holdings__btn-icon" />
             수정
           </button>
           <button class="customer-holdings__close-btn" @click="$emit('close')">
-            <x-icon class="w-5 h-5" />
+            <x-icon class="customer-holdings__close-icon" />
           </button>
         </div>
       </div>
@@ -26,7 +26,7 @@
       <!-- Body -->
       <div class="customer-holdings__body">
         <!-- Summary Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="customer-holdings__sum-grid">
           <div class="customer-holdings__sum-card customer-holdings__sum-card--blue">
             <p class="customer-holdings__sum-label">총 투자금액</p>
             <p class="customer-holdings__sum-value">10억 4,300만원</p>
@@ -37,8 +37,8 @@
           </div>
           <div class="customer-holdings__sum-card customer-holdings__sum-card--teal">
             <p class="customer-holdings__sum-label">총 수익률</p>
-            <div class="flex items-center gap-2">
-              <trending-up-icon class="w-5 h-5 text-teal-600" />
+            <div class="customer-holdings__sum-trend">
+              <trending-up-icon class="customer-holdings__sum-trend-icon" />
               <p class="customer-holdings__sum-value">+15.02%</p>
             </div>
           </div>
@@ -66,8 +66,8 @@
                 <td class="customer-holdings__td">{{ holding.currentPrice }}</td>
                 <td class="customer-holdings__td customer-holdings__td--val">{{ holding.value }}</td>
                 <td class="customer-holdings__td customer-holdings__td--profit">
-                  <div class="flex items-center gap-1">
-                    <trending-up-icon class="w-3.5 h-3.5" />
+                  <div class="customer-holdings__profit-box">
+                    <trending-up-icon class="customer-holdings__profit-icon" />
                     {{ holding.profit }}
                   </div>
                 </td>
@@ -79,9 +79,9 @@
 
         <!-- AI Analysis -->
         <div class="customer-holdings__ai-analysis">
-          <div class="flex items-start gap-3 mb-3">
+          <div class="customer-holdings__ai-header">
             <div class="customer-holdings__ai-icon-box">
-              <zap-icon class="w-4 h-4 text-white" />
+              <zap-icon class="customer-holdings__ai-zap-icon" />
             </div>
             <div>
               <h3 class="customer-holdings__ai-title">AI 고객 분석</h3>

@@ -8,7 +8,7 @@
   >
     <div class="customer-upload__content">
       <div class="customer-upload__icon-box">
-        <file-spreadsheet-icon class="customer-upload__icon" />
+        <file-text-icon class="customer-upload__icon" />
       </div>
       <h3 class="customer-upload__title">엑셀 파일을 여기에 드래그하거나 클릭하여 업로드</h3>
       <p class="customer-upload__desc">.xlsx 또는 .xls 파일을 지원합니다</p>

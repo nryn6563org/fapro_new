@@ -3,29 +3,29 @@
     <div class="customer-detail__modal animate__animated animate__fadeInUp">
       <!-- Header -->
       <div class="customer-detail__header">
-        <div class="flex items-center gap-4">
+        <div class="customer-detail__header-left">
           <div class="customer-detail__avatar">
-            <user-icon class="w-6 h-6 text-white" />
+            <user-icon class="customer-detail__avatar-icon" />
           </div>
           <div>
             <h2 class="customer-detail__title">{{ customer.name }}</h2>
             <p class="customer-detail__subtitle">고객 상세 정보</p>
           </div>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="customer-detail__header-right">
           <button class="customer-detail__edit-btn" @click="handleEdit">
-            <edit-icon class="w-4 h-4 mr-2" />
+            <edit-icon class="customer-detail__btn-icon" />
             수정
           </button>
           <button class="customer-detail__close-btn" @click="$emit('close')">
-            <x-icon class="w-5 h-5" />
+            <x-icon class="customer-detail__close-icon" />
           </button>
         </div>
       </div>
 
       <!-- Body -->
       <div class="customer-detail__body">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div class="customer-detail__grid">
           <!-- Left: Basic Info -->
           <div class="customer-detail__section-left">
             <h3 class="customer-detail__section-title">기본 정보</h3>

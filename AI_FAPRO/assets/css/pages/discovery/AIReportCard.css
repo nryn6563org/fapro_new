@@ -1,7 +1,7 @@
 /* Tailwind directives container for component */
 
 .ai-report-card {
-  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-5 hover:shadow-lg transition-all cursor-pointer relative overflow-hidden;
+  @apply bg-slate-100 dark:bg-slate-900 border border-slate-400 dark:border-slate-800 rounded-xl p-5 hover:shadow-lg transition-all cursor-pointer relative overflow-hidden;
 }
 .ai-report-card:hover {
   @apply scale-[1.01];
@@ -29,10 +29,10 @@
 
 /* Reason Box */
 .ai-report-card__reason-box {
-  @apply bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3.5 mb-4 border border-slate-100 dark:border-slate-700/50;
+  @apply bg-slate-200 dark:bg-slate-800/50 rounded-lg p-3.5 mb-4 border border-slate-300 dark:border-slate-700/50;
 }
 .ai-report-card__reason-header {
-  @apply flex items-center gap-2 mb-2 pb-2 border-b border-slate-200 dark:border-slate-700;
+  @apply flex items-center gap-2 mb-2 pb-2 border-b border-slate-400 dark:border-slate-700;
 }
 .ai-report-card__reason-icon {
   @apply w-4 h-4 text-amber-500;
@@ -46,7 +46,7 @@
 
 /* Points Grid */
 .ai-report-card__points-grid {
-  @apply grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-4;
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-2;
 }
 .ai-report-card__point-item {
   @apply flex items-start gap-1.5;
@@ -59,11 +59,11 @@
 }
 
 /* Actions */
-.ai-report-card__actions {
-  @apply flex flex-col gap-2 pt-2 border-t border-slate-100 dark:border-slate-800;
+.ai-report-card__header-actions {
+  @apply shrink-0;
 }
 .ai-report-card__btn-view {
-  @apply w-full flex items-center justify-center py-2 text-sm font-semibold rounded-lg bg-teal-500 hover:bg-teal-600 text-white transition-colors border-0 cursor-pointer;
+  @apply flex items-center justify-center px-4 py-1.5 text-sm font-semibold rounded-lg bg-[#14B8A6] hover:bg-[#0D9488] text-white transition-colors border-0 cursor-pointer w-auto min-w-[110px];
 }
 .ai-report-card__btn-icon {
   @apply w-4 h-4 mr-2;

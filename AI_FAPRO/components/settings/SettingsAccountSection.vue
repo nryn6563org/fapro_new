@@ -2,7 +2,7 @@
   <div class="settings-account">
     <div class="settings-account__card">
       <div class="settings-account__header">
-        <settings-icon class="w-5 h-5 text-slate-700" />
+        <user-icon class="w-5 h-5 text-slate-700" />
         <h3 class="settings-account__title">회원정보관리</h3>
       </div>
       <div class="settings-account__grid">

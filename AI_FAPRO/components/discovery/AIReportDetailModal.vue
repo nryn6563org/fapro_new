@@ -4,6 +4,7 @@
     custom-dialog-class="discovery-modal__dialog"
     @close="$emit('close')"
   >
+    <!-- Header Component -->
     <template #header>
       <div class="discovery-modal__header">
         <div class="discovery-modal__header-content">
@@ -21,6 +22,7 @@
       </div>
     </template>
 
+    <!-- Body Component -->
     <div v-if="report" class="discovery-modal__body">
       <!-- Header Info Card -->
       <div class="discovery-modal__info-card">

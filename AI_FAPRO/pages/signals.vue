@@ -83,10 +83,17 @@
       <template #header>
         <div class="ai-report-modal__header">
           <div class="ai-report-modal__header-left">
-            <h2 class="ai-report-modal__title">
-              {{ activeReportSignal.name }}
-              <span class="ai-report-modal__ticker">({{ activeReportSignal.ticker }})</span>
-            </h2>
+            <div class="ai-report-modal__title-group">
+              <h2 class="ai-report-modal__title">
+                {{ activeReportSignal.name }}
+                <span class="ai-report-modal__ticker">({{ activeReportSignal.ticker }})</span>
+              </h2>
+            </div>
+            <div class="ai-report-modal__badges">
+              <span class="ai-report-modal__badge ai-report-modal__badge--cyan">신작출시</span>
+              <span class="ai-report-modal__badge ai-report-modal__badge--amber">거래량급증</span>
+              <span class="ai-report-modal__badge ai-report-modal__badge--purple">외국인매수</span>
+            </div>
           </div>
           <button type="button" class="ai-report-modal__close-btn" @click="closeReport">
             <x-icon size="24" />

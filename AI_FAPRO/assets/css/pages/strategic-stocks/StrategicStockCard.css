@@ -1,7 +1,7 @@
 /* Tailwind directives container for component */
 
 .strategic-card {
-  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden hover:shadow-md transition-shadow relative;
+  @apply bg-slate-100 dark:bg-slate-900 border border-slate-400 dark:border-slate-800 rounded-lg overflow-hidden hover:shadow-md transition-shadow relative;
 }
 
 /* Header / Collapsed View */
@@ -25,7 +25,7 @@
   @apply text-lg font-bold text-slate-900 dark:text-white m-0;
 }
 .strategic-card__badge {
-  @apply inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-teal-500 text-white;
+  @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-teal-50 text-teal-600 border border-teal-200;
 }
 
 .strategic-card__stats-row {
@@ -54,10 +54,10 @@
 }
 
 .strategic-card__reason-box {
-  @apply flex items-start gap-2;
+  @apply flex items-center gap-1;
 }
 .strategic-card__reason-icon {
-  @apply w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0;
+  @apply w-4 h-4 text-amber-500;
 }
 .strategic-card__reason-text {
   @apply text-xs text-slate-600 dark:text-slate-400 leading-relaxed;
@@ -78,7 +78,7 @@
 
 /* Expanded Content */
 .strategic-card__expanded {
-  @apply border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950;
+  @apply border-t border-slate-400 dark:border-slate-800 bg-slate-200 dark:bg-slate-950;
 }
 .strategic-card__expanded-inner {
   @apply p-4 space-y-4;
@@ -126,5 +126,5 @@
   @apply flex justify-end pt-2;
 }
 .strategic-card__btn-propose {
-  @apply flex items-center px-4 py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white transition-colors border-0 cursor-pointer shadow-sm;
+  @apply flex items-center px-3 py-2 text-sm font-medium rounded-lg bg-gradient-to-r from-[#14B8A6] to-[#0D9488] hover:from-[#0D9488] hover:to-[#0F766E] text-white transition-colors border-0 cursor-pointer shadow-sm;
 }

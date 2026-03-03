@@ -1,14 +1,7 @@
 <template>
-  <div class="settings-billing">
-    <div class="settings-billing__card">
-      <div class="settings-billing__header">
-        <credit-card-icon class="w-5 h-5 text-slate-700" />
-        <h3 class="settings-billing__title">결제 정보</h3>
-      </div>
-
-      <div class="p-6 space-y-6">
-        <!-- Card Details -->
-        <div class="space-y-3">
+  <div class="settings-billing space-y-6">
+    <!-- Card Details -->
+    <div class="space-y-3">
           <label class="text-xs font-bold text-slate-500 uppercase">결제 수단</label>
           <div class="settings-billing__info-box">
             <div class="flex items-center justify-between">
@@ -42,15 +35,13 @@
 
         <div class="settings-billing__divider"></div>
 
-        <!-- Actions -->
-        <div class="space-y-2">
-          <button class="settings-billing__action-btn">결제 내역 조회</button>
-          <button class="settings-billing__action-btn settings-billing__action-btn--danger">
-            구독 취소
-          </button>
-        </div>
+      <!-- Actions -->
+      <div class="space-y-2 mt-4">
+        <button class="settings-billing__action-btn">결제 내역 조회</button>
+        <button class="settings-billing__action-btn settings-billing__action-btn--danger">
+          구독 취소
+        </button>
       </div>
-    </div>
   </div>
 </template>
 

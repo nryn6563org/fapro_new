@@ -5,19 +5,19 @@
 }
 
 .month-view__grid {
-  @apply grid grid-cols-7 gap-px bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-slate-800;
+  @apply grid grid-cols-7 gap-px bg-slate-200 dark:bg-slate-800 border border-slate-400 dark:border-slate-800;
 }
 
 .month-view__th {
-  @apply bg-slate-50 dark:bg-slate-900 p-2 text-center text-sm font-bold uppercase;
+  @apply bg-slate-200 dark:bg-slate-900 p-2 text-center text-sm font-bold uppercase;
 }
 
 .month-view__cell {
-  @apply bg-white dark:bg-slate-950 h-32 p-2 relative flex flex-col;
+  @apply bg-slate-100 dark:bg-slate-950 h-32 p-2 relative flex flex-col;
 }
 
 .month-view__cell--empty {
-  @apply bg-slate-50/50 dark:bg-slate-900/50;
+  @apply bg-slate-200/50 dark:bg-slate-900/50;
 }
 
 .month-view__day-num {

@@ -4,14 +4,14 @@
     <div class="issue-chart__tabs">
       <div class="issue-chart__tabs-container">
         <button
-          @click="$emit('update:type', 'small')"
           :class="['issue-chart__tab', { 'issue-chart__tab--active': type === 'small' }]"
+          @click="$emit('update:type', 'small')"
         >
           중소형주 이슈
         </button>
         <button
-          @click="$emit('update:type', 'large')"
           :class="['issue-chart__tab', { 'issue-chart__tab--active': type === 'large' }]"
+          @click="$emit('update:type', 'large')"
         >
           대형주 이슈
         </button>
@@ -36,12 +36,12 @@
         }"
       >
         <button
-          @click="$emit('select', issue.id)"
           :class="[
             'issue-chart__bubble',
             'issue-chart__bubble--' + issue.type,
             { 'issue-chart__bubble--selected': selectedId === issue.id }
           ]"
+          @click="$emit('select', issue.id)"
         >
           <div class="issue-chart__bubble-content">
             <trending-up-icon v-if="issue.type === 'up'" class="issue-chart__icon" />
@@ -65,7 +65,7 @@
       <div class="issue-chart__time-badge">
         <calendar-icon class="issue-chart__footer-icon" />
         <span class="issue-chart__footer-text">{{ selectedIssue.issueDate }}</span>
-        <clock-icon class="issue-chart__footer-icon ml-2" />
+        <clock-icon class="issue-chart__footer-icon issue-chart__footer-icon--ml-2" />
         <span class="issue-chart__footer-text">{{ selectedIssue.updatedAt }}</span>
       </div>
     </div>

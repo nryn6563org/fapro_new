@@ -14,7 +14,12 @@
           </span>
         </div>
       </div>
-      <!-- Right actions could be added here -->
+      <div class="ai-report-card__header-actions">
+        <button class="ai-report-card__btn-view" @click="$emit('open-report', report)">
+          <eye-icon class="ai-report-card__btn-icon" />
+          리포트 보기
+        </button>
+      </div>
     </div>
 
     <!-- 리포트 요약 -->
@@ -34,13 +39,6 @@
       </div>
     </div>
 
-    <!-- 모달 오픈 액션 -->
-    <div class="ai-report-card__actions">
-      <button class="ai-report-card__btn-view" @click="$emit('open-report', report)">
-        <eye-icon class="ai-report-card__btn-icon" />
-        리포트 보기
-      </button>
-    </div>
   </div>
 </template>
 

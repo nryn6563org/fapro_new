@@ -18,7 +18,7 @@
   @apply text-sm text-slate-600 dark:text-slate-400 m-0;
 }
 .customer-ai-search__main-btn {
-  @apply flex items-center bg-[#14B8A6] hover:bg-[#14B8A6]/90 text-white text-sm px-4 py-2 rounded-lg font-bold border-0 cursor-pointer;
+  @apply flex items-center bg-[#14B8A6] hover:bg-[#14B8A6]/90 text-white text-sm px-4 py-2 rounded-full font-bold border-0 cursor-pointer;
 }
 
 /* Input */
@@ -29,7 +29,7 @@
   @apply absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400;
 }
 .customer-ai-search__input {
-  @apply w-full pl-12 pr-4 py-4 text-base border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/50 dark:text-white;
+  @apply w-full pl-12 pr-4 py-4 text-base border border-slate-300 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/50 dark:text-white;
 }
 .customer-ai-search__search-btn {
   @apply absolute right-2 top-1/2 -translate-y-1/2 bg-[#14B8A6] hover:bg-[#14B8A6]/90 text-white px-6 py-2 rounded-lg border-0 cursor-pointer font-bold;
@@ -45,7 +45,7 @@
   @apply space-y-2 mb-4;
 }
 .customer-ai-search__recommend-item {
-  @apply px-4 py-2 bg-white dark:bg-slate-900 rounded-lg text-sm text-slate-700 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer transition-colors border border-slate-200 dark:border-slate-800;
+  @apply px-4 py-2 bg-slate-100 dark:bg-slate-900 rounded-full text-sm text-slate-700 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 cursor-pointer transition-colors border border-slate-400 dark:border-slate-800;
 }
 
 /* Filters */
@@ -53,7 +53,7 @@
   @apply flex items-center gap-2 flex-wrap;
 }
 .customer-ai-search__filter-btn {
-  @apply px-4 py-1.5 rounded-full text-sm font-medium transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 border border-slate-300 dark:border-slate-800 cursor-pointer;
+  @apply px-4 py-1.5 rounded-full text-sm font-medium transition-all bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 border border-slate-300 dark:border-slate-800 cursor-pointer;
 }
 .customer-ai-search__filter-btn--active {
   @apply bg-[#14B8A6] text-white border-[#14B8A6];

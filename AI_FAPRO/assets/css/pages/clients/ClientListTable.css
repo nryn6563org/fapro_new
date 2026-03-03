@@ -1,5 +1,5 @@
 .client-table {
-  @apply rounded-2xl border-2 border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl overflow-hidden;
+  @apply bg-slate-100 dark:bg-slate-800/80 rounded-2xl shadow-sm border border-slate-300 dark:border-slate-700/50 overflow-hidden;
 }
 
 .client-table__wrapper {
@@ -12,10 +12,10 @@
 
 /* Header */
 .client-table__head-row {
-  @apply border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900;
+  @apply bg-gray-50/80 dark:bg-slate-800/50 border-b border-slate-300 dark:border-slate-700/50;
 }
 .client-table__th {
-  @apply text-left p-4 text-sm font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider;
+  @apply px-4 py-3 text-left text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider bg-gray-50/50 dark:bg-slate-800/50 rounded-lg whitespace-nowrap;
 }
 .client-table__th--center {
   @apply text-center;
@@ -23,10 +23,10 @@
 
 /* Rows */
 .client-table__row {
-  @apply border-b border-slate-50 dark:border-slate-800 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors;
+  @apply hover:bg-gray-50/50 dark:hover:bg-slate-700/30 transition-colors border-b border-gray-50 dark:border-slate-700/30 last:border-0;
 }
 .client-table__td {
-  @apply p-4 align-middle;
+  @apply px-4 py-3.5 whitespace-nowrap text-[13px] text-slate-800 dark:text-gray-100;
 }
 .client-table__td--center {
   @apply text-center;
@@ -34,41 +34,41 @@
 
 /* Cell Content */
 .client-table__name {
-  @apply text-base font-black text-slate-900 dark:text-white;
+  @apply text-sm font-bold text-slate-800 dark:text-white;
 }
 
 .client-table__type-badge {
-  @apply px-3 py-1 rounded-full text-xs font-black shadow-sm;
+  @apply px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide;
 }
 .client-table__type-badge--aggressive {
-  @apply bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400;
+  @apply bg-red-50 text-red-600 dark:bg-red-900/30 dark:text-red-400;
 }
 .client-table__type-badge--stable {
-  @apply bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400;
+  @apply bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400;
 }
 .client-table__type-badge--neutral {
-  @apply bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400;
+  @apply bg-amber-50 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400;
 }
 
 .client-table__assets {
-  @apply text-sm font-bold text-slate-700 dark:text-slate-300;
+  @apply text-[13px] font-bold text-slate-700 dark:text-slate-300;
 }
 
 .client-table__holdings {
-  @apply text-sm text-slate-600 dark:text-slate-400 font-bold max-w-[150px] truncate block;
+  @apply text-[11px] text-slate-500 dark:text-slate-400 font-bold max-w-[150px] truncate block;
 }
 
 .client-table__notes {
-  @apply text-sm text-slate-500 dark:text-slate-500 max-w-[200px] truncate block italic;
+  @apply text-[11px] text-slate-400 dark:text-slate-500 max-w-[200px] truncate block italic;
 }
 
 /* Buttons */
 .client-table__eye-btn {
-  @apply p-1.5 bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-lg hover:bg-teal-500 hover:text-white transition-all border-0 cursor-pointer;
+  @apply p-2 bg-primary-light dark:bg-primary-900/30 text-primary dark:text-primary-light rounded-xl hover:bg-primary hover:text-white dark:hover:bg-primary transition-all border-0 cursor-pointer shadow-sm;
 }
 
 .client-table__info-btn {
-  @apply flex items-center justify-center gap-1 px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-xl text-xs font-black hover:bg-teal-500 hover:text-white transition-all border-0 cursor-pointer shadow-sm;
+  @apply flex items-center justify-center gap-1.5 px-3 py-2 bg-gray-50 dark:bg-slate-700/50 hover:bg-primary hover:text-white dark:hover:bg-primary text-slate-600 dark:text-slate-300 rounded-xl text-[11px] font-bold transition-all border border-slate-300 dark:border-slate-600/50 cursor-pointer shadow-sm hover:translate-y-[-1px];
 }
 
 /* Empty State */
@@ -76,8 +76,8 @@
   @apply p-20 text-center;
 }
 .client-table__empty-content {
-  @apply flex flex-col items-center gap-3 text-slate-400;
+  @apply flex flex-col items-center gap-3 text-slate-400 dark:text-slate-500;
 }
 .client-table__empty-icon {
-  @apply w-16 h-16 opacity-20;
+  @apply w-12 h-12 opacity-30;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="intelligence-section">
+  <div class="intelligence-section animate__animated animate__fadeInUp">
     <div class="intelligence-section__header">
       <h2 class="intelligence-section__title">고객 인텔리전스</h2>
       <span class="badge badge--violet-solid">AI 분석</span>
@@ -26,17 +26,17 @@
               <div class="intelligence-item__stats">
                 <div class="stat-row">
                   <span class="stat-row__label">총 자산</span>
-                  <span class="stat-row__value font-semibold">{{ item.aum }}</span>
+                  <span class="stat-row__value stat-row__value--semibold">{{ item.aum }}</span>
                 </div>
                 <div class="stat-row">
                   <span class="stat-row__label">예수금</span>
-                  <span class="stat-row__value font-bold text-amber-700">{{
+                  <span class="stat-row__value stat-row__value--bold stat-row__value--amber-700">{{
                     item.cashBalance
                   }}</span>
                 </div>
                 <div class="stat-row">
                   <span class="stat-row__label">현금 비중</span>
-                  <span class="stat-row__value font-semibold text-amber-600">{{
+                  <span class="stat-row__value stat-row__value--semibold stat-row__value--amber-600">{{
                     item.cashRatio
                   }}</span>
                 </div>
@@ -52,7 +52,7 @@
               class="btn btn--block btn--amber-solid"
               @click="$emit('propose', 'CustomerIntelligence', item)"
             >
-              <send-icon size="12" class="mr-1" /> 제안하기
+              <send-icon size="12" class="btn__icon--mr-1" /> 제안하기
             </button>
           </div>
         </div>
@@ -78,19 +78,19 @@
               <div class="intelligence-item__stats">
                 <div class="stat-row">
                   <span class="stat-row__label">총 수익률</span>
-                  <span class="stat-row__value font-semibold text-emerald-600">{{
+                  <span class="stat-row__value stat-row__value--semibold stat-row__value--emerald-600">{{
                     item.recent3MonthReturn
                   }}</span>
                 </div>
                 <div class="stat-row">
                   <span class="stat-row__label">총 수익금액</span>
-                  <span class="stat-row__value font-bold text-emerald-700">{{
+                  <span class="stat-row__value stat-row__value--bold stat-row__value--emerald-700">{{
                     item.totalProfit
                   }}</span>
                 </div>
                 <div class="stat-row">
                   <span class="stat-row__label">최대 수익</span>
-                  <span class="stat-row__value font-medium">{{ item.profitContributor }}</span>
+                  <span class="stat-row__value stat-row__value--medium">{{ item.profitContributor }}</span>
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@
               class="btn btn--block btn--emerald-solid"
               @click="$emit('propose', 'CustomerIntelligence', item)"
             >
-              <send-icon size="12" class="mr-1" /> 제안하기
+              <send-icon size="12" class="btn__icon--mr-1" /> 제안하기
             </button>
           </div>
         </div>
@@ -130,17 +130,17 @@
               <div class="intelligence-item__stats">
                 <div class="stat-row">
                   <span class="stat-row__label">총 수익률</span>
-                  <span class="stat-row__value font-semibold text-rose-600">{{
+                  <span class="stat-row__value stat-row__value--semibold stat-row__value--rose-600">{{
                     item.recent3MonthReturn
                   }}</span>
                 </div>
                 <div class="stat-row">
                   <span class="stat-row__label">총 손실금액</span>
-                  <span class="stat-row__value font-bold text-rose-700">{{ item.totalLoss }}</span>
+                  <span class="stat-row__value stat-row__value--bold stat-row__value--rose-700">{{ item.totalLoss }}</span>
                 </div>
                 <div class="stat-row">
                   <span class="stat-row__label">최대 손실</span>
-                  <span class="stat-row__value font-medium">{{ item.lossContributor }}</span>
+                  <span class="stat-row__value stat-row__value--medium">{{ item.lossContributor }}</span>
                 </div>
               </div>
             </div>
@@ -154,7 +154,7 @@
               class="btn btn--block btn--rose-solid"
               @click="$emit('propose', 'CustomerIntelligence', item)"
             >
-              <send-icon size="12" class="mr-1" /> 제안하기
+              <send-icon size="12" class="btn__icon--mr-1" /> 제안하기
             </button>
           </div>
         </div>
@@ -166,6 +166,7 @@
 <script>
 import { SendIcon } from 'vue-feather-icons'
 import { customerIntelligence } from '~/utils/mockData.js'
+import '~/assets/css/pages/index/CustomerIntelligenceCard.css'
 
 export default {
   name: 'CustomerIntelligenceCard',
@@ -180,4 +181,5 @@ export default {
 }
 </script>
 
-<style src="~/assets/css/pages/index/CustomerIntelligenceCard.css" />
+<style scoped>
+</style>

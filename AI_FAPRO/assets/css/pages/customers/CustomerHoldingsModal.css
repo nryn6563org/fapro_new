@@ -2,27 +2,46 @@
 
 /* 1. 기본 레이아웃 및 모달 컨테이너 (Rule 12: CSS Hierarchy) */
 .customer-holdings {
-  @apply relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-h-[90vh] overflow-y-auto;
+  @apply relative bg-slate-100 dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-h-[90vh] overflow-y-auto;
 }
 
 /* 2. 헤더 섹션 (Header) */
 .customer-holdings__header {
-  @apply sticky top-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-8 py-6 flex items-center justify-between z-10;
+  @apply sticky top-0 bg-slate-100 dark:bg-slate-900 border-b border-slate-400 dark:border-slate-800 px-8 py-6 flex items-center justify-between z-10;
 }
+.customer-holdings__header-left {
+  @apply flex items-center gap-4;
+}
+.customer-holdings__header-right {
+  @apply flex items-center gap-2;
+}
+
 .customer-holdings__avatar {
   @apply w-12 h-12 bg-gradient-to-br from-[#14B8A6] to-[#0D9488] rounded-full flex items-center justify-center;
 }
+.customer-holdings__avatar-icon {
+  @apply w-6 h-6 text-white;
+}
+
 .customer-holdings__title {
   @apply text-2xl font-bold text-slate-900 dark:text-white m-0;
 }
 .customer-holdings__subtitle {
   @apply text-sm text-slate-500 m-0;
 }
+
 .customer-holdings__edit-btn {
   @apply flex items-center bg-[#14B8A6] hover:bg-[#14B8A6]/90 text-white px-4 py-2 rounded-lg font-bold border-0 cursor-pointer;
 }
+.customer-holdings__btn-icon {
+  @apply w-4 h-4 mr-2;
+}
+
 .customer-holdings__close-btn {
   @apply p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border-0 bg-transparent cursor-pointer;
+}
+.customer-holdings__close-icon {
+  @apply w-5 h-5;
 }
 
 /* 3. 본문 섹션 (Body Content) */
@@ -31,6 +50,10 @@
 }
 
 /* 요약 카드 (Summary Cards) */
+.customer-holdings__sum-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4 mb-6;
+}
+
 .customer-holdings__sum-card {
   @apply border rounded-lg p-4;
 }
@@ -50,19 +73,25 @@
 .customer-holdings__sum-value {
   @apply text-xl font-bold text-slate-900 dark:text-white m-0;
 }
+.customer-holdings__sum-trend {
+  @apply flex items-center gap-2;
+}
+.customer-holdings__sum-trend-icon {
+  @apply w-5 h-5 text-teal-600;
+}
 
 /* 4. 보유종목 상세 테이블 (Holdings Table) */
 .customer-holdings__table-box {
-  @apply bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden mb-6;
+  @apply bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-400 dark:border-slate-800 overflow-hidden mb-6;
 }
 .customer-holdings__table {
   @apply w-full border-collapse;
 }
 .customer-holdings__th {
-  @apply bg-slate-50 dark:bg-slate-900 px-4 py-3 text-left text-xs font-semibold text-slate-700 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800;
+  @apply bg-slate-200 dark:bg-slate-900 px-4 py-3 text-left text-xs font-semibold text-slate-700 dark:text-slate-400 border-b border-slate-400 dark:border-slate-800;
 }
 .customer-holdings__td {
-  @apply px-4 py-3 text-sm text-slate-900 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800;
+  @apply px-4 py-3 text-sm text-slate-900 dark:text-slate-300 border-b border-slate-300 dark:border-slate-800;
 }
 .customer-holdings__td--name {
   @apply font-medium;
@@ -73,6 +102,12 @@
 .customer-holdings__td--profit {
   @apply text-green-600 font-semibold;
 }
+.customer-holdings__profit-box {
+  @apply flex items-center gap-1;
+}
+.customer-holdings__profit-icon {
+  @apply w-3.5 h-3.5;
+}
 .customer-holdings__td--rate {
   @apply text-green-600 font-semibold;
 }
@@ -81,8 +116,14 @@
 .customer-holdings__ai-analysis {
   @apply bg-gradient-to-br from-[#14B8A6]/10 to-[#14B8A6]/5 dark:from-slate-900/50 dark:to-slate-950/50 border border-[#14B8A6]/30 rounded-xl p-5 mb-6;
 }
+.customer-holdings__ai-header {
+  @apply flex items-start gap-3 mb-3;
+}
 .customer-holdings__ai-icon-box {
   @apply w-8 h-8 bg-[#14B8A6] rounded-lg flex items-center justify-center flex-shrink-0;
+}
+.customer-holdings__ai-zap-icon {
+  @apply w-4 h-4 text-white;
 }
 .customer-holdings__ai-title {
   @apply text-sm font-semibold text-slate-900 dark:text-white m-0;
@@ -91,7 +132,7 @@
   @apply text-xs text-slate-600 m-0;
 }
 .customer-holdings__ai-content {
-  @apply bg-white/80 dark:bg-slate-900/80 rounded-lg p-4 space-y-3;
+  @apply bg-slate-100/80 dark:bg-slate-900/80 rounded-lg p-4 space-y-3;
 }
 .customer-holdings__ai-item {
   @apply flex items-start gap-2;

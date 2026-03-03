@@ -1,11 +1,11 @@
 /* Tailwind directives container for component */
 .signals-page {
-  @apply p-6 space-y-6 max-w-7xl mx-auto;
+  @apply p-6 space-y-6 max-w-[1600px] mx-auto;
 }
 
 /* Header */
 .signals-page__header {
-  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4;
+  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-400 dark:border-slate-800 pb-4;
 }
 .signals-page__title {
   @apply text-3xl font-bold text-slate-900 dark:text-white;
@@ -26,7 +26,7 @@
   @apply text-xs text-slate-500 dark:text-slate-400;
 }
 .signals-page__refresh-btn {
-  @apply flex items-center gap-2 px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-colors shadow-sm;
+  @apply flex items-center gap-2 px-4 py-2 bg-[#14B8A6] hover:bg-[#0D9488] text-white rounded-lg transition-colors shadow-sm;
 }
 .signals-page__refresh-icon {
   @apply w-4 h-4;
@@ -37,12 +37,12 @@
 
 /* Grid Layout */
 .signals-page__grid {
-  @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
 }
 
 /* Column General */
 .signals-page__column {
-  @apply border-2 rounded-xl bg-white dark:bg-slate-900 shadow-lg overflow-hidden flex flex-col h-[calc(100vh-200px)] min-h-[600px];
+  @apply border-2 rounded-xl bg-slate-100 dark:bg-slate-900 shadow-lg overflow-hidden flex flex-col h-[calc(100vh-200px)] min-h-[600px];
 }
 
 /* Buy Column Specifics */
@@ -56,7 +56,7 @@
   @apply bg-red-500;
 }
 .signals-page__column-badge--buy {
-  @apply bg-red-500 text-white;
+  @apply bg-red-100 text-red-600 border border-red-200;
 }
 
 /* Sell Column Specifics */
@@ -70,7 +70,7 @@
   @apply bg-blue-500;
 }
 .signals-page__column-badge--sell {
-  @apply bg-blue-500 text-white;
+  @apply bg-blue-100 text-blue-600 border border-blue-200;
 }
 
 /* Column Header Common */
@@ -100,23 +100,49 @@
 
 /* Custom styles for AI Report Modal dialog wrapper */
 .ai-report-modal__dialog {
-  @apply max-w-5xl md:max-w-7xl mx-auto mt-10;
+  @apply max-w-[1600px] md:max-w-[1600px] mx-auto mt-10;
 }
 .ai-report-modal__header {
   @apply bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 flex items-center justify-between rounded-t-xl;
 }
 .ai-report-modal__header-left {
-  @apply flex flex-col gap-1;
+  @apply flex flex-col gap-2;
 }
+
+.ai-report-modal__title-group {
+  @apply flex items-center gap-3;
+}
+
 .ai-report-modal__title {
-  @apply text-2xl font-bold m-0 flex-1;
+  @apply text-xl md:text-2xl font-bold;
 }
+
 .ai-report-modal__ticker {
-  @apply text-lg text-slate-300 ml-2;
+  @apply text-lg md:text-xl text-slate-300 font-normal ml-1;
+}
+
+.ai-report-modal__badges {
+  @apply flex items-center gap-2;
+}
+
+.ai-report-modal__badge {
+  @apply text-xs font-semibold px-2 py-0.5 rounded text-white;
+}
+
+.ai-report-modal__badge--cyan {
+  @apply bg-teal-500;
+}
+
+.ai-report-modal__badge--amber {
+  @apply bg-amber-500;
+}
+
+.ai-report-modal__badge--purple {
+  @apply bg-purple-500;
 }
 .ai-report-modal__close-btn {
-  @apply p-2 hover:bg-white/10 rounded-full transition-colors text-white border-0 bg-transparent cursor-pointer;
+  @apply p-2 hover:bg-slate-100/10 rounded-full transition-colors text-white border-0 bg-transparent cursor-pointer;
 }
 .ai-report-modal__content {
-  @apply p-0 m-0 bg-white dark:bg-slate-900;
+  @apply p-0 m-0 bg-slate-100 dark:bg-slate-900;
 }

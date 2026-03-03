@@ -4,6 +4,7 @@
     custom-dialog-class="strategic-modal__dialog"
     @close="closeModal"
   >
+    <!-- Header Component -->
     <template #header>
       <div class="strategic-modal__header">
         <h2 class="strategic-modal__title">고객에게 종목 제안</h2>
@@ -14,6 +15,7 @@
       </div>
     </template>
 
+    <!-- Body Component -->
     <div v-if="stock" class="strategic-modal__body">
       <!-- Stock Info -->
       <div class="strategic-modal__info-card">
@@ -88,7 +90,7 @@
         </div>
 
         <div class="strategic-modal__upload-box">
-          <input type="file" multiple id="file-upload" class="hidden" @change="handleFileUpload" />
+          <input id="file-upload" type="file" multiple class="hidden" @change="handleFileUpload" />
           <label for="file-upload" class="strategic-modal__upload-label">
             <upload-icon class="strategic-modal__upload-icon" />
             <p class="strategic-modal__upload-text">
@@ -129,10 +131,10 @@
             ]"
           >
             <input
-              type="checkbox"
               :id="'client-' + client.id"
-              :value="client.id"
               v-model="selectedClients"
+              type="checkbox"
+              :value="client.id"
               class="strategic-modal__client-checkbox"
             />
             <label :for="'client-' + client.id" class="strategic-modal__client-label">

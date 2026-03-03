@@ -16,9 +16,14 @@
           </div>
           <h3 class="trading-signal-card__name">{{ signal.name }}</h3>
           <div class="trading-signal-card__price-row">
-            <span class="trading-signal-card__price"
-              >{{ type === 'buy' ? '매수가' : '매도가' }} {{ signal.price }}</span
+            <span
+              :class="[
+                'trading-signal-card__price',
+                type === 'buy' ? 'trading-signal-card__price--buy' : 'trading-signal-card__price--sell'
+              ]"
             >
+              {{ type === 'buy' ? '매수가' : '매도가' }} {{ signal.price }}
+            </span>
             <span v-if="type === 'sell'" class="trading-signal-card__change">{{
               signal.change
             }}</span>
@@ -101,7 +106,7 @@
                   idx === signal.tradeHistory.length - 1 ? 'trading-signal-card__td--last' : ''
                 ]"
               >
-                {{ trade.return }}
+                {{ trade.return && trade.return !== '-' ? '수익률 ' + trade.return : '-' }}
               </td>
             </tr>
           </tbody>

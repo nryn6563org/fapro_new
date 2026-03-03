@@ -1,11 +1,11 @@
 /* Tailwind directives container */
 
 .settings-account__card {
-  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm;
+  @apply bg-slate-100 dark:bg-slate-900 border border-slate-400 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm;
 }
 
 .settings-account__header {
-  @apply bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex items-center gap-2;
+  @apply bg-slate-200 dark:bg-slate-950 border-b border-slate-400 dark:border-slate-800 px-6 py-4 flex items-center gap-2;
 }
 
 .settings-account__title {
@@ -17,5 +17,5 @@
 }
 
 .settings-account__btn {
-  @apply flex items-center justify-start h-12 px-4 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 rounded-lg text-sm font-bold text-slate-700 dark:text-slate-400 transition-all cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700;
+  @apply flex items-center justify-start h-12 px-4 border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 rounded-lg text-sm font-bold text-slate-700 dark:text-slate-400 transition-all cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700;
 }

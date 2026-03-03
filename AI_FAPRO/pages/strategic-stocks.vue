@@ -34,12 +34,6 @@
       />
     </div>
 
-    <!-- Proposal Modal -->
-    <strategic-proposal-modal
-      :is-open="isProposalModalOpen"
-      :stock="selectedStock"
-      @close="closeProposalModal"
-    />
   </div>
 </template>
 
@@ -47,6 +41,7 @@
 /**
  * 기능: AI 전략 유망주 페이지 컴포넌트
  */
+import Vue from 'vue'
 import { RefreshCwIcon } from 'vue-feather-icons'
 import StrategicStockCard from '~/components/strategic/StrategicStockCard.vue'
 import StrategicProposalModal from '~/components/strategic/StrategicProposalModal.vue'
@@ -57,16 +52,13 @@ export default {
   name: 'StrategicStocksPage',
   components: {
     RefreshCwIcon,
-    StrategicStockCard,
-    StrategicProposalModal
+    StrategicStockCard
   },
   data() {
     return {
       stocks,
       expandedCards: [1], // Expand first card by default
-      lastUpdated: new Date(),
-      isProposalModalOpen: false,
-      selectedStock: null
+      lastUpdated: new Date()
     }
   },
   methods: {
@@ -90,14 +82,25 @@ export default {
       return `${year}.${month}.${day} ${hours}:${minutes}`
     },
     openProposalModal(stock) {
-      this.selectedStock = stock
-      this.isProposalModalOpen = true
-    },
-    closeProposalModal() {
-      this.isProposalModalOpen = false
-      setTimeout(() => {
-        this.selectedStock = null
-      }, 300)
+      const ComponentClass = Vue.extend(StrategicProposalModal)
+      const instance = new ComponentClass({
+        propsData: { stock, isOpen: true }
+      })
+      instance.$mount()
+
+      const modal = this.$modalV.show({
+        content: instance.$el,
+        backdrop: true,
+        keyboard: true
+      })
+
+      modal.on('hidden', () => {
+        instance.$destroy()
+      })
+
+      instance.$on('close', () => {
+        modal.hide()
+      })
     }
   }
 }
