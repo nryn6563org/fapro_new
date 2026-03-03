@@ -5,7 +5,7 @@
       <div class="day-view__header">
         <div class="day-view__time-label">GMT+9</div>
         <div class="day-view__day-info">
-          <div class="text-sm font-black text-slate-500 uppercase tracking-widest mb-1">
+          <div class="day-view__weekday">
             {{ formatWeekday(selectedDate) }}
           </div>
           <div
@@ -22,24 +22,22 @@
           <div class="day-view__hour-label">
             {{ formatTime(hour) }}
           </div>
-          <div
-            class="day-view__slot hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"
-          >
+          <div class="day-view__slot">
             <div
               v-for="event in getEventsForHour(hour)"
               :key="event.id"
-              :class="['day-view__event', 'animate__animated animate__fadeInRight', event.color]"
+              :class="['day-view__event', 'animate__animated', 'animate__fadeInRight', getEventColorClass(event.color)]"
             >
-              <div class="flex items-center justify-between mb-1">
-                <span class="font-black text-sm">{{ event.title }}</span>
-                <span class="text-[10px] opacity-80">{{ event.type }}</span>
+              <div class="day-view__event-header">
+                <span class="day-view__event-title">{{ event.title }}</span>
+                <span class="day-view__event-type">{{ event.type }}</span>
               </div>
-              <div class="flex items-center gap-3 text-xs opacity-90">
-                <div class="flex items-center gap-1">
+              <div class="day-view__event-details">
+                <div class="day-view__event-detail-item">
                   <clock-icon class="w-3 h-3" />
                   {{ event.startTime }} - {{ event.endTime }}
                 </div>
-                <div v-if="event.location" class="flex items-center gap-1">
+                <div v-if="event.location" class="day-view__event-detail-item">
                   <map-pin-icon class="w-3 h-3" />
                   {{ event.location }}
                 </div>
@@ -91,6 +89,9 @@ export default {
         const eventHour = parseInt(e.startTime.split(':')[0])
         return sameDay && eventHour === hour
       })
+    },
+    getEventColorClass(color) {
+      return `day-view__event--${color.replace('bg-', '')}`
     }
   }
 }

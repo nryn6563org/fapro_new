@@ -82,17 +82,20 @@
     >
       <template #header>
         <div class="ai-report-modal__header">
-          <div class="ai-report-modal__header-left">
-            <div class="ai-report-modal__title-group">
+          <div class="ai-report-modal__header-content">
+            <div class="ai-report-modal__icon-box">
+              <activity-icon size="28" class="text-primary dark:text-primary-light" />
+            </div>
+            <div class="ai-report-modal__title-wrapper">
+              <div class="ai-report-modal__badges">
+                <span class="ai-report-modal__badge ai-report-modal__badge--cyan">신작출시</span>
+                <span class="ai-report-modal__badge ai-report-modal__badge--amber">거래량급증</span>
+                <span class="ai-report-modal__badge ai-report-modal__badge--purple">외국인매수</span>
+              </div>
               <h2 class="ai-report-modal__title">
                 {{ activeReportSignal.name }}
-                <span class="ai-report-modal__ticker">({{ activeReportSignal.ticker }})</span>
+                <span class="ai-report-modal__ticker">{{ activeReportSignal.ticker }}</span>
               </h2>
-            </div>
-            <div class="ai-report-modal__badges">
-              <span class="ai-report-modal__badge ai-report-modal__badge--cyan">신작출시</span>
-              <span class="ai-report-modal__badge ai-report-modal__badge--amber">거래량급증</span>
-              <span class="ai-report-modal__badge ai-report-modal__badge--purple">외국인매수</span>
             </div>
           </div>
           <button type="button" class="ai-report-modal__close-btn" @click="closeReport">
@@ -112,7 +115,7 @@
 /**
  * 기능: AI매매신호 메인 페이지
  */
-import { RefreshCwIcon, ArrowUpIcon, ArrowDownIcon, XIcon } from 'vue-feather-icons'
+import { RefreshCwIcon, ArrowUpIcon, ArrowDownIcon, XIcon, ActivityIcon } from 'vue-feather-icons'
 import TradingSignalCard from '~/components/signals/TradingSignalCard.vue'
 import AIReportContent from '~/components/signals/AIReportContent.vue'
 import ModalVanilla from '~/components/modal/ModalVanilla.vue'
@@ -126,6 +129,7 @@ export default {
     ArrowUpIcon,
     ArrowDownIcon,
     XIcon,
+    ActivityIcon,
     TradingSignalCard,
     AIReportContent,
     ModalVanilla

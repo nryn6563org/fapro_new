@@ -28,15 +28,15 @@
           <div
             v-for="day in weekDays"
             :key="day.getTime()"
-            class="week-view__slot hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"
+            class="week-view__slot"
           >
             <div
               v-for="event in getEventsForSlot(day, hour)"
               :key="event.id"
-              :class="['week-view__event', 'animate__animated animate__fadeIn', event.color]"
+              :class="['week-view__event', 'animate__animated', 'animate__fadeIn', getEventColorClass(event.color)]"
             >
-              <div class="font-bold truncate text-[11px]">{{ event.title }}</div>
-              <div class="text-[9px] opacity-90">{{ event.startTime }} - {{ event.endTime }}</div>
+              <div class="week-view__event-title">{{ event.title }}</div>
+              <div class="week-view__event-time">{{ event.startTime }} - {{ event.endTime }}</div>
             </div>
           </div>
         </div>
@@ -99,6 +99,10 @@ export default {
         const eventHour = parseInt(e.startTime.split(':')[0])
         return sameDay && eventHour === hour
       })
+    },
+    getEventColorClass(color) {
+      // Map 'bg-blue-500' to a BEM class
+      return `week-view__event--${color.replace('bg-', '')}`
     }
   }
 }

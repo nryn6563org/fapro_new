@@ -103,22 +103,25 @@
   @apply max-w-[1600px] md:max-w-[1600px] mx-auto mt-10;
 }
 .ai-report-modal__header {
-  @apply bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 flex items-center justify-between rounded-t-xl;
+  @apply bg-slate-100 dark:bg-slate-900 border-b border-slate-300 dark:border-slate-800 p-6 flex items-start justify-between rounded-t-2xl relative overflow-hidden;
 }
-.ai-report-modal__header-left {
+
+/* Optional: a subtle background glow or pattern */
+.ai-report-modal__header::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-purple-500 to-amber-500;
+}
+
+.ai-report-modal__header-content {
+  @apply flex items-center gap-5;
+}
+
+.ai-report-modal__icon-box {
+  @apply w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 flex items-center justify-center border border-slate-300 dark:border-slate-700 shadow-sm flex-shrink-0;
+}
+
+.ai-report-modal__title-wrapper {
   @apply flex flex-col gap-2;
-}
-
-.ai-report-modal__title-group {
-  @apply flex items-center gap-3;
-}
-
-.ai-report-modal__title {
-  @apply text-xl md:text-2xl font-bold;
-}
-
-.ai-report-modal__ticker {
-  @apply text-lg md:text-xl text-slate-300 font-normal ml-1;
 }
 
 .ai-report-modal__badges {
@@ -126,22 +129,30 @@
 }
 
 .ai-report-modal__badge {
-  @apply text-xs font-semibold px-2 py-0.5 rounded text-white;
+  @apply text-[11px] font-bold px-2.5 py-1 rounded-md tracking-wide;
 }
 
 .ai-report-modal__badge--cyan {
-  @apply bg-teal-500;
+  @apply bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 border border-teal-200 dark:border-teal-800;
 }
 
 .ai-report-modal__badge--amber {
-  @apply bg-amber-500;
+  @apply bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800;
 }
 
 .ai-report-modal__badge--purple {
-  @apply bg-purple-500;
+  @apply bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-800;
+}
+
+.ai-report-modal__title {
+  @apply text-2xl md:text-3xl font-black text-slate-900 dark:text-white flex items-center gap-2 m-0 leading-none !important;
+}
+
+.ai-report-modal__ticker {
+  @apply text-base font-semibold text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800 px-2.5 py-0.5 rounded-lg border border-slate-300 dark:border-slate-700;
 }
 .ai-report-modal__close-btn {
-  @apply p-2 hover:bg-slate-100/10 rounded-full transition-colors text-white border-0 bg-transparent cursor-pointer;
+  @apply p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 border-0 bg-transparent cursor-pointer relative z-10;
 }
 .ai-report-modal__content {
   @apply p-0 m-0 bg-slate-100 dark:bg-slate-900;

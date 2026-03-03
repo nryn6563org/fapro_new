@@ -1,5 +1,5 @@
 <template>
-  <div class="proposal-wrapper animate__animated animate__fadeInUp">
+  <div class="proposal-wrapper">
     <!-- View All Header -->
     <div class="proposal-header">
       <h2 class="proposal-header__title">오늘의 제안</h2>
@@ -9,7 +9,7 @@
     <!-- Cards Container -->
     <div class="today-proposal__grid">
       <!-- 1) Buy Target -->
-      <article class="proposal-card proposal-card--teal">
+      <article class="proposal-card proposal-card--teal animate-local-fade-up">
         <header class="proposal-card__header">
           <div class="proposal-card__header-content">
             <div>
@@ -49,7 +49,7 @@
       </article>
 
       <!-- Target Stocks (Buy) -->
-      <article class="proposal-card proposal-card--orange">
+      <article class="proposal-card proposal-card--orange animate-local-fade-up" style="animation-delay: 100ms;">
         <header class="proposal-card__header">
           <div class="proposal-card__header-content">
             <div>
@@ -86,7 +86,7 @@
       </article>
 
       <!-- Target Issues (Sell) -->
-      <article class="proposal-card proposal-card--violet">
+      <article class="proposal-card proposal-card--violet animate-local-fade-up" style="animation-delay: 200ms;">
         <header class="proposal-card__header">
           <div class="proposal-card__header-content">
             <div>

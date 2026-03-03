@@ -23,3 +23,19 @@
 .index-page__desc {
   @apply text-slate-600 dark:text-slate-400 mt-1 text-sm md:text-base;
 }
+
+/* Localized Animation for isolated cards */
+@keyframes localFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-local-fade-up {
+  animation: localFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

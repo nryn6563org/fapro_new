@@ -1,7 +1,7 @@
 <template>
   <header class="schedule-header">
     <div class="schedule-header__left">
-      <div class="flex items-center gap-3">
+      <div class="schedule-header__title-group">
         <div class="schedule-header__icon-box">
           <calendar-icon class="w-5 h-5 text-white" />
         </div>
@@ -10,7 +10,7 @@
 
       <button class="schedule-header__today-btn" @click="$emit('today')">오늘</button>
 
-      <div class="flex items-center gap-1 ml-2">
+      <div class="schedule-header__nav-group">
         <button class="schedule-header__nav-btn" @click="$emit('prev')">
           <chevron-left-icon class="w-4 h-4" />
         </button>
@@ -24,7 +24,7 @@
 
     <div class="schedule-header__right">
       <!-- Search -->
-      <div class="relative">
+      <div class="schedule-header__search-container">
         <search-icon class="schedule-header__search-icon" />
         <input
           ref="searchInput"
@@ -42,18 +42,18 @@
         class="schedule-header__sync-badge schedule-header__sync-badge--active"
         @click="$emit('unsync')"
       >
-        <check-circle-icon class="w-4 h-4 text-green-600" />
+        <check-circle-icon class="w-4 h-4 schedule-header__sync-icon--success" />
         <span class="schedule-header__sync-label">캘린더 동기화 해제</span>
       </div>
-      <button v-else class="schedule-header__sync-btn" @click="$emit('sync')" :disabled="isSyncing">
-        <loader-icon v-if="isSyncing" class="w-3 h-3 mr-2 animate-spin" />
-        <refresh-cw-icon v-else class="w-3 h-3 mr-2" />
+      <button v-else class="schedule-header__sync-btn" :disabled="isSyncing" @click="$emit('sync')">
+        <loader-icon v-if="isSyncing" class="w-3 h-3 schedule-header__sync-icon--loading" />
+        <refresh-cw-icon v-else class="w-3 h-3 schedule-header__sync-icon" />
         {{ isSyncing ? '동기화 중' : '동기화' }}
       </button>
 
       <!-- Google Calendar Link -->
       <button class="schedule-header__ext-btn" @click="openGoogleCalendar">
-        <external-link-icon class="w-3 h-3 mr-2" />
+        <external-link-icon class="w-3 h-3 schedule-header__ext-icon" />
         Google Calendar
       </button>
 
@@ -110,6 +110,11 @@ export default {
     isSyncing: { type: Boolean, default: false },
     searchQuery: { type: String, default: '' }
   },
+  computed: {
+    dateLabel() {
+      return this.currentDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long' })
+    }
+  },
   mounted() {
     this.$autocomplete(this.$refs.searchInput, {
       fetch: (text, update) => {
@@ -123,11 +128,6 @@ export default {
         this.$emit('update:searchQuery', item.value)
       }
     })
-  },
-  computed: {
-    dateLabel() {
-      return this.currentDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long' })
-    }
   },
   methods: {
     openGoogleCalendar() {

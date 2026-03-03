@@ -1,5 +1,5 @@
 <template>
-  <div ref="modal" class="modal fade" tabindex="-1" role="dialog">
+  <div ref="modal" class="modal fade" tabindex="-1" role="dialog" v-show="isOpen">
     <div :class="['modal-dialog', customDialogClass]" role="document">
       <div class="modal-content">
         <div v-if="title || $slots.header" class="modal-header">

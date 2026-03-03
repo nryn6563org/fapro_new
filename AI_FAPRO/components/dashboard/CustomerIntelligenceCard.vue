@@ -1,5 +1,5 @@
 <template>
-  <div class="intelligence-section animate__animated animate__fadeInUp">
+  <div class="intelligence-section">
     <div class="intelligence-section__header">
       <h2 class="intelligence-section__title">고객 인텔리전스</h2>
       <span class="badge badge--violet-solid">AI 분석</span>
@@ -7,7 +7,7 @@
 
     <div class="intelligence-section__grid">
       <!-- Cash Holding Customers -->
-      <article class="intelligence-card intelligence-card--amber">
+      <article class="intelligence-card intelligence-card--amber animate-local-fade-up" style="animation-delay: 300ms;">
         <header class="intelligence-card__header">
           <div class="intelligence-card__header-content">
             <h3 class="intelligence-card__title">매수 대기 고객</h3>
@@ -59,7 +59,7 @@
       </article>
 
       <!-- Top Performing Customers -->
-      <article class="intelligence-card intelligence-card--emerald">
+      <article class="intelligence-card intelligence-card--emerald animate-local-fade-up" style="animation-delay: 400ms;">
         <header class="intelligence-card__header">
           <div class="intelligence-card__header-content">
             <h3 class="intelligence-card__title">수익률 상위 고객</h3>
@@ -111,7 +111,7 @@
       </article>
 
       <!-- Declining Customers -->
-      <article class="intelligence-card intelligence-card--rose">
+      <article class="intelligence-card intelligence-card--rose animate-local-fade-up" style="animation-delay: 500ms;">
         <header class="intelligence-card__header">
           <div class="intelligence-card__header-content">
             <h3 class="intelligence-card__title">수익률 하위 고객</h3>

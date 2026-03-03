@@ -5,7 +5,7 @@
       <div
         v-for="(day, idx) in daysFull"
         :key="day"
-        :class="['month-view__th', { 'text-red-600': idx === 0, 'text-blue-600': idx === 6 }]"
+        :class="['month-view__th', { 'month-view__th--sunday': idx === 0, 'month-view__th--saturday': idx === 6 }]"
       >
         {{ day }}
       </div>
@@ -21,7 +21,7 @@
       <div
         v-for="day in daysInMonth"
         :key="day"
-        class="month-view__cell hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+        class="month-view__cell month-view__cell--day"
       >
         <div :class="['month-view__day-num', getDayClass(day)]">
           {{ day }}
@@ -31,7 +31,7 @@
           <div
             v-for="event in getEvents(day).slice(0, 2)"
             :key="event.id"
-            :class="['month-view__event-tag', event.color]"
+            :class="['month-view__event-tag', getEventColorClass(event.color)]"
           >
             {{ event.startTime }} {{ event.title }}
           </div>
@@ -84,9 +84,13 @@ export default {
       const dayOfWeek = date.getDay()
 
       if (this.isToday(day)) return 'month-view__day-num--today'
-      if (dayOfWeek === 0) return 'text-red-600'
-      if (dayOfWeek === 6) return 'text-blue-600'
-      return 'text-slate-700 dark:text-slate-300'
+      if (dayOfWeek === 0) return 'month-view__day-num--sunday'
+      if (dayOfWeek === 6) return 'month-view__day-num--saturday'
+      return 'month-view__day-num--weekday'
+    },
+    getEventColorClass(color) {
+      // Map 'bg-blue-500' to a BEM class
+      return `month-view__event-tag--${color.replace('bg-', '')}`
     }
   }
 }

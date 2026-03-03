@@ -155,24 +155,23 @@ export default {
   },
   watch: {
     issueType() {
-      // Reset selection when switching types
-      this.selectedIssueId = null
+      // Switch selection to the largest issue of the new type
+      this.setDefaultIssue()
     }
   },
+  created() {
+    this.setDefaultIssue()
+  },
   methods: {
-    handleIssueSelect(id) {
-      if (this.selectedIssueId === id) {
-        this.selectedIssueId = null
-      } else {
-        this.selectedIssueId = id
-        // Smooth scroll to detail section
-        this.$nextTick(() => {
-          const detail = document.querySelector('.issues-page__detail-section')
-          if (detail) {
-            detail.scrollIntoView({ behavior: 'smooth', block: 'start' })
-          }
-        })
+    setDefaultIssue() {
+      if (this.issues && this.issues.length > 0) {
+        // Find the issue with the maximum size
+        const largestIssue = this.issues.reduce((max, issue) => (issue.size > max.size ? issue : max), this.issues[0])
+        this.selectedIssueId = largestIssue.id
       }
+    },
+    handleIssueSelect(id) {
+      this.selectedIssueId = id
     },
     handleProposeClick(issue) {
       this.selectedIssueForProposal = issue

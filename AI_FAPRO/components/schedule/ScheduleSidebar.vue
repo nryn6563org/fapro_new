@@ -10,38 +10,38 @@
 
     <!-- Mini Calendar -->
     <div class="schedule-sidebar__mini-cal">
-      <div class="flex items-center justify-between mb-3">
+      <div class="schedule-sidebar__mini-header">
         <h3 class="schedule-sidebar__section-title">{{ miniCalLabel }}</h3>
-        <div class="flex gap-1">
-          <button @click="$emit('prev-month')" class="schedule-sidebar__mini-nav">
+        <div class="schedule-sidebar__mini-nav-container">
+          <button class="schedule-sidebar__mini-nav" @click="$emit('prev-month')">
             <chevron-left-icon class="w-4 h-4" />
           </button>
-          <button @click="$emit('next-month')" class="schedule-sidebar__mini-nav">
+          <button class="schedule-sidebar__mini-nav" @click="$emit('next-month')">
             <chevron-right-icon class="w-4 h-4" />
           </button>
         </div>
       </div>
 
-      <div class="grid grid-cols-7 gap-1 mb-2">
+      <div class="schedule-sidebar__mini-days">
         <div
           v-for="(day, idx) in daysOfWeek"
           :key="day"
           :class="[
             'schedule-sidebar__mini-dot',
-            { 'text-red-600': idx === 0, 'text-blue-600': idx === 6 }
+            { 'schedule-sidebar__mini-dot--sunday': idx === 0, 'schedule-sidebar__mini-dot--saturday': idx === 6 }
           ]"
         >
           {{ day }}
         </div>
       </div>
 
-      <div class="grid grid-cols-7 gap-1">
-        <div v-for="n in firstDay" :key="'empty-' + n" class="h-8"></div>
+      <div class="schedule-sidebar__mini-grid">
+        <div v-for="n in firstDay" :key="'empty-' + n" class="schedule-sidebar__empty-day"></div>
         <button
           v-for="day in daysInMonth"
           :key="day"
-          @click="selectDate(day)"
           :class="['schedule-sidebar__day-btn', getDayClass(day)]"
+          @click="selectDate(day)"
         >
           {{ day }}
           <div v-if="hasEvents(day) && !isSelected(day)" class="schedule-sidebar__has-event"></div>
@@ -52,13 +52,13 @@
     <!-- My Calendars -->
     <div class="schedule-sidebar__filters">
       <h3 class="schedule-sidebar__section-title">내 캘린더</h3>
-      <div class="space-y-2">
+      <div class="schedule-sidebar__filter-list">
         <label v-for="cal in calendars" :key="cal.id" class="schedule-sidebar__filter-item">
           <input
             type="checkbox"
+            :class="['schedule-sidebar__checkbox', cal.color.replace('bg-', 'text-')]"
             :checked="cal.checked"
             @change="$emit('toggle-calendar', cal.id)"
-            :class="['schedule-sidebar__checkbox', cal.color.replace('bg-', 'text-')]"
           />
           <span class="schedule-sidebar__filter-label">{{ cal.name }}</span>
         </label>

@@ -76,13 +76,6 @@
   @apply space-y-3 max-h-[300px] overflow-y-auto pr-2;
 }
 
-.list-wrapper::-webkit-scrollbar {
-  @apply w-1.5;
-}
-.list-wrapper::-webkit-scrollbar-thumb {
-  @apply bg-gray-200 dark:bg-slate-700 rounded-full;
-}
-
 .selectable-item {
   @apply flex items-start gap-3 p-4 border-[1.5px] rounded-xl cursor-pointer transition-all bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700/50 hover:border-primary/50 dark:hover:border-primary-light/50 hover:shadow-sm;
 }

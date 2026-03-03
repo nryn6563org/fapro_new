@@ -34,6 +34,11 @@
       />
     </div>
 
+    <strategic-proposal-modal
+      :is-open="isProposalModalOpen"
+      :stock="selectedStock"
+      @close="closeProposalModal"
+    />
   </div>
 </template>
 
@@ -41,7 +46,6 @@
 /**
  * 기능: AI 전략 유망주 페이지 컴포넌트
  */
-import Vue from 'vue'
 import { RefreshCwIcon } from 'vue-feather-icons'
 import StrategicStockCard from '~/components/strategic/StrategicStockCard.vue'
 import StrategicProposalModal from '~/components/strategic/StrategicProposalModal.vue'
@@ -52,13 +56,16 @@ export default {
   name: 'StrategicStocksPage',
   components: {
     RefreshCwIcon,
-    StrategicStockCard
+    StrategicStockCard,
+    StrategicProposalModal
   },
   data() {
     return {
       stocks,
       expandedCards: [1], // Expand first card by default
-      lastUpdated: new Date()
+      lastUpdated: new Date(),
+      isProposalModalOpen: false,
+      selectedStock: null
     }
   },
   methods: {
@@ -82,25 +89,14 @@ export default {
       return `${year}.${month}.${day} ${hours}:${minutes}`
     },
     openProposalModal(stock) {
-      const ComponentClass = Vue.extend(StrategicProposalModal)
-      const instance = new ComponentClass({
-        propsData: { stock, isOpen: true }
-      })
-      instance.$mount()
-
-      const modal = this.$modalV.show({
-        content: instance.$el,
-        backdrop: true,
-        keyboard: true
-      })
-
-      modal.on('hidden', () => {
-        instance.$destroy()
-      })
-
-      instance.$on('close', () => {
-        modal.hide()
-      })
+      this.selectedStock = stock
+      this.isProposalModalOpen = true
+    },
+    closeProposalModal() {
+      this.isProposalModalOpen = false
+      setTimeout(() => {
+        this.selectedStock = null
+      }, 300) // Clear after animation
     }
   }
 }

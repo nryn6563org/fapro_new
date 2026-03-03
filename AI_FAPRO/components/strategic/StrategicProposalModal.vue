@@ -89,7 +89,7 @@
           </button>
         </div>
 
-        <div class="strategic-modal__upload-box">
+        <div class="strategic-modal__upload-box group">
           <input id="file-upload" type="file" multiple class="hidden" @change="handleFileUpload" />
           <label for="file-upload" class="strategic-modal__upload-label">
             <upload-icon class="strategic-modal__upload-icon" />

@@ -30,4 +30,24 @@
   .text-lightest {
     color: #999;
   }
+
+  /* Global Scrollbar Customization */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(68, 122, 236, 0.4); /* Primary color #447aec semi-transparent */
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(68, 122, 236, 0.6);
+  }
 }

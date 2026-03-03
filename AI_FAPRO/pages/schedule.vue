@@ -18,9 +18,10 @@
       <!-- Sidebar -->
       <schedule-sidebar
         :current-date="currentDate"
-        :selected-date.sync="selectedDate"
+        :selected-date="selectedDate"
         :calendars="calendars"
         :events="events"
+        @update:selectedDate="handleSidebarDateSelect"
         @prev-month="navigateMonth(-1)"
         @next-month="navigateMonth(1)"
         @toggle-calendar="toggleCalendar"
@@ -137,6 +138,10 @@ export default {
     toggleCalendar(id) {
       const cal = this.calendars.find((c) => c.id === id)
       if (cal) cal.checked = !cal.checked
+    },
+    handleSidebarDateSelect(date) {
+      this.selectedDate = date
+      this.currentDate = date
     },
     handleConfirmSync() {
       this.showSyncModal = false
