@@ -126,7 +126,7 @@ import {
   ZapIcon,
   CalendarIcon
 } from 'vue-feather-icons'
-import '~/assets/css/pages/customers/CustomerDetailModal.css'
+import '~/assets/css/pages/customers/CustomerDetailModal/CustomerDetailModal.css'
 
 export default {
   name: 'CustomerDetailModal',

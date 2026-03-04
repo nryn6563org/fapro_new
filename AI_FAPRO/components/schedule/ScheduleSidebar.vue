@@ -73,7 +73,7 @@
  */
 import { PlusIcon, ChevronLeftIcon, ChevronRightIcon } from 'vue-feather-icons'
 import { getDaysInMonth, getFirstDayOfMonth, isSameDay } from '~/utils/scheduleUtils.js'
-import '~/assets/css/pages/schedule/ScheduleSidebar.css'
+import '~/assets/css/pages/schedule/ScheduleSidebar/ScheduleSidebar.css'
 
 export default {
   name: 'ScheduleSidebar',

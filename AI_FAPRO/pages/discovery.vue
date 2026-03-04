@@ -63,7 +63,7 @@ import { FileTextIcon, CalendarIcon, ClockIcon, RefreshCwIcon } from 'vue-feathe
 import AIReportCard from '~/components/discovery/AIReportCard.vue'
 import AIReportDetailModal from '~/components/discovery/AIReportDetailModal.vue'
 import { aiReports } from '~/utils/discoveryMockData.js'
-import '~/assets/css/pages/discovery/DiscoveryPage.css'
+import '~/assets/css/pages/discovery/DiscoveryPage/DiscoveryPage.css'
 
 export default {
   name: 'DiscoveryPage',

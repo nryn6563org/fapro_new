@@ -73,7 +73,7 @@
  * 기능: 고객 목록 테이블 컴포넌트
  */
 import { EyeIcon, UserIcon, SearchIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/clients/ClientListTable.css'
+import '~/assets/css/pages/clients/ClientListTable/ClientListTable.css'
 
 export default {
   name: 'ClientListTable',

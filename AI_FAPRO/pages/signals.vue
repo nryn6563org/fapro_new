@@ -120,7 +120,7 @@ import TradingSignalCard from '~/components/signals/TradingSignalCard.vue'
 import AIReportContent from '~/components/signals/AIReportContent.vue'
 import ModalVanilla from '~/components/modal/ModalVanilla.vue'
 import { buySignals, sellSignals } from '~/utils/signalsMockData.js'
-import '~/assets/css/pages/signals/SignalsPage.css'
+import '~/assets/css/pages/signals/SignalsPage/SignalsPage.css'
 
 export default {
   name: 'SignalsPage',

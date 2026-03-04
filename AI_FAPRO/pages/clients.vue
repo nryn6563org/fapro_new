@@ -102,7 +102,7 @@ import ClientInfoModal from '~/components/clients/ClientInfoModal.vue'
 import SmartOnboardingModal from '~/components/clients/SmartOnboardingModal.vue'
 import { mockClients, aiSearchExamples } from '~/utils/clientMockData.js'
 import { ZapIcon, DownloadIcon, DownloadIcon as SharedDownloadIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/clients/ClientsPage.css'
+import '~/assets/css/pages/clients/ClientsPage/ClientsPage.css'
 
 export default {
   name: 'ClientsPage',

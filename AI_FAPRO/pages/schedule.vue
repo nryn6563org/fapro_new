@@ -77,7 +77,7 @@ import ScheduleWeekView from '~/components/schedule/ScheduleWeekView.vue'
 import ScheduleMonthView from '~/components/schedule/ScheduleMonthView.vue'
 import ScheduleSyncModal from '~/components/schedule/ScheduleSyncModal.vue'
 import { events, myCalendars } from '~/utils/scheduleMockData.js'
-import '~/assets/css/pages/schedule/SchedulePage.css'
+import '~/assets/css/pages/schedule/SchedulePage/SchedulePage.css'
 
 export default {
   name: 'SchedulePage',

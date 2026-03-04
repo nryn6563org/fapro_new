@@ -17,8 +17,8 @@
         ref="fileInput"
         type="file"
         accept=".xlsx,.xls"
-        @change="handleFileChange"
         class="hidden"
+        @change="handleFileChange"
       />
 
       <button class="client-upload__btn" @click="$refs.fileInput.click()">
@@ -33,13 +33,13 @@
 /**
  * 기능: 엑셀 파일 업로드 영역 컴포넌트
  */
-import { FileTextIcon, UploadIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/clients/ClientUploadArea.css'
+import { FileTextIcon as FileSpreadsheetIcon, UploadIcon } from 'vue-feather-icons'
+import '~/assets/css/pages/clients/ClientUploadArea/ClientUploadArea.css'
 
 export default {
   name: 'ClientUploadArea',
   components: {
-    FileTextIcon,
+    FileSpreadsheetIcon,
     UploadIcon
   },
   data() {

@@ -118,7 +118,7 @@ import IssueAnalysisSide from '~/components/issues/IssueAnalysisSide.vue'
 import IssueDetailSection from '~/components/issues/IssueDetailSection.vue'
 import IssueProposalModal from '~/components/issues/IssueProposalModal.vue'
 import { issueData, largeCapIssueData } from '~/utils/issueDetectionMockData.js'
-import '~/assets/css/pages/issues/IssuesPage.css'
+import '~/assets/css/pages/issues/IssuesPage/IssuesPage.css'
 
 export default {
   name: 'IssuesPage',

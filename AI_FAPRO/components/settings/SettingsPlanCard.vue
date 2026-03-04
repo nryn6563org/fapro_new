@@ -48,7 +48,7 @@
  * 기능: 구독 플랜 카드
  */
 import { CheckIcon, StarIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/settings/SettingsPlanCard.css'
+import '~/assets/css/pages/settings/SettingsPlanCard/SettingsPlanCard.css'
 
 export default {
   name: 'SettingsPlanCard',

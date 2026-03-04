@@ -89,7 +89,7 @@ import {
   LoaderIcon,
   ExternalLinkIcon
 } from 'vue-feather-icons'
-import '~/assets/css/pages/schedule/ScheduleHeader.css'
+import '~/assets/css/pages/schedule/ScheduleHeader/ScheduleHeader.css'
 
 export default {
   name: 'ScheduleHeader',

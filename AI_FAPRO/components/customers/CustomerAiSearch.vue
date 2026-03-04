@@ -90,7 +90,7 @@
  * 기능: AI 고객 검색 및 추천 검색어
  */
 import { SearchIcon, ZapIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/customers/CustomerAiSearch.css'
+import '~/assets/css/pages/customers/CustomerAiSearch/CustomerAiSearch.css'
 
 export default {
   name: 'CustomerAiSearch',

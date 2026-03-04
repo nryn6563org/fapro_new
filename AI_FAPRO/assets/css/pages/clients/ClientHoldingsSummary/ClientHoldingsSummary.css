@@ -1,0 +1,32 @@
+.holdings-modal__summary {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4 mb-8;
+}
+.holdings-modal__sum-card {
+  @apply p-6 bg-slate-200 dark:bg-slate-800 rounded-2xl border-2 border-slate-300 dark:border-slate-700 flex flex-col;
+}
+.holdings-modal__sum-label {
+  @apply text-xs font-black text-slate-400 dark:text-slate-500 mb-2;
+}
+.holdings-modal__sum-value {
+  @apply text-xl font-black text-slate-900 dark:text-white;
+}
+.holdings-modal__sum-card--up {
+  @apply bg-red-50 border-red-100 dark:bg-red-900/10 dark:border-red-900/30;
+}
+.holdings-modal__sum-value--up {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.holdings-modal__sum-card--down {
+  @apply bg-blue-50 border-blue-100 dark:bg-blue-900/10 dark:border-blue-900/30;
+}
+.holdings-modal__sum-value--down {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.fade-up-enter-active {
+  @apply transition-all duration-500 ease-out;
+}
+.fade-up-enter {
+  @apply opacity-0 translate-y-10;
+}

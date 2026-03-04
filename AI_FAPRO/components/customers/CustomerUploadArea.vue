@@ -34,7 +34,7 @@
  * 기능: 고객 관리용 엑셀 업로드 영역
  */
 import { FileTextIcon, UploadIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/customers/CustomerUploadArea.css'
+import '~/assets/css/pages/customers/CustomerUploadArea/CustomerUploadArea.css'
 
 export default {
   name: 'CustomerUploadArea',

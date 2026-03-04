@@ -1,4 +1,8 @@
 export default {
+  server: {
+    host: "0.0.0.0" // 외부 IP에서 접근 가능하도록 설정
+  },
+
   // Disable server-side rendering
   ssr: false,
 

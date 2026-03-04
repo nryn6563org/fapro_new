@@ -123,7 +123,7 @@
  * 기능: 고객 보유 종목 상세 및 AI 분석 모달 (Modal-Vanilla 호환)
  */
 import { UserIcon, EditIcon, XIcon, TrendingUpIcon, ZapIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/customers/CustomerHoldingsModal.css'
+import '~/assets/css/pages/customers/CustomerHoldingsModal/CustomerHoldingsModal.css'
 
 export default {
   name: 'CustomerHoldingsModal',

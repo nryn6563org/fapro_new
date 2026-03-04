@@ -106,7 +106,7 @@
  * 기능: AI 고객 검색 및 필터 컴포넌트
  */
 import { SearchIcon, ZapIcon, XIcon, RefreshCwIcon, FilterIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/clients/ClientAiSearch.css'
+import '~/assets/css/pages/clients/ClientAiSearch/ClientAiSearch.css'
 
 export default {
   name: 'ClientAiSearch',

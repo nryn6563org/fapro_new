@@ -49,7 +49,7 @@
  * 기능: 월간 캘린더 뷰
  */
 import { getDaysInMonth, getFirstDayOfMonth, isSameDay } from '~/utils/scheduleUtils.js'
-import '~/assets/css/pages/schedule/ScheduleMonthView.css'
+import '~/assets/css/pages/schedule/ScheduleMonthView/ScheduleMonthView.css'
 
 export default {
   name: 'ScheduleMonthView',

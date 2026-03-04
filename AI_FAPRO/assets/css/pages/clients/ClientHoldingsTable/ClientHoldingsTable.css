@@ -1,0 +1,12 @@
+.holdings-modal__table-wrapper {
+  @apply border-2 border-slate-50 dark:border-slate-800 rounded-2xl overflow-hidden mb-8;
+}
+.holdings-modal__table {
+  @apply w-full border-collapse;
+}
+.holdings-modal__th {
+  @apply bg-slate-200 dark:bg-slate-800/50 p-4 text-xs font-black text-slate-500 dark:text-slate-400 uppercase text-left;
+}
+.holdings-modal__td {
+  @apply p-4 border-b border-slate-50 dark:border-slate-800 text-sm dark:text-slate-300;
+}

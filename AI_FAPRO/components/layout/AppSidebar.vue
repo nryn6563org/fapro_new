@@ -22,151 +22,32 @@
     </button>
 
     <!-- Navigation -->
-    <nav class="app-sidebar__nav">
-      <div v-for="(item, index) in navItems" :key="index">
-        <!-- Section without children -->
-        <nuxt-link
-          v-if="item.path"
-          :to="item.path"
-          class="app-sidebar__nav-item"
-          :class="{ 'app-sidebar__nav-item--active': $route.path === item.path }"
-        >
-          <component :is="item.icon" size="20" class="app-sidebar__nav-icon" />
-          <transition name="fade">
-            <span v-if="!isCollapsed" class="app-sidebar__nav-label">
-              {{ item.label }}
-            </span>
-          </transition>
-        </nuxt-link>
-
-        <!-- Section with children -->
-        <div v-if="item.children" class="app-sidebar__nav-group">
-          <div
-            class="app-sidebar__nav-item"
-            :class="{ 'app-sidebar__nav-item--expanded': isMenuExpanded(item.label) }"
-            @click="!isCollapsed && toggleMenu(item.label)"
-          >
-            <component :is="item.icon" size="20" class="app-sidebar__nav-icon" />
-            <transition name="fade">
-              <div v-if="!isCollapsed" class="app-sidebar__nav-label-wrapper">
-                <span class="app-sidebar__nav-label">{{ item.label }}</span>
-                <chevron-down-icon
-                  size="16"
-                  class="transition-transform duration-200"
-                  :class="{ 'rotate-180': isMenuExpanded(item.label) }"
-                />
-              </div>
-            </transition>
-          </div>
-
-          <transition name="slide">
-            <div v-if="!isCollapsed && isMenuExpanded(item.label)" class="app-sidebar__subnav">
-              <nuxt-link
-                v-for="(child, childIndex) in item.children"
-                :key="'child-' + childIndex"
-                :to="child.path"
-                class="app-sidebar__subnav-item"
-                :class="{ 'app-sidebar__subnav-item--active': $route.path === child.path }"
-              >
-                <span class="app-sidebar__subnav-bullet">•</span>
-                <span class="app-sidebar__subnav-label">{{ child.label }}</span>
-              </nuxt-link>
-            </div>
-          </transition>
-        </div>
-      </div>
-    </nav>
+    <AppSidebarNav :is-collapsed="isCollapsed" :nav-items="navItems" />
 
     <!-- User Info Section -->
-    <div class="app-sidebar__user-section">
-      <transition name="fade">
-        <div v-if="!isCollapsed" class="app-sidebar__user-wrapper">
-          <!-- Thinkpool Banner -->
-          <div class="app-sidebar__banner">
-            <div class="app-sidebar__banner-header">
-              <zap-icon size="14" class="text-white" />
-              <span class="app-sidebar__banner-title">씽크풀</span>
-            </div>
-            <p class="app-sidebar__banner-text">종목 및 투자 정보는<br />씽크풀 사이트에서 확인해보세요</p>
-          </div>
-          
-          <!-- User Profile -->
-          <div class="app-sidebar__profile">
-            <div class="app-sidebar__avatar">
-              <user-icon size="16" class="text-teal-600" />
-            </div>
-            <div class="app-sidebar__profile-info">
-              <div class="app-sidebar__profile-name">FA 김승원</div>
-              <div class="app-sidebar__profile-role">Senior FA</div>
-            </div>
-          </div>
-          
-          <!-- Action Buttons -->
-          <div class="app-sidebar__actions">
-            <button class="app-sidebar__logout-btn">
-              <log-out-icon size="14" />
-              <span>로그아웃</span>
-            </button>
-            <button
-              class="app-sidebar__theme-btn"
-              title="테마 변경"
-              @click="$bus.$emit('toggle-theme')"
-            >
-              <moon-icon size="14" />
-            </button>
-            <nuxt-link to="/settings" class="app-sidebar__settings-btn" title="설정">
-              <settings-icon size="14" />
-            </nuxt-link>
-          </div>
-        </div>
-      </transition>
-    </div>
+    <AppSidebarUser :is-collapsed="isCollapsed" />
   </aside>
 </template>
 
 <script>
 import {
   ZapIcon,
-  StarIcon,
-  BriefcaseIcon,
-  TrendingUpIcon,
-  FileTextIcon,
-  TargetIcon,
-  UsersIcon,
-  CalendarIcon,
-  SettingsIcon,
-  ChevronLeftIcon,
-  ChevronDownIcon,
-  UserIcon,
-  MoonIcon,
-  LogOutIcon
+  ChevronLeftIcon
 } from 'vue-feather-icons'
+import AppSidebarNav from '~/components/layout/AppSidebarNav.vue'
+import AppSidebarUser from '~/components/layout/AppSidebarUser.vue'
 
 export default {
   name: 'AppSidebar',
   components: {
     ZapIcon,
-    StarIcon,
-    BriefcaseIcon,
-    TrendingUpIcon,
-    FileTextIcon,
-    TargetIcon,
-    UsersIcon,
-    CalendarIcon,
-    SettingsIcon,
     ChevronLeftIcon,
-    ChevronDownIcon,
-    UserIcon,
-    MoonIcon,
-    LogOutIcon
+    AppSidebarNav,
+    AppSidebarUser
   },
   data() {
     return {
       isCollapsed: false,
-      expandedMenus: {
-        'AI 세일즈 파트너': true,
-        '프리미엄 인사이트': true
-      },
       navItems: [
         {
           label: 'AI 세일즈 파트너',
@@ -194,12 +75,6 @@ export default {
   methods: {
     toggleSidebar() {
       this.isCollapsed = !this.isCollapsed
-    },
-    toggleMenu(label) {
-      this.$set(this.expandedMenus, label, !this.expandedMenus[label])
-    },
-    isMenuExpanded(label) {
-      return !!this.expandedMenus[label]
     }
   }
 }

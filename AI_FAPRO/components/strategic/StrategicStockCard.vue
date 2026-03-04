@@ -127,7 +127,7 @@ import {
   InfoIcon,
   UsersIcon
 } from 'vue-feather-icons'
-import '~/assets/css/pages/strategic-stocks/StrategicStockCard.css'
+import '~/assets/css/pages/strategic-stocks/StrategicStockCard/StrategicStockCard.css'
 
 export default {
   name: 'StrategicStockCard',

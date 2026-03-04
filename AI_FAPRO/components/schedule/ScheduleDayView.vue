@@ -56,7 +56,7 @@
  */
 import { ClockIcon, MapPinIcon } from 'vue-feather-icons'
 import { isSameDay, formatTime, timeSlots } from '~/utils/scheduleUtils.js'
-import '~/assets/css/pages/schedule/ScheduleDayView.css'
+import '~/assets/css/pages/schedule/ScheduleDayView/ScheduleDayView.css'
 
 export default {
   name: 'ScheduleDayView',

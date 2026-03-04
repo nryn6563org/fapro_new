@@ -1,0 +1,14 @@
+.onboarding-modal__form-label {
+  @apply text-xs font-black text-slate-400 dark:text-slate-500 mb-2;
+}
+
+.onboarding-modal__input {
+  @apply w-full h-11 px-4 bg-slate-200 dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-700 rounded-xl text-sm font-bold focus:outline-none focus:border-teal-500 transition-all dark:text-white;
+}
+
+.onboarding-modal__type-btn {
+  @apply px-4 py-1.5 text-xs font-black rounded-lg border-2 border-slate-400 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-200 transition-all bg-transparent cursor-pointer;
+}
+.onboarding-modal__type-btn--active {
+  @apply border-teal-500 bg-teal-500 text-white shadow-lg shadow-teal-500/20;
+}

@@ -50,7 +50,7 @@
  * 기능: 결제 정보 및 내역 관리 섹션
  */
 import { CreditCardIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/settings/SettingsBillingInfo.css'
+import '~/assets/css/pages/settings/SettingsBillingInfo/SettingsBillingInfo.css'
 
 export default {
   name: 'SettingsBillingInfo',

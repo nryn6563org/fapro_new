@@ -166,7 +166,7 @@
 <script>
 import { SendIcon } from 'vue-feather-icons'
 import { customerIntelligence } from '~/utils/mockData.js'
-import '~/assets/css/pages/index/CustomerIntelligenceCard.css'
+import '~/assets/css/pages/index/CustomerIntelligenceCard/CustomerIntelligenceCard.css'
 
 export default {
   name: 'CustomerIntelligenceCard',
@@ -181,5 +181,3 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>

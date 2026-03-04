@@ -1,0 +1,47 @@
+.app-sidebar__nav {
+  @apply flex-1 py-6 overflow-y-auto;
+}
+
+.app-sidebar__nav-group {
+  @apply flex flex-col;
+}
+
+.app-sidebar__nav-item {
+  @apply flex items-center gap-3 px-6 py-3 font-medium text-sm text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light transition-colors cursor-pointer;
+}
+
+.app-sidebar__nav-item--active {
+  @apply bg-primary-light dark:bg-primary/20 text-primary font-bold border-r-4 border-primary;
+}
+
+.app-sidebar__nav-item--parent-active {
+  @apply bg-primary-light dark:bg-primary/20 text-primary font-bold;
+}
+
+.app-sidebar--collapsed .app-sidebar__nav-item--parent-active {
+  @apply border-r-4 border-primary;
+}
+
+.app-sidebar__nav-label-wrapper {
+  @apply flex flex-1 items-center justify-between;
+}
+
+.app-sidebar__subnav {
+  @apply flex flex-col bg-slate-200 dark:bg-slate-800/30 py-1;
+}
+
+.app-sidebar__subnav-item {
+  @apply flex items-center gap-2 px-6 py-2.5 pl-[3.25rem] font-medium text-sm text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light transition-colors cursor-pointer;
+}
+
+.app-sidebar__subnav-item--active {
+  @apply text-primary font-bold;
+}
+
+.app-sidebar__subnav-item--active .app-sidebar__subnav-bullet {
+  @apply text-primary;
+}
+
+.app-sidebar__subnav-bullet {
+  @apply text-slate-400 text-xs;
+}

@@ -54,7 +54,7 @@
  * 기능: 증권사 리포트 개별 카드 컴포넌트
  */
 import { EyeIcon, DownloadIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/investment/BrokerReportCard.css'
+import '~/assets/css/pages/investment/BrokerReportCard/BrokerReportCard.css'
 
 export default {
   name: 'BrokerReportCard',

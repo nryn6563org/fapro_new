@@ -22,6 +22,10 @@
   @apply bg-primary text-white px-3.5 py-1.5 rounded-full text-[13px] font-bold shadow-sm;
 }
 
+.proposal-header__badge {
+  @apply ml-2;
+}
+
 /* Grid */
 .today-proposal__grid {
   @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
@@ -42,6 +46,14 @@
 }
 .proposal-card--violet {
   @apply border-l-violet-400 dark:border-l-violet-500;
+}
+
+.proposal-card--delay-100 {
+  animation-delay: 100ms;
+}
+
+.proposal-card--delay-200 {
+  animation-delay: 200ms;
 }
 
 .proposal-card__header {

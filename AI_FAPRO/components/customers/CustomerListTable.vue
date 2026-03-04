@@ -59,7 +59,7 @@
  * 기능: 고객 목록 테이블
  */
 import { UserIcon, InfoIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/customers/CustomerListTable.css'
+import '~/assets/css/pages/customers/CustomerListTable/CustomerListTable.css'
 
 export default {
   name: 'CustomerListTable',

@@ -32,7 +32,7 @@ import AIReportInvestment from './modal/AIReportInvestment.vue'
 import AIReportScore from './modal/AIReportScore.vue'
 import AIReportStockInfo from './modal/AIReportStockInfo.vue'
 import AIReportCustomerSend from './modal/AIReportCustomerSend.vue'
-import '~/assets/css/pages/signals/AIReportContent.css'
+import '~/assets/css/pages/signals/AIReportContent/AIReportContent.css'
 
 export default {
   name: 'AIReportContent',

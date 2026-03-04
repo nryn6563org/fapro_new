@@ -202,4 +202,4 @@ export default {
 }
 </script>
 
-<style src="~/assets/css/pages/index/TodayProposalModal.css" />
+<style src="~/assets/css/pages/index/TodayProposalModal/TodayProposalModal.css" />

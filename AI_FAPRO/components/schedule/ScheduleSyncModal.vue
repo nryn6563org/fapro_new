@@ -82,7 +82,7 @@
  * 기능: 캘린더 동기화 관련 모달 (동기화 시작, 해제, 진행 중)
  */
 import { LinkIcon, XIcon, CheckCircleIcon, LoaderIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/schedule/ScheduleSyncModal.css'
+import '~/assets/css/pages/schedule/ScheduleSyncModal/ScheduleSyncModal.css'
 
 export default {
   name: 'ScheduleSyncModal',

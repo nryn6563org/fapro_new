@@ -114,7 +114,7 @@ import {
   ZapIcon,
   RefreshCwIcon
 } from 'vue-feather-icons'
-import '~/assets/css/pages/investment/InvestmentIntelligenceCard.css'
+import '~/assets/css/pages/investment/InvestmentIntelligenceCard/InvestmentIntelligenceCard.css'
 
 export default {
   name: 'InvestmentIntelligenceCard',

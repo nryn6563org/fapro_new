@@ -77,7 +77,7 @@ import { CreditCardIcon, StarIcon } from 'vue-feather-icons'
 import SettingsAccountSection from '~/components/settings/SettingsAccountSection.vue'
 import SettingsPlanCard from '~/components/settings/SettingsPlanCard.vue'
 import SettingsBillingInfo from '~/components/settings/SettingsBillingInfo.vue'
-import '~/assets/css/pages/settings/SettingsPage.css'
+import '~/assets/css/pages/settings/SettingsPage/SettingsPage.css'
 
 export default {
   name: 'SettingsPage',

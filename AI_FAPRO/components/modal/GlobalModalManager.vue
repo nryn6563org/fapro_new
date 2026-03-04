@@ -31,7 +31,8 @@ export default {
       }
 
       const modalOptions = {
-        title: title,
+        construct: true,
+        title,
         content: contentHtml,
         header: true,
         transition: 300,

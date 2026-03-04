@@ -1,0 +1,47 @@
+.issue-detail__table-section {
+  @apply mb-6;
+}
+.issue-detail__table-wrapper {
+  @apply border-2 border-slate-400 dark:border-slate-800 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-900 shadow-sm;
+}
+.issue-detail__table {
+  @apply w-full text-sm border-collapse;
+}
+.issue-detail__th {
+  @apply bg-slate-200 dark:bg-slate-800 px-4 py-3 font-bold text-slate-700 dark:text-slate-300 border-b-2 border-slate-400 dark:border-slate-800;
+}
+.issue-detail__td {
+  @apply px-4 py-3 border-t border-slate-300 dark:border-slate-800;
+}
+.issue-detail-table__row--highlight {
+  @apply bg-amber-50/30 dark:bg-amber-900/10;
+}
+
+.issue-detail-table__badge {
+  @apply inline-flex px-3 py-1 rounded-full text-xs font-semibold;
+}
+.issue-detail-table__badge--green {
+  @apply bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400;
+}
+.issue-detail-table__badge--teal {
+  @apply bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400;
+}
+.issue-detail-table__badge--orange {
+  @apply bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400;
+}
+.issue-detail-table__badge--red {
+  @apply bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400;
+}
+.issue-detail-table__badge--yellow {
+  @apply bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400;
+}
+.issue-detail-table__badge--blue {
+  @apply bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400;
+}
+
+.issue-detail__other-issues {
+  @apply flex flex-wrap gap-1.5 justify-center;
+}
+.issue-detail-table__tag {
+  @apply inline-flex px-2 py-0.5 rounded-full text-[10px] bg-teal-50 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400 border border-teal-200 dark:border-teal-800;
+}

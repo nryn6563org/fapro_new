@@ -197,7 +197,7 @@ import {
 } from 'vue-feather-icons'
 import ModalVanilla from '~/components/modal/ModalVanilla.vue'
 import { clients } from '~/utils/strategicStocksMockData.js'
-import '~/assets/css/pages/strategic-stocks/StrategicProposalModal.css'
+import '~/assets/css/pages/strategic-stocks/StrategicProposalModal/StrategicProposalModal.css'
 
 export default {
   name: 'StrategicProposalModal',

@@ -67,7 +67,7 @@ import {
   recentCustomerSearches,
   customerQuickFilters
 } from '~/utils/customerMockData.js'
-import '~/assets/css/pages/customers/CustomersPage.css'
+import '~/assets/css/pages/customers/CustomersPage/CustomersPage.css'
 
 export default {
   name: 'CustomersPage',

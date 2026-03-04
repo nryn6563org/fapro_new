@@ -50,7 +50,7 @@
  * 기능: 주간 캘린더 뷰
  */
 import { getWeekDays, isSameDay, formatTime, timeSlots } from '~/utils/scheduleUtils.js'
-import '~/assets/css/pages/schedule/ScheduleWeekView.css'
+import '~/assets/css/pages/schedule/ScheduleWeekView/ScheduleWeekView.css'
 
 export default {
   name: 'ScheduleWeekView',

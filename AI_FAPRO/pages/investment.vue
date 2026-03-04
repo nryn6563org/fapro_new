@@ -54,7 +54,7 @@ import InvestmentIntelligenceCard from '~/components/investment/InvestmentIntell
 import BrokerReportCard from '~/components/investment/BrokerReportCard.vue'
 import { faSummaries, brokerReports } from '~/utils/investmentMockData.js'
 import { FileTextIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/investment/InvestmentPage.css'
+import '~/assets/css/pages/investment/InvestmentPage/InvestmentPage.css'
 
 export default {
   name: 'InvestmentPage',

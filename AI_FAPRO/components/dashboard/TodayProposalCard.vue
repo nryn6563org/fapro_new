@@ -3,7 +3,7 @@
     <!-- View All Header -->
     <div class="proposal-header">
       <h2 class="proposal-header__title">오늘의 제안</h2>
-      <span class="badge badge--teal" style="margin-left:8px;">실시간 업데이트</span>
+      <span class="badge badge--teal proposal-header__badge">실시간 업데이트</span>
     </div>
 
     <!-- Cards Container -->
@@ -49,7 +49,7 @@
       </article>
 
       <!-- Target Stocks (Buy) -->
-      <article class="proposal-card proposal-card--orange animate-local-fade-up" style="animation-delay: 100ms;">
+      <article class="proposal-card proposal-card--orange proposal-card--delay-100 animate-local-fade-up">
         <header class="proposal-card__header">
           <div class="proposal-card__header-content">
             <div>
@@ -86,7 +86,7 @@
       </article>
 
       <!-- Target Issues (Sell) -->
-      <article class="proposal-card proposal-card--violet animate-local-fade-up" style="animation-delay: 200ms;">
+      <article class="proposal-card proposal-card--violet proposal-card--delay-200 animate-local-fade-up">
         <header class="proposal-card__header">
           <div class="proposal-card__header-content">
             <div>
@@ -167,4 +167,4 @@ export default {
 }
 </script>
 
-<style src="~/assets/css/pages/index/TodayProposalCard.css" />
+<style src="~/assets/css/pages/index/TodayProposalCard/TodayProposalCard.css" />

@@ -121,7 +121,7 @@
  * 기능: AI 매매 신호 (매수/매도) 개별 카드 렌더링
  */
 import { TrendingUpIcon, StarIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/signals/TradingSignalCard.css'
+import '~/assets/css/pages/signals/TradingSignalCard/TradingSignalCard.css'
 
 export default {
   name: 'TradingSignalCard',

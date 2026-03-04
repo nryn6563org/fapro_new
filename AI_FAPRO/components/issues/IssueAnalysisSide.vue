@@ -173,7 +173,7 @@ import {
   FileTextIcon
 } from 'vue-feather-icons'
 import { featuredStocks } from '~/utils/issueDetectionMockData.js'
-import '~/assets/css/pages/issues/IssueAnalysisSide.css'
+import '~/assets/css/pages/issues/IssueAnalysisSide/IssueAnalysisSide.css'
 
 export default {
   name: 'IssueAnalysisSide',

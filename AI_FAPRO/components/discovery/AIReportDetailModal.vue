@@ -106,7 +106,7 @@ import {
   MailIcon
 } from 'vue-feather-icons'
 import ModalVanilla from '~/components/modal/ModalVanilla.vue'
-import '~/assets/css/pages/discovery/AIReportDetailModal.css'
+import '~/assets/css/pages/discovery/AIReportDetailModal/AIReportDetailModal.css'
 
 export default {
   name: 'AIReportDetailModal',

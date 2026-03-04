@@ -33,7 +33,7 @@ import {
   UserPlusIcon,
   UserMinusIcon
 } from 'vue-feather-icons'
-import '~/assets/css/pages/settings/SettingsAccountSection.css'
+import '~/assets/css/pages/settings/SettingsAccountSection/SettingsAccountSection.css'
 
 export default {
   name: 'SettingsAccountSection',

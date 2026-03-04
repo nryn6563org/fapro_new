@@ -40,4 +40,4 @@ export default {
 }
 </script>
 
-<style src="~/assets/css/pages/index/IndexPage.css" />
+<style src="~/assets/css/pages/index/IndexPage/IndexPage.css" />

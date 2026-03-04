@@ -201,7 +201,7 @@ import {
   EyeIcon,
   SaveIcon
 } from 'vue-feather-icons'
-import '~/assets/css/pages/clients/ClientInfoModal.css'
+import '~/assets/css/pages/clients/ClientInfoModal/ClientInfoModal.css'
 
 export default {
   name: 'ClientInfoModal',

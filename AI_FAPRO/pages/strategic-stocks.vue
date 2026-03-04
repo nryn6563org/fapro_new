@@ -50,7 +50,7 @@ import { RefreshCwIcon } from 'vue-feather-icons'
 import StrategicStockCard from '~/components/strategic/StrategicStockCard.vue'
 import StrategicProposalModal from '~/components/strategic/StrategicProposalModal.vue'
 import { stocks } from '~/utils/strategicStocksMockData.js'
-import '~/assets/css/pages/strategic-stocks/StrategicStocksPage.css'
+import '~/assets/css/pages/strategic-stocks/StrategicStocksPage/StrategicStocksPage.css'
 
 export default {
   name: 'StrategicStocksPage',

@@ -83,7 +83,7 @@ import {
   CalendarIcon,
   ClockIcon
 } from 'vue-feather-icons'
-import '~/assets/css/pages/issues/IssueBubbleChart.css'
+import '~/assets/css/pages/issues/IssueBubbleChart/IssueBubbleChart.css'
 
 export default {
   name: 'IssueBubbleChart',
