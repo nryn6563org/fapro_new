@@ -31,7 +31,7 @@ export const buySignals = [
     name: '컴투오젠',
     price: '₩285,000',
     change: '+4.3%',
-    reason: '4분기 실적이 컨센서스를 상회하며 서프라이즈를 기록했습니다.',
+    reason: null,
     aiReport: '단기 급상승세가 두드러지는 종목입니다.',
     priceHistory: [
       { date: '1/15', price: 270000 },

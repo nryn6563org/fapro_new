@@ -14,7 +14,7 @@
 }
 
 .week-view__time-label {
-  @apply p-4 border-r border-slate-400 dark:border-slate-800 text-[10px] font-black text-slate-400 dark:text-slate-600 uppercase;
+  @apply p-4 border-r border-slate-400 dark:border-slate-800 text-xs font-black text-slate-400 dark:text-slate-600 uppercase;
 }
 
 .week-view__day-col {
@@ -43,7 +43,7 @@
 }
 
 .week-view__hour-label {
-  @apply p-2 text-[10px] font-black text-slate-400 dark:text-slate-600 text-right pr-4 border-r border-slate-400 dark:border-slate-800 h-20 flex items-start justify-end;
+  @apply p-2 text-xs font-black text-slate-400 dark:text-slate-600 text-right pr-4 border-r border-slate-400 dark:border-slate-800 h-20 flex items-start justify-end;
 }
 
 .week-view__slot {
@@ -55,7 +55,7 @@
 }
 
 .week-view__event-title {
-  @apply font-bold truncate text-[11px];
+  @apply font-bold truncate text-xs;
 }
 
 .week-view__event-time {

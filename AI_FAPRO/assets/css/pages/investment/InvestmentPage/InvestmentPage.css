@@ -22,6 +22,9 @@
 .investment-page__card-header {
   @apply px-6 py-4 bg-gradient-to-r from-orange-50 to-white dark:from-slate-800 dark:to-slate-900 border-b-2 border-amber-500;
 }
+.investment-page__card-header-inner {
+  @apply flex items-center gap-3;
+}
 .investment-page__header-icon-box {
   @apply w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center shadow-lg shadow-amber-500/30;
 }
@@ -29,7 +32,7 @@
   @apply text-xl font-black text-slate-900 dark:text-white m-0;
 }
 .investment-page__badge {
-  @apply ml-auto px-3 py-1 bg-amber-500 text-white text-[10px] font-black rounded-full;
+  @apply ml-auto px-3 py-1 bg-amber-500 text-white text-xs font-black rounded-full;
 }
 
 .investment-page__card-content {

@@ -1,136 +1,116 @@
-/*
-  AI Report Customer Send Subcomponent
-  ------------------------------------
-  BEM Block: ai-report-send
-*/
-
+/* Tailwind directives container for component */
 .ai-report-send {
-  @apply mt-8 border-t border-slate-400 dark:border-slate-700 pt-6;
+  @apply w-full bg-white dark:bg-slate-900 p-0;
 }
-
-.ai-report-send__card {
-  @apply bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-400 dark:border-slate-700 shadow-sm overflow-hidden;
-}
-
 .ai-report-send__card-header {
-  @apply p-5 bg-transparent border-b-0;
+  @apply mb-4;
 }
-
 .ai-report-send__card-title {
-  @apply text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2;
+  @apply text-[15px] font-bold text-slate-800 dark:text-slate-200 flex items-center mb-1;
 }
-
 .ai-report-send__title-icon {
-  @apply text-teal-500 dark:text-teal-400;
-}
-
-.ai-report-send__card-body {
-  @apply p-5 pt-0;
-}
-
-.ai-report-send__content-wrapper {
-  @apply space-y-5 flex flex-col;
+  @apply text-[#14B8A6] mr-2;
 }
 
 /* Target Section */
 .ai-report-send__target-section {
-  @apply flex flex-col w-full;
+  @apply mb-4;
+}
+.ai-report-send__target-header {
+  @apply flex items-end justify-between mb-4 pb-3 border-b border-slate-200 dark:border-slate-700/50;
+}
+.ai-report-send__target-info {
+  @apply flex items-center gap-2;
+}
+.ai-report-send__target-label {
+  @apply text-sm font-bold text-slate-800 dark:text-slate-200 leading-none;
+}
+.ai-report-send__target-desc {
+  @apply text-[11px] text-slate-500 dark:text-slate-400 font-medium;
 }
 
-.ai-report-send__target-header {
+/* Select All */
+.ai-report-send__select-all {
+  @apply flex items-center cursor-pointer px-3 py-1.5 border border-slate-300 dark:border-slate-600 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors bg-white dark:bg-slate-900;
+}
+.ai-report-send__select-all-checkbox {
+  @apply w-4 h-4 cursor-pointer accent-[#14B8A6] mr-2;
+}
+.ai-report-send__select-all-text {
+  @apply text-xs font-bold text-slate-700 dark:text-slate-300;
+}
+
+/* Grid layout */
+.ai-report-send__target-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[300px] overflow-y-auto pr-2 pb-2;
+}
+.ai-report-send__client-card {
+  @apply border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 p-3 rounded-lg cursor-pointer transition-all flex items-start gap-3;
+}
+.ai-report-send__client-card:hover {
+  @apply border-[#14B8A6]/50 shadow-sm bg-slate-50 dark:bg-slate-800/30;
+}
+.ai-report-send__client-card--active {
+  @apply !border-[#14B8A6] ring-1 ring-[#14B8A6] bg-emerald-50 dark:bg-emerald-900/10 shadow-sm;
+}
+
+/* Checkbox inside card */
+.ai-report-send__client-checkbox {
+  @apply w-4 h-4 mt-1 cursor-pointer accent-[#14B8A6] flex-shrink-0;
+}
+.ai-report-send__client-info {
+  @apply flex-1 min-w-0;
+}
+
+/* Client Header */
+.ai-report-send__client-header {
   @apply flex items-center justify-between mb-3;
 }
-
-.ai-report-send__target-label {
-  @apply text-sm font-semibold text-slate-700 dark:text-slate-200;
+.ai-report-send__client-name-wrap {
+  @apply flex items-center gap-1.5;
 }
-
-.ai-report-send__select-all-btn {
-  @apply text-xs px-3 py-1 border border-slate-300 dark:border-slate-600 rounded-md bg-transparent text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors;
-}
-
-.ai-report-send__target-list {
-  @apply grid grid-cols-3 gap-3 max-h-48 overflow-y-auto p-4 bg-slate-200/80 dark:bg-slate-900/50 rounded-lg border border-slate-400 dark:border-slate-700/80;
-}
-
-.ai-report-send__client-item {
-  @apply flex items-start gap-3 p-3 bg-slate-100 dark:bg-slate-800 rounded border border-slate-400 dark:border-slate-700 hover:border-teal-400 hover:bg-teal-50/30 dark:hover:bg-teal-900/20 cursor-pointer transition-colors;
-}
-
-.ai-report-send__client-checkbox {
-  @apply mt-1 w-4 h-4 text-teal-500 rounded border-slate-300 focus:ring-teal-500 flex-shrink-0 cursor-pointer;
-}
-
-.ai-report-send__client-info {
-  @apply flex-1 min-w-0 flex flex-col;
-}
-
-.ai-report-send__client-header {
-  @apply flex items-center gap-2 mb-1;
-}
-
 .ai-report-send__client-name {
-  @apply text-sm font-semibold text-slate-900 dark:text-slate-100;
+  @apply text-[13px] font-bold text-slate-800 dark:text-slate-200;
 }
-
-.ai-report-send__client-badge {
-  @apply text-[10px] px-1.5 py-0.5 rounded-full border border-solid font-medium leading-none;
-}
-
-.ai-report-send__client-badge--vip {
-  @apply bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800;
-}
-
-.ai-report-send__client-badge--normal {
-  @apply bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border-slate-400 dark:border-slate-600;
-}
-
 .ai-report-send__client-email {
-  @apply text-xs text-slate-500 dark:text-slate-400 truncate mb-0.5;
+  @apply text-[11px] font-medium text-slate-500 dark:text-slate-400;
 }
 
-.ai-report-send__client-portfolio {
-  @apply text-xs text-slate-400 dark:text-slate-500;
+/* Badges */
+.ai-report-send__client-badge {
+  @apply text-[10px] font-bold px-2 py-0.5 rounded-full min-w-max;
+}
+.ai-report-send__client-badge--aggressive {
+  @apply text-amber-700 bg-amber-100 border border-amber-200 dark:text-amber-400 dark:bg-amber-900/30 dark:border-amber-800;
+}
+.ai-report-send__client-badge--stable {
+  @apply text-slate-600 bg-slate-100 border border-slate-300 dark:text-slate-300 dark:bg-slate-800 dark:border-slate-700;
+}
+.ai-report-send__client-badge--neutral {
+  @apply text-slate-700 bg-slate-200 border border-slate-300 dark:text-slate-400 dark:bg-slate-700 dark:border-slate-600;
+}
+.ai-report-send__client-badge--shortterm {
+  @apply text-blue-700 bg-blue-100 border border-blue-200 dark:text-blue-400 dark:bg-blue-900/30 dark:border-blue-800;
 }
 
-/* Preview Box */
-.ai-report-send__preview-box {
-  @apply flex items-start gap-3 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-lg border border-blue-100 dark:border-blue-800/50 mt-2;
+/* Client details */
+.ai-report-send__client-details {
+  @apply flex flex-col gap-1;
 }
-
-.ai-report-send__preview-icon-wrapper {
-  @apply pt-0.5;
+.ai-report-send__client-memo {
+  @apply text-[11px] font-medium text-slate-600 dark:text-slate-400;
 }
-
-.ai-report-send__preview-icon {
-  @apply text-teal-500 dark:text-teal-400;
-}
-
-.ai-report-send__preview-content {
-  @apply flex-1 flex flex-col;
-}
-
-.ai-report-send__preview-title {
-  @apply text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1;
-}
-
-.ai-report-send__preview-subject {
-  @apply text-xs text-slate-600 dark:text-slate-300 mb-2 font-medium;
-}
-
-.ai-report-send__preview-desc {
-  @apply text-xs text-slate-500 dark:text-slate-400 leading-relaxed;
+.ai-report-send__client-assets {
+  @apply text-[11px] font-medium text-slate-500 dark:text-slate-500;
 }
 
 /* Action Group */
 .ai-report-send__action-group {
-  @apply flex items-center gap-3 pt-4;
+  @apply flex gap-3 pt-4 border-t border-slate-200 dark:border-slate-800 w-full;
 }
-
 .ai-report-send__btn-primary {
-  @apply flex-1 flex items-center justify-center py-3 px-4 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-lg transition-colors;
+  @apply flex-1 flex items-center justify-center py-3 bg-[#14B8A6] hover:bg-[#0D9488] text-white font-bold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
 }
-
 .ai-report-send__btn-secondary {
-  @apply flex-1 flex items-center justify-center py-3 px-4 border border-teal-500 text-teal-600 dark:text-teal-400 bg-transparent hover:bg-teal-50 dark:hover:bg-teal-900/30 font-semibold rounded-lg transition-colors;
+  @apply flex items-center justify-center px-6 py-3 bg-white dark:bg-slate-900 text-[#14B8A6] border border-[#14B8A6] font-bold rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/10 transition-colors;
 }

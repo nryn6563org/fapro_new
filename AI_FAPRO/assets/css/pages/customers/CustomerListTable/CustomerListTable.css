@@ -33,7 +33,7 @@
 }
 
 .customer-table__avatar {
-  @apply w-8 h-8 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white text-[11px] font-bold shadow-sm;
+  @apply w-8 h-8 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm;
 }
 
 .customer-table__name {
@@ -45,12 +45,12 @@
 }
 
 .customer-table__td--notes {
-  @apply text-[11px] text-slate-500 dark:text-slate-400 max-w-[200px] truncate;
+  @apply text-xs text-slate-500 dark:text-slate-400 max-w-[200px] truncate;
 }
 
 /* Badges */
 .customer-table__type-badge {
-  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide;
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide;
 }
 .customer-table__type-badge--aggressive {
   @apply bg-red-50 text-red-600 dark:bg-red-900/30 dark:text-red-400;
@@ -63,10 +63,6 @@
 }
 
 /* Chips */
-.customer-table__info-chip {
-  @apply w-7 h-7 bg-primary-light dark:bg-primary-900/30 text-primary dark:text-primary-light rounded-full flex items-center justify-center hover:bg-primary hover:text-white dark:hover:bg-primary transition-all cursor-pointer border-0;
-}
-
 .customer-table__detail-btn {
-  @apply inline-flex items-center gap-1.5 bg-gray-50 dark:bg-slate-700/50 hover:bg-gray-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary-light text-[11px] font-bold px-3 py-2 rounded-xl transition-all border border-slate-300 dark:border-slate-600/50 cursor-pointer hover:shadow-md hover:-translate-y-0.5;
+  @apply inline-flex items-center gap-1.5 bg-gray-50 dark:bg-slate-700/50 hover:bg-gray-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary-light text-xs font-bold px-3 py-2 rounded-xl transition-all border border-slate-300 dark:border-slate-600/50 cursor-pointer hover:shadow-md hover:-translate-y-0.5;
 }

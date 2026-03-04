@@ -1,10 +1,10 @@
 /* Tailwind directives container for component */
-
 .ai-report-card {
-  @apply bg-slate-100 dark:bg-slate-900 border border-slate-400 dark:border-slate-800 rounded-xl p-5 hover:shadow-lg transition-all cursor-pointer relative overflow-hidden;
+  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden hover:-translate-y-1;
 }
-.ai-report-card:hover {
-  @apply scale-[1.01];
+.ai-report-card::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-teal-500 opacity-60;
 }
 
 /* Header */
@@ -12,59 +12,67 @@
   @apply flex items-start justify-between gap-4 mb-4;
 }
 .ai-report-card__header-info {
-  @apply flex-1;
+  @apply flex-1 flex flex-col gap-1.5;
+}
+.ai-report-card__title-wrap {
+  @apply flex items-center flex-wrap gap-2 mb-1;
 }
 .ai-report-card__title {
-  @apply text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug;
+  @apply text-[17px] font-bold text-slate-900 dark:text-white leading-tight;
 }
+
+/* Red / Blue Badges for signal type */
+.ai-report-card__signal-badge {
+  @apply text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm;
+}
+.ai-report-card__signal-badge--buy {
+  @apply bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400 border border-red-100 dark:border-red-500/20;
+}
+.ai-report-card__signal-badge--sell {
+  @apply bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400 border border-blue-100 dark:border-blue-500/20;
+}
+.ai-report-card__signal-badge--neutral {
+  @apply bg-slate-50 text-slate-600 dark:bg-slate-500/10 dark:text-slate-400 border border-slate-100 dark:border-slate-500/20;
+}
+
+/* Meta Data Date/Time */
 .ai-report-card__meta {
-  @apply flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400;
+  @apply flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 font-medium;
 }
 .ai-report-card__meta-item {
-  @apply flex items-center gap-1;
+  @apply flex items-center gap-1.5;
 }
 .ai-report-card__meta-icon {
   @apply w-3.5 h-3.5;
 }
 
-/* Reason Box */
+/* Body / Reason Boxes */
+.ai-report-card__body {
+  @apply flex flex-col gap-3;
+}
 .ai-report-card__reason-box {
-  @apply bg-slate-200 dark:bg-slate-800/50 rounded-lg p-3.5 mb-4 border border-slate-300 dark:border-slate-700/50;
+  @apply bg-slate-50/50 dark:bg-slate-800/30 rounded-2xl p-4 border border-slate-100 dark:border-slate-800/40 hover:bg-white dark:hover:bg-slate-800 transition-colors;
 }
 .ai-report-card__reason-header {
-  @apply flex items-center gap-2 mb-2 pb-2 border-b border-slate-400 dark:border-slate-700;
+  @apply flex items-center gap-1.5 mb-2;
 }
 .ai-report-card__reason-icon {
-  @apply w-4 h-4 text-amber-500;
+  @apply text-sm leading-none;
 }
 .ai-report-card__reason-title {
-  @apply text-xs font-bold text-slate-700 dark:text-slate-300;
+  @apply text-[13px] font-bold text-slate-800 dark:text-slate-200;
 }
 .ai-report-card__reason-text {
-  @apply text-xs text-slate-600 dark:text-slate-400 leading-relaxed;
-}
-
-/* Points Grid */
-.ai-report-card__points-grid {
-  @apply grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-2;
-}
-.ai-report-card__point-item {
-  @apply flex items-start gap-1.5;
-}
-.ai-report-card__point-icon {
-  @apply w-4 h-4 text-teal-500 mt-0.5 flex-shrink-0;
-}
-.ai-report-card__point-text {
-  @apply text-xs text-slate-700 dark:text-slate-300;
+  @apply text-xs text-slate-600 dark:text-slate-400 leading-relaxed break-keep;
 }
 
 /* Actions */
 .ai-report-card__header-actions {
-  @apply shrink-0;
+  @apply shrink-0 mt-1;
 }
 .ai-report-card__btn-view {
-  @apply flex items-center justify-center px-4 py-1.5 text-sm font-semibold rounded-lg bg-[#14B8A6] hover:bg-[#0D9488] text-white transition-colors border-0 cursor-pointer w-auto min-w-[110px];
+  @apply flex items-center justify-center px-5 py-2 text-xs font-bold rounded-xl bg-teal-500 hover:bg-teal-600 text-white transition-all duration-300 shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30 cursor-pointer active:scale-95;
 }
 .ai-report-card__btn-icon {
-  @apply w-4 h-4 mr-2;
+  @apply w-3.5 h-3.5 mr-1.5;
 }

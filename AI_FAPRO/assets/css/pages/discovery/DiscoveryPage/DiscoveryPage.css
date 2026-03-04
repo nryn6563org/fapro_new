@@ -1,50 +1,39 @@
 /* Tailwind directives container for component */
-
 .discovery-page {
   @apply p-6 pb-12 space-y-6 max-w-[1600px] mx-auto;
 }
 
-/* Header Card */
-.discovery-page__header-card {
-  @apply bg-gradient-to-br from-white to-orange-50/30 dark:from-slate-900 dark:to-orange-900/20 border-2 border-orange-500/30 dark:border-orange-500/20 rounded-xl shadow-lg;
+/* Header */
+.discovery-page__header {
+  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-400 dark:border-slate-800 pb-4 mb-4;
 }
-.discovery-page__header-inner {
-  @apply p-6 flex flex-col md:flex-row md:items-center justify-between gap-4;
-}
-
-/* Title Box */
-.discovery-page__title-box {
-  @apply flex items-center gap-4;
-}
-.discovery-page__icon-wrap {
-  @apply w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center shadow-sm;
-}
-.discovery-page__title-icon {
-  @apply w-6 h-6 text-white;
-}
+.discovery-page__title-box {}
 .discovery-page__title {
-  @apply text-2xl font-bold text-slate-900 dark:text-white m-0;
+  @apply text-3xl font-bold text-slate-900 dark:text-white;
 }
 .discovery-page__subtitle {
-  @apply text-sm text-slate-600 dark:text-slate-400 mt-1 m-0;
+  @apply text-slate-600 dark:text-slate-400 mt-1 text-sm;
 }
-
-/* Action Box */
 .discovery-page__action-box {
-  @apply flex items-center gap-3;
+  @apply flex items-center gap-4;
 }
 .discovery-page__time-info {
-  @apply flex items-center text-xs text-slate-500 dark:text-slate-400 bg-slate-100/50 dark:bg-slate-800/50 px-3 py-1.5 rounded-lg border border-slate-400 dark:border-slate-800;
+  @apply text-right;
 }
-.discovery-page__time-icon {
-  @apply w-3.5 h-3.5 mr-1.5;
+.discovery-page__time-text {
+  @apply text-sm font-semibold text-slate-900 dark:text-white;
 }
-.discovery-page__time-icon--ml {
-  @apply ml-3;
+.discovery-page__time-label {
+  @apply text-xs text-slate-500 dark:text-slate-400;
 }
-
-.discovery-page__btn-refresh {
-  @apply w-8 h-8 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-400 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer shadow-sm;
+.discovery-page__refresh-btn {
+  @apply flex items-center gap-2 px-4 py-2 bg-[#14B8A6] hover:bg-[#0D9488] text-white rounded-lg transition-colors shadow-sm;
+}
+.discovery-page__refresh-icon {
+  @apply w-4 h-4;
+}
+.discovery-page__refresh-text {
+  @apply text-sm font-semibold;
 }
 
 /* Content Area */

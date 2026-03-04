@@ -24,43 +24,52 @@
                 type="basic"
                 label="일반"
                 :price="100000"
-                :active="subscriptionPlan === 'basic'"
+                :active="selectedPlan === 'basic'"
                 :features="basicFeatures"
-                @select="subscriptionPlan = 'basic'"
+                @select="selectedPlan = 'basic'"
               />
               <settings-plan-card
                 type="pro"
                 label="Pro"
                 :price="150000"
-                :active="subscriptionPlan === 'pro'"
+                :active="selectedPlan === 'pro'"
                 :features="proFeatures"
-                @select="subscriptionPlan = 'pro'"
+                @select="selectedPlan = 'pro'"
               />
             </div>
 
-            <!-- Upgrade/Status -->
-            <button
-              v-if="subscriptionPlan === 'basic'"
-              class="settings-page__upgrade-btn mt-4"
-              @click="upgradeToPro"
-            >
-              <star-icon class="w-4 h-4 mr-2" />
-              Pro 플랜으로 업그레이드
-            </button>
-            <div v-else class="settings-page__pro-status mt-4">
-              <div class="flex items-center gap-2 text-sm font-black text-[#F59E0B]">
-                <star-icon class="w-4 h-4" />
-                Pro 플랜 이용 중
+            <!-- Transition Button Logic (Design #33) -->
+            <div class="mt-4">
+              <div v-if="selectedPlan === activePlan" class="settings-page__status-box">
+                <div v-if="activePlan === 'pro'" class="settings-page__pro-status">
+                  <star-icon class="w-4 h-4" />
+                  Pro 플랜 이용 중
+                </div>
+                <div v-else class="settings-page__basic-status">
+                  일반 플랜 이용 중
+                </div>
               </div>
+              
+              <button
+                v-else
+                :class="[
+                  'settings-page__transition-btn',
+                  selectedPlan === 'pro' ? 'settings-page__transition-btn--upgrade' : 'settings-page__transition-btn--downgrade'
+                ]"
+                @click="handlePlanChange"
+              >
+                <component :is="selectedPlan === 'pro' ? 'star-icon' : 'arrow-down-icon'" class="w-4 h-4 mr-2" />
+                {{ selectedPlan === 'pro' ? 'Pro 플랜으로 업그레이드' : '일반 플랜으로 다운그레이드' }}
+              </button>
             </div>
           </div>
 
           <!-- Payment Info Component -->
-          <div v-if="subscriptionPlan === 'pro'" class="pt-2">
+          <div v-if="activePlan === 'pro'" class="pt-2">
             <settings-billing-info
               :payment-method="paymentMethod"
               :next-billing-date="nextBillingDateLabel"
-              :monthly-price="150000"
+              :monthly-price="activePlan === 'pro' ? 150000 : 100000"
             />
           </div>
         </div>
@@ -73,7 +82,7 @@
 /**
  * 기능: 설정 메인 페이지 (회원정보 및 구독 관리)
  */
-import { CreditCardIcon, StarIcon } from 'vue-feather-icons'
+import { CreditCardIcon, StarIcon, ArrowDownIcon } from 'vue-feather-icons'
 import SettingsAccountSection from '~/components/settings/SettingsAccountSection.vue'
 import SettingsPlanCard from '~/components/settings/SettingsPlanCard.vue'
 import SettingsBillingInfo from '~/components/settings/SettingsBillingInfo.vue'
@@ -86,12 +95,14 @@ export default {
     SettingsPlanCard,
     SettingsBillingInfo,
     CreditCardIcon,
-    StarIcon
+    StarIcon,
+    ArrowDownIcon
   },
   layout: 'default',
   data() {
     return {
-      subscriptionPlan: 'pro',
+      activePlan: 'pro',
+      selectedPlan: 'pro',
       paymentMethod: '신한카드 **** **** **** 1234',
       nextBillingDate: new Date(2025, 2, 26),
       basicFeatures: ['오늘의 제안 고객 추천', '오늘의 종목 제안 추천', '고객 및 일정관리'],
@@ -115,9 +126,12 @@ export default {
     }
   },
   methods: {
-    upgradeToPro() {
-      this.subscriptionPlan = 'pro'
-      alert('Pro 플랜으로 업그레이드되었습니다!')
+    handlePlanChange() {
+      const action = this.selectedPlan === 'pro' ? '업그레이드' : '다운그레이드'
+      if (confirm(`${this.selectedPlan === 'pro' ? 'Pro' : '일반'} 플랜으로 ${action}하시겠습니까?`)) {
+        this.activePlan = this.selectedPlan
+        alert(`${action}되었습니다!`)
+      }
     }
   }
 }

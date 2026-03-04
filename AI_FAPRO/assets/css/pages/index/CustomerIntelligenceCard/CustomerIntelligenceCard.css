@@ -18,10 +18,6 @@
   @apply text-3xl font-black text-slate-900 dark:text-white tracking-tight;
 }
 
-.badge--violet-solid {
-  @apply bg-primary hover:bg-primary-hover shadow-sm shadow-primary/20 text-white rounded-full px-3.5 py-1.5 text-[13px] font-bold transition-all;
-}
-
 /* Grid */
 .intelligence-section__grid {
   @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
@@ -31,43 +27,45 @@
   BEM Block: intelligence-card
 */
 .intelligence-card {
-  @apply border-l-[3px] bg-slate-100 dark:bg-slate-800/80 rounded-2xl shadow-sm border border-slate-300 dark:border-slate-700/50 transition-all hover:shadow-md;
+  @apply bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden;
 }
 
-.intelligence-card--amber {
-  @apply border-l-amber-400 dark:border-l-amber-500;
+.intelligence-card::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-1.5 opacity-80;
 }
-.intelligence-card--emerald {
-  @apply border-l-emerald-400 dark:border-l-emerald-500;
-}
-.intelligence-card--rose {
-  @apply border-l-rose-400 dark:border-l-rose-500;
-}
+
+.intelligence-card--amber::before { @apply bg-gradient-to-r from-amber-400 to-amber-500; }
+.intelligence-card--emerald::before { @apply bg-gradient-to-r from-emerald-400 to-emerald-500; }
+.intelligence-card--rose::before { @apply bg-gradient-to-r from-rose-400 to-rose-500; }
 
 .intelligence-card__header {
   @apply p-5 pb-4 border-b border-gray-50 dark:border-slate-700/50;
 }
 
 .intelligence-card__header-content {
-  @apply flex items-center justify-between mb-2;
+  @apply flex items-start justify-between gap-3 mb-2;
 }
 
 .intelligence-card__title {
-  @apply text-sm font-bold text-slate-800 dark:text-slate-100;
+  @apply text-base font-bold text-slate-800 dark:text-slate-100 leading-tight;
 }
 
 .intelligence-card__desc {
   @apply text-xs text-slate-500 dark:text-slate-400 leading-relaxed;
 }
 
-.badge--amber {
-  @apply bg-amber-50 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400 rounded-full px-2.5 py-0.5 text-[10px] font-bold tracking-wide;
+.intelligence-card__badge {
+  @apply rounded-full px-3 py-1 text-[11px] font-bold tracking-wider uppercase;
 }
-.badge--emerald {
-  @apply bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400 rounded-full px-2.5 py-0.5 text-[10px] font-bold tracking-wide;
+.intelligence-card__badge--amber {
+  @apply bg-amber-100/50 text-amber-700 dark:bg-amber-400/10 dark:text-amber-400 border border-amber-200/50 dark:border-amber-400/20;
 }
-.badge--rose {
-  @apply bg-rose-50 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400 rounded-full px-2.5 py-0.5 text-[10px] font-bold tracking-wide;
+.intelligence-card__badge--emerald {
+  @apply bg-emerald-100/50 text-emerald-700 dark:bg-emerald-400/10 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-400/20;
+}
+.intelligence-card__badge--rose {
+  @apply bg-rose-100/50 text-rose-700 dark:bg-rose-400/10 dark:text-rose-400 border border-rose-200/50 dark:border-rose-400/20;
 }
 
 .intelligence-card__body {
@@ -168,23 +166,28 @@
 }
 
 .intelligence-alert__text {
-  @apply text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2;
+  @apply text-xs text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2;
 }
 
 /* Button modifiers */
-.btn--block {
-  @apply w-full h-8 text-[11px] font-bold flex items-center justify-center rounded-xl transition-all hover:-translate-y-0.5 shadow-sm;
-}
-.btn--amber-solid {
-  @apply bg-amber-500 hover:bg-amber-600 text-white shadow-amber-500/20 hover:shadow-amber-500/40;
-}
-.btn--emerald-solid {
-  @apply bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/20 hover:shadow-emerald-500/40;
-}
-.btn--rose-solid {
-  @apply bg-rose-500 hover:bg-rose-600 text-white shadow-rose-500/20 hover:shadow-rose-500/40;
+.intelligence-card__btn {
+  @apply flex items-center justify-center font-bold transition-all duration-300 active:scale-95;
 }
 
-.btn__icon--mr-1 {
-  @apply mr-1.5;
+.intelligence-card__btn--block {
+  @apply w-full h-10 text-xs rounded-xl shadow-sm;
+}
+
+.intelligence-card__btn--amber-solid {
+  @apply bg-amber-500 hover:bg-amber-600 text-white shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30;
+}
+.intelligence-card__btn--emerald-solid {
+  @apply bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/20 hover:shadow-lg hover:shadow-emerald-500/30;
+}
+.intelligence-card__btn--rose-solid {
+  @apply bg-rose-500 hover:bg-rose-600 text-white shadow-rose-500/20 hover:shadow-lg hover:shadow-rose-500/30;
+}
+
+.intelligence-card__btn-icon {
+  @apply mr-2;
 }

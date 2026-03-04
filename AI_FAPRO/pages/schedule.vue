@@ -27,25 +27,28 @@
         @toggle-calendar="toggleCalendar"
       />
 
-      <!-- Main Calendar View -->
+      <!-- Main Content Area -->
       <div class="schedule-page__main">
-        <schedule-day-view
-          v-if="viewMode === 'day'"
-          :selected-date="selectedDate"
-          :events="filteredEvents"
-        />
-        <schedule-week-view
-          v-else-if="viewMode === 'week'"
-          :current-date="currentDate"
-          :selected-date="selectedDate"
-          :events="filteredEvents"
-          @select-date="selectedDate = $event"
-        />
-        <schedule-month-view
-          v-else-if="viewMode === 'month'"
-          :current-date="currentDate"
-          :events="filteredEvents"
-        />
+        <template v-if="isSynced">
+          <schedule-day-view
+            v-if="viewMode === 'day'"
+            :selected-date="selectedDate"
+            :events="filteredEvents"
+          />
+          <schedule-week-view
+            v-else-if="viewMode === 'week'"
+            :current-date="currentDate"
+            :selected-date="selectedDate"
+            :events="filteredEvents"
+            @select-date="selectedDate = $event"
+          />
+          <schedule-month-view
+            v-else-if="viewMode === 'month'"
+            :current-date="currentDate"
+            :events="filteredEvents"
+          />
+        </template>
+        <schedule-placeholder v-else @sync="showSyncModal = true" />
       </div>
     </div>
 
@@ -75,6 +78,7 @@ import ScheduleSidebar from '~/components/schedule/ScheduleSidebar.vue'
 import ScheduleDayView from '~/components/schedule/ScheduleDayView.vue'
 import ScheduleWeekView from '~/components/schedule/ScheduleWeekView.vue'
 import ScheduleMonthView from '~/components/schedule/ScheduleMonthView.vue'
+import SchedulePlaceholder from '~/components/schedule/SchedulePlaceholder.vue'
 import ScheduleSyncModal from '~/components/schedule/ScheduleSyncModal.vue'
 import { events, myCalendars } from '~/utils/scheduleMockData.js'
 import '~/assets/css/pages/schedule/SchedulePage/SchedulePage.css'
@@ -87,6 +91,7 @@ export default {
     ScheduleDayView,
     ScheduleWeekView,
     ScheduleMonthView,
+    SchedulePlaceholder,
     ScheduleSyncModal
   },
   layout: 'default',

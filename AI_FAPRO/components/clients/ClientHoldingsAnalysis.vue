@@ -16,7 +16,7 @@
           <div class="flex-1">
             <div class="flex items-center justify-between mb-2">
               <span class="font-black text-slate-900 dark:text-white">AI 분석 완료</span>
-              <span class="text-[10px] text-pink-500 font-bold">{{ analysisTime }} 기준</span>
+              <span class="text-xs text-pink-500 font-bold">{{ analysisTime }} 기준</span>
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               현재 시세를 기준으로 분석한 결과,

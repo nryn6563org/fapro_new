@@ -211,6 +211,18 @@ export const issueData = [
       description:
         '지난주 대비 이슈 강도가 크게 강화되었으며, 관련 종목 수와 평균 등락률이 모두 상승했습니다.'
     },
+    strengthSummary: {
+      high: 15,
+      low: 3
+    },
+    marketCapRatio: {
+      under500B: 45,
+      under1T: 38,
+      under5T: 12,
+      over5T: 5
+    },
+    positiveProspects: '정부 정책 지원 강화, 수출 실적 증가, 글로벌 수요 확대',
+    negativeProspects: '글로벌 정세 불확실성, 환율 변동성, 경쟁 심화',
     issueDate: '2026.02.09',
     updatedAt: '14:30'
   },

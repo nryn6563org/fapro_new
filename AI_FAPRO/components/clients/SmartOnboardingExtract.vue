@@ -21,7 +21,7 @@
     ></textarea>
 
     <div class="flex items-center justify-between mt-3">
-      <div class="flex items-center gap-2 text-[10px] text-slate-500 font-bold">
+      <div class="flex items-center gap-2 text-xs text-slate-500 font-bold">
         <image-icon class="w-3.5 h-3.5 text-teal-500" />
         <span>이미지 또는 텍스트 붙여넣기 지원</span>
       </div>

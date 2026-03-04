@@ -71,3 +71,27 @@
 .settings-page__billing-wrapper {
   @apply pt-2;
 }
+
+.settings-page__transition-btn {
+  @apply w-full flex items-center justify-center py-4 text-white rounded-xl text-lg font-black shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all border-0 cursor-pointer;
+}
+
+.settings-page__transition-btn--upgrade {
+  @apply bg-gradient-to-r from-[#F59E0B] to-[#D97706] shadow-amber-500/20;
+}
+
+.settings-page__transition-btn--downgrade {
+  @apply bg-gradient-to-r from-slate-500 to-slate-600 shadow-slate-500/20;
+}
+
+.settings-page__status-box {
+  @apply mt-2;
+}
+
+.settings-page__basic-status {
+  @apply p-4 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-black text-slate-500;
+}
+
+.settings-page__pro-status {
+  @apply p-4 bg-gradient-to-r from-[#F59E0B]/10 to-transparent rounded-xl border border-[#F59E0B]/20 flex items-center gap-2 text-sm font-black text-[#F59E0B];
+}

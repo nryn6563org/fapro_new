@@ -1,24 +1,21 @@
 /* Tailwind directives container */
 
 .customer-ai-search__card {
-  @apply bg-gradient-to-br from-[#14B8A6]/10 to-[#14B8A6]/5 border border-[#14B8A6]/20 rounded-xl p-6 mb-8 dark:from-slate-900/50 dark:to-slate-950/50;
+  @apply bg-teal-50/50 dark:bg-teal-900/10 border border-teal-100 dark:border-teal-800/50 rounded-2xl p-6 mb-8;
 }
 
 /* Header */
 .customer-ai-search__header {
-  @apply flex items-start justify-between mb-4;
+  @apply flex items-center justify-between mb-4;
 }
 .customer-ai-search__icon-box {
-  @apply w-10 h-10 bg-[#14B8A6] rounded-lg flex items-center justify-center;
+  @apply w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center;
 }
 .customer-ai-search__title {
-  @apply text-lg font-semibold text-slate-900 dark:text-white m-0;
+  @apply text-lg font-bold text-slate-900 dark:text-white m-0 tracking-tight;
 }
 .customer-ai-search__subtitle {
-  @apply text-sm text-slate-600 dark:text-slate-400 m-0;
-}
-.customer-ai-search__main-btn {
-  @apply flex items-center bg-[#14B8A6] hover:bg-[#14B8A6]/90 text-white text-sm px-4 py-2 rounded-full font-bold border-0 cursor-pointer;
+  @apply text-sm text-slate-500 dark:text-slate-400 m-0 mt-0.5;
 }
 
 /* Input */
@@ -29,32 +26,56 @@
   @apply absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400;
 }
 .customer-ai-search__input {
-  @apply w-full pl-12 pr-4 py-4 text-base border border-slate-300 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/50 dark:text-white;
+  @apply w-full pl-11 pr-24 py-3.5 text-sm border-2 border-teal-500 dark:border-teal-600 bg-white dark:bg-slate-900 rounded-lg focus:outline-none focus:ring-0 shadow-sm dark:text-white transition-all font-medium;
 }
 .customer-ai-search__search-btn {
-  @apply absolute right-2 top-1/2 -translate-y-1/2 bg-[#14B8A6] hover:bg-[#14B8A6]/90 text-white px-6 py-2 rounded-lg border-0 cursor-pointer font-bold;
+  @apply absolute right-1.5 top-1/2 -translate-y-1/2 bg-teal-500 hover:bg-teal-600 text-white px-5 py-2.5 rounded border-0 cursor-pointer font-bold text-sm transition-colors;
 }
 
 /* Hint */
 .customer-ai-search__hint {
-  @apply flex items-center gap-2 text-sm text-slate-600 dark:text-slate-500 mb-4;
+  @apply flex items-center gap-2 text-sm text-teal-600 dark:text-teal-400 mb-2;
 }
 
 /* Recommendations */
 .customer-ai-search__recommend-list {
-  @apply space-y-2 mb-4;
+  @apply flex flex-col gap-2 mb-4;
 }
 .customer-ai-search__recommend-item {
-  @apply px-4 py-2 bg-slate-100 dark:bg-slate-900 rounded-full text-sm text-slate-700 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 cursor-pointer transition-colors border border-slate-400 dark:border-slate-800;
+  @apply w-full px-4 py-3 bg-white dark:bg-slate-900 rounded-lg text-[13px] font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer border border-transparent dark:border-slate-800 shadow-sm transition-all text-left;
 }
 
 /* Filters */
 .customer-ai-search__filters {
-  @apply flex items-center gap-2 flex-wrap;
+  @apply flex items-center gap-3 flex-wrap mt-6 pt-5 border-t border-teal-200/50 dark:border-teal-800/50;
 }
 .customer-ai-search__filter-btn {
-  @apply px-4 py-1.5 rounded-full text-sm font-medium transition-all bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 border border-slate-300 dark:border-slate-800 cursor-pointer;
+  @apply px-4 py-1.5 rounded-full text-sm font-semibold transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 border-2 border-transparent cursor-pointer shadow-sm;
 }
 .customer-ai-search__filter-btn--active {
-  @apply bg-[#14B8A6] text-white border-[#14B8A6];
+  @apply bg-teal-500 text-white border-teal-500 hover:bg-teal-600;
+}
+
+.customer-ai-search__header-inner {
+  @apply flex items-center gap-2;
+}
+
+.customer-ai-search__recommends-title {
+  @apply flex items-center gap-2 text-sm mb-3;
+}
+
+.customer-ai-search__recommends-icon {
+  @apply w-4 h-4 text-teal-500 mt-0.5 flex-shrink-0;
+}
+
+.customer-ai-search__recommends-label {
+  @apply text-teal-700 dark:text-teal-400 font-medium;
+}
+
+.customer-ai-search__filters-label {
+  @apply text-sm font-bold text-slate-700 dark:text-slate-300 mr-2 flex items-center;
+}
+
+.customer-ai-search__filters-group {
+  @apply flex items-center gap-2 flex-wrap;
 }

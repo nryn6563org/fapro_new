@@ -9,19 +9,54 @@
 }
 
 .schedule-sync-modal__box {
-  @apply relative bg-slate-100 dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden;
+  @apply relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden;
 }
 
 .schedule-sync-modal__body {
   @apply p-6;
 }
 
+.schedule-sync-modal__header {
+  @apply flex items-center justify-between mb-4;
+}
+
 .schedule-sync-modal__header-content {
   @apply flex items-center gap-3;
 }
 
+.schedule-sync-modal__icon-box {
+  @apply w-10 h-10 rounded-full flex items-center justify-center;
+}
+.schedule-sync-modal__icon-box--teal {
+  @apply bg-teal-100 dark:bg-teal-900/30;
+}
+.schedule-sync-modal__icon-box--red {
+  @apply bg-red-100 dark:bg-red-900/30;
+}
+
 .schedule-sync-modal__main-icon {
-  @apply w-6 h-6 text-white;
+  @apply w-5 h-5;
+}
+.schedule-sync-modal__icon-box--teal .schedule-sync-modal__main-icon {
+  @apply text-teal-600;
+}
+.dark .schedule-sync-modal__icon-box--teal .schedule-sync-modal__main-icon {
+  @apply text-teal-500;
+}
+
+.schedule-sync-modal__icon-box--red .schedule-sync-modal__main-icon {
+  @apply text-red-600;
+}
+.dark .schedule-sync-modal__icon-box--red .schedule-sync-modal__main-icon {
+  @apply text-red-500;
+}
+
+.schedule-sync-modal__title {
+  @apply text-lg font-bold text-slate-800 dark:text-white m-0;
+}
+
+.schedule-sync-modal__close-btn {
+  @apply p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer border-0 bg-transparent text-slate-400 hover:text-slate-600 dark:hover:text-slate-300;
 }
 
 .schedule-sync-modal__close-icon {
@@ -33,37 +68,65 @@
 }
 
 .schedule-sync-modal__description {
-  @apply text-sm text-slate-600 mb-4 font-medium;
+  @apply text-sm text-slate-600 dark:text-slate-400 mb-4 font-medium;
+}
+
+.schedule-sync-modal__description-bold {
+  @apply text-base text-slate-800 dark:text-slate-200 mb-4 font-bold;
 }
 
 .schedule-sync-modal__list {
   @apply space-y-3;
 }
 
+.schedule-sync-modal__list-item {
+  @apply flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300;
+}
+
 .schedule-sync-modal__check-icon {
-  @apply w-4 h-4 text-[#14B8A6] flex-shrink-0;
-}
-
-.schedule-sync-modal__footer {
-  @apply flex justify-end gap-3;
-}
-
-.schedule-sync-modal__btn-icon {
-  @apply w-4 h-4 mr-2;
+  @apply w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5;
 }
 
 .schedule-sync-modal__alert {
   @apply p-4 bg-red-50 dark:bg-red-900/10 rounded-xl border border-red-100 dark:border-red-900/20 mb-4;
 }
 
+.schedule-sync-modal__alert-text {
+  @apply text-sm text-red-600 dark:text-red-400 font-medium;
+}
+
+.schedule-sync-modal__footer {
+  @apply flex justify-end gap-2 mt-2;
+}
+
+.schedule-sync-modal__btn-cancel {
+  @apply px-4 py-2 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-700;
+}
+
+.schedule-sync-modal__btn-primary {
+  @apply px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-lg flex items-center justify-center transition-colors cursor-pointer border-0;
+}
+
+.schedule-sync-modal__btn-danger {
+  @apply px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg flex items-center justify-center transition-colors cursor-pointer border-0 focus:outline-none focus:ring-2 focus:ring-red-500/50;
+}
+
+.schedule-sync-modal__btn-icon {
+  @apply w-4 h-4 mr-2;
+}
+
+.schedule-sync-modal__loader-box {
+  @apply mb-4 flex justify-center;
+}
+
 .schedule-sync-modal__loader-icon {
-  @apply w-10 h-10 text-white animate-spin;
+  @apply w-10 h-10 text-teal-600 dark:text-teal-500 animate-spin;
 }
 
 .schedule-sync-modal__loading-text {
-  @apply text-sm text-slate-500;
+  @apply text-sm text-slate-500 dark:text-slate-400 mt-2;
 }
 
 .schedule-sync-modal__title--mb-2 {
-  @apply mb-2;
+  @apply mb-2 font-bold text-slate-800 dark:text-white;
 }

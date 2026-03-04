@@ -37,23 +37,23 @@
       </div>
 
       <!-- Sync Status -->
-      <div
+      <button
         v-if="isSynced"
         class="schedule-header__sync-badge schedule-header__sync-badge--active"
         @click="$emit('unsync')"
       >
         <check-circle-icon class="w-4 h-4 schedule-header__sync-icon--success" />
         <span class="schedule-header__sync-label">캘린더 동기화 해제</span>
-      </div>
-      <button v-else class="schedule-header__sync-btn" :disabled="isSyncing" @click="$emit('sync')">
-        <loader-icon v-if="isSyncing" class="w-3 h-3 schedule-header__sync-icon--loading" />
-        <refresh-cw-icon v-else class="w-3 h-3 schedule-header__sync-icon" />
-        {{ isSyncing ? '동기화 중' : '동기화' }}
+      </button>
+      <button v-else class="schedule-header__sync-badge" :disabled="isSyncing" @click="$emit('sync')">
+        <loader-icon v-if="isSyncing" class="w-4 h-4 schedule-header__sync-icon--loading" />
+        <refresh-cw-icon v-else class="w-4 h-4 schedule-header__sync-icon" />
+        <span class="schedule-header__sync-label">{{ isSyncing ? '동기화 중' : '캘린더 동기화' }}</span>
       </button>
 
       <!-- Google Calendar Link -->
       <button class="schedule-header__ext-btn" @click="openGoogleCalendar">
-        <external-link-icon class="w-3 h-3 schedule-header__ext-icon" />
+        <external-link-icon class="w-4 h-4 schedule-header__ext-icon" />
         Google Calendar
       </button>
 

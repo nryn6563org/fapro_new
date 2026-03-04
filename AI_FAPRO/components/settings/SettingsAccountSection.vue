@@ -90,9 +90,6 @@ export default {
   },
   methods: {
     handleAction(id) {
-      if (id === 'withdraw') {
-        if (!confirm('정말로 회원탈퇴를 진행하시겠습니까?')) return
-      }
       const urls = {
         findId: 'https://www.thinkpool.com/customer/idInquiry',
         findPassword: 'https://www.thinkpool.com/customer/pwInquiry',
@@ -101,6 +98,12 @@ export default {
         register: 'https://sign.thinkpool.com/user/join.do',
         withdraw: 'https://www.thinkpool.com/customer/withdraw'
       }
+      
+      if (id === 'withdraw') {
+        alert('0000-0000 로 문의주시기 바랍니다')
+        return
+      }
+      
       window.open(urls[id], '_blank')
     }
   }

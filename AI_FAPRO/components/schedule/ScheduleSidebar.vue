@@ -4,7 +4,7 @@
     <div class="schedule-sidebar__action">
       <button class="schedule-sidebar__create-btn">
         <plus-icon class="w-4 h-4 mr-2" />
-        만들기
+        일정 업데이트
       </button>
     </div>
 
@@ -53,15 +53,15 @@
     <div class="schedule-sidebar__filters">
       <h3 class="schedule-sidebar__section-title">내 캘린더</h3>
       <div class="schedule-sidebar__filter-list">
-        <label v-for="cal in calendars" :key="cal.id" class="schedule-sidebar__filter-item">
-          <input
-            type="checkbox"
-            :class="['schedule-sidebar__checkbox', cal.color.replace('bg-', 'text-')]"
-            :checked="cal.checked"
-            @change="$emit('toggle-calendar', cal.id)"
-          />
+        <div v-for="cal in calendars" :key="cal.id" class="schedule-sidebar__filter-item" @click="$emit('toggle-calendar', cal.id)">
+          <div
+            :class="[
+              'schedule-sidebar__filter-dot',
+              cal.checked ? cal.color : 'bg-slate-300 dark:bg-slate-700'
+            ]"
+          ></div>
           <span class="schedule-sidebar__filter-label">{{ cal.name }}</span>
-        </label>
+        </div>
       </div>
     </div>
   </aside>

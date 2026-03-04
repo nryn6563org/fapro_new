@@ -84,7 +84,7 @@
 }
 
 .ai-report-stock__ranking-header {
-  @apply flex items-center justify-between text-[10px] text-slate-400;
+  @apply flex items-center justify-between text-xs text-slate-400;
 }
 
 .ai-report-stock__ranking-bar-wrapper {
@@ -108,7 +108,7 @@
 }
 
 .ai-report-stock__ranking-labels {
-  @apply flex items-center justify-between text-[10px] text-slate-600 dark:text-slate-400 font-medium mt-1;
+  @apply flex items-center justify-between text-xs text-slate-600 dark:text-slate-400 font-medium mt-1;
 }
 
 /* Target Price */
@@ -154,7 +154,7 @@
 }
 
 .ai-report-stock__radar-axis-text {
-  @apply text-[11px] fill-slate-500 dark:fill-slate-400 font-medium;
+  @apply text-xs fill-slate-500 dark:fill-slate-400 font-medium;
 }
 
 .ai-report-stock__radar-data-point {

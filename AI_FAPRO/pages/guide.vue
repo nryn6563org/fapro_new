@@ -18,7 +18,7 @@
             <div class="guide-page__tree-line"></div>
             <div class="guide-page__icon guide-page__icon--comp">C</div>
             <div class="flex-1">
-              <div class="flex items-center justify-between">
+              <div class="guide-page__comp-header">
                 <span class="guide-page__name">{{ comp.name }}</span>
                 <span class="guide-page__path">components/{{ comp.file }}</span>
               </div>
@@ -35,16 +35,16 @@
               </div>
 
               <!-- Subcomponents -->
-              <div v-if="comp.children" class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800">
-                <div class="flex items-center gap-1 mb-2">
-                  <div class="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
-                  <span class="text-xs font-bold text-slate-500 dark:text-slate-400">Sub Components</span>
+              <div v-if="comp.children" class="guide-page__subcomponents">
+                <div class="guide-page__subcomponents-title">
+                  <div class="guide-page__subcomponents-dot"></div>
+                  <span class="guide-page__subcomponents-label">Sub Components</span>
                 </div>
-                <div class="flex gap-2 flex-wrap">
-                  <div v-for="child in comp.children" :key="child.name" class="flex-1 min-w-[200px] bg-white dark:bg-slate-800 p-3 rounded-lg border border-slate-200 dark:border-slate-700">
-                    <div class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-1">{{ child.name }}</div>
-                    <div class="text-xs text-slate-500">C: {{ child.file }}</div>
-                    <div class="text-[10px] text-blue-500 truncate mt-1">CSS: {{ child.css }}</div>
+                <div class="guide-page__subcomponents-grid">
+                  <div v-for="child in comp.children" :key="child.name" class="guide-page__sub-card">
+                    <div class="guide-page__sub-name">{{ child.name }}</div>
+                    <div class="guide-page__sub-path">C: {{ child.file }}</div>
+                    <div class="guide-page__sub-css">CSS: {{ child.css }}</div>
                   </div>
                 </div>
               </div>

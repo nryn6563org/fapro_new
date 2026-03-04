@@ -4,59 +4,55 @@
     <div class="issues-page__top-section">
       <!-- Header -->
       <header class="issues-header">
-        <div class="issues-header__title-wrapper">
-          <div class="issues-header__icon-box">
-            <disc-icon class="issues-header__icon text-teal-600 w-6 h-6" />
-          </div>
-          <div>
-            <h1 class="issues-header__title">AI이슈포착</h1>
-            <p class="issues-header__subtitle">대형주로 구성된 이슈 맵 - 총 {{ issues.length }}개 이슈가 발생했습니다.</p>
-          </div>
+        <div class="issues-header__title-box">
+          <h1 class="issues-header__title">AI이슈포착</h1>
+          <p class="issues-header__subtitle">대형주로 구성된 이슈 맵 - 총 {{ issues.length }}개 이슈가 발생했습니다.</p>
         </div>
-        <div class="issues-header__info">
-          <span class="issues-header__info-text">오늘 현재 <strong>{{ issues.length }}개 이슈 포착</strong></span>
-          <span class="issues-header__info-date"><calendar-icon class="w-4 h-4 mr-1 inline" /> 3/3</span>
-          <span class="issues-header__info-time"><clock-icon class="w-4 h-4 mr-1 inline" /> 08:57</span>
-          <button class="issues-header__btn-refresh">
-            <refresh-cw-icon class="w-4 h-4" />
+        <div class="issues-header__action-box">
+          <div class="issues-header__time-info">
+            <p class="issues-header__time-text">{{ formattedTime }}</p>
+            <p class="issues-header__time-label">최종 업데이트</p>
+          </div>
+          <button class="issues-header__btn-refresh" @click="refreshData">
+            <refresh-cw-icon size="16" class="issues-header__refresh-icon" />
+            <span class="issues-header__refresh-text">새로고침</span>
           </button>
         </div>
       </header>
 
-      <!-- Stats Bar -->
+      <!-- Stats Bar (2 Cards) -->
       <div class="issues-stats-bar">
-        <div class="issues-stats-card">
-          <div class="issues-stats-card__icon issues-stats-card__icon--teal">
-            <bar-chart-2-icon class="w-5 h-5 text-teal-600" />
-          </div>
-          <div>
-            <div class="issues-stats-card__label">오늘 포착된 이슈</div>
-            <div class="issues-stats-card__value">24건</div>
-          </div>
-        </div>
-        <div class="issues-stats-card">
-          <div class="issues-stats-card__icon issues-stats-card__icon--pink">
-            <activity-icon class="w-5 h-5 text-rose-500" />
-          </div>
-          <div>
-            <div class="issues-stats-card__label">강도별 분류</div>
-            <div class="issues-stats-card__sub-value">
-              <span class="text-rose-600 font-medium">고강도 8건</span> <span class="text-slate-300 mx-1">·</span>
-              <span class="text-orange-500 font-medium">중강도 11건</span> <span class="text-slate-300 mx-1">·</span>
-              <span class="text-slate-500">저강도 5건</span>
-            </div>
-          </div>
-        </div>
+        <!-- Card 1: Small/Mid Cap -->
         <div class="issues-stats-card">
           <div class="issues-stats-card__icon issues-stats-card__icon--orange">
-            <percent-icon class="w-5 h-5 text-orange-500" />
+            <bar-chart-2-icon class="w-5 h-5 text-orange-500" />
           </div>
-          <div>
-            <div class="issues-stats-card__label">종목 분류</div>
-            <div class="issues-stats-card__sub-value">
-              <span class="text-orange-500 font-medium">중소형주 21종목</span> <span class="text-slate-300 mx-1">·</span>
-              <span class="text-slate-600 dark:text-slate-400">대형주 3종목</span>
-            </div>
+          <div class="flex-1">
+            <div class="issues-stats-card__label">중소형주 이슈</div>
+            <div class="issues-stats-card__value">21건</div>
+          </div>
+          <div class="issues-stats-card__breakdown">
+            <span class="issues-stats-card__badge-label">강도별</span>
+            <span class="issues-stats-card__strength-high">고 <span class="issues-stats-card__strength-num">7</span></span> <span class="issues-stats-card__dot">·</span>
+            <span class="issues-stats-card__strength-mid">중 <span class="issues-stats-card__strength-num">10</span></span> <span class="issues-stats-card__dot">·</span>
+            <span class="issues-stats-card__strength-low">저 <span class="issues-stats-card__strength-num">4</span></span>
+          </div>
+        </div>
+
+        <!-- Card 2: Large Cap -->
+        <div class="issues-stats-card">
+          <div class="issues-stats-card__icon issues-stats-card__icon--slate">
+            <bar-chart-2-icon class="w-5 h-5 text-slate-500 dark:text-slate-400" />
+          </div>
+          <div class="flex-1">
+            <div class="issues-stats-card__label">대형주 이슈</div>
+            <div class="issues-stats-card__value">3건</div>
+          </div>
+          <div class="issues-stats-card__breakdown">
+            <span class="issues-stats-card__badge-label">강도별</span>
+            <span class="issues-stats-card__strength-high">고 <span class="issues-stats-card__strength-num">1</span></span> <span class="issues-stats-card__dot">·</span>
+            <span class="issues-stats-card__strength-mid">중 <span class="issues-stats-card__strength-num">1</span></span> <span class="issues-stats-card__dot">·</span>
+            <span class="issues-stats-card__strength-low">저 <span class="issues-stats-card__strength-num">1</span></span>
           </div>
         </div>
       </div>
@@ -105,13 +101,8 @@
  * 기능: AI 이슈 탐지 페이지 (Nuxt Migration)
  */
 import {
-  DiscIcon,
-  CalendarIcon,
-  ClockIcon,
   RefreshCwIcon,
-  BarChart2Icon,
-  ActivityIcon,
-  PercentIcon
+  BarChart2Icon
 } from 'vue-feather-icons'
 import IssueBubbleChart from '~/components/issues/IssueBubbleChart.vue'
 import IssueAnalysisSide from '~/components/issues/IssueAnalysisSide.vue'
@@ -127,13 +118,8 @@ export default {
     IssueAnalysisSide,
     IssueDetailSection,
     IssueProposalModal,
-    DiscIcon,
-    CalendarIcon,
-    ClockIcon,
     RefreshCwIcon,
-    BarChart2Icon,
-    ActivityIcon,
-    PercentIcon
+    BarChart2Icon
   },
   layout: 'default',
   data() {
@@ -141,7 +127,9 @@ export default {
       issueType: 'small', // 'small' or 'large'
       selectedIssueId: null,
       isProposalModalOpen: false,
-      selectedIssueForProposal: null
+      selectedIssueForProposal: null,
+      currentTime: new Date(),
+      timer: null
     }
   },
   computed: {
@@ -151,6 +139,14 @@ export default {
     selectedIssue() {
       if (!this.selectedIssueId) return null
       return this.issues.find((i) => i.id === this.selectedIssueId)
+    },
+    formattedTime() {
+      const d = this.currentTime
+      return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(
+        d.getDate()
+      ).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(
+        d.getMinutes()
+      ).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`
     }
   },
   watch: {
@@ -162,7 +158,18 @@ export default {
   created() {
     this.setDefaultIssue()
   },
+  mounted() {
+    this.timer = setInterval(() => {
+      this.currentTime = new Date()
+    }, 1000)
+  },
+  beforeDestroy() {
+    if (this.timer) clearInterval(this.timer)
+  },
   methods: {
+    refreshData() {
+      this.currentTime = new Date()
+    },
     setDefaultIssue() {
       if (this.issues && this.issues.length > 0) {
         // Find the issue with the maximum size

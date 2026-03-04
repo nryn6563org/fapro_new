@@ -48,8 +48,8 @@ export default {
         },
         footer: `
           <div class="global-modal__actions">
-            <button class="btn btn--outline" data-dismiss="modal" data-action="cancel">${cancelText}</button>
-            <button class="btn btn--primary" data-action="confirm">${confirmText}</button>
+            <button class="global-modal__btn global-modal__btn--outline" data-dismiss="modal" data-action="cancel">${cancelText}</button>
+            <button class="global-modal__btn global-modal__btn--primary" data-action="confirm">${confirmText}</button>
           </div>
         `
       }

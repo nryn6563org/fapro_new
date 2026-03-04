@@ -1,5 +1,6 @@
 <template>
   <modal-vanilla
+    v-if="isOpen"
     :is-open="isOpen"
     custom-dialog-class="discovery-modal__dialog"
     @close="$emit('close')"
@@ -23,72 +24,74 @@
     </template>
 
     <!-- Body Component -->
-    <div v-if="report" class="discovery-modal__body">
-      <!-- Header Info Card -->
-      <div class="discovery-modal__info-card">
-        <div class="discovery-modal__info-header">
-          <h3 class="discovery-modal__stock-name">{{ report.stockName }}</h3>
-          <p class="discovery-modal__report-title">{{ report.title }}</p>
-        </div>
+    <div class="discovery-modal__body">
+      <template v-if="report">
+        <!-- Header Info Card -->
+        <div class="discovery-modal__info-card">
+          <div class="discovery-modal__info-header">
+            <h3 class="discovery-modal__stock-name">{{ report.stockName }}</h3>
+            <p class="discovery-modal__report-title">{{ report.title }}</p>
+          </div>
 
-        <div class="discovery-modal__stats-grid">
-          <div class="discovery-modal__stat-col">
-            <span class="discovery-modal__stat-label">투자의견</span>
-            <div :class="['discovery-modal__badge', getInvestmentColor(report.investment)]">
-              {{ report.investment }}
+          <div class="discovery-modal__stats-grid">
+            <div class="discovery-modal__stat-col">
+              <span class="discovery-modal__stat-label">투자의견</span>
+              <div :class="['discovery-modal__badge', getInvestmentColor(report.investment)]">
+                {{ report.investment }}
+              </div>
+            </div>
+            <div class="discovery-modal__stat-col">
+              <span class="discovery-modal__stat-label">목표가</span>
+              <div class="discovery-modal__stat-value">{{ report.targetPrice }}</div>
+            </div>
+            <div class="discovery-modal__stat-col">
+              <span class="discovery-modal__stat-label">현재가</span>
+              <div class="discovery-modal__stat-value--muted">{{ report.currentPrice }}</div>
+            </div>
+            <div class="discovery-modal__stat-col">
+              <span class="discovery-modal__stat-label">상승여력</span>
+              <div class="discovery-modal__stat-value--highlight">
+                <trending-up-icon class="w-4 h-4 mr-1" />
+                {{ report.upside }}
+              </div>
             </div>
           </div>
-          <div class="discovery-modal__stat-col">
-            <span class="discovery-modal__stat-label">목표가</span>
-            <div class="discovery-modal__stat-value">{{ report.targetPrice }}</div>
-          </div>
-          <div class="discovery-modal__stat-col">
-            <span class="discovery-modal__stat-label">현재가</span>
-            <div class="discovery-modal__stat-value--muted">{{ report.currentPrice }}</div>
-          </div>
-          <div class="discovery-modal__stat-col">
-            <span class="discovery-modal__stat-label">상승여력</span>
-            <div class="discovery-modal__stat-value--highlight">
-              <trending-up-icon class="w-4 h-4 mr-1" />
-              {{ report.upside }}
-            </div>
+        </div>
+
+        <!-- 생성 사유 -->
+        <div class="discovery-modal__section">
+          <h4 class="discovery-modal__section-title">
+            <star-icon class="w-5 h-5 text-amber-500" />
+            AI 리포트 생성 사유
+          </h4>
+          <div class="discovery-modal__reason-box">
+            <p class="discovery-modal__reason-text">{{ report.reason }}</p>
           </div>
         </div>
-      </div>
 
-      <!-- 생성 사유 -->
-      <div class="discovery-modal__section">
-        <h4 class="discovery-modal__section-title">
-          <star-icon class="w-5 h-5 text-amber-500" />
-          AI 리포트 생성 사유
-        </h4>
-        <div class="discovery-modal__reason-box">
-          <p class="discovery-modal__reason-text">{{ report.reason }}</p>
+        <!-- 상세 리포트 (Markdown) -->
+        <div class="discovery-modal__section">
+          <h4 class="discovery-modal__section-title">
+            <file-text-icon class="w-5 h-5 text-teal-500" />
+            상세 리포트
+          </h4>
+          <div class="discovery-modal__markdown-box">
+            <pre class="discovery-modal__markdown-text">{{ report.fullReport }}</pre>
+          </div>
         </div>
-      </div>
 
-      <!-- 상세 리포트 (Markdown) -->
-      <div class="discovery-modal__section">
-        <h4 class="discovery-modal__section-title">
-          <file-text-icon class="w-5 h-5 text-teal-500" />
-          상세 리포트
-        </h4>
-        <div class="discovery-modal__markdown-box">
-          <pre class="discovery-modal__markdown-text">{{ report.fullReport }}</pre>
+        <!-- Actions -->
+        <div class="discovery-modal__actions">
+          <button class="discovery-modal__btn-primary">
+            <download-icon class="w-4 h-4 mr-2" />
+            리포트 다운로드
+          </button>
+          <button class="discovery-modal__btn-outline">
+            <mail-icon class="w-4 h-4 mr-2" />
+            고객에게 전송
+          </button>
         </div>
-      </div>
-
-      <!-- Actions -->
-      <div class="discovery-modal__actions">
-        <button class="discovery-modal__btn-primary">
-          <download-icon class="w-4 h-4 mr-2" />
-          리포트 다운로드
-        </button>
-        <button class="discovery-modal__btn-outline">
-          <mail-icon class="w-4 h-4 mr-2" />
-          고객에게 전송
-        </button>
-      </div>
+      </template>
     </div>
   </modal-vanilla>
 </template>

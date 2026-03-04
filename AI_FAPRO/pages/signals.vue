@@ -75,37 +75,41 @@
 
     <!-- AI Report Modal Wrapper -->
     <modal-vanilla
-      v-if="activeReportSignal"
+      v-if="isReportModalOpen"
       :is-open="isReportModalOpen"
       custom-dialog-class="ai-report-modal__dialog"
       @close="closeReport"
     >
       <template #header>
-        <div class="ai-report-modal__header">
-          <div class="ai-report-modal__header-content">
-            <div class="ai-report-modal__icon-box">
-              <activity-icon size="28" class="text-primary dark:text-primary-light" />
-            </div>
-            <div class="ai-report-modal__title-wrapper">
-              <div class="ai-report-modal__badges">
-                <span class="ai-report-modal__badge ai-report-modal__badge--cyan">신작출시</span>
-                <span class="ai-report-modal__badge ai-report-modal__badge--amber">거래량급증</span>
-                <span class="ai-report-modal__badge ai-report-modal__badge--purple">외국인매수</span>
+        <template v-if="activeReportSignal">
+          <div class="ai-report-modal__header">
+            <div class="ai-report-modal__header-content">
+              <div class="ai-report-modal__icon-box">
+                <activity-icon size="28" class="text-primary dark:text-primary-light" />
               </div>
-              <h2 class="ai-report-modal__title">
-                {{ activeReportSignal.name }}
-                <span class="ai-report-modal__ticker">{{ activeReportSignal.ticker }}</span>
-              </h2>
+              <div class="ai-report-modal__title-wrapper">
+                <div class="ai-report-modal__badges">
+                  <span class="ai-report-modal__badge ai-report-modal__badge--cyan">신작출시</span>
+                  <span class="ai-report-modal__badge ai-report-modal__badge--amber">거래량급증</span>
+                  <span class="ai-report-modal__badge ai-report-modal__badge--purple">외국인매수</span>
+                </div>
+                <h2 class="ai-report-modal__title">
+                  {{ activeReportSignal.name }}
+                  <span class="ai-report-modal__ticker">{{ activeReportSignal.ticker }}</span>
+                </h2>
+              </div>
             </div>
+            <button type="button" class="ai-report-modal__close-btn" @click="closeReport">
+              <x-icon size="24" />
+            </button>
           </div>
-          <button type="button" class="ai-report-modal__close-btn" @click="closeReport">
-            <x-icon size="24" />
-          </button>
-        </div>
+        </template>
       </template>
       <div class="ai-report-modal__content">
-        <!-- 150 line limit compliance: simplified modal content via generic placeholder or actual content -->
-        <a-i-report-content :signal="activeReportSignal" />
+        <template v-if="activeReportSignal">
+          <!-- 150 line limit compliance: simplified modal content via generic placeholder or actual content -->
+          <a-i-report-content :signal="activeReportSignal" />
+        </template>
       </div>
     </modal-vanilla>
   </div>
@@ -181,7 +185,6 @@ export default {
     },
     closeReport() {
       this.isReportModalOpen = false
-      // Let modal animation finish before removing data
       setTimeout(() => {
         this.activeReportSignal = null
       }, 300)

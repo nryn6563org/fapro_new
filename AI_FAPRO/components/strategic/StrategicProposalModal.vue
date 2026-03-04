@@ -1,5 +1,6 @@
 <template>
   <modal-vanilla
+    v-if="isOpen"
     :is-open="isOpen"
     custom-dialog-class="strategic-modal__dialog"
     @close="closeModal"
@@ -16,169 +17,71 @@
     </template>
 
     <!-- Body Component -->
-    <div v-if="stock" class="strategic-modal__body">
-      <!-- Stock Info -->
-      <div class="strategic-modal__info-card">
-        <div class="strategic-modal__info-header">
-          <div class="strategic-modal__info-left">
-            <h3 class="strategic-modal__stock-name">{{ stock.name }}</h3>
-            <span class="strategic-modal__badge">{{ stock.sector }}</span>
-          </div>
-          <span class="strategic-modal__stock-code">{{ stock.code }}</span>
-        </div>
-        <div class="strategic-modal__stats-grid">
-          <div class="strategic-modal__stat-col">
-            <span class="strategic-modal__stat-label">현재가</span>
-            <span class="strategic-modal__stat-value">{{ stock.currentPrice }}</span>
-          </div>
-          <div class="strategic-modal__stat-col">
-            <span class="strategic-modal__stat-label">등락률</span>
-            <span
-              :class="[
-                'strategic-modal__stat-change',
-                stock.isPositive
-                  ? 'strategic-modal__stat-change--up'
-                  : 'strategic-modal__stat-change--down'
-              ]"
+    <div class="strategic-modal__body">
+      <template v-if="stock">
+        <!-- Stock Details Preview -->
+        <StrategicStockPreview :stock="stock" />
+
+        <!-- Client Selection -->
+        <StrategicClientList 
+          :clients="clientsList" 
+          :selected-clients.sync="selectedClients" 
+        />
+
+        <!-- Transmission Method Tabs -->
+        <div class="strategic-modal__form-group">
+          <label class="strategic-modal__form-label">전송 방식</label>
+          <div class="strategic-modal__tabs">
+            <button 
+               :class="['strategic-modal__tab', transmissionMethod === 'sms' ? 'strategic-modal__tab--active-sms' : '']"
+               @click="transmissionMethod = 'sms'"
             >
-              {{ stock.changePercent }}
-            </span>
-          </div>
-          <div class="strategic-modal__stat-col">
-            <span class="strategic-modal__stat-label">시가총액</span>
-            <span class="strategic-modal__stat-value">{{ stock.marketCap }}</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Upside Driver -->
-      <div class="strategic-modal__section strategic-modal__section--upside">
-        <div class="strategic-modal__section-header">
-          <trending-up-icon class="strategic-modal__section-icon text-teal-600" />
-          <h3 class="strategic-modal__section-title">업사이드 드라이버</h3>
-        </div>
-        <div class="strategic-modal__point-list">
-          <div
-            v-for="(insight, idx) in stock.insights"
-            :key="idx"
-            class="strategic-modal__point-item"
-          >
-            <div class="strategic-modal__point-bullet bg-teal-500"></div>
-            <p class="strategic-modal__point-text">{{ insight }}</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- FA Opinion -->
-      <div class="strategic-modal__form-group">
-        <label class="strategic-modal__form-label">FA 의견 (선택사항)</label>
-        <textarea
-          v-model="faOpinion"
-          class="strategic-modal__textarea"
-          placeholder="고객에게 전달할 추가 의견을 입력하세요..."
-        ></textarea>
-      </div>
-
-      <!-- File Attachment Section -->
-      <div class="strategic-modal__form-group">
-        <div class="strategic-modal__form-header">
-          <label class="strategic-modal__form-label">첨부파일</label>
-          <button type="button" class="strategic-modal__btn-preview">
-            <file-text-icon class="w-3 h-3 mr-1" />
-            제안서 미리보기
-          </button>
-        </div>
-
-        <div class="strategic-modal__upload-box group">
-          <input id="file-upload" type="file" multiple class="hidden" @change="handleFileUpload" />
-          <label for="file-upload" class="strategic-modal__upload-label">
-            <upload-icon class="strategic-modal__upload-icon" />
-            <p class="strategic-modal__upload-text">
-              파일을 여기에 드래그하거나
-              <span class="strategic-modal__upload-text--highlight">클릭</span>하여 업로드
-            </p>
-            <p class="strategic-modal__upload-subtext">PDF, DOCX, XLSX 파일 지원 (최대 10MB)</p>
-          </label>
-        </div>
-
-        <!-- Attached Files List -->
-        <div v-if="attachedFiles.length > 0" class="strategic-modal__file-list">
-          <div v-for="(file, idx) in attachedFiles" :key="idx" class="strategic-modal__file-item">
-            <div class="strategic-modal__file-info">
-              <file-text-icon class="w-4 h-4 text-slate-500" />
-              <span class="strategic-modal__file-name">{{ file.name }}</span>
-              <span class="strategic-modal__file-size"
-                >({{ (file.size / 1024).toFixed(1) }}KB)</span
-              >
-            </div>
-            <button class="strategic-modal__file-remove" @click="removeFile(idx)">
-              <x-icon class="w-4 h-4" />
+              <message-square-icon class="w-4 h-4 mr-2" />
+              문자
+            </button>
+            <button 
+               :class="['strategic-modal__tab', transmissionMethod === 'kakao' ? 'strategic-modal__tab--active-kakao' : '']"
+               @click="transmissionMethod = 'kakao'"
+            >
+              <message-circle-icon class="w-4 h-4 mr-2" />
+              카카오톡
+            </button>
+             <button 
+               :class="['strategic-modal__tab', transmissionMethod === 'email' ? 'strategic-modal__tab--active-email' : '']"
+               @click="transmissionMethod = 'email'"
+            >
+              <mail-icon class="w-4 h-4 mr-2" />
+              이메일
             </button>
           </div>
         </div>
-      </div>
-
-      <!-- Client Selection -->
-      <div class="strategic-modal__form-group">
-        <label class="strategic-modal__form-label">고객 선택</label>
-        <div class="strategic-modal__client-list">
-          <div
-            v-for="(client, idx) in clientsList"
-            :key="client.id"
-            :class="[
-              'strategic-modal__client-item',
-              { 'strategic-modal__client-item--border': idx !== clientsList.length - 1 }
-            ]"
-          >
-            <input
-              :id="'client-' + client.id"
-              v-model="selectedClients"
-              type="checkbox"
-              :value="client.id"
-              class="strategic-modal__client-checkbox"
-            />
-            <label :for="'client-' + client.id" class="strategic-modal__client-label">
-              <div class="strategic-modal__client-info">
-                <div>
-                  <p class="strategic-modal__client-name">{{ client.name }}</p>
-                  <p class="strategic-modal__client-email">{{ client.email }}</p>
-                </div>
-                <div class="strategic-modal__client-portfolio">
-                  <p class="strategic-modal__client-portfolio-label">포트폴리오</p>
-                  <p class="strategic-modal__client-portfolio-value">{{ client.portfolio }}</p>
-                </div>
-              </div>
-            </label>
+        
+         <!-- Message Sample -->
+        <div class="strategic-modal__form-group">
+          <div class="strategic-modal__form-header">
+             <label class="strategic-modal__form-label">메시지 내용</label>
           </div>
+          <textarea
+            v-model="messageSample"
+            class="strategic-modal__textarea-message"
+            placeholder="전송될 메시지 내용입니다."
+          ></textarea>
         </div>
-        <div class="strategic-modal__client-summary">
-          <span class="strategic-modal__client-summary-count">{{ selectedClients.length }}명</span
-          >의 고객이 선택됨
-        </div>
-      </div>
 
-      <!-- Send Actions -->
-      <div class="strategic-modal__actions">
-        <button type="button" class="strategic-modal__btn-outline" @click="closeModal">취소</button>
-        <button
-          type="button"
-          class="strategic-modal__btn-primary"
-          :disabled="selectedClients.length === 0"
-          @click="sendEmail"
-        >
-          <mail-icon class="w-4 h-4 mr-2" />
-          이메일 전송
-        </button>
-        <button
-          type="button"
-          class="strategic-modal__btn-secondary"
-          :disabled="selectedClients.length === 0"
-          @click="sendKakao"
-        >
-          <message-circle-icon class="w-4 h-4 mr-2" />
-          카카오톡 전송
-        </button>
-      </div>
+        <!-- Send Actions -->
+        <div class="strategic-modal__actions">
+          <button type="button" class="strategic-modal__btn-outline" @click="closeModal">취소</button>
+          <button
+            type="button"
+            class="strategic-modal__btn-primary"
+            :disabled="selectedClients.length === 0"
+            @click="copyContent"
+          >
+            <copy-icon class="w-4 h-4 mr-2" />
+            내용복사
+          </button>
+        </div>
+      </template>
     </div>
   </modal-vanilla>
 </template>
@@ -189,12 +92,13 @@
  */
 import {
   XIcon,
-  TrendingUpIcon,
-  FileTextIcon,
-  UploadIcon,
   MailIcon,
-  MessageCircleIcon
+  MessageCircleIcon,
+  MessageSquareIcon,
+  CopyIcon
 } from 'vue-feather-icons'
+import StrategicStockPreview from '~/components/strategic/StrategicStockPreview.vue'
+import StrategicClientList from '~/components/strategic/StrategicClientList.vue'
 import ModalVanilla from '~/components/modal/ModalVanilla.vue'
 import { clients } from '~/utils/strategicStocksMockData.js'
 import '~/assets/css/pages/strategic-stocks/StrategicProposalModal/StrategicProposalModal.css'
@@ -203,12 +107,13 @@ export default {
   name: 'StrategicProposalModal',
   components: {
     ModalVanilla,
+    StrategicStockPreview,
+    StrategicClientList,
     XIcon,
-    TrendingUpIcon,
-    FileTextIcon,
-    UploadIcon,
     MailIcon,
-    MessageCircleIcon
+    MessageCircleIcon,
+    MessageSquareIcon,
+    CopyIcon
   },
   props: {
     isOpen: {
@@ -222,40 +127,38 @@ export default {
   },
   data() {
     return {
-      faOpinion: '',
-      attachedFiles: [],
+      transmissionMethod: 'kakao', // 'sms', 'kakao', 'email'
       selectedClients: [],
-      clientsList: clients
+      clientsList: clients,
+      messageSample: ''
     }
+  },
+  watch: {
+     stock: {
+        immediate: true,
+        handler(newStock) {
+           if (newStock) {
+              this.generateMessageSample()
+           }
+        }
+     }
   },
   methods: {
     closeModal() {
       this.$emit('close')
       // Reset form after animation
       setTimeout(() => {
-        this.faOpinion = ''
-        this.attachedFiles = []
         this.selectedClients = []
+        this.transmissionMethod = 'kakao'
       }, 300)
     },
-    handleFileUpload(e) {
-      if (e.target.files) {
-        // Convert FileList to Array and append
-        const filesArray = Array.from(e.target.files)
-        this.attachedFiles = [...this.attachedFiles, ...filesArray]
-      }
+    generateMessageSample() {
+       this.messageSample = `[AI 추천 전략 유망주]\n${this.stock.name} (${this.stock.code})\n\n고객님께 새로운 투자 기회를 안내해 드립니다.\n현재가: ${this.stock.currentPrice}원.\n\nAI 기반 상승 예측 내용과 상세 분석 리포트는 다음 링크에서 확인하실 수 있습니다.`
     },
-    removeFile(index) {
-      this.attachedFiles.splice(index, 1)
-    },
-    sendEmail() {
-      console.log(`이메일 전송: ${this.stock.name}`)
+    copyContent() {
+      console.log(`내용 복사됨:\n${this.messageSample}`)
       console.log(`선택된 고객: ${this.selectedClients.length}명`)
-      this.closeModal()
-    },
-    sendKakao() {
-      console.log(`카카오톡 전송: ${this.stock.name}`)
-      console.log(`선택된 고객: ${this.selectedClients.length}명`)
+      console.log(`전송 방식: ${this.transmissionMethod}`)
       this.closeModal()
     }
   }

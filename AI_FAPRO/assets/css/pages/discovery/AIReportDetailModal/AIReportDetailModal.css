@@ -2,18 +2,18 @@
 
 /* Modal Dialog Wrapper Override */
 .discovery-modal__dialog {
-  @apply max-w-4xl max-h-[90vh] mx-auto mt-10;
+  @apply max-w-4xl max-h-[90vh] mx-auto mt-10 rounded-3xl overflow-hidden shadow-2xl;
 }
 
 /* Header */
 .discovery-modal__header {
-  @apply flex items-center justify-between p-5 border-b border-slate-400 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 rounded-t-xl;
+  @apply flex w-full items-center justify-between p-6 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900;
 }
 .discovery-modal__header-content {
   @apply flex items-center gap-3;
 }
 .discovery-modal__header-icon {
-  @apply w-10 h-10 rounded-lg bg-orange-50 dark:bg-orange-900/30 flex items-center justify-center;
+  @apply w-12 h-12 rounded-2xl bg-amber-100/50 dark:bg-amber-900/30 flex items-center justify-center shadow-sm;
 }
 .discovery-modal__title {
   @apply text-xl font-bold text-slate-900 dark:text-white m-0;
@@ -27,12 +27,12 @@
 
 /* Body */
 .discovery-modal__body {
-  @apply p-6 space-y-6 bg-slate-100 dark:bg-slate-900 overflow-y-auto max-h-[calc(90vh-80px)];
+  @apply p-8 space-y-8 bg-white dark:bg-slate-900;
 }
 
 /* Info Card */
 .discovery-modal__info-card {
-  @apply p-5 bg-gradient-to-br from-slate-50 to-teal-50/50 dark:from-slate-800 dark:to-teal-900/20 border border-teal-100 dark:border-teal-900/50 rounded-xl;
+  @apply p-6 bg-gradient-to-br from-slate-50 to-teal-50/30 dark:from-slate-800/50 dark:to-teal-900/10 border border-teal-100 dark:border-teal-900/30 rounded-3xl shadow-sm;
 }
 .discovery-modal__info-header {
   @apply mb-4 pb-4 border-b border-slate-400 dark:border-slate-700/50;
@@ -41,7 +41,7 @@
   @apply text-2xl font-bold text-slate-900 dark:text-white mb-1;
 }
 .discovery-modal__report-title {
-  @apply text-sm text-slate-600 dark:text-slate-400;
+  @apply text-sm text-slate-500 dark:text-slate-400 font-medium;
 }
 
 /* Stats Grid */
@@ -69,13 +69,13 @@
   @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold w-max;
 }
 .discovery-modal__badge--buy {
-  @apply bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300;
+  @apply bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400 border border-red-100 dark:border-red-500/20;
 }
 .discovery-modal__badge--hold {
-  @apply bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300;
+  @apply bg-slate-50 text-slate-600 dark:bg-slate-500/10 dark:text-slate-400 border border-slate-100 dark:border-slate-500/20;
 }
 .discovery-modal__badge--sell {
-  @apply bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300;
+  @apply bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400 border border-blue-100 dark:border-blue-500/20;
 }
 
 /* Sections */
@@ -88,18 +88,18 @@
 
 /* Reason Box */
 .discovery-modal__reason-box {
-  @apply p-4 bg-slate-200 dark:bg-slate-800/50 rounded-lg border border-slate-300 dark:border-slate-700/50;
+  @apply p-5 bg-slate-50/50 dark:bg-slate-800/30 rounded-2xl border border-slate-100 dark:border-slate-800/40;
 }
 .discovery-modal__reason-text {
-  @apply text-sm text-slate-700 dark:text-slate-300 leading-relaxed;
+  @apply text-[13px] text-slate-700 dark:text-slate-300 font-medium whitespace-pre-wrap leading-relaxed break-keep;
 }
 
 /* Markdown Box */
 .discovery-modal__markdown-box {
-  @apply p-5 bg-slate-100 dark:bg-slate-900 rounded-lg border border-slate-400 dark:border-slate-700;
+  @apply p-6 bg-slate-50/30 dark:bg-slate-800/20 rounded-2xl border border-slate-100 dark:border-slate-800/30;
 }
 .discovery-modal__markdown-text {
-  @apply whitespace-pre-wrap font-sans text-sm text-slate-700 dark:text-slate-300 leading-relaxed m-0;
+  @apply whitespace-pre-wrap font-sans text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed m-0 break-keep;
 }
 
 /* Actions */
@@ -107,8 +107,8 @@
   @apply flex gap-3 pt-6 mt-6 border-t border-slate-400 dark:border-slate-800;
 }
 .discovery-modal__btn-primary {
-  @apply flex-1 flex items-center justify-center py-2.5 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-lg transition-colors border-0 cursor-pointer;
+  @apply flex-1 flex items-center justify-center py-3 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-xl transition-all duration-300 shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30 cursor-pointer active:scale-95 border-0;
 }
 .discovery-modal__btn-outline {
-  @apply flex-1 flex items-center justify-center py-2.5 bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600 font-semibold rounded-lg transition-colors cursor-pointer;
+  @apply flex-1 flex items-center justify-center py-3 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-bold rounded-xl transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer active:scale-95;
 }

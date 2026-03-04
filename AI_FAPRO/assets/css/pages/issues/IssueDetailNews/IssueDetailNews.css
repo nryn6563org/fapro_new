@@ -1,21 +1,21 @@
 .issue-detail__news-detail {
-  @apply mb-6;
+  @apply mb-0;
 }
 .issue-detail__news-content {
-  @apply space-y-3;
+  @apply space-y-3 flex-1 flex flex-col;
 }
 .issue-detail__news-summary-box {
-  @apply p-4 bg-gradient-to-br from-teal-50 to-white dark:from-teal-900/10 dark:to-slate-900 rounded-xl border-2 border-teal-500/30;
+  @apply p-4 bg-gradient-to-br from-teal-50 to-white dark:from-teal-900/10 dark:to-slate-900 rounded-xl border border-teal-200 dark:border-teal-800 shadow-sm;
 }
 .issue-detail__news-list {
-  @apply space-y-2;
+  @apply flex flex-col gap-3 mt-4;
 }
 .issue-detail__news-item {
-  @apply flex items-start gap-3 p-4 bg-slate-100 dark:bg-slate-800 border border-slate-400 dark:border-slate-700 rounded-lg hover:shadow-md transition-all;
+  @apply flex items-start gap-3 p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer;
 }
 .issue-detail__news-fav {
   @apply w-5 h-5 mt-0.5 object-contain flex-shrink-0 rounded;
 }
 .issue-detail__news-time {
-  @apply inline-flex px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-500 text-[10px] rounded;
+  @apply inline-flex px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-500 text-xs rounded;
 }

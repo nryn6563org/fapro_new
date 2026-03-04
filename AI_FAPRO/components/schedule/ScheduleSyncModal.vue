@@ -40,7 +40,7 @@
         <div class="schedule-sync-modal__header">
           <div class="schedule-sync-modal__header-content">
             <div class="schedule-sync-modal__icon-box schedule-sync-modal__icon-box--red">
-              <unlink-icon class="schedule-sync-modal__main-icon" />
+              <alert-triangle-icon class="schedule-sync-modal__main-icon text-red-600 dark:text-red-500" />
             </div>
             <h2 class="schedule-sync-modal__title">동기화 해제</h2>
           </div>
@@ -49,7 +49,7 @@
           </button>
         </div>
         <div class="schedule-sync-modal__section">
-          <p class="schedule-sync-modal__description">Google Calendar와의 동기화를 해제하시겠습니까?</p>
+          <p class="schedule-sync-modal__description-bold">동기화를 해제하시겠습니까?</p>
           <div class="schedule-sync-modal__alert">
             <p class="schedule-sync-modal__alert-text m-0">
               동기화를 해제하면 실시간 일정 업데이트 및 자동 동기화 기능이 비활성화됩니다.
@@ -57,9 +57,8 @@
           </div>
         </div>
         <div class="schedule-sync-modal__footer">
-          <button class="schedule-sync-modal__btn-cancel" @click="$emit('close')">취소</button>
+          <button class="schedule-sync-modal__btn-cancel" @click="$emit('close')">닫기</button>
           <button class="schedule-sync-modal__btn-danger" @click="$emit('confirm-unsync')">
-            <unlink-icon class="schedule-sync-modal__btn-icon" />
             동기화 해제
           </button>
         </div>
@@ -81,7 +80,7 @@
 /**
  * 기능: 캘린더 동기화 관련 모달 (동기화 시작, 해제, 진행 중)
  */
-import { LinkIcon, XIcon, CheckCircleIcon, LoaderIcon } from 'vue-feather-icons'
+import { LinkIcon, XIcon, CheckCircleIcon, LoaderIcon, AlertTriangleIcon } from 'vue-feather-icons'
 import '~/assets/css/pages/schedule/ScheduleSyncModal/ScheduleSyncModal.css'
 
 export default {
@@ -90,7 +89,8 @@ export default {
     LinkIcon,
     XIcon,
     CheckCircleIcon,
-    LoaderIcon
+    LoaderIcon,
+    AlertTriangleIcon
   },
   props: {
     show: { type: Boolean, default: false },

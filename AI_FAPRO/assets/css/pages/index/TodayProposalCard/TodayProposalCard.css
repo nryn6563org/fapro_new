@@ -10,20 +10,24 @@
 }
 
 /* Header */
-.proposal-header {
-  @apply flex items-center mb-6 gap-3;
+.today-proposal__header {
+  @apply flex mb-6 justify-between;
 }
 
-.today-proposal__title {
-  @apply text-3xl font-black text-slate-900 dark:text-white tracking-tight;
+.today-proposal__header-title {
+  @apply text-2xl font-black text-slate-900 dark:text-white tracking-tight;
 }
 
-.today-proposal__badge {
-  @apply bg-primary text-white px-3.5 py-1.5 rounded-full text-[13px] font-bold shadow-sm;
+.today-proposal__header-refresh-btn {
+  @apply flex items-center gap-2 px-3 py-1.5 bg-[#14B8A6] hover:bg-[#0D9488] text-white rounded-lg transition-colors shadow-sm w-fit;
 }
 
-.proposal-header__badge {
-  @apply ml-2;
+.today-proposal__header-refresh-icon {
+  @apply w-3.5 h-3.5;
+}
+
+.today-proposal__header-refresh-text {
+  @apply text-sm font-semibold;
 }
 
 /* Grid */
@@ -35,18 +39,17 @@
   BEM Block: proposal-card
 */
 .proposal-card {
-  @apply border-l-[3px] bg-slate-100 dark:bg-slate-800/80 rounded-2xl shadow-sm border border-slate-300 dark:border-slate-700/50 transition-all hover:shadow-md;
+  @apply bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden;
 }
 
-.proposal-card--teal {
-  @apply border-l-emerald-400 dark:border-l-emerald-500;
+.proposal-card::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-1.5 opacity-80;
 }
-.proposal-card--orange {
-  @apply border-l-amber-400 dark:border-l-amber-500;
-}
-.proposal-card--violet {
-  @apply border-l-violet-400 dark:border-l-violet-500;
-}
+
+.proposal-card--teal::before { @apply bg-gradient-to-r from-emerald-400 to-emerald-500; }
+.proposal-card--orange::before { @apply bg-gradient-to-r from-amber-400 to-amber-500; }
+.proposal-card--violet::before { @apply bg-gradient-to-r from-violet-400 to-violet-500; }
 
 .proposal-card--delay-100 {
   animation-delay: 100ms;
@@ -84,7 +87,7 @@
 }
 
 .proposal-item__top {
-  @apply flex items-center justify-between mb-2 gap-2;
+  @apply flex items-start justify-between mb-2 gap-3;
 }
 
 .proposal-item__info {
@@ -92,7 +95,7 @@
 }
 
 .proposal-item__name-row {
-  @apply flex items-center gap-2 flex-wrap;
+  @apply flex items-center gap-2;
 }
 
 .proposal-item__name {
@@ -116,45 +119,43 @@
 }
 
 /* Global Badges/Buttons inside component */
-.badge {
-  @apply rounded-full px-2.5 py-0.5 text-xs font-bold font-sans inline-block whitespace-nowrap tracking-wide;
+.today-proposal__badge {
+  @apply rounded-full px-3 py-1 text-[11px] font-bold tracking-wider uppercase;
 }
-.badge--teal {
-  @apply bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400;
+.today-proposal__badge--teal {
+  @apply bg-emerald-100/50 text-emerald-700 dark:bg-emerald-400/10 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-400/20;
 }
-.badge--orange {
-  @apply bg-amber-50 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400;
+.today-proposal__badge--orange {
+  @apply bg-amber-100/50 text-amber-700 dark:bg-amber-400/10 dark:text-amber-400 border border-amber-200/50 dark:border-amber-400/20;
 }
-.badge--violet {
-  @apply bg-violet-50 text-violet-600 dark:bg-violet-900/30 dark:text-violet-400;
+.today-proposal__badge--violet {
+  @apply bg-violet-100/50 text-violet-700 dark:bg-violet-400/10 dark:text-violet-400 border border-violet-200/50 dark:border-violet-400/20;
 }
 
-.badge--outline {
+.today-proposal__badge--outline {
   @apply border text-xs;
 }
-.badge--outline-red {
+.today-proposal__badge--outline-red {
   @apply border-red-200 text-red-600 bg-slate-100 dark:border-red-800 dark:text-red-400 dark:bg-slate-800;
 }
-.badge--outline-blue {
+.today-proposal__badge--outline-blue {
   @apply border-blue-200 text-blue-600 bg-slate-100 dark:border-blue-800 dark:text-blue-400 dark:bg-slate-800;
 }
 
-.btn {
-  @apply rounded-xl font-bold transition-all flex justify-center items-center shadow-sm hover:-translate-y-0.5;
-}
-.btn--sm {
-  @apply h-8 px-4 text-xs flex-shrink-0;
+.today-proposal__btn {
+  @apply flex items-center justify-center font-bold transition-all duration-300 active:scale-95 px-4 text-xs h-9 rounded-xl;
 }
 
-.btn__icon {
-  @apply mr-1.5;
+.today-proposal__btn--teal {
+  @apply bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/20 hover:shadow-lg hover:shadow-emerald-500/30;
 }
-.btn--teal {
-  @apply bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/20 hover:shadow-emerald-500/40;
+.today-proposal__btn--orange {
+  @apply bg-amber-500 hover:bg-amber-600 text-white shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30;
 }
-.btn--orange {
-  @apply bg-amber-500 hover:bg-amber-600 text-white shadow-amber-500/20 hover:shadow-amber-500/40;
+.today-proposal__btn--violet {
+  @apply bg-violet-500 hover:bg-violet-600 text-white shadow-violet-500/20 hover:shadow-lg hover:shadow-violet-500/30;
 }
-.btn--violet {
-  @apply bg-violet-500 hover:bg-violet-600 text-white shadow-violet-500/20 hover:shadow-violet-500/40;
+
+.today-proposal__btn-icon {
+  @apply mr-2;
 }

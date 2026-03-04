@@ -9,7 +9,7 @@
                 <credit-card-icon class="w-6 h-6 text-slate-600" />
                 <div>
                   <p class="font-bold text-slate-900 dark:text-white m-0">{{ paymentMethod }}</p>
-                  <p class="text-[10px] text-slate-500 m-0 mt-1 font-bold">주결제 카드</p>
+                  <p class="text-xs text-slate-500 m-0 mt-1 font-bold">주결제 카드</p>
                 </div>
               </div>
               <button class="settings-billing__change-btn">변경</button>
@@ -35,10 +35,12 @@
 
         <div class="settings-billing__divider"></div>
 
-      <!-- Actions -->
       <div class="space-y-2 mt-4">
         <button class="settings-billing__action-btn">결제 내역 조회</button>
-        <button class="settings-billing__action-btn settings-billing__action-btn--danger">
+        <button
+          class="settings-billing__action-btn settings-billing__action-btn--danger"
+          @click="cancelSubscription"
+        >
           구독 취소
         </button>
       </div>
@@ -61,6 +63,11 @@ export default {
     paymentMethod: { type: String, required: true },
     nextBillingDate: { type: String, required: true },
     monthlyPrice: { type: Number, required: true }
+  },
+  methods: {
+    cancelSubscription() {
+      alert('준비중 입니다')
+    }
   }
 }
 </script>

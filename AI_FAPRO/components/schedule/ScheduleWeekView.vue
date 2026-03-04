@@ -84,14 +84,20 @@ export default {
     },
     getWeekdayClass(date) {
       const d = date.getDay()
-      if (d === 0) return 'text-red-600'
-      if (d === 6) return 'text-blue-600'
-      return 'text-slate-600 dark:text-slate-400'
+      if (d === 0) return 'text-red-500 dark:text-red-400'
+      if (d === 6) return 'text-blue-500 dark:text-blue-400'
+      return 'text-slate-500 dark:text-slate-400'
     },
     getDateNumClass(date) {
       if (this.isToday(date)) return 'week-view__date-num--today'
-      if (this.isSelected(date)) return 'text-blue-600 font-bold'
-      return ''
+      
+      let baseClass = 'text-slate-700 dark:text-slate-300'
+      const d = date.getDay()
+      if (d === 0) baseClass = 'text-red-500 dark:text-red-400'
+      if (d === 6) baseClass = 'text-blue-500 dark:text-blue-400'
+
+      if (this.isSelected(date)) return `${baseClass} font-black`
+      return baseClass
     },
     getEventsForSlot(day, hour) {
       return this.events.filter((e) => {

@@ -10,7 +10,7 @@
 
 /* Header */
 .issue-detail__header {
-  @apply mb-6;
+  @apply mb-6 pb-4 border-b border-slate-200 dark:border-slate-800;
 }
 .issue-detail__title-info {
   @apply flex items-center gap-3;
@@ -39,7 +39,16 @@
   @apply text-sm text-slate-600 dark:text-slate-400 mt-1 m-0;
 }
 
-
+/* Two Column Layout */
+.issue-detail__body-grid {
+  @apply grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-8;
+}
+.issue-detail__col-left {
+  @apply flex flex-col gap-6;
+}
+.issue-detail__col-right {
+  @apply flex flex-col gap-6;
+}
 
 /* Segment Section */
 .issue-detail__segment {

@@ -16,7 +16,7 @@
     <div class="space-y-4">
       <div class="flex items-center gap-2">
         <h3 class="plan-card__title">{{ label }}</h3>
-        <star-icon v-if="type === 'pro'" class="w-5 h-5 text-[#F59E0B]" />
+        <star-icon v-if="type === 'pro'" class="plan-card__crown-icon" />
       </div>
 
       <div>
@@ -32,11 +32,11 @@
         <div v-for="(feature, i) in features" :key="i" class="plan-card__feature">
           <check-icon
             :class="[
-              'w-4 h-4 flex-shrink-0 mt-0.5',
-              type === 'pro' ? 'text-[#F59E0B]' : 'text-[#14B8A6]'
+              'plan-card__feature-icon',
+              type === 'pro' ? 'plan-card__feature-icon--pro' : 'plan-card__feature-icon--basic'
             ]"
           />
-          <span class="text-sm text-slate-600 dark:text-slate-400">{{ feature }}</span>
+          <span class="text-sm text-slate-600 dark:text-slate-400 font-bold">{{ feature }}</span>
         </div>
       </div>
     </div>

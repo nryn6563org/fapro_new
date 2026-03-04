@@ -1,8 +1,8 @@
 <template>
-  <div v-if="issue && issue.newsSummary" class="issue-detail__news-detail">
+  <div v-if="issue && issue.newsSummary" class="issue-detail__news-detail flex flex-col gap-6">
     <div class="issue-detail__section-label">
       <book-open-icon class="issue-detail__section-icon text-teal-500" />
-      <h5 class="issue-detail__section-title">관력 뉴스 상세</h5>
+      <h5 class="issue-detail__section-title">관련 뉴스 상세</h5>
     </div>
     <div class="issue-detail__news-content">
       <div class="issue-detail__news-summary-box">
@@ -10,7 +10,7 @@
           <zap-icon class="w-4 h-4 text-teal-500" />
           <p class="text-xs font-bold text-teal-600">AI 뉴스 요약</p>
         </div>
-        <p class="text-sm text-slate-700 dark:text-slate-300">{{ issue.newsSummary }}</p>
+        <p class="text-[13px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed">{{ issue.newsSummary }}</p>
       </div>
       <div class="issue-detail__news-list">
         <div

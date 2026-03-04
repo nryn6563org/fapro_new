@@ -1,69 +1,66 @@
 <template>
   <div class="ai-report-send">
     <div class="ai-report-send__card">
-      <div class="ai-report-send__card-header pb-4">
+      <div class="ai-report-send__card-header pb-4 border-b border-slate-200 dark:border-slate-700">
         <h3 class="ai-report-send__card-title">
           <mail-icon size="20" class="ai-report-send__title-icon" />
-          고객에게 리포트 전송
+          이 종목을 제안 하면 좋을 고객
         </h3>
       </div>
-      <div class="ai-report-send__card-body">
+      <div class="ai-report-send__card-body pt-4">
         <div class="ai-report-send__content-wrapper">
           <!-- 고객 선택 영역 -->
           <div class="ai-report-send__target-section">
             <div class="ai-report-send__target-header">
-              <label class="ai-report-send__target-label">전송 대상 선택</label>
-              <button class="ai-report-send__select-all-btn">전체 선택</button>
+              <div class="ai-report-send__target-info">
+                <label class="ai-report-send__target-label">전송 대상 선택</label>
+                <span class="ai-report-send__target-desc">(전송 대상은 AI로직에 의해 해당 종목에 매칭된 고객이 추천 되었습니다.)</span>
+              </div>
+              <label class="ai-report-send__select-all">
+                <input v-model="selectAll" type="checkbox" class="ai-report-send__select-all-checkbox" @change="toggleSelectAll" />
+                <span class="ai-report-send__select-all-text">전체 선택</span>
+              </label>
             </div>
             
-            <!-- 고객 리스트 (스크롤) -->
-            <div class="ai-report-send__target-list">
+            <!-- 고객 리스트 (그리드) -->
+            <div class="ai-report-send__target-grid">
               <label 
                 v-for="(client, idx) in clients" 
                 :key="idx"
-                class="ai-report-send__client-item"
+                class="ai-report-send__client-card"
+                :class="{'ai-report-send__client-card--active': selectedClients.includes(client.id)}"
               >
-                <input type="checkbox" class="ai-report-send__client-checkbox" />
+                <input v-model="selectedClients" type="checkbox" :value="client.id" class="ai-report-send__client-checkbox" />
                 <div class="ai-report-send__client-info">
                   <div class="ai-report-send__client-header">
-                    <span class="ai-report-send__client-name">{{ client.name }}</span>
+                    <div class="ai-report-send__client-name-wrap">
+                      <span class="ai-report-send__client-name">{{ client.name }}</span>
+                      <span class="ai-report-send__client-email">({{ client.email }})</span>
+                    </div>
                     <span 
                       class="ai-report-send__client-badge"
-                      :class="client.status === 'VIP' ? 'ai-report-send__client-badge--vip' : 'ai-report-send__client-badge--normal'"
+                      :class="getBadgeClass(client.type)"
                     >
-                      {{ client.status }}
+                      {{ client.type }}
                     </span>
                   </div>
-                  <p class="ai-report-send__client-email">{{ client.email }}</p>
-                  <p class="ai-report-send__client-portfolio">포트폴리오: {{ client.portfolio }}</p>
+                  <div class="ai-report-send__client-details">
+                    <p class="ai-report-send__client-memo">고객 특이사항: {{ client.memo }}</p>
+                    <p class="ai-report-send__client-assets">총 자산: {{ client.assets }} / 총 수익률: {{ client.return }}</p>
+                  </div>
                 </div>
               </label>
             </div>
           </div>
 
-          <!-- 이메일 내용 미리보기 -->
-          <div class="ai-report-send__preview-box">
-            <div class="ai-report-send__preview-icon-wrapper">
-              <message-circle-icon size="20" class="ai-report-send__preview-icon" />
-            </div>
-            <div class="ai-report-send__preview-content">
-              <p class="ai-report-send__preview-title">이메일 제목</p>
-              <p class="ai-report-send__preview-subject">[{{ signal?.name || '종목명' }}] AI 투자 리포트 - Alpha Platform</p>
-              <p class="ai-report-send__preview-desc">
-                고객님께 맞춤형 AI 분석 리포트를 보내드립니다. 
-                종목 상세 정보, AI 스코어, 투자 포인트 및 리스크 분석이 포함됩니다.
-              </p>
-            </div>
-          </div>
-
           <!-- 전송 버튼 영역 -->
           <div class="ai-report-send__action-group">
-            <button class="ai-report-send__btn-primary">
-              <send-icon size="16" class="mr-2" />
-              선택한 고객에게 전송
+            <button class="ai-report-send__btn-primary" :disabled="selectedClients.length === 0">
+              <send-icon size="20" class="mr-2" />
+              선택한 고객에게 이메일 전송
             </button>
             <button class="ai-report-send__btn-secondary">
-              <download-icon size="16" class="mr-2" />
+              <download-icon size="20" class="mr-2" />
               PDF 다운로드
             </button>
           </div>
@@ -77,14 +74,13 @@
 /**
  * 기능: AI 리포트의 고객 발송 영역 (모달 하단 전체 너비)
  */
-import { MailIcon, MessageCircleIcon, SendIcon, DownloadIcon } from 'vue-feather-icons'
+import { MailIcon, SendIcon, DownloadIcon } from 'vue-feather-icons'
 import '~/assets/css/pages/signals/modal/AIReportCustomerSend.css'
 
 export default {
   name: 'AIReportCustomerSend',
   components: {
     MailIcon,
-    MessageCircleIcon,
     SendIcon,
     DownloadIcon
   },
@@ -96,18 +92,37 @@ export default {
   },
   data() {
     return {
-      // Mock Data based on the React legacy code
+      selectAll: true,
+      selectedClients: ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'],
+      // Mock Data based on the UI flow #9
       clients: [
-        { name: "김철수", email: "kim@example.com", portfolio: "3.2억", status: "VIP" },
-        { name: "이영희", email: "lee@example.com", portfolio: "1.8억", status: "일반" },
-        { name: "박민수", email: "park@example.com", portfolio: "5.1억", status: "VIP" },
-        { name: "최수진", email: "choi@example.com", portfolio: "2.4억", status: "일반" },
-        { name: "정대호", email: "jung@example.com", portfolio: "4.7억", status: "VIP" },
-        { name: "강유진", email: "kang@example.com", portfolio: "1.5억", status: "일반" },
-        { name: "윤서준", email: "yoon@example.com", portfolio: "3.9억", status: "VIP" },
-        { name: "임하은", email: "lim@example.com", portfolio: "2.1억", status: "일반" },
-        { name: "한지우", email: "han@example.com", portfolio: "6.3억", status: "VIP" },
+        { id: 'c1', name: '김철수', email: 'test@gmail.com', type: '공격투자형', memo: 'AI반도체 관심 높음', assets: '3.2억', return: '23.1%' },
+        { id: 'c2', name: '이영희', email: 'test@gmail.com', type: '안정형', memo: 'AI반도체 관심 높음', assets: '3.2억', return: '23.1%' },
+        { id: 'c3', name: '박민수', email: 'test@gmail.com', type: '공격투자형', memo: 'AI반도체 관심 높음', assets: '3.2억', return: '23.1%' },
+        { id: 'c4', name: '최수진', email: 'test@gmail.com', type: '단기매입형', memo: 'AI반도체 관심 높음', assets: '3.2억', return: '23.1%' },
+        { id: 'c5', name: '정대호', email: 'test@gmail.com', type: '공격투자형', memo: 'AI반도체 관심 높음', assets: '3.2억', return: '23.1%' },
+        { id: 'c6', name: '강유진', email: 'test@gmail.com', type: '중립형', memo: 'AI반도체 관심 높음', assets: '3.2억', return: '23.1%' },
       ]
+    }
+  },
+  watch: {
+    selectedClients(val) {
+      this.selectAll = val.length === this.clients.length && this.clients.length > 0
+    }
+  },
+  methods: {
+    toggleSelectAll() {
+      if (this.selectAll) {
+        this.selectedClients = this.clients.map(c => c.id)
+      } else {
+        this.selectedClients = []
+      }
+    },
+    getBadgeClass(type) {
+      if (type === '공격투자형') return 'ai-report-send__client-badge--aggressive'
+      if (type === '안정형') return 'ai-report-send__client-badge--stable'
+      if (type === '단기매입형') return 'ai-report-send__client-badge--shortterm'
+      return 'ai-report-send__client-badge--neutral'
     }
   }
 }

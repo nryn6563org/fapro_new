@@ -1,8 +1,7 @@
 <template>
   <div class="intelligence-section">
     <div class="intelligence-section__header">
-      <h2 class="intelligence-section__title">고객 인텔리전스</h2>
-      <span class="badge badge--violet-solid">AI 분석</span>
+      <h2 class="intelligence-section__title">스마트 고객관리</h2>
     </div>
 
     <div class="intelligence-section__grid">
@@ -11,9 +10,9 @@
         <header class="intelligence-card__header">
           <div class="intelligence-card__header-content">
             <h3 class="intelligence-card__title">매수 대기 고객</h3>
-            <span class="badge badge--amber">{{ cashHolding.length }}명</span>
+            <span class="intelligence-card__badge intelligence-card__badge--amber">{{ cashHolding.length }}명</span>
           </div>
-          <p class="intelligence-card__desc">계좌 예수금이 많거나 현금 비중이 높은 고객들입니다.</p>
+          <p class="intelligence-card__desc">예수금이 많거나 현금 비중이 높은 고객들입니다.</p>
         </header>
         <div class="intelligence-card__body">
           <div
@@ -44,15 +43,15 @@
             </div>
 
             <div class="intelligence-alert intelligence-alert--amber">
-              <div class="intelligence-alert__title intelligence-alert__title--amber">💰 AI 투자 제안</div>
+              <div class="intelligence-alert__title intelligence-alert__title--amber">✨ AI 투자 제안</div>
               <div class="intelligence-alert__text">{{ item.aiKeyword }}</div>
             </div>
 
             <button
-              class="btn btn--block btn--amber-solid"
+              class="intelligence-card__btn intelligence-card__btn--block intelligence-card__btn--amber-solid"
               @click="$emit('propose', 'CustomerIntelligence', item)"
             >
-              <send-icon size="12" class="btn__icon--mr-1" /> 제안하기
+              <send-icon size="12" class="intelligence-card__btn-icon" /> 제안하기
             </button>
           </div>
         </div>
@@ -63,9 +62,9 @@
         <header class="intelligence-card__header">
           <div class="intelligence-card__header-content">
             <h3 class="intelligence-card__title">수익률 상위 고객</h3>
-            <span class="badge badge--emerald">{{ topPerforming.length }}명</span>
+            <span class="intelligence-card__badge intelligence-card__badge--emerald">{{ topPerforming.length }}명</span>
           </div>
-          <p class="intelligence-card__desc">자산 수익률 상승률이 높은 고객들입니다.</p>
+          <p class="intelligence-card__desc">자산 수익 상승률이 높은 고객들입니다.</p>
         </header>
         <div class="intelligence-card__body">
           <div
@@ -96,15 +95,15 @@
             </div>
 
             <div class="intelligence-alert intelligence-alert--emerald">
-              <div class="intelligence-alert__title intelligence-alert__title--emerald">🎯 AI 대응 전략</div>
+              <div class="intelligence-alert__title intelligence-alert__title--emerald">✨ AI 대응 전략</div>
               <div class="intelligence-alert__text">{{ item.aiStrategy }}</div>
             </div>
 
             <button
-              class="btn btn--block btn--emerald-solid"
+              class="intelligence-card__btn intelligence-card__btn--block intelligence-card__btn--emerald-solid"
               @click="$emit('propose', 'CustomerIntelligence', item)"
             >
-              <send-icon size="12" class="btn__icon--mr-1" /> 제안하기
+              <send-icon size="12" class="intelligence-card__btn-icon" /> 제안하기
             </button>
           </div>
         </div>
@@ -115,9 +114,9 @@
         <header class="intelligence-card__header">
           <div class="intelligence-card__header-content">
             <h3 class="intelligence-card__title">수익률 하위 고객</h3>
-            <span class="badge badge--rose">{{ declining.length }}명</span>
+            <span class="intelligence-card__badge intelligence-card__badge--rose">{{ declining.length }}명</span>
           </div>
-          <p class="intelligence-card__desc">자산 수익률 하락률이 높은 고객들입니다.</p>
+          <p class="intelligence-card__desc">자산 수익 하락률이 높은 고객들입니다.</p>
         </header>
         <div class="intelligence-card__body">
           <div
@@ -146,15 +145,15 @@
             </div>
 
             <div class="intelligence-alert intelligence-alert--rose">
-              <div class="intelligence-alert__title intelligence-alert__title--rose">🎯 AI 대응 전략</div>
+              <div class="intelligence-alert__title intelligence-alert__title--rose">✨ AI 대응 전략</div>
               <div class="intelligence-alert__text">{{ item.aiStrategy }}</div>
             </div>
 
             <button
-              class="btn btn--block btn--rose-solid"
+              class="intelligence-card__btn intelligence-card__btn--block intelligence-card__btn--rose-solid"
               @click="$emit('propose', 'CustomerIntelligence', item)"
             >
-              <send-icon size="12" class="btn__icon--mr-1" /> 제안하기
+              <send-icon size="12" class="intelligence-card__btn-icon" /> 제안하기
             </button>
           </div>
         </div>

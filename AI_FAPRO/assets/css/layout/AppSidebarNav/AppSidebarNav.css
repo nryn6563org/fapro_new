@@ -7,15 +7,23 @@
 }
 
 .app-sidebar__nav-item {
-  @apply flex items-center gap-3 px-6 py-3 font-medium text-sm text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light transition-colors cursor-pointer;
+  @apply flex items-center gap-3 px-6 py-3 font-medium text-sm text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light transition-all duration-200 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50;
+}
+
+.app-sidebar__nav-item:hover .app-sidebar__nav-icon {
+  @apply scale-110;
+}
+
+.app-sidebar__nav-icon {
+  @apply transition-transform duration-200;
 }
 
 .app-sidebar__nav-item--active {
-  @apply bg-primary-light dark:bg-primary/20 text-primary font-bold border-r-4 border-primary;
+  @apply bg-primary/10 dark:bg-primary/20 text-primary font-bold border-r-4 border-primary shadow-sm;
 }
 
 .app-sidebar__nav-item--parent-active {
-  @apply bg-primary-light dark:bg-primary/20 text-primary font-bold;
+  @apply bg-primary/5 dark:bg-primary/10 text-primary font-bold;
 }
 
 .app-sidebar--collapsed .app-sidebar__nav-item--parent-active {
@@ -27,11 +35,11 @@
 }
 
 .app-sidebar__subnav {
-  @apply flex flex-col bg-slate-200 dark:bg-slate-800/30 py-1;
+  @apply flex flex-col bg-slate-50/50 dark:bg-slate-800/20 py-1 border-l-2 border-slate-200 dark:border-slate-800 ml-8 my-1 rounded-l-lg;
 }
 
 .app-sidebar__subnav-item {
-  @apply flex items-center gap-2 px-6 py-2.5 pl-[3.25rem] font-medium text-sm text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light transition-colors cursor-pointer;
+  @apply flex items-center gap-2 px-6 py-2 font-medium text-[13px] text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light transition-all duration-200 cursor-pointer rounded-r-lg hover:bg-primary/5;
 }
 
 .app-sidebar__subnav-item--active {

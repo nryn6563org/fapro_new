@@ -2,22 +2,18 @@
   <div class="strategic-page">
     <!-- Header -->
     <div class="strategic-page__header">
-      <div>
+      <div class="strategic-page__title-box">
         <h1 class="strategic-page__title">AI 전략 유망주</h1>
-        <p class="strategic-page__subtitle">AI가 발굴한 중소형 성장 유망 종목</p>
+        <p class="strategic-page__subtitle">AI가 발굴한 오늘의 유망주 입니다.</p>
       </div>
-      <div class="strategic-page__actions">
-        <div class="strategic-page__info">
-          <div class="strategic-page__info-text">
-            오늘 현재 <span class="strategic-page__info-highlight">{{ stocks.length }}개</span> 종목
-            발굴
-          </div>
-          <div class="strategic-page__info-time">
-            {{ formatDateTime(lastUpdated) }}
-          </div>
+      <div class="strategic-page__action-box">
+        <div class="strategic-page__time-info">
+          <p class="strategic-page__time-text">{{ formattedTime }}</p>
+          <p class="strategic-page__time-label">최종 업데이트</p>
         </div>
-        <button class="strategic-page__refresh-btn" @click="handleRefresh">
-          <refresh-cw-icon class="w-4 h-4" />
+        <button class="strategic-page__refresh-btn" @click="refreshData">
+          <refresh-cw-icon size="16" class="strategic-page__refresh-icon" />
+          <span class="strategic-page__refresh-text">새로고침</span>
         </button>
       </div>
     </div>
@@ -35,6 +31,7 @@
     </div>
 
     <strategic-proposal-modal
+      v-if="selectedStock"
       :is-open="isProposalModalOpen"
       :stock="selectedStock"
       @close="closeProposalModal"
@@ -62,11 +59,31 @@ export default {
   data() {
     return {
       stocks,
-      expandedCards: [1], // Expand first card by default
       lastUpdated: new Date(),
+      currentTime: new Date(),
+      timer: null,
       isProposalModalOpen: false,
-      selectedStock: null
+      selectedStock: null,
+      expandedCards: []
     }
+  },
+  computed: {
+    formattedTime() {
+      const d = this.currentTime
+      return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(
+        d.getDate()
+      ).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(
+        d.getMinutes()
+      ).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`
+    }
+  },
+  mounted() {
+    this.timer = setInterval(() => {
+      this.currentTime = new Date()
+    }, 1000)
+  },
+  beforeDestroy() {
+    if (this.timer) clearInterval(this.timer)
   },
   methods: {
     toggleCard(id) {
@@ -76,17 +93,8 @@ export default {
         this.expandedCards.push(id)
       }
     },
-    handleRefresh() {
-      this.lastUpdated = new Date()
-    },
-    formatDateTime(date) {
-      if (!date) return ''
-      const year = date.getFullYear()
-      const month = String(date.getMonth() + 1).padStart(2, '0')
-      const day = String(date.getDate()).padStart(2, '0')
-      const hours = String(date.getHours()).padStart(2, '0')
-      const minutes = String(date.getMinutes()).padStart(2, '0')
-      return `${year}.${month}.${day} ${hours}:${minutes}`
+    refreshData() {
+      this.currentTime = new Date()
     },
     openProposalModal(stock) {
       this.selectedStock = stock
@@ -96,7 +104,7 @@ export default {
       this.isProposalModalOpen = false
       setTimeout(() => {
         this.selectedStock = null
-      }, 300) // Clear after animation
+      }, 300)
     }
   }
 }

@@ -31,12 +31,7 @@
               {{ customer.totalAssets }}
             </td>
             <td class="customer-table__td">
-              <div class="flex items-center gap-2">
-                <span class="text-slate-700 dark:text-slate-300">{{ customer.holdings }}</span>
-                <button class="customer-table__info-chip" @click="$emit('view-holdings', customer)">
-                  <info-icon class="w-3.5 h-3.5 text-white" />
-                </button>
-              </div>
+              <span class="text-slate-700 dark:text-slate-300">{{ customer.holdings }}</span>
             </td>
             <td class="customer-table__td customer-table__td--notes">
               {{ customer.notes }}
@@ -58,14 +53,13 @@
 /**
  * 기능: 고객 목록 테이블
  */
-import { UserIcon, InfoIcon } from 'vue-feather-icons'
+import { UserIcon } from 'vue-feather-icons'
 import '~/assets/css/pages/customers/CustomerListTable/CustomerListTable.css'
 
 export default {
   name: 'CustomerListTable',
   components: {
-    UserIcon,
-    InfoIcon
+    UserIcon
   },
   props: {
     customers: { type: Array, required: true }

@@ -1,51 +1,54 @@
 <template>
   <div class="strategic-card">
-    <!-- Collapsed View / Header -->
+    <!-- Collapsed Row -->
     <div class="strategic-card__header" @click="$emit('toggle')">
-      <div class="strategic-card__header-content">
-        <div class="strategic-card__info-main">
-          <div class="strategic-card__code">{{ stock.code }}</div>
-          <div class="strategic-card__title-row">
-            <h3 class="strategic-card__name">{{ stock.name }}</h3>
-            <span class="strategic-card__badge">{{ stock.sector }}</span>
-          </div>
-          <div class="strategic-card__stats-row">
-            <div class="strategic-card__stat-item">
-              <span class="strategic-card__stat-label">현재가</span>
-              <span class="strategic-card__stat-value">{{ stock.currentPrice }}</span>
-            </div>
-            <div class="strategic-card__stat-item">
-              <span class="strategic-card__stat-label">등락률</span>
-              <span
-                :class="[
-                  'strategic-card__stat-change',
-                  stock.isPositive
-                    ? 'strategic-card__stat-change--up'
-                    : 'strategic-card__stat-change--down'
-                ]"
-              >
-                {{ stock.changePercent }}
-              </span>
-            </div>
-            <div class="strategic-card__stat-item">
-              <span class="strategic-card__stat-label">시가총액</span>
-              <span class="strategic-card__stat-value--muted">{{ stock.marketCap }}</span>
-            </div>
-          </div>
-          <div class="strategic-card__reason-box">
-            <star-icon class="strategic-card__reason-icon" />
-            <span class="strategic-card__reason-text">
-              <span class="strategic-card__reason-label">AI발굴사유</span> {{ stock.aiReason }}
-            </span>
-          </div>
+      <div class="strategic-card__row">
+        <!-- Stock Info Area -->
+        <div class="strategic-card__col-info">
+          <span class="strategic-card__code">{{ stock.code }}</span>
+          <h3 class="strategic-card__name">{{ stock.name }}</h3>
         </div>
-        <div class="strategic-card__arrow-box">
-          <chevron-right-icon
+
+        <!-- Price Area -->
+        <div class="strategic-card__col-price">
+          <span class="strategic-card__price-value">{{ stock.currentPrice }}</span>
+        </div>
+
+        <!-- Change Area -->
+        <div class="strategic-card__col-change">
+          <span
             :class="[
-              'strategic-card__arrow-icon',
-              { 'strategic-card__arrow-icon--expanded': isExpanded }
+              'strategic-card__change-value',
+              stock.isPositive
+                ? 'strategic-card__change-value--up'
+                : 'strategic-card__change-value--down'
             ]"
-          />
+          >
+            {{ stock.changePercent }}
+          </span>
+        </div>
+
+        <!-- Trait Area -->
+        <div class="strategic-card__col-trait">
+          <trending-up-icon v-if="stock.isPositive" class="strategic-card__trait-icon" />
+          <trending-down-icon v-else class="strategic-card__trait-icon" />
+          <span class="strategic-card__trait-text">{{ stock.characteristic }}</span>
+        </div>
+
+        <!-- Actions Area -->
+        <div class="strategic-card__col-actions">
+          <button class="strategic-card__btn-propose" @click.stop="$emit('propose', stock)">
+            <navigation-icon class="strategic-card__btn-icon" />
+            제안하기
+          </button>
+          <div class="strategic-card__arrow-box">
+            <chevron-down-icon
+              :class="[
+                'strategic-card__arrow-icon',
+                { 'strategic-card__arrow-icon--expanded': isExpanded }
+              ]"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -55,60 +58,44 @@
       <div class="strategic-card__expanded-inner">
         <!-- Upside Driver -->
         <div class="strategic-card__detail-section strategic-card__detail-section--upside">
-          <div class="strategic-card__section-header">
-            <trending-up-icon class="strategic-card__section-icon text-teal-500" />
-            <h3 class="strategic-card__section-title">업사이드 드라이버</h3>
+          <div class="strategic-card__section-header text-emerald-600">
+            <trending-up-icon class="strategic-card__section-icon" />
+            <h3 class="strategic-card__section-title">상승 이유 (Upside Drivers)</h3>
           </div>
-          <div class="strategic-card__point-list">
-            <div
-              v-for="(insight, idx) in stock.insights"
-              :key="idx"
-              class="strategic-card__point-item"
-            >
-              <div class="strategic-card__point-bullet bg-teal-500"></div>
-              <p class="strategic-card__point-text">{{ insight }}</p>
-            </div>
-          </div>
+          <ul class="strategic-card__point-list text-emerald-700">
+            <li v-for="(insight, idx) in stock.upside" :key="idx" class="strategic-card__point-item">
+              <span class="strategic-card__point-bullet bg-emerald-500"></span>
+              {{ insight }}
+            </li>
+          </ul>
         </div>
 
         <!-- Risk -->
         <div class="strategic-card__detail-section strategic-card__detail-section--risk">
-          <div class="strategic-card__section-header">
-            <alert-triangle-icon class="strategic-card__section-icon text-red-600" />
-            <h3 class="strategic-card__section-title text-red-900 dark:text-red-400">하락 위험</h3>
+          <div class="strategic-card__section-header text-red-500">
+            <alert-triangle-icon class="strategic-card__section-icon" />
+            <h3 class="strategic-card__section-title">하락 위험 요소 (Downside Risks)</h3>
           </div>
-          <div class="strategic-card__point-list">
-            <div v-for="(risk, idx) in stock.risks" :key="idx" class="strategic-card__point-item">
-              <div class="strategic-card__point-bullet bg-red-500"></div>
-              <p class="strategic-card__point-text text-red-800 dark:text-red-300">{{ risk }}</p>
-            </div>
-          </div>
+          <ul class="strategic-card__point-list text-red-600">
+            <li v-for="(risk, idx) in stock.downside" :key="idx" class="strategic-card__point-item">
+              <span class="strategic-card__point-bullet bg-red-500"></span>
+              {{ risk }}
+            </li>
+          </ul>
         </div>
 
-        <!-- Evidence -->
+        <!-- Evidence (Rationale) -->
         <div class="strategic-card__detail-section strategic-card__detail-section--evidence">
-          <div class="strategic-card__section-header">
-            <info-icon class="strategic-card__section-icon text-slate-600 dark:text-slate-400" />
-            <h3 class="strategic-card__section-title">근거</h3>
+          <div class="strategic-card__section-header text-blue-600">
+            <info-icon class="strategic-card__section-icon" />
+            <h3 class="strategic-card__section-title">투자 근거 (Rationale)</h3>
           </div>
-          <div class="strategic-card__point-list">
-            <div
-              v-for="(evidence, idx) in stock.evidence"
-              :key="idx"
-              class="strategic-card__point-item"
-            >
-              <div class="strategic-card__point-bullet bg-slate-500"></div>
-              <p class="strategic-card__point-text">{{ evidence }}</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Action Button -->
-        <div class="strategic-card__action-row">
-          <button class="strategic-card__btn-propose" @click.stop="$emit('propose', stock)">
-            <users-icon class="w-4 h-4 mr-2" />
-            이 종목 제안하기
-          </button>
+          <ul class="strategic-card__point-list text-blue-700">
+            <li v-for="(evidence, idx) in stock.rationale" :key="idx" class="strategic-card__point-item">
+              <span class="strategic-card__point-bullet bg-blue-500"></span>
+              {{ evidence }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -120,24 +107,24 @@
  * 기능: AI 전략 유망주 카드 컴포넌트
  */
 import {
-  StarIcon,
-  ChevronRightIcon,
   TrendingUpIcon,
+  TrendingDownIcon,
+  ChevronDownIcon,
   AlertTriangleIcon,
   InfoIcon,
-  UsersIcon
+  NavigationIcon
 } from 'vue-feather-icons'
 import '~/assets/css/pages/strategic-stocks/StrategicStockCard/StrategicStockCard.css'
 
 export default {
   name: 'StrategicStockCard',
   components: {
-    StarIcon,
-    ChevronRightIcon,
     TrendingUpIcon,
+    TrendingDownIcon,
+    ChevronDownIcon,
     AlertTriangleIcon,
     InfoIcon,
-    UsersIcon
+    NavigationIcon
   },
   props: {
     stock: {

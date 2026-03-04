@@ -9,6 +9,16 @@ export const sampleCustomers = [
     phone: '010-1234-5678',
     email: 'minjun.kim@email.com',
     joinDate: '2023-01-15',
+    totalInvestment: '10억 4,300만원',
+    currentValuation: '12억',
+    deposit: '2,150만원',
+    totalReturnRate: '+15.02%',
+    aiAnalysis: {
+      investmentTendency: '공격형 고객으로 현재 포트폴리오는 성장주 중심으로 구성되어 있습니다.',
+      returnAnalysis: '전체 포트폴리오가 +15.02%의 양호한 수익률을 보이고 있으며, 모든 보유 종목이 수익 상태입니다.',
+      riskDiagnosis: 'AI 반도체 섹터에 집중된 포트폴리오로 변동성이 있을 수 있으나, 현재는 안정적인 수익을 창출 중입니다.',
+      recommendedAction: '섹터 다각화를 통한 리스크 분산을 고려해보시고, 2차전지 또는 바이오 섹터 추가 편입을 제안합니다.'
+    },
     holdingDetails: [
       {
         name: '삼성전자',

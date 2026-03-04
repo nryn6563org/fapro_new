@@ -1,7 +1,7 @@
 /* Tailwind directives container */
 
 .plan-card {
-  @apply relative p-6 rounded-xl border-2 transition-all cursor-pointer bg-slate-100 dark:bg-slate-900 border-slate-400 dark:border-slate-800 hover:border-slate-300;
+  @apply relative p-6 rounded-xl border-2 transition-all cursor-pointer bg-slate-100 dark:bg-slate-800 border-slate-400 dark:border-slate-800 hover:border-slate-300;
 }
 
 .plan-card--active {
@@ -40,4 +40,20 @@
 
 .plan-card__feature {
   @apply flex items-start gap-2;
+}
+
+.plan-card__crown-icon {
+  @apply w-5 h-5 text-[#F59E0B];
+}
+
+.plan-card__feature-icon {
+  @apply w-4 h-4 flex-shrink-0 mt-0.5;
+}
+
+.plan-card__feature-icon--basic {
+  @apply text-[#14B8A6];
+}
+
+.plan-card__feature-icon--pro {
+  @apply text-[#F59E0B];
 }

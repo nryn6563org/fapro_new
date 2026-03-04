@@ -28,10 +28,10 @@
  * 기능: AI 리포트 모달의 레이아웃 래퍼 (서브 컴포넌트들을 조합)
  * 규칙: 150 line limit 준수를 위해 각 영역을 서브 컴포넌트로 분리
  */
-import AIReportInvestment from './modal/AIReportInvestment.vue'
-import AIReportScore from './modal/AIReportScore.vue'
-import AIReportStockInfo from './modal/AIReportStockInfo.vue'
-import AIReportCustomerSend from './modal/AIReportCustomerSend.vue'
+import AIReportInvestment from '~/components/signals/modal/AIReportInvestment.vue'
+import AIReportScore from '~/components/signals/modal/AIReportScore.vue'
+import AIReportStockInfo from '~/components/signals/modal/AIReportStockInfo.vue'
+import AIReportCustomerSend from '~/components/signals/modal/AIReportCustomerSend.vue'
 import '~/assets/css/pages/signals/AIReportContent/AIReportContent.css'
 
 export default {

@@ -57,21 +57,21 @@
       <div class="analysis-side__tabs">
         <div class="analysis-side__tabs-list">
           <button
-            @click="activeTab = 'reason'"
             :class="[
               'analysis-side__tab-btn',
               { 'analysis-side__tab-btn--active': activeTab === 'reason' }
             ]"
+            @click="activeTab = 'reason'"
           >
-            <zap-icon class="w-3.5 h-3.5 mr-1.5" />
+            <hash-icon class="w-3.5 h-3.5 mr-1.5" />
             AI 이슈 생성 사유
           </button>
           <button
-            @click="activeTab = 'outlook'"
             :class="[
               'analysis-side__tab-btn',
               { 'analysis-side__tab-btn--active': activeTab === 'outlook' }
             ]"
+            @click="activeTab = 'outlook'"
           >
             <trending-up-icon class="w-3.5 h-3.5 mr-1.5" />
             이슈 전망
@@ -113,36 +113,15 @@
           </div>
         </div>
       </div>
-
-      <!-- News Summary -->
+      
+      <!-- Related News Section -->
       <div v-if="issue.newsSummary" class="analysis-side__news-section">
         <div class="analysis-side__section-label">
-          <file-text-icon class="analysis-side__section-icon" />
-          <h5 class="analysis-side__section-title">관련 뉴스 AI요약</h5>
+          <file-text-icon class="analysis-side__section-icon text-teal-500" />
+          <h5 class="analysis-side__section-title">관련 뉴스</h5>
         </div>
         <div class="analysis-side__news-box">
           <p class="analysis-side__news-text">{{ issue.newsSummary }}</p>
-          <div
-            v-if="issue.newsSources && issue.newsSources.length > 0"
-            class="analysis-side__sources"
-          >
-            <span class="analysis-side__sources-label">출처:</span>
-            <div class="analysis-side__sources-list">
-              <div
-                v-for="(source, idx) in issue.newsSources"
-                :key="idx"
-                class="analysis-side__source-item"
-              >
-                <img
-                  :src="source.favicon"
-                  :alt="source.name"
-                  class="analysis-side__source-fav"
-                  @error="$event.target.style.display = 'none'"
-                />
-                <span class="analysis-side__source-name">{{ source.name }}</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -166,7 +145,7 @@ import {
   TrendingUpIcon,
   TrendingDownIcon,
   MinusIcon,
-  ZapIcon,
+  HashIcon,
   TargetIcon,
   ArrowUpIcon,
   ArrowDownIcon,
@@ -181,7 +160,7 @@ export default {
     TrendingUpIcon,
     TrendingDownIcon,
     MinusIcon,
-    ZapIcon,
+    HashIcon,
     TargetIcon,
     ArrowUpIcon,
     ArrowDownIcon,

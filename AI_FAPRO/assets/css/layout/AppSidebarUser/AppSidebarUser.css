@@ -5,19 +5,23 @@
   @apply flex flex-col gap-3;
 }
 .app-sidebar__banner {
-  @apply bg-gradient-to-br from-primary to-primary-dark rounded-xl p-3 flex flex-col gap-2 shadow-sm mb-2;
+  @apply bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-4 flex flex-col gap-2 shadow-lg shadow-primary/20 mb-2 relative overflow-hidden;
+}
+.app-sidebar__banner::after {
+  content: '';
+  @apply absolute top-0 right-0 w-16 h-16 bg-white/10 rounded-full -mr-8 -mt-8;
 }
 .app-sidebar__banner-header {
-  @apply flex items-center gap-1 text-white font-bold text-sm;
+  @apply flex items-center gap-2 text-white font-bold text-sm;
 }
 .app-sidebar__banner-text {
-  @apply text-[11px] leading-snug text-primary-light m-0;
+  @apply text-[11px] leading-relaxed text-white/80 m-0 font-medium;
 }
 .app-sidebar__profile {
-  @apply flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors cursor-pointer;
+  @apply flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-300 cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-800;
 }
 .app-sidebar__avatar {
-  @apply w-8 h-8 rounded-full bg-primary-light text-primary flex items-center justify-center flex-shrink-0 font-bold;
+  @apply w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 font-bold border-2 border-primary/20;
 }
 .app-sidebar__profile-info {
   @apply flex flex-col;
@@ -26,14 +30,14 @@
   @apply text-sm font-bold text-slate-800 dark:text-white;
 }
 .app-sidebar__profile-role {
-  @apply text-[11px] text-slate-500 dark:text-slate-400;
+  @apply text-xs text-slate-500 dark:text-slate-400;
 }
 .app-sidebar__actions {
   @apply flex items-center gap-2;
 }
 .app-sidebar__logout-btn {
-  @apply flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-gray-50 border border-slate-400 dark:bg-slate-800 dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors text-xs font-medium cursor-pointer;
+  @apply flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white border border-slate-200 dark:bg-slate-900/50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-all duration-300 text-[11px] font-bold cursor-pointer active:scale-95;
 }
 .app-sidebar__theme-btn, .app-sidebar__settings-btn {
-  @apply w-8 h-8 flex items-center justify-center rounded-xl bg-gray-50 border border-slate-400 dark:bg-slate-800 dark:border-slate-700 hover:bg-gray-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors cursor-pointer;
+  @apply w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 dark:bg-slate-900/50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-all duration-300 cursor-pointer active:scale-95;
 }

@@ -1,30 +1,19 @@
 <template>
   <div class="discovery-page">
-    <!-- Header -->
-    <div class="discovery-page__header-card">
-      <div class="discovery-page__header-inner">
-        <div class="discovery-page__title-box">
-          <div class="discovery-page__icon-wrap">
-            <file-text-icon class="discovery-page__title-icon" />
-          </div>
-          <div>
-            <h1 class="discovery-page__title">AI 인텔리전스 리포트</h1>
-            <p class="discovery-page__subtitle">
-              최근 AI매매신호가 발생한 종목의 AI분석리포트 입니다.
-            </p>
-          </div>
+    <div class="discovery-page__header">
+      <div class="discovery-page__title-box">
+        <h1 class="discovery-page__title">AI 인텔리전스 리포트</h1>
+        <p class="discovery-page__subtitle">최근 AI매매신호가 발생한 종목의 AI분석리포트 입니다.</p>
+      </div>
+      <div class="discovery-page__action-box">
+        <div class="discovery-page__time-info">
+          <p class="discovery-page__time-text">{{ formattedTime }}</p>
+          <p class="discovery-page__time-label">최종 업데이트</p>
         </div>
-        <div class="discovery-page__action-box">
-          <div class="discovery-page__time-info">
-            <calendar-icon class="discovery-page__time-icon" />
-            <span>{{ dateString }}</span>
-            <clock-icon class="discovery-page__time-icon discovery-page__time-icon--ml" />
-            <span>{{ timeString }}</span>
-          </div>
-          <button class="discovery-page__btn-refresh" @click="refreshData">
-            <refresh-cw-icon size="14" />
-          </button>
-        </div>
+        <button class="discovery-page__refresh-btn" @click="refreshData">
+          <refresh-cw-icon size="16" class="discovery-page__refresh-icon" />
+          <span class="discovery-page__refresh-text">새로고침</span>
+        </button>
       </div>
     </div>
 
@@ -32,7 +21,7 @@
     <div class="discovery-page__content">
       <div class="discovery-page__summary-bar">
         <p class="discovery-page__summary-text">
-          총 <span class="discovery-page__summary-count">{{ aiReports.length }}개</span>의 AI 리포트
+          종 <span class="discovery-page__summary-count">{{ aiReports.length }}개</span>의 AI 리포트
         </p>
       </div>
 
@@ -59,7 +48,7 @@
 /**
  * 기능: AI 종목발굴(인텔리전스 리포트) 페이지
  */
-import { FileTextIcon, CalendarIcon, ClockIcon, RefreshCwIcon } from 'vue-feather-icons'
+import { RefreshCwIcon } from 'vue-feather-icons'
 import AIReportCard from '~/components/discovery/AIReportCard.vue'
 import AIReportDetailModal from '~/components/discovery/AIReportDetailModal.vue'
 import { aiReports } from '~/utils/discoveryMockData.js'
@@ -68,9 +57,6 @@ import '~/assets/css/pages/discovery/DiscoveryPage/DiscoveryPage.css'
 export default {
   name: 'DiscoveryPage',
   components: {
-    FileTextIcon,
-    CalendarIcon,
-    ClockIcon,
     RefreshCwIcon,
     AIReportCard,
     AIReportDetailModal
@@ -85,13 +71,17 @@ export default {
     }
   },
   computed: {
-    dateString() {
+    formattedTime() {
       const d = this.currentTime
-      return `${d.getMonth() + 1}/${d.getDate()}`
+      return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(
+        d.getDate()
+      ).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(
+        d.getMinutes()
+      ).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`
     },
-    timeString() {
+    formattedTimeShort() {
       const d = this.currentTime
-      return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`
+      return `${String(d.getMonth() + 1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')}`
     }
   },
   mounted() {

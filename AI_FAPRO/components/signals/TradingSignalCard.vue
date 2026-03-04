@@ -1,5 +1,5 @@
 <template>
-  <div class="trading-signal-card">
+  <div class="trading-signal-card" :class="`trading-signal-card--${type}`">
     <div class="trading-signal-card__header-box">
       <div class="trading-signal-card__info-row">
         <div class="trading-signal-card__info-left">
@@ -43,76 +43,24 @@
       </div>
     </div>
 
-    <div v-if="signal.reason" class="trading-signal-card__reason-box">
+    <!-- Move reason-box directly under the header-box inside trading-signal-card -->
+    <div class="trading-signal-card__reason-box">
       <h4 class="trading-signal-card__reason-title">시그널 발생 사유</h4>
-      <p class="trading-signal-card__reason-text">{{ signal.reason }}</p>
-    </div>
-
-    <!-- 상세 영역 (전환 애니메이션은 부모나 CSS 트랜지션으로 처리) -->
-    <div v-show="isDetailOpen" class="trading-signal-card__detail-box">
-      <!-- 매매 이력 (간단히 테이블로 표현. D3차트는 생략하거나 단순화) -->
-      <h4 class="trading-signal-card__reason-title">가격/매매 추이</h4>
-      <div class="trading-signal-card__table-wrapper">
-        <table class="trading-signal-card__table">
-          <thead>
-            <tr>
-              <th class="trading-signal-card__th">일자</th>
-              <th class="trading-signal-card__th">신호</th>
-              <th class="trading-signal-card__th trading-signal-card__table-right">가격</th>
-              <th class="trading-signal-card__th trading-signal-card__table-right">수익률</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(trade, idx) in signal.tradeHistory" :key="idx">
-              <td
-                :class="[
-                  'trading-signal-card__td',
-                  idx === signal.tradeHistory.length - 1 ? 'trading-signal-card__td--last' : ''
-                ]"
-              >
-                {{ trade.date }}
-              </td>
-              <td
-                :class="[
-                  'trading-signal-card__td',
-                  idx === signal.tradeHistory.length - 1 ? 'trading-signal-card__td--last' : ''
-                ]"
-              >
-                <span
-                  :class="[
-                    'trading-signal-card__badge',
-                    trade.signal === '매수'
-                      ? 'trading-signal-card__badge--buy'
-                      : 'trading-signal-card__badge--sell'
-                  ]"
-                >
-                  {{ trade.signal }}
-                </span>
-              </td>
-              <td
-                :class="[
-                  'trading-signal-card__td',
-                  'trading-signal-card__table-right',
-                  idx === signal.tradeHistory.length - 1 ? 'trading-signal-card__td--last' : ''
-                ]"
-              >
-                {{ trade.price }}
-              </td>
-              <td
-                :class="[
-                  'trading-signal-card__td',
-                  'trading-signal-card__table-right',
-                  getReturnClass(trade.return),
-                  idx === signal.tradeHistory.length - 1 ? 'trading-signal-card__td--last' : ''
-                ]"
-              >
-                {{ trade.return && trade.return !== '-' ? '수익률 ' + trade.return : '-' }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <p v-if="signal.reason" class="trading-signal-card__reason-text">{{ signal.reason }}
+        <span class="trading-signal-card__reason-more">[내용 자세히 보기]</span>
+      </p>
+      <div v-else class="trading-signal-card__reason-empty">
+        <span class="trading-signal-card__reason-empty-badge">5-1</span>
+        <span class="trading-signal-card__reason-empty-text">시그널 발생 사유 생성중 입니다</span>
       </div>
     </div>
+
+    <!-- Detail component extracted from origin code -->
+    <trading-signal-history
+      v-if="isDetailOpen"
+      :signal="signal"
+      :type="type"
+    />
   </div>
 </template>
 
@@ -121,13 +69,15 @@
  * 기능: AI 매매 신호 (매수/매도) 개별 카드 렌더링
  */
 import { TrendingUpIcon, StarIcon } from 'vue-feather-icons'
+import TradingSignalHistory from '~/components/signals/TradingSignalHistory.vue'
 import '~/assets/css/pages/signals/TradingSignalCard/TradingSignalCard.css'
 
 export default {
   name: 'TradingSignalCard',
   components: {
     TrendingUpIcon,
-    StarIcon
+    StarIcon,
+    TradingSignalHistory
   },
   props: {
     signal: {
@@ -142,14 +92,6 @@ export default {
     isDetailOpen: {
       type: Boolean,
       default: false
-    }
-  },
-  methods: {
-    getReturnClass(ret) {
-      if (!ret || ret === '-') return 'trading-signal-card__return--neutral'
-      return ret.startsWith('+')
-        ? 'trading-signal-card__return--positive'
-        : 'trading-signal-card__return--negative'
     }
   }
 }

@@ -1,0 +1,31 @@
+.schedule-placeholder {
+  @apply flex items-center justify-center h-full w-full bg-white dark:bg-slate-950;
+}
+
+.schedule-placeholder__content {
+  @apply flex flex-col items-center text-center max-w-lg px-6;
+}
+
+.schedule-placeholder__icon-wrapper {
+  @apply w-24 h-24 bg-blue-50 dark:bg-blue-900/10 rounded-3xl flex items-center justify-center mb-8 shadow-sm;
+}
+
+.schedule-placeholder__icon {
+  @apply w-12 h-12 text-blue-500;
+}
+
+.schedule-placeholder__title {
+  @apply text-2xl font-bold text-slate-800 dark:text-white mb-4;
+}
+
+.schedule-placeholder__description {
+  @apply text-base text-slate-500 dark:text-slate-400 mb-8 leading-relaxed;
+}
+
+.schedule-placeholder__sync-btn {
+  @apply px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all cursor-pointer shadow-lg shadow-blue-500/25 border-0 text-sm;
+}
+
+.schedule-placeholder__sync-btn:active {
+  @apply transform scale-95;
+}

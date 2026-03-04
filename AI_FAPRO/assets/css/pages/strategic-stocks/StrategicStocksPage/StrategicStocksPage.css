@@ -1,39 +1,39 @@
 /* Tailwind directives container for component */
-
 .strategic-page {
-  @apply p-6 space-y-6 max-w-[1600px] mx-auto;
+  @apply p-6 space-y-6 max-w-[1600px] mx-auto pb-12;
 }
 
 /* Header */
 .strategic-page__header {
-  @apply flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-slate-100 dark:bg-slate-900 p-6 rounded-xl border border-slate-400 dark:border-slate-800 shadow-sm;
+  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-400 dark:border-slate-800 pb-4 mb-4;
 }
+.strategic-page__title-box {}
 .strategic-page__title {
-  @apply text-3xl font-bold text-slate-900 dark:text-white m-0;
+  @apply text-3xl font-bold text-slate-900 dark:text-white;
 }
 .strategic-page__subtitle {
-  @apply text-slate-600 dark:text-slate-400 mt-1 m-0;
+  @apply text-slate-600 dark:text-slate-400 mt-1 text-sm;
 }
-
-/* Actions */
-.strategic-page__actions {
+.strategic-page__action-box {
   @apply flex items-center gap-4;
 }
-.strategic-page__info {
-  @apply text-right whitespace-nowrap;
+.strategic-page__time-info {
+  @apply text-right;
 }
-.strategic-page__info-text {
-  @apply text-sm text-slate-600 dark:text-slate-400 m-0;
+.strategic-page__time-text {
+  @apply text-sm font-semibold text-slate-900 dark:text-white;
 }
-.strategic-page__info-highlight {
-  @apply font-semibold text-teal-500;
+.strategic-page__time-label {
+  @apply text-xs text-slate-500 dark:text-slate-400;
 }
-.strategic-page__info-time {
-  @apply text-xs text-slate-500 dark:text-slate-500 mt-1;
-}
-
 .strategic-page__refresh-btn {
-  @apply w-9 h-9 flex items-center justify-center rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer;
+  @apply flex items-center gap-2 px-4 py-2 bg-[#14B8A6] hover:bg-[#0D9488] text-white rounded-lg transition-colors shadow-sm cursor-pointer border-0;
+}
+.strategic-page__refresh-icon {
+  @apply w-4 h-4;
+}
+.strategic-page__refresh-text {
+  @apply text-sm font-semibold;
 }
 
 /* Card List */

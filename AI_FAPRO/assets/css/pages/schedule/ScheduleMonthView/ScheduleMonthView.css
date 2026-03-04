@@ -13,11 +13,11 @@
 }
 
 .month-view__th--sunday {
-  @apply text-red-600;
+  @apply text-red-500 dark:text-red-400;
 }
 
 .month-view__th--saturday {
-  @apply text-blue-600;
+  @apply text-blue-500 dark:text-blue-400;
 }
 
 .month-view__cell {
@@ -37,15 +37,15 @@
 }
 
 .month-view__day-num--today {
-  @apply w-6 h-6 bg-blue-600 text-white rounded-full font-black;
+  @apply w-6 h-6 bg-teal-500 text-white rounded-full font-black shadow-sm shadow-teal-500/30;
 }
 
 .month-view__day-num--sunday {
-  @apply text-red-600;
+  @apply text-red-500 dark:text-red-400;
 }
 
 .month-view__day-num--saturday {
-  @apply text-blue-600;
+  @apply text-blue-500 dark:text-blue-400;
 }
 
 .month-view__day-num--weekday {
@@ -57,11 +57,11 @@
 }
 
 .month-view__event-tag {
-  @apply text-white text-[10px] px-1.5 py-0.5 rounded truncate font-medium;
+  @apply text-white text-xs px-1.5 py-0.5 rounded truncate font-medium;
 }
 
 .month-view__more {
-  @apply text-[10px] text-slate-500 dark:text-slate-600 px-1 font-bold;
+  @apply text-xs text-slate-500 dark:text-slate-600 px-1 font-bold;
 }
 
 .month-view__event-tag--blue-500 {

@@ -5,7 +5,7 @@
 
 /* Header */
 .signals-page__header {
-  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-400 dark:border-slate-800 pb-4;
+  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6 mb-2;
 }
 .signals-page__title {
   @apply text-3xl font-bold text-slate-900 dark:text-white;
@@ -26,7 +26,7 @@
   @apply text-xs text-slate-500 dark:text-slate-400;
 }
 .signals-page__refresh-btn {
-  @apply flex items-center gap-2 px-4 py-2 bg-[#14B8A6] hover:bg-[#0D9488] text-white rounded-lg transition-colors shadow-sm;
+  @apply flex items-center gap-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-xl transition-all duration-300 shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30 cursor-pointer active:scale-95 border-0;
 }
 .signals-page__refresh-icon {
   @apply w-4 h-4;
@@ -42,7 +42,7 @@
 
 /* Column General */
 .signals-page__column {
-  @apply border-2 rounded-xl bg-slate-100 dark:bg-slate-900 shadow-lg overflow-hidden flex flex-col h-[calc(100vh-200px)] min-h-[600px];
+  @apply border border-slate-200 dark:border-slate-800 rounded-[2rem] bg-white dark:bg-slate-900 shadow-xl overflow-hidden flex flex-col h-[calc(100vh-200px)] min-h-[600px] transition-all;
 }
 
 /* Buy Column Specifics */
@@ -95,15 +95,15 @@
 
 /* Column Content Area */
 .signals-page__column-content {
-  @apply flex-1 overflow-y-auto;
+  @apply flex-1 overflow-y-auto p-5;
 }
 
 /* Custom styles for AI Report Modal dialog wrapper */
 .ai-report-modal__dialog {
-  @apply max-w-[1600px] md:max-w-[1600px] mx-auto mt-10;
+  @apply max-w-[1600px] md:max-w-[1600px] mx-auto mt-10 rounded-[2rem] overflow-hidden shadow-2xl;
 }
 .ai-report-modal__header {
-  @apply bg-slate-100 dark:bg-slate-900 border-b border-slate-300 dark:border-slate-800 p-6 flex items-start justify-between rounded-t-2xl relative overflow-hidden;
+  @apply w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 p-8 flex items-start justify-between relative overflow-hidden;
 }
 
 /* Optional: a subtle background glow or pattern */
@@ -129,7 +129,7 @@
 }
 
 .ai-report-modal__badge {
-  @apply text-[11px] font-bold px-2.5 py-1 rounded-md tracking-wide;
+  @apply text-xs font-bold px-2.5 py-1 rounded-md tracking-wide;
 }
 
 .ai-report-modal__badge--cyan {
@@ -145,7 +145,7 @@
 }
 
 .ai-report-modal__title {
-  @apply text-2xl md:text-3xl font-black text-slate-900 dark:text-white flex items-center gap-2 m-0 leading-none !important;
+  @apply text-2xl md:text-3xl font-black text-slate-900 dark:text-white flex items-center gap-2 m-0 leading-tight;
 }
 
 .ai-report-modal__ticker {
@@ -155,5 +155,5 @@
   @apply p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 border-0 bg-transparent cursor-pointer relative z-10;
 }
 .ai-report-modal__content {
-  @apply p-0 m-0 bg-slate-100 dark:bg-slate-900;
+  @apply p-8 m-0 bg-white dark:bg-slate-900;
 }

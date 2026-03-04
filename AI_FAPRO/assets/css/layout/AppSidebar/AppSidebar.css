@@ -23,7 +23,7 @@
 }
 
 .app-sidebar__logo-icon {
-  @apply w-8 h-8 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center text-white;
+  @apply w-8 h-8 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30 transition-transform duration-300 hover:rotate-12;
 }
 
 .app-sidebar__logo-text {
@@ -32,7 +32,7 @@
 
 /* 3. Toggle Button */
 .app-sidebar__toggle-btn {
-  @apply absolute -right-3 top-20 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center shadow-md hover:bg-primary-hover transition-colors z-10;
+  @apply absolute -right-3 top-20 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center shadow-lg hover:bg-primary-hover hover:scale-110 active:scale-90 transition-all z-20 border-2 border-white dark:border-slate-900;
 }
 
 

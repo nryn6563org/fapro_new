@@ -1,0 +1,231 @@
+/*
+  Proposal Components Base Styles
+  -------------------------------
+  BEM: proposal-container, proposal-header, proposal-section, proposal-item, etc.
+*/
+
+.proposal-modal-dialog {
+  @apply sm:!max-w-[600px] rounded-[2rem] overflow-hidden shadow-2xl;
+}
+
+.proposal-container {
+  @apply flex flex-col w-full h-full;
+}
+
+/* Header */
+.proposal-header {
+  @apply w-full p-8 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shrink-0 flex flex-col items-start relative box-border;
+}
+.proposal-header__title-row {
+  @apply flex items-center mb-1;
+}
+.proposal-header__icon {
+  @apply w-5 h-5 mr-2;
+}
+.proposal-header__icon--teal { @apply text-emerald-500; }
+.proposal-header__icon--orange { @apply text-amber-500; }
+.proposal-header__icon--violet { @apply text-violet-500; }
+
+.proposal-header__title {
+  @apply text-[20px] font-black text-slate-900 dark:text-white tracking-tight;
+}
+.proposal-header__desc {
+  @apply text-sm text-slate-500 dark:text-slate-400;
+}
+.proposal-header__close {
+  @apply absolute top-8 right-8 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer text-slate-400 hover:text-slate-600;
+}
+
+/* Body */
+.proposal-body {
+  @apply p-6 space-y-6 overflow-y-auto overflow-x-hidden;
+}
+
+/* Common Section */
+.proposal-section {
+  @apply bg-white dark:bg-slate-900 rounded-[2rem] p-6 border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden;
+}
+.proposal-section--transparent {
+  @apply bg-transparent border-0 shadow-none p-0;
+}
+.proposal-section__header {
+  @apply flex items-center justify-between mb-3;
+}
+.proposal-section__title-row {
+  @apply flex items-center;
+}
+.proposal-section__icon {
+  @apply w-5 h-5 mr-2;
+}
+.proposal-section__title {
+  @apply text-base font-bold text-slate-900 dark:text-white;
+}
+.proposal-section__badge {
+  @apply bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 px-3 py-1.5 rounded-full text-xs font-bold leading-none ml-auto;
+}
+.proposal-section__desc {
+  @apply text-sm text-slate-500 dark:text-slate-400 mb-3;
+}
+
+/* List Items (Selectable) */
+.proposal-list {
+  @apply space-y-3 max-h-[260px] overflow-y-auto pr-1;
+}
+.proposal-item {
+  @apply flex items-start gap-4 p-5 rounded-2xl cursor-pointer transition-all bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-md;
+}
+.proposal-item--selected {
+  @apply border-emerald-500 dark:border-emerald-500 bg-emerald-50/20 dark:bg-emerald-900/10 shadow-md;
+}
+.proposal-item__checkbox {
+  @apply mt-0.5;
+}
+.proposal-item__content {
+  @apply flex-1 min-w-0;
+}
+.proposal-item__name-row {
+  @apply flex items-center gap-2 mb-1;
+}
+.proposal-item__name {
+  @apply text-[15px] font-bold text-slate-900 dark:text-white;
+}
+.proposal-item__ticker {
+  @apply text-sm text-slate-400 dark:text-slate-500;
+}
+.proposal-item__meta {
+  @apply text-[13px] text-slate-600 dark:text-slate-400 mb-2;
+}
+.proposal-item__reason {
+  @apply text-xs text-slate-700 dark:text-slate-300 bg-gray-50/80 dark:bg-slate-800/80 p-2.5 rounded-lg leading-relaxed;
+}
+
+/* Delivery Tabs */
+.delivery-tabs {
+  @apply grid grid-cols-3 gap-2;
+}
+.delivery-tab {
+  @apply flex items-center justify-center py-2.5 text-[13px] font-bold rounded-xl border transition-all cursor-pointer bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 hover:-translate-y-0.5;
+}
+.delivery-tab--active-sms {
+  @apply bg-rose-500 text-white border-rose-500 hover:bg-rose-600 shadow-md shadow-rose-500/20 translate-y-0 hover:translate-y-0;
+}
+.delivery-tab--active-kakao {
+  @apply bg-[#FEE500] text-[#191919] border-[#FEE500] hover:bg-[#FADA00] shadow-md shadow-[#FEE500]/20 translate-y-0 hover:translate-y-0;
+}
+.delivery-tab--active-email {
+  @apply bg-emerald-500 text-white border-emerald-500 hover:bg-emerald-600 shadow-md shadow-emerald-500/20 translate-y-0 hover:translate-y-0;
+}
+
+/* --- Themes --- */
+.proposal-header--teal { @apply bg-emerald-50; }
+.proposal-header--teal .proposal-header__icon-wrapper { @apply bg-emerald-100 text-emerald-600; }
+
+.proposal-header--purple { @apply bg-purple-50; }
+.proposal-header--purple .proposal-header__icon-wrapper { @apply bg-purple-100 text-purple-600; }
+
+/* Proposal Badge Types */
+.proposal-badge {
+  @apply rounded-full px-2.5 py-0.5 text-[11px] font-bold inline-block whitespace-nowrap tracking-wide leading-none;
+}
+.proposal-badge--outline {
+  @apply border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded-md;
+}
+.proposal-badge--red { @apply bg-rose-100 text-rose-600; }
+.proposal-badge--blue { @apply bg-sky-100 text-sky-600; }
+.proposal-badge--purple { @apply bg-purple-100 text-purple-600; }
+.proposal-badge--orange { @apply bg-orange-100 text-orange-600; }
+.proposal-badge--green { @apply bg-emerald-100 text-emerald-600; }
+
+/* Section Themes (Smart Customer Management) */
+.customer-section--orange { @apply border-orange-200 bg-orange-50/30; }
+.customer-section--green { @apply border-emerald-200 bg-emerald-50/30; }
+.customer-section--rose { @apply border-rose-200 bg-rose-50/30; }
+
+/* --- Message Editor & Copy Button --- */
+.proposal-editor {
+  @apply relative mt-6;
+}
+
+.proposal-editor__label {
+  @apply flex items-center gap-2 text-sm font-bold text-slate-700 mb-3;
+}
+
+.proposal-editor__textarea-wrapper {
+  @apply relative;
+}
+
+.proposal-editor__textarea {
+  @apply w-full h-[200px] p-5 text-[14px] text-slate-600 dark:text-slate-300 border border-slate-100 dark:border-slate-800 rounded-2xl resize-none outline-none transition-all;
+  @apply bg-slate-50/50 dark:bg-slate-800/50 focus:bg-white dark:focus:bg-slate-900 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10;
+}
+
+/* Delivery Method Specific Styles */
+.proposal-editor--sms .proposal-editor__textarea { @apply focus:border-rose-400 focus:ring-rose-400/10; }
+.proposal-editor--kakao .proposal-editor__textarea { @apply focus:border-yellow-400 focus:ring-yellow-400/10; }
+.proposal-editor--email .proposal-editor__textarea { @apply focus:border-emerald-400 focus:ring-emerald-400/10; }
+
+.proposal-editor__copy-btn {
+  @apply absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500 text-white text-[12px] font-bold rounded-lg shadow-sm hover:bg-emerald-600 active:scale-95 transition-all z-10;
+}
+
+.proposal-editor__hint {
+  @apply mt-2 text-[12px] text-slate-400;
+}
+
+/* --- Strategic Detail Card (Design 5) --- */
+.strategic-card {
+  @apply mt-6 border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm;
+}
+
+.strategic-card__header {
+  @apply p-5 bg-slate-50 border-b border-slate-100;
+}
+
+.strategic-card__title-row {
+  @apply flex items-center justify-between mb-1;
+}
+.strategic-card__stock-info {
+  @apply flex items-center gap-2;
+}
+.strategic-card__ticker {
+  @apply text-[12px] font-mono text-slate-400 uppercase tracking-wider;
+}
+
+.strategic-card__name {
+  @apply text-lg font-bold text-slate-800;
+}
+
+.strategic-card__price-info {
+  @apply flex items-baseline gap-2 mt-1;
+}
+
+.strategic-card__price-info span:first-child {
+  @apply text-xl font-bold text-slate-900;
+}
+
+.strategic-card__change--up { @apply text-rose-500 font-semibold; }
+.strategic-card__change--down { @apply text-sky-500 font-semibold; }
+
+.strategic-card__content {
+  @apply p-5 space-y-5;
+}
+
+.point-box {
+  @apply p-4 rounded-xl;
+}
+
+.point-box--bullish { @apply bg-emerald-50/50 border border-emerald-100; }
+.point-box--bearish { @apply bg-rose-50/50 border border-rose-100; }
+.point-box--rationale { @apply bg-slate-50 border border-slate-100; }
+
+.point-list {
+  @apply space-y-2;
+}
+
+.point-item {
+  @apply flex items-start gap-2 text-[13px] leading-snug;
+}
+
+.point-bullet {
+  @apply w-1.5 h-1.5 rounded-full mt-1.5 shrink-0;
+}

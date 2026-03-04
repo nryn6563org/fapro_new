@@ -16,66 +16,72 @@
         </div>
       </div>
 
-      <!-- Stats Grid -->
-      <IssueDetailStats
-        :issue="issue"
-        :intensity-level="intensityLevel"
-        :intensity-text="intensityText"
-      />
+      <!-- Main Layout: 2 Columns -->
+      <div class="issue-detail__body-grid">
+        <!-- Column Left: Stats, Segments & Full Stock Table -->
+        <div class="issue-detail__col-left">
+          <IssueDetailStats
+            :issue="issue"
+            :intensity-level="intensityLevel"
+            :intensity-text="intensityText"
+          />
 
-      <!-- Segment Details (Small/Large Cap) -->
-      <div class="issue-detail__segment">
-        <div class="issue-detail__section-label">
-          <percent-icon class="issue-detail__section-icon" />
-          <h5 class="issue-detail__section-title">중소형주 비중 상세</h5>
-        </div>
-        <div class="issue-detail__segment-box">
-          <div class="issue-detail__segment-grid">
-            <div class="text-center">
-              <p class="issue-detail__segment-label">시가총액 1000억 이하</p>
-              <p class="issue-detail__segment-value">45%</p>
+          <!-- Segment Details (Small/Large Cap) -->
+          <div class="issue-detail__segment">
+            <div class="issue-detail__section-label">
+              <percent-icon class="issue-detail__section-icon" />
+              <h5 class="issue-detail__section-title">시가총액 규모별 구성</h5>
             </div>
-            <div class="text-center">
-              <p class="issue-detail__segment-label">1000억 - 5000억</p>
-              <p class="issue-detail__segment-value">38%</p>
-            </div>
-            <div class="text-center">
-              <p class="issue-detail__segment-label">5000억 - 1조</p>
-              <p class="issue-detail__segment-value issue-detail__segment-value--teal">12%</p>
-            </div>
-            <div class="text-center">
-              <p class="issue-detail__segment-label">1조 초과</p>
-              <p class="issue-detail__segment-value issue-detail__segment-value--muted">5%</p>
+            <div class="issue-detail__segment-box">
+              <div class="issue-detail__segment-grid">
+                <div v-if="issue.marketCapRatio?.under500B" class="text-center">
+                  <p class="issue-detail__segment-label">5000억 이하</p>
+                  <p class="issue-detail__segment-value">{{ issue.marketCapRatio.under500B }}%</p>
+                </div>
+                <div v-if="issue.marketCapRatio?.under1T" class="text-center">
+                  <p class="issue-detail__segment-label">1조 이하</p>
+                  <p class="issue-detail__segment-value">{{ issue.marketCapRatio.under1T }}%</p>
+                </div>
+                <div v-if="issue.marketCapRatio?.under5T" class="text-center">
+                  <p class="issue-detail__segment-label">5조 이하</p>
+                  <p class="issue-detail__segment-value">{{ issue.marketCapRatio.under5T }}%</p>
+                </div>
+                <div v-if="issue.marketCapRatio?.over5T" class="text-center">
+                  <p class="issue-detail__segment-label">5조 초과</p>
+                  <p class="issue-detail__segment-value text-slate-400">{{ issue.marketCapRatio.over5T }}%</p>
+                </div>
+              </div>
+              <div class="issue-detail__progress-bar">
+                <div class="bg-teal-500 h-full" :style="{ width: (issue.marketCapRatio?.under500B || 0) + '%' }"></div>
+                <div class="bg-teal-400 h-full" :style="{ width: (issue.marketCapRatio?.under1T || 0) + '%' }"></div>
+                <div class="bg-teal-300 h-full" :style="{ width: (issue.marketCapRatio?.under5T || 0) + '%' }"></div>
+                <div class="bg-slate-300 h-full" :style="{ width: (issue.marketCapRatio?.over5T || 0) + '%' }"></div>
+              </div>
             </div>
           </div>
-          <div class="issue-detail__progress-bar">
-            <div class="bg-teal-500 h-full" style="width: 45%"></div>
-            <div class="bg-teal-500/80 h-full" style="width: 38%"></div>
-            <div class="bg-teal-600 h-full" style="width: 12%"></div>
-            <div class="bg-slate-400 h-full" style="width: 5%"></div>
+
+          <!-- Full Stock Table Moved Here -->
+          <div class="issue-detail__table-wrapper pt-2">
+            <IssueDetailStockTable :stocks="sortedStocks" />
           </div>
-          <p class="issue-detail__segment-desc">
-            해당 이슈는 <span class="text-teal-500 font-bold">중소형주 중심</span>으로 구성되어
-            있으며, 시가총액 5000억 이하 종목이 <span class="font-bold">83%</span>를 차지합니다.
-          </p>
         </div>
-      </div>
 
-      <!-- Full Stock Table -->
-      <IssueDetailStockTable :stocks="sortedStocks" />
+        <!-- Column Right: Analysis, News & Action -->
+        <div class="issue-detail__col-right">
+          <!-- Text Analysis -->
+          <IssueDetailAnalysis :issue="issue" />
 
-      <!-- Detailed Analysis -->
-      <IssueDetailAnalysis :issue="issue" />
+          <!-- News Report -->
+          <IssueDetailNews :issue="issue" />
 
-      <!-- News Detail -->
-      <IssueDetailNews :issue="issue" />
-
-      <!-- Action Button -->
-      <div class="issue-detail__footer">
-        <button class="issue-detail__btn-propose" @click="$emit('propose', issue)">
-          <zap-icon class="w-5 h-5 mr-2" />
-          이 이슈로 제안서 만들기
-        </button>
+          <!-- Propose Action -->
+          <div class="issue-detail__footer">
+            <button class="issue-detail__btn-propose" @click="$emit('propose', issue)">
+              <zap-icon class="w-5 h-5 mr-2" />
+              이 이슈로 고객 제안서 만들기
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

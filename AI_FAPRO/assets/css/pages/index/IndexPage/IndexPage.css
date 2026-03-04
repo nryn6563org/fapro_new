@@ -9,19 +9,45 @@
 }
 
 .index-page__header {
-  @apply flex items-start justify-between gap-6 mb-6;
+  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-400 dark:border-slate-800 pb-4 mb-4;
 }
 
-.index-page__title-wrapper {
-  @apply flex-shrink-0;
-}
+.index-page__title-box {}
 
 .index-page__title {
-  @apply text-3xl font-bold text-[#0F172A] dark:text-white;
+  @apply text-3xl font-bold text-slate-900 dark:text-white;
 }
 
-.index-page__desc {
-  @apply text-slate-600 dark:text-slate-400 mt-1 text-sm md:text-base;
+.index-page__subtitle {
+  @apply text-slate-600 dark:text-slate-400 mt-1 text-sm;
+}
+
+.index-page__action-box {
+  @apply flex items-center gap-4;
+}
+
+.index-page__time-info {
+  @apply text-right;
+}
+
+.index-page__time-text {
+  @apply text-sm font-semibold text-slate-900 dark:text-white;
+}
+
+.index-page__time-label {
+  @apply text-xs text-slate-500 dark:text-slate-400;
+}
+
+.index-page__refresh-btn {
+  @apply flex items-center gap-2 px-4 py-2 bg-[#14B8A6] hover:bg-[#0D9488] text-white rounded-lg transition-colors shadow-sm;
+}
+
+.index-page__refresh-icon {
+  @apply w-4 h-4;
+}
+
+.index-page__refresh-text {
+  @apply text-sm font-semibold;
 }
 
 /* Localized Animation for isolated cards */

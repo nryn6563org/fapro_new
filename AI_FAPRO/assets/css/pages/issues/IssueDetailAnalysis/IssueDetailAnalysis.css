@@ -1,8 +1,8 @@
 .issue-detail__extra-info {
-  @apply mb-6;
+  @apply mb-0;
 }
 .issue-detail__info-box {
-  @apply p-5 rounded-xl border-2;
+  @apply p-5 rounded-xl border-2 shadow-sm;
 }
 .issue-detail__info-box--orange {
   @apply bg-gradient-to-br from-orange-50 to-white dark:from-amber-900/10 dark:to-slate-900 border-amber-500/30;
@@ -11,8 +11,11 @@
   @apply bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-slate-900 border-blue-300/40;
 }
 .issue-detail__text {
-  @apply text-sm text-slate-700 dark:text-slate-300 leading-relaxed m-0;
+  @apply text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed m-0 font-medium;
 }
 .issue-detail__outlook-grid {
-  @apply grid grid-cols-2 gap-4 mt-4 pt-4 border-t border-blue-300/30;
+  @apply grid grid-cols-1 gap-3 mt-4 pt-4 border-t border-blue-300/30;
+}
+.issue-detail__outlook-item {
+  @apply p-3 bg-white/50 dark:bg-slate-800/50 rounded-lg border border-blue-200 dark:border-blue-800;
 }

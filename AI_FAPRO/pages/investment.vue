@@ -23,7 +23,7 @@
       <section class="investment-page__section mt-8">
         <div class="investment-page__card-outer">
           <div class="investment-page__card-header">
-            <div class="flex items-center gap-3">
+          <div class="investment-page__card-header-inner">
               <div class="investment-page__header-icon-box">
                 <file-text-icon class="w-5 h-5 text-white" />
               </div>

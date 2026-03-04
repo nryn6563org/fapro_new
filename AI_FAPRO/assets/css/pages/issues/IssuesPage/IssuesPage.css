@@ -5,54 +5,79 @@
 
 /* Header */
 .issues-header {
-  @apply flex items-center justify-between p-4 bg-slate-100 dark:bg-slate-900 border border-slate-400 dark:border-slate-800 rounded-2xl shadow-sm mb-4;
+  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6 mb-6;
 }
-.issues-header__title-wrapper {
-  @apply flex items-center gap-3;
-}
-.issues-header__icon-box {
-  @apply w-12 h-12 flex items-center justify-center rounded-xl bg-teal-50 dark:bg-teal-900/30;
-}
+.issues-header__title-box {}
 .issues-header__title {
-  @apply text-xl font-bold text-slate-900 dark:text-white m-0;
+  @apply text-3xl font-bold text-slate-900 dark:text-white;
 }
 .issues-header__subtitle {
-  @apply text-sm text-slate-500 dark:text-slate-400 m-0 mt-0.5;
+  @apply text-slate-600 dark:text-slate-400 mt-1 text-sm;
 }
-.issues-header__info {
-  @apply flex items-center gap-4 text-sm text-slate-600 dark:text-slate-400;
+.issues-header__action-box {
+  @apply flex items-center gap-4;
+}
+.issues-header__time-info {
+  @apply text-right;
+}
+.issues-header__time-text {
+  @apply text-sm font-semibold text-slate-900 dark:text-white;
+}
+.issues-header__time-label {
+  @apply text-xs text-slate-500 dark:text-slate-400;
 }
 .issues-header__btn-refresh {
-  @apply p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500 cursor-pointer border-0 bg-transparent;
+  @apply flex items-center gap-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-xl transition-all duration-300 shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30 cursor-pointer active:scale-95 border-0;
+}
+.issues-header__refresh-icon {
+  @apply w-4 h-4;
+}
+.issues-header__refresh-text {
+  @apply text-sm font-semibold;
 }
 
 /* Stats Bar */
 .issues-stats-bar {
-  @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
 }
 .issues-stats-card {
-  @apply flex items-center gap-4 p-4 bg-slate-100 dark:bg-slate-900 border border-slate-400 dark:border-slate-800 rounded-xl shadow-sm;
+  @apply flex items-center p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden;
 }
 .issues-stats-card__icon {
-  @apply w-12 h-12 flex flex-shrink-0 items-center justify-center rounded-xl;
-}
-.issues-stats-card__icon--teal {
-  @apply bg-teal-50 dark:bg-teal-900/20;
-}
-.issues-stats-card__icon--pink {
-  @apply bg-rose-50 dark:bg-rose-900/20;
+  @apply w-[60px] h-[60px] mr-5 flex flex-shrink-0 items-center justify-center rounded-2xl shadow-sm;
 }
 .issues-stats-card__icon--orange {
-  @apply bg-orange-50 dark:bg-orange-900/20;
+  @apply bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/10;
+}
+.issues-stats-card__icon--slate {
+  @apply bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700/50;
 }
 .issues-stats-card__label {
-  @apply text-xs text-slate-500 dark:text-slate-400 mb-1;
+  @apply text-[13px] font-bold text-slate-500 dark:text-slate-400 mb-0.5;
 }
 .issues-stats-card__value {
-  @apply text-lg font-bold text-slate-900 dark:text-white;
+  @apply text-xl font-bold text-slate-900 dark:text-white;
 }
-.issues-stats-card__sub-value {
-  @apply text-xs;
+.issues-stats-card__breakdown {
+  @apply flex items-center gap-2 ml-auto text-xs font-bold bg-slate-50/50 dark:bg-slate-800/50 px-4 py-2 rounded-xl border border-slate-100 dark:border-slate-800/60;
+}
+.issues-stats-card__badge-label {
+  @apply text-[11px] text-slate-400 mr-1 hidden sm:inline-block;
+}
+.issues-stats-card__strength-high {
+  @apply text-rose-500;
+}
+.issues-stats-card__strength-mid {
+  @apply text-orange-500;
+}
+.issues-stats-card__strength-low {
+  @apply text-slate-500 dark:text-slate-400;
+}
+.issues-stats-card__strength-num {
+  @apply font-bold ml-0.5;
+}
+.issues-stats-card__dot {
+  @apply text-slate-300 dark:text-slate-600 mx-0.5;
 }
 
 /* Grid Layout */
@@ -60,7 +85,7 @@
   @apply grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6;
 }
 .issues-page__chart-section {
-  @apply bg-slate-100 dark:bg-slate-900 border border-slate-400 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden p-6 min-h-[500px];
+  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm overflow-hidden p-8 min-h-[500px];
 }
 .issues-page__analysis-section {
   @apply h-full;
