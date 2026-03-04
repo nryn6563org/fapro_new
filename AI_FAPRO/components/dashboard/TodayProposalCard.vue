@@ -62,16 +62,16 @@
           </div>
         </header>
         <div class="proposal-card__body">
-          <div v-for="item in stocks" :key="item.ticker" class="proposal-item">
-            <div class="proposal-item__top">
-              <div class="proposal-item__info">
-                <div class="proposal-item__name-row">
-                  <span class="proposal-item__name">{{ item.name }}</span>
+          <div v-for="item in stocks" :key="item.ticker" class="today-proposal-item group">
+            <div class="today-proposal-item__top">
+              <div class="today-proposal-item__info">
+                <div class="today-proposal-item__name-row">
+                  <span class="today-proposal-item__name">{{ item.name }}</span>
                   <span class="today-proposal__badge today-proposal__badge--outline today-proposal__badge--outline-red">매수제안</span>
                 </div>
-                <div class="proposal-item__meta">
+                <div class="today-proposal-item__meta">
                   {{ item.price }}
-                  <span :class="item.change.startsWith('+') ? 'proposal-item__change--up' : 'proposal-item__change--down'">{{
+                  <span :class="item.change.startsWith('+') ? 'today-proposal-item__change--up' : 'today-proposal-item__change--down'">{{
                     item.change
                   }}</span>
                 </div>
@@ -80,7 +80,7 @@
                 <send-icon size="12" class="today-proposal__btn-icon" /> 제안하기
               </button>
             </div>
-            <div class="proposal-item__bottom">
+            <div class="today-proposal-item__bottom">
               제안 적합 고객 : {{ Array.isArray(item.customers) ? item.customers.join(', ') : '' }}
             </div>
           </div>

@@ -5,29 +5,31 @@
 
 /* Header */
 .discovery-page__header {
-  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-400 dark:border-slate-800 pb-4 mb-4;
+  @apply fapro-page-header;
 }
-.discovery-page__title-box {}
+.discovery-page__title-box {
+  @apply fapro-page-header__title-box;
+}
 .discovery-page__title {
-  @apply text-3xl font-bold text-slate-900 dark:text-white;
+  @apply fapro-page-header__title;
 }
 .discovery-page__subtitle {
-  @apply text-slate-600 dark:text-slate-400 mt-1 text-sm;
+  @apply fapro-page-header__subtitle;
 }
 .discovery-page__action-box {
-  @apply flex items-center gap-4;
+  @apply fapro-page-header__action-box;
 }
 .discovery-page__time-info {
-  @apply text-right;
+  @apply fapro-page-header__time-info;
 }
 .discovery-page__time-text {
-  @apply text-sm font-semibold text-slate-900 dark:text-white;
+  @apply fapro-page-header__time-text;
 }
 .discovery-page__time-label {
-  @apply text-xs text-slate-500 dark:text-slate-400;
+  @apply fapro-page-header__time-label;
 }
 .discovery-page__refresh-btn {
-  @apply flex items-center gap-2 px-4 py-2 bg-[#14B8A6] hover:bg-[#0D9488] text-white rounded-lg transition-colors shadow-sm;
+  @apply fapro-btn-refresh;
 }
 .discovery-page__refresh-icon {
   @apply w-4 h-4;

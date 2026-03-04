@@ -4,6 +4,11 @@
       <div v-if="!isCollapsed" class="app-sidebar__user-wrapper">
         <!-- Thinkpool Banner -->
         <div class="app-sidebar__banner">
+          <!-- Background Bubbles -->
+          <div class="app-sidebar__banner-bubble app-sidebar__banner-bubble--1"></div>
+          <div class="app-sidebar__banner-bubble app-sidebar__banner-bubble--2"></div>
+          <div class="app-sidebar__banner-bubble app-sidebar__banner-bubble--3"></div>
+          
           <div class="app-sidebar__banner-header">
             <zap-icon size="14" class="text-white" />
             <span class="app-sidebar__banner-title">씽크풀</span>

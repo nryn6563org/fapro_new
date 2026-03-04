@@ -7,9 +7,32 @@
 .app-sidebar__banner {
   @apply bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-4 flex flex-col gap-2 shadow-lg shadow-primary/20 mb-2 relative overflow-hidden;
 }
-.app-sidebar__banner::after {
-  content: '';
-  @apply absolute top-0 right-0 w-16 h-16 bg-white/10 rounded-full -mr-8 -mt-8;
+.app-sidebar__banner-header, .app-sidebar__banner-text {
+  @apply relative z-10;
+}
+.app-sidebar__banner-bubble {
+  @apply absolute bg-white/10 rounded-full blur-sm pointer-events-none;
+  animation: floating 8s infinite ease-in-out;
+}
+.app-sidebar__banner-bubble--1 {
+  @apply w-20 h-20 -top-8 -right-8;
+  animation-duration: 12s;
+}
+.app-sidebar__banner-bubble--2 {
+  @apply w-12 h-12 top-8 -left-4;
+  animation-duration: 15s;
+  animation-delay: -2s;
+}
+.app-sidebar__banner-bubble--3 {
+  @apply w-16 h-16 -bottom-8 right-12;
+  animation-duration: 10s;
+  animation-delay: -5s;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5px, -10px) scale(1.05); }
+  66% { transform: translate(-5px, 5px) scale(0.95); }
 }
 .app-sidebar__banner-header {
   @apply flex items-center gap-2 text-white font-bold text-sm;

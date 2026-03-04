@@ -5,28 +5,28 @@
 
 /* Header */
 .signals-page__header {
-  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6 mb-2;
+  @apply fapro-page-header;
 }
 .signals-page__title {
-  @apply text-3xl font-bold text-slate-900 dark:text-white;
+  @apply fapro-page-header__title;
 }
 .signals-page__subtitle {
-  @apply text-slate-600 dark:text-slate-400 mt-1 text-sm;
+  @apply fapro-page-header__subtitle;
 }
 .signals-page__action-box {
-  @apply flex items-center gap-4;
+  @apply fapro-page-header__action-box;
 }
 .signals-page__time-info {
-  @apply text-right;
+  @apply fapro-page-header__time-info;
 }
 .signals-page__time-text {
-  @apply text-sm font-semibold text-slate-900 dark:text-white;
+  @apply fapro-page-header__time-text;
 }
 .signals-page__time-label {
-  @apply text-xs text-slate-500 dark:text-slate-400;
+  @apply fapro-page-header__time-label;
 }
 .signals-page__refresh-btn {
-  @apply flex items-center gap-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-xl transition-all duration-300 shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30 cursor-pointer active:scale-95 border-0;
+  @apply fapro-btn-refresh;
 }
 .signals-page__refresh-icon {
   @apply w-4 h-4;

@@ -80,42 +80,62 @@
 }
 
 /*
-  BEM Block: proposal-item
+  BEM Block: today-proposal-item
 */
-.proposal-item {
-  @apply p-4 bg-gray-50/50 dark:bg-slate-700/30 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 hover:shadow-sm transition-all cursor-pointer border border-transparent dark:border-slate-600/50;
+.today-proposal-item {
+  @apply flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-800 transition-all hover:bg-white dark:hover:bg-slate-800 hover:shadow-md cursor-pointer;
 }
 
-.proposal-item__top {
-  @apply flex items-start justify-between mb-2 gap-3;
+.today-proposal-item__left {
+  @apply flex items-center gap-4;
 }
 
-.proposal-item__info {
-  @apply flex-1 min-w-0;
+.today-proposal-item__icon-wrapper {
+  @apply w-10 h-10 rounded-lg flex items-center justify-center transition-colors;
 }
 
-.proposal-item__name-row {
+.today-proposal-item__icon {
+  @apply w-5 h-5;
+}
+
+.today-proposal-item__info {
+  @apply flex flex-col;
+}
+
+.today-proposal-item__name-row {
   @apply flex items-center gap-2;
 }
 
-.proposal-item__name {
-  @apply font-bold text-sm text-slate-800 dark:text-white;
+.today-proposal-item__name {
+  @apply text-base font-bold text-slate-900 dark:text-white;
 }
 
-.proposal-item__meta {
-  @apply text-xs text-slate-600 dark:text-slate-400 mt-1;
+.today-proposal-item__meta {
+  @apply text-xs text-slate-500 dark:text-slate-400 font-medium;
 }
 
-.proposal-item__change--up {
-  @apply text-red-600 dark:text-red-400 font-semibold;
+.today-proposal-item__right {
+  @apply flex flex-col items-end;
 }
 
-.proposal-item__change--down {
-  @apply text-blue-600 dark:text-blue-400 font-semibold;
+.today-proposal-item__price {
+  @apply text-base font-bold text-slate-900 dark:text-white;
 }
 
-.proposal-item__bottom {
-  @apply text-xs text-slate-700 dark:text-slate-200 leading-relaxed mt-3 pt-3 border-t border-slate-300 dark:border-slate-600/50;
+.today-proposal-item__change {
+  @apply flex items-center gap-1 text-sm font-bold mt-0.5;
+}
+
+.today-proposal-item__change--up {
+  @apply text-rose-500;
+}
+
+.today-proposal-item__change--down {
+  @apply text-sky-500;
+}
+
+.today-proposal-item__bottom {
+  @apply mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between;
 }
 
 /* Global Badges/Buttons inside component */
