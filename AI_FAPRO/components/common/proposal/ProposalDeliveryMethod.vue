@@ -2,7 +2,6 @@
   <section class="proposal-section proposal-section--transparent">
     <div class="proposal-section__header mb-4">
       <div class="proposal-section__title-row">
-        <div v-if="sectionNumber" class="proposal-section__number">{{ sectionNumber }}</div>
         <message-square-icon class="proposal-section__icon text-amber-500" />
         <h3 class="proposal-section__title">전송 방법</h3>
       </div>
@@ -51,10 +50,6 @@ export default {
     selectedMethod: {
       type: String,
       default: "kakao",
-    },
-    sectionNumber: {
-      type: [String, Number],
-      default: "",
     },
   },
   data() {

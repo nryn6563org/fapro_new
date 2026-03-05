@@ -26,7 +26,6 @@
           :single-customer="singleCustomer"
           :badge-text="config.badgeText"
           :badge-type="config.badgeType"
-          :section-number="config.customerSectionNumber"
         />
 
         <!-- Stock Section -->
@@ -38,7 +37,6 @@
           :stocks="stocks"
           :selected-tickers.sync="internalSelectedTickers"
           :single-stock="singleStock"
-          :section-number="config.stockSectionNumber"
         />
 
         <!-- Strategic Card (Design 5) -->
@@ -50,14 +48,12 @@
         <!-- Delivery Method -->
         <ProposalDeliveryMethod
           :selected-method.sync="internalDeliveryMethod"
-          :section-number="config.deliverySectionNumber"
         />
 
         <!-- Message Editor -->
         <ProposalMessageEditor
           v-model="internalMessage"
           :delivery-method="internalDeliveryMethod"
-          :section-number="config.editorSectionNumber"
           @copy="handleCopy"
         />
       </div>
@@ -127,10 +123,6 @@ export default {
           stockDescription: "이 고객에게 제안할 추천 종목입니다.",
           badgeText: "매수 제안",
           badgeType: "red",
-          customerSectionNumber: "13",
-          stockSectionNumber: "14",
-          deliverySectionNumber: "15",
-          editorSectionNumber: "16",
         },
         "smart-client": {
           title: "투자 제안",
@@ -143,10 +135,6 @@ export default {
           stockTitle: "제안 종목",
           badgeText: "매수 제안",
           badgeType: "red",
-          customerSectionNumber: "13",
-          stockSectionNumber: "14",
-          deliverySectionNumber: "15",
-          editorSectionNumber: "16",
         },
         "today-buy": {
           title: "투자 제안",
@@ -159,10 +147,6 @@ export default {
           stockTitle: "제안 종목",
           badgeText: "매수 제안",
           badgeType: "red",
-          customerSectionNumber: "13",
-          stockSectionNumber: "14",
-          deliverySectionNumber: "15",
-          editorSectionNumber: "16",
         },
         "today-sell": {
           title: "투자 제안",
@@ -175,10 +159,6 @@ export default {
           stockTitle: "제안 종목",
           badgeText: "매도 제안",
           badgeType: "blue",
-          customerSectionNumber: "13",
-          stockSectionNumber: "14",
-          deliverySectionNumber: "15",
-          editorSectionNumber: "16",
         },
         strategic: {
           title: "제안하기",
@@ -188,10 +168,6 @@ export default {
           customerMode: "select",
           stockMode: "none", // Managed by showStrategicCard
           stockTitle: "제안 종목",
-          customerSectionNumber: "13",
-          stockSectionNumber: "",
-          deliverySectionNumber: "15",
-          editorSectionNumber: "16",
         },
       };
       return modeConfigs[this.mode] || modeConfigs["today-customer"];
@@ -267,6 +243,16 @@ export default {
     },
     handleCopy(content) {
       this.$emit("copy", content);
+    },
+    handlePropose() {
+      this.$emit("propose", {
+        customerIds: this.internalSelectedCustomerIds,
+        tickers: this.internalSelectedTickers,
+        message: this.internalMessage,
+        deliveryMethod: this.internalDeliveryMethod,
+      });
+      alert("투자 제안이 전송되었습니다.");
+      this.$emit("close");
     },
   },
 };

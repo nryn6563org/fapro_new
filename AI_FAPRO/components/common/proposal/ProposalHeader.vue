@@ -1,15 +1,19 @@
 <template>
   <header class="proposal-header">
     <div class="proposal-header__title-row">
-      <component
-        :is="iconComponent"
-        :class="['proposal-header__icon', iconClass]"
-      />
-      <h2 class="proposal-header__title">{{ title }}</h2>
+      <div v-if="iconComponent" class="proposal-header__icon-wrapper">
+        <component
+          :is="iconComponent"
+          :class="['proposal-header__icon', iconClass]"
+        />
+      </div>
+      <div class="flex flex-col">
+        <h2 class="proposal-header__title">{{ title }}</h2>
+        <p v-if="description" class="proposal-header__desc">
+          {{ description }}
+        </p>
+      </div>
     </div>
-    <p v-if="description" class="proposal-header__desc">
-      {{ description }}
-    </p>
     <button class="proposal-header__close" @click="$emit('close')">
       <x-icon size="20" class="text-slate-400" />
     </button>

@@ -14,36 +14,50 @@
 
 /* ── 선택 가능한 목록 아이템 ── */
 .proposal-item {
-  @apply flex items-start gap-4 py-5 px-4 rounded-xl cursor-pointer transition-all bg-white dark:bg-slate-900 border dark:border-slate-800 hover:shadow-md;
+  @apply flex items-start gap-3 py-4 px-4 rounded-xl cursor-pointer bg-gray-50 dark:bg-slate-900 border border-gray-100 dark:border-gray-800;
 }
 .proposal-item--selected {
-  @apply border-emerald-500 dark:border-emerald-500 bg-emerald-500/20 dark:bg-emerald-900/10 shadow-md;
+  @apply border-gray-500/50 dark:border-gray-500 bg-gray-50 shadow-sm;
+}
+.proposal-item--display {
+  @apply cursor-default;
 }
 
 /* ── 아이템 내부 요소 ── */
 .proposal-item__checkbox {
-  @apply mt-0.5;
+  @apply flex items-center h-5 mt-0.5; /* mt matches top spacing of content */
 }
 .proposal-item__content {
-  @apply flex-1 min-w-0 flex flex-col gap-1.5;
+  @apply flex-1 min-w-0 flex flex-col gap-1.5 w-full;
 }
 .proposal-item__name-row {
-  @apply flex items-center gap-2;
+  @apply flex items-center gap-2 flex-1 min-w-0;
+}
+.proposal-item__top-row {
+  @apply flex items-center justify-between w-full gap-2;
 }
 .proposal-item__name {
-  @apply text-[15px] font-bold text-slate-900 dark:text-white;
+  @apply text-[15px] font-bold text-slate-900 dark:text-white leading-5;
+}
+.proposal-item__ticker,
+.proposal-item__style {
+  @apply text-[12px] text-slate-400 font-medium leading-5;
 }
 .proposal-item__style {
   @apply text-[11px] text-slate-500 font-medium;
 }
 .proposal-item__meta {
-  @apply text-[13px] text-slate-600 dark:text-slate-400;
+  @apply text-[13px] text-slate-600 dark:text-slate-400 leading-tight;
 }
 .proposal-item__reason {
-  @apply text-xs text-emerald-600 dark:text-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/20 px-3 py-2 rounded-lg leading-relaxed border border-emerald-100 dark:border-emerald-900/40;
+  @apply text-[11px] text-emerald-600 dark:text-emerald-400 bg-emerald-50/40 dark:bg-emerald-950/20 px-3 py-2 rounded-lg leading-relaxed border border-emerald-100/50 dark:border-emerald-900/40 flex items-start gap-1 relative;
+}
+.proposal-item__reason::before {
+  content: "💡";
+  @apply text-[10px];
 }
 .proposal-item__action {
-  @apply ml-auto flex items-center self-center;
+  @apply ml-auto flex items-center;
 }
 
 /* ── 섹션 색상 테마 (스마트 고객 관리용) ── */

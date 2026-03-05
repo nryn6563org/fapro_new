@@ -4,7 +4,7 @@
     :mode="computedMode"
     :customers="internalCustomers"
     :stocks="internalStocks"
-    :single-customer="proposalData.customer || (proposalType === 'target-customer' ? proposalData : {})"
+    :single-customer="proposalData.customer || (['target-customer', 'smart-client'].includes(proposalType) ? proposalData : {})"
     :single-stock="proposalData.stock || (proposalType === 'target-stock' ? proposalData : {})"
     :selected-customer-ids.sync="checkedCustomerIds"
     :selected-tickers.sync="checkedTickers"

@@ -207,7 +207,7 @@ module.exports = {
 
         /* ── 내부 아이템 카드 (리스트 항목) ── */
         ".fapro-item-card": {
-          "@apply p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-xl border border-slate-200/60 dark:border-slate-800/60 transition-all duration-200 hover:bg-white dark:hover:bg-slate-800 hover:shadow-md hover:border-primary/20 cursor-pointer": {}
+          "@apply p-4 bg-slate-50/50 dark:bg-slate-800/40 rounded-xl border border-slate-200/60 dark:border-slate-800/60 transition-all duration-200 cursor-pointer": {}
         },
         ".fapro-item-card--active": {
           "@apply bg-white dark:bg-slate-800 shadow-md border-primary/30": {}

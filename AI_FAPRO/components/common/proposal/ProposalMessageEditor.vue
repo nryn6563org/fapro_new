@@ -1,7 +1,6 @@
 <template>
   <div class="proposal-editor" :class="`proposal-editor--${deliveryMethod}`">
     <div class="proposal-editor__label">
-      <div v-if="sectionNumber" class="proposal-section__number">{{ sectionNumber }}</div>
       <file-text-icon size="18" class="text-indigo-500" />
       메시지 내용
     </div>
@@ -46,10 +45,6 @@ export default {
   props: {
     value: { type: String, default: "" },
     deliveryMethod: { type: String, default: "kakao" },
-    sectionNumber: {
-      type: [String, Number],
-      default: "",
-    },
   },
   computed: {
     internalValue: {

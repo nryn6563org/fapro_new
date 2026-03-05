@@ -12,7 +12,10 @@
   @apply w-full p-6 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shrink-0 flex flex-col items-start relative box-border;
 }
 .proposal-header__title-row {
-  @apply flex items-center mb-1;
+  @apply flex items-center gap-4;
+}
+.proposal-header__icon-wrapper {
+  @apply rounded-xl flex items-center justify-center;
 }
 .proposal-header__icon {
   @apply w-5 h-5 mr-2;
@@ -33,10 +36,10 @@
 
 /* ── 헤더 텍스트 ── */
 .proposal-header__title {
-  @apply text-[20px] font-black text-slate-900 dark:text-white tracking-tight;
+  @apply text-[18px] font-bold text-slate-900 dark:text-white tracking-tight leading-tight;
 }
 .proposal-header__desc {
-  @apply text-sm text-slate-500 dark:text-slate-400;
+  @apply text-[12px] text-slate-500 dark:text-slate-400 mt-1;
 }
 
 /* ── 닫기 버튼 ── */

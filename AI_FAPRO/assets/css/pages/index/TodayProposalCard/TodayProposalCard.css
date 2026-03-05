@@ -58,11 +58,11 @@
 }
 
 .proposal-card__header {
-  @apply fapro-card-header;
+  @apply fapro-card-header w-full;
 }
 
 .proposal-card__header-content {
-  @apply flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2;
+  @apply flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 w-full;
 }
 
 .proposal-card__title {
