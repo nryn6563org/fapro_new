@@ -22,53 +22,68 @@
           <tr
             v-for="(stock, idx) in stocks"
             :key="idx"
-            :class="{ 'issue-detail-table__row--highlight': Math.abs(stock.changePercent) >= 5 }"
+            :class="{
+              'issue-detail-table__row--highlight':
+                Math.abs(stock.changePercent) >= 5,
+            }"
           >
             <td class="issue-detail__td">
-              <span class="font-bold text-slate-900 dark:text-white">{{ stock.name }}</span>
+              <span class="font-bold text-slate-900 dark:text-white">{{
+                stock.name
+              }}</span>
             </td>
-            <td class="issue-detail__td text-right font-semibold text-slate-700 dark:text-slate-300">
-              {{ Math.round(10000 * (1 + stock.changePercent / 100)).toLocaleString() }}원
+            <td
+              class="issue-detail__td text-right font-semibold text-slate-700 dark:text-slate-300"
+            >
+              {{
+                Math.round(
+                  10000 * (1 + stock.changePercent / 100)
+                ).toLocaleString()
+              }}원
             </td>
             <td
               :class="[
                 'issue-detail__td text-right font-bold',
-                stock.changePercent >= 0 ? 'text-red-600' : 'text-blue-600'
+                stock.changePercent >= 0 ? 'text-red-600' : 'text-blue-600',
               ]"
             >
-              {{ stock.changePercent > 0 ? '+' : '' }}{{ stock.changePercent }}%
+              {{ stock.changePercent > 0 ? "+" : "" }}{{ stock.changePercent }}%
             </td>
             <td class="issue-detail__td text-center">
               <span
                 :class="[
                   'issue-detail-table__badge',
-                  stock.alphaScore >= 85
+                  stock.signalScore >= 85
                     ? 'issue-detail-table__badge--green'
-                    : stock.alphaScore >= 75
+                    : stock.signalScore >= 75
                     ? 'issue-detail-table__badge--teal'
-                    : 'issue-detail-table__badge--orange'
+                    : 'issue-detail-table__badge--orange',
                 ]"
               >
-                {{ stock.alphaScore }}
+                {{ stock.signalScore }}
               </span>
             </td>
             <td class="issue-detail__td text-center">
               <span
                 :class="[
                   'issue-detail-table__badge',
-                  stock.riskGrade === '저'
+                  stock.aiSignal === '매수'
                     ? 'issue-detail-table__badge--red'
-                    : stock.riskGrade === '중'
+                    : stock.aiSignal === '관망'
                     ? 'issue-detail-table__badge--yellow'
-                    : 'issue-detail-table__badge--blue'
+                    : 'issue-detail-table__badge--blue',
                 ]"
               >
-                {{ stock.riskGrade === '저' ? '매수' : stock.riskGrade === '중' ? '관망' : '매도' }}
+                {{ stock.aiSignal }}
               </span>
             </td>
             <td class="issue-detail__td text-center">
               <div class="issue-detail__other-issues">
-                <span v-for="tag in ['AI반도체', '데이터센터']" :key="tag" class="issue-detail-table__tag">
+                <span
+                  v-for="tag in stock.otherIssues"
+                  :key="tag"
+                  class="issue-detail-table__tag"
+                >
                   {{ tag }}
                 </span>
               </div>
@@ -84,19 +99,19 @@
 /**
  * 기능: 이슈 관련 상세 연관 종목 리스트 테이블
  */
-import { TargetIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/issues/IssueDetailStockTable/IssueDetailStockTable.css'
+import { TargetIcon } from "vue-feather-icons";
+import "~/assets/css/pages/issues/IssueDetailStockTable/IssueDetailStockTable.css";
 
 export default {
-  name: 'IssueDetailStockTable',
+  name: "IssueDetailStockTable",
   components: {
-    TargetIcon
+    TargetIcon,
   },
   props: {
     stocks: {
       type: Array,
-      default: () => []
-    }
-  }
-}
+      default: () => [],
+    },
+  },
+};
 </script>

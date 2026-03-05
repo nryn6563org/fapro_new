@@ -1,39 +1,59 @@
 <template>
-  <div class="issue-proposal__form-group">
-    <label class="issue-proposal__label">전송 방법 선택</label>
+  <div class="proposal-section">
+    <div class="proposal-section__header">
+      <h3 class="proposal-section__title">전송 방법 선택</h3>
+    </div>
     <div class="issue-proposal__method-grid">
       <button
         :class="[
           'issue-proposal__method-btn',
-          { 'issue-proposal__method-btn--active-email': internalSendMethod === 'email' }
+          {
+            'issue-proposal__method-btn--active-email':
+              internalSendMethod === 'email',
+          },
         ]"
         @click="internalSendMethod = 'email'"
       >
         <mail-icon class="w-6 h-6 mb-2" />
         <span class="font-bold">이메일</span>
-        <check-icon v-if="internalSendMethod === 'email'" class="issue-proposal__check-icon" />
+        <check-icon
+          v-if="internalSendMethod === 'email'"
+          class="issue-proposal__check-icon"
+        />
       </button>
       <button
         :class="[
           'issue-proposal__method-btn',
-          { 'issue-proposal__method-btn--active-kakao': internalSendMethod === 'kakao' }
+          {
+            'issue-proposal__method-btn--active-kakao':
+              internalSendMethod === 'kakao',
+          },
         ]"
         @click="internalSendMethod = 'kakao'"
       >
         <message-square-icon class="w-6 h-6 mb-2" />
         <span class="font-bold">카카오톡</span>
-        <check-icon v-if="internalSendMethod === 'kakao'" class="issue-proposal__check-icon" />
+        <check-icon
+          v-if="internalSendMethod === 'kakao'"
+          class="issue-proposal__check-icon"
+        />
       </button>
       <button
         :class="[
           'issue-proposal__method-btn',
-          { 'issue-proposal__method-btn--active-sms': internalSendMethod === 'sms' }
+          {
+            'issue-proposal__method-btn--active-sms':
+              internalSendMethod === 'sms',
+          },
         ]"
         @click="internalSendMethod = 'sms'"
       >
         <smartphone-icon class="w-6 h-6 mb-2" />
         <span class="font-bold">문자 (SMS)</span>
-        <check-icon v-if="internalSendMethod === 'sms'" class="issue-proposal__check-icon" />
+        <check-icon
+          v-if="internalSendMethod === 'sms'"
+          class="issue-proposal__check-icon"
+        />
       </button>
     </div>
   </div>
@@ -47,32 +67,33 @@ import {
   MailIcon,
   MessageSquareIcon,
   SmartphoneIcon,
-  CheckIcon
-} from 'vue-feather-icons'
+  CheckIcon,
+} from "vue-feather-icons";
+import "~/assets/css/pages/issues/IssueProposalMethod/IssueProposalMethod.css";
 
 export default {
-  name: 'IssueProposalMethod',
+  name: "IssueProposalMethod",
   components: {
     MailIcon,
     MessageSquareIcon,
     SmartphoneIcon,
-    CheckIcon
+    CheckIcon,
   },
   props: {
     sendMethod: {
       type: String,
-      default: 'email'
-    }
+      default: "email",
+    },
   },
   computed: {
     internalSendMethod: {
       get() {
-        return this.sendMethod
+        return this.sendMethod;
       },
       set(val) {
-        this.$emit('update:sendMethod', val)
-      }
-    }
-  }
-}
+        this.$emit("update:sendMethod", val);
+      },
+    },
+  },
+};
 </script>

@@ -20,7 +20,7 @@
   @apply bg-slate-100 dark:bg-slate-900 rounded-2xl border-2 border-amber-500 shadow-xl overflow-hidden;
 }
 .investment-page__card-header {
-  @apply px-6 py-4 bg-gradient-to-r from-orange-50 to-white dark:from-slate-800 dark:to-slate-900 border-b-2 border-amber-500;
+  @apply px-6 py-4 bg-gradient-to-r from-orange-500 to-white dark:from-slate-800 dark:to-slate-900 border-b-2 border-amber-500;
 }
 .investment-page__card-header-inner {
   @apply flex items-center gap-3;

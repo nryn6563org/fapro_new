@@ -2,6 +2,7 @@
   <modal-vanilla
     v-if="isOpen"
     :is-open="isOpen"
+    modal-id="ai-report-detail-modal"
     custom-dialog-class="discovery-modal__dialog"
     @close="$emit('close')"
   >
@@ -14,10 +15,16 @@
           </div>
           <div class="discovery-modal__header-text">
             <h2 class="discovery-modal__title">AI 생성 리포트</h2>
-            <p class="discovery-modal__subtitle">AI가 분석한 종목 리포트를 확인하세요</p>
+            <p class="discovery-modal__subtitle">
+              AI가 분석한 종목 리포트를 확인하세요
+            </p>
           </div>
         </div>
-        <button type="button" class="discovery-modal__close-btn" @click="$emit('close')">
+        <button
+          type="button"
+          class="discovery-modal__close-btn"
+          @click="$emit('close')"
+        >
           <x-icon size="24" />
         </button>
       </div>
@@ -36,17 +43,26 @@
           <div class="discovery-modal__stats-grid">
             <div class="discovery-modal__stat-col">
               <span class="discovery-modal__stat-label">투자의견</span>
-              <div :class="['discovery-modal__badge', getInvestmentColor(report.investment)]">
+              <div
+                :class="[
+                  'discovery-modal__badge',
+                  getInvestmentColor(report.investment),
+                ]"
+              >
                 {{ report.investment }}
               </div>
             </div>
             <div class="discovery-modal__stat-col">
               <span class="discovery-modal__stat-label">목표가</span>
-              <div class="discovery-modal__stat-value">{{ report.targetPrice }}</div>
+              <div class="discovery-modal__stat-value">
+                {{ report.targetPrice }}
+              </div>
             </div>
             <div class="discovery-modal__stat-col">
               <span class="discovery-modal__stat-label">현재가</span>
-              <div class="discovery-modal__stat-value--muted">{{ report.currentPrice }}</div>
+              <div class="discovery-modal__stat-value--muted">
+                {{ report.currentPrice }}
+              </div>
             </div>
             <div class="discovery-modal__stat-col">
               <span class="discovery-modal__stat-label">상승여력</span>
@@ -76,7 +92,9 @@
             상세 리포트
           </h4>
           <div class="discovery-modal__markdown-box">
-            <pre class="discovery-modal__markdown-text">{{ report.fullReport }}</pre>
+            <pre class="discovery-modal__markdown-text">{{
+              report.fullReport
+            }}</pre>
           </div>
         </div>
 
@@ -106,13 +124,13 @@ import {
   TrendingUpIcon,
   FileTextIcon,
   DownloadIcon,
-  MailIcon
-} from 'vue-feather-icons'
-import ModalVanilla from '~/components/modal/ModalVanilla.vue'
-import '~/assets/css/pages/discovery/AIReportDetailModal/AIReportDetailModal.css'
+  MailIcon,
+} from "vue-feather-icons";
+import ModalVanilla from "~/components/modal/ModalVanilla.vue";
+import "~/assets/css/pages/discovery/AIReportDetailModal/AIReportDetailModal.css";
 
 export default {
-  name: 'AIReportDetailModal',
+  name: "AIReportDetailModal",
   components: {
     StarIcon,
     XIcon,
@@ -120,24 +138,26 @@ export default {
     FileTextIcon,
     DownloadIcon,
     MailIcon,
-    ModalVanilla
+    ModalVanilla,
   },
   props: {
     isOpen: {
       type: Boolean,
-      default: false
+      default: false,
     },
     report: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   methods: {
     getInvestmentColor(investment) {
-      if (investment === '매수' || investment === 'Buy') return 'discovery-modal__badge--buy'
-      if (investment === 'Hold' || investment === '중립') return 'discovery-modal__badge--hold'
-      return 'discovery-modal__badge--sell'
-    }
-  }
-}
+      if (investment === "매수" || investment === "Buy")
+        return "discovery-modal__badge--buy";
+      if (investment === "Hold" || investment === "중립")
+        return "discovery-modal__badge--hold";
+      return "discovery-modal__badge--sell";
+    },
+  },
+};
 </script>

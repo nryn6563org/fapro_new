@@ -1,4 +1,4 @@
-/* Tailwind directives container */
+/* ── 가이드 페이지 스타일 (Rule 11 - 프로젝트 시각적 트리) ── */
 
 .guide-page {
   @apply min-h-screen bg-slate-900 text-white p-12;
@@ -28,10 +28,10 @@
   @apply w-8 h-8 rounded-lg flex items-center justify-center font-black text-sm;
 }
 .guide-page__icon--page {
-  @apply bg-blue-600 text-white;
+  @apply bg-primary text-white;
 }
 .guide-page__icon--comp {
-  @apply bg-teal-600 text-white;
+  @apply bg-primary-hover text-white;
 }
 
 .guide-page__name {
@@ -75,7 +75,7 @@
 }
 
 .guide-page__subcomponents-dot {
-  @apply w-1.5 h-1.5 rounded-full bg-indigo-500;
+  @apply w-1.5 h-1.5 rounded-full bg-primary;
 }
 
 .guide-page__subcomponents-label {
@@ -99,5 +99,39 @@
 }
 
 .guide-page__sub-css {
-  @apply text-xs text-blue-500 truncate mt-1;
+  @apply text-xs text-primary truncate mt-1;
+}
+
+/* 컴포넌트 상세 정보 영역 (우측 플렉스 확장) */
+.guide-page__comp-detail {
+  @apply flex-1;
+}
+
+/* 패키지 버전 섹션 */
+.guide-page__pkg-section {
+  @apply mb-12;
+}
+
+.guide-page__pkg-title {
+  @apply text-xl font-black mb-4 text-amber-400;
+}
+
+.guide-page__pkg-grid {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-3;
+}
+
+.guide-page__pkg-card {
+  @apply bg-slate-800 p-4 rounded-xl border border-slate-700;
+}
+
+.guide-page__pkg-name {
+  @apply text-sm font-bold text-slate-300;
+}
+
+.guide-page__pkg-ver {
+  @apply text-xs text-amber-400 font-mono mt-1;
+}
+
+.guide-page__pkg-desc {
+  @apply text-xs text-slate-500 mt-1;
 }

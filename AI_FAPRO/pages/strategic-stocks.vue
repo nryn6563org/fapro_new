@@ -3,8 +3,10 @@
     <!-- Header -->
     <div class="strategic-page__header">
       <div class="strategic-page__title-box">
-        <h1 class="strategic-page__title">AI 전략 유망주</h1>
-        <p class="strategic-page__subtitle">AI가 발굴한 오늘의 유망주 입니다.</p>
+        <h1 class="strategic-page__title">AI 중장기 유망주</h1>
+        <p class="strategic-page__subtitle">
+          AI가 발굴한 오늘의 유망주 입니다.
+        </p>
       </div>
       <div class="strategic-page__action-box">
         <div class="strategic-page__time-info">
@@ -41,20 +43,20 @@
 
 <script>
 /**
- * 기능: AI 전략 유망주 페이지 컴포넌트
+ * 기능: AI 중장기 유망주 페이지 컴포넌트
  */
-import { RefreshCwIcon } from 'vue-feather-icons'
-import StrategicStockCard from '~/components/strategic/StrategicStockCard.vue'
-import StrategicProposalModal from '~/components/strategic/StrategicProposalModal.vue'
-import { stocks } from '~/utils/strategicStocksMockData.js'
-import '~/assets/css/pages/strategic-stocks/StrategicStocksPage/StrategicStocksPage.css'
+import { RefreshCwIcon } from "vue-feather-icons";
+import StrategicStockCard from "~/components/strategic/StrategicStockCard.vue";
+import StrategicProposalModal from "~/components/strategic/StrategicProposalModal.vue";
+import { stocks } from "~/utils/strategicStocksMockData.js";
+import "~/assets/css/pages/strategic-stocks/StrategicStocksPage/StrategicStocksPage.css";
 
 export default {
-  name: 'StrategicStocksPage',
+  name: "StrategicStocksPage",
   components: {
     RefreshCwIcon,
     StrategicStockCard,
-    StrategicProposalModal
+    StrategicProposalModal,
   },
   data() {
     return {
@@ -64,48 +66,53 @@ export default {
       timer: null,
       isProposalModalOpen: false,
       selectedStock: null,
-      expandedCards: []
-    }
+      expandedCards: [],
+    };
   },
   computed: {
     formattedTime() {
-      const d = this.currentTime
-      return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(
-        d.getDate()
-      ).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(
-        d.getMinutes()
-      ).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`
-    }
+      const d = this.currentTime;
+      return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(
+        2,
+        "0"
+      )}.${String(d.getDate()).padStart(2, "0")} ${String(
+        d.getHours()
+      ).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}:${String(
+        d.getSeconds()
+      ).padStart(2, "0")}`;
+    },
   },
   mounted() {
     this.timer = setInterval(() => {
-      this.currentTime = new Date()
-    }, 1000)
+      this.currentTime = new Date();
+    }, 1000);
   },
   beforeDestroy() {
-    if (this.timer) clearInterval(this.timer)
+    if (this.timer) clearInterval(this.timer);
   },
   methods: {
     toggleCard(id) {
       if (this.expandedCards.includes(id)) {
-        this.expandedCards = this.expandedCards.filter((cardId) => cardId !== id)
+        this.expandedCards = this.expandedCards.filter(
+          (cardId) => cardId !== id
+        );
       } else {
-        this.expandedCards.push(id)
+        this.expandedCards.push(id);
       }
     },
     refreshData() {
-      this.currentTime = new Date()
+      this.currentTime = new Date();
     },
     openProposalModal(stock) {
-      this.selectedStock = stock
-      this.isProposalModalOpen = true
+      this.selectedStock = stock;
+      this.isProposalModalOpen = true;
     },
     closeProposalModal() {
-      this.isProposalModalOpen = false
+      this.isProposalModalOpen = false;
       setTimeout(() => {
-        this.selectedStock = null
-      }, 300)
-    }
-  }
-}
+        this.selectedStock = null;
+      }, 300);
+    },
+  },
+};
 </script>

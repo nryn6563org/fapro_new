@@ -1,182 +1,59 @@
 <template>
-  <div class="intelligence-section">
-    <div class="intelligence-section__header">
-      <h2 class="intelligence-section__title">스마트 고객관리</h2>
+  <!-- ── 스마트 고객관리 인텔리전스 섹션 전체 래퍼 ── -->
+  <div class="customer-intelligence-section">
+    <!-- ── 섹션 헤더: 타이틀 표시 ── -->
+    <div class="customer-intelligence-section__header">
+      <h2 class="customer-intelligence-section__title">스마트 고객관리</h2>
     </div>
 
-    <div class="intelligence-section__grid">
-      <!-- Cash Holding Customers -->
-      <article class="intelligence-card intelligence-card--amber animate-local-fade-up" style="animation-delay: 300ms;">
-        <header class="intelligence-card__header">
-          <div class="intelligence-card__header-content">
-            <h3 class="intelligence-card__title">매수 대기 고객</h3>
-            <span class="intelligence-card__badge intelligence-card__badge--amber">{{ cashHolding.length }}명</span>
-          </div>
-          <p class="intelligence-card__desc">예수금이 많거나 현금 비중이 높은 고객들입니다.</p>
-        </header>
-        <div class="intelligence-card__body">
-          <div
-            v-for="item in cashHolding"
-            :key="item.id"
-            class="intelligence-item intelligence-item--hover-amber"
-          >
-            <div class="intelligence-item__content">
-              <h4 class="intelligence-item__name">{{ item.name }}</h4>
-              <div class="intelligence-item__stats">
-                <div class="stat-row">
-                  <span class="stat-row__label">총 자산</span>
-                  <span class="stat-row__value stat-row__value--semibold">{{ item.aum }}</span>
-                </div>
-                <div class="stat-row">
-                  <span class="stat-row__label">예수금</span>
-                  <span class="stat-row__value stat-row__value--bold stat-row__value--amber-700">{{
-                    item.cashBalance
-                  }}</span>
-                </div>
-                <div class="stat-row">
-                  <span class="stat-row__label">현금 비중</span>
-                  <span class="stat-row__value stat-row__value--semibold stat-row__value--amber-600">{{
-                    item.cashRatio
-                  }}</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="intelligence-alert intelligence-alert--amber">
-              <div class="intelligence-alert__title intelligence-alert__title--amber">✨ AI 투자 제안</div>
-              <div class="intelligence-alert__text">{{ item.aiKeyword }}</div>
-            </div>
-
-            <button
-              class="intelligence-card__btn intelligence-card__btn--block intelligence-card__btn--amber-solid"
-              @click="$emit('propose', 'CustomerIntelligence', item)"
-            >
-              <send-icon size="12" class="intelligence-card__btn-icon" /> 제안하기
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Top Performing Customers -->
-      <article class="intelligence-card intelligence-card--emerald animate-local-fade-up" style="animation-delay: 400ms;">
-        <header class="intelligence-card__header">
-          <div class="intelligence-card__header-content">
-            <h3 class="intelligence-card__title">수익률 상위 고객</h3>
-            <span class="intelligence-card__badge intelligence-card__badge--emerald">{{ topPerforming.length }}명</span>
-          </div>
-          <p class="intelligence-card__desc">자산 수익 상승률이 높은 고객들입니다.</p>
-        </header>
-        <div class="intelligence-card__body">
-          <div
-            v-for="item in topPerforming"
-            :key="item.id"
-            class="intelligence-item intelligence-item--hover-emerald"
-          >
-            <div class="intelligence-item__content">
-              <h4 class="intelligence-item__name">{{ item.name }}</h4>
-              <div class="intelligence-item__stats">
-                <div class="stat-row">
-                  <span class="stat-row__label">총 수익률</span>
-                  <span class="stat-row__value stat-row__value--semibold stat-row__value--emerald-600">{{
-                    item.recent3MonthReturn
-                  }}</span>
-                </div>
-                <div class="stat-row">
-                  <span class="stat-row__label">총 수익금액</span>
-                  <span class="stat-row__value stat-row__value--bold stat-row__value--emerald-700">{{
-                    item.totalProfit
-                  }}</span>
-                </div>
-                <div class="stat-row">
-                  <span class="stat-row__label">최대 수익</span>
-                  <span class="stat-row__value stat-row__value--medium">{{ item.profitContributor }}</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="intelligence-alert intelligence-alert--emerald">
-              <div class="intelligence-alert__title intelligence-alert__title--emerald">✨ AI 대응 전략</div>
-              <div class="intelligence-alert__text">{{ item.aiStrategy }}</div>
-            </div>
-
-            <button
-              class="intelligence-card__btn intelligence-card__btn--block intelligence-card__btn--emerald-solid"
-              @click="$emit('propose', 'CustomerIntelligence', item)"
-            >
-              <send-icon size="12" class="intelligence-card__btn-icon" /> 제안하기
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Declining Customers -->
-      <article class="intelligence-card intelligence-card--rose animate-local-fade-up" style="animation-delay: 500ms;">
-        <header class="intelligence-card__header">
-          <div class="intelligence-card__header-content">
-            <h3 class="intelligence-card__title">수익률 하위 고객</h3>
-            <span class="intelligence-card__badge intelligence-card__badge--rose">{{ declining.length }}명</span>
-          </div>
-          <p class="intelligence-card__desc">자산 수익 하락률이 높은 고객들입니다.</p>
-        </header>
-        <div class="intelligence-card__body">
-          <div
-            v-for="item in declining"
-            :key="item.id"
-            class="intelligence-item intelligence-item--hover-rose"
-          >
-            <div class="intelligence-item__content">
-              <h4 class="intelligence-item__name">{{ item.name }}</h4>
-              <div class="intelligence-item__stats">
-                <div class="stat-row">
-                  <span class="stat-row__label">총 수익률</span>
-                  <span class="stat-row__value stat-row__value--semibold stat-row__value--rose-600">{{
-                    item.recent3MonthReturn
-                  }}</span>
-                </div>
-                <div class="stat-row">
-                  <span class="stat-row__label">총 손실금액</span>
-                  <span class="stat-row__value stat-row__value--bold stat-row__value--rose-700">{{ item.totalLoss }}</span>
-                </div>
-                <div class="stat-row">
-                  <span class="stat-row__label">최대 손실</span>
-                  <span class="stat-row__value stat-row__value--medium">{{ item.lossContributor }}</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="intelligence-alert intelligence-alert--rose">
-              <div class="intelligence-alert__title intelligence-alert__title--rose">✨ AI 대응 전략</div>
-              <div class="intelligence-alert__text">{{ item.aiStrategy }}</div>
-            </div>
-
-            <button
-              class="intelligence-card__btn intelligence-card__btn--block intelligence-card__btn--rose-solid"
-              @click="$emit('propose', 'CustomerIntelligence', item)"
-            >
-              <send-icon size="12" class="intelligence-card__btn-icon" /> 제안하기
-            </button>
-          </div>
-        </div>
-      </article>
+    <!-- ── 인텔리전스 카드 3열 그리드 (매수대기 / 수익 상위 / 수익 하위) ── -->
+    <div class="customer-intelligence-section__grid">
+      <IntelligenceCashCard
+        :items="cashHolding"
+        @propose="(type, item) => $emit('propose', type, item)"
+      />
+      <IntelligenceTopCard
+        :items="topPerforming"
+        @propose="(type, item) => $emit('propose', type, item)"
+      />
+      <IntelligenceDropCard
+        :items="declining"
+        @propose="(type, item) => $emit('propose', type, item)"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import { SendIcon } from 'vue-feather-icons'
-import { customerIntelligence } from '~/utils/mockData.js'
-import '~/assets/css/pages/index/CustomerIntelligenceCard/CustomerIntelligenceCard.css'
+/**
+ * 기능: 대시보드의 스마트 고객관리 인텔리전스 카드 컴포넌트.
+ * 고객을 세 그룹(매수 대기 / 수익률 상위 / 수익률 하위)으로 분류하여
+ * 각 그룹에 맞는 AI 투자 제안 전략을 표시하고 제안 액션을 지원합니다.
+ *
+ * @emits {propose} 제안하기 버튼 클릭 시 발행 - ('CustomerIntelligence', item) 형태
+ */
+import { customerIntelligence } from "~/utils/mockData.js";
+import "~/assets/css/pages/index/CustomerIntelligenceCard/CustomerIntelligenceCard.css";
+import IntelligenceCashCard from "~/components/dashboard/IntelligenceCashCard.vue";
+import IntelligenceTopCard from "~/components/dashboard/IntelligenceTopCard.vue";
+import IntelligenceDropCard from "~/components/dashboard/IntelligenceDropCard.vue";
 
 export default {
-  name: 'CustomerIntelligenceCard',
-  components: { SendIcon },
+  name: "CustomerIntelligenceCard",
+  components: {
+    IntelligenceCashCard,
+    IntelligenceTopCard,
+    IntelligenceDropCard,
+  },
   data() {
     return {
+      /** @type {Array} 매수 대기 고객 목록 (예수금·현금 비중 높은 고객) */
       cashHolding: customerIntelligence.cashHolding,
+      /** @type {Array} 수익률 상위 고객 목록 (최근 3개월 수익 상승률 상위) */
       topPerforming: customerIntelligence.topPerforming,
-      declining: customerIntelligence.declining
-    }
-  }
-}
+      /** @type {Array} 수익률 하위 고객 목록 (최근 3개월 수익 하락률 상위) */
+      declining: customerIntelligence.declining,
+    };
+  },
+};
 </script>
-

@@ -1,29 +1,33 @@
-/* Tailwind directives container for component */
+/* ── 이슈 버블 차트 스타일 ── */
 
 .issue-chart {
-  @apply relative h-[600px] bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900 rounded-xl border-2 border-slate-400 dark:border-slate-800 p-4 overflow-hidden shadow-inner;
+  @apply relative h-[600px] overflow-hidden;
 }
 
-/* Tabs */
+/* 탭 */
 .issue-chart__tabs {
   @apply absolute top-5 left-5 z-10;
 }
+/* 탭 컨테이너 테두리: primary 컬러 */
 .issue-chart__tabs-container {
-  @apply flex items-center p-1 bg-white dark:bg-slate-900 border border-teal-500 rounded-full shadow-sm;
+  @apply flex items-center bg-white dark:bg-slate-900 rounded-full shadow-sm;
+  border: 1px solid #5368ff;
 }
 .issue-chart__tab {
-  @apply px-4 py-1.5 text-[13px] font-bold rounded-full transition-colors border-0 bg-transparent cursor-pointer text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300;
+  @apply px-4 py-1.5 text-[13px] font-bold rounded-full transition-colors border-0 bg-transparent cursor-pointer text-slate-500 dark:text-slate-400;
 }
+/* 활성 탭: primary 컬러 */
 .issue-chart__tab--active {
-  @apply bg-teal-500 text-white hover:bg-teal-600 hover:text-white;
+  @apply text-white;
+  background-color: #5368ff;
 }
 
-/* Area */
+/* 영역 */
 .issue-chart__area {
   @apply relative w-full h-full;
 }
 
-/* Bubble Wrapper */
+/* 버블 래퍼 */
 .issue-chart__bubble-wrapper {
   @apply absolute transition-all duration-500 ease-out;
 }
@@ -31,29 +35,42 @@
   @apply z-20;
 }
 
-/* Bubble */
+/* 버블 */
 .issue-chart__bubble {
   @apply w-full h-full rounded-full shadow-lg border-0 cursor-pointer flex flex-col items-center justify-center text-white transition-all overflow-visible relative;
 }
+/* 상승 버블: buy 시맨틱 컬러 */
 .issue-chart__bubble--up {
-  @apply bg-gradient-to-br from-red-500 to-red-600 hover:shadow-red-500/50;
+  @apply bg-rose-500 hover:bg-rose-600;
 }
+.issue-chart__bubble--up:hover {
+  shadow: 0 4px 12px rgba(251, 44, 54, 0.3);
+}
+/* 하락 버블: sell 시맨틱 컬러 */
 .issue-chart__bubble--down {
-  @apply bg-gradient-to-br from-blue-500 to-blue-600 hover:shadow-blue-500/50;
+  @apply bg-blue-500 hover:bg-blue-600;
+}
+.issue-chart__bubble--down:hover {
+  shadow: 0 4px 12px rgba(43, 127, 255, 0.3);
 }
 .issue-chart__bubble--neutral {
-  @apply bg-gradient-to-br from-slate-400 to-slate-500 hover:shadow-slate-500/50;
+  @apply bg-slate-400 hover:bg-slate-500;
+}
+.issue-chart__bubble--neutral:hover {
+  shadow: 0 4px 12px rgba(100, 116, 139, 0.3);
 }
 
-/* Interaction Effects */
+/* 인터랙션 */
 .issue-chart__bubble:hover {
   @apply scale-110 z-10;
 }
 .issue-chart__bubble:active {
   @apply scale-95;
 }
+/* 선택된 버블: primary 링 */
 .issue-chart__bubble--selected {
-  @apply ring-4 ring-amber-500 ring-offset-2 dark:ring-offset-slate-950 scale-105;
+  @apply ring-2 ring-offset-2 dark:ring-offset-slate-950 scale-105;
+  --tw-ring-color: #5368ff;
 }
 
 .issue-chart__bubble-content {
@@ -69,12 +86,12 @@
   @apply text-xs font-semibold mt-1 opacity-90;
 }
 
-/* Tooltip */
+/* 툴팁 */
 .issue-chart__tooltip {
   @apply absolute -bottom-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-slate-900 text-white text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10;
 }
 
-/* Footer */
+/* 푸터 */
 .issue-chart__footer {
   @apply absolute bottom-2 right-2 z-10;
 }
@@ -87,7 +104,6 @@
 .issue-chart__footer-text {
   @apply text-xs text-slate-600 dark:text-slate-400;
 }
-
 .issue-chart__footer-icon--ml-2 {
   @apply ml-2;
 }

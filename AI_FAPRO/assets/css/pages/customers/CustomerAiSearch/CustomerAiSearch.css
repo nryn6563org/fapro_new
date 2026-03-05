@@ -1,15 +1,16 @@
-/* Tailwind directives container */
+/* ── 고객 AI 검색 영역 스타일 ── */
 
 .customer-ai-search__card {
-  @apply bg-teal-50/50 dark:bg-teal-900/10 border border-teal-100 dark:border-teal-800/50 rounded-2xl p-6 mb-8;
+  @apply bg-primary-light/50 dark:bg-primary-dark/10 border border-primary-light dark:border-primary-dark/50 rounded-2xl p-6 mb-8;
 }
 
-/* Header */
+/* 헤더 */
 .customer-ai-search__header {
   @apply flex items-center justify-between mb-4;
 }
 .customer-ai-search__icon-box {
-  @apply w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center;
+  @apply w-10 h-10 rounded-lg flex items-center justify-center;
+  background-color: #5368ff;
 }
 .customer-ai-search__title {
   @apply text-lg font-bold text-slate-900 dark:text-white m-0 tracking-tight;
@@ -18,7 +19,7 @@
   @apply text-sm text-slate-500 dark:text-slate-400 m-0 mt-0.5;
 }
 
-/* Input */
+/* 입력 영역 */
 .customer-ai-search__input-wrapper {
   @apply relative mb-4;
 }
@@ -26,18 +27,24 @@
   @apply absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400;
 }
 .customer-ai-search__input {
-  @apply w-full pl-11 pr-24 py-3.5 text-sm border-2 border-teal-500 dark:border-teal-600 bg-white dark:bg-slate-900 rounded-lg focus:outline-none focus:ring-0 shadow-sm dark:text-white transition-all font-medium;
+  @apply w-full pl-11 pr-24 py-3.5 text-sm bg-white dark:bg-slate-900 rounded-lg focus:outline-none focus:ring-0 shadow-sm dark:text-white transition-all font-medium;
+  border: 2px solid #5368ff;
 }
 .customer-ai-search__search-btn {
-  @apply absolute right-1.5 top-1/2 -translate-y-1/2 bg-teal-500 hover:bg-teal-600 text-white px-5 py-2.5 rounded border-0 cursor-pointer font-bold text-sm transition-colors;
+  @apply absolute right-1.5 top-1/2 -translate-y-1/2 text-white px-5 py-2.5 rounded border-0 cursor-pointer font-bold text-sm transition-colors;
+  background-color: #5368ff;
+}
+.customer-ai-search__search-btn:hover {
+  background-color: #4253cc;
 }
 
-/* Hint */
+/* 힌트 */
 .customer-ai-search__hint {
-  @apply flex items-center gap-2 text-sm text-teal-600 dark:text-teal-400 mb-2;
+  @apply flex items-center gap-2 text-sm mb-2;
+  color: #5368ff;
 }
 
-/* Recommendations */
+/* 추천 검색 */
 .customer-ai-search__recommend-list {
   @apply flex flex-col gap-2 mb-4;
 }
@@ -45,15 +52,21 @@
   @apply w-full px-4 py-3 bg-white dark:bg-slate-900 rounded-lg text-[13px] font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer border border-transparent dark:border-slate-800 shadow-sm transition-all text-left;
 }
 
-/* Filters */
+/* 필터 */
 .customer-ai-search__filters {
-  @apply flex items-center gap-3 flex-wrap mt-6 pt-5 border-t border-teal-200/50 dark:border-teal-800/50;
+  @apply flex items-center gap-3 flex-wrap mt-6 pt-5;
+  border-top: 1px solid rgba(83, 104, 255, 0.2);
 }
 .customer-ai-search__filter-btn {
   @apply px-4 py-1.5 rounded-full text-sm font-semibold transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 border-2 border-transparent cursor-pointer shadow-sm;
 }
 .customer-ai-search__filter-btn--active {
-  @apply bg-teal-500 text-white border-teal-500 hover:bg-teal-600;
+  @apply text-white;
+  background-color: #5368ff;
+  border-color: #5368ff;
+}
+.customer-ai-search__filter-btn--active:hover {
+  background-color: #4253cc;
 }
 
 .customer-ai-search__header-inner {
@@ -65,11 +78,13 @@
 }
 
 .customer-ai-search__recommends-icon {
-  @apply w-4 h-4 text-teal-500 mt-0.5 flex-shrink-0;
+  @apply w-4 h-4 mt-0.5 flex-shrink-0;
+  color: #5368ff;
 }
 
 .customer-ai-search__recommends-label {
-  @apply text-teal-700 dark:text-teal-400 font-medium;
+  @apply font-medium;
+  color: #5368ff;
 }
 
 .customer-ai-search__filters-label {

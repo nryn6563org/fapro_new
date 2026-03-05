@@ -1,4 +1,4 @@
-/* Tailwind directives container */
+/* ── 일정 사이드바 스타일 ── */
 
 .schedule-sidebar {
   @apply w-64 border-r border-slate-400 dark:border-slate-800 flex flex-col bg-slate-100 dark:bg-slate-900;
@@ -12,7 +12,7 @@
   @apply w-full flex items-center justify-start bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 py-2.5 px-4 rounded-xl font-bold transition-all cursor-pointer;
 }
 
-/* Mini Calendar */
+/* 미니 캘린더 */
 .schedule-sidebar__mini-cal {
   @apply px-4 pb-4;
 }
@@ -41,10 +41,12 @@
   @apply h-6 flex items-center justify-center text-xs font-black uppercase;
 }
 
+/* 일요일: 빨간색 (한국 달력 관례) */
 .schedule-sidebar__mini-dot--sunday {
   @apply text-red-600;
 }
 
+/* 토요일: 파란색 (한국 달력 관례) */
 .schedule-sidebar__mini-dot--saturday {
   @apply text-blue-600;
 }
@@ -61,19 +63,29 @@
   @apply h-8 flex items-center justify-center text-xs rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative border-0 bg-transparent cursor-pointer text-slate-700 dark:text-slate-400;
 }
 
+/* 선택된 날짜: primary 브랜드 컬러 */
 .schedule-sidebar__day-btn--selected {
-  @apply bg-teal-500 text-white font-black hover:bg-teal-600 shadow-sm shadow-teal-500/20;
+  @apply text-white font-black;
+  background-color: #5368ff;
+  box-shadow: 0 2px 6px rgba(83, 104, 255, 0.3);
+}
+.schedule-sidebar__day-btn--selected:hover {
+  background-color: #4253cc;
 }
 
+/* 오늘 날짜: primary 컬러 강조 */
 .schedule-sidebar__day-btn--today {
-  @apply text-blue-600 dark:text-blue-400 font-black;
+  @apply font-black;
+  color: #5368ff;
 }
 
+/* 이벤트 있는 날 표시 점: primary 컬러 */
 .schedule-sidebar__has-event {
-  @apply absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-500 rounded-full;
+  @apply absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full;
+  background-color: #5368ff;
 }
 
-/* Filters */
+/* 필터 */
 .schedule-sidebar__filters {
   @apply px-4 pb-4 border-t border-slate-400 dark:border-slate-800 pt-4;
 }

@@ -18,7 +18,9 @@
         <div class="p-6 space-y-6">
           <!-- Subscription Plans -->
           <div>
-            <label class="text-xs font-bold text-slate-500 uppercase block mb-4">현재 구독 플랜</label>
+            <label class="text-xs font-bold text-slate-500 uppercase block mb-4"
+              >현재 구독 플랜</label
+            >
             <div class="grid md:grid-cols-2 gap-4">
               <settings-plan-card
                 type="basic"
@@ -40,8 +42,14 @@
 
             <!-- Transition Button Logic (Design #33) -->
             <div class="mt-4">
-              <div v-if="selectedPlan === activePlan" class="settings-page__status-box">
-                <div v-if="activePlan === 'pro'" class="settings-page__pro-status">
+              <div
+                v-if="selectedPlan === activePlan"
+                class="settings-page__status-box"
+              >
+                <div
+                  v-if="activePlan === 'pro'"
+                  class="settings-page__pro-status"
+                >
                   <star-icon class="w-4 h-4" />
                   Pro 플랜 이용 중
                 </div>
@@ -49,17 +57,26 @@
                   일반 플랜 이용 중
                 </div>
               </div>
-              
+
               <button
                 v-else
                 :class="[
                   'settings-page__transition-btn',
-                  selectedPlan === 'pro' ? 'settings-page__transition-btn--upgrade' : 'settings-page__transition-btn--downgrade'
+                  selectedPlan === 'pro'
+                    ? 'settings-page__transition-btn--upgrade'
+                    : 'settings-page__transition-btn--downgrade',
                 ]"
                 @click="handlePlanChange"
               >
-                <component :is="selectedPlan === 'pro' ? 'star-icon' : 'arrow-down-icon'" class="w-4 h-4 mr-2" />
-                {{ selectedPlan === 'pro' ? 'Pro 플랜으로 업그레이드' : '일반 플랜으로 다운그레이드' }}
+                <component
+                  :is="selectedPlan === 'pro' ? 'star-icon' : 'arrow-down-icon'"
+                  class="w-4 h-4 mr-2"
+                />
+                {{
+                  selectedPlan === "pro"
+                    ? "Pro 플랜으로 업그레이드"
+                    : "일반 플랜으로 다운그레이드"
+                }}
               </button>
             </div>
           </div>
@@ -82,57 +99,68 @@
 /**
  * 기능: 설정 메인 페이지 (회원정보 및 구독 관리)
  */
-import { CreditCardIcon, StarIcon, ArrowDownIcon } from 'vue-feather-icons'
-import SettingsAccountSection from '~/components/settings/SettingsAccountSection.vue'
-import SettingsPlanCard from '~/components/settings/SettingsPlanCard.vue'
-import SettingsBillingInfo from '~/components/settings/SettingsBillingInfo.vue'
-import '~/assets/css/pages/settings/SettingsPage/SettingsPage.css'
+import { CreditCardIcon, StarIcon, ArrowDownIcon } from "vue-feather-icons";
+import SettingsAccountSection from "~/components/settings/SettingsAccountSection.vue";
+import SettingsPlanCard from "~/components/settings/SettingsPlanCard.vue";
+import SettingsBillingInfo from "~/components/settings/SettingsBillingInfo.vue";
+import "~/assets/css/pages/settings/SettingsPage/SettingsPage.css";
 
 export default {
-  name: 'SettingsPage',
+  name: "SettingsPage",
   components: {
     SettingsAccountSection,
     SettingsPlanCard,
     SettingsBillingInfo,
     CreditCardIcon,
     StarIcon,
-    ArrowDownIcon
+    ArrowDownIcon,
   },
-  layout: 'default',
+  layout: "default",
   data() {
     return {
-      activePlan: 'pro',
-      selectedPlan: 'pro',
-      paymentMethod: '신한카드 **** **** **** 1234',
+      activePlan: "pro",
+      selectedPlan: "pro",
+      paymentMethod: "신한카드 **** **** **** 1234",
       nextBillingDate: new Date(2025, 2, 26),
-      basicFeatures: ['오늘의 제안 고객 추천', '오늘의 종목 제안 추천', '고객 및 일정관리'],
+      basicFeatures: [
+        "오늘의 제안 고객 추천",
+        "오늘의 종목 제안 추천",
+        "고객 및 일정관리",
+      ],
       proFeatures: [
-        '오늘의 제안 고객 추천',
-        '오늘의 종목 제안 추천',
-        '고객 및 일정관리',
-        'AI발굴종목',
-        'AI이슈포착 정보',
-        '투자정보 제공'
-      ]
-    }
+        "오늘의 제안 고객 추천",
+        "오늘의 종목 제안 추천",
+        "고객 및 일정관리",
+        "AI발굴종목",
+        "AI이슈포착 정보",
+        "투자정보 제공",
+      ],
+    };
   },
   computed: {
     nextBillingDateLabel() {
-      return this.nextBillingDate.toLocaleDateString('ko-KR', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      })
-    }
+      return this.nextBillingDate.toLocaleDateString("ko-KR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    },
   },
   methods: {
     handlePlanChange() {
-      const action = this.selectedPlan === 'pro' ? '업그레이드' : '다운그레이드'
-      if (confirm(`${this.selectedPlan === 'pro' ? 'Pro' : '일반'} 플랜으로 ${action}하시겠습니까?`)) {
-        this.activePlan = this.selectedPlan
-        alert(`${action}되었습니다!`)
+      const action =
+        this.selectedPlan === "pro" ? "업그레이드" : "다운그레이드";
+      if (
+        confirm(
+          `${
+            this.selectedPlan === "pro" ? "Pro" : "일반"
+          } 플랜으로 ${action}하시겠습니까?`
+        )
+      ) {
+        this.activePlan = this.selectedPlan;
+        alert(`${action}되었습니다!`);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>

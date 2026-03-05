@@ -73,18 +73,18 @@
 /**
  * 기능: 캘린더 메인 페이지 (일정 관리 및 동기화)
  */
-import ScheduleHeader from '~/components/schedule/ScheduleHeader.vue'
-import ScheduleSidebar from '~/components/schedule/ScheduleSidebar.vue'
-import ScheduleDayView from '~/components/schedule/ScheduleDayView.vue'
-import ScheduleWeekView from '~/components/schedule/ScheduleWeekView.vue'
-import ScheduleMonthView from '~/components/schedule/ScheduleMonthView.vue'
-import SchedulePlaceholder from '~/components/schedule/SchedulePlaceholder.vue'
-import ScheduleSyncModal from '~/components/schedule/ScheduleSyncModal.vue'
-import { events, myCalendars } from '~/utils/scheduleMockData.js'
-import '~/assets/css/pages/schedule/SchedulePage/SchedulePage.css'
+import ScheduleHeader from "~/components/schedule/ScheduleHeader.vue";
+import ScheduleSidebar from "~/components/schedule/ScheduleSidebar.vue";
+import ScheduleDayView from "~/components/schedule/ScheduleDayView.vue";
+import ScheduleWeekView from "~/components/schedule/ScheduleWeekView.vue";
+import ScheduleMonthView from "~/components/schedule/ScheduleMonthView.vue";
+import SchedulePlaceholder from "~/components/schedule/SchedulePlaceholder.vue";
+import ScheduleSyncModal from "~/components/schedule/ScheduleSyncModal.vue";
+import { events, myCalendars } from "~/utils/scheduleMockData.js";
+import "~/assets/css/pages/schedule/SchedulePage/SchedulePage.css";
 
 export default {
-  name: 'SchedulePage',
+  name: "SchedulePage",
   components: {
     ScheduleHeader,
     ScheduleSidebar,
@@ -92,74 +92,76 @@ export default {
     ScheduleWeekView,
     ScheduleMonthView,
     SchedulePlaceholder,
-    ScheduleSyncModal
+    ScheduleSyncModal,
   },
-  layout: 'default',
+  layout: "default",
   data() {
     return {
       currentDate: new Date(),
       selectedDate: new Date(),
-      viewMode: 'week',
+      viewMode: "week",
       isSynced: true,
       isSyncing: false,
-      searchQuery: '',
+      searchQuery: "",
       events: [...events],
       calendars: [...myCalendars],
       showSyncModal: false,
-      showUnsyncModal: false
-    }
+      showUnsyncModal: false,
+    };
   },
   computed: {
     filteredEvents() {
-      const activeTypes = this.calendars.filter((c) => c.checked).map((c) => c.name)
+      const activeTypes = this.calendars
+        .filter((c) => c.checked)
+        .map((c) => c.name);
       return this.events.filter((e) => {
-        const matchesType = activeTypes.includes(e.type)
-        const matchesSearch = e.title.includes(this.searchQuery)
-        return matchesType && matchesSearch
-      })
-    }
+        const matchesType = activeTypes.includes(e.type);
+        const matchesSearch = e.title.includes(this.searchQuery);
+        return matchesType && matchesSearch;
+      });
+    },
   },
   methods: {
     goToday() {
-      this.currentDate = new Date()
-      this.selectedDate = new Date()
+      this.currentDate = new Date();
+      this.selectedDate = new Date();
     },
     navigate(direction) {
-      const newDate = new Date(this.currentDate)
-      if (this.viewMode === 'week') {
-        newDate.setDate(newDate.getDate() + direction * 7)
-      } else if (this.viewMode === 'day') {
-        newDate.setDate(newDate.getDate() + direction)
+      const newDate = new Date(this.currentDate);
+      if (this.viewMode === "week") {
+        newDate.setDate(newDate.getDate() + direction * 7);
+      } else if (this.viewMode === "day") {
+        newDate.setDate(newDate.getDate() + direction);
       } else {
-        newDate.setMonth(newDate.getMonth() + direction)
+        newDate.setMonth(newDate.getMonth() + direction);
       }
-      this.currentDate = newDate
+      this.currentDate = newDate;
     },
     navigateMonth(direction) {
-      const newDate = new Date(this.currentDate)
-      newDate.setMonth(newDate.getMonth() + direction)
-      this.currentDate = newDate
+      const newDate = new Date(this.currentDate);
+      newDate.setMonth(newDate.getMonth() + direction);
+      this.currentDate = newDate;
     },
     toggleCalendar(id) {
-      const cal = this.calendars.find((c) => c.id === id)
-      if (cal) cal.checked = !cal.checked
+      const cal = this.calendars.find((c) => c.id === id);
+      if (cal) cal.checked = !cal.checked;
     },
     handleSidebarDateSelect(date) {
-      this.selectedDate = date
-      this.currentDate = date
+      this.selectedDate = date;
+      this.currentDate = date;
     },
     handleConfirmSync() {
-      this.showSyncModal = false
-      this.isSyncing = true
+      this.showSyncModal = false;
+      this.isSyncing = true;
       setTimeout(() => {
-        this.isSyncing = false
-        this.isSynced = true
-      }, 2000)
+        this.isSyncing = false;
+        this.isSynced = true;
+      }, 2000);
     },
     handleConfirmUnsync() {
-      this.showUnsyncModal = false
-      this.isSynced = false
-    }
-  }
-}
+      this.showUnsyncModal = false;
+      this.isSynced = false;
+    },
+  },
+};
 </script>

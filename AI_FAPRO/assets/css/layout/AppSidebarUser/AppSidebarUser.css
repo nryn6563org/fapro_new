@@ -1,15 +1,28 @@
+/*
+  사이드바 사용자 섹션 스타일
+  ----------------------------
+  BEM 블록: app-sidebar (user 영역)
+  사이드바 하단의 프로필, 배너, 로그아웃, 테마·설정 버튼을 정의합니다.
+*/
+
+/* ── 사용자 섹션 컨테이너 ── */
 .app-sidebar__user-section {
   @apply p-4 mt-auto border-t border-slate-300 dark:border-slate-800;
 }
 .app-sidebar__user-wrapper {
   @apply flex flex-col gap-3;
 }
+
+/* ── 프로모션 배너 ── */
 .app-sidebar__banner {
   @apply bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-4 flex flex-col gap-2 shadow-lg shadow-primary/20 mb-2 relative overflow-hidden;
 }
-.app-sidebar__banner-header, .app-sidebar__banner-text {
+.app-sidebar__banner-header,
+.app-sidebar__banner-text {
   @apply relative z-10;
 }
+
+/* 배너 배경 버블 장식 */
 .app-sidebar__banner-bubble {
   @apply absolute bg-white/10 rounded-full blur-sm pointer-events-none;
   animation: floating 8s infinite ease-in-out;
@@ -29,17 +42,28 @@
   animation-delay: -5s;
 }
 
+/* ── 떠다니는 버블 키프레임 ── */
 @keyframes floating {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(5px, -10px) scale(1.05); }
-  66% { transform: translate(-5px, 5px) scale(0.95); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(5px, -10px) scale(1.05);
+  }
+  66% {
+    transform: translate(-5px, 5px) scale(0.95);
+  }
 }
+
 .app-sidebar__banner-header {
   @apply flex items-center gap-2 text-white font-bold text-sm;
 }
 .app-sidebar__banner-text {
   @apply text-[11px] leading-relaxed text-white/80 m-0 font-medium;
 }
+
+/* ── 프로필 영역 ── */
 .app-sidebar__profile {
   @apply flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-300 cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-800;
 }
@@ -55,12 +79,15 @@
 .app-sidebar__profile-role {
   @apply text-xs text-slate-500 dark:text-slate-400;
 }
+
+/* ── 액션 버튼 영역 ── */
 .app-sidebar__actions {
   @apply flex items-center gap-2;
 }
 .app-sidebar__logout-btn {
   @apply flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white border border-slate-200 dark:bg-slate-900/50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-all duration-300 text-[11px] font-bold cursor-pointer active:scale-95;
 }
-.app-sidebar__theme-btn, .app-sidebar__settings-btn {
+.app-sidebar__theme-btn,
+.app-sidebar__settings-btn {
   @apply w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 dark:bg-slate-900/50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-all duration-300 cursor-pointer active:scale-95;
 }

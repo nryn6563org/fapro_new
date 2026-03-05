@@ -31,12 +31,12 @@ import {
   LockIcon,
   UserIcon,
   UserPlusIcon,
-  UserMinusIcon
-} from 'vue-feather-icons'
-import '~/assets/css/pages/settings/SettingsAccountSection/SettingsAccountSection.css'
+  UserMinusIcon,
+} from "vue-feather-icons";
+import "~/assets/css/pages/settings/SettingsAccountSection/SettingsAccountSection.css";
 
 export default {
-  name: 'SettingsAccountSection',
+  name: "SettingsAccountSection",
   components: {
     SettingsIcon,
     MailIcon,
@@ -44,68 +44,68 @@ export default {
     LockIcon,
     UserIcon,
     UserPlusIcon,
-    UserMinusIcon
+    UserMinusIcon,
   },
   data() {
     return {
       actions: [
         {
-          id: 'findId',
-          label: '아이디 찾기',
-          icon: 'mail-icon',
-          hoverClass: 'hover:border-[#14B8A6] hover:text-[#14B8A6]'
+          id: "findId",
+          label: "아이디 찾기",
+          icon: "mail-icon",
+          hoverClass: "hover:border-[#14B8A6] hover:text-[#14B8A6]",
         },
         {
-          id: 'findPassword',
-          label: '비밀번호 찾기',
-          icon: 'key-icon',
-          hoverClass: 'hover:border-[#14B8A6] hover:text-[#14B8A6]'
+          id: "findPassword",
+          label: "비밀번호 찾기",
+          icon: "key-icon",
+          hoverClass: "hover:border-[#14B8A6] hover:text-[#14B8A6]",
         },
         {
-          id: 'changePassword',
-          label: '비밀번호 변경',
-          icon: 'lock-icon',
-          hoverClass: 'hover:border-[#F59E0B] hover:text-[#F59E0B]'
+          id: "changePassword",
+          label: "비밀번호 변경",
+          icon: "lock-icon",
+          hoverClass: "hover:border-[#F59E0B] hover:text-[#F59E0B]",
         },
         {
-          id: 'updateInfo',
-          label: '회원정보 변경',
-          icon: 'user-icon',
-          hoverClass: 'hover:border-[#F59E0B] hover:text-[#F59E0B]'
+          id: "updateInfo",
+          label: "회원정보 변경",
+          icon: "user-icon",
+          hoverClass: "hover:border-[#F59E0B] hover:text-[#F59E0B]",
         },
         {
-          id: 'register',
-          label: '회원가입',
-          icon: 'user-plus-icon',
-          hoverClass: 'hover:border-blue-500 hover:text-blue-500'
+          id: "register",
+          label: "회원가입",
+          icon: "user-plus-icon",
+          hoverClass: "hover:border-blue-500 hover:text-blue-500",
         },
         {
-          id: 'withdraw',
-          label: '회원탈퇴',
-          icon: 'user-minus-icon',
-          hoverClass: 'hover:border-red-500 hover:text-red-500 hover:bg-red-50'
-        }
-      ]
-    }
+          id: "withdraw",
+          label: "회원탈퇴",
+          icon: "user-minus-icon",
+          hoverClass: "hover:border-red-500 hover:text-red-500 hover:bg-red-50",
+        },
+      ],
+    };
   },
   methods: {
     handleAction(id) {
       const urls = {
-        findId: 'https://www.thinkpool.com/customer/idInquiry',
-        findPassword: 'https://www.thinkpool.com/customer/pwInquiry',
-        changePassword: 'https://www.thinkpool.com/customer/pwChange',
-        updateInfo: 'https://www.thinkpool.com/customer/infoChange',
-        register: 'https://sign.thinkpool.com/user/join.do',
-        withdraw: 'https://www.thinkpool.com/customer/withdraw'
+        findId: "https://www.thinkpool.com/customer/idInquiry",
+        findPassword: "https://www.thinkpool.com/customer/pwInquiry",
+        changePassword: "https://www.thinkpool.com/customer/pwChange",
+        updateInfo: "https://www.thinkpool.com/customer/infoChange",
+        register: "https://sign.thinkpool.com/user/join.do",
+        withdraw: "https://www.thinkpool.com/customer/withdraw",
+      };
+
+      if (id === "withdraw") {
+        alert("0000-0000 로 문의주시기 바랍니다");
+        return;
       }
-      
-      if (id === 'withdraw') {
-        alert('0000-0000 로 문의주시기 바랍니다')
-        return
-      }
-      
-      window.open(urls[id], '_blank')
-    }
-  }
-}
+
+      window.open(urls[id], "_blank");
+    },
+  },
+};
 </script>

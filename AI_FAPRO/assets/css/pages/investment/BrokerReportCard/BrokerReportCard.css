@@ -13,7 +13,7 @@
   @apply flex items-center gap-2 mb-3;
 }
 .broker-report__broker-badge {
-  @apply px-2.5 py-0.5 bg-amber-50 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400 text-xs font-bold rounded-full tracking-wide inline-block whitespace-nowrap;
+  @apply px-2.5 py-0.5 bg-amber-500 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400 text-xs font-bold rounded-full tracking-wide inline-block whitespace-nowrap;
 }
 .broker-report__date {
   @apply text-xs text-slate-400 font-medium;
@@ -44,10 +44,10 @@
   @apply px-1.5 py-0.5 text-xs font-bold rounded-md border inline-block mt-1;
 }
 .broker-report__change-badge--up {
-  @apply bg-red-50 text-red-600 border-red-100 dark:bg-red-900/10 dark:text-red-400 dark:border-red-900/30;
+  @apply bg-red-500 text-red-600 border-red-100 dark:bg-red-900/10 dark:text-red-400 dark:border-red-900/30;
 }
 .broker-report__change-badge--down {
-  @apply bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-900/10 dark:text-blue-400 dark:border-blue-900/30;
+  @apply bg-primary-light/50 text-primary border-blue-100 dark:bg-primary-dark/10 dark:text-primary-light dark:border-blue-900/30;
 }
 .broker-report__change-badge--neutral {
   @apply bg-gray-50 text-slate-600 border-slate-400 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700;

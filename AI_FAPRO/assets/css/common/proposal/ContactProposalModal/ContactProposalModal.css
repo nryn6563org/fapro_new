@@ -1,0 +1,68 @@
+/*
+  ============================================================
+  ContactProposalModal.css
+  컴포넌트: components/common/proposal/ContactProposalModal.vue
+  역할: 제안 모달 래퍼 구조 및 공통 섹션 베이스 스타일
+  BEM 블록: proposal (modal, container, section)
+  ============================================================
+*/
+
+/* ── 모달 다이얼로그 크기/형태 ── */
+.proposal-modal-dialog {
+  @apply sm:!max-w-[600px] rounded-xl overflow-hidden shadow-2xl;
+}
+
+/* ── 제안 전체 컨테이너 ── */
+.proposal-container {
+  @apply flex flex-col w-full h-full;
+}
+
+/* ── 제안 본문 스크롤 영역 ── */
+.proposal-body {
+  @apply space-y-6 overflow-y-auto overflow-x-hidden;
+}
+
+/* ── 공통 섹션 베이스 (CustomerSection, StockSection, DeliveryMethod 공유) ── */
+.proposal-section {
+  @apply bg-white dark:bg-slate-900 rounded-xl py-4 px-6 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden;
+}
+.proposal-section--transparent {
+  @apply bg-transparent border-0 shadow-none p-0;
+}
+.proposal-section__header {
+  @apply flex items-center justify-between mb-3;
+}
+.proposal-section__title-row {
+  @apply flex items-center;
+}
+.proposal-section__icon {
+  @apply w-5 h-5 mr-2;
+}
+.proposal-section__title {
+  @apply text-base font-bold text-slate-900 dark:text-white uppercase tracking-tight;
+}
+.proposal-section__number {
+  @apply w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs font-black mr-2.5 shadow-sm shadow-emerald-500/20;
+}
+.proposal-section__badge {
+  @apply bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 px-3 py-1.5 rounded-full text-xs font-bold leading-none ml-auto;
+}
+.proposal-section__desc {
+  @apply text-sm text-slate-500 dark:text-slate-400 mb-3;
+}
+
+/* ── 제안 고객 카드 (단일 표시 모드) ── */
+.proposal-customer-card {
+  @apply mt-2 p-4 bg-gray-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-between;
+}
+.proposal-customer-card__info {
+  @apply flex items-center gap-3;
+}
+.proposal-customer-card__name {
+  @apply text-[15px] font-bold text-slate-900 dark:text-white;
+}
+
+/* ── 제안 종목 선택 박스 ── */
+.proposal-selection-box {
+  @apply mt-2 p-4 bg-emerald-50/30 dark:bg-emerald-950/20 rounded-xl border border-emerald-400/30 dark:border-emerald-500/20;
+}

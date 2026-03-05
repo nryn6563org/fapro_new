@@ -1,49 +1,56 @@
-/* Tailwind directives container */
-/* for component */
+/*
+  ============================================================
+  IssueProposalModal.css
+  컴포넌트: components/issues/IssueProposalModal.vue
+  역할: 이슈 제안 모달 스타일 (ID 기반 스코핑)
+  모달 ID: #issue-proposal-modal
+  ============================================================
+*/
 
-.issue-proposal {
+/* ── 모달 베이스 (공통 유틸리티 클래스 사용) ── */
+#issue-proposal-modal {
   @apply fapro-modal-overlay;
 }
 
 .issue-proposal__overlay {
-  @apply absolute inset-0; /* Keep absolute inset-0 locally if needed, though overlay covers it */
+  @apply absolute inset-0;
 }
 
 .issue-proposal__modal {
-  @apply fapro-modal-container;
+  @apply fapro-modal-container fapro-modal-container--lg;
 }
 
-/* Header */
+/* ── Header ── */
 .issue-proposal__header {
   @apply fapro-modal-header;
 }
+
 .issue-proposal__title {
   @apply fapro-modal-title flex items-center gap-3;
 }
+
 .issue-proposal__title-icon {
-  @apply w-7 h-7 text-teal-500;
+  @apply w-7 h-7 text-primary;
 }
+
 .issue-proposal__close-btn {
   @apply fapro-modal-close;
 }
 
-/* Content */
+/* ── Content ── */
 .issue-proposal__content {
   @apply fapro-modal-body;
 }
+
 .issue-proposal__description {
-  @apply text-sm text-slate-500 dark:text-slate-400 mb-6 m-0;
+  @apply text-sm text-slate-500 mb-6 m-0;
 }
 
+.dark .issue-proposal__description {
+  @apply text-slate-400;
+}
 
-
-/* Footer */
+/* ── Footer ── */
 .issue-proposal__footer {
-  @apply fapro-modal-footer;
-}
-.issue-proposal__btn-cancel {
-  @apply fapro-btn-outline flex-1;
-}
-.issue-proposal__btn-send {
-  @apply fapro-btn-primary flex-[2] bg-teal-500 hover:bg-teal-600 dark:bg-teal-500 dark:hover:bg-teal-600 dark:text-white;
+  @apply flex items-center gap-3 bg-slate-50 dark:bg-slate-900/50;
 }

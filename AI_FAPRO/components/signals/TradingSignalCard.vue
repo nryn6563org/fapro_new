@@ -9,9 +9,10 @@
                 'trading-signal-card__time-text',
                 type === 'buy'
                   ? 'trading-signal-card__time-text--buy'
-                  : 'trading-signal-card__time-text--sell'
+                  : 'trading-signal-card__time-text--sell',
               ]"
-              >{{ signal.time }} {{ type === 'buy' ? '매수' : '매도' }}신호 발생</span
+              >{{ signal.time }} {{ type === "buy" ? "매수" : "매도" }}신호
+              발생</span
             >
           </div>
           <h3 class="trading-signal-card__name">{{ signal.name }}</h3>
@@ -19,10 +20,12 @@
             <span
               :class="[
                 'trading-signal-card__price',
-                type === 'buy' ? 'trading-signal-card__price--buy' : 'trading-signal-card__price--sell'
+                type === 'buy'
+                  ? 'trading-signal-card__price--buy'
+                  : 'trading-signal-card__price--sell',
               ]"
             >
-              {{ type === 'buy' ? '매수가' : '매도가' }} {{ signal.price }}
+              {{ type === "buy" ? "매수가" : "매도가" }} {{ signal.price }}
             </span>
             <span v-if="type === 'sell'" class="trading-signal-card__change">{{
               signal.change
@@ -32,11 +35,17 @@
       </div>
 
       <div class="trading-signal-card__actions">
-        <button class="trading-signal-card__btn-detail" @click="$emit('toggle-detail')">
+        <button
+          class="trading-signal-card__btn-detail"
+          @click="$emit('toggle-detail')"
+        >
           <trending-up-icon size="14" class="trading-signal-card__btn-icon" />
-          {{ isDetailOpen ? '매매내역 접기' : '매매내역 보기' }}
+          {{ isDetailOpen ? "매매내역 접기" : "매매내역 보기" }}
         </button>
-        <button class="trading-signal-card__btn-report" @click="$emit('open-report', signal)">
+        <button
+          class="trading-signal-card__btn-report"
+          @click="$emit('open-report', signal)"
+        >
           <star-icon size="14" class="trading-signal-card__btn-icon" />
           AI 리포트
         </button>
@@ -46,21 +55,20 @@
     <!-- Move reason-box directly under the header-box inside trading-signal-card -->
     <div class="trading-signal-card__reason-box">
       <h4 class="trading-signal-card__reason-title">시그널 발생 사유</h4>
-      <p v-if="signal.reason" class="trading-signal-card__reason-text">{{ signal.reason }}
+      <p v-if="signal.reason" class="trading-signal-card__reason-text">
+        {{ signal.reason }}
         <span class="trading-signal-card__reason-more">[내용 자세히 보기]</span>
       </p>
       <div v-else class="trading-signal-card__reason-empty">
         <span class="trading-signal-card__reason-empty-badge">5-1</span>
-        <span class="trading-signal-card__reason-empty-text">시그널 발생 사유 생성중 입니다</span>
+        <span class="trading-signal-card__reason-empty-text"
+          >시그널 발생 사유 생성중 입니다</span
+        >
       </div>
     </div>
 
     <!-- Detail component extracted from origin code -->
-    <trading-signal-history
-      v-if="isDetailOpen"
-      :signal="signal"
-      :type="type"
-    />
+    <trading-signal-history v-if="isDetailOpen" :signal="signal" :type="type" />
   </div>
 </template>
 
@@ -68,31 +76,31 @@
 /**
  * 기능: AI 매매 신호 (매수/매도) 개별 카드 렌더링
  */
-import { TrendingUpIcon, StarIcon } from 'vue-feather-icons'
-import TradingSignalHistory from '~/components/signals/TradingSignalHistory.vue'
-import '~/assets/css/pages/signals/TradingSignalCard/TradingSignalCard.css'
+import { TrendingUpIcon, StarIcon } from "vue-feather-icons";
+import TradingSignalHistory from "~/components/signals/TradingSignalHistory.vue";
+import "~/assets/css/pages/signals/TradingSignalCard/TradingSignalCard.css";
 
 export default {
-  name: 'TradingSignalCard',
+  name: "TradingSignalCard",
   components: {
     TrendingUpIcon,
     StarIcon,
-    TradingSignalHistory
+    TradingSignalHistory,
   },
   props: {
     signal: {
       type: Object,
-      required: true
+      required: true,
     },
     type: {
       type: String,
-      default: 'buy', // 'buy' or 'sell'
-      validator: (value) => ['buy', 'sell'].includes(value)
+      default: "buy", // 'buy' or 'sell'
+      validator: (value) => ["buy", "sell"].includes(value),
     },
     isDetailOpen: {
       type: Boolean,
-      default: false
-    }
-  }
-}
+      default: false,
+    },
+  },
+};
 </script>

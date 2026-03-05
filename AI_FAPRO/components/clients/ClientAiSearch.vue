@@ -9,7 +9,9 @@
           </div>
           <div>
             <h3 class="client-ai-search__title">AI 고객 검색</h3>
-            <p class="client-ai-search__subtitle">자연어로 고객을 검색해 보세요</p>
+            <p class="client-ai-search__subtitle">
+              자연어로 고객을 검색해 보세요
+            </p>
           </div>
         </div>
         <div class="client-ai-search__badge">
@@ -24,27 +26,30 @@
           <search-icon class="client-ai-search__input-icon" />
           <input
             ref="searchInput"
+            v-model="internalSearchTerm"
             type="text"
             class="client-ai-search__input"
             placeholder="예: 안정형 고객 중 자산 5억 이상 고객 찾아줘"
-            v-model="internalSearchTerm"
             @keydown.enter="handleSearch"
           />
           <button
             v-if="internalSearchTerm"
-            @click="clearSearch"
             class="client-ai-search__clear-btn"
+            @click="clearSearch"
           >
             <x-icon class="w-4 h-4" />
           </button>
           <button
             class="client-ai-search__search-btn"
-            @click="handleSearch"
             :disabled="isSearching || !internalSearchTerm"
+            @click="handleSearch"
           >
-            <refresh-cw-icon v-if="isSearching" class="w-4 h-4 mr-1 animate-spin" />
+            <refresh-cw-icon
+              v-if="isSearching"
+              class="w-4 h-4 mr-1 animate-spin"
+            />
             <search-icon v-else class="w-4 h-4 mr-1" />
-            {{ isSearching ? '검색 중' : '검색' }}
+            {{ isSearching ? "검색 중" : "검색" }}
           </button>
         </div>
 
@@ -61,14 +66,16 @@
       <div class="client-ai-search__recommends">
         <div class="flex items-center gap-2 mb-3">
           <zap-icon class="w-4 h-4 text-teal-500" />
-          <span class="text-sm font-bold text-slate-700 dark:text-slate-200">추천 검색어</span>
+          <span class="text-sm font-bold text-slate-700 dark:text-slate-200"
+            >추천 검색어</span
+          >
         </div>
         <div class="flex flex-wrap gap-2">
           <button
             v-for="(example, idx) in examples"
             :key="idx"
-            @click="handleRecommend(example)"
             class="client-ai-search__recommend-btn"
+            @click="handleRecommend(example)"
           >
             {{ example }}
           </button>
@@ -79,18 +86,19 @@
       <div class="client-ai-search__filters">
         <div class="flex items-center gap-2">
           <filter-icon class="w-4 h-4 text-slate-500" />
-          <span class="text-sm font-bold text-slate-700 dark:text-slate-200 mr-2"
+          <span
+            class="text-sm font-bold text-slate-700 dark:text-slate-200 mr-2"
             >투자유형 필터:</span
           >
           <div class="flex gap-2">
             <button
               v-for="type in types"
               :key="type"
-              @click="$emit('update:filterType', type)"
               :class="[
                 'client-ai-search__filter-btn',
-                { 'client-ai-search__filter-btn--active': filterType === type }
+                { 'client-ai-search__filter-btn--active': filterType === type },
               ]"
+              @click="$emit('update:filterType', type)"
             >
               {{ type }}
             </button>
@@ -105,78 +113,84 @@
 /**
  * 기능: AI 고객 검색 및 필터 컴포넌트
  */
-import { SearchIcon, ZapIcon, XIcon, RefreshCwIcon, FilterIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/clients/ClientAiSearch/ClientAiSearch.css'
+import {
+  SearchIcon,
+  ZapIcon,
+  XIcon,
+  RefreshCwIcon,
+  FilterIcon,
+} from "vue-feather-icons";
+import "~/assets/css/pages/clients/ClientAiSearch/ClientAiSearch.css";
 
 export default {
-  name: 'ClientAiSearch',
+  name: "ClientAiSearch",
   components: {
     SearchIcon,
     ZapIcon,
     XIcon,
     RefreshCwIcon,
-    FilterIcon
+    FilterIcon,
   },
   props: {
     searchTerm: {
       type: String,
-      default: ''
+      default: "",
     },
     filterType: {
       type: String,
-      default: '전체'
+      default: "전체",
     },
     examples: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     isSearching: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
       internalSearchTerm: this.searchTerm,
-      types: ['전체', '공격형', '중립형', '안정형']
-    }
+      types: ["전체", "공격형", "중립형", "안정형"],
+    };
   },
   watch: {
     searchTerm(newVal) {
-      this.internalSearchTerm = newVal
-    }
+      this.internalSearchTerm = newVal;
+    },
   },
   mounted() {
     this.$autocomplete(this.$refs.searchInput, {
       fetch: (text, update) => {
-        text = text.toLowerCase()
+        text = text.toLowerCase();
         const suggestions = this.exampleQueries
           .filter((s) => s.toLowerCase().includes(text))
-          .map((s) => ({ label: s, value: s }))
-        update(suggestions)
+          .map((s) => ({ label: s, value: s }));
+        update(suggestions);
       },
       onSelect: (item) => {
-        this.internalQuery = item.value
-        this.handleSearch()
-      }
-    })
+        this.internalQuery = item.value;
+        this.handleSearch();
+      },
+    });
   },
   methods: {
     handleSearch() {
       if (this.internalSearchTerm.trim()) {
-        this.$emit('search', this.internalSearchTerm)
-        this.$emit('update:searchTerm', this.internalSearchTerm)
+        this.$emit("search", this.internalSearchTerm);
+        this.$emit("update:searchTerm", this.internalSearchTerm);
       }
     },
     clearSearch() {
-      this.internalSearchTerm = ''
-      this.$emit('update:searchTerm', '')
-      this.$emit('clear')
+      this.internalSearchTerm = "";
+      this.$emit("update:searchTerm", "");
+      this.$emit("clear");
     },
     handleRecommend(text) {
-      this.internalSearchTerm = text
-      this.handleSearch()
-    }
-  }
-}
+      this.internalSearchTerm = text;
+      this.handleSearch();
+    },
+  },
+};
 </script>

@@ -3,9 +3,20 @@
     <div v-if="issue" class="analysis-side__card">
       <div class="analysis-side__header">
         <div class="analysis-side__title-info">
-          <div :class="['analysis-side__icon-box', 'analysis-side__icon-box--' + issue.type]">
-            <trending-up-icon v-if="issue.type === 'up'" class="analysis-side__icon" />
-            <trending-down-icon v-else-if="issue.type === 'down'" class="analysis-side__icon" />
+          <div
+            :class="[
+              'analysis-side__icon-box',
+              'analysis-side__icon-box--' + issue.type,
+            ]"
+          >
+            <trending-up-icon
+              v-if="issue.type === 'up'"
+              class="analysis-side__icon"
+            />
+            <trending-down-icon
+              v-else-if="issue.type === 'down'"
+              class="analysis-side__icon"
+            />
             <minus-icon v-else class="analysis-side__icon" />
           </div>
           <div>
@@ -13,9 +24,13 @@
             <p class="analysis-side__subtitle">
               등락률:
               <span
-                :class="['analysis-side__change-text', 'analysis-side__change-text--' + issue.type]"
+                :class="[
+                  'analysis-side__change-text',
+                  'analysis-side__change-text--' + issue.type,
+                ]"
               >
-                {{ issue.changePercent > 0 ? '+' : '' }}{{ issue.changePercent }}%
+                {{ issue.changePercent > 0 ? "+" : ""
+                }}{{ issue.changePercent }}%
               </span>
             </p>
           </div>
@@ -28,7 +43,7 @@
                 'analysis-side__bar',
                 Math.abs(issue.changePercent) > 5
                   ? 'analysis-side__bar--high'
-                  : 'analysis-side__bar--empty'
+                  : 'analysis-side__bar--empty',
               ]"
             ></div>
             <div
@@ -36,7 +51,7 @@
                 'analysis-side__bar',
                 Math.abs(issue.changePercent) > 3
                   ? 'analysis-side__bar--mid'
-                  : 'analysis-side__bar--empty'
+                  : 'analysis-side__bar--empty',
               ]"
             ></div>
             <div
@@ -44,7 +59,7 @@
                 'analysis-side__bar',
                 Math.abs(issue.changePercent) > 0
                   ? 'analysis-side__bar--low'
-                  : 'analysis-side__bar--empty'
+                  : 'analysis-side__bar--empty',
               ]"
             ></div>
           </div>
@@ -59,7 +74,7 @@
           <button
             :class="[
               'analysis-side__tab-btn',
-              { 'analysis-side__tab-btn--active': activeTab === 'reason' }
+              { 'analysis-side__tab-btn--active': activeTab === 'reason' },
             ]"
             @click="activeTab = 'reason'"
           >
@@ -69,7 +84,7 @@
           <button
             :class="[
               'analysis-side__tab-btn',
-              { 'analysis-side__tab-btn--active': activeTab === 'outlook' }
+              { 'analysis-side__tab-btn--active': activeTab === 'outlook' },
             ]"
             @click="activeTab = 'outlook'"
           >
@@ -85,7 +100,10 @@
           >
             <p class="analysis-side__text">{{ issue.aiReason }}</p>
           </div>
-          <div v-else class="analysis-side__content-box analysis-side__content-box--outlook">
+          <div
+            v-else
+            class="analysis-side__content-box analysis-side__content-box--outlook"
+          >
             <p class="analysis-side__text">{{ issue.outlook }}</p>
           </div>
         </div>
@@ -98,22 +116,26 @@
           <h5 class="analysis-side__section-title">관련 종목 (등락률 상위)</h5>
         </div>
         <div class="analysis-side__stocks-grid">
-          <div v-for="(stock, idx) in sortedStocks" :key="idx" class="analysis-side__stock-tag">
+          <div
+            v-for="(stock, idx) in sortedStocks"
+            :key="idx"
+            class="analysis-side__stock-tag"
+          >
             <span class="analysis-side__stock-name">{{ stock.name }}</span>
             <div
               :class="[
                 'analysis-side__stock-change',
-                stock.changePercent >= 0 ? 'text-red-600' : 'text-blue-600'
+                stock.changePercent >= 0 ? 'text-red-600' : 'text-blue-600',
               ]"
             >
               <arrow-up-icon v-if="stock.changePercent >= 0" class="w-3 h-3" />
               <arrow-down-icon v-else class="w-3 h-3" />
-              {{ stock.changePercent > 0 ? '+' : '' }}{{ stock.changePercent }}%
+              {{ stock.changePercent > 0 ? "+" : "" }}{{ stock.changePercent }}%
             </div>
           </div>
         </div>
       </div>
-      
+
       <!-- Related News Section -->
       <div v-if="issue.newsSummary" class="analysis-side__news-section">
         <div class="analysis-side__section-label">
@@ -149,13 +171,13 @@ import {
   TargetIcon,
   ArrowUpIcon,
   ArrowDownIcon,
-  FileTextIcon
-} from 'vue-feather-icons'
-import { featuredStocks } from '~/utils/issueDetectionMockData.js'
-import '~/assets/css/pages/issues/IssueAnalysisSide/IssueAnalysisSide.css'
+  FileTextIcon,
+} from "vue-feather-icons";
+import { featuredStocks } from "~/utils/issueDetectionMockData.js";
+import "~/assets/css/pages/issues/IssueAnalysisSide/IssueAnalysisSide.css";
 
 export default {
-  name: 'IssueAnalysisSide',
+  name: "IssueAnalysisSide",
   components: {
     TrendingUpIcon,
     TrendingDownIcon,
@@ -164,33 +186,33 @@ export default {
     TargetIcon,
     ArrowUpIcon,
     ArrowDownIcon,
-    FileTextIcon
+    FileTextIcon,
   },
   props: {
     issue: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
-      activeTab: 'reason'
-    }
+      activeTab: "reason",
+    };
   },
   computed: {
     sortedStocks() {
-      if (!this.issue) return []
+      if (!this.issue) return [];
       return featuredStocks
         .filter((stock) => this.issue.relatedStocks.includes(stock.ticker))
         .sort((a, b) => Math.abs(b.changePercent) - Math.abs(a.changePercent))
-        .slice(0, 5)
-    }
+        .slice(0, 5);
+    },
   },
   watch: {
     issue() {
       // Reset tab when issue changes
-      this.activeTab = 'reason'
-    }
-  }
-}
+      this.activeTab = "reason";
+    },
+  },
+};
 </script>

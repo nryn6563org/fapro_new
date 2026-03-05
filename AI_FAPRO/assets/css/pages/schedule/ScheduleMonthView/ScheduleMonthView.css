@@ -1,4 +1,4 @@
-/* Tailwind directives container */
+/* ── 일정 월간 뷰 스타일 ── */
 
 .month-view {
   @apply p-4 h-full overflow-auto;
@@ -12,10 +12,12 @@
   @apply bg-slate-200 dark:bg-slate-900 p-2 text-center text-sm font-bold uppercase;
 }
 
+/* 일요일: 빨간색 (한국 달력 관례) */
 .month-view__th--sunday {
   @apply text-red-500 dark:text-red-400;
 }
 
+/* 토요일: 파란색 (한국 달력 관례) */
 .month-view__th--saturday {
   @apply text-blue-500 dark:text-blue-400;
 }
@@ -36,14 +38,21 @@
   @apply text-sm mb-1 flex items-center justify-center;
 }
 
+/* 오늘 날짜: primary 브랜드 컬러 */
 .month-view__day-num--today {
-  @apply w-6 h-6 bg-teal-500 text-white rounded-full font-black shadow-sm shadow-teal-500/30;
+  @apply text-white rounded-full font-black;
+  background-color: #5368ff;
+  width: 1.5rem;
+  height: 1.5rem;
+  box-shadow: 0 2px 6px rgba(83, 104, 255, 0.3);
 }
 
+/* 일요일 날짜: 빨간색 (한국 달력 관례) */
 .month-view__day-num--sunday {
   @apply text-red-500 dark:text-red-400;
 }
 
+/* 토요일 날짜: 파란색 (한국 달력 관례) */
 .month-view__day-num--saturday {
   @apply text-blue-500 dark:text-blue-400;
 }
@@ -64,8 +73,9 @@
   @apply text-xs text-slate-500 dark:text-slate-600 px-1 font-bold;
 }
 
+/* 이벤트 카테고리 색상 (캘린더 이벤트 구분용) */
 .month-view__event-tag--blue-500 {
-  @apply bg-blue-500;
+  background-color: #5368ff;
 }
 
 .month-view__event-tag--teal-500 {

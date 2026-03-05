@@ -2,7 +2,9 @@
   <div class="onboarding-modal__form">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div class="onboarding-modal__form-field">
-        <label class="onboarding-modal__form-label">고객명 <span class="text-red-500">*</span></label>
+        <label class="onboarding-modal__form-label"
+          >고객명 <span class="text-red-500">*</span></label
+        >
         <input
           v-model="localClient.name"
           class="onboarding-modal__input"
@@ -10,7 +12,9 @@
         />
       </div>
       <div class="onboarding-modal__form-field">
-        <label class="onboarding-modal__form-label">연락처 <span class="text-red-500">*</span></label>
+        <label class="onboarding-modal__form-label"
+          >연락처 <span class="text-red-500">*</span></label
+        >
         <input
           v-model="localClient.phone"
           class="onboarding-modal__input"
@@ -18,8 +22,14 @@
         />
       </div>
       <div class="onboarding-modal__form-field">
-        <label class="onboarding-modal__form-label">이메일 <span class="text-red-500">*</span></label>
-        <input v-model="localClient.email" class="onboarding-modal__input" type="email" />
+        <label class="onboarding-modal__form-label"
+          >이메일 <span class="text-red-500">*</span></label
+        >
+        <input
+          v-model="localClient.email"
+          class="onboarding-modal__input"
+          type="email"
+        />
       </div>
       <div class="onboarding-modal__form-field">
         <label class="onboarding-modal__form-label">연령</label>
@@ -37,7 +47,10 @@
             :key="type"
             :class="[
               'onboarding-modal__type-btn',
-              { 'onboarding-modal__type-btn--active': localClient.investmentType === type }
+              {
+                'onboarding-modal__type-btn--active':
+                  localClient.investmentType === type,
+              },
             ]"
             @click="localClient.investmentType = type"
           >
@@ -77,41 +90,41 @@
 /**
  * 기능: 온보딩 고객 입력 폼
  */
-import '~/assets/css/pages/clients/SmartOnboardingForm/SmartOnboardingForm.css'
+import "~/assets/css/pages/clients/SmartOnboardingForm/SmartOnboardingForm.css";
 
 export default {
-  name: 'SmartOnboardingForm',
+  name: "SmartOnboardingForm",
   props: {
     client: {
       type: Object,
-      required: true
+      required: true,
     },
     types: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-      localClient: { ...this.client }
-    }
+      localClient: { ...this.client },
+    };
   },
   watch: {
     client: {
       handler(newVal) {
         if (JSON.stringify(newVal) !== JSON.stringify(this.localClient)) {
-          this.localClient = { ...newVal }
+          this.localClient = { ...newVal };
         }
       },
       deep: true,
-      immediate: true
+      immediate: true,
     },
     localClient: {
       handler(newVal) {
-        this.$emit('update:client', newVal)
+        this.$emit("update:client", newVal);
       },
-      deep: true
-    }
-  }
-}
+      deep: true,
+    },
+  },
+};
 </script>

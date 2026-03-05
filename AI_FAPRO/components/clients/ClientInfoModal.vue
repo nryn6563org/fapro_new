@@ -1,5 +1,5 @@
 <template>
-  <div v-if="client" class="info-modal">
+  <div v-if="client" id="client-info-modal" class="info-modal">
     <div class="info-modal__overlay" @click="$emit('close')"></div>
     <div class="info-modal__container animate__animated animate__fadeInUp">
       <!-- Header -->
@@ -10,10 +10,7 @@
       />
 
       <!-- Content Grid -->
-      <ClientInfoContent
-        :client.sync="localClient"
-        :is-editing="isEditing"
-      />
+      <ClientInfoContent :client.sync="localClient" :is-editing="isEditing" />
 
       <!-- Footer -->
       <div class="info-modal__footer">
@@ -28,7 +25,10 @@
         </div>
         <div class="flex gap-3">
           <template v-if="isEditing">
-            <button class="info-modal__btn info-modal__btn--outline" @click="$emit('cancel')">
+            <button
+              class="info-modal__btn info-modal__btn--outline"
+              @click="$emit('cancel')"
+            >
               취소
             </button>
             <button
@@ -39,10 +39,16 @@
             </button>
           </template>
           <template v-else>
-            <button class="info-modal__btn info-modal__btn--outline" @click="$emit('close')">
+            <button
+              class="info-modal__btn info-modal__btn--outline"
+              @click="$emit('close')"
+            >
               닫기
             </button>
-            <button class="info-modal__btn info-modal__btn--amber" @click="$emit('edit')">
+            <button
+              class="info-modal__btn info-modal__btn--amber"
+              @click="$emit('edit')"
+            >
               <edit-icon class="w-4 h-4" /> 수정
             </button>
           </template>
@@ -56,41 +62,37 @@
 /**
  * 기능: 고객 기본 정보 상세보기 및 수정 모달
  */
-import {
-  EditIcon,
-  EyeIcon,
-  SaveIcon
-} from 'vue-feather-icons'
-import ClientInfoHeader from '~/components/clients/ClientInfoHeader.vue'
-import ClientInfoContent from '~/components/clients/ClientInfoContent.vue'
-import '~/assets/css/pages/clients/ClientInfoModal/ClientInfoModal.css'
+import { EditIcon, EyeIcon, SaveIcon } from "vue-feather-icons";
+import ClientInfoHeader from "~/components/clients/ClientInfoHeader.vue";
+import ClientInfoContent from "~/components/clients/ClientInfoContent.vue";
+import "~/assets/css/pages/clients/ClientInfoModal/ClientInfoModal.css";
 
 export default {
-  name: 'ClientInfoModal',
+  name: "ClientInfoModal",
   components: {
     ClientInfoHeader,
     ClientInfoContent,
     EditIcon,
     EyeIcon,
-    SaveIcon
+    SaveIcon,
   },
   props: {
     client: { type: Object, default: null },
-    isEditing: { type: Boolean, default: false }
+    isEditing: { type: Boolean, default: false },
   },
   data() {
     return {
       localClient: this.client ? JSON.parse(JSON.stringify(this.client)) : null,
-      types: ['공격형', '중립형', '안정형']
-    }
+      types: ["공격형", "중립형", "안정형"],
+    };
   },
   watch: {
     client: {
       handler(newVal) {
-        if (newVal) this.localClient = JSON.parse(JSON.stringify(newVal))
+        if (newVal) this.localClient = JSON.parse(JSON.stringify(newVal));
       },
-      deep: true
-    }
-  }
-}
+      deep: true,
+    },
+  },
+};
 </script>

@@ -1,3 +1,11 @@
+/*
+  사이드바 내비게이션 스타일
+  ---------------------------
+  BEM 블록: app-sidebar (nav 영역)
+  사이드바 내 메뉴 항목, 서브메뉴, 활성 상태 등의 내비게이션 구조를 정의합니다.
+*/
+
+/* ── 내비게이션 컨테이너 ── */
 .app-sidebar__nav {
   @apply flex-1 py-6 overflow-y-auto;
 }
@@ -6,10 +14,12 @@
   @apply flex flex-col;
 }
 
+/* ── 내비게이션 아이템 ── */
 .app-sidebar__nav-item {
   @apply flex items-center gap-3 px-6 py-3 font-medium text-sm text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light transition-all duration-200 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50;
 }
 
+/* 호버 시 아이콘 확대 */
 .app-sidebar__nav-item:hover .app-sidebar__nav-icon {
   @apply scale-110;
 }
@@ -18,14 +28,17 @@
   @apply transition-transform duration-200;
 }
 
+/* 활성(현재 페이지) 상태 */
 .app-sidebar__nav-item--active {
   @apply bg-primary/10 dark:bg-primary/20 text-primary font-bold border-r-4 border-primary shadow-sm;
 }
 
+/* 부모 메뉴 활성 상태 (하위 메뉴 펼침) */
 .app-sidebar__nav-item--parent-active {
   @apply bg-primary/5 dark:bg-primary/10 text-primary font-bold;
 }
 
+/* 축소 상태에서 부모 활성 표시 */
 .app-sidebar--collapsed .app-sidebar__nav-item--parent-active {
   @apply border-r-4 border-primary;
 }
@@ -34,14 +47,16 @@
   @apply flex flex-1 items-center justify-between;
 }
 
+/* ── 서브 내비게이션 ── */
 .app-sidebar__subnav {
-  @apply flex flex-col bg-slate-50/50 dark:bg-slate-800/20 py-1 border-l-2 border-slate-200 dark:border-slate-800 ml-8 my-1 rounded-l-lg;
+  @apply flex flex-col bg-slate-50/50 dark:bg-slate-800/20 py-1 border-l-2 border-slate-200 dark:border-slate-800 ml-8 my-1;
 }
 
 .app-sidebar__subnav-item {
-  @apply flex items-center gap-2 px-6 py-2 font-medium text-[13px] text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light transition-all duration-200 cursor-pointer rounded-r-lg hover:bg-primary/5;
+  @apply flex items-center gap-2 px-3 py-2 font-medium text-[13px] text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light transition-all duration-200 cursor-pointer rounded-r-lg hover:bg-primary/5;
 }
 
+/* 서브 아이템 활성 상태 */
 .app-sidebar__subnav-item--active {
   @apply text-primary font-bold;
 }
@@ -50,6 +65,7 @@
   @apply text-primary;
 }
 
+/* 서브 아이템 불릿 */
 .app-sidebar__subnav-bullet {
   @apply text-slate-400 text-xs;
 }

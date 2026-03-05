@@ -5,17 +5,25 @@
         <!-- Thinkpool Banner -->
         <div class="app-sidebar__banner">
           <!-- Background Bubbles -->
-          <div class="app-sidebar__banner-bubble app-sidebar__banner-bubble--1"></div>
-          <div class="app-sidebar__banner-bubble app-sidebar__banner-bubble--2"></div>
-          <div class="app-sidebar__banner-bubble app-sidebar__banner-bubble--3"></div>
-          
+          <div
+            class="app-sidebar__banner-bubble app-sidebar__banner-bubble--1"
+          ></div>
+          <div
+            class="app-sidebar__banner-bubble app-sidebar__banner-bubble--2"
+          ></div>
+          <div
+            class="app-sidebar__banner-bubble app-sidebar__banner-bubble--3"
+          ></div>
+
           <div class="app-sidebar__banner-header">
             <zap-icon size="14" class="text-white" />
             <span class="app-sidebar__banner-title">씽크풀</span>
           </div>
-          <p class="app-sidebar__banner-text">종목 및 투자 정보는<br />씽크풀 사이트에서 확인해보세요</p>
+          <p class="app-sidebar__banner-text">
+            종목 및 투자 정보는<br />씽크풀 사이트에서 확인해보세요
+          </p>
         </div>
-        
+
         <!-- User Profile -->
         <div class="app-sidebar__profile">
           <div class="app-sidebar__avatar">
@@ -26,7 +34,7 @@
             <div class="app-sidebar__profile-role">Senior FA</div>
           </div>
         </div>
-        
+
         <!-- Action Buttons -->
         <div class="app-sidebar__actions">
           <button class="app-sidebar__logout-btn">
@@ -40,7 +48,11 @@
           >
             <moon-icon size="14" />
           </button>
-          <nuxt-link to="/settings" class="app-sidebar__settings-btn" title="설정">
+          <nuxt-link
+            to="/settings"
+            class="app-sidebar__settings-btn"
+            title="설정"
+          >
             <settings-icon size="14" />
           </nuxt-link>
         </div>
@@ -58,24 +70,24 @@ import {
   UserIcon,
   MoonIcon,
   LogOutIcon,
-  SettingsIcon
-} from 'vue-feather-icons'
-import '~/assets/css/layout/AppSidebarUser/AppSidebarUser.css'
+  SettingsIcon,
+} from "vue-feather-icons";
+import "~/assets/css/layout/AppSidebarUser/AppSidebarUser.css";
 
 export default {
-  name: 'AppSidebarUser',
+  name: "AppSidebarUser",
   components: {
     ZapIcon,
     UserIcon,
     MoonIcon,
     LogOutIcon,
-    SettingsIcon
+    SettingsIcon,
   },
   props: {
     isCollapsed: {
       type: Boolean,
-      default: false
-    }
-  }
-}
+      default: false,
+    },
+  },
+};
 </script>

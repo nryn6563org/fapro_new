@@ -9,7 +9,9 @@
           </div>
           <div>
             <h2 class="customer-ai-search__title">AI 고객 검색</h2>
-            <p class="customer-ai-search__subtitle">문장으로 쉽고 편리하게 고객을 검색해 보세요.</p>
+            <p class="customer-ai-search__subtitle">
+              문장으로 쉽고 편리하게 고객을 검색해 보세요.
+            </p>
           </div>
         </div>
       </div>
@@ -26,21 +28,28 @@
             placeholder="예: 업종별 고객 중 자산 5억 이상 고수 등급 찾아줘"
             @keydown.enter="handleSearch"
           />
-          <button class="customer-ai-search__search-btn" @click="handleSearch">검색</button>
+          <button class="customer-ai-search__search-btn" @click="handleSearch">
+            검색
+          </button>
         </div>
       </div>
 
       <!-- Hint -->
       <div class="customer-ai-search__hint">
         <zap-icon class="w-4 h-4 text-teal-500" />
-        <span class="font-medium">자연어 검색 예시 : 공격투자형 고객 중 2차전지 관심 있는 고객 찾아줘</span>
+        <span class="font-medium"
+          >자연어 검색 예시 : 공격투자형 고객 중 2차전지 관심 있는 고객
+          찾아줘</span
+        >
       </div>
 
       <!-- Recommendations -->
       <div class="customer-ai-search__recommends">
         <div class="customer-ai-search__recommends-title">
           <zap-icon class="customer-ai-search__recommends-icon" />
-          <span class="customer-ai-search__recommends-label">추천 검색어 (클릭하여 바로 검색)</span>
+          <span class="customer-ai-search__recommends-label"
+            >추천 검색어 (클릭하여 바로 검색)</span
+          >
         </div>
         <div class="customer-ai-search__recommend-list">
           <div
@@ -65,7 +74,10 @@
             :key="category"
             :class="[
               'customer-ai-search__filter-btn',
-              { 'customer-ai-search__filter-btn--active': selectedFilter === category }
+              {
+                'customer-ai-search__filter-btn--active':
+                  selectedFilter === category,
+              },
             ]"
             @click="$emit('update:selectedFilter', category)"
           >
@@ -81,54 +93,54 @@
 /**
  * 기능: AI 고객 검색 및 추천 검색어
  */
-import { SearchIcon, ZapIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/customers/CustomerAiSearch/CustomerAiSearch.css'
+import { SearchIcon, ZapIcon } from "vue-feather-icons";
+import "~/assets/css/pages/customers/CustomerAiSearch/CustomerAiSearch.css";
 
 export default {
-  name: 'CustomerAiSearch',
+  name: "CustomerAiSearch",
   components: {
     SearchIcon,
-    ZapIcon
+    ZapIcon,
   },
   props: {
-    searchQuery: { type: String, default: '' },
+    searchQuery: { type: String, default: "" },
     recentSearches: { type: Array, default: () => [] },
-    selectedFilter: { type: String, default: '전체' },
-    filterCategories: { type: Array, default: () => [] }
+    selectedFilter: { type: String, default: "전체" },
+    filterCategories: { type: Array, default: () => [] },
   },
   data() {
     return {
-      internalQuery: this.searchQuery
-    }
+      internalQuery: this.searchQuery,
+    };
   },
   watch: {
     searchQuery(newVal) {
-      this.internalQuery = newVal
-    }
+      this.internalQuery = newVal;
+    },
   },
   mounted() {
     this.$autocomplete(this.$refs.searchInput, {
       fetch: (text, update) => {
-        text = text.toLowerCase()
+        text = text.toLowerCase();
         const suggestions = this.recentSearches
           .filter((s) => s.toLowerCase().includes(text))
-          .map((s) => ({ label: s, value: s }))
-        update(suggestions)
+          .map((s) => ({ label: s, value: s }));
+        update(suggestions);
       },
       onSelect: (item) => {
-        this.internalQuery = item.value
-        this.handleSearch()
-      }
-    })
+        this.internalQuery = item.value;
+        this.handleSearch();
+      },
+    });
   },
   methods: {
     handleSearch() {
-      this.$emit('search', this.internalQuery)
+      this.$emit("search", this.internalQuery);
     },
     handleQuickSearch(text) {
-      this.internalQuery = text
-      this.handleSearch()
-    }
-  }
-}
+      this.internalQuery = text;
+      this.handleSearch();
+    },
+  },
+};
 </script>

@@ -1,8 +1,13 @@
+/* ── 스마트 온보딩 AI 추출 영역 스타일 ── */
+
+/* AI 추출 영역 컨테이너 */
 .onboarding-modal__extract-area {
-  @apply p-6 bg-gradient-to-br from-teal-50/50 to-white dark:from-slate-800 dark:to-slate-900 border-2 border-dashed border-teal-500/50 rounded-2xl mb-8 shadow-inner;
+  @apply p-6 bg-gradient-to-br from-primary-light/20 to-white dark:from-slate-800 dark:to-slate-900 border-2 border-dashed border-primary/50 rounded-2xl mb-8 shadow-inner;
 }
+
+/* 추출 영역 헤더 아이콘 및 제목 */
 .onboarding-modal__extract-icon-box {
-  @apply w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center;
+  @apply w-8 h-8 bg-primary rounded-lg flex items-center justify-center;
 }
 .onboarding-modal__extract-title {
   @apply text-base font-black text-slate-900 dark:text-white m-0;
@@ -11,13 +16,15 @@
   @apply text-xs text-slate-500 dark:text-slate-400 m-0;
 }
 
+/* 원문 텍스트 붙여넣기 입력창 */
 .onboarding-modal__textarea {
-  @apply w-full mt-4 p-4 bg-slate-100 dark:bg-slate-800 border-2 border-teal-500/10 rounded-xl text-sm font-bold focus:outline-none focus:border-teal-500 transition-all dark:text-white placeholder-slate-300;
+  @apply w-full mt-4 p-4 bg-slate-100 dark:bg-slate-800 border-2 border-primary/10 rounded-xl text-sm font-bold focus:outline-none focus:border-primary transition-all dark:text-white placeholder-slate-300;
 }
 
+/* 추출 액션 버튼 */
 .onboarding-modal__extract-btn-outline {
   @apply px-4 py-2 bg-transparent text-slate-400 text-xs font-black border-2 border-slate-400 dark:border-slate-700 rounded-lg hover:border-slate-300 transition-all cursor-pointer;
 }
 .onboarding-modal__extract-btn-primary {
-  @apply flex items-center px-4 py-2 bg-teal-500 text-white text-xs font-black rounded-lg hover:bg-teal-600 transition-all shadow-lg shadow-teal-500/20 border-0 cursor-pointer disabled:opacity-50;
+  @apply flex items-center px-4 py-2 bg-primary text-white text-xs font-black rounded-lg hover:bg-primary-hover transition-all shadow-lg shadow-primary/20 border-0 cursor-pointer disabled:opacity-50;
 }

@@ -3,14 +3,22 @@
     <div class="info-modal__grid">
       <!-- Name -->
       <div class="info-modal__field">
-        <label class="info-modal__label"><user-icon class="w-4 h-4 mr-1" /> 고객명</label>
-        <input v-if="isEditing" v-model="localClient.name" class="info-modal__input" />
+        <label class="info-modal__label"
+          ><user-icon class="w-4 h-4 mr-1" /> 고객명</label
+        >
+        <input
+          v-if="isEditing"
+          v-model="localClient.name"
+          class="info-modal__input"
+        />
         <p v-else class="info-modal__value font-bold">{{ localClient.name }}</p>
       </div>
 
       <!-- Phone -->
       <div class="info-modal__field">
-        <label class="info-modal__label"><phone-icon class="w-4 h-4 mr-1" /> 연락처</label>
+        <label class="info-modal__label"
+          ><phone-icon class="w-4 h-4 mr-1" /> 연락처</label
+        >
         <input
           v-if="isEditing"
           v-model="localClient.phone"
@@ -22,7 +30,9 @@
 
       <!-- Email -->
       <div class="info-modal__field">
-        <label class="info-modal__label"><mail-icon class="w-4 h-4 mr-1" /> 이메일</label>
+        <label class="info-modal__label"
+          ><mail-icon class="w-4 h-4 mr-1" /> 이메일</label
+        >
         <input
           v-if="isEditing"
           v-model="localClient.email"
@@ -34,7 +44,9 @@
 
       <!-- Age -->
       <div class="info-modal__field">
-        <label class="info-modal__label"><calendar-icon class="w-4 h-4 mr-1" /> 연령</label>
+        <label class="info-modal__label"
+          ><calendar-icon class="w-4 h-4 mr-1" /> 연령</label
+        >
         <input
           v-if="isEditing"
           v-model.number="localClient.age"
@@ -53,16 +65,25 @@
           <button
             v-for="type in types"
             :key="type"
-            @click="localClient.investmentType = type"
             :class="[
               'info-modal__type-btn',
-              { 'info-modal__type-btn--active': localClient.investmentType === type }
+              {
+                'info-modal__type-btn--active':
+                  localClient.investmentType === type,
+              },
             ]"
+            @click="localClient.investmentType = type"
           >
             {{ type }}
           </button>
         </div>
-        <span v-else :class="['info-modal__badge', getTypeClass(localClient.investmentType)]">
+        <span
+          v-else
+          :class="[
+            'info-modal__badge',
+            getTypeClass(localClient.investmentType),
+          ]"
+        >
           {{ localClient.investmentType }}
         </span>
       </div>
@@ -72,13 +93,21 @@
         <label class="info-modal__label"
           ><trending-up-icon class="w-4 h-4 mr-1" /> 총자산</label
         >
-        <input v-if="isEditing" v-model="localClient.totalAssets" class="info-modal__input" />
-        <p v-else class="info-modal__value font-bold">{{ localClient.totalAssets }}</p>
+        <input
+          v-if="isEditing"
+          v-model="localClient.totalAssets"
+          class="info-modal__input"
+        />
+        <p v-else class="info-modal__value font-bold">
+          {{ localClient.totalAssets }}
+        </p>
       </div>
 
       <!-- Join Date -->
       <div class="info-modal__field">
-        <label class="info-modal__label"><calendar-icon class="w-4 h-4 mr-1" /> 가입일</label>
+        <label class="info-modal__label"
+          ><calendar-icon class="w-4 h-4 mr-1" /> 가입일</label
+        >
         <input
           v-if="isEditing"
           v-model="localClient.joinDate"
@@ -113,7 +142,9 @@
           class="info-modal__textarea"
           rows="3"
         ></textarea>
-        <p v-else class="info-modal__value leading-relaxed italic">{{ localClient.notes }}</p>
+        <p v-else class="info-modal__value leading-relaxed italic">
+          {{ localClient.notes }}
+        </p>
       </div>
     </div>
   </div>
@@ -131,11 +162,12 @@ import {
   BriefcaseIcon,
   TrendingUpIcon,
   BarChart2Icon,
-  FileTextIcon
-} from 'vue-feather-icons'
+  FileTextIcon,
+} from "vue-feather-icons";
+import "~/assets/css/pages/clients/ClientInfoContent/ClientInfoContent.css";
 
 export default {
-  name: 'ClientInfoContent',
+  name: "ClientInfoContent",
   components: {
     UserIcon,
     PhoneIcon,
@@ -144,44 +176,44 @@ export default {
     BriefcaseIcon,
     TrendingUpIcon,
     BarChart2Icon,
-    FileTextIcon
+    FileTextIcon,
   },
   props: {
     client: {
       type: Object,
-      required: true
+      required: true,
     },
     isEditing: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
       localClient: JSON.parse(JSON.stringify(this.client)),
-      types: ['공격형', '중립형', '안정형']
-    }
+      types: ["공격형", "중립형", "안정형"],
+    };
   },
   watch: {
     client: {
       handler(newVal) {
-        this.localClient = JSON.parse(JSON.stringify(newVal))
+        this.localClient = JSON.parse(JSON.stringify(newVal));
       },
-      deep: true
+      deep: true,
     },
     localClient: {
       handler(newVal) {
-        this.$emit('update:client', newVal)
+        this.$emit("update:client", newVal);
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   methods: {
     getTypeClass(type) {
-      if (type === '공격형') return 'info-modal__badge--aggressive'
-      if (type === '안정형') return 'info-modal__badge--stable'
-      return 'info-modal__badge--neutral'
-    }
-  }
-}
+      if (type === "공격형") return "info-modal__badge--aggressive";
+      if (type === "안정형") return "info-modal__badge--stable";
+      return "info-modal__badge--neutral";
+    },
+  },
+};
 </script>

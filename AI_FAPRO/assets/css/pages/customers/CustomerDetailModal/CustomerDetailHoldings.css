@@ -17,13 +17,13 @@
 }
 
 .customer-holdings__thead {
-  @apply bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700/50;
+  @apply bg-slate-500 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700/50;
 }
 
 .customer-holdings__th {
   @apply px-4 py-3 font-semibold text-xs text-slate-500 dark:text-slate-400 whitespace-nowrap;
 }
-.customer-holdings__th:nth-child(n+3) {
+.customer-holdings__th:nth-child(n + 3) {
   @apply text-right;
 }
 
@@ -34,7 +34,7 @@
 .customer-holdings__td {
   @apply px-4 py-3 text-slate-700 dark:text-slate-300 font-medium whitespace-nowrap;
 }
-.customer-holdings__td:nth-child(n+3) {
+.customer-holdings__td:nth-child(n + 3) {
   @apply text-right;
 }
 

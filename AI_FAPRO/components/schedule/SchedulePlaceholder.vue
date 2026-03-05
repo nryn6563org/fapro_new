@@ -20,13 +20,13 @@
 /**
  * 기능: 캘린더 동기화 전 표시되는 플레이스홀더 화면
  */
-import { CalendarIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/schedule/SchedulePlaceholder/SchedulePlaceholder.css'
+import { CalendarIcon } from "vue-feather-icons";
+import "~/assets/css/pages/schedule/SchedulePlaceholder/SchedulePlaceholder.css";
 
 export default {
-  name: 'SchedulePlaceholder',
+  name: "SchedulePlaceholder",
   components: {
-    CalendarIcon
-  }
-}
+    CalendarIcon,
+  },
+};
 </script>

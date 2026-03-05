@@ -3,38 +3,38 @@
  */
 
 export const getDaysInMonth = (date) => {
-  return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
-}
+  return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+};
 
 export const getFirstDayOfMonth = (date) => {
-  return new Date(date.getFullYear(), date.getMonth(), 1).getDay()
-}
+  return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+};
 
 export const isSameDay = (date1, date2) => {
-  if (!date1 || !date2) return false
+  if (!date1 || !date2) return false;
   return (
     date1.getFullYear() === date2.getFullYear() &&
     date1.getMonth() === date2.getMonth() &&
     date1.getDate() === date2.getDate()
-  )
-}
+  );
+};
 
 export const getWeekDays = (date) => {
-  const d = new Date(date)
-  const day = d.getDay()
-  const diff = d.getDate() - day
-  const sunday = new Date(d.setDate(diff))
+  const d = new Date(date);
+  const day = d.getDay();
+  const diff = d.getDate() - day;
+  const sunday = new Date(d.setDate(diff));
 
   return Array.from({ length: 7 }, (_, i) => {
-    const temp = new Date(sunday)
-    temp.setDate(sunday.getDate() + i)
-    return temp
-  })
-}
+    const temp = new Date(sunday);
+    temp.setDate(sunday.getDate() + i);
+    return temp;
+  });
+};
 
 export const formatTime = (hour) => {
-  if (hour === 12) return '오후 12:00'
-  return hour > 12 ? `오후 ${hour - 12}:00` : `오전 ${hour}:00`
-}
+  if (hour === 12) return "오후 12:00";
+  return hour > 12 ? `오후 ${hour - 12}:00` : `오전 ${hour}:00`;
+};
 
-export const timeSlots = Array.from({ length: 14 }, (_, i) => i + 8) // 8:00 - 21:00
+export const timeSlots = Array.from({ length: 14 }, (_, i) => i + 8); // 8:00 - 21:00

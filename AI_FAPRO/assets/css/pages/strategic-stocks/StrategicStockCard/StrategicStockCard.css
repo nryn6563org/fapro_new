@@ -1,13 +1,17 @@
-/* Tailwind directives container for component */
+/* ── 전략 유망주 카드 스타일 ── */
+
 .strategic-card {
-  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 relative mb-4 overflow-hidden hover:-translate-y-1;
+  @apply fapro-card fapro-card--hover mb-4;
+  @apply rounded-3xl; /* 특화된 대형 라운드 유지 */
 }
+/* 상단 primary 라인 */
 .strategic-card::before {
-  content: '';
-  @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-400 to-teal-500 opacity-60;
+  content: "";
+  @apply absolute top-0 left-0 w-full h-1 opacity-70;
+  background: linear-gradient(to right, #5368ff, #7b8dff);
 }
 
-/* Header / Collapsed View */
+/* 헤더 / 접힌 뷰 */
 .strategic-card__header {
   @apply p-5 cursor-pointer;
 }
@@ -15,7 +19,7 @@
   @apply flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6;
 }
 
-/* Col 1: Info (Code + Name) */
+/* Col 1: 종목 정보 */
 .strategic-card__col-info {
   @apply flex items-center md:min-w-[150px];
 }
@@ -26,7 +30,7 @@
   @apply text-lg font-bold text-slate-900 dark:text-white m-0 truncate;
 }
 
-/* Col 2: Price */
+/* Col 2: 가격 */
 .strategic-card__col-price {
   @apply flex items-center md:min-w-[100px] justify-end;
 }
@@ -34,21 +38,23 @@
   @apply font-bold text-slate-900 dark:text-white text-[15px];
 }
 
-/* Col 3: Change */
+/* Col 3: 등락 */
 .strategic-card__col-change {
   @apply flex items-center md:min-w-[80px] justify-end;
 }
 .strategic-card__change-value {
   @apply font-bold text-[15px];
 }
+/* 상승: buy 시맨틱 컬러 */
 .strategic-card__change-value--up {
-  @apply text-red-500;
+  color: #fb2c36;
 }
+/* 하락: sell 시맨틱 컬러 */
 .strategic-card__change-value--down {
-  @apply text-blue-500;
+  color: #2b7fff;
 }
 
-/* Col 4: Trait/Characteristic */
+/* Col 4: 특성 */
 .strategic-card__col-trait {
   @apply flex-1 flex items-center text-slate-500 border-l border-slate-200 dark:border-slate-700 pl-4 md:pl-6;
 }
@@ -59,12 +65,19 @@
   @apply text-[13px] font-medium truncate;
 }
 
-/* Col 5: Actions */
+/* Col 5: 액션 */
 .strategic-card__col-actions {
   @apply flex items-center justify-end gap-4 md:min-w-[160px];
 }
+/* 제안 버튼: primary 브랜드 컬러 */
 .strategic-card__btn-propose {
-  @apply flex items-center justify-center px-5 py-2 text-xs font-bold rounded-xl bg-teal-500 hover:bg-teal-600 text-white transition-all duration-300 shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30 cursor-pointer active:scale-95 border-0;
+  @apply flex items-center justify-center px-5 py-2 text-xs font-bold rounded-xl text-white transition-all duration-300 cursor-pointer active:scale-95 border-0;
+  background-color: #5368ff;
+  box-shadow: 0 4px 12px rgba(83, 104, 255, 0.2);
+}
+.strategic-card__btn-propose:hover {
+  background-color: #4253cc;
+  box-shadow: 0 6px 16px rgba(83, 104, 255, 0.3);
 }
 .strategic-card__btn-icon {
   @apply w-3.5 h-3.5 mr-1.5;
@@ -79,7 +92,7 @@
   @apply -rotate-180;
 }
 
-/* Expanded Content */
+/* 펼쳐진 콘텐츠 */
 .strategic-card__expanded {
   @apply border-t border-slate-100 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-900;
 }
@@ -87,20 +100,26 @@
   @apply p-8 space-y-6;
 }
 
-/* Detail Sections */
+/* 상세 섹션 */
 .strategic-card__detail-section {
   @apply rounded-xl p-5 border;
 }
-
-/* Detail Blocks Overrides */
+/* 상승 여력 섹션 */
 .strategic-card__detail-section--upside {
-  @apply bg-emerald-50/50 dark:bg-emerald-900/10 border-emerald-100 dark:border-emerald-500/20;
+  @apply bg-emerald-500/50 dark:bg-emerald-900/10 border-emerald-100 dark:border-emerald-500/20;
 }
+/* 리스크 섹션 */
 .strategic-card__detail-section--risk {
-  @apply bg-red-50/50 dark:bg-red-900/10 border-red-100 dark:border-red-500/20;
+  @apply bg-red-500/50 dark:bg-red-900/10 border-red-100 dark:border-red-500/20;
 }
+/* 근거 섹션: primary 계열 */
 .strategic-card__detail-section--evidence {
-  @apply bg-blue-50/30 dark:bg-blue-900/10 border-blue-100 dark:border-blue-500/20;
+  background-color: rgba(83, 104, 255, 0.04);
+  border-color: rgba(83, 104, 255, 0.15);
+}
+.dark .strategic-card__detail-section--evidence {
+  background-color: rgba(83, 104, 255, 0.08);
+  border-color: rgba(83, 104, 255, 0.2);
 }
 
 .strategic-card__section-header {

@@ -1,42 +1,55 @@
-/* Tailwind directives container */
+/*
+  ============================================================
+  ClientInfoModal.cs
+  컴포넌트: components/clients/ClientInfoModal.vue
+  역할: 고객 정보 모달 스타일 (ID 기반 스코핑)
+  모달 ID: #client-info-modal
+  ============================================================
+*/
 
-.info-modal {
-  @apply fixed inset-0 z-[100] flex items-center justify-center p-4;
+/* ── 모달 베이스 (공통 유틸리티 클래스 사용) ── */
+#client-info-modal {
+  @apply fapro-modal-overlay;
 }
 
 .info-modal__overlay {
-  @apply absolute inset-0 bg-slate-900/60 backdrop-blur-sm;
+  @apply absolute inset-0;
 }
 
 .info-modal__container {
-  @apply relative w-full max-w-2xl max-h-[90vh] bg-slate-100 dark:bg-slate-900 rounded-3xl shadow-2xl overflow-y-auto border-2 border-slate-300 dark:border-slate-800;
+  @apply fapro-modal-container fapro-modal-container--sm;
 }
 
-/* Header */
+/* ── Header ── */
 .info-modal__header {
-  @apply px-8 py-6 flex items-center justify-between border-b border-slate-300 dark:border-slate-800 sticky top-0 bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-md z-10;
+  @apply fapro-modal-header fapro-modal-header--sticky;
 }
+
 .info-modal__icon-box {
-  @apply w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg;
+  @apply fapro-modal-icon;
 }
-.info-modal__icon-box--view {
-  @apply bg-gradient-to-br from-slate-700 to-slate-900;
+
+.info-modal__icon-box-view {
+  @apply fapro-modal-icon--slate;
 }
-.info-modal__icon-box--edit {
-  @apply bg-gradient-to-br from-teal-500 to-teal-700;
+
+.info-modal__icon-box-edit {
+  @apply fapro-modal-icon--primary;
 }
 
 .info-modal__title {
-  @apply text-2xl font-black text-slate-900 dark:text-white m-0;
-}
-.info-modal__subtitle {
-  @apply text-sm text-slate-500 dark:text-slate-400 mt-1 m-0;
-}
-.info-modal__close {
-  @apply p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors border-0 bg-transparent cursor-pointer text-slate-400;
+  @apply fapro-modal-title;
 }
 
-/* Content */
+.info-modal__subtitle {
+  @apply fapro-modal-subtitle;
+}
+
+.info-modal__close {
+  @apply fapro-modal-close;
+}
+
+/* ── Content ── */
 .info-modal__content {
   @apply p-8;
 }
@@ -50,55 +63,75 @@
 }
 
 .info-modal__label {
-  @apply flex items-center text-xs font-black text-slate-400 dark:text-slate-500 mb-2 uppercase;
+  @apply fapro-form-label uppercase text-xs text-slate-400;
+}
+
+.dark .info-modal__label {
+  @apply text-slate-500;
 }
 
 .info-modal__value {
-  @apply text-base text-slate-900 dark:text-slate-200 m-0 py-1;
+  @apply text-base text-slate-900 m-0 py-1;
+}
+
+.dark .info-modal__value {
+  @apply text-slate-200;
 }
 
 .info-modal__input {
-  @apply w-full h-11 px-4 bg-slate-200 dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-700 rounded-xl text-sm font-bold focus:outline-none focus:border-teal-500 transition-all dark:text-white;
+  @apply fapro-form-input;
 }
 
 .info-modal__textarea {
-  @apply w-full p-4 bg-slate-200 dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-700 rounded-2xl text-sm font-bold focus:outline-none focus:border-teal-500 transition-all dark:text-white;
+  @apply fapro-form-textarea;
 }
 
-/* Badges & Type Buttons */
+/* ── Badges & Type Butons (모달 전용 스타일) ── */
 .info-modal__badge {
-  @apply inline-block px-3 py-1 rounded-full text-xs font-black shadow-sm;
+  @apply fapro-badge;
 }
-.info-modal__badge--aggressive {
-  @apply bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400;
+
+.info-modal__badge-agresive {
+  @apply fapro-badge--aggressive;
 }
-.info-modal__badge--stable {
-  @apply bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400;
+
+.info-modal__badge-stable {
+  @apply fapro-badge--stable;
 }
-.info-modal__badge--neutral {
-  @apply bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400;
+
+.info-modal__badge-neutral {
+  @apply fapro-badge--neutral;
 }
 
 .info-modal__type-btn {
-  @apply px-4 py-1.5 text-xs font-black rounded-lg border-2 border-slate-400 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer bg-transparent;
-}
-.info-modal__type-btn--active {
-  @apply border-teal-500 bg-teal-500 text-white shadow-lg shadow-teal-500/20;
+  @apply px-4 py-1.5 text-xs font-black rounded-lg border-2 border-slate-400 text-slate-500 hover:bg-slate-200 transition-all cursor-pointer bg-transparent;
 }
 
-/* Footer */
-.info-modal__footer {
-  @apply px-8 py-6 border-t border-slate-300 dark:border-slate-800 flex items-center justify-between sticky bottom-0 bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-md;
+.dark .info-modal__type-btn {
+  @apply border-slate-700 text-slate-400 hover:bg-slate-800;
 }
+
+.info-modal__type-btn-active {
+  @apply border-primary bg-primary text-white shadow-lg shadow-primary/20;
+}
+
+/* ── Foter ── */
+.info-modal__foter {
+  @apply fapro-modal-footer fapro-modal-footer--sticky justify-between;
+}
+
 .info-modal__btn {
   @apply flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-black transition-all border-0 cursor-pointer;
 }
-.info-modal__btn--outline {
-  @apply bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700;
+
+.info-modal__btn-outline {
+  @apply fapro-btn-outline;
 }
-.info-modal__btn--primary {
-  @apply bg-teal-500 text-white hover:bg-teal-600 shadow-lg shadow-teal-500/20;
+
+.info-modal__btn-primary {
+  @apply fapro-btn-primary shadow-lg shadow-primary/20;
 }
-.info-modal__btn--amber {
+
+.info-modal__btn-amber {
   @apply bg-amber-500 text-white hover:bg-amber-600 shadow-lg shadow-amber-500/20;
 }

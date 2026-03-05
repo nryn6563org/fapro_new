@@ -28,13 +28,13 @@
         <div class="customer-detail__scroll-area">
           <!-- 1. Stats -->
           <customer-detail-stats :customer="customer" />
-  
+
           <!-- 2. Holdings Table -->
           <customer-detail-holdings :holdings="customer.holdingDetails" />
-  
+
           <!-- 3. AI Analysis -->
           <customer-detail-analysis :analysis-data="customer.aiAnalysis" />
-  
+
           <!-- 4. Footer Info -->
           <customer-detail-info :customer="customer" />
         </div>
@@ -47,15 +47,15 @@
 /**
  * 기능: 고객 상세 정보 조회 모달 (래퍼, Modal-Vanilla 호환)
  */
-import { UserIcon, EditIcon, XIcon } from 'vue-feather-icons'
-import CustomerDetailStats from '~/components/customers/CustomerDetailStats.vue'
-import CustomerDetailHoldings from '~/components/customers/CustomerDetailHoldings.vue'
-import CustomerDetailAnalysis from '~/components/customers/CustomerDetailAnalysis.vue'
-import CustomerDetailInfo from '~/components/customers/CustomerDetailInfo.vue'
-import '~/assets/css/pages/customers/CustomerDetailModal/CustomerDetailModal.css'
+import { UserIcon, EditIcon, XIcon } from "vue-feather-icons";
+import CustomerDetailStats from "~/components/customers/CustomerDetailStats.vue";
+import CustomerDetailHoldings from "~/components/customers/CustomerDetailHoldings.vue";
+import CustomerDetailAnalysis from "~/components/customers/CustomerDetailAnalysis.vue";
+import CustomerDetailInfo from "~/components/customers/CustomerDetailInfo.vue";
+import "~/assets/css/pages/customers/CustomerDetailModal/CustomerDetailModal.css";
 
 export default {
-  name: 'CustomerDetailModal',
+  name: "CustomerDetailModal",
   components: {
     UserIcon,
     EditIcon,
@@ -63,15 +63,15 @@ export default {
     CustomerDetailStats,
     CustomerDetailHoldings,
     CustomerDetailAnalysis,
-    CustomerDetailInfo
+    CustomerDetailInfo,
   },
   props: {
-    customer: { type: Object, required: true }
+    customer: { type: Object, required: true },
   },
   methods: {
     handleEdit() {
-      alert('수정 기능은 준비 중입니다.')
-    }
-  }
-}
+      alert("수정 기능은 준비 중입니다.");
+    },
+  },
+};
 </script>

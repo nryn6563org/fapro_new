@@ -1,4 +1,4 @@
-/* Tailwind directives container */
+/* ── 일정 헤더 스타일 ── */
 
 .schedule-header {
   @apply flex items-center justify-between px-6 py-4 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shrink-0;
@@ -12,8 +12,10 @@
   @apply flex items-center gap-2 mr-2;
 }
 
+/* 타이틀 아이콘: primary 브랜드 컬러 */
 .schedule-header__icon-box {
-  @apply w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center;
+  @apply w-8 h-8 rounded-lg flex items-center justify-center;
+  background-color: #5368ff;
 }
 
 .schedule-header__title {
@@ -48,15 +50,21 @@
   @apply absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400;
 }
 
+/* 검색 입력 포커스: primary 컬러 */
 .schedule-header__search-input {
-  @apply pl-9 pr-4 w-64 h-9 border border-slate-200 dark:border-slate-800 rounded-lg bg-slate-50 dark:bg-slate-900 focus:bg-white dark:focus:bg-slate-800 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all text-sm font-medium text-slate-700 dark:text-slate-300;
+  @apply pl-9 pr-4 w-64 h-9 border border-slate-200 dark:border-slate-800 rounded-lg bg-slate-500 dark:bg-slate-900 focus:bg-white dark:focus:bg-slate-800 outline-none transition-all text-sm font-medium text-slate-700 dark:text-slate-300;
+}
+.schedule-header__search-input:focus {
+  border-color: #5368ff;
+  box-shadow: 0 0 0 1px #5368ff;
 }
 
 .schedule-header__sync-badge {
   @apply flex items-center gap-1.5 px-4 py-1.5 rounded-lg cursor-pointer transition-colors border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-sm;
 }
+/* 동기화 완료 상태: 성공(초록) 의미 유지 */
 .schedule-header__sync-badge--active {
-  @apply bg-emerald-50 border-emerald-200 hover:bg-emerald-100 dark:bg-emerald-900/10 dark:border-emerald-900/30;
+  @apply bg-emerald-500 border-emerald-200 hover:bg-emerald-100 dark:bg-emerald-900/10 dark:border-emerald-900/30;
 }
 .schedule-header__sync-label {
   @apply text-sm font-bold text-slate-700 dark:text-slate-300;
@@ -89,11 +97,13 @@
 }
 
 .schedule-header__view-select {
-  @apply flex gap-1 bg-slate-50 dark:bg-slate-900 p-1 rounded-lg border border-slate-200 dark:border-slate-800;
+  @apply flex gap-1 bg-slate-500 dark:bg-slate-900 p-1 rounded-lg border border-slate-200 dark:border-slate-800;
 }
 .schedule-header__view-btn {
   @apply px-4 py-1 rounded-md text-sm font-bold bg-transparent border-0 cursor-pointer text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors min-w-[40px];
 }
+/* 활성 뷰 버튼: primary 컬러 */
 .schedule-header__view-btn--active {
-  @apply bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 shadow-sm border border-slate-200 dark:border-slate-700;
+  @apply bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700;
+  color: #5368ff;
 }

@@ -1,6 +1,6 @@
 /* Tailwind directives container for component */
 .signals-page {
-  @apply p-6 space-y-6 max-w-[1600px] mx-auto;
+  @apply p-6 space-y-6 w-full;
 }
 
 /* Header */
@@ -42,35 +42,47 @@
 
 /* Column General */
 .signals-page__column {
-  @apply border border-slate-200 dark:border-slate-800 rounded-[2rem] bg-white dark:bg-slate-900 shadow-xl overflow-hidden flex flex-col h-[calc(100vh-200px)] min-h-[600px] transition-all;
+  @apply border border-slate-200 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900 shadow-sm overflow-hidden flex flex-col h-[calc(100vh-200px)] min-h-[600px] transition-all;
 }
 
 /* Buy Column Specifics */
 .signals-page__column--buy {
-  @apply border-red-300 dark:border-red-900/50;
+  border-color: rgba(251, 44, 54, 0.4);
+}
+.dark .signals-page__column--buy {
+  border-color: rgba(251, 44, 54, 0.25);
 }
 .signals-page__column-header--buy {
-  @apply bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/40 dark:to-red-900/20 border-b border-red-200 dark:border-red-900/50;
+  background-color: rgba(251, 44, 54, 0.05);
+  border-bottom: 1px solid rgba(251, 44, 54, 0.1);
 }
 .signals-page__column-icon-bg--buy {
-  @apply bg-red-500;
+  background-color: var(--color-buy);
 }
 .signals-page__column-badge--buy {
-  @apply bg-red-100 text-red-600 border border-red-200;
+  background-color: rgba(251, 44, 54, 0.1);
+  color: var(--color-buy);
+  border: 1px solid rgba(251, 44, 54, 0.2);
 }
 
 /* Sell Column Specifics */
 .signals-page__column--sell {
-  @apply border-blue-300 dark:border-blue-900/50;
+  border-color: rgba(43, 127, 255, 0.4);
+}
+.dark .signals-page__column--sell {
+  border-color: rgba(43, 127, 255, 0.25);
 }
 .signals-page__column-header--sell {
-  @apply bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-900/20 border-b border-blue-200 dark:border-blue-900/50;
+  background-color: rgba(43, 127, 255, 0.05);
+  border-bottom: 1px solid rgba(43, 127, 255, 0.1);
 }
 .signals-page__column-icon-bg--sell {
-  @apply bg-blue-500;
+  background-color: var(--color-sell);
 }
 .signals-page__column-badge--sell {
-  @apply bg-blue-100 text-blue-600 border border-blue-200;
+  background-color: rgba(43, 127, 255, 0.1);
+  color: var(--color-sell);
+  border: 1px solid rgba(43, 127, 255, 0.2);
 }
 
 /* Column Header Common */
@@ -100,15 +112,15 @@
 
 /* Custom styles for AI Report Modal dialog wrapper */
 .ai-report-modal__dialog {
-  @apply max-w-[1600px] md:max-w-[1600px] mx-auto mt-10 rounded-[2rem] overflow-hidden shadow-2xl;
+  @apply w-full max-w-7xl mx-auto mt-10 rounded-xl overflow-hidden shadow-xl;
 }
 .ai-report-modal__header {
-  @apply w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 p-8 flex items-start justify-between relative overflow-hidden;
+  @apply w-full bg-[#FFF6EB] dark:bg-slate-900 border-b border-[#EAEAEA] dark:border-slate-800 p-6 flex items-start justify-between relative overflow-hidden;
 }
 
 /* Optional: a subtle background glow or pattern */
 .ai-report-modal__header::before {
-  content: '';
+  content: "";
   @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-purple-500 to-amber-500;
 }
 
@@ -133,11 +145,11 @@
 }
 
 .ai-report-modal__badge--cyan {
-  @apply bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 border border-teal-200 dark:border-teal-800;
+  @apply bg-primary-light/50 dark:bg-primary-dark/20 text-primary dark:text-primary-light border border-primary-light dark:border-primary-dark/30;
 }
 
 .ai-report-modal__badge--amber {
-  @apply bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800;
+  @apply bg-amber-500 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800;
 }
 
 .ai-report-modal__badge--purple {
@@ -145,15 +157,15 @@
 }
 
 .ai-report-modal__title {
-  @apply text-2xl md:text-3xl font-black text-slate-900 dark:text-white flex items-center gap-2 m-0 leading-tight;
+  @apply text-2xl md:text-3xl font-bold text-[#2F343A] dark:text-white flex items-center gap-2 m-0 leading-tight;
 }
 
 .ai-report-modal__ticker {
   @apply text-base font-semibold text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800 px-2.5 py-0.5 rounded-lg border border-slate-300 dark:border-slate-700;
 }
 .ai-report-modal__close-btn {
-  @apply p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 border-0 bg-transparent cursor-pointer relative z-10;
+  @apply p-2 hover:bg-[#EAEAEA] dark:hover:bg-slate-800 rounded-full transition-colors text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 border-0 bg-transparent cursor-pointer relative z-10;
 }
 .ai-report-modal__content {
-  @apply p-8 m-0 bg-white dark:bg-slate-900;
+  @apply p-8 m-0 bg-[#F8F9FA] dark:bg-slate-900;
 }

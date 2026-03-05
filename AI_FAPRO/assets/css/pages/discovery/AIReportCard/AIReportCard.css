@@ -1,13 +1,16 @@
-/* Tailwind directives container for component */
+/* ── AI 리포트 카드 스타일 ── */
+
 .ai-report-card {
   @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden hover:-translate-y-1;
 }
+/* 상단 primary 라인 */
 .ai-report-card::before {
-  content: '';
-  @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-teal-500 opacity-60;
+  content: "";
+  @apply absolute top-0 left-0 w-full h-1 opacity-80;
+  background: linear-gradient(to right, #5368ff, #7b8dff);
 }
 
-/* Header */
+/* 헤더 */
 .ai-report-card__header {
   @apply flex items-start justify-between gap-4 mb-4;
 }
@@ -21,21 +24,37 @@
   @apply text-[17px] font-bold text-slate-900 dark:text-white leading-tight;
 }
 
-/* Red / Blue Badges for signal type */
+/* 신호 유형 배지 */
 .ai-report-card__signal-badge {
   @apply text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm;
 }
+/* 매수 배지: buy 시맨틱 컬러 */
 .ai-report-card__signal-badge--buy {
-  @apply bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400 border border-red-100 dark:border-red-500/20;
+  background-color: rgba(251, 44, 54, 0.1);
+  color: #fb2c36;
+  border: 1px solid rgba(251, 44, 54, 0.15);
 }
+.dark .ai-report-card__signal-badge--buy {
+  background-color: rgba(251, 44, 54, 0.12);
+  color: #ff7b82;
+  border-color: rgba(251, 44, 54, 0.2);
+}
+/* 매도 배지: sell 시맨틱 컬러 */
 .ai-report-card__signal-badge--sell {
-  @apply bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400 border border-blue-100 dark:border-blue-500/20;
+  background-color: rgba(43, 127, 255, 0.1);
+  color: #2b7fff;
+  border: 1px solid rgba(43, 127, 255, 0.15);
+}
+.dark .ai-report-card__signal-badge--sell {
+  background-color: rgba(43, 127, 255, 0.12);
+  color: #7b8dff;
+  border-color: rgba(43, 127, 255, 0.2);
 }
 .ai-report-card__signal-badge--neutral {
-  @apply bg-slate-50 text-slate-600 dark:bg-slate-500/10 dark:text-slate-400 border border-slate-100 dark:border-slate-500/20;
+  @apply bg-slate-500 text-slate-600 dark:bg-slate-500/10 dark:text-slate-400 border border-slate-100 dark:border-slate-500/20;
 }
 
-/* Meta Data Date/Time */
+/* 메타 정보 */
 .ai-report-card__meta {
   @apply flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 font-medium;
 }
@@ -46,7 +65,7 @@
   @apply w-3.5 h-3.5;
 }
 
-/* Body / Reason Boxes */
+/* 본문 / 근거 박스 */
 .ai-report-card__body {
   @apply flex flex-col gap-3;
 }
@@ -66,12 +85,19 @@
   @apply text-xs text-slate-600 dark:text-slate-400 leading-relaxed break-keep;
 }
 
-/* Actions */
+/* 액션 버튼 */
 .ai-report-card__header-actions {
   @apply shrink-0 mt-1;
 }
+/* 상세 보기 버튼: primary 브랜드 컬러 */
 .ai-report-card__btn-view {
-  @apply flex items-center justify-center px-5 py-2 text-xs font-bold rounded-xl bg-teal-500 hover:bg-teal-600 text-white transition-all duration-300 shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30 cursor-pointer active:scale-95;
+  @apply flex items-center justify-center px-5 py-2 text-xs font-bold rounded-xl text-white transition-all duration-300 cursor-pointer active:scale-95;
+  background-color: #5368ff;
+  box-shadow: 0 4px 12px rgba(83, 104, 255, 0.2);
+}
+.ai-report-card__btn-view:hover {
+  background-color: #4253cc;
+  box-shadow: 0 6px 16px rgba(83, 104, 255, 0.3);
 }
 .ai-report-card__btn-icon {
   @apply w-3.5 h-3.5 mr-1.5;

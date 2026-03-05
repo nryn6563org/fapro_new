@@ -1,0 +1,78 @@
+/*
+  ============================================================
+  ProposalStockDetailCard.css
+  컴포넌트: components/common/proposal/ProposalStockDetailCard.vue
+  역할: 전략 유망주 제안 상세 카드 스타일 (Design 5)
+  BEM 블록: strategic-card, point-box
+  ============================================================
+*/
+
+/* ── 전략 카드 루트 ── */
+.strategic-card {
+  @apply mt-6 border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm;
+}
+
+/* ── 카드 헤더 ── */
+.strategic-card__header {
+  @apply p-5 bg-slate-500 border-b border-slate-100;
+}
+.strategic-card__title-row {
+  @apply flex items-center justify-between mb-1;
+}
+.strategic-card__stock-info {
+  @apply flex items-center gap-2;
+}
+.strategic-card__ticker {
+  @apply text-[12px] font-mono text-slate-400 uppercase tracking-wider;
+}
+.strategic-card__name {
+  @apply text-lg font-bold text-slate-800;
+}
+
+/* ── 가격 정보 ── */
+.strategic-card__price-info {
+  @apply flex items-baseline gap-2 mt-1;
+}
+.strategic-card__price-info span:first-child {
+  @apply text-xl font-bold text-slate-900;
+}
+/* 상승: 매수 시맨틱 컬러 #FB2C36 */
+.strategic-card__change--up {
+  color: #fb2c36;
+  @apply font-semibold;
+}
+/* 하락: 매도 시맨틱 컬러 #2B7FFF */
+.strategic-card__change--down {
+  color: #2b7fff;
+  @apply font-semibold;
+}
+
+/* ── 카드 본문 ── */
+.strategic-card__content {
+  @apply p-5 space-y-5;
+}
+
+/* ── 포인트 박스 (상승/하락/근거) ── */
+.point-box {
+  @apply p-4 rounded-xl;
+}
+.point-box--bullish {
+  @apply bg-emerald-500/50 border border-emerald-100;
+}
+.point-box--bearish {
+  @apply bg-rose-50/50 border border-rose-100;
+}
+.point-box--rationale {
+  @apply bg-slate-500 border border-slate-100;
+}
+
+/* ── 포인트 목록 ── */
+.point-list {
+  @apply space-y-2;
+}
+.point-item {
+  @apply flex items-start gap-2 text-[13px] leading-snug;
+}
+.point-bullet {
+  @apply w-1.5 h-1.5 rounded-full mt-1.5 shrink-0;
+}

@@ -1,26 +1,33 @@
 /*
-  GlobalModal Styles (Modal-Vanilla Overrides according to Rule 15)
-  -----------------------------------------------------------------
-  BEM Block: global-modal
+  ============================================================
+  GlobalModalManager.css
+  컴포넌트: components/modal/GlobalModalManager.vue
+  역할: Modal-Vanilla 전역 모달 스타일 오버라이드 (Rule 15)
+  BEM 블록: global-modal
+  ============================================================
 */
 
-/* Custom Modal Actions BEM */
+/* ── 모달 액션 버튼 영역 ── */
 .global-modal__actions {
   @apply flex justify-end gap-3;
 }
 
+/* ── 공통 버튼 베이스 ── */
 .global-modal__btn {
   @apply px-5 py-2.5 rounded-xl font-bold text-[13px] transition-all duration-300 flex items-center justify-center cursor-pointer shadow-md active:scale-95 border-0;
 }
 
+/* ── 외곽선 버튼 (취소) ── */
 .global-modal__btn--outline {
   @apply border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm hover:shadow-md;
 }
 
+/* ── 기본 버튼 (확인) ── */
 .global-modal__btn--primary {
   @apply bg-primary hover:bg-primary-hover text-white shadow-primary/20 hover:shadow-lg hover:shadow-primary/30;
 }
 
+/* ── 모달 진입 애니메이션 ── */
 @keyframes modal-fade-in {
   from {
     opacity: 0;
@@ -30,6 +37,7 @@
   }
 }
 
+/* ── 모달 슬라이드업 애니메이션 ── */
 @keyframes modal-slide-up {
   from {
     opacity: 0;

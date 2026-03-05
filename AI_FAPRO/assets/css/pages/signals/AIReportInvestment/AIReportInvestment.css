@@ -1,129 +1,112 @@
 /*
-  AI Report Investment Subcomponent
-  ---------------------------------
-  BEM Block: ai-report-investment
+  ============================================================
+  AIReportInvestment.css
+  컴포넌트: components/signals/modal/AIReportInvestment.vue
+  역할: AI 리포트 투자 브리프 및 차트 섹션 스타일
+  BEM 블록: ai-report-investment
+  ============================================================
 */
 
+/* ── 루트 컨테이너 ── */
 .ai-report-investment {
   @apply space-y-6;
 }
 
+/* ── 카드 레이아웃 ── */
 .ai-report-investment__card {
   @apply bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-400 dark:border-slate-700 shadow-sm overflow-hidden;
 }
-
 .ai-report-investment__card-header {
   @apply p-4 border-b border-slate-300 dark:border-slate-700/50 bg-slate-200/50 dark:bg-slate-800/80;
 }
-
 .ai-report-investment__card-header--highlight {
-  @apply bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20;
+  @apply bg-gradient-to-r from-amber-500 to-orange-500 dark:from-amber-900/20 dark:to-orange-900/20;
 }
-
 .ai-report-investment__card-title {
   @apply text-[15px] font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2;
 }
-
 .ai-report-investment__card-body {
   @apply p-5;
 }
-
 .ai-report-investment__card-body--padded {
   @apply pt-4;
 }
 
-/* Investment Brief Typography */
+/* ── 투자 텍스트 ── */
 .ai-report-investment__text {
-  @apply text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed max-w-[1600px] whitespace-pre-wrap;
+  @apply text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed w-full whitespace-pre-wrap;
 }
 
+/* ── 정보 그리드 ── */
 .ai-report-investment__info-grid {
   @apply grid grid-cols-3 gap-4 pt-4 mt-4 border-t border-slate-300 dark:border-slate-700/50;
 }
-
 .ai-report-investment__info-item {
   @apply flex flex-col;
 }
-
 .ai-report-investment__info-label {
   @apply text-xs text-slate-500 dark:text-slate-400 mb-1;
 }
-
 .ai-report-investment__info-value {
   @apply text-sm font-semibold text-slate-800 dark:text-slate-200;
 }
 
-/* Chart Container & Legends */
+/* ── 차트 컨테이너 ── */
 .ai-report-investment__chart-container {
-  @apply relative h-64 bg-gradient-to-b from-blue-50/50 to-white dark:from-blue-900/10 dark:to-slate-800 rounded-lg p-4;
+  @apply relative h-64 bg-gradient-to-b from-primary-light/20 to-white dark:from-primary-dark/10 dark:to-slate-800 rounded-lg p-4;
 }
-
 .ai-report-investment__chart-legend {
   @apply absolute top-4 left-4 space-y-1.5;
 }
-
 .ai-report-investment__legend-item {
   @apply flex items-center gap-2;
 }
-
 .ai-report-investment__legend-dot {
-  @apply w-3 h-3 bg-blue-500 rounded-full flex-shrink-0;
+  @apply w-3 h-3 bg-primary rounded-full flex-shrink-0;
 }
-
 .ai-report-investment__legend-line {
   @apply w-12 h-[3px] bg-amber-400 flex-shrink-0 rounded-full;
 }
-
 .ai-report-investment__legend-text {
   @apply text-xs text-slate-600 dark:text-slate-400;
 }
 
-/* Chart Mock Layout */
+/* ── 차트 목 레이아웃 ── */
 .ai-report-investment__chart-mock {
   @apply h-full flex items-end justify-between pt-16;
 }
-
 .ai-report-investment__chart-y-axis {
   @apply text-xs flex flex-col items-end text-slate-400 dark:text-slate-500;
 }
-
 .ai-report-investment__chart-svg-wrapper {
   @apply flex-1 h-full mx-4 relative;
 }
-
 .ai-report-investment__chart-svg {
   @apply w-full h-full;
 }
-
 .ai-report-investment__data-point {
-  @apply absolute w-2 h-2 bg-blue-500 rounded-full transform -translate-x-1/2 -translate-y-1/2;
+  @apply absolute w-2 h-2 bg-primary rounded-full transform -translate-x-1/2 -translate-y-1/2;
 }
-
 .ai-report-investment__data-point--1 {
   @apply left-[15%] top-10;
 }
-
 .ai-report-investment__data-point--2 {
   @apply left-[45%] top-20;
 }
-
 .ai-report-investment__data-point--3 {
   @apply left-[70%] top-12;
 }
 
-/* AI Highlight Texts */
+/* ── AI 하이라이트 텍스트 ── */
 .ai-report-investment__icon-amber {
   @apply text-amber-500 flex-shrink-0;
 }
-
 .ai-report-investment__desc {
   @apply text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed mb-3;
 }
-
 .ai-report-investment__highlight-text {
-  @apply font-bold text-teal-600 dark:text-teal-400 ml-1 text-[15px];
+  @apply font-bold text-primary dark:text-primary-light ml-1 text-[15px];
 }
-
 .ai-report-investment__subtext {
   @apply text-xs text-slate-500 dark:text-slate-400 leading-relaxed;
 }

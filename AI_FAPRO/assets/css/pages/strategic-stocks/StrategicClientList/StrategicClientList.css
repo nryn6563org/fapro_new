@@ -1,0 +1,15 @@
+/*
+  ============================================================
+  StrategicClientList.css
+  컴포넌트: components/strategic/StrategicClientList.vue
+  역할: AI 중장기 유망주 고객 선택 리스트 (StrategicProposalModal의 하위 컴포넌트)
+  BEM 블록: strategic-modal (클래스 정의는 StrategicProposalModal.css 참조)
+  ============================================================
+*/
+
+/*
+  이 컴포넌트의 BEM 클래스(strategic-modal__*)는
+  부모 컴포넌트인 StrategicProposalModal.vue가 임포트하는
+  StrategicProposalModal.css에 정의되어 있습니다.
+  컴포넌트 고유 스타일이 필요한 경우 이 파일에 추가하세요.
+*/

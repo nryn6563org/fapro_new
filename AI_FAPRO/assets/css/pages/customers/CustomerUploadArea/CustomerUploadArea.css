@@ -1,20 +1,27 @@
-/* Tailwind directives container */
+/* ── 고객 파일 업로드 영역 스타일 ── */
 
 .customer-upload {
   @apply rounded-xl border-2 border-dashed transition-all p-12 text-center;
   @apply border-slate-300 bg-slate-100 dark:bg-slate-900 dark:border-slate-800;
 }
 
+/* 드래그 중: primary 브랜드 컬러 */
 .customer-upload--dragging {
-  @apply border-teal-500 bg-teal-50/50 dark:bg-teal-900/10;
+  border-color: #5368ff;
+  background-color: rgba(83, 104, 255, 0.04);
+}
+.dark .customer-upload--dragging {
+  background-color: rgba(83, 104, 255, 0.08);
 }
 
 .customer-upload__content {
   @apply flex flex-col items-center gap-4;
 }
 
+/* 아이콘 배경: primary 브랜드 컬러 */
 .customer-upload__icon-box {
-  @apply w-16 h-16 bg-[#14B8A6] rounded-full flex items-center justify-center shadow-lg;
+  @apply w-16 h-16 rounded-full flex items-center justify-center shadow-lg;
+  background-color: #5368ff;
 }
 
 .customer-upload__icon {
@@ -29,6 +36,11 @@
   @apply text-sm text-slate-500 dark:text-slate-500 m-0;
 }
 
+/* 업로드 버튼: primary 브랜드 컬러 */
 .customer-upload__btn {
-  @apply flex items-center justify-center bg-[#14B8A6] hover:bg-[#14B8A6]/90 text-white px-6 py-2 rounded-lg font-bold transition-all border-0 cursor-pointer;
+  @apply flex items-center justify-center text-white px-6 py-2 rounded-lg font-bold transition-all border-0 cursor-pointer;
+  background-color: #5368ff;
+}
+.customer-upload__btn:hover {
+  background-color: #4253cc;
 }

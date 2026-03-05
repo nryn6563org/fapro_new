@@ -9,12 +9,16 @@
       </div>
       <div class="holdings-modal__sum-card">
         <span class="holdings-modal__sum-label">현재 평가금액</span>
-        <span class="holdings-modal__sum-value">{{ totalValue.toLocaleString() }}원</span>
+        <span class="holdings-modal__sum-value"
+          >{{ totalValue.toLocaleString() }}원</span
+        >
       </div>
       <div
         :class="[
           'holdings-modal__sum-card',
-          totalReturn >= 0 ? 'holdings-modal__sum-card--up' : 'holdings-modal__sum-card--down'
+          totalReturn >= 0
+            ? 'holdings-modal__sum-card--up'
+            : 'holdings-modal__sum-card--down',
         ]"
       >
         <span class="holdings-modal__sum-label">총 수익률</span>
@@ -26,9 +30,10 @@
               'holdings-modal__sum-value',
               totalReturn >= 0
                 ? 'holdings-modal__sum-value--up'
-                : 'holdings-modal__sum-value--down'
+                : 'holdings-modal__sum-value--down',
             ]"
-            >{{ totalReturn >= 0 ? '+' : '' }}{{ totalReturn.toFixed(2) }}%</span
+            >{{ totalReturn >= 0 ? "+" : ""
+            }}{{ totalReturn.toFixed(2) }}%</span
           >
         </div>
       </div>
@@ -40,32 +45,32 @@
 /**
  * 기능: 보유종목 수익률 요약 카드
  */
-import { TrendingUpIcon, TrendingDownIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/clients/ClientHoldingsSummary/ClientHoldingsSummary.css'
+import { TrendingUpIcon, TrendingDownIcon } from "vue-feather-icons";
+import "~/assets/css/pages/clients/ClientHoldingsSummary/ClientHoldingsSummary.css";
 
 export default {
-  name: 'ClientHoldingsSummary',
+  name: "ClientHoldingsSummary",
   components: {
     TrendingUpIcon,
-    TrendingDownIcon
+    TrendingDownIcon,
   },
   props: {
     calculated: {
       type: Boolean,
-      default: false
+      default: false,
     },
     totalInvestment: {
       type: Number,
-      required: true
+      required: true,
     },
     totalValue: {
       type: Number,
-      required: true
+      required: true,
     },
     totalReturn: {
       type: Number,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>

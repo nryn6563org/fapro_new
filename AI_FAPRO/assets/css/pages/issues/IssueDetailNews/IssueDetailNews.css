@@ -1,21 +1,36 @@
+/* ── 이슈 상세 관련 뉴스 패널 스타일 ── */
+
+/* 뉴스 섹션 외곽 래퍼 */
 .issue-detail__news-detail {
   @apply mb-0;
 }
+
+/* 뉴스 콘텐츠 영역 */
 .issue-detail__news-content {
   @apply space-y-3 flex-1 flex flex-col;
 }
+
+/* AI 뉴스 요약 박스 */
 .issue-detail__news-summary-box {
-  @apply p-4 bg-gradient-to-br from-teal-50 to-white dark:from-teal-900/10 dark:to-slate-900 rounded-xl border border-teal-200 dark:border-teal-800 shadow-sm;
+  @apply fapro-section !p-4 !shadow-none bg-blue-50/50 dark:bg-blue-900/10 border-blue-100 dark:border-blue-800;
 }
+
+/* 뉴스 목록 컨테이너 */
 .issue-detail__news-list {
   @apply flex flex-col gap-3 mt-4;
 }
+
+/* 개별 뉴스 아이템 카드 */
 .issue-detail__news-item {
   @apply flex items-start gap-3 p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer;
 }
+
+/* 언론사 파비콘 이미지 */
 .issue-detail__news-fav {
   @apply w-5 h-5 mt-0.5 object-contain flex-shrink-0 rounded;
 }
+
+/* 뉴스 발행 시간 뱃지 */
 .issue-detail__news-time {
   @apply inline-flex px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-500 text-xs rounded;
 }

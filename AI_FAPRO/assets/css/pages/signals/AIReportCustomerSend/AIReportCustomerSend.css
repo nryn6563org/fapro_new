@@ -1,4 +1,13 @@
-/* Tailwind directives container for component */
+/*
+  ============================================================
+  AIReportCustomerSend.css
+  컴포넌트: components/signals/modal/AIReportCustomerSend.vue
+  역할: AI 리포트 모달 내 고객 발송 섹션 스타일
+  BEM 블록: ai-report-send
+  ============================================================
+*/
+
+/* ── 루트 컨테이너 ── */
 .ai-report-send {
   @apply w-full bg-white dark:bg-slate-900 p-0;
 }
@@ -9,10 +18,10 @@
   @apply text-[15px] font-bold text-slate-800 dark:text-slate-200 flex items-center mb-1;
 }
 .ai-report-send__title-icon {
-  @apply text-[#14B8A6] mr-2;
+  @apply text-primary mr-2;
 }
 
-/* Target Section */
+/* ── 전송 대상 섹션 ── */
 .ai-report-send__target-section {
   @apply mb-4;
 }
@@ -29,18 +38,18 @@
   @apply text-[11px] text-slate-500 dark:text-slate-400 font-medium;
 }
 
-/* Select All */
+/* ── 전체 선택 체크박스 ── */
 .ai-report-send__select-all {
   @apply flex items-center cursor-pointer px-3 py-1.5 border border-slate-300 dark:border-slate-600 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors bg-white dark:bg-slate-900;
 }
 .ai-report-send__select-all-checkbox {
-  @apply w-4 h-4 cursor-pointer accent-[#14B8A6] mr-2;
+  @apply w-4 h-4 cursor-pointer accent-primary mr-2;
 }
 .ai-report-send__select-all-text {
   @apply text-xs font-bold text-slate-700 dark:text-slate-300;
 }
 
-/* Grid layout */
+/* ── 고객 그리드 ── */
 .ai-report-send__target-grid {
   @apply grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[300px] overflow-y-auto pr-2 pb-2;
 }
@@ -48,21 +57,19 @@
   @apply border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 p-3 rounded-lg cursor-pointer transition-all flex items-start gap-3;
 }
 .ai-report-send__client-card:hover {
-  @apply border-[#14B8A6]/50 shadow-sm bg-slate-50 dark:bg-slate-800/30;
+  @apply border-primary/50 shadow-sm bg-slate-500 dark:bg-slate-800/30;
 }
 .ai-report-send__client-card--active {
-  @apply !border-[#14B8A6] ring-1 ring-[#14B8A6] bg-emerald-50 dark:bg-emerald-900/10 shadow-sm;
+  @apply !border-primary ring-1 ring-primary bg-primary-light/30 dark:bg-primary-dark/10 shadow-sm;
 }
 
-/* Checkbox inside card */
+/* ── 고객 카드 내부 ── */
 .ai-report-send__client-checkbox {
-  @apply w-4 h-4 mt-1 cursor-pointer accent-[#14B8A6] flex-shrink-0;
+  @apply w-4 h-4 mt-1 cursor-pointer accent-primary flex-shrink-0;
 }
 .ai-report-send__client-info {
   @apply flex-1 min-w-0;
 }
-
-/* Client Header */
 .ai-report-send__client-header {
   @apply flex items-center justify-between mb-3;
 }
@@ -76,7 +83,7 @@
   @apply text-[11px] font-medium text-slate-500 dark:text-slate-400;
 }
 
-/* Badges */
+/* ── 고객 유형 배지 ── */
 .ai-report-send__client-badge {
   @apply text-[10px] font-bold px-2 py-0.5 rounded-full min-w-max;
 }
@@ -90,10 +97,10 @@
   @apply text-slate-700 bg-slate-200 border border-slate-300 dark:text-slate-400 dark:bg-slate-700 dark:border-slate-600;
 }
 .ai-report-send__client-badge--shortterm {
-  @apply text-blue-700 bg-blue-100 border border-blue-200 dark:text-blue-400 dark:bg-blue-900/30 dark:border-blue-800;
+  @apply text-blue-700 bg-blue-100 border border-blue-200 dark:text-primary-light dark:bg-blue-900/30 dark:border-blue-800;
 }
 
-/* Client details */
+/* ── 고객 상세 정보 ── */
 .ai-report-send__client-details {
   @apply flex flex-col gap-1;
 }
@@ -104,13 +111,13 @@
   @apply text-[11px] font-medium text-slate-500 dark:text-slate-500;
 }
 
-/* Action Group */
+/* ── 액션 버튼 그룹 ── */
 .ai-report-send__action-group {
   @apply flex gap-3 pt-4 border-t border-slate-200 dark:border-slate-800 w-full;
 }
 .ai-report-send__btn-primary {
-  @apply flex-1 flex items-center justify-center py-3 bg-[#14B8A6] hover:bg-[#0D9488] text-white font-bold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply flex-1 flex items-center justify-center py-3 bg-primary hover:bg-primary-hover text-white font-bold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
 }
 .ai-report-send__btn-secondary {
-  @apply flex items-center justify-center px-6 py-3 bg-white dark:bg-slate-900 text-[#14B8A6] border border-[#14B8A6] font-bold rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/10 transition-colors;
+  @apply flex items-center justify-center px-6 py-3 bg-white dark:bg-slate-900 text-primary border border-primary font-bold rounded-lg hover:bg-emerald-500 dark:hover:bg-emerald-900/10 transition-colors;
 }

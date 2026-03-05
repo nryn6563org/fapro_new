@@ -1,80 +1,139 @@
-/* Tailwind directives container for component */
+/*
+  ============================================================
+  StrategicProposalModal.cs
+  컴포넌트: components/strategic/StrategicProposalModal.vue
+  역할: 전략 종목 제안 모달 스타일 (ID 기반 스코핑)
+  모달 ID: #strategic-proposal-modal
+  ============================================================
+*/
 
+/* ── 모달 다이얼로그 크기 조정 ── */
 .strategic-modal__dialog {
   @apply max-w-2xl max-h-[90vh];
+} /* ── Header (모달 전용 스타일) ── */
+.strategic-modal__header {
+  @apply fapro-modal-header border-b border-slate-300 bg-gradient-to-br from-slate-100 to-slate-200 rounded-t-xl overflow-hidden;
 }
 
-/* Header */
+.dark /* ── Header (모달 전용 스타일) ── */
 .strategic-modal__header {
-  @apply fapro-modal-header border-b border-slate-300 dark:border-slate-800 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-800 rounded-t-xl overflow-hidden;
+  @apply border-slate-800 from-slate-900 to-slate-800;
 }
+
 .strategic-modal__title {
   @apply fapro-modal-title text-xl relative z-10;
 }
+
 .strategic-modal__subtitle {
-  @apply text-sm text-slate-500 dark:text-slate-400 mt-1 m-0 relative z-10;
+  @apply fapro-modal-subtitle relative z-10;
 }
+
 .strategic-modal__close-btn {
   @apply fapro-modal-close absolute top-4 right-4 text-slate-400 hover:text-slate-600;
-}
-
-/* Body */
+} /* ── Body ── */
 .strategic-modal__body {
-  @apply fapro-modal-body space-y-6 bg-slate-100 dark:bg-slate-900;
+  @apply fapro-modal-body space-y-6 bg-slate-100;
 }
 
-/* Stock Details Preview */
+.dark /* ── Body ── */
+.strategic-modal__body {
+  @apply bg-slate-900;
+}
+
+/* ── Stock Details Preview (모달 전용 스타일) ── */
 .strategic-modal__preview {
-  @apply bg-white dark:bg-slate-800/80 rounded-xl border border-slate-300 dark:border-slate-700 shadow-sm overflow-hidden mb-6;
+  @apply fapro-section mb-6 overflow-hidden;
 }
+
 .strategic-modal__preview-header {
-  @apply flex items-center justify-between p-5 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50;
+  @apply flex items-center justify-between p-5 border-b border-slate-200 bg-slate-50;
 }
+
+.dark .strategic-modal__preview-header {
+  @apply border-slate-700 bg-slate-900/50;
+}
+
 .strategic-modal__preview-title-row {
   @apply flex items-center gap-3;
 }
+
 .strategic-modal__stock-code {
-  @apply text-sm text-slate-500 font-medium font-mono bg-white dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700;
+  @apply text-sm text-slate-500 font-medium font-mono bg-white px-2 py-1 rounded border border-slate-200;
 }
+
+.dark .strategic-modal__stock-code {
+  @apply bg-slate-800 border-slate-700;
+}
+
 .strategic-modal__stock-name {
-  @apply text-xl font-bold text-slate-900 dark:text-white m-0;
+  @apply text-xl font-bold text-slate-900 m-0;
+}
+
+.dark .strategic-modal__stock-name {
+  @apply text-white;
 }
 
 .strategic-modal__preview-price-row {
   @apply flex items-center gap-3;
 }
+
 .strategic-modal__stat-value {
-  @apply text-lg font-bold text-slate-900 dark:text-white;
+  @apply text-lg font-bold text-slate-900;
 }
+
+.dark .strategic-modal__stat-value {
+  @apply text-white;
+}
+
 .strategic-modal__stat-change {
   @apply text-base font-bold;
 }
-.strategic-modal__stat-change--up {
+
+.strategic-modal__stat-change-up {
   @apply text-red-500;
 }
-.strategic-modal__stat-change--down {
-  @apply text-blue-500;
+
+.strategic-modal__stat-change-down {
+  @apply text-primary;
 }
 
-/* Detail Grid Inside Preview */
+/* ── Detail Grid Inside Preview ── */
 .strategic-modal__detail-grid {
   @apply grid grid-cols-1 md:grid-cols-2 gap-0 border-t-0 p-0;
 }
+
 .strategic-modal__detail-section {
-  @apply p-5 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700 last:border-0;
+  @apply p-5 border-b md:border-b-0 md:border-r border-slate-200 last:border-0;
 }
-.strategic-modal__detail-section--upside {
-  @apply bg-emerald-50/30 dark:bg-emerald-900/10;
+
+.dark .strategic-modal__detail-section {
+  @apply border-slate-700;
 }
-.strategic-modal__detail-section--risk {
-  @apply bg-red-50/30 dark:bg-red-900/10;
+
+.strategic-modal__detail-section-upside {
+  @apply bg-emerald-500/30;
 }
+
+.dark .strategic-modal__detail-section-upside {
+  @apply bg-emerald-900/10;
+}
+
+.strategic-modal__detail-section-risk {
+  @apply bg-red-500/30;
+}
+
+.dark .strategic-modal__detail-section-risk {
+  @apply bg-red-900/10;
+}
+
 .strategic-modal__section-header {
-  @apply flex items-center gap-2 mb-3;
+  @apply fapro-section-header mb-3;
 }
+
 .strategic-modal__section-icon {
-  @apply w-4 h-4;
+  @apply fapro-section-icon;
 }
+
 .strategic-modal__section-title {
   @apply font-bold text-sm m-0;
 }
@@ -82,95 +141,176 @@
 .strategic-modal__point-list {
   @apply space-y-2 m-0 p-0 pl-1 list-none;
 }
+
 .strategic-modal__point-item {
   @apply flex items-start gap-2 text-[13px] font-medium leading-relaxed;
 }
+
 .strategic-modal__point-bullet {
   @apply w-1 h-1 rounded-full mt-2 flex-shrink-0;
 }
 
-/* Forms */
+/* ── Forms ── */
 .strategic-modal__form-group {
-  @apply space-y-3 bg-white dark:bg-slate-800/50 rounded-xl p-5 border border-slate-300 dark:border-slate-700 shadow-sm;
+  @apply fapro-section space-y-3 p-5;
 }
+
 .strategic-modal__form-label {
-  @apply block text-sm font-bold text-slate-800 dark:text-slate-100;
+  @apply fapro-form-label;
 }
+
 .strategic-modal__form-header {
-  @apply flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-700;
+  @apply flex items-center justify-between pb-2 border-b border-slate-200;
 }
 
-/* Transmission Method Tabs */
+.dark .strategic-modal__form-header {
+  @apply border-slate-700;
+} /* ── Transmision Method Tabs (모달 전용 스타일) ── */
 .strategic-modal__tabs {
-  @apply flex gap-2 w-full mb-2 bg-slate-100 dark:bg-slate-900 p-1 rounded-xl border border-slate-200 dark:border-slate-700;
-}
-.strategic-modal__tab {
-  @apply flex-1 flex items-center justify-center py-2.5 text-sm font-semibold rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-all border-0 bg-transparent cursor-pointer;
+  @apply flex gap-2 w-full mb-2 bg-slate-100 p-1 rounded-xl border border-slate-200;
 }
 
-/* Active Tab Styles */
-.strategic-modal__tab--active-sms {
-  @apply bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm ring-1 ring-slate-200 dark:ring-slate-700;
+.dark /* ── Transmision Method Tabs (모달 전용 스타일) ── */
+.strategic-modal__tabs {
+  @apply bg-slate-900 border-slate-700;
 }
-.strategic-modal__tab--active-kakao {
-  @apply bg-[#FEE500] hover:bg-[#FEE500] text-[#191919] shadow-sm;
+
+.strategic-modal__tab {
+  @apply flex-1 flex items-center justify-center py-2.5 text-sm font-semibold rounded-lg text-slate-500 hover:text-slate-700 transition-all border-0 bg-transparent cursor-pointer;
 }
-.strategic-modal__tab--active-email {
-  @apply bg-teal-500 hover:bg-teal-500 text-white shadow-sm;
+
+.dark .strategic-modal__tab {
+  @apply text-slate-400 hover:text-slate-200;
+}
+
+.strategic-modal__tab-active-sms {
+  @apply bg-white text-slate-900 shadow-sm ring-1 ring-slate-200;
+}
+
+.dark .strategic-modal__tab-active-sms {
+  @apply bg-slate-800 text-white ring-slate-700;
+}
+
+.strategic-modal__tab-active-kao {
+  @apply bg-yellow-100 hover:bg-yellow-100 text-yellow-600 shadow-sm;
+}
+
+.strategic-modal__tab-active-email {
+  @apply bg-primary hover:bg-primary text-white shadow-sm;
 }
 
 .strategic-modal__textarea-message {
-  @apply w-full min-h-[160px] p-4 text-[13px] leading-relaxed rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 resize-none focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:border-teal-500 shadow-inner transition-all;
+  @apply fapro-form-textarea min-h-[160px] text-[13px] leading-relaxed shadow-inner;
+} /* ── Client List (모달 전용 스타일) ── */
+.strategic-modal__client-list {
+  @apply mt-3 border border-slate-300 rounded-xl max-h-[200px] overflow-y-auto bg-slate-50 shadow-inner;
 }
 
+.dark /* ── Client List (모달 전용 스타일) ── */
 .strategic-modal__client-list {
-  @apply mt-3 border border-slate-300 dark:border-slate-700 rounded-xl max-h-[220px] overflow-y-auto bg-slate-50 dark:bg-slate-900 shadow-inner;
+  @apply border-slate-700 bg-slate-900;
 }
+
 .strategic-modal__client-item {
-  @apply flex items-center gap-4 p-4 hover:bg-white dark:hover:bg-slate-800 transition-colors;
+  @apply flex items-center gap-4 p-4 hover:bg-white transition-colors;
 }
-.strategic-modal__client-item--border {
-  @apply border-b border-slate-200 dark:border-slate-800;
+
+.dark .strategic-modal__client-item {
+  @apply hover:bg-slate-800;
 }
+
+.strategic-modal__client-item-border {
+  @apply border-b border-slate-200;
+}
+
+.dark .strategic-modal__client-item-border {
+  @apply border-slate-800;
+}
+
 .strategic-modal__client-checkbox {
-  @apply w-5 h-5 rounded border-slate-300 text-teal-600 focus:ring-teal-500 dark:border-slate-600 dark:bg-slate-700 dark:focus:ring-offset-slate-900 cursor-pointer;
+  @apply w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary cursor-pointer;
 }
+
+.dark .strategic-modal__client-checkbox {
+  @apply border-slate-600 bg-slate-700 focus:ring-offset-slate-900;
+}
+
 .strategic-modal__client-label {
   @apply flex-1 cursor-pointer;
 }
+
 .strategic-modal__client-info {
   @apply flex items-center justify-between;
 }
+
 .strategic-modal__client-name {
-  @apply text-sm font-bold text-slate-800 dark:text-slate-100 m-0;
+  @apply text-sm font-bold text-slate-800 m-0;
 }
+
+.dark .strategic-modal__client-name {
+  @apply text-slate-100;
+}
+
 .strategic-modal__client-email {
-  @apply text-[13px] font-normal text-slate-500 dark:text-slate-400 ml-2;
+  @apply text-[13px] font-normal text-slate-500 ml-2;
 }
+
+.dark .strategic-modal__client-email {
+  @apply text-slate-400;
+}
+
 .strategic-modal__client-portfolio {
-  @apply text-right bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700;
+  @apply text-right bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200;
 }
+
+.dark .strategic-modal__client-portfolio {
+  @apply bg-slate-800 border-slate-700;
+}
+
 .strategic-modal__client-portfolio-label {
-  @apply text-xs font-semibold text-slate-500 dark:text-slate-400 m-0 uppercase tracking-wider;
+  @apply text-xs font-semibold text-slate-500 m-0 uppercase tracking-wider;
 }
+
+.dark .strategic-modal__client-portfolio-label {
+  @apply text-slate-400;
+}
+
 .strategic-modal__client-portfolio-value {
-  @apply text-sm font-bold text-teal-700 dark:text-teal-400 m-0;
+  @apply text-sm font-bold text-primary m-0;
+}
+
+.dark .strategic-modal__client-portfolio-value {
+  @apply text-primary-light;
 }
 
 .strategic-modal__client-summary {
-  @apply text-xs text-slate-500 dark:text-slate-400 text-right mt-2;
-}
-.strategic-modal__client-summary-count {
-  @apply font-semibold text-teal-500;
+  @apply text-xs text-slate-500 text-right mt-2;
 }
 
-/* Actions */
+.dark .strategic-modal__client-summary {
+  @apply text-slate-400;
+}
+
+.strategic-modal__client-summary-count {
+  @apply font-semibold text-primary;
+} /* ── Actions ── */
 .strategic-modal__actions {
-  @apply flex items-center gap-3 pt-5 mt-4 border-t border-slate-300 dark:border-slate-800;
+  @apply flex items-center gap-3 pt-5 mt-4 border-t border-slate-300;
 }
+
+.dark /* ── Actions ── */
+.strategic-modal__actions {
+  @apply border-slate-800;
+}
+
 .strategic-modal__btn-outline {
-  @apply flex-1 py-3 text-[15px] font-bold rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 bg-white dark:bg-slate-900 transition-all cursor-pointer;
+  @apply fapro-btn-outline flex-1 py-3 text-[15px];
 }
+
 .strategic-modal__btn-primary {
-  @apply flex-[2] flex items-center justify-center py-3 text-[15px] font-bold rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 dark:text-slate-900 text-white border-0 transition-all cursor-pointer opacity-100 disabled:opacity-50 disabled:cursor-not-allowed shadow-md;
+  @apply fapro-btn-primary flex-[2] flex items-center justify-center py-3 text-[15px] bg-slate-900 hover:bg-slate-800 text-white disabled:opacity-50 disabled:cursor-not-allowed shadow-md;
+}
+
+.dark .strategic-modal__btn-primary {
+  @apply bg-white hover:bg-slate-100 text-slate-900;
 }

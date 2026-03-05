@@ -1,9 +1,9 @@
 <template>
   <header class="proposal-header">
     <div class="proposal-header__title-row">
-      <component 
-        :is="iconComponent" 
-        :class="['proposal-header__icon', iconClass]" 
+      <component
+        :is="iconComponent"
+        :class="['proposal-header__icon', iconClass]"
       />
       <h2 class="proposal-header__title">{{ title }}</h2>
     </div>
@@ -19,48 +19,49 @@
 <script>
 /**
  * ProposalHeader
- * 설명: 제안 모달의 상단 헤더 컴포넌트
+ * 기능: 제안 모달의 상단 헤더 컴포넌트
  */
-import { SendIcon, XIcon, TargetIcon, TrendingUpIcon } from 'vue-feather-icons'
+import { SendIcon, XIcon, TargetIcon, TrendingUpIcon } from "vue-feather-icons";
+import "~/assets/css/common/proposal/ProposalHeader/ProposalHeader.css";
 
 export default {
-  name: 'ProposalHeader',
+  name: "ProposalHeader",
   components: {
     SendIcon,
     XIcon,
     TargetIcon,
-    TrendingUpIcon
+    TrendingUpIcon,
   },
   props: {
     title: {
       type: String,
-      default: '투자 제안'
+      default: "투자 제안",
     },
     description: {
       type: String,
-      default: '타겟 고객에게 문자, 카카오톡 또는 이메일로 제안 합니다.'
+      default: "타겟 고객에게 문자, 카카오톡 또는 이메일로 제안 합니다.",
     },
     iconType: {
       type: String,
-      default: 'send' // 'send', 'target', 'trending'
+      default: "send", // 'send', 'target', 'trending'
     },
     theme: {
       type: String,
-      default: 'teal' // 'teal', 'orange', 'violet'
-    }
+      default: "teal", // 'teal', 'orange', 'violet'
+    },
   },
   computed: {
     iconComponent() {
       const mapping = {
-        send: 'send-icon',
-        target: 'target-icon',
-        trending: 'trending-up-icon'
-      }
-      return mapping[this.iconType] || 'send-icon'
+        send: "send-icon",
+        target: "target-icon",
+        trending: "trending-up-icon",
+      };
+      return mapping[this.iconType] || "send-icon";
     },
     iconClass() {
-      return `proposal-header__icon--${this.theme}`
-    }
-  }
-}
+      return `proposal-header__icon--${this.theme}`;
+    },
+  },
+};
 </script>

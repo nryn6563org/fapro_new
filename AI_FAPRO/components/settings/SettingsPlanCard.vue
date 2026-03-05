@@ -1,13 +1,16 @@
 <template>
   <div
-    :class="['plan-card', { 'plan-card--active': active, 'plan-card--pro': type === 'pro' }]"
+    :class="[
+      'plan-card',
+      { 'plan-card--active': active, 'plan-card--pro': type === 'pro' },
+    ]"
     @click="$emit('select')"
   >
     <div
       v-if="active"
       :class="[
         'plan-card__check',
-        type === 'pro' ? 'plan-card__check--pro' : 'plan-card__check--basic'
+        type === 'pro' ? 'plan-card__check--pro' : 'plan-card__check--basic',
       ]"
     >
       <check-icon class="w-4 h-4 text-white" />
@@ -29,14 +32,22 @@
       <div class="plan-card__divider"></div>
 
       <div class="space-y-3">
-        <div v-for="(feature, i) in features" :key="i" class="plan-card__feature">
+        <div
+          v-for="(feature, i) in features"
+          :key="i"
+          class="plan-card__feature"
+        >
           <check-icon
             :class="[
               'plan-card__feature-icon',
-              type === 'pro' ? 'plan-card__feature-icon--pro' : 'plan-card__feature-icon--basic'
+              type === 'pro'
+                ? 'plan-card__feature-icon--pro'
+                : 'plan-card__feature-icon--basic',
             ]"
           />
-          <span class="text-sm text-slate-600 dark:text-slate-400 font-bold">{{ feature }}</span>
+          <span class="text-sm text-slate-600 dark:text-slate-400 font-bold">{{
+            feature
+          }}</span>
         </div>
       </div>
     </div>
@@ -47,21 +58,21 @@
 /**
  * 기능: 구독 플랜 카드
  */
-import { CheckIcon, StarIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/settings/SettingsPlanCard/SettingsPlanCard.css'
+import { CheckIcon, StarIcon } from "vue-feather-icons";
+import "~/assets/css/pages/settings/SettingsPlanCard/SettingsPlanCard.css";
 
 export default {
-  name: 'SettingsPlanCard',
+  name: "SettingsPlanCard",
   components: {
     CheckIcon,
-    StarIcon
+    StarIcon,
   },
   props: {
-    type: { type: String, default: 'basic' },
+    type: { type: String, default: "basic" },
     active: { type: Boolean, default: false },
     label: { type: String, required: true },
     price: { type: Number, required: true },
-    features: { type: Array, required: true }
-  }
-}
+    features: { type: Array, required: true },
+  },
+};
 </script>

@@ -6,30 +6,37 @@
 
 /* Header */
 .clients-page__header {
-  @apply flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8;
+  @apply fapro-page-header;
 }
+
+.clients-page__header-left {
+  @apply fapro-page-header__title-box;
+}
+
 .clients-page__h1 {
-  @apply text-3xl font-black text-slate-900 dark:text-white m-0;
+  @apply fapro-page-header__title;
 }
+
 .clients-page__h1-desc {
-  @apply text-slate-500 dark:text-slate-400 mt-1 m-0;
+  @apply fapro-page-header__subtitle;
 }
 
 .clients-page__header-actions {
-  @apply flex items-center gap-2;
+  @apply fapro-page-header__action-box;
 }
 
 .clients-page__onboard-btn {
-  @apply flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-xl font-black shadow-lg shadow-orange-500/20 hover:scale-105 active:scale-95 transition-all border-0 cursor-pointer;
+  @apply fapro-btn-refresh;
+  @apply bg-gradient-to-r from-amber-500 to-orange-600 shadow-orange-500/20 hover:shadow-orange-500/30;
 }
 
 .clients-page__btn-outline {
-  @apply flex items-center gap-2 px-4 py-3 bg-slate-100 dark:bg-slate-900 border border-slate-400 dark:border-slate-800 text-slate-600 dark:text-slate-400 rounded-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer;
+  @apply fapro-btn-outline;
 }
 
 /* Content Area */
 .clients-page__content {
-  @apply max-w-[1600px] mx-auto;
+  @apply w-full;
 }
 
 .clients-page__section {

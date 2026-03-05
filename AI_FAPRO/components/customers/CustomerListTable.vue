@@ -13,7 +13,11 @@
           </tr>
         </thead>
         <tbody class="customer-table__body">
-          <tr v-for="customer in customers" :key="customer.id" class="customer-table__row">
+          <tr
+            v-for="customer in customers"
+            :key="customer.id"
+            class="customer-table__row"
+          >
             <td class="customer-table__td">
               <div class="customer-table__name-box">
                 <div class="customer-table__avatar">
@@ -23,7 +27,12 @@
               </div>
             </td>
             <td class="customer-table__td">
-              <span :class="['customer-table__type-badge', getTypeClass(customer.investmentType)]">
+              <span
+                :class="[
+                  'customer-table__type-badge',
+                  getTypeClass(customer.investmentType),
+                ]"
+              >
                 {{ customer.investmentType }}
               </span>
             </td>
@@ -31,13 +40,18 @@
               {{ customer.totalAssets }}
             </td>
             <td class="customer-table__td">
-              <span class="text-slate-700 dark:text-slate-300">{{ customer.holdings }}</span>
+              <span class="text-slate-700 dark:text-slate-300">{{
+                customer.holdings
+              }}</span>
             </td>
             <td class="customer-table__td customer-table__td--notes">
               {{ customer.notes }}
             </td>
             <td class="customer-table__td">
-              <button class="customer-table__detail-btn" @click="$emit('view-detail', customer)">
+              <button
+                class="customer-table__detail-btn"
+                @click="$emit('view-detail', customer)"
+              >
                 <user-icon class="w-4 h-4 mr-1" />
                 상세보기
               </button>
@@ -53,23 +67,23 @@
 /**
  * 기능: 고객 목록 테이블
  */
-import { UserIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/customers/CustomerListTable/CustomerListTable.css'
+import { UserIcon } from "vue-feather-icons";
+import "~/assets/css/pages/customers/CustomerListTable/CustomerListTable.css";
 
 export default {
-  name: 'CustomerListTable',
+  name: "CustomerListTable",
   components: {
-    UserIcon
+    UserIcon,
   },
   props: {
-    customers: { type: Array, required: true }
+    customers: { type: Array, required: true },
   },
   methods: {
     getTypeClass(type) {
-      if (type === '공격형') return 'customer-table__type-badge--aggressive'
-      if (type === '중립형') return 'customer-table__type-badge--neutral'
-      return 'customer-table__type-badge--stable'
-    }
-  }
-}
+      if (type === "공격형") return "customer-table__type-badge--aggressive";
+      if (type === "중립형") return "customer-table__type-badge--neutral";
+      return "customer-table__type-badge--stable";
+    },
+  },
+};
 </script>

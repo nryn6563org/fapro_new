@@ -1,33 +1,35 @@
 /* Tailwind directives container for component */
 .strategic-page {
-  @apply p-6 space-y-6 max-w-[1600px] mx-auto pb-12;
+  @apply p-6 space-y-6 w-full pb-12;
 }
 
 /* Header */
 .strategic-page__header {
-  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-400 dark:border-slate-800 pb-4 mb-4;
+  @apply fapro-page-header;
 }
-.strategic-page__title-box {}
+.strategic-page__title-box {
+  @apply fapro-page-header__title-box;
+}
 .strategic-page__title {
-  @apply text-3xl font-bold text-slate-900 dark:text-white;
+  @apply fapro-page-header__title;
 }
 .strategic-page__subtitle {
-  @apply text-slate-600 dark:text-slate-400 mt-1 text-sm;
+  @apply fapro-page-header__subtitle;
 }
 .strategic-page__action-box {
-  @apply flex items-center gap-4;
+  @apply fapro-page-header__action-box;
 }
 .strategic-page__time-info {
-  @apply text-right;
+  @apply fapro-page-header__time-info;
 }
 .strategic-page__time-text {
-  @apply text-sm font-semibold text-slate-900 dark:text-white;
+  @apply fapro-page-header__time-text;
 }
 .strategic-page__time-label {
-  @apply text-xs text-slate-500 dark:text-slate-400;
+  @apply fapro-page-header__time-label;
 }
 .strategic-page__refresh-btn {
-  @apply flex items-center gap-2 px-4 py-2 bg-[#14B8A6] hover:bg-[#0D9488] text-white rounded-lg transition-colors shadow-sm cursor-pointer border-0;
+  @apply fapro-btn-refresh;
 }
 .strategic-page__refresh-icon {
   @apply w-4 h-4;

@@ -6,7 +6,7 @@
 
 /* Header */
 .customers-page__header {
-  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-400 dark:border-slate-800 pb-4 mb-6 max-w-[1600px] mx-auto;
+  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-400 dark:border-slate-800 pb-4 mb-6 w-full;
 }
 .customers-page__h1 {
   @apply text-3xl font-bold text-slate-900 dark:text-white m-0;
@@ -29,5 +29,5 @@
 
 /* Content Area */
 .customers-page__content {
-  @apply w-full max-w-[1600px] mx-auto;
+  @apply w-full;
 }

@@ -1,0 +1,92 @@
+/*
+  ============================================================
+  ProposalHeader.css
+  컴포넌트: components/common/proposal/ProposalHeader.vue
+  역할: 제안 모달 헤더 영역 및 배지 스타일
+  BEM 블록: proposal-header, proposal-badge
+  ============================================================
+*/
+
+/* ── 헤더 레이아웃 ── */
+.proposal-header {
+  @apply w-full p-6 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shrink-0 flex flex-col items-start relative box-border;
+}
+.proposal-header__title-row {
+  @apply flex items-center mb-1;
+}
+.proposal-header__icon {
+  @apply w-5 h-5 mr-2;
+}
+
+/* ── 헤더 아이콘 색상 변형 ── */
+/* teal → primary 브랜드 컬러 */
+.proposal-header__icon--teal {
+  color: #5368ff;
+}
+.proposal-header__icon--orange {
+  @apply text-amber-500;
+}
+/* violet → sell 시맨틱 컬러 */
+.proposal-header__icon--violet {
+  color: #2b7fff;
+}
+
+/* ── 헤더 텍스트 ── */
+.proposal-header__title {
+  @apply text-[20px] font-black text-slate-900 dark:text-white tracking-tight;
+}
+.proposal-header__desc {
+  @apply text-sm text-slate-500 dark:text-slate-400;
+}
+
+/* ── 닫기 버튼 ── */
+.proposal-header__close {
+  @apply absolute top-6 right-6 p-2 rounded-full cursor-pointer;
+}
+
+/* ── 헤더 테마 변형 ── */
+/* teal → primary 계열 */
+.proposal-header--teal {
+  background-color: #e1e4ff;
+}
+.proposal-header--teal .proposal-header__icon-wrapper {
+  background-color: rgba(83, 104, 255, 0.15);
+  color: #5368ff;
+}
+.proposal-header--purple {
+  @apply bg-purple-50;
+}
+.proposal-header--purple .proposal-header__icon-wrapper {
+  @apply bg-purple-100 text-purple-600;
+}
+
+/* ── 공통 배지 ── */
+.proposal-badge {
+  @apply rounded-full px-2.5 py-0.5 text-[11px] font-bold inline-block whitespace-nowrap tracking-wide leading-none;
+}
+.proposal-badge--outline {
+  @apply border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded-md;
+}
+
+/* ── 배지 색상 변형 ── */
+/* 매수 → buy 시맨틱 컬러 */
+.proposal-badge--red {
+  background-color: #fff0f1;
+  color: #fb2c36;
+}
+/* 매도 → sell 시맨틱 컬러 */
+.proposal-badge--blue {
+  background-color: #e1e4ff;
+  color: #2b7fff;
+}
+.proposal-badge--purple {
+  @apply bg-purple-100 text-purple-600;
+}
+.proposal-badge--orange {
+  @apply bg-orange-100 text-orange-600;
+}
+/* 확인/완료 → primary 계열 */
+.proposal-badge--green {
+  background-color: #e1e4ff;
+  color: #5368ff;
+}

@@ -1,33 +1,35 @@
 /* Main Container */
 .issues-page {
-  @apply p-6 max-w-[1600px] mx-auto flex flex-col gap-6;
+  @apply p-6 w-full flex flex-col gap-6;
 }
 
 /* Header */
 .issues-header {
-  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6 mb-6;
+  @apply fapro-page-header;
 }
-.issues-header__title-box {}
+.issues-header__title-box {
+  @apply fapro-page-header__title-box;
+}
 .issues-header__title {
-  @apply text-3xl font-bold text-slate-900 dark:text-white;
+  @apply fapro-page-header__title;
 }
 .issues-header__subtitle {
-  @apply text-slate-600 dark:text-slate-400 mt-1 text-sm;
+  @apply fapro-page-header__subtitle;
 }
 .issues-header__action-box {
-  @apply flex items-center gap-4;
+  @apply fapro-page-header__action-box;
 }
 .issues-header__time-info {
-  @apply text-right;
+  @apply fapro-page-header__time-info;
 }
 .issues-header__time-text {
-  @apply text-sm font-semibold text-slate-900 dark:text-white;
+  @apply fapro-page-header__time-text;
 }
 .issues-header__time-label {
-  @apply text-xs text-slate-500 dark:text-slate-400;
+  @apply fapro-page-header__time-label;
 }
 .issues-header__btn-refresh {
-  @apply flex items-center gap-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-xl transition-all duration-300 shadow-md shadow-teal-500/20 hover:shadow-lg hover:shadow-teal-500/30 cursor-pointer active:scale-95 border-0;
+  @apply fapro-btn-refresh;
 }
 .issues-header__refresh-icon {
   @apply w-4 h-4;
@@ -41,22 +43,22 @@
   @apply grid grid-cols-1 md:grid-cols-2 gap-4;
 }
 .issues-stats-card {
-  @apply flex items-center p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden;
+  @apply fapro-card fapro-card--hover flex items-center py-4 px-6;
 }
 .issues-stats-card__icon {
-  @apply w-[60px] h-[60px] mr-5 flex flex-shrink-0 items-center justify-center rounded-2xl shadow-sm;
+  @apply w-[56px] h-[56px] mr-4 flex flex-shrink-0 items-center justify-center rounded-2xl border transition-all;
 }
 .issues-stats-card__icon--orange {
-  @apply bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/10;
+  @apply bg-orange-50 dark:bg-orange-500/10 border-orange-100 dark:border-orange-500/20;
 }
 .issues-stats-card__icon--slate {
-  @apply bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700/50;
+  @apply bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700;
 }
 .issues-stats-card__label {
-  @apply text-[13px] font-bold text-slate-500 dark:text-slate-400 mb-0.5;
+  @apply text-xs font-bold text-slate-500 dark:text-slate-400 mb-0.5;
 }
 .issues-stats-card__value {
-  @apply text-xl font-bold text-slate-900 dark:text-white;
+  @apply text-lg font-black text-slate-900 dark:text-white tracking-tight;
 }
 .issues-stats-card__breakdown {
   @apply flex items-center gap-2 ml-auto text-xs font-bold bg-slate-50/50 dark:bg-slate-800/50 px-4 py-2 rounded-xl border border-slate-100 dark:border-slate-800/60;
@@ -65,7 +67,8 @@
   @apply text-[11px] text-slate-400 mr-1 hidden sm:inline-block;
 }
 .issues-stats-card__strength-high {
-  @apply text-rose-500;
+  @apply font-bold;
+  color: #fb2c36;
 }
 .issues-stats-card__strength-mid {
   @apply text-orange-500;
@@ -85,7 +88,7 @@
   @apply grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6;
 }
 .issues-page__chart-section {
-  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm overflow-hidden p-8 min-h-[500px];
+  @apply fapro-section overflow-hidden h-[644px] p-4;
 }
 .issues-page__analysis-section {
   @apply h-full;

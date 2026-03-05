@@ -38,7 +38,10 @@
           :disabled="!pasteText || isExtracting"
           @click="extractInfo"
         >
-          <refresh-cw-icon v-if="isExtracting" class="w-3.5 h-3.5 mr-1 animate-spin" />
+          <refresh-cw-icon
+            v-if="isExtracting"
+            class="w-3.5 h-3.5 mr-1 animate-spin"
+          />
           <zap-icon v-else class="w-3.5 h-3.5 mr-1" />
           정보 추출
         </button>
@@ -51,48 +54,53 @@
 /**
  * 기능: 온보딩 시 스마트 정보 추출 영역
  */
-import { ClipboardIcon, ImageIcon, RefreshCwIcon, ZapIcon } from 'vue-feather-icons'
-import { extractClientInfoFromText } from '~/utils/clientUtils.js'
-import '~/assets/css/pages/clients/SmartOnboardingExtract/SmartOnboardingExtract.css'
+import {
+  ClipboardIcon,
+  ImageIcon,
+  RefreshCwIcon,
+  ZapIcon,
+} from "vue-feather-icons";
+import { extractClientInfoFromText } from "~/utils/clientUtils.js";
+import "~/assets/css/pages/clients/SmartOnboardingExtract/SmartOnboardingExtract.css";
 
 export default {
-  name: 'SmartOnboardingExtract',
+  name: "SmartOnboardingExtract",
   components: {
     ClipboardIcon,
     ImageIcon,
     RefreshCwIcon,
-    ZapIcon
+    ZapIcon,
   },
   data() {
     return {
-      pasteText: '',
-      isExtracting: false
-    }
+      pasteText: "",
+      isExtracting: false,
+    };
   },
   methods: {
     handlePaste(e) {
-      this.isExtracting = true
+      this.isExtracting = true;
       setTimeout(() => {
-        const text = e.clipboardData.getData('text')
+        const text = e.clipboardData.getData("text");
         if (text) {
-          const extracted = extractClientInfoFromText(text)
-          this.$emit('extracted', extracted)
+          const extracted = extractClientInfoFromText(text);
+          this.$emit("extracted", extracted);
         }
-        this.isExtracting = false
-      }, 500)
+        this.isExtracting = false;
+      }, 500);
     },
     extractInfo() {
-      this.isExtracting = true
+      this.isExtracting = true;
       setTimeout(() => {
-        const extracted = extractClientInfoFromText(this.pasteText)
-        this.$emit('extracted', extracted)
-        this.isExtracting = false
-      }, 500)
+        const extracted = extractClientInfoFromText(this.pasteText);
+        this.$emit("extracted", extracted);
+        this.isExtracting = false;
+      }, 500);
     },
     resetPaste() {
-      this.pasteText = ''
-      this.$emit('reset')
-    }
-  }
-}
+      this.pasteText = "";
+      this.$emit("reset");
+    },
+  },
+};
 </script>

@@ -1,56 +1,76 @@
-/* Tailwind directives container */
+/*
+  ============================================================
+  SmartOnboardingModal.cs
+  컴포넌트: components/clients/SmartOnboardingModal.vue
+  역할: 스마트 온보딩 모달 스타일 (ID 기반 스코핑)
+  모달 ID: #smart-onboarding-modal
+  ============================================================
+*/
 
-.onboarding-modal {
-  @apply fixed inset-0 z-[100] flex items-center justify-center p-4;
+/* ── 모달 베이스 (공통 유틸리티 클래스 사용) ── */
+#smart-onboarding-modal {
+  @apply fapro-modal-overlay;
 }
 
 .onboarding-modal__overlay {
-  @apply absolute inset-0 bg-slate-900/60 backdrop-blur-sm;
+  @apply absolute inset-0;
 }
 
 .onboarding-modal__container {
-  @apply relative w-full max-w-3xl max-h-[90vh] bg-slate-100 dark:bg-slate-900 rounded-3xl shadow-2xl overflow-y-auto border-2 border-slate-300 dark:border-slate-800;
+  @apply fapro-modal-container fapro-modal-container--md;
 }
 
-/* Header */
+/* ── Header ── */
 .onboarding-modal__header {
-  @apply px-8 py-6 flex items-center justify-between border-b border-slate-300 dark:border-slate-800 sticky top-0 bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-md z-10;
+  @apply fapro-modal-header fapro-modal-header--sticky;
 }
+
 .onboarding-modal__icon-box {
-  @apply w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg shadow-orange-500/20;
+  @apply fapro-modal-icon fapro-modal-icon--amber;
 }
+
 .onboarding-modal__title {
-  @apply text-2xl font-black text-slate-900 dark:text-white m-0;
+  @apply fapro-modal-title;
 }
+
 .onboarding-modal__subtitle {
-  @apply text-sm text-slate-500 dark:text-slate-400 mt-1 m-0;
+  @apply fapro-modal-subtitle;
 }
+
 .onboarding-modal__close {
-  @apply p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors border-0 bg-transparent cursor-pointer text-slate-400;
+  @apply fapro-modal-close;
 }
 
-/* Content */
+/* ── Content ── */
 .onboarding-modal__content {
-  @apply p-8;
-}
-
-
-
-/* AI Hint */
+  @apply fapro-modal-body;
+} /* ── AI Hint (모달 전용 스타일) ── */
 .onboarding-modal__ai-hint {
-  @apply mt-8 flex gap-3 p-4 bg-amber-50 dark:bg-amber-900/10 border-l-4 border-amber-500 rounded-r-xl;
+  @apply mt-8 flex gap-3 p-4 bg-amber-500 border-l-4 border-amber-500 rounded-r-xl;
 }
 
-/* Footer */
-.onboarding-modal__footer {
-  @apply px-8 py-6 border-t border-slate-300 dark:border-slate-800 flex justify-end gap-3 sticky bottom-0 bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-md;
+.dark /* ── AI Hint (모달 전용 스타일) ── */
+.onboarding-modal__ai-hint {
+  @apply bg-amber-900/10;
 }
+
+/* ── Foter ── */
+.onboarding-modal__foter {
+  @apply fapro-modal-footer fapro-modal-footer--sticky justify-end;
+}
+
 .onboarding-modal__btn {
   @apply flex items-center px-8 py-3 rounded-xl text-sm font-black transition-all border-0 cursor-pointer;
 }
-.onboarding-modal__btn--outline {
-  @apply bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-slate-200;
+
+.onboarding-modal__btn-outline {
+  @apply px-5 py-2.5 bg-white border border-slate-200 text-slate-600 font-medium rounded-lg hover:bg-slate-50 transition-all duration-300 cursor-pointer;
 }
-.onboarding-modal__btn--primary {
-  @apply bg-gradient-to-r from-teal-500 to-teal-700 text-white hover:scale-105 active:scale-95 shadow-lg shadow-teal-500/20;
+
+.dark .onboarding-modal__btn-outline {
+  @apply bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800;
+}
+
+.onboarding-modal__btn-primary {
+  @apply fapro-btn-primary bg-gradient-to-r from-primary to-primary-hover hover:scale-105 active:scale-95 shadow-lg shadow-primary/20;
 }

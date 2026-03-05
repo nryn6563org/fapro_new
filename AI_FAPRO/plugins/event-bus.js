@@ -1,6 +1,6 @@
-import Vue from 'vue'
+import Vue from "vue";
 
 export default (ctx, inject) => {
-  const bus = new Vue()
-  inject('bus', bus)
-}
+  const bus = new Vue();
+  inject("bus", bus);
+};

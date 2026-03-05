@@ -10,15 +10,24 @@
 
     <!-- AI Analysis Result -->
     <transition name="fade-in">
-      <div v-if="calculated" class="holdings-modal__analysis animate__animated animate__fadeIn">
+      <div
+        v-if="calculated"
+        class="holdings-modal__analysis animate__animated animate__fadeIn"
+      >
         <div class="holdings-modal__ai-tag">
           <zap-icon class="w-5 h-5 text-amber-500" />
           <div class="flex-1">
             <div class="flex items-center justify-between mb-2">
-              <span class="font-black text-slate-900 dark:text-white">AI 분석 완료</span>
-              <span class="text-xs text-pink-500 font-bold">{{ analysisTime }} 기준</span>
+              <span class="font-black text-slate-900 dark:text-white"
+                >AI 분석 완료</span
+              >
+              <span class="text-xs text-pink-500 font-bold"
+                >{{ analysisTime }} 기준</span
+              >
             </div>
-            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p
+              class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
               현재 시세를 기준으로 분석한 결과,
               <span
                 :class="totalReturn >= 0 ? 'text-red-500' : 'text-blue-500'"
@@ -33,7 +42,9 @@
             <div class="holdings-modal__suggestions">
               <div class="flex items-center gap-2 mb-3">
                 <zap-icon class="w-4 h-4 text-teal-500" />
-                <span class="text-sm font-black dark:text-white">AI 제안 종목</span>
+                <span class="text-sm font-black dark:text-white"
+                  >AI 제안 종목</span
+                >
               </div>
               <div class="flex flex-wrap gap-2">
                 <span
@@ -56,36 +67,36 @@
 /**
  * 기능: AI 수익률 계산 버튼 및 분석 결과
  */
-import { ZapIcon, ActivityIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/clients/ClientHoldingsAnalysis/ClientHoldingsAnalysis.css'
+import { ZapIcon, ActivityIcon } from "vue-feather-icons";
+import "~/assets/css/pages/clients/ClientHoldingsAnalysis/ClientHoldingsAnalysis.css";
 
 export default {
-  name: 'ClientHoldingsAnalysis',
+  name: "ClientHoldingsAnalysis",
   components: {
     ZapIcon,
-    ActivityIcon
+    ActivityIcon,
   },
   props: {
     calculated: {
       type: Boolean,
-      default: false
+      default: false,
     },
     analysisTime: {
       type: String,
-      default: ''
+      default: "",
     },
     totalReturn: {
       type: Number,
-      required: true
+      required: true,
     },
     aiComment: {
       type: String,
-      default: ''
+      default: "",
     },
     suggestedStocks: {
       type: Array,
-      default: () => []
-    }
-  }
-}
+      default: () => [],
+    },
+  },
+};
 </script>

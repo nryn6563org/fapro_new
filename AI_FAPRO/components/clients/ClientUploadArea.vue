@@ -10,7 +10,9 @@
       <div class="client-upload__icon-box">
         <file-spreadsheet-icon class="client-upload__icon" />
       </div>
-      <h3 class="client-upload__title">엑셀 파일을 여기에 드래그하거나 클릭하여 업로드</h3>
+      <h3 class="client-upload__title">
+        엑셀 파일을 여기에 드래그하거나 클릭하여 업로드
+      </h3>
       <p class="client-upload__desc">.xlsx 또는 .xls 파일을 지원합니다</p>
 
       <input
@@ -33,34 +35,37 @@
 /**
  * 기능: 엑셀 파일 업로드 영역 컴포넌트
  */
-import { FileTextIcon as FileSpreadsheetIcon, UploadIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/clients/ClientUploadArea/ClientUploadArea.css'
+import {
+  FileTextIcon as FileSpreadsheetIcon,
+  UploadIcon,
+} from "vue-feather-icons";
+import "~/assets/css/pages/clients/ClientUploadArea/ClientUploadArea.css";
 
 export default {
-  name: 'ClientUploadArea',
+  name: "ClientUploadArea",
   components: {
     FileSpreadsheetIcon,
-    UploadIcon
+    UploadIcon,
   },
   data() {
     return {
-      isDragging: false
-    }
+      isDragging: false,
+    };
   },
   methods: {
     handleDrop(e) {
-      this.isDragging = false
-      const file = e.dataTransfer.files[0]
-      if (file && (file.name.endsWith('.xlsx') || file.name.endsWith('.xls'))) {
-        this.$emit('upload', file)
+      this.isDragging = false;
+      const file = e.dataTransfer.files[0];
+      if (file && (file.name.endsWith(".xlsx") || file.name.endsWith(".xls"))) {
+        this.$emit("upload", file);
       }
     },
     handleFileChange(e) {
-      const file = e.target.files[0]
+      const file = e.target.files[0];
       if (file) {
-        this.$emit('upload', file)
+        this.$emit("upload", file);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>

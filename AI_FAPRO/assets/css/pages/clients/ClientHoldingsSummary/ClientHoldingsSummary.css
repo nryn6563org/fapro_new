@@ -1,6 +1,11 @@
+/* ── 보유 종목 요약 카드 스타일 ── */
+
+/* 요약 그리드 레이아웃 */
 .holdings-modal__summary {
   @apply grid grid-cols-1 md:grid-cols-3 gap-4 mb-8;
 }
+
+/* 요약 카드 기본 스타일 */
 .holdings-modal__sum-card {
   @apply p-6 bg-slate-200 dark:bg-slate-800 rounded-2xl border-2 border-slate-300 dark:border-slate-700 flex flex-col;
 }
@@ -10,20 +15,24 @@
 .holdings-modal__sum-value {
   @apply text-xl font-black text-slate-900 dark:text-white;
 }
+
+/* 수익(상승) 상태 카드 변형 */
 .holdings-modal__sum-card--up {
-  @apply bg-red-50 border-red-100 dark:bg-red-900/10 dark:border-red-900/30;
+  @apply bg-red-500 border-red-100 dark:bg-red-900/10 dark:border-red-900/30;
 }
 .holdings-modal__sum-value--up {
   @apply text-red-600 dark:text-red-400;
 }
 
+/* 손실(하락) 상태 카드 변형 */
 .holdings-modal__sum-card--down {
-  @apply bg-blue-50 border-blue-100 dark:bg-blue-900/10 dark:border-blue-900/30;
+  @apply bg-primary-light/50 border-blue-100 dark:bg-primary-dark/10 dark:border-blue-900/30;
 }
 .holdings-modal__sum-value--down {
-  @apply text-blue-600 dark:text-blue-400;
+  @apply text-primary dark:text-primary-light;
 }
 
+/* 위로 슬라이드 진입 애니메이션 */
 .fade-up-enter-active {
   @apply transition-all duration-500 ease-out;
 }

@@ -14,17 +14,28 @@
         </thead>
         <tbody>
           <template v-if="clients.length > 0">
-            <tr v-for="(client, index) in clients" :key="index" class="client-table__row">
+            <tr
+              v-for="(client, index) in clients"
+              :key="index"
+              class="client-table__row"
+            >
               <td class="client-table__td">
                 <span class="client-table__name">{{ client.name }}</span>
               </td>
               <td class="client-table__td">
-                <span :class="['client-table__type-badge', getTypeClass(client.investmentType)]">
+                <span
+                  :class="[
+                    'client-table__type-badge',
+                    getTypeClass(client.investmentType),
+                  ]"
+                >
                   {{ client.investmentType }}
                 </span>
               </td>
               <td class="client-table__td">
-                <span class="client-table__assets">{{ client.totalAssets }}</span>
+                <span class="client-table__assets">{{
+                  client.totalAssets
+                }}</span>
               </td>
               <td class="client-table__td">
                 <div class="flex items-center gap-2">
@@ -32,10 +43,12 @@
                     {{ formatHoldings(client.holdings) }}
                   </span>
                   <button
-                    v-if="client.holdingsDetail && client.holdingsDetail.length > 0"
-                    @click="$emit('view-holdings', client)"
+                    v-if="
+                      client.holdingsDetail && client.holdingsDetail.length > 0
+                    "
                     class="client-table__eye-btn"
                     title="보유종목 상세보기"
+                    @click="$emit('view-holdings', client)"
                   >
                     <eye-icon class="w-4 h-4" />
                   </button>
@@ -47,7 +60,10 @@
                 </span>
               </td>
               <td class="client-table__td client-table__td--center">
-                <button class="client-table__info-btn" @click="$emit('view-info', client)">
+                <button
+                  class="client-table__info-btn"
+                  @click="$emit('view-info', client)"
+                >
                   <user-icon class="w-4 h-4 mr-1" />
                   상세보기
                 </button>
@@ -72,37 +88,37 @@
 /**
  * 기능: 고객 목록 테이블 컴포넌트
  */
-import { EyeIcon, UserIcon, SearchIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/clients/ClientListTable/ClientListTable.css'
+import { EyeIcon, UserIcon, SearchIcon } from "vue-feather-icons";
+import "~/assets/css/pages/clients/ClientListTable/ClientListTable.css";
 
 export default {
-  name: 'ClientListTable',
+  name: "ClientListTable",
   components: {
     EyeIcon,
     UserIcon,
-    SearchIcon
+    SearchIcon,
   },
   props: {
     clients: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     getTypeClass(type) {
       const classes = {
-        공격형: 'client-table__type-badge--aggressive',
-        안정형: 'client-table__type-badge--stable',
-        중립형: 'client-table__type-badge--neutral'
-      }
-      return classes[type] || 'client-table__type-badge--neutral'
+        공격형: "client-table__type-badge--aggressive",
+        안정형: "client-table__type-badge--stable",
+        중립형: "client-table__type-badge--neutral",
+      };
+      return classes[type] || "client-table__type-badge--neutral";
     },
     formatHoldings(holdings) {
-      if (!holdings) return '-'
-      const stocks = holdings.split(',').map((s) => s.trim())
-      if (stocks.length <= 1) return stocks[0]
-      return `${stocks[0]} 외 ${stocks.length - 1}종목`
-    }
-  }
-}
+      if (!holdings) return "-";
+      const stocks = holdings.split(",").map((s) => s.trim());
+      if (stocks.length <= 1) return stocks[0];
+      return `${stocks[0]} 외 ${stocks.length - 1}종목`;
+    },
+  },
+};
 </script>

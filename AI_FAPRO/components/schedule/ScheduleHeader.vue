@@ -8,7 +8,9 @@
         <h1 class="schedule-header__title">캘린더</h1>
       </div>
 
-      <button class="schedule-header__today-btn" @click="$emit('today')">오늘</button>
+      <button class="schedule-header__today-btn" @click="$emit('today')">
+        오늘
+      </button>
 
       <div class="schedule-header__nav-group">
         <button class="schedule-header__nav-btn" @click="$emit('prev')">
@@ -42,13 +44,25 @@
         class="schedule-header__sync-badge schedule-header__sync-badge--active"
         @click="$emit('unsync')"
       >
-        <check-circle-icon class="w-4 h-4 schedule-header__sync-icon--success" />
+        <check-circle-icon
+          class="w-4 h-4 schedule-header__sync-icon--success"
+        />
         <span class="schedule-header__sync-label">캘린더 동기화 해제</span>
       </button>
-      <button v-else class="schedule-header__sync-badge" :disabled="isSyncing" @click="$emit('sync')">
-        <loader-icon v-if="isSyncing" class="w-4 h-4 schedule-header__sync-icon--loading" />
+      <button
+        v-else
+        class="schedule-header__sync-badge"
+        :disabled="isSyncing"
+        @click="$emit('sync')"
+      >
+        <loader-icon
+          v-if="isSyncing"
+          class="w-4 h-4 schedule-header__sync-icon--loading"
+        />
         <refresh-cw-icon v-else class="w-4 h-4 schedule-header__sync-icon" />
-        <span class="schedule-header__sync-label">{{ isSyncing ? '동기화 중' : '캘린더 동기화' }}</span>
+        <span class="schedule-header__sync-label">{{
+          isSyncing ? "동기화 중" : "캘린더 동기화"
+        }}</span>
       </button>
 
       <!-- Google Calendar Link -->
@@ -64,11 +78,11 @@
           :key="v"
           :class="[
             'schedule-header__view-btn',
-            { 'schedule-header__view-btn--active': viewMode === v }
+            { 'schedule-header__view-btn--active': viewMode === v },
           ]"
           @click="$emit('update:viewMode', v)"
         >
-          {{ v === 'day' ? '일' : v === 'week' ? '주' : '월' }}
+          {{ v === "day" ? "일" : v === "week" ? "주" : "월" }}
         </button>
       </div>
     </div>
@@ -87,12 +101,12 @@ import {
   CheckCircleIcon,
   RefreshCwIcon,
   LoaderIcon,
-  ExternalLinkIcon
-} from 'vue-feather-icons'
-import '~/assets/css/pages/schedule/ScheduleHeader/ScheduleHeader.css'
+  ExternalLinkIcon,
+} from "vue-feather-icons";
+import "~/assets/css/pages/schedule/ScheduleHeader/ScheduleHeader.css";
 
 export default {
-  name: 'ScheduleHeader',
+  name: "ScheduleHeader",
   components: {
     CalendarIcon,
     ChevronLeftIcon,
@@ -101,38 +115,41 @@ export default {
     CheckCircleIcon,
     RefreshCwIcon,
     LoaderIcon,
-    ExternalLinkIcon
+    ExternalLinkIcon,
   },
   props: {
     currentDate: { type: Date, required: true },
-    viewMode: { type: String, default: 'week' },
+    viewMode: { type: String, default: "week" },
     isSynced: { type: Boolean, default: true },
     isSyncing: { type: Boolean, default: false },
-    searchQuery: { type: String, default: '' }
+    searchQuery: { type: String, default: "" },
   },
   computed: {
     dateLabel() {
-      return this.currentDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long' })
-    }
+      return this.currentDate.toLocaleDateString("ko-KR", {
+        year: "numeric",
+        month: "long",
+      });
+    },
   },
   mounted() {
     this.$autocomplete(this.$refs.searchInput, {
       fetch: (text, update) => {
-        const items = ['미팅', '리서치', '팀 회의', '세미나']
+        const items = ["미팅", "리서치", "팀 회의", "세미나"];
         const suggestions = items
           .filter((s) => s.toLowerCase().includes(text.toLowerCase()))
-          .map((s) => ({ label: s, value: s }))
-        update(suggestions)
+          .map((s) => ({ label: s, value: s }));
+        update(suggestions);
       },
       onSelect: (item) => {
-        this.$emit('update:searchQuery', item.value)
-      }
-    })
+        this.$emit("update:searchQuery", item.value);
+      },
+    });
   },
   methods: {
     openGoogleCalendar() {
-      window.open('https://calendar.google.com', '_blank')
-    }
-  }
-}
+      window.open("https://calendar.google.com", "_blank");
+    },
+  },
+};
 </script>

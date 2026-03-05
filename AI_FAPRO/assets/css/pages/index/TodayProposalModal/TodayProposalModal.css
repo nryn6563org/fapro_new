@@ -1,0 +1,13 @@
+/*
+  ============================================================
+  TodayProposalModal.cs
+  컴포넌트: components/dashboard/TodayProposalModal.vue
+  역할: 대시보드 제안 모달 래퍼 (ContactProposalModal 위임 컴포넌트)
+  ============================================================
+*/
+
+/*
+  이 컴포넌트는 ContactProposalModal을 위임하는 순수 로직 래퍼입니다.
+  시각적 스타일은 ContactProposalModal.cs 및 하위 proposal 컴포넌트 CSS에 정의됩니다.
+  컴포넌트 고유 스타일이 필요한 경우 이 파일에 추가하세요.
+*/

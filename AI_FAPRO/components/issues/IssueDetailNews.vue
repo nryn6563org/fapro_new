@@ -1,7 +1,10 @@
 <template>
-  <div v-if="issue && issue.newsSummary" class="issue-detail__news-detail flex flex-col gap-6">
+  <div
+    v-if="issue && issue.newsSummary"
+    class="issue-detail__news-detail flex flex-col gap-6"
+  >
     <div class="issue-detail__section-label">
-      <book-open-icon class="issue-detail__section-icon text-teal-500" />
+      <div class="fapro-badge fapro-badge--teal fapro-badge--sm mr-2">12</div>
       <h5 class="issue-detail__section-title">관련 뉴스 상세</h5>
     </div>
     <div class="issue-detail__news-content">
@@ -10,7 +13,11 @@
           <zap-icon class="w-4 h-4 text-teal-500" />
           <p class="text-xs font-bold text-teal-600">AI 뉴스 요약</p>
         </div>
-        <p class="text-[13px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed">{{ issue.newsSummary }}</p>
+        <p
+          class="text-[13px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed"
+        >
+          {{ issue.newsSummary }}
+        </p>
       </div>
       <div class="issue-detail__news-list">
         <div
@@ -30,7 +37,7 @@
                 source.name
               }}</span>
               <span class="issue-detail__news-time">{{
-                idx === 0 ? '최신' : idx + 1 + '시간 전'
+                idx === 0 ? "최신" : idx + 1 + "시간 전"
               }}</span>
             </div>
             <p class="text-xs text-slate-600 dark:text-slate-400">
@@ -48,21 +55,20 @@
 /**
  * 기능: 이슈 관련 뉴스 상세
  */
-import { BookOpenIcon, ZapIcon, ChevronRightIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/issues/IssueDetailNews/IssueDetailNews.css'
+import { ZapIcon, ChevronRightIcon } from "vue-feather-icons";
+import "~/assets/css/pages/issues/IssueDetailNews/IssueDetailNews.css";
 
 export default {
-  name: 'IssueDetailNews',
+  name: "IssueDetailNews",
   components: {
-    BookOpenIcon,
     ZapIcon,
-    ChevronRightIcon
+    ChevronRightIcon,
   },
   props: {
     issue: {
       type: Object,
-      default: () => ({})
-    }
-  }
-}
+      default: () => ({}),
+    },
+  },
+};
 </script>

@@ -9,7 +9,10 @@
             {{ formatWeekday(selectedDate) }}
           </div>
           <div
-            :class="['day-view__date-num', { 'day-view__date-num--today': isToday(selectedDate) }]"
+            :class="[
+              'day-view__date-num',
+              { 'day-view__date-num--today': isToday(selectedDate) },
+            ]"
           >
             {{ selectedDate.getDate() }}
           </div>
@@ -26,7 +29,12 @@
             <div
               v-for="event in getEventsForHour(hour)"
               :key="event.id"
-              :class="['day-view__event', 'animate__animated', 'animate__fadeInRight', getEventColorClass(event.color)]"
+              :class="[
+                'day-view__event',
+                'animate__animated',
+                'animate__fadeInRight',
+                getEventColorClass(event.color),
+              ]"
             >
               <div class="day-view__event-header">
                 <span class="day-view__event-title">{{ event.title }}</span>
@@ -54,45 +62,45 @@
 /**
  * 기능: 일간 캘린더 뷰
  */
-import { ClockIcon, MapPinIcon } from 'vue-feather-icons'
-import { isSameDay, formatTime, timeSlots } from '~/utils/scheduleUtils.js'
-import '~/assets/css/pages/schedule/ScheduleDayView/ScheduleDayView.css'
+import { ClockIcon, MapPinIcon } from "vue-feather-icons";
+import { isSameDay, formatTime, timeSlots } from "~/utils/scheduleUtils.js";
+import "~/assets/css/pages/schedule/ScheduleDayView/ScheduleDayView.css";
 
 export default {
-  name: 'ScheduleDayView',
+  name: "ScheduleDayView",
   components: {
     ClockIcon,
-    MapPinIcon
+    MapPinIcon,
   },
   props: {
     selectedDate: { type: Date, required: true },
-    events: { type: Array, required: true }
+    events: { type: Array, required: true },
   },
   data() {
     return {
-      timeSlots
-    }
+      timeSlots,
+    };
   },
   methods: {
     formatWeekday(date) {
-      return date.toLocaleDateString('ko-KR', { weekday: 'long' })
+      return date.toLocaleDateString("ko-KR", { weekday: "long" });
     },
     formatTime(hour) {
-      return formatTime(hour)
+      return formatTime(hour);
     },
     isToday(date) {
-      return isSameDay(date, new Date())
+      return isSameDay(date, new Date());
     },
     getEventsForHour(hour) {
       return this.events.filter((e) => {
-        const sameDay = isSameDay(e.date, this.selectedDate)
-        const eventHour = parseInt(e.startTime.split(':')[0])
-        return sameDay && eventHour === hour
-      })
+        const sameDay = isSameDay(e.date, this.selectedDate);
+        const eventHour = parseInt(e.startTime.split(":")[0]);
+        return sameDay && eventHour === hour;
+      });
     },
     getEventColorClass(color) {
-      return `day-view__event--${color.replace('bg-', '')}`
-    }
-  }
-}
+      return `day-view__event--${color.replace("bg-", "")}`;
+    },
+  },
+};
 </script>

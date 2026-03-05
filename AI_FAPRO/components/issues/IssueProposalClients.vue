@@ -1,8 +1,15 @@
 <template>
-  <div class="issue-proposal__form-group">
-    <label class="issue-proposal__label">고객 선택</label>
+  <div class="proposal-section">
+    <div class="proposal-section__header flex items-center gap-2 mb-4">
+      <div class="fapro-badge fapro-badge--indigo fapro-badge--sm">23</div>
+      <h3 class="proposal-section__title">고객 선택</h3>
+    </div>
     <div class="issue-proposal__client-list">
-      <div v-for="client in clients" :key="client.id" class="issue-proposal__client-item">
+      <div
+        v-for="client in clients"
+        :key="client.id"
+        class="issue-proposal__client-item"
+      >
         <input
           :id="'client-' + client.id"
           v-model="internalSelectedClients"
@@ -16,7 +23,9 @@
         </label>
       </div>
     </div>
-    <p class="issue-proposal__count">총 {{ internalSelectedClients.length }}명의 고객 선택됨</p>
+    <p class="issue-proposal__count">
+      총 {{ internalSelectedClients.length }}명의 고객 선택됨
+    </p>
   </div>
 </template>
 
@@ -24,27 +33,29 @@
 /**
  * 기능: 이슈 제안 대상 고객 선택 컴포넌트
  */
+import "~/assets/css/pages/issues/IssueProposalClients/IssueProposalClients.css";
+
 export default {
-  name: 'IssueProposalClients',
+  name: "IssueProposalClients",
   props: {
     clients: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     selectedClientIds: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   computed: {
     internalSelectedClients: {
       get() {
-        return this.selectedClientIds
+        return this.selectedClientIds;
       },
       set(val) {
-        this.$emit('update:selectedClientIds', val)
-      }
-    }
-  }
-}
+        this.$emit("update:selectedClientIds", val);
+      },
+    },
+  },
+};
 </script>

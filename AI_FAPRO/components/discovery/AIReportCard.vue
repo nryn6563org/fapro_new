@@ -4,7 +4,11 @@
       <div class="ai-report-card__header-info">
         <div class="ai-report-card__title-wrap">
           <h3 class="ai-report-card__title">{{ parsedTitle }}</h3>
-          <span v-if="signalBadge" class="ai-report-card__signal-badge" :class="'ai-report-card__signal-badge--' + signalType">
+          <span
+            v-if="signalBadge"
+            class="ai-report-card__signal-badge"
+            :class="'ai-report-card__signal-badge--' + signalType"
+          >
             {{ signalBadge }}
           </span>
         </div>
@@ -20,7 +24,10 @@
         </div>
       </div>
       <div class="ai-report-card__header-actions">
-        <button class="ai-report-card__btn-view" @click="$emit('open-report', report)">
+        <button
+          class="ai-report-card__btn-view"
+          @click="$emit('open-report', report)"
+        >
           <eye-icon class="ai-report-card__btn-icon" />
           리포트 보기
         </button>
@@ -53,46 +60,46 @@
 /**
  * 기능: AI 종목발굴 페이지의 리포트 카드 (150라인 준수를 위한 분리)
  */
-import { CalendarIcon, ClockIcon, EyeIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/discovery/AIReportCard/AIReportCard.css'
+import { CalendarIcon, ClockIcon, EyeIcon } from "vue-feather-icons";
+import "~/assets/css/pages/discovery/AIReportCard/AIReportCard.css";
 
 export default {
-  name: 'AIReportCard',
+  name: "AIReportCard",
   components: {
     CalendarIcon,
     ClockIcon,
-    EyeIcon
+    EyeIcon,
   },
   props: {
     report: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     parsedTitle() {
       // Split the title on '-' if it exists to separate it from the signal badge string
-      return this.report.title.split(' - ')[0] || this.report.title
+      return this.report.title.split(" - ")[0] || this.report.title;
     },
     signalBadge() {
       // Temporary extraction logic for the signal portion from standard titles like "알테오젠 - 강력매도" -> "강력매도"
-      if (this.report.signalBadge) return this.report.signalBadge
-      
-      const parts = this.report.title.split(' - ')
+      if (this.report.signalBadge) return this.report.signalBadge;
+
+      const parts = this.report.title.split(" - ");
       if (parts.length > 1) {
         // e.g., "강력매도" -> "강력매도신호" logic handling
-        let sig = parts[1]
-        if (!sig.includes('신호')) sig += '신호'
-        return sig
+        let sig = parts[1];
+        if (!sig.includes("신호")) sig += "신호";
+        return sig;
       }
-      return ''
+      return "";
     },
     signalType() {
-      const type = this.signalBadge
-      if (type.includes('매수')) return 'buy'
-      if (type.includes('매도')) return 'sell'
-      return 'neutral'
-    }
-  }
-}
+      const type = this.signalBadge;
+      if (type.includes("매수")) return "buy";
+      if (type.includes("매도")) return "sell";
+      return "neutral";
+    },
+  },
+};
 </script>

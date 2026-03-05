@@ -13,10 +13,16 @@
       <div class="schedule-sidebar__mini-header">
         <h3 class="schedule-sidebar__section-title">{{ miniCalLabel }}</h3>
         <div class="schedule-sidebar__mini-nav-container">
-          <button class="schedule-sidebar__mini-nav" @click="$emit('prev-month')">
+          <button
+            class="schedule-sidebar__mini-nav"
+            @click="$emit('prev-month')"
+          >
             <chevron-left-icon class="w-4 h-4" />
           </button>
-          <button class="schedule-sidebar__mini-nav" @click="$emit('next-month')">
+          <button
+            class="schedule-sidebar__mini-nav"
+            @click="$emit('next-month')"
+          >
             <chevron-right-icon class="w-4 h-4" />
           </button>
         </div>
@@ -28,7 +34,10 @@
           :key="day"
           :class="[
             'schedule-sidebar__mini-dot',
-            { 'schedule-sidebar__mini-dot--sunday': idx === 0, 'schedule-sidebar__mini-dot--saturday': idx === 6 }
+            {
+              'schedule-sidebar__mini-dot--sunday': idx === 0,
+              'schedule-sidebar__mini-dot--saturday': idx === 6,
+            },
           ]"
         >
           {{ day }}
@@ -36,7 +45,11 @@
       </div>
 
       <div class="schedule-sidebar__mini-grid">
-        <div v-for="n in firstDay" :key="'empty-' + n" class="schedule-sidebar__empty-day"></div>
+        <div
+          v-for="n in firstDay"
+          :key="'empty-' + n"
+          class="schedule-sidebar__empty-day"
+        ></div>
         <button
           v-for="day in daysInMonth"
           :key="day"
@@ -44,7 +57,10 @@
           @click="selectDate(day)"
         >
           {{ day }}
-          <div v-if="hasEvents(day) && !isSelected(day)" class="schedule-sidebar__has-event"></div>
+          <div
+            v-if="hasEvents(day) && !isSelected(day)"
+            class="schedule-sidebar__has-event"
+          ></div>
         </button>
       </div>
     </div>
@@ -53,11 +69,16 @@
     <div class="schedule-sidebar__filters">
       <h3 class="schedule-sidebar__section-title">내 캘린더</h3>
       <div class="schedule-sidebar__filter-list">
-        <div v-for="cal in calendars" :key="cal.id" class="schedule-sidebar__filter-item" @click="$emit('toggle-calendar', cal.id)">
+        <div
+          v-for="cal in calendars"
+          :key="cal.id"
+          class="schedule-sidebar__filter-item"
+          @click="$emit('toggle-calendar', cal.id)"
+        >
           <div
             :class="[
               'schedule-sidebar__filter-dot',
-              cal.checked ? cal.color : 'bg-slate-300 dark:bg-slate-700'
+              cal.checked ? cal.color : 'bg-slate-300 dark:bg-slate-700',
             ]"
           ></div>
           <span class="schedule-sidebar__filter-label">{{ cal.name }}</span>
@@ -71,61 +92,84 @@
 /**
  * 기능: 캘린더 사이드바 (미니 달력 및 필터)
  */
-import { PlusIcon, ChevronLeftIcon, ChevronRightIcon } from 'vue-feather-icons'
-import { getDaysInMonth, getFirstDayOfMonth, isSameDay } from '~/utils/scheduleUtils.js'
-import '~/assets/css/pages/schedule/ScheduleSidebar/ScheduleSidebar.css'
+import { PlusIcon, ChevronLeftIcon, ChevronRightIcon } from "vue-feather-icons";
+import {
+  getDaysInMonth,
+  getFirstDayOfMonth,
+  isSameDay,
+} from "~/utils/scheduleUtils.js";
+import "~/assets/css/pages/schedule/ScheduleSidebar/ScheduleSidebar.css";
 
 export default {
-  name: 'ScheduleSidebar',
+  name: "ScheduleSidebar",
   components: {
     PlusIcon,
     ChevronLeftIcon,
-    ChevronRightIcon
+    ChevronRightIcon,
   },
   props: {
     currentDate: { type: Date, required: true },
     selectedDate: { type: Date, required: true },
     calendars: { type: Array, required: true },
-    events: { type: Array, required: true }
+    events: { type: Array, required: true },
   },
   data() {
     return {
-      daysOfWeek: ['일', '월', '화', '수', '목', '금', '토']
-    }
+      daysOfWeek: ["일", "월", "화", "수", "목", "금", "토"],
+    };
   },
   computed: {
     miniCalLabel() {
-      return this.currentDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long' })
+      return this.currentDate.toLocaleDateString("ko-KR", {
+        year: "numeric",
+        month: "long",
+      });
     },
     daysInMonth() {
-      return getDaysInMonth(this.currentDate)
+      return getDaysInMonth(this.currentDate);
     },
     firstDay() {
-      return getFirstDayOfMonth(this.currentDate)
-    }
+      return getFirstDayOfMonth(this.currentDate);
+    },
   },
   methods: {
     selectDate(day) {
-      const date = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), day)
-      this.$emit('update:selectedDate', date)
+      const date = new Date(
+        this.currentDate.getFullYear(),
+        this.currentDate.getMonth(),
+        day
+      );
+      this.$emit("update:selectedDate", date);
     },
     isSelected(day) {
-      const date = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), day)
-      return isSameDay(date, this.selectedDate)
+      const date = new Date(
+        this.currentDate.getFullYear(),
+        this.currentDate.getMonth(),
+        day
+      );
+      return isSameDay(date, this.selectedDate);
     },
     isToday(day) {
-      const date = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), day)
-      return isSameDay(date, new Date())
+      const date = new Date(
+        this.currentDate.getFullYear(),
+        this.currentDate.getMonth(),
+        day
+      );
+      return isSameDay(date, new Date());
     },
     hasEvents(day) {
-      const date = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), day)
-      return this.events.some((e) => isSameDay(e.date, date))
+      const date = new Date(
+        this.currentDate.getFullYear(),
+        this.currentDate.getMonth(),
+        day
+      );
+      return this.events.some((e) => isSameDay(e.date, date));
     },
     getDayClass(day) {
-      if (this.isSelected(day)) return 'schedule-sidebar__day-btn--selected'
-      if (this.isToday(day)) return 'schedule-sidebar__day-btn--today'
-      return ''
-    }
-  }
-}
+      if (this.isSelected(day)) return "schedule-sidebar__day-btn--selected";
+      if (this.isToday(day)) return "schedule-sidebar__day-btn--today";
+      return "";
+    },
+  },
+};
 </script>

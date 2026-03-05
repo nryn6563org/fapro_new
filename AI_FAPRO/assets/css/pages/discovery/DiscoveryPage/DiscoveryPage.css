@@ -1,6 +1,6 @@
 /* Tailwind directives container for component */
 .discovery-page {
-  @apply p-6 pb-12 space-y-6 max-w-[1600px] mx-auto;
+  @apply p-6 pb-12 w-full flex flex-col gap-6;
 }
 
 /* Header */
@@ -55,4 +55,8 @@
 /* Grid */
 .discovery-page__grid {
   @apply flex flex-col gap-6;
+}
+
+.discovery-page .fapro-section {
+  @apply h-full;
 }

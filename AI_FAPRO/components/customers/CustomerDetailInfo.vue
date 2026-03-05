@@ -10,7 +10,7 @@
             <phone-icon class="customer-info__icon" />
             <div class="flex-1">
               <p class="customer-info__label">연락처</p>
-              <p class="customer-info__value">{{ customer.phone || '-' }}</p>
+              <p class="customer-info__value">{{ customer.phone || "-" }}</p>
             </div>
           </div>
           <!-- 이메일 -->
@@ -18,7 +18,7 @@
             <mail-icon class="customer-info__icon" />
             <div class="flex-1">
               <p class="customer-info__label">이메일</p>
-              <p class="customer-info__value">{{ customer.email || '-' }}</p>
+              <p class="customer-info__value">{{ customer.email || "-" }}</p>
             </div>
           </div>
           <!-- 투자유형 -->
@@ -27,8 +27,13 @@
             <div class="flex-1">
               <p class="customer-info__label">투자유형</p>
               <div>
-                <span :class="['customer-info__badge', getTypeClass(customer.investmentType)]">
-                  {{ customer.investmentType || '-' }}
+                <span
+                  :class="[
+                    'customer-info__badge',
+                    getTypeClass(customer.investmentType),
+                  ]"
+                >
+                  {{ customer.investmentType || "-" }}
                 </span>
               </div>
             </div>
@@ -38,7 +43,9 @@
             <zap-icon class="customer-info__icon" />
             <div class="flex-1">
               <p class="customer-info__label">총자산</p>
-              <p class="customer-info__value customer-info__value--bold">{{ customer.totalAssets || '-' }}</p>
+              <p class="customer-info__value customer-info__value--bold">
+                {{ customer.totalAssets || "-" }}
+              </p>
             </div>
           </div>
         </div>
@@ -50,7 +57,7 @@
         <div class="customer-info__notes-box">
           <star-icon class="customer-info__notes-icon" />
           <p class="customer-info__notes-text">
-            {{ customer.notes || '등록된 메모가 없습니다.' }}
+            {{ customer.notes || "등록된 메모가 없습니다." }}
           </p>
         </div>
       </div>
@@ -62,27 +69,33 @@
 /**
  * 기능: 고객 상세 정보 푸터 (기본정보 및 특이사항)
  */
-import { PhoneIcon, MailIcon, UserIcon, ZapIcon, StarIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/customers/CustomerDetailModal/CustomerDetailInfo.css'
+import {
+  PhoneIcon,
+  MailIcon,
+  UserIcon,
+  ZapIcon,
+  StarIcon,
+} from "vue-feather-icons";
+import "~/assets/css/pages/customers/CustomerDetailModal/CustomerDetailInfo.css";
 
 export default {
-  name: 'CustomerDetailInfo',
+  name: "CustomerDetailInfo",
   components: {
     PhoneIcon,
     MailIcon,
     UserIcon,
     ZapIcon,
-    StarIcon
+    StarIcon,
   },
   props: {
-    customer: { type: Object, required: true }
+    customer: { type: Object, required: true },
   },
   methods: {
     getTypeClass(type) {
-      if (type === '공격형') return 'customer-info__badge--aggressive'
-      if (type === '중립형') return 'customer-info__badge--neutral'
-      return 'customer-info__badge--stable'
-    }
-  }
-}
+      if (type === "공격형") return "customer-info__badge--aggressive";
+      if (type === "중립형") return "customer-info__badge--neutral";
+      return "customer-info__badge--stable";
+    },
+  },
+};
 </script>

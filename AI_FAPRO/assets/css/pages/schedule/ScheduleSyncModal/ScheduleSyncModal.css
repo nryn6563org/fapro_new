@@ -1,15 +1,18 @@
 /* Tailwind directives container */
 
 .schedule-sync-modal {
-  @apply fixed inset-0 bg-black/60 flex items-center justify-center z-[100] p-4;
+  @apply fixed inset-0 bg-black/60 flex items-center justify-center z-[10] p-4;
 }
 
 .schedule-sync-modal__overlay {
   @apply absolute inset-0;
 }
-
 .schedule-sync-modal__box {
-  @apply relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden;
+  @apply relative bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden;
+}
+
+.dark .schedule-sync-modal__box {
+  @apply bg-slate-900;
 }
 
 .schedule-sync-modal__body {
@@ -27,36 +30,50 @@
 .schedule-sync-modal__icon-box {
   @apply w-10 h-10 rounded-full flex items-center justify-center;
 }
-.schedule-sync-modal__icon-box--teal {
-  @apply bg-teal-100 dark:bg-teal-900/30;
+.schedule-sync-modal__icon-box-teal {
+  @apply bg-primary-light;
 }
-.schedule-sync-modal__icon-box--red {
-  @apply bg-red-100 dark:bg-red-900/30;
+
+.dark .schedule-sync-modal__icon-box-teal {
+  @apply bg-primary-dark/20;
+}
+.schedule-sync-modal__icon-box-red {
+  @apply bg-red-100;
+}
+
+.dark .schedule-sync-modal__icon-box-red {
+  @apply bg-red-900/30;
 }
 
 .schedule-sync-modal__main-icon {
   @apply w-5 h-5;
 }
-.schedule-sync-modal__icon-box--teal .schedule-sync-modal__main-icon {
-  @apply text-teal-600;
+.schedule-sync-modal__icon-box-teal .schedule-sync-modal__main-icon {
+  @apply text-primary;
 }
-.dark .schedule-sync-modal__icon-box--teal .schedule-sync-modal__main-icon {
-  @apply text-teal-500;
+.dark .schedule-sync-modal__icon-box-teal .schedule-sync-modal__main-icon {
+  @apply text-primary;
 }
 
-.schedule-sync-modal__icon-box--red .schedule-sync-modal__main-icon {
+.schedule-sync-modal__icon-box-red .schedule-sync-modal__main-icon {
   @apply text-red-600;
 }
-.dark .schedule-sync-modal__icon-box--red .schedule-sync-modal__main-icon {
+.dark .schedule-sync-modal__icon-box-red .schedule-sync-modal__main-icon {
   @apply text-red-500;
 }
-
 .schedule-sync-modal__title {
-  @apply text-lg font-bold text-slate-800 dark:text-white m-0;
+  @apply text-lg font-bold text-slate-800 m-0;
 }
 
+.dark .schedule-sync-modal__title {
+  @apply text-white;
+}
 .schedule-sync-modal__close-btn {
-  @apply p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer border-0 bg-transparent text-slate-400 hover:text-slate-600 dark:hover:text-slate-300;
+  @apply p-2 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer border-0 bg-transparent text-slate-400 hover:text-slate-600;
+}
+
+.dark .schedule-sync-modal__close-btn {
+  @apply hover:bg-slate-800 hover:text-slate-300;
 }
 
 .schedule-sync-modal__close-icon {
@@ -66,45 +83,63 @@
 .schedule-sync-modal__section {
   @apply mb-6;
 }
-
 .schedule-sync-modal__description {
-  @apply text-sm text-slate-600 dark:text-slate-400 mb-4 font-medium;
+  @apply text-sm text-slate-600 mb-4 font-medium;
 }
 
+.dark .schedule-sync-modal__description {
+  @apply text-slate-400;
+}
 .schedule-sync-modal__description-bold {
-  @apply text-base text-slate-800 dark:text-slate-200 mb-4 font-bold;
+  @apply text-base text-slate-800 mb-4 font-bold;
+}
+
+.dark .schedule-sync-modal__description-bold {
+  @apply text-slate-200;
 }
 
 .schedule-sync-modal__list {
   @apply space-y-3;
 }
-
 .schedule-sync-modal__list-item {
-  @apply flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300;
+  @apply flex items-start gap-2 text-sm text-slate-700;
+}
+
+.dark .schedule-sync-modal__list-item {
+  @apply text-slate-300;
 }
 
 .schedule-sync-modal__check-icon {
-  @apply w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5;
+  @apply w-4 h-4 text-primary flex-shrink-0 mt-0.5;
 }
-
 .schedule-sync-modal__alert {
-  @apply p-4 bg-red-50 dark:bg-red-900/10 rounded-xl border border-red-100 dark:border-red-900/20 mb-4;
+  @apply p-4 bg-red-500 rounded-xl border border-red-100 mb-4;
 }
 
+.dark .schedule-sync-modal__alert {
+  @apply bg-red-900/10 border-red-900/20;
+}
 .schedule-sync-modal__alert-text {
-  @apply text-sm text-red-600 dark:text-red-400 font-medium;
+  @apply text-sm text-red-600 font-medium;
+}
+
+.dark .schedule-sync-modal__alert-text {
+  @apply text-red-400;
 }
 
 .schedule-sync-modal__footer {
   @apply flex justify-end gap-2 mt-2;
 }
-
 .schedule-sync-modal__btn-cancel {
-  @apply px-4 py-2 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-700;
+  @apply px-4 py-2 border border-slate-300 bg-white text-slate-700 font-bold rounded-lg hover:bg-slate-50 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-slate-200;
+}
+
+.dark .schedule-sync-modal__btn-cancel {
+  @apply border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 focus:ring-slate-700;
 }
 
 .schedule-sync-modal__btn-primary {
-  @apply px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-lg flex items-center justify-center transition-colors cursor-pointer border-0;
+  @apply px-4 py-2 bg-primary-hover hover:bg-primary-hover text-white font-bold rounded-lg flex items-center justify-center transition-colors cursor-pointer border-0;
 }
 
 .schedule-sync-modal__btn-danger {
@@ -118,15 +153,24 @@
 .schedule-sync-modal__loader-box {
   @apply mb-4 flex justify-center;
 }
-
 .schedule-sync-modal__loader-icon {
-  @apply w-10 h-10 text-teal-600 dark:text-teal-500 animate-spin;
+  @apply w-10 h-10 text-primary animate-spin;
 }
 
+.dark .schedule-sync-modal__loader-icon {
+  @apply text-primary;
+}
 .schedule-sync-modal__loading-text {
-  @apply text-sm text-slate-500 dark:text-slate-400 mt-2;
+  @apply text-sm text-slate-500 mt-2;
 }
 
-.schedule-sync-modal__title--mb-2 {
-  @apply mb-2 font-bold text-slate-800 dark:text-white;
+.dark .schedule-sync-modal__loading-text {
+  @apply text-slate-400;
+}
+.schedule-sync-modal__title-mb-2 {
+  @apply mb-2 font-bold text-slate-800;
+}
+
+.dark .schedule-sync-modal__title-mb-2 {
+  @apply text-white;
 }

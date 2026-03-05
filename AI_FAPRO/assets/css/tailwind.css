@@ -4,50 +4,116 @@
 
 @layer base {
   :root {
+    /* 폰트 최소 사이즈 */
     --text-min-size: 12px;
+    /* 매수(상승) 시맨틱 컬러 */
+    --color-buy: #fb2c36;
+    /* 매도(하락) 시맨틱 컬러 */
+    --color-sell: #2b7fff;
+    /* 퍼스널(브랜드) 컬러 */
+    --color-primary: #5368ff;
   }
-  
+
   html {
-    font-size: 14px; /* Move baseline up */
+    /* 기본 폰트 사이즈: 15px (14~16px 범위 중간) */
+    font-size: 15px;
   }
 
   body {
-    /* Made it darker */
-    @apply antialiased bg-slate-100 text-[#666] dark:bg-slate-950 dark:text-gray-100;
+    /* 메인 배경: Off-white 기반의 플랫 디자인 적용 */
+    @apply antialiased bg-[#F8F9FA] dark:bg-slate-950 dark:text-gray-100;
+    color: #6f6f6f;
   }
 
-  /* Enforce min font size on basic text elements */
-  p, span, div, a, button, input, label {
-    font-size: max(14px, 1em); /* Base 14px, absolute min scale handles at comp level */
+  /* 기본 텍스트 요소 최소 폰트 사이즈 보장 */
+  p,
+  span,
+  div,
+  a,
+  button,
+  input,
+  label {
+    font-size: max(var(--text-min-size), 1em);
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply text-slate-800 dark:text-white font-bold tracking-tight;
-    font-size: 18px !important; /* Standardize specific h1~h6 sizes to be identical visually as requested */
-    color: #333 !important; /* Darker than default text */
+  /* 헤딩 계층 구조 복원 - 플랫 디자인에 맞춰 폰트 두께 조절 미 컬러 변경 */
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2f343a;
+  }
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2f343a;
+  }
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2f343a;
+  }
+  h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #2f343a;
+  }
+  h5 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2f343a;
+  }
+  h6 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #2f343a;
   }
 
-  .text-lightest {
-    color: #999;
+  /* 다크 모드 헤딩 */
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    color: #ffffff;
   }
 
-  /* Global Scrollbar Customization */
+  /* ── 전역 스크롤바 커스터마이징 (Premium & Modern Design) ── */
+  /* 스크롤바 전체 너비/높이 설정 */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
-    background-color: transparent;
   }
 
+  /* 스크롤바 트랙 (바탕) */
   ::-webkit-scrollbar-track {
-    background-color: transparent;
+    background: transparent;
   }
 
+  /* 스크롤바 핸들 (Thumb) */
   ::-webkit-scrollbar-thumb {
-    background-color: rgba(68, 122, 236, 0.4); /* Primary color #447aec semi-transparent */
-    border-radius: 10px;
+    @apply bg-slate-300 dark:bg-slate-700;
+    border-radius: 100px;
+    transition: all 0.3s ease;
   }
 
+  /* 핸들 호버 시 디자인 변경 (브랜드 컬러 포인트) */
   ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(68, 122, 236, 0.6);
+    @apply bg-primary opacity-80;
+  }
+
+  /* Firefox 지원 (비표준 표준 방식) */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.slate.300') transparent;
+  }
+
+  .dark * {
+    scrollbar-color: theme('colors.slate.700') transparent;
+  }
+
+  /* ── 보조 텍스트 유틸리티 ── */
+  .text-lightest {
+    color: #999;
   }
 }

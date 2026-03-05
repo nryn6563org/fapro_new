@@ -1,64 +1,73 @@
-/* components/modal/ModalVanilla.css */
-/* modal-vanilla가 사용하는 Bootstrap 클래스명들을 BEM/Tailwind 규칙에 맞춰 덮어씁니다. */
+/*
+  ============================================================
+  ModalVanilla.css
+  컴포넌트: components/modal/ModalVanilla.vue
+  역할: modal-vanilla 라이브러리의 Bootstrap 클래스명을
+        BEM/Tailwind 규칙에 맞춰 재정의 (Rule 15)
+  BEM 블록: modal (Bootstrap 클래스명 오버라이드)
+  ============================================================
+*/
 
-/* 모달 컨테이너 (고정) */
+/* ── 모달 컨테이너 (고정 레이어) ── */
 .modal {
   @apply fixed inset-0 z-[100] hidden overflow-y-auto overflow-x-hidden p-4 sm:p-0;
 }
 
-/* modal-vanilla가 JS로 .in을 붙여 표시합니다. (.show를 쓰는 버전도 있으나 modal-vanilla는 .in 일 수 있습니다. 둘 다 지원) */
+/* ── modal-vanilla JS가 .in 클래스를 부여하여 표시 ── */
 .modal.in,
 .modal.show {
   @apply flex items-center justify-center;
   display: flex !important;
 }
 
-/* 페이드 애니메이션 */
+/* ── 페이드 진입 애니메이션 ── */
 .modal.fade {
   @apply transition-opacity duration-300 opacity-0;
 }
-
 .modal.fade.in,
 .modal.fade.show {
   @apply opacity-100;
 }
 
-/* 백드롭 (배경) */
+/* ── 백드롭 (배경 오버레이) ── */
 .modal-backdrop {
   @apply fixed inset-0 z-[90] bg-slate-900 bg-opacity-60 transition-opacity;
 }
-
 .modal-backdrop.fade {
   @apply opacity-0;
 }
-
 .modal-backdrop.in,
 .modal-backdrop.show {
   @apply opacity-100;
 }
 
-/* 다이얼로그 (중앙 정렬 및 여백) */
+/* ── 다이얼로그 박스 ── */
 .modal-dialog {
   @apply bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all align-middle sm:max-w-2xl w-full relative z-[100] mx-auto;
   flex: 0 1 auto;
 }
 
+/* ── 모달 콘텐츠 래퍼 ── */
 .modal-content {
   @apply flex flex-col bg-white border-0 rounded-xl outline-none w-full relative h-full;
 }
 
+/* ── 모달 헤더 ── */
 .modal-header {
   @apply flex items-center justify-between border-b border-slate-200;
 }
 
+/* ── 닫기 버튼 ── */
 .modal-close-btn {
   @apply bg-transparent border-0 outline-none cursor-pointer p-1 -mr-1 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors;
 }
 
+/* ── 모달 본문 ── */
 .modal-body {
   @apply p-6 relative flex-auto text-slate-600 max-h-[70vh] overflow-y-auto;
 }
 
+/* ── 모달 푸터 ── */
 .modal-footer {
-  @apply flex items-center justify-end px-6 py-4 border-t border-slate-200 gap-3 bg-slate-50;
+  @apply flex items-center justify-end px-6 py-4 border-t border-slate-200 gap-3 bg-slate-500;
 }

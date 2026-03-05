@@ -1,5 +1,5 @@
-import autocomplete from 'autocompleter'
-import 'autocompleter/autocomplete.css'
+import autocomplete from "autocompleter";
+import "autocompleter/autocomplete.css";
 
 /**
  * 기능: Autocompleter 플러그인 (Rule 14)
@@ -7,10 +7,10 @@ import 'autocompleter/autocomplete.css'
  */
 
 export default (context, inject) => {
-  inject('autocomplete', (input, options) => {
+  inject("autocomplete", (input, options) => {
     return autocomplete({
       input,
-      ...options
-    })
-  })
-}
+      ...options,
+    });
+  });
+};

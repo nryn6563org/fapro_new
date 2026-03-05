@@ -1,37 +1,17 @@
 <template>
+  <!-- ── 고객 목록 메인 페이지 ── -->
   <div class="clients-page">
-    <!-- Header -->
-    <header class="clients-page__header">
-      <div class="clients-page__header-left">
-        <h1 class="clients-page__h1">고객 목록</h1>
-        <p class="clients-page__h1-desc">
-          엑셀 파일 업로드 및 스마트 추출로 간편하게 고객 정보를 관리하세요
-        </p>
-      </div>
-      <div class="clients-page__header-actions">
-        <button class="clients-page__onboard-btn" @click="isOnboardingOpen = true">
-          <sparkles-icon class="w-4 h-4" />
-          스마트 온보딩
-        </button>
-        <button class="clients-page__btn-outline" @click="handleDownloadTemplate">
-          <download-icon class="w-4 h-4" />
-          템플릿 다운로드
-        </button>
-        <button class="clients-page__btn-outline" @click="handleExport">
-          <shared-download-icon class="w-4 h-4" />
-          내보내기
-        </button>
-      </div>
-    </header>
+    <!-- ── 페이지 헤더: 제목, 설명 및 주요 액션 버튼 영역 ── -->
+    <clients-page-header @open-onboarding="$refs.modalsManager.openOnboarding()" />
 
-    <!-- Content Area -->
+    <!-- ── 콘텐츠 영역 ── -->
     <div class="clients-page__content">
-      <!-- Upload Area -->
+      <!-- ── 파일 업로드 섹션 ── -->
       <section class="clients-page__section">
         <client-upload-area @upload="handleFileUpload" />
       </section>
 
-      <!-- AI Search & Filters -->
+      <!-- ── AI 검색 및 필터 섹션 ── -->
       <section class="clients-page__section mt-8">
         <client-ai-search
           :search-term.sync="searchTerm"
@@ -43,49 +23,29 @@
         />
       </section>
 
-      <!-- Client Table -->
+      <!-- ── 고객 목록 테이블 섹션 ── -->
       <section class="clients-page__section mt-8">
         <client-list-table
           :clients="filteredClients"
-          @view-holdings="openHoldingsModal"
-          @view-info="openInfoModal"
+          @view-holdings="(client) => $refs.modalsManager.openHoldings(client)"
+          @view-info="(client) => $refs.modalsManager.openInfo(client)"
         />
       </section>
 
-      <!-- List Summary -->
-      <footer class="clients-page__footer">
-        <p>
-          총
-          <span class="font-black text-slate-900 dark:text-white">{{ filteredClients.length }}</span
-          >명의 고객
-          <span v-if="searchTerm || filterType !== '전체'" class="opacity-50 ml-1">
-            (전체 {{ clients.length }}명 중)
-          </span>
-        </p>
-        <p class="opacity-50">마지막 업데이트: 2026년 2월 13일 14:32</p>
-      </footer>
+      <clients-page-footer
+        :total-count="clients.length"
+        :filtered-count="filteredClients.length"
+        :is-filtered="searchTerm !== '' || filterType !== '전체'"
+      />
     </div>
 
-    <!-- Modals -->
-    <client-holdings-modal :client="selectedClient" @close="selectedClient = null" />
+    <!-- ── 모달 영역 ── -->
 
-    <client-info-modal
-      :client="viewingClientInfo"
-      :is-editing="isEditingInfo"
-      @close="
-        viewingClientInfo = null
-        isEditingInfo = false
-      "
-      @edit="isEditingInfo = true"
-      @cancel="isEditingInfo = false"
-      @save="handleSaveClientInfo"
-      @view-holdings="openHoldingsModalFromInfo"
-    />
-
-    <smart-onboarding-modal
-      v-if="isOnboardingOpen"
-      @close="isOnboardingOpen = false"
-      @save="handleAddClient"
+    <!-- 고객 관련 모든 모달(보유 종목, 정보, 온보딩) 상태/이벤트 관리 -->
+    <clients-page-modals-manager
+      ref="modalsManager"
+      @update-client="handleUpdateClient"
+      @add-client="handleAddClient"
     />
   </div>
 </template>
@@ -93,100 +53,111 @@
 <script>
 /**
  * 기능: 고객 목록 메인 페이지
+ * 엑셀 업로드, AI 검색·필터, 고객 테이블 조회, 보유 종목 및
+ * 상세 정보 모달, 스마트 온보딩(신규 고객 추가) 기능을 제공합니다.
  */
-import ClientUploadArea from '~/components/clients/ClientUploadArea.vue'
-import ClientAiSearch from '~/components/clients/ClientAiSearch.vue'
-import ClientListTable from '~/components/clients/ClientListTable.vue'
-import ClientHoldingsModal from '~/components/clients/ClientHoldingsModal.vue'
-import ClientInfoModal from '~/components/clients/ClientInfoModal.vue'
-import SmartOnboardingModal from '~/components/clients/SmartOnboardingModal.vue'
-import { mockClients, aiSearchExamples } from '~/utils/clientMockData.js'
-import { ZapIcon, DownloadIcon, DownloadIcon as SharedDownloadIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/clients/ClientsPage/ClientsPage.css'
+import ClientUploadArea from "~/components/clients/ClientUploadArea.vue";
+import ClientAiSearch from "~/components/clients/ClientAiSearch.vue";
+import ClientListTable from "~/components/clients/ClientListTable.vue";
+import ClientsPageModalsManager from "~/components/clients/ClientsPageModalsManager.vue";
+import ClientsPageHeader from "~/components/clients/ClientsPageHeader.vue";
+import ClientsPageFooter from "~/components/clients/ClientsPageFooter.vue";
+import { mockClients, aiSearchExamples } from "~/utils/clientMockData.js";
+import "~/assets/css/pages/clients/ClientsPage/ClientsPage.css";
 
 export default {
-  name: 'ClientsPage',
+  name: "ClientsPage",
   components: {
+    ClientsPageHeader,
+    ClientsPageFooter,
     ClientUploadArea,
     ClientAiSearch,
     ClientListTable,
-    ClientHoldingsModal,
-    ClientInfoModal,
-    SmartOnboardingModal,
-    ZapIcon,
-    DownloadIcon,
-    SharedDownloadIcon
+    ClientsPageModalsManager,
   },
-  layout: 'default',
+  layout: "default",
   data() {
     return {
+      // 목 데이터로 초기화된 전체 고객 목록
       clients: [...mockClients],
-      searchTerm: '',
-      filterType: '전체',
+      // AI 검색어
+      searchTerm: "",
+      // 투자 유형 필터 (기본값: '전체')
+      filterType: "전체",
+      // AI 검색 중 로딩 상태 플래그
       isAiSearching: false,
-      isOnboardingOpen: false,
-      selectedClient: null,
-      viewingClientInfo: null,
-      isEditingInfo: false,
-      aiSearchExamples
-    }
+      // AI 검색 예시 목록
+      aiSearchExamples,
+    };
   },
   computed: {
+    /**
+     * @description 검색어와 투자 유형 필터를 적용한 고객 목록을 반환합니다.
+     * 이름, 보유 종목, 전화번호 중 하나라도 검색어를 포함하면 결과에 포함됩니다.
+     * @returns {Array} 필터링된 고객 객체 배열
+     */
     filteredClients() {
       return this.clients.filter((client) => {
         const matchesSearch =
           client.name.includes(this.searchTerm) ||
           client.holdings.includes(this.searchTerm) ||
-          client.phone.includes(this.searchTerm)
-        const matchesType = this.filterType === '전체' || client.investmentType === this.filterType
-        return matchesSearch && matchesType
-      })
-    }
+          client.phone.includes(this.searchTerm);
+        const matchesType =
+          this.filterType === "전체" ||
+          client.investmentType === this.filterType;
+        return matchesSearch && matchesType;
+      });
+    },
   },
   methods: {
+    /**
+     * @description 파일 업로드 이벤트를 처리합니다.
+     * 업로드된 파일을 기반으로 신규 고객 데이터를 추가합니다.
+     * @param {File} file - 업로드된 파일 객체
+     */
     handleFileUpload(file) {
-      console.log('File uploaded:', file.name)
-      // Simulate adding a new client from file
+      console.log("파일 업로드됨:", file.name);
+      // 파일 기반 고객 추가 처리 (구현 예정)
     },
+
+    /**
+     * @description AI 검색 실행 이벤트를 처리합니다.
+     * 검색어를 설정하고 로딩 상태를 600ms 후 해제합니다.
+     * @param {string} query - AI 검색 쿼리 문자열
+     */
     handleAiSearch(query) {
-      this.isAiSearching = true
-      this.searchTerm = query
+      this.isAiSearching = true;
+      this.searchTerm = query;
       setTimeout(() => {
-        this.isAiSearching = false
-      }, 600)
+        this.isAiSearching = false;
+      }, 600);
     },
+
+    /**
+     * @description AI 검색을 초기화하여 검색어를 비웁니다.
+     */
     handleClearSearch() {
-      this.searchTerm = ''
+      this.searchTerm = "";
     },
-    handleDownloadTemplate() {
-      console.log('Downloading template...')
-    },
-    handleExport() {
-      console.log('Exporting data...')
-    },
-    openHoldingsModal(client) {
-      this.selectedClient = client
-    },
-    openHoldingsModalFromInfo(client) {
-      this.viewingClientInfo = null
-      this.selectedClient = client
-    },
-    openInfoModal(client) {
-      this.viewingClientInfo = client
-      this.isEditingInfo = false
-    },
-    handleSaveClientInfo(updatedClient) {
-      const idx = this.clients.findIndex((c) => c.name === this.viewingClientInfo.name)
+
+    /**
+     * @description 데이터 목록에서 특정 고객의 정보를 업데이트합니다.
+     * @param {Object} updatedClient - 수정된 고객 데이터
+     */
+    handleUpdateClient(updatedClient) {
+      const idx = this.clients.findIndex((c) => c.name === updatedClient.name);
       if (idx !== -1) {
-        this.$set(this.clients, idx, updatedClient)
+        this.$set(this.clients, idx, updatedClient);
       }
-      this.viewingClientInfo = null
-      this.isEditingInfo = false
     },
+
+    /**
+     * @description 신규 고객을 목록에 추가합니다.
+     * @param {Object} newClient - 새로 등록할 고객 객체
+     */
     handleAddClient(newClient) {
-      this.clients.push(newClient)
-      this.isOnboardingOpen = false
-    }
-  }
-}
+      this.clients.unshift(newClient);
+    },
+  },
+};
 </script>

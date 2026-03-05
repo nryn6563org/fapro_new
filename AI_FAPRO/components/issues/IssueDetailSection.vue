@@ -4,9 +4,20 @@
       <!-- Title Section -->
       <div class="issue-detail__header">
         <div class="issue-detail__title-info">
-          <div :class="['issue-detail__icon-box', 'issue-detail__icon-box--' + issue.type]">
-            <trending-up-icon v-if="issue.type === 'up'" class="issue-detail__icon" />
-            <trending-down-icon v-else-if="issue.type === 'down'" class="issue-detail__icon" />
+          <div
+            :class="[
+              'issue-detail__icon-box',
+              'issue-detail__icon-box--' + issue.type,
+            ]"
+          >
+            <trending-up-icon
+              v-if="issue.type === 'up'"
+              class="issue-detail__icon"
+            />
+            <trending-down-icon
+              v-else-if="issue.type === 'down'"
+              class="issue-detail__icon"
+            />
             <minus-icon v-else class="issue-detail__icon" />
           </div>
           <div>
@@ -34,36 +45,56 @@
             </div>
             <div class="issue-detail__segment-box">
               <div class="issue-detail__segment-grid">
-                <div v-if="issue.marketCapRatio?.under500B" class="text-center">
+                <div class="issue-detail__segment-item">
                   <p class="issue-detail__segment-label">5000억 이하</p>
-                  <p class="issue-detail__segment-value">{{ issue.marketCapRatio.under500B }}%</p>
+                  <p class="issue-detail__segment-value">
+                    {{ issue.marketCapRatio?.under500B || 25 }}%
+                  </p>
                 </div>
-                <div v-if="issue.marketCapRatio?.under1T" class="text-center">
+                <div class="issue-detail__segment-item">
                   <p class="issue-detail__segment-label">1조 이하</p>
-                  <p class="issue-detail__segment-value">{{ issue.marketCapRatio.under1T }}%</p>
+                  <p class="issue-detail__segment-value">
+                    {{ issue.marketCapRatio?.under1T || 25 }}%
+                  </p>
                 </div>
-                <div v-if="issue.marketCapRatio?.under5T" class="text-center">
+                <div class="issue-detail__segment-item">
                   <p class="issue-detail__segment-label">5조 이하</p>
-                  <p class="issue-detail__segment-value">{{ issue.marketCapRatio.under5T }}%</p>
+                  <p class="issue-detail__segment-value">
+                    {{ issue.marketCapRatio?.under5T || 25 }}%
+                  </p>
                 </div>
-                <div v-if="issue.marketCapRatio?.over5T" class="text-center">
+                <div class="issue-detail__segment-item">
                   <p class="issue-detail__segment-label">5조 초과</p>
-                  <p class="issue-detail__segment-value text-slate-400">{{ issue.marketCapRatio.over5T }}%</p>
+                  <p class="issue-detail__segment-value-muted">
+                    {{ issue.marketCapRatio?.over5T || 25 }}%
+                  </p>
                 </div>
               </div>
               <div class="issue-detail__progress-bar">
-                <div class="bg-teal-500 h-full" :style="{ width: (issue.marketCapRatio?.under500B || 0) + '%' }"></div>
-                <div class="bg-teal-400 h-full" :style="{ width: (issue.marketCapRatio?.under1T || 0) + '%' }"></div>
-                <div class="bg-teal-300 h-full" :style="{ width: (issue.marketCapRatio?.under5T || 0) + '%' }"></div>
-                <div class="bg-slate-300 h-full" :style="{ width: (issue.marketCapRatio?.over5T || 0) + '%' }"></div>
+                <div
+                  class="issue-detail__progress-bar-segment--teal-500"
+                  :style="{
+                    width: (issue.marketCapRatio?.under500B || 25) + '%',
+                  }"
+                ></div>
+                <div
+                  class="issue-detail__progress-bar-segment--teal-400"
+                  :style="{ width: (issue.marketCapRatio?.under1T || 25) + '%' }"
+                ></div>
+                <div
+                  class="issue-detail__progress-bar-segment--teal-300"
+                  :style="{ width: (issue.marketCapRatio?.under5T || 25) + '%' }"
+                ></div>
+                <div
+                  class="issue-detail__progress-bar-segment--slate-300"
+                  :style="{ width: (issue.marketCapRatio?.over5T || 25) + '%' }"
+                ></div>
               </div>
             </div>
           </div>
 
           <!-- Full Stock Table Moved Here -->
-          <div class="issue-detail__table-wrapper pt-2">
-            <IssueDetailStockTable :stocks="sortedStocks" />
-          </div>
+          <IssueDetailStockTable :stocks="sortedStocks" />
         </div>
 
         <!-- Column Right: Analysis, News & Action -->
@@ -76,9 +107,13 @@
 
           <!-- Propose Action -->
           <div class="issue-detail__footer">
-            <button class="issue-detail__btn-propose" @click="$emit('propose', issue)">
-              <zap-icon class="w-5 h-5 mr-2" />
-              이 이슈로 고객 제안서 만들기
+            <button
+              class="issue-detail__btn-propose"
+              @click="$emit('propose', issue)"
+            >
+              <zap-icon class="issue-detail__btn-icon" />
+              <span>이 이슈로 제안서 만들기</span>
+              <div class="issue-detail__btn-badge">13</div>
             </button>
           </div>
         </div>
@@ -96,17 +131,17 @@ import {
   TrendingDownIcon,
   MinusIcon,
   PercentIcon,
-  ZapIcon
-} from 'vue-feather-icons'
-import { featuredStocks } from '~/utils/issueDetectionMockData.js'
-import '~/assets/css/pages/issues/IssueDetailSection/IssueDetailSection.css'
-import IssueDetailStats from '~/components/issues/IssueDetailStats.vue'
-import IssueDetailStockTable from '~/components/issues/IssueDetailStockTable.vue'
-import IssueDetailAnalysis from '~/components/issues/IssueDetailAnalysis.vue'
-import IssueDetailNews from '~/components/issues/IssueDetailNews.vue'
+  ZapIcon,
+} from "vue-feather-icons";
+import { featuredStocks } from "~/utils/issueDetectionMockData.js";
+import "~/assets/css/pages/issues/IssueDetailSection/IssueDetailSection.css";
+import IssueDetailStats from "~/components/issues/IssueDetailStats.vue";
+import IssueDetailStockTable from "~/components/issues/IssueDetailStockTable.vue";
+import IssueDetailAnalysis from "~/components/issues/IssueDetailAnalysis.vue";
+import IssueDetailNews from "~/components/issues/IssueDetailNews.vue";
 
 export default {
-  name: 'IssueDetailSection',
+  name: "IssueDetailSection",
   components: {
     TrendingUpIcon,
     TrendingDownIcon,
@@ -116,34 +151,34 @@ export default {
     IssueDetailStats,
     IssueDetailStockTable,
     IssueDetailAnalysis,
-    IssueDetailNews
+    IssueDetailNews,
   },
   props: {
     issue: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     intensityLevel() {
-      if (!this.issue) return 0
-      const abs = Math.abs(this.issue.changePercent)
-      if (abs > 5) return 3
-      if (abs > 3) return 2
-      return 1
+      if (!this.issue) return 0;
+      const abs = Math.abs(this.issue.changePercent);
+      if (abs > 5) return 3;
+      if (abs > 3) return 2;
+      return 1;
     },
     intensityText() {
-      if (this.intensityLevel === 3) return '매우 강함'
-      if (this.intensityLevel === 2) return '강함'
-      return '보통'
+      if (this.intensityLevel === 3) return "매우 강함";
+      if (this.intensityLevel === 2) return "강함";
+      return "보통";
     },
     sortedStocks() {
-      if (!this.issue) return []
+      if (!this.issue) return [];
       return featuredStocks
         .filter((stock) => this.issue.relatedStocks.includes(stock.ticker))
         .sort((a, b) => Math.abs(b.changePercent) - Math.abs(a.changePercent))
-        .slice(0, 10)
-    }
-  }
-}
+        .slice(0, 10);
+    },
+  },
+};
 </script>

@@ -1,104 +1,85 @@
 /*
   CustomerIntelligenceCard Styles
   -------------------------------
-  BEM Block: intelligence-section
+  BEM Block: customer-intelligence-section
 */
 
 /* Wrapper */
-.intelligence-section {
+.customer-intelligence-section {
   @apply mt-8 space-y-6;
 }
 
 /* Header */
-.intelligence-section__header {
+.customer-intelligence-section__header {
   @apply flex items-center gap-3 mb-6;
 }
 
-.intelligence-section__title {
-  @apply text-3xl font-black text-slate-900 dark:text-white tracking-tight;
+.customer-intelligence-section__title {
+  @apply text-xl font-black text-slate-900 dark:text-white tracking-tight;
 }
 
 /* Grid */
-.intelligence-section__grid {
+.customer-intelligence-section__grid {
   @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
 }
 
 /* 
-  BEM Block: intelligence-card
+  BEM Block: customer-intelligence-card
 */
-.intelligence-card {
-  @apply bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden;
+.customer-intelligence-card {
+  @apply fapro-card fapro-card--hover;
 }
 
-.intelligence-card::before {
-  content: '';
-  @apply absolute top-0 left-0 w-full h-1.5 opacity-80;
+.customer-intelligence-card__header {
+  @apply fapro-card-header;
 }
 
-.intelligence-card--amber::before { @apply bg-gradient-to-r from-amber-400 to-amber-500; }
-.intelligence-card--emerald::before { @apply bg-gradient-to-r from-emerald-400 to-emerald-500; }
-.intelligence-card--rose::before { @apply bg-gradient-to-r from-rose-400 to-rose-500; }
-
-.intelligence-card__header {
-  @apply p-5 pb-4 border-b border-gray-50 dark:border-slate-700/50;
+.customer-intelligence-card__header-content {
+  @apply flex flex-col w-full sm:flex-row items-start sm:items-center justify-between gap-2;
 }
 
-.intelligence-card__header-content {
-  @apply flex items-start justify-between gap-3 mb-2;
+.customer-intelligence-card__title {
+  @apply fapro-card-title;
 }
 
-.intelligence-card__title {
-  @apply text-base font-bold text-slate-800 dark:text-slate-100 leading-tight;
+.customer-intelligence-card__desc {
+  @apply fapro-card-desc;
 }
 
-.intelligence-card__desc {
-  @apply text-xs text-slate-500 dark:text-slate-400 leading-relaxed;
+.customer-intelligence-card__badge {
+  @apply rounded-full px-3 py-1 text-[11px] font-bold tracking-wider uppercase min-w-[55px] text-center;
 }
-
-.intelligence-card__badge {
-  @apply rounded-full px-3 py-1 text-[11px] font-bold tracking-wider uppercase;
-}
-.intelligence-card__badge--amber {
+.customer-intelligence-card__badge--amber {
   @apply bg-amber-100/50 text-amber-700 dark:bg-amber-400/10 dark:text-amber-400 border border-amber-200/50 dark:border-amber-400/20;
 }
-.intelligence-card__badge--emerald {
+.customer-intelligence-card__badge--emerald {
   @apply bg-emerald-100/50 text-emerald-700 dark:bg-emerald-400/10 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-400/20;
 }
-.intelligence-card__badge--rose {
+.customer-intelligence-card__badge--rose {
   @apply bg-rose-100/50 text-rose-700 dark:bg-rose-400/10 dark:text-rose-400 border border-rose-200/50 dark:border-rose-400/20;
 }
 
-.intelligence-card__body {
-  @apply p-4 space-y-3;
+.customer-intelligence-card__body {
+  @apply fapro-card-body space-y-3;
 }
 
 /*
-  BEM Block: intelligence-item
+  BEM Block: customer-intelligence-item
 */
-.intelligence-item {
-  @apply p-4 bg-gray-50/50 dark:bg-slate-700/30 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 hover:shadow-sm border border-transparent dark:border-slate-600/50 transition-all;
+.customer-intelligence-item {
+  @apply fapro-item-card;
 }
 
-.intelligence-item--hover-amber {
-  @apply hover:border-amber-200 dark:hover:border-amber-500/50;
-}
-.intelligence-item--hover-emerald {
-  @apply hover:border-emerald-200 dark:hover:border-emerald-500/50;
-}
-.intelligence-item--hover-rose {
-  @apply hover:border-rose-200 dark:hover:border-rose-500/50;
-}
-
-.intelligence-item__content {
+.customer-intelligence-item__content {
   @apply flex-1 min-w-0 mb-3;
 }
 
-.intelligence-item__name {
-  @apply font-bold text-sm text-slate-800 dark:text-white mb-2;
+.customer-intelligence-item__name {
+  @apply font-bold text-base text-slate-800 dark:text-white mb-2;
 }
 
-.intelligence-item__stats {
-  @apply space-y-1.5 text-xs;
+.customer-intelligence-item__stats {
+  @apply space-y-1.5 pt-2 text-sm;
 }
 
 /* BEM Block: stat-row */
@@ -140,54 +121,54 @@
 }
 
 /*
-  BEM Block: intelligence-alert
+  BEM Block: customer-intelligence-alert
 */
-.intelligence-alert {
+.customer-intelligence-alert {
   @apply rounded-xl px-3 py-2.5 mb-3 border;
 }
-.intelligence-alert--amber {
+.customer-intelligence-alert--amber {
   @apply bg-amber-50 border-amber-100 dark:bg-amber-900/10 dark:border-amber-900/30;
 }
-.intelligence-alert--emerald {
+.customer-intelligence-alert--emerald {
   @apply bg-emerald-50 border-emerald-100 dark:bg-emerald-900/10 dark:border-emerald-900/30;
 }
-.intelligence-alert--rose {
+.customer-intelligence-alert--rose {
   @apply bg-rose-50 border-rose-100 dark:bg-rose-900/10 dark:border-rose-900/30;
 }
 
-.intelligence-alert__title--amber {
+.customer-intelligence-alert__title--amber {
   @apply text-amber-700 dark:text-amber-400 font-bold mb-1 block;
 }
-.intelligence-alert__title--emerald {
+.customer-intelligence-alert__title--emerald {
   @apply text-emerald-700 dark:text-emerald-400 font-bold mb-1 block;
 }
-.intelligence-alert__title--rose {
+.customer-intelligence-alert__title--rose {
   @apply text-rose-700 dark:text-rose-400 font-bold mb-1 block;
 }
 
-.intelligence-alert__text {
+.customer-intelligence-alert__text {
   @apply text-xs text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2;
 }
 
 /* Button modifiers */
-.intelligence-card__btn {
+.customer-intelligence-card__btn {
   @apply flex items-center justify-center font-bold transition-all duration-300 active:scale-95;
 }
 
-.intelligence-card__btn--block {
+.customer-intelligence-card__btn--block {
   @apply w-full h-10 text-xs rounded-xl shadow-sm;
 }
 
-.intelligence-card__btn--amber-solid {
+.customer-intelligence-card__btn--amber-solid {
   @apply bg-amber-500 hover:bg-amber-600 text-white shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30;
 }
-.intelligence-card__btn--emerald-solid {
+.customer-intelligence-card__btn--emerald-solid {
   @apply bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/20 hover:shadow-lg hover:shadow-emerald-500/30;
 }
-.intelligence-card__btn--rose-solid {
+.customer-intelligence-card__btn--rose-solid {
   @apply bg-rose-500 hover:bg-rose-600 text-white shadow-rose-500/20 hover:shadow-lg hover:shadow-rose-500/30;
 }
 
-.intelligence-card__btn-icon {
+.customer-intelligence-card__btn-icon {
   @apply mr-2;
 }

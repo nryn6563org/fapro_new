@@ -1,21 +1,39 @@
-.issue-proposal__info-card {
-  @apply p-5 bg-gradient-to-br from-slate-50 to-teal-50/30 dark:from-slate-800/50 dark:to-teal-900/10 rounded-xl border border-teal-500/30 mb-6;
+/* ── 이슈 제안 종목 정보 카드 스타일 ── */
+
+/* 종목 정보 내 상단 레이아웃 */
+.issue-proposal__info-header {
+  @apply flex items-start justify-between mb-4;
 }
+
+/* 정보 필드 레이블 */
 .issue-proposal__info-label {
   @apply text-xs text-slate-500 mb-1;
 }
+
+/* 종목명 텍스트 */
 .issue-proposal__info-name {
   @apply text-2xl font-bold text-slate-900 dark:text-white m-0;
 }
+
+/* 등락률 텍스트 */
 .issue-proposal__info-change {
   @apply text-2xl font-bold m-0;
 }
+
+/* 종목 상태 뱃지: 표준 뱃지 스타일 */
 .issue-proposal__badge {
-  @apply inline-flex px-2 py-0.5 bg-teal-500 text-white text-xs font-bold rounded-full;
+  @apply inline-flex px-2 py-0.5 bg-primary/10 text-primary text-xs font-bold rounded-full;
 }
+
+/* 뱃지 변형 - 아웃라인(primary) */
 .issue-proposal__badge--outline {
-  @apply bg-transparent border border-teal-500 text-teal-600 dark:text-teal-400;
+  @apply bg-transparent border border-primary text-primary;
 }
+.dark .issue-proposal__badge--outline {
+  @apply border-primary text-primary-light;
+}
+
+/* 뱃지 변형 - 아웃라인(매수/상승) */
 .issue-proposal__badge--red {
   @apply bg-transparent border border-rose-500 text-rose-500;
 }

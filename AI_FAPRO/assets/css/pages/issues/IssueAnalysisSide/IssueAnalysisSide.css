@@ -1,14 +1,14 @@
-/* Tailwind directives container for component */
+/* ── 이슈 분석 사이드 스타일 ── */
 
 .analysis-side {
   @apply h-[644px] overflow-y-auto;
 }
 
 .analysis-side__card {
-  @apply bg-gradient-to-br from-orange-50/50 to-white dark:from-slate-900/50 dark:to-slate-900 border-2 border-amber-500/30 dark:border-amber-500/20 rounded-xl p-4 h-full;
+  @apply fapro-section h-full overflow-y-auto !p-5;
 }
 
-/* Header */
+/* 헤더 */
 .analysis-side__header {
   @apply flex items-center justify-between mb-4;
 }
@@ -16,21 +16,26 @@
   @apply flex items-center gap-3;
 }
 .analysis-side__icon-box {
-  @apply w-10 h-10 rounded-full flex items-center justify-center;
+  @apply w-10 h-10 rounded-xl flex items-center justify-center border transition-all;
 }
+/* 상승(매수): buy 시맨틱 컬러 */
 .analysis-side__icon-box--up {
-  @apply bg-gradient-to-br from-red-500 to-red-600;
+  @apply bg-rose-50 dark:bg-rose-500/10 border-rose-100 dark:border-rose-500/20;
 }
+/* 하락(매도): sell 시맨틱 컬러 */
 .analysis-side__icon-box--down {
-  @apply bg-gradient-to-br from-blue-500 to-blue-600;
+  @apply bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-500/20;
 }
 .analysis-side__icon-box--neutral {
-  @apply bg-gradient-to-br from-slate-400 to-slate-500;
+  @apply bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700;
 }
 
 .analysis-side__icon {
-  @apply w-5 h-5 text-white;
+  @apply w-5 h-5;
 }
+.analysis-side__icon-box--up .analysis-side__icon { @apply text-rose-500; }
+.analysis-side__icon-box--down .analysis-side__icon { @apply text-blue-500; }
+.analysis-side__icon-box--neutral .analysis-side__icon { @apply text-slate-500; }
 
 .analysis-side__title {
   @apply text-xl font-bold text-slate-900 dark:text-white m-0;
@@ -38,16 +43,21 @@
 .analysis-side__subtitle {
   @apply text-sm text-slate-600 dark:text-slate-400 m-0;
 }
+
+/* 등락 텍스트: buy/sell 시맨틱 컬러 */
 .analysis-side__change-text--up {
-  @apply text-red-600 dark:text-red-400 font-bold;
+  @apply font-bold;
+  color: #fb2c36;
 }
 .analysis-side__change-text--down {
-  @apply text-blue-600 dark:text-blue-400 font-bold;
+  @apply font-bold;
+  color: #2b7fff;
 }
 .analysis-side__change-text--neutral {
   @apply text-slate-600 font-bold;
 }
 
+/* 이슈 강도 막대 */
 .analysis-side__intensity {
   @apply flex items-center gap-2;
 }
@@ -60,8 +70,9 @@
 .analysis-side__bar {
   @apply w-1.5 h-6 rounded-full;
 }
+/* 강도 높음: buy 시맨틱 컬러 */
 .analysis-side__bar--high {
-  @apply bg-rose-500;
+  background-color: #fb2c36;
 }
 .analysis-side__bar--mid {
   @apply bg-orange-500;
@@ -77,7 +88,7 @@
   @apply my-4 h-px bg-slate-200 dark:bg-slate-800;
 }
 
-/* Tabs */
+/* 탭 */
 .analysis-side__tabs {
   @apply mb-4;
 }
@@ -87,26 +98,38 @@
 .analysis-side__tab-btn {
   @apply flex-1 flex items-center justify-center py-2 text-[13px] font-bold rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 cursor-pointer text-slate-500 dark:text-slate-400 transition-all shadow-sm;
 }
+/* 활성 탭: primary 브랜드 컬러 */
 .analysis-side__tab-btn--active {
-  @apply bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400 border-teal-500 shadow-sm ring-1 ring-teal-500/20;
+  @apply shadow-sm;
+  background-color: rgba(83, 104, 255, 0.06);
+  color: #5368ff;
+  border-color: #5368ff;
+  box-shadow: 0 0 0 1px rgba(83, 104, 255, 0.2);
+}
+.dark .analysis-side__tab-btn--active {
+  background-color: rgba(83, 104, 255, 0.15);
+  color: #7b8dff;
+  border-color: rgba(83, 104, 255, 0.5);
 }
 
 .analysis-side__content-box {
-  @apply p-4 rounded-lg bg-white dark:bg-slate-900 shadow-sm border border-slate-200 dark:border-slate-800;
+  @apply fapro-section !p-4 !shadow-none bg-slate-50/50 dark:bg-slate-800/30;
 }
 .analysis-side__text {
   @apply text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed m-0;
 }
 
-/* Stocks Section */
+/* 종목 섹션 */
 .analysis-side__stocks-section {
-  @apply mb-4 p-4 rounded-lg bg-white dark:bg-slate-900 shadow-sm border border-slate-200 dark:border-slate-800;
+  @apply fapro-section !p-4 !shadow-none bg-slate-50/50 dark:bg-slate-800/30 mb-4;
 }
 .analysis-side__section-label {
   @apply flex items-center gap-2 mb-3;
 }
+/* 섹션 아이콘: primary 컬러 */
 .analysis-side__section-icon {
-  @apply w-4 h-4 text-teal-500;
+  @apply w-4 h-4;
+  color: #5368ff;
 }
 .analysis-side__section-title {
   @apply font-bold text-[13px] text-slate-900 dark:text-white m-0;
@@ -116,7 +139,7 @@
   @apply flex flex-wrap gap-2;
 }
 .analysis-side__stock-tag {
-  @apply flex items-center gap-2 px-3 py-1.5 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors;
+  @apply flex items-center gap-2 px-3 py-1.5 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-700 transition-colors;
 }
 .analysis-side__stock-name {
   @apply text-xs font-bold text-slate-900 dark:text-white;
@@ -125,9 +148,9 @@
   @apply text-xs flex items-center gap-0.5;
 }
 
-/* News Section */
+/* 뉴스 섹션 */
 .analysis-side__news-section {
-  @apply p-4 rounded-lg bg-white dark:bg-slate-900 shadow-sm border border-slate-200 dark:border-slate-800;
+  @apply fapro-section !p-4 !shadow-none bg-slate-50/50 dark:bg-slate-800/30;
 }
 .analysis-side__news-box {
   @apply mt-2;
@@ -136,7 +159,7 @@
   @apply text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed m-0;
 }
 
-/* Empty State */
+/* 빈 상태 */
 .analysis-side__empty {
   @apply h-full flex flex-col items-center justify-center text-center text-slate-400 dark:text-slate-600;
 }

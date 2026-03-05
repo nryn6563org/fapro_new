@@ -1,0 +1,58 @@
+/*
+  ============================================================
+  ProposalCustomerSection.css
+  컴포넌트: components/common/proposal/ProposalCustomerSection.vue
+  역할: 고객 선택 목록 및 섹션 색상 테마 스타일
+  BEM 블록: proposal-list, proposal-item, customer-section
+  ============================================================
+*/
+
+/* ── 선택 목록 컨테이너 ── */
+.proposal-list {
+  @apply space-y-3 max-h-[260px] overflow-y-auto pr-1;
+}
+
+/* ── 선택 가능한 목록 아이템 ── */
+.proposal-item {
+  @apply flex items-start gap-4 py-5 px-4 rounded-xl cursor-pointer transition-all bg-white dark:bg-slate-900 border dark:border-slate-800 hover:shadow-md;
+}
+.proposal-item--selected {
+  @apply border-emerald-500 dark:border-emerald-500 bg-emerald-500/20 dark:bg-emerald-900/10 shadow-md;
+}
+
+/* ── 아이템 내부 요소 ── */
+.proposal-item__checkbox {
+  @apply mt-0.5;
+}
+.proposal-item__content {
+  @apply flex-1 min-w-0 flex flex-col gap-1.5;
+}
+.proposal-item__name-row {
+  @apply flex items-center gap-2;
+}
+.proposal-item__name {
+  @apply text-[15px] font-bold text-slate-900 dark:text-white;
+}
+.proposal-item__style {
+  @apply text-[11px] text-slate-500 font-medium;
+}
+.proposal-item__meta {
+  @apply text-[13px] text-slate-600 dark:text-slate-400;
+}
+.proposal-item__reason {
+  @apply text-xs text-emerald-600 dark:text-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/20 px-3 py-2 rounded-lg leading-relaxed border border-emerald-100 dark:border-emerald-900/40;
+}
+.proposal-item__action {
+  @apply ml-auto flex items-center self-center;
+}
+
+/* ── 섹션 색상 테마 (스마트 고객 관리용) ── */
+.customer-section--orange {
+  @apply border-orange-200 bg-orange-500/30;
+}
+.customer-section--green {
+  @apply border-emerald-200 bg-emerald-500/30;
+}
+.customer-section--rose {
+  @apply border-rose-200 bg-rose-50/30;
+}

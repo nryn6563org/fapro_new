@@ -22,7 +22,7 @@
 }
 
 .customer-info__icon {
-  @apply w-4 h-4 text-teal-500 mt-0.5 flex-shrink-0;
+  @apply w-4 h-4 text-primary mt-0.5 flex-shrink-0;
 }
 
 .customer-info__label {
@@ -42,18 +42,18 @@
   @apply inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold tracking-wide;
 }
 .customer-info__badge--aggressive {
-  @apply bg-red-50 text-red-600 dark:bg-red-900/30 dark:text-red-400;
+  @apply bg-red-500 text-red-600 dark:bg-red-900/30 dark:text-red-400;
 }
 .customer-info__badge--neutral {
-  @apply bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400;
+  @apply bg-primary-light/50 text-primary dark:bg-blue-900/30 dark:text-primary-light;
 }
 .customer-info__badge--stable {
-  @apply bg-emerald-50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400;
+  @apply bg-emerald-500 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400;
 }
 
 /* Notes Box */
 .customer-info__notes-box {
-  @apply h-full p-4 rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-800/50 flex gap-2 items-start;
+  @apply h-full p-4 rounded-xl bg-amber-500 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-800/50 flex gap-2 items-start;
 }
 
 .customer-info__notes-icon {

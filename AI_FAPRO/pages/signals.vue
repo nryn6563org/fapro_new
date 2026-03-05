@@ -4,7 +4,8 @@
       <div class="signals-page__title-box">
         <h1 class="signals-page__title">AI매매신호</h1>
         <p class="signals-page__subtitle">
-          오늘 발생한 AI매매신호 입니다. 신호 발생 사유와 매매내역을 확인해 보세요
+          오늘 발생한 AI매매신호 입니다. 신호 발생 사유와 매매내역을 확인해
+          보세요
         </p>
       </div>
       <div class="signals-page__action-box">
@@ -22,14 +23,19 @@
     <div class="signals-page__grid">
       <!-- 매수 신호 -->
       <div class="signals-page__column signals-page__column--buy">
-        <div class="signals-page__column-header signals-page__column-header--buy">
+        <div
+          class="signals-page__column-header signals-page__column-header--buy"
+        >
           <div class="signals-page__column-title-box">
-            <div class="signals-page__column-icon-bg signals-page__column-icon-bg--buy">
+            <div
+              class="signals-page__column-icon-bg signals-page__column-icon-bg--buy"
+            >
               <arrow-up-icon class="signals-page__column-icon" />
             </div>
             <h2 class="signals-page__column-title">매수 신호</h2>
           </div>
-          <span class="signals-page__column-badge signals-page__column-badge--buy"
+          <span
+            class="signals-page__column-badge signals-page__column-badge--buy"
             >{{ buySignals.length }}건</span
           >
         </div>
@@ -48,14 +54,19 @@
 
       <!-- 매도 신호 -->
       <div class="signals-page__column signals-page__column--sell">
-        <div class="signals-page__column-header signals-page__column-header--sell">
+        <div
+          class="signals-page__column-header signals-page__column-header--sell"
+        >
           <div class="signals-page__column-title-box">
-            <div class="signals-page__column-icon-bg signals-page__column-icon-bg--sell">
+            <div
+              class="signals-page__column-icon-bg signals-page__column-icon-bg--sell"
+            >
               <arrow-down-icon class="signals-page__column-icon" />
             </div>
             <h2 class="signals-page__column-title">매도 신호</h2>
           </div>
-          <span class="signals-page__column-badge signals-page__column-badge--sell"
+          <span
+            class="signals-page__column-badge signals-page__column-badge--sell"
             >{{ sellSignals.length }}건</span
           >
         </div>
@@ -85,21 +96,39 @@
           <div class="ai-report-modal__header">
             <div class="ai-report-modal__header-content">
               <div class="ai-report-modal__icon-box">
-                <activity-icon size="28" class="text-primary dark:text-primary-light" />
+                <activity-icon
+                  size="28"
+                  class="text-primary dark:text-primary-light"
+                />
               </div>
               <div class="ai-report-modal__title-wrapper">
                 <div class="ai-report-modal__badges">
-                  <span class="ai-report-modal__badge ai-report-modal__badge--cyan">신작출시</span>
-                  <span class="ai-report-modal__badge ai-report-modal__badge--amber">거래량급증</span>
-                  <span class="ai-report-modal__badge ai-report-modal__badge--purple">외국인매수</span>
+                  <span
+                    class="ai-report-modal__badge ai-report-modal__badge--cyan"
+                    >신작출시</span
+                  >
+                  <span
+                    class="ai-report-modal__badge ai-report-modal__badge--amber"
+                    >거래량급증</span
+                  >
+                  <span
+                    class="ai-report-modal__badge ai-report-modal__badge--purple"
+                    >외국인매수</span
+                  >
                 </div>
                 <h2 class="ai-report-modal__title">
                   {{ activeReportSignal.name }}
-                  <span class="ai-report-modal__ticker">{{ activeReportSignal.ticker }}</span>
+                  <span class="ai-report-modal__ticker">{{
+                    activeReportSignal.ticker
+                  }}</span>
                 </h2>
               </div>
             </div>
-            <button type="button" class="ai-report-modal__close-btn" @click="closeReport">
+            <button
+              type="button"
+              class="ai-report-modal__close-btn"
+              @click="closeReport"
+            >
               <x-icon size="24" />
             </button>
           </div>
@@ -119,15 +148,21 @@
 /**
  * 기능: AI매매신호 메인 페이지
  */
-import { RefreshCwIcon, ArrowUpIcon, ArrowDownIcon, XIcon, ActivityIcon } from 'vue-feather-icons'
-import TradingSignalCard from '~/components/signals/TradingSignalCard.vue'
-import AIReportContent from '~/components/signals/AIReportContent.vue'
-import ModalVanilla from '~/components/modal/ModalVanilla.vue'
-import { buySignals, sellSignals } from '~/utils/signalsMockData.js'
-import '~/assets/css/pages/signals/SignalsPage/SignalsPage.css'
+import {
+  RefreshCwIcon,
+  ArrowUpIcon,
+  ArrowDownIcon,
+  XIcon,
+  ActivityIcon,
+} from "vue-feather-icons";
+import TradingSignalCard from "~/components/signals/TradingSignalCard.vue";
+import AIReportContent from "~/components/signals/AIReportContent.vue";
+import ModalVanilla from "~/components/modal/ModalVanilla.vue";
+import { buySignals, sellSignals } from "~/utils/signalsMockData.js";
+import "~/assets/css/pages/signals/SignalsPage/SignalsPage.css";
 
 export default {
-  name: 'SignalsPage',
+  name: "SignalsPage",
   components: {
     RefreshCwIcon,
     ArrowUpIcon,
@@ -136,7 +171,7 @@ export default {
     ActivityIcon,
     TradingSignalCard,
     AIReportContent,
-    ModalVanilla
+    ModalVanilla,
   },
   data() {
     return {
@@ -146,49 +181,52 @@ export default {
       currentTime: new Date(),
       timer: null,
       isReportModalOpen: false,
-      activeReportSignal: null
-    }
+      activeReportSignal: null,
+    };
   },
   computed: {
     formattedTime() {
-      const d = this.currentTime
-      return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(
-        d.getDate()
-      ).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(
-        d.getMinutes()
-      ).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`
-    }
+      const d = this.currentTime;
+      return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(
+        2,
+        "0"
+      )}.${String(d.getDate()).padStart(2, "0")} ${String(
+        d.getHours()
+      ).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}:${String(
+        d.getSeconds()
+      ).padStart(2, "0")}`;
+    },
   },
   mounted() {
     this.timer = setInterval(() => {
-      this.currentTime = new Date()
-    }, 1000)
+      this.currentTime = new Date();
+    }, 1000);
   },
   beforeDestroy() {
-    if (this.timer) clearInterval(this.timer)
+    if (this.timer) clearInterval(this.timer);
   },
   methods: {
     refreshData() {
-      this.currentTime = new Date()
+      this.currentTime = new Date();
     },
     toggleDetail(id) {
-      const idx = this.openKeys.indexOf(id)
+      const idx = this.openKeys.indexOf(id);
       if (idx > -1) {
-        this.openKeys.splice(idx, 1)
+        this.openKeys.splice(idx, 1);
       } else {
-        this.openKeys.push(id)
+        this.openKeys.push(id);
       }
     },
     openReport(signal) {
-      this.activeReportSignal = signal
-      this.isReportModalOpen = true
+      this.activeReportSignal = signal;
+      this.isReportModalOpen = true;
     },
     closeReport() {
-      this.isReportModalOpen = false
+      this.isReportModalOpen = false;
       setTimeout(() => {
-        this.activeReportSignal = null
-      }, 300)
-    }
-  }
-}
+        this.activeReportSignal = null;
+      }, 300);
+    },
+  },
+};
 </script>

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find AI_FAPRO/assets/css -name \"*.css\" -exec grep -H \"^\\.[a-zA-Z_-][a-zA-Z0-9_-]*\" {})",
+      "Bash(awk -F: '{print $2 \"\"\"\"\\t\"\"\"\" $1}')",
+      "Bash(uniq -d -f1)",
+      "Bash(npm run build)",
+      "Bash(timeout 90 npm run build)",
+      "Bash(node fix-css-typos.js)",
+      "Bash(node /Users/nryn6563/WorkSpace/FAPRO_NEW/fix-css-typos.js)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

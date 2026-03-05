@@ -1,5 +1,7 @@
+/* ── 이슈 제안 폼 스타일 ── */
+
 .issue-proposal__form {
-  @apply space-y-6;
+  @apply flex flex-col gap-6;
 }
 .issue-proposal__form-group {
   @apply flex flex-col;
@@ -7,19 +9,25 @@
 .issue-proposal__label {
   @apply text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 flex items-center;
 }
+/* 텍스트에어리어 포커스: primary 컬러 */
 .issue-proposal__textarea {
-  @apply min-h-[100px] p-3 rounded-lg border border-slate-400 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-sm text-slate-700 dark:text-slate-300 focus:ring-2 focus:ring-teal-500 outline-none transition-all;
+  @apply min-h-[100px] p-3 rounded-lg border border-slate-400 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-sm text-slate-700 dark:text-slate-300 outline-none transition-all;
+}
+.issue-proposal__textarea:focus {
+  @apply outline-none ring-2 ring-primary/30 border-primary;
 }
 
-/* Client List */
+/* 클라이언트 목록 */
 .issue-proposal__client-list {
-  @apply border border-slate-400 dark:border-slate-700 rounded-lg max-h-[150px] overflow-y-auto bg-slate-200 dark:bg-slate-900/50;
+  @apply border border-slate-200 dark:border-slate-800 rounded-lg max-h-[150px] overflow-y-auto bg-slate-50 dark:bg-slate-900/50;
 }
 .issue-proposal__client-item {
-  @apply flex items-center gap-3 p-3 border-b border-slate-400 dark:border-slate-800 last:border-0 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors;
+  @apply flex items-center gap-3 p-3 border-b border-slate-100 dark:border-slate-800 last:border-0 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors;
 }
+/* 체크박스 액센트 */
 .issue-proposal__checkbox {
-  @apply w-4 h-4 rounded border-slate-300 text-teal-600 focus:ring-teal-500;
+  @apply w-4 h-4 rounded border-slate-300;
+  accent-color: var(--color-primary, #5368ff);
 }
 .issue-proposal__client-info {
   @apply flex flex-col cursor-pointer;
@@ -34,21 +42,28 @@
   @apply text-xs text-slate-500 mt-2 text-right;
 }
 
-/* Method Grid */
+/* 전송 방법 그리드 */
 .issue-proposal__method-grid {
   @apply grid grid-cols-3 gap-3;
 }
+/* 전송 버튼 기본 */
 .issue-proposal__method-btn {
-  @apply relative flex flex-col items-center justify-center py-4 rounded-xl border-2 border-slate-400 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-500 transition-all cursor-pointer hover:border-teal-500/50;
+  @apply relative flex flex-col items-center justify-center py-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-500 transition-all cursor-pointer;
 }
+.issue-proposal__method-btn:hover {
+  @apply border-primary/40 bg-white dark:bg-slate-700;
+}
+/* 이메일 활성: 표준 액센트 스타일 */
 .issue-proposal__method-btn--active-email {
-  @apply border-teal-500 bg-teal-50 text-teal-600 dark:bg-teal-900/20 dark:text-teal-400;
+  @apply bg-primary/5 dark:bg-primary/10 border-primary text-primary dark:text-primary-light;
 }
+/* 카카오 활성: 브랜드 옐로 유지 */
 .issue-proposal__method-btn--active-kakao {
-  @apply border-amber-500 bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400;
+  @apply border-amber-500 bg-amber-500 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400;
 }
+/* SMS 활성: 표준 액센트 스타일 */
 .issue-proposal__method-btn--active-sms {
-  @apply border-violet-500 bg-violet-50 text-violet-600 dark:bg-violet-900/20 dark:text-violet-400;
+  @apply bg-primary/5 dark:bg-primary/10 border-primary text-primary dark:text-primary-light;
 }
 
 .issue-proposal__check-icon {

@@ -1,31 +1,48 @@
+/* ── 일정 미연결 안내 플레이스홀더 스타일 ── */
+
+/* 플레이스홀더 전체 컨테이너 */
 .schedule-placeholder {
   @apply flex items-center justify-center h-full w-full bg-white dark:bg-slate-950;
 }
 
+/* 중앙 정렬 콘텐츠 영역 */
 .schedule-placeholder__content {
   @apply flex flex-col items-center text-center max-w-lg px-6;
 }
 
+/* 아이콘 래퍼 박스 */
 .schedule-placeholder__icon-wrapper {
-  @apply w-24 h-24 bg-blue-50 dark:bg-blue-900/10 rounded-3xl flex items-center justify-center mb-8 shadow-sm;
+  @apply w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-sm;
+  background-color: rgba(83, 104, 255, 0.1);
 }
 
+/* 안내 아이콘 */
 .schedule-placeholder__icon {
-  @apply w-12 h-12 text-blue-500;
+  @apply w-12 h-12;
+  color: #5368ff;
 }
 
+/* 안내 제목 텍스트 */
 .schedule-placeholder__title {
   @apply text-2xl font-bold text-slate-800 dark:text-white mb-4;
 }
 
+/* 안내 설명 텍스트 */
 .schedule-placeholder__description {
   @apply text-base text-slate-500 dark:text-slate-400 mb-8 leading-relaxed;
 }
 
+/* 캘린더 동기화 버튼 */
 .schedule-placeholder__sync-btn {
-  @apply px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all cursor-pointer shadow-lg shadow-blue-500/25 border-0 text-sm;
+  @apply px-8 py-3 text-white font-bold rounded-xl transition-all cursor-pointer border-0 text-sm;
+  background-color: #5368ff;
+  box-shadow: 0 4px 14px rgba(83, 104, 255, 0.25);
+}
+.schedule-placeholder__sync-btn:hover {
+  background-color: #4253cc;
 }
 
+/* 버튼 클릭 시 눌림 효과 */
 .schedule-placeholder__sync-btn:active {
   @apply transform scale-95;
 }

@@ -1,9 +1,10 @@
-/* Tailwind directives container for component */
+/* ── 매매 신호 히스토리 스타일 ── */
+
 .trading-signal-history {
-  @apply p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700 transition-all rounded-b-xl;
+  @apply p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700 transition-all rounded-b-lg;
 }
 
-/* Section */
+/* 섹션 */
 .trading-signal-history__section {
   @apply mb-4;
 }
@@ -11,7 +12,7 @@
   @apply mb-0;
 }
 
-/* Header */
+/* 헤더 */
 .trading-signal-history__header {
   @apply flex items-center justify-between mb-2;
 }
@@ -19,29 +20,31 @@
   @apply text-sm font-bold text-slate-800 dark:text-slate-200;
 }
 
-/* Radio Toggles */
+/* 기간 토글 라디오 */
 .trading-signal-history__period-toggles {
   @apply flex gap-3;
 }
 .trading-signal-history__radio-label {
   @apply flex items-center gap-1.5 cursor-pointer;
 }
+/* 라디오 액센트: primary 컬러 */
 .trading-signal-history__radio {
-  @apply cursor-pointer accent-emerald-500 w-3.5 h-3.5;
+  @apply cursor-pointer w-3.5 h-3.5;
+  accent-color: #5368ff;
 }
 .trading-signal-history__radio-text {
   @apply text-xs font-medium text-slate-600 dark:text-slate-400;
 }
 
-/* Chart */
+/* 차트 */
 .trading-signal-history__chart-bg {
-  @apply w-full bg-slate-50 dark:bg-slate-800/40 p-2 rounded-lg border border-slate-200 dark:border-slate-700;
+  @apply w-full bg-slate-500 dark:bg-slate-800/40 p-2 rounded-lg border border-slate-200 dark:border-slate-700;
 }
 .trading-signal-history__chart-container {
   @apply w-full relative h-[180px];
 }
 
-/* Table Wrapper */
+/* 테이블 */
 .trading-signal-history__table-wrapper {
   @apply bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm;
 }
@@ -49,7 +52,7 @@
   @apply w-full text-xs text-left;
 }
 .trading-signal-history__th {
-  @apply py-2 px-3 font-semibold text-slate-700 bg-slate-50 border-b border-slate-200 dark:text-slate-300 dark:bg-slate-800 dark:border-slate-700 whitespace-nowrap;
+  @apply py-2 px-3 font-semibold text-slate-700 bg-slate-500 border-b border-slate-200 dark:text-slate-300 dark:bg-slate-800 dark:border-slate-700 whitespace-nowrap;
 }
 .trading-signal-history__td {
   @apply py-2 px-3 border-b border-slate-200 text-slate-600 dark:border-slate-700 dark:text-slate-400 font-medium;
@@ -61,21 +64,47 @@
   @apply text-right;
 }
 
-/* Badges & Return Classes */
+/* 배지 & 수익률 */
 .trading-signal-history__badge {
   @apply text-[11px] px-2 py-0.5 rounded-full font-bold inline-block leading-tight;
 }
+/* 매수 배지: buy 시맨틱 컬러 */
 .trading-signal-history__badge--buy {
-  @apply bg-red-100 text-red-600 dark:bg-red-900/40 dark:text-red-400 border border-red-200 dark:border-red-800/50;
+  background-color: rgba(251, 44, 54, 0.1);
+  color: #fb2c36;
+  border: 1px solid rgba(251, 44, 54, 0.2);
 }
+.dark .trading-signal-history__badge--buy {
+  background-color: rgba(251, 44, 54, 0.15);
+  color: #ff7b82;
+  border-color: rgba(251, 44, 54, 0.25);
+}
+/* 매도 배지: sell 시맨틱 컬러 */
 .trading-signal-history__badge--sell {
-  @apply bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400 border border-blue-200 dark:border-blue-800/50;
+  background-color: rgba(43, 127, 255, 0.1);
+  color: #2b7fff;
+  border: 1px solid rgba(43, 127, 255, 0.2);
 }
+.dark .trading-signal-history__badge--sell {
+  background-color: rgba(43, 127, 255, 0.15);
+  color: #7b8dff;
+  border-color: rgba(43, 127, 255, 0.25);
+}
+/* 수익률 양수: buy 컬러(상승) */
 .trading-signal-history__return--positive {
-  @apply text-red-500 dark:text-red-400 font-bold;
+  @apply font-bold;
+  color: #fb2c36;
 }
+.dark .trading-signal-history__return--positive {
+  color: #ff7b82;
+}
+/* 수익률 음수: sell 컬러(하락) */
 .trading-signal-history__return--negative {
-  @apply text-blue-500 dark:text-blue-400 font-bold;
+  @apply font-bold;
+  color: #2b7fff;
+}
+.dark .trading-signal-history__return--negative {
+  color: #7b8dff;
 }
 .trading-signal-history__return--neutral {
   @apply text-slate-400 font-bold;

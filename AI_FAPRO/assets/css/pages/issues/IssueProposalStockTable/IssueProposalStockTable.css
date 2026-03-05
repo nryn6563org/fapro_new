@@ -1,0 +1,26 @@
+.issue-proposal-table__wrapper {
+  @apply overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800;
+}
+.issue-proposal-table__table {
+  @apply w-full border-collapse;
+}
+.issue-proposal-table__table th {
+  @apply bg-slate-50 px-3 py-2 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200;
+}
+.dark .issue-proposal-table__table th {
+  @apply bg-slate-900/50 border-slate-800;
+}
+
+.issue-proposal-table__table td {
+  @apply px-3 py-3 text-xs border-b border-slate-100;
+}
+.dark .issue-proposal-table__table td {
+  @apply border-slate-800/50;
+}
+
+.issue-proposal-table__table tr:last-child td {
+  @apply border-b-0;
+}
+.issue-proposal-table__tag {
+  @apply text-[10px] px-1.5 py-0.5 rounded-md border border-teal-100 dark:border-teal-900/50 text-teal-600 dark:text-teal-400 bg-teal-50/50 dark:bg-teal-900/20 whitespace-nowrap;
+}

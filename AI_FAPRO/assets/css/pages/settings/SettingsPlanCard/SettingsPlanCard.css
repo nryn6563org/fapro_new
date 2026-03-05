@@ -5,7 +5,7 @@
 }
 
 .plan-card--active {
-  @apply border-[#14B8A6] bg-[#14B8A6]/5;
+  @apply border-primary bg-primary/5;
 }
 
 .plan-card--pro.plan-card--active {
@@ -16,7 +16,7 @@
   @apply absolute top-4 right-4 w-6 h-6 rounded-full flex items-center justify-center;
 }
 .plan-card__check--basic {
-  @apply bg-[#14B8A6];
+  @apply bg-primary;
 }
 .plan-card__check--pro {
   @apply bg-[#F59E0B];
@@ -51,7 +51,7 @@
 }
 
 .plan-card__feature-icon--basic {
-  @apply text-[#14B8A6];
+  @apply text-primary;
 }
 
 .plan-card__feature-icon--pro {

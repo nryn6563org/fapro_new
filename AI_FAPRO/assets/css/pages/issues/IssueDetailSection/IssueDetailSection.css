@@ -1,14 +1,15 @@
-/* Tailwind directives container for component */
+/* ── 이슈 상세 섹션 스타일 ── */
 
 .issue-detail {
-  @apply mt-6 pt-6 border-t-2 border-amber-500/30 dark:border-amber-500/20;
+  @apply mt-2.5;
 }
 
+/* 카드: 표준 카드 배경 */
 .issue-detail__card {
-  @apply bg-gradient-to-br from-teal-50/30 to-white dark:from-slate-900/10 dark:to-slate-900 border-2 border-teal-500/30 dark:border-teal-500/20 rounded-xl p-6 shadow-xl;
+  @apply fapro-card p-6 !shadow-none;
 }
 
-/* Header */
+/* 헤더 */
 .issue-detail__header {
   @apply mb-6 pb-4 border-b border-slate-200 dark:border-slate-800;
 }
@@ -16,21 +17,26 @@
   @apply flex items-center gap-3;
 }
 .issue-detail__icon-box {
-  @apply w-12 h-12 rounded-xl flex items-center justify-center shadow-lg;
+  @apply w-12 h-12 rounded-xl flex items-center justify-center border transition-all;
 }
+/* 상승: buy 시맨틱 컬러 */
 .issue-detail__icon-box--up {
-  @apply bg-gradient-to-br from-red-500 to-red-600;
+  @apply bg-rose-50 dark:bg-rose-500/10 border-rose-100 dark:border-rose-500/20;
 }
+/* 하락: sell 시맨틱 컬러 */
 .issue-detail__icon-box--down {
-  @apply bg-gradient-to-br from-blue-500 to-blue-600;
+  @apply bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-500/20;
 }
 .issue-detail__icon-box--neutral {
-  @apply bg-gradient-to-br from-slate-400 to-slate-500;
+  @apply bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700;
 }
 
 .issue-detail__icon {
-  @apply w-6 h-6 text-white;
+  @apply w-6 h-6;
 }
+.issue-detail__icon-box--up .issue-detail__icon { @apply text-rose-500; }
+.issue-detail__icon-box--down .issue-detail__icon { @apply text-blue-500; }
+.issue-detail__icon-box--neutral .issue-detail__icon { @apply text-slate-500; }
 
 .issue-detail__title {
   @apply text-2xl font-bold text-slate-900 dark:text-white m-0;
@@ -39,7 +45,7 @@
   @apply text-sm text-slate-600 dark:text-slate-400 mt-1 m-0;
 }
 
-/* Two Column Layout */
+/* 2컬럼 레이아웃 */
 .issue-detail__body-grid {
   @apply grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-8;
 }
@@ -50,7 +56,7 @@
   @apply flex flex-col gap-6;
 }
 
-/* Segment Section */
+/* 세그먼트 섹션 */
 .issue-detail__segment {
   @apply mb-6;
 }
@@ -64,8 +70,9 @@
   @apply font-bold text-base text-slate-900 dark:text-white m-0;
 }
 
+/* 세그먼트 박스: 표준 내부 박스 배경 */
 .issue-detail__segment-box {
-  @apply p-4 bg-gradient-to-br from-teal-50 to-white dark:from-teal-900/10 dark:to-slate-900 rounded-xl border-2 border-teal-500/30;
+  @apply fapro-section !p-4 !shadow-none bg-slate-50/50 dark:bg-slate-800/30;
 }
 .issue-detail__segment-grid {
   @apply grid grid-cols-2 md:grid-cols-4 gap-4 mb-4;
@@ -73,11 +80,13 @@
 .issue-detail__segment-label {
   @apply text-xs text-slate-600 dark:text-slate-400 mb-1;
 }
+/* 세그먼트 수치: primary 컬러 */
 .issue-detail__segment-value {
-  @apply text-xl font-bold text-teal-500;
+  @apply text-xl font-bold;
+  color: #5368ff;
 }
 .issue-detail__segment-value--teal {
-  @apply text-teal-600;
+  color: #5368ff;
 }
 .issue-detail__segment-value--muted {
   @apply text-slate-500;
@@ -90,12 +99,37 @@
   @apply text-xs text-slate-600 dark:text-slate-400 mt-3 m-0 leading-relaxed;
 }
 
-
-
-/* Footer Section */
+/* 푸터 */
 .issue-detail__footer {
-  @apply pt-4 border-t-2 border-slate-400 dark:border-slate-800;
+  @apply pt-4 border-t border-slate-200 dark:border-slate-800;
 }
+/* 제안 버튼: 표준 브랜드 버튼 스타일 */
 .issue-detail__btn-propose {
-  @apply w-full flex items-center justify-center bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all text-base border-0 cursor-pointer;
+  @apply w-full flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-bold py-4 rounded-xl transition-all text-base border-0 cursor-pointer shadow-md active:scale-[0.98];
+}
+
+/* 추가된 BEM 클래스 */
+.issue-detail__segment-item {
+  @apply text-center;
+}
+.issue-detail__segment-value-muted {
+  @apply text-xl font-bold text-slate-400;
+}
+.issue-detail__progress-bar-segment--teal-500 {
+  @apply bg-teal-500 h-full;
+}
+.issue-detail__progress-bar-segment--teal-400 {
+  @apply bg-teal-400 h-full;
+}
+.issue-detail__progress-bar-segment--teal-300 {
+  @apply bg-teal-300 h-full;
+}
+.issue-detail__progress-bar-segment--slate-300 {
+  @apply bg-slate-300 h-full;
+}
+.issue-detail__btn-icon {
+  @apply w-5 h-5 mr-2;
+}
+.issue-detail__btn-badge {
+  @apply flex items-center justify-center bg-white text-slate-700 px-1.5 py-0.5 rounded-md text-[10px] font-bold ml-2 opacity-80;
 }

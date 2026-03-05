@@ -1,4 +1,4 @@
-import Modal from 'modal-vanilla'
+import Modal from "modal-vanilla";
 // modal-vanilla does not provide own CSS, using project BEM styles instead
 
 /**
@@ -9,15 +9,15 @@ import Modal from 'modal-vanilla'
 export default (context, inject) => {
   const modalV = {
     alert(title, content, options = {}) {
-      return Modal.alert(content, { title, ...options })
+      return Modal.alert(content, { title, ...options });
     },
     confirm(title, content, options = {}) {
-      return Modal.confirm(content, { title, ...options })
+      return Modal.confirm(content, { title, ...options });
     },
     show(options) {
-      return new Modal(options).show()
-    }
-  }
+      return new Modal(options).show();
+    },
+  };
 
-  inject('modalV', modalV)
-}
+  inject("modalV", modalV);
+};

@@ -3,7 +3,9 @@
     <!-- Page Header -->
     <header class="investment-page__header">
       <h1 class="investment-page__h1">투자정보pro</h1>
-      <p class="investment-page__h1-desc">AI가 분석한 실시간 투자 인사이트 및 시장 정보</p>
+      <p class="investment-page__h1-desc">
+        AI가 분석한 실시간 투자 인사이트 및 시장 정보
+      </p>
     </header>
 
     <!-- Main Content -->
@@ -23,7 +25,7 @@
       <section class="investment-page__section mt-8">
         <div class="investment-page__card-outer">
           <div class="investment-page__card-header">
-          <div class="investment-page__card-header-inner">
+            <div class="investment-page__card-header-inner">
               <div class="investment-page__header-icon-box">
                 <file-text-icon class="w-5 h-5 text-white" />
               </div>
@@ -50,20 +52,20 @@
 /**
  * 기능: 투자 정보pro 메인 페이지
  */
-import InvestmentIntelligenceCard from '~/components/investment/InvestmentIntelligenceCard.vue'
-import BrokerReportCard from '~/components/investment/BrokerReportCard.vue'
-import { faSummaries, brokerReports } from '~/utils/investmentMockData.js'
-import { FileTextIcon } from 'vue-feather-icons'
-import '~/assets/css/pages/investment/InvestmentPage/InvestmentPage.css'
+import { FileTextIcon } from "vue-feather-icons";
+import InvestmentIntelligenceCard from "~/components/investment/InvestmentIntelligenceCard.vue";
+import BrokerReportCard from "~/components/investment/BrokerReportCard.vue";
+import { faSummaries, brokerReports } from "~/utils/investmentMockData.js";
+import "~/assets/css/pages/investment/InvestmentPage/InvestmentPage.css";
 
 export default {
-  name: 'InvestmentPage',
+  name: "InvestmentPage",
   components: {
     InvestmentIntelligenceCard,
     BrokerReportCard,
-    FileTextIcon
+    FileTextIcon,
   },
-  layout: 'default',
+  layout: "default",
   data() {
     return {
       summaryIndex: 0,
@@ -71,36 +73,39 @@ export default {
       currentTime: new Date(),
       faSummaries,
       brokerReports,
-      rotationTimer: null
-    }
+      rotationTimer: null,
+    };
   },
   computed: {
     formattedTime() {
-      return this.currentTime.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' })
-    }
+      return this.currentTime.toLocaleTimeString("ko-KR", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    },
   },
   mounted() {
-    this.startRotation()
+    this.startRotation();
     // Update clock every minute
     this.clockTimer = setInterval(() => {
-      this.currentTime = new Date()
-    }, 60000)
+      this.currentTime = new Date();
+    }, 60000);
   },
   beforeDestroy() {
-    clearInterval(this.rotationTimer)
-    clearInterval(this.clockTimer)
+    clearInterval(this.rotationTimer);
+    clearInterval(this.clockTimer);
   },
   methods: {
     startRotation() {
       this.rotationTimer = setInterval(() => {
         if (!this.isSummaryPaused) {
-          this.nextSummary()
+          this.nextSummary();
         }
-      }, 5000)
+      }, 5000);
     },
     nextSummary() {
-      this.summaryIndex = (this.summaryIndex + 1) % this.faSummaries.length
-    }
-  }
-}
+      this.summaryIndex = (this.summaryIndex + 1) % this.faSummaries.length;
+    },
+  },
+};
 </script>
