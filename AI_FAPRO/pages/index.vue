@@ -10,7 +10,7 @@
         </p>
       </div>
       <!-- 최종 업데이트 시간 표시 및 새로고침 버튼 -->
-      <div class="index-page__action-box">
+      <!-- <div class="index-page__action-box">
         <div class="index-page__time-info">
           <p class="index-page__time-text">{{ formattedTime }}</p>
           <p class="index-page__time-label">최종 업데이트</p>
@@ -19,7 +19,7 @@
           <refresh-cw-icon size="16" class="index-page__refresh-icon" />
           <span class="index-page__refresh-text">새로고침</span>
         </button>
-      </div>
+      </div> -->
     </div>
 
     <!-- ── 오늘의 제안 카드: AI가 추천하는 오늘의 제안 목록 ── -->
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { RefreshCwIcon } from "vue-feather-icons";
+// import { RefreshCwIcon } from "vue-feather-icons";
 import TodayProposalCard from "~/components/dashboard/TodayProposalCard.vue";
 import CustomerIntelligenceCard from "~/components/dashboard/CustomerIntelligenceCard.vue";
 import TodayProposalModal from "~/components/dashboard/TodayProposalModal.vue";
@@ -57,7 +57,7 @@ import "~/assets/css/pages/index/IndexPage/IndexPage.css";
 export default {
   name: "IndexPage",
   components: {
-    RefreshCwIcon,
+    // RefreshCwIcon,
     TodayProposalCard,
     CustomerIntelligenceCard,
     TodayProposalModal,
@@ -84,6 +84,7 @@ export default {
      * @description 현재 시각을 'YYYY.MM.DD HH:MM:SS' 형식의 문자열로 반환합니다.
      * @returns {string} 포맷된 날짜·시간 문자열
      */
+    /*
     formattedTime() {
       const d = this.currentTime;
       return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(
@@ -95,16 +96,17 @@ export default {
         d.getSeconds()
       ).padStart(2, "0")}`;
     },
+    */
   },
   mounted() {
     // 1초마다 currentTime을 갱신하여 실시간 시계 표시
-    this.timer = setInterval(() => {
-      this.currentTime = new Date();
-    }, 1000);
+    // this.timer = setInterval(() => {
+    //   this.currentTime = new Date();
+    // }, 1000);
   },
   beforeDestroy() {
     // 컴포넌트 소멸 전 타이머 정리 (메모리 누수 방지)
-    if (this.timer) clearInterval(this.timer);
+    // if (this.timer) clearInterval(this.timer);
   },
   methods: {
     /**
