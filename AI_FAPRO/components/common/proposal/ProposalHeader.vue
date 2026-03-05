@@ -25,7 +25,7 @@
  * ProposalHeader
  * 기능: 제안 모달의 상단 헤더 컴포넌트
  */
-import { SendIcon, XIcon, TargetIcon, TrendingUpIcon } from "vue-feather-icons";
+import { SendIcon, XIcon, TargetIcon, TrendingUpIcon, StarIcon } from "vue-feather-icons";
 import "~/assets/css/common/proposal/ProposalHeader/ProposalHeader.css";
 
 export default {
@@ -35,6 +35,7 @@ export default {
     XIcon,
     TargetIcon,
     TrendingUpIcon,
+    StarIcon,
   },
   props: {
     title: {
@@ -47,11 +48,11 @@ export default {
     },
     iconType: {
       type: String,
-      default: "send", // 'send', 'target', 'trending'
+      default: "send", // 'send', 'target', 'trending', 'star'
     },
     theme: {
       type: String,
-      default: "teal", // 'teal', 'orange', 'violet'
+      default: "teal", // 'teal', 'orange', 'violet', 'green'
     },
   },
   computed: {
@@ -60,6 +61,7 @@ export default {
         send: "send-icon",
         target: "target-icon",
         trending: "trending-up-icon",
+        star: "star-icon",
       };
       return mapping[this.iconType] || "send-icon";
     },

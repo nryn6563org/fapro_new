@@ -71,7 +71,6 @@ import { ZapIcon, DownloadIcon, UploadIcon } from "vue-feather-icons";
 import CustomerUploadArea from "~/components/customers/CustomerUploadArea.vue";
 import CustomerAiSearch from "~/components/customers/CustomerAiSearch.vue";
 import CustomerListTable from "~/components/customers/CustomerListTable.vue";
-import CustomerDetailModal from "~/components/customers/CustomerDetailModal.vue";
 import CustomerHoldingsModal from "~/components/customers/CustomerHoldingsModal.vue";
 import {
   sampleCustomers,
@@ -123,27 +122,6 @@ export default {
     },
     onSearch(query) {
       this.searchQuery = query;
-    },
-    onViewDetail(customer) {
-      const ComponentClass = Vue.extend(CustomerDetailModal);
-      const instance = new ComponentClass({
-        propsData: { customer },
-      });
-      instance.$mount();
-
-      const modal = this.$modalV.show({
-        content: instance.$el,
-        backdrop: true,
-        keyboard: true,
-      });
-
-      modal.on("hidden", () => {
-        instance.$destroy();
-      });
-
-      instance.$on("close", () => {
-        modal.hide();
-      });
     },
     onViewHoldings(customer) {
       const ComponentClass = Vue.extend(CustomerHoldingsModal);

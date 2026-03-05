@@ -10,8 +10,7 @@
       </div>
       <div class="strategic-page__action-box">
         <div class="strategic-page__time-info">
-          <p class="strategic-page__time-text">{{ formattedTime }}</p>
-          <p class="strategic-page__time-label">최종 업데이트</p>
+          <p class="strategic-page__time-text">{{ formattedDateOnly }}</p>
         </div>
         <button class="strategic-page__refresh-btn" @click="refreshData">
           <refresh-cw-icon size="16" class="strategic-page__refresh-icon" />
@@ -70,22 +69,23 @@ export default {
     };
   },
   computed: {
-    formattedTime() {
+    formattedDateOnly() {
       const d = this.currentTime;
       return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(
         2,
         "0"
-      )}.${String(d.getDate()).padStart(2, "0")} ${String(
-        d.getHours()
-      ).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}:${String(
-        d.getSeconds()
-      ).padStart(2, "0")}`;
+      )}.${String(d.getDate()).padStart(2, "0")}`;
     },
   },
   mounted() {
     this.timer = setInterval(() => {
       this.currentTime = new Date();
     }, 1000);
+
+    // Initialize the first card as expanded by default
+    if (this.stocks && this.stocks.length > 0) {
+      this.expandedCards.push(this.stocks[0].id);
+    }
   },
   beforeDestroy() {
     if (this.timer) clearInterval(this.timer);

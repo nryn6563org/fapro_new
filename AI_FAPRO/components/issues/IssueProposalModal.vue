@@ -7,42 +7,25 @@
   >
     <template #header>
       <ProposalHeader
-        title="이슈 기반 제안서 작성"
-        description="선택한 이슈를 바탕으로 고객에게 전송할 제안서를 작성하고 전송 방법을 선택하세요."
-        icon-type="send"
-        theme="teal"
+        :title="issue ? issue.name + ' 이슈 제안서' : '이슈 제안서'"
+        description="선택한 이슈를 바탕으로 고객에게 전송할 제안서를 작성해보세요."
+        icon-type="star"
+        theme="green"
         @close="$emit('close')"
       />
     </template>
 
     <div class="proposal-container">
-      <div class="proposal-body !p-6">
-        <!-- Issue Info Card -->
-        <IssueProposalInfo :issue="issue" />
-
-        <!-- Form Sections -->
+      <div class="proposal-body">
+        <!-- Main Form Sections -->
         <IssueProposalForm
           :issue="issue"
           :form-data.sync="formData"
           :clients="clients"
           :selected-client-ids.sync="selectedClientIds"
-          :send-method.sync="sendMethod"
+          @send="handleSend"
+          @download="handleDownload"
         />
-      </div>
-
-      <!-- Footer Buttons -->
-      <div class="issue-proposal__footer p-6 border-t border-slate-200 dark:border-slate-800">
-        <button class="issue-proposal__btn-cancel fapro-btn-outline flex-1" @click="$emit('close')">
-          취소
-        </button>
-        <button
-          class="issue-proposal__btn-send fapro-btn-primary flex-[2]"
-          :disabled="!sendMethod || selectedClientIds.length === 0"
-          @click="handleSend"
-        >
-          <send-icon class="w-4 h-4 mr-2" />
-          {{ sendMethodName }}로 전송하기
-        </button>
       </div>
     </div>
   </modal-vanilla>
@@ -52,10 +35,8 @@
 /**
  * 기능: 이슈 기반 제안서 작성 모달
  */
-import { SendIcon } from "vue-feather-icons";
-import { sampleClients } from "~/utils/issueDetectionMockData.js";
 import "~/assets/css/pages/issues/IssueProposalModal/IssueProposalModal.css";
-import "~/assets/css/common/proposal/ContactProposalModal/ContactProposalModal.css";import IssueProposalInfo from "~/components/issues/IssueProposalInfo.vue";
+import "~/assets/css/common/proposal/ContactProposalModal/ContactProposalModal.css";
 import IssueProposalForm from "~/components/issues/IssueProposalForm.vue";
 import ProposalHeader from "~/components/common/proposal/ProposalHeader.vue";
 import ModalVanilla from "~/components/modal/ModalVanilla.vue";
@@ -63,10 +44,8 @@ import ModalVanilla from "~/components/modal/ModalVanilla.vue";
 export default {
   name: "IssueProposalModal",
   components: {
-    SendIcon,
     ProposalHeader,
     ModalVanilla,
-    IssueProposalInfo,
     IssueProposalForm,
   },
   props: {
@@ -78,56 +57,40 @@ export default {
       type: Object,
       default: null,
     },
+    clients: {
+      type: Array,
+      default: () => [],
+    },
   },
   data() {
     return {
       formData: {
-        aiReason: "",
-        marketBackground: "",
-        stockLogic: "",
-        expectedScenario: "",
-        riskFactors: "",
-        faOpinion: "",
+        aiReason: (this.issue && this.issue.aiReason) ? this.issue.aiReason : "해당 이슈는 최근 글로벌 공급망 재편과 맞물려 국내 부품주들의 실적 반등 모멘텀이 강력하게 형성되고 있습니다.",
+        reasonOpinion: "AI가 포착한 수급 패턴 외에도, 최근 주요 기관들의 매집 흔적이 뚜렷하며 기술적으로도 바닥권을 탈출하는 골든크로스가 발생했습니다.",
+        outlook: (this.issue && this.issue.outlook) ? this.issue.outlook : "단기적으로는 변동성이 있을 수 있으나, 차세대 칩 양산 계획에 따른 수혜가 가시화되는 하반기부터는 본격적인 주가 재평가가 기대됩니다.",
+        outlookOpinion: "고객님의 포트폴리오 비중을 고려했을 때, 해당 이슈 관련 종목을 약 10~15% 내외로 편입하여 적극적인 수익을 추구해볼 만한 시점입니다.",
+        newsTitle: (this.issue && this.issue.news && this.issue.news.length > 0) ? this.issue.news[0].title : "엔비디아 차세대 AI칩 생산 30% 증산 발표",
+        newsSummary: (this.issue && this.issue.news && this.issue.news.length > 0) ? this.issue.news[0].summary : "글로벌 AI 수요 폭증으로 인한 생산 라인 풀가동 및 협력사 오더 증량 소식입니다.",
       },
-      selectedClientIds: [],
-      sendMethod: "email",
-      clients: sampleClients,
+      selectedClientIds: [1, 2],
     };
   },
-  computed: {
-    sendMethodName() {
-      const names = { email: "이메일", kakao: "카카오톡", sms: "문자" };
-      return names[this.sendMethod] || "";
-    },
-  },
-  watch: {
-    issue: {
-      immediate: true,
-      handler(newVal) {
-        if (newVal) {
-          this.formData.aiReason = newVal.aiReason || "";
-          this.formData.marketBackground = `현재 ${newVal.name} 이슈는 시장에서 큰 주목을 받고 있습니다.`;
-          this.formData.stockLogic = `관련 종목들은 ${newVal.name} 기술력과 시장 지배력을 바탕으로 수혜가 예상됩니다.`;
-          this.formData.expectedScenario =
-            "향후 분기별 실적 발표와 함께 주가 재평가가 가시화될 전망입니다.";
-          this.formData.riskFactors =
-            "다만, 글로벌 매크로 환경 변화에 따른 변동성 리스크가 존재합니다.";
-          this.formData.faOpinion = "";
-        }
-      },
-    },
-  },
   methods: {
-    handleSend() {
-      // 실제 프로젝트에서는 여기서 API 호출
+    handleSend({ method, clients }) {
       this.$emit("send", {
         issue: this.issue,
         formData: this.formData,
-        clientIds: this.selectedClientIds,
-        method: this.sendMethod,
+        clients,
+        method,
       });
-      alert(`${this.sendMethodName}로 제안서가 성공적으로 전송되었습니다.`);
+      alert(`${method === 'email' ? '이메일' : '제안서'}가 성공적으로 전송되었습니다.`);
       this.$emit("close");
+    },
+    handleDownload() {
+      this.$emit("download", {
+        issue: this.issue,
+        formData: this.formData,
+      });
     },
   },
 };

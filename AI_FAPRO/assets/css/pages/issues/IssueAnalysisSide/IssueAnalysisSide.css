@@ -5,7 +5,8 @@
 }
 
 .analysis-side__card {
-  @apply fapro-section h-full overflow-y-auto !p-5;
+  @apply fapro-section h-full !p-5 flex flex-col;
+  overflow: hidden;
 }
 
 /* 헤더 */
@@ -90,7 +91,16 @@
 
 /* 탭 */
 .analysis-side__tabs {
-  @apply mb-4;
+  @apply mb-3 flex-shrink-0;
+}
+
+/* 스크롤 가능한 콘텐츠 영역 */
+.analysis-side__scrollable {
+  @apply flex-1 overflow-y-auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 .analysis-side__tabs-list {
   @apply flex gap-2 mb-3;
@@ -121,7 +131,7 @@
 
 /* 종목 섹션 */
 .analysis-side__stocks-section {
-  @apply fapro-section !p-4 !shadow-none bg-slate-50/50 dark:bg-slate-800/30 mb-4;
+  @apply fapro-section !p-4 !shadow-none bg-slate-50/50 dark:bg-slate-800/30;
 }
 .analysis-side__section-label {
   @apply flex items-center gap-2 mb-3;

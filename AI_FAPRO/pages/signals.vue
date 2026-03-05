@@ -2,7 +2,7 @@
   <div class="signals-page">
     <div class="signals-page__header">
       <div class="signals-page__title-box">
-        <h1 class="signals-page__title">AI매매신호</h1>
+        <h1 class="signals-page__title">AI 매매신호 포착</h1>
         <p class="signals-page__subtitle">
           오늘 발생한 AI매매신호 입니다. 신호 발생 사유와 매매내역을 확인해
           보세요
@@ -32,7 +32,7 @@
             >
               <arrow-up-icon class="signals-page__column-icon" />
             </div>
-            <h2 class="signals-page__column-title">매수 신호</h2>
+            <h2 class="signals-page__column-title">매수 신호 발생</h2>
           </div>
           <span
             class="signals-page__column-badge signals-page__column-badge--buy"
@@ -63,7 +63,7 @@
             >
               <arrow-down-icon class="signals-page__column-icon" />
             </div>
-            <h2 class="signals-page__column-title">매도 신호</h2>
+            <h2 class="signals-page__column-title">매도 신호 발생</h2>
           </div>
           <span
             class="signals-page__column-badge signals-page__column-badge--sell"
@@ -102,26 +102,26 @@
                 />
               </div>
               <div class="ai-report-modal__title-wrapper">
-                <div class="ai-report-modal__badges">
-                  <span
-                    class="ai-report-modal__badge ai-report-modal__badge--cyan"
-                    >신작출시</span
-                  >
-                  <span
-                    class="ai-report-modal__badge ai-report-modal__badge--amber"
-                    >거래량급증</span
-                  >
-                  <span
-                    class="ai-report-modal__badge ai-report-modal__badge--purple"
-                    >외국인매수</span
-                  >
-                </div>
                 <h2 class="ai-report-modal__title">
                   {{ activeReportSignal.name }}
                   <span class="ai-report-modal__ticker">{{
                     activeReportSignal.ticker
                   }}</span>
                 </h2>
+                <div class="ai-report-modal__badges">
+                  <span
+                    class="ai-report-modal__badge ai-report-modal__badge--blue"
+                    >신작출시</span
+                  >
+                  <span
+                    class="ai-report-modal__badge ai-report-modal__badge--orange"
+                    >거래량급증</span
+                  >
+                  <span
+                    class="ai-report-modal__badge ai-report-modal__badge--indigo"
+                    >외국인매수</span
+                  >
+                </div>
               </div>
             </div>
             <button

@@ -27,6 +27,7 @@
             class="customer-ai-search__input"
             placeholder="예: 업종별 고객 중 자산 5억 이상 고수 등급 찾아줘"
             @keydown.enter="handleSearch"
+            @mousedown="handleFocus"
           />
           <button class="customer-ai-search__search-btn" @click="handleSearch">
             검색
@@ -136,6 +137,9 @@ export default {
   methods: {
     handleSearch() {
       this.$emit("search", this.internalQuery);
+    },
+    handleFocus() {
+      alert("준비중 입니다");
     },
     handleQuickSearch(text) {
       this.internalQuery = text;

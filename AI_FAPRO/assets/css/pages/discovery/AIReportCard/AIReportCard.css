@@ -1,14 +1,15 @@
 /* ── AI 리포트 카드 스타일 ── */
 
 .ai-report-card {
-  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden hover:-translate-y-1;
+  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden hover:-translate-y-1;
 }
 /* 상단 primary 라인 */
-.ai-report-card::before {
+/* 상단 primary 라인 삭제 */
+/* .ai-report-card::before {
   content: "";
   @apply absolute top-0 left-0 w-full h-1 opacity-80;
   background: linear-gradient(to right, #5368ff, #7b8dff);
-}
+} */
 
 /* 헤더 */
 .ai-report-card__header {
@@ -51,7 +52,7 @@
   border-color: rgba(43, 127, 255, 0.2);
 }
 .ai-report-card__signal-badge--neutral {
-  @apply bg-slate-500 text-slate-600 dark:bg-slate-500/10 dark:text-slate-400 border border-slate-100 dark:border-slate-500/20;
+  @apply bg-slate-500 text-white dark:bg-slate-500/20 dark:text-slate-200 border border-slate-400 dark:border-slate-500/30;
 }
 
 /* 메타 정보 */

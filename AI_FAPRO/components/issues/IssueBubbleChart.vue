@@ -6,6 +6,15 @@
         <button
           :class="[
             'issue-chart__tab',
+            { 'issue-chart__tab--active': type === 'all' },
+          ]"
+          @click="$emit('update:type', 'all')"
+        >
+          종합이슈
+        </button>
+        <button
+          :class="[
+            'issue-chart__tab',
             { 'issue-chart__tab--active': type === 'small' },
           ]"
           @click="$emit('update:type', 'small')"

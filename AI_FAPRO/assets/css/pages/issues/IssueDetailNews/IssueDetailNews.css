@@ -2,8 +2,10 @@
 
 /* 뉴스 섹션 외곽 래퍼 */
 .issue-detail__news-detail {
-  @apply mb-0;
+  @apply mt-10;
 }
+
+.issue-detail__news-detail
 
 /* 뉴스 콘텐츠 영역 */
 .issue-detail__news-content {
@@ -12,7 +14,7 @@
 
 /* AI 뉴스 요약 박스 */
 .issue-detail__news-summary-box {
-  @apply fapro-section !p-4 !shadow-none bg-blue-50/50 dark:bg-blue-900/10 border-blue-100 dark:border-blue-800;
+  @apply fapro-section !p-4 !shadow-none bg-blue-50/50 dark:bg-blue-900/10 border-0;
 }
 
 /* 뉴스 목록 컨테이너 */

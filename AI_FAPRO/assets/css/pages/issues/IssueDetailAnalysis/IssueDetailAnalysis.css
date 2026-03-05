@@ -2,24 +2,32 @@
 
 /* 추가 정보 섹션 외곽 래퍼 */
 .issue-detail__extra-info {
-  @apply mb-0;
+  margin-bottom: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .issue-detail__extra-info > div {
-  @apply border border-gray-200 dark:border-gray-700 rounded-xl p-5 bg-white dark:bg-slate-900 shadow-sm relative;
+  @apply border border-slate-200 dark:border-slate-800 rounded-2xl p-6 bg-white dark:bg-slate-900 shadow-sm relative flex flex-col;
+  flex: 1;
 }
 
-/* 정보 박스 기본 스타일 */
+.issue-detail__extra-info > div > *:last-child {
+  @apply flex-1;
+}
+
+/* 정보 박스 기본 스타일 - 내부 테두리 약화 */
 .issue-detail__info-box {
-  @apply fapro-section !p-5 !shadow-none bg-slate-50/50 dark:bg-slate-800/30;
+  @apply fapro-section !shadow-none bg-slate-50/50 dark:bg-slate-800/20 border-0 !p-0 flex flex-col;
 }
 
 /* 텍스트 컬러 표준화 */
 .issue-detail__info-box--orange {
-  @apply border-orange-100 dark:border-orange-500/20;
+  @apply !border-orange-100 dark:!border-orange-500/20;
 }
 .issue-detail__info-box--blue {
-  @apply border-blue-100 dark:border-blue-500/20;
+  @apply !border-blue-100 dark:!border-blue-500/20;
 }
 
 /* 분석 본문 텍스트 */
@@ -29,7 +37,7 @@
 
 /* 전망 아이템 그리드 레이아웃 */
 .issue-detail__outlook-grid {
-  @apply grid grid-cols-2 gap-3 mt-4 pt-4 border-t border-slate-200 dark:border-slate-800;
+  @apply flex flex-col gap-3 mt-4 pt-4 border-t border-slate-200 dark:border-slate-800;
 }
 
 /* 전망 개별 아이템 카드 */

@@ -11,8 +11,7 @@
                   ? 'trading-signal-card__time-text--buy'
                   : 'trading-signal-card__time-text--sell',
               ]"
-              >{{ signal.time }} {{ type === "buy" ? "매수" : "매도" }}신호
-              발생</span
+              >{{ signal.time }} {{ type === "buy" ? "매수" : "매도" }} 신호 발생</span
             >
           </div>
           <h3 class="trading-signal-card__name">{{ signal.name }}</h3>
@@ -27,7 +26,7 @@
             >
               {{ type === "buy" ? "매수가" : "매도가" }} {{ signal.price }}
             </span>
-            <span v-if="type === 'sell'" class="trading-signal-card__change">{{
+            <span v-if="type === 'sell'" class="trading-signal-card__change">수익률 {{
               signal.change
             }}</span>
           </div>
@@ -57,12 +56,11 @@
       <h4 class="trading-signal-card__reason-title">시그널 발생 사유</h4>
       <p v-if="signal.reason" class="trading-signal-card__reason-text">
         {{ signal.reason }}
-        <span class="trading-signal-card__reason-more">[내용 자세히 보기]</span>
+        <span class="trading-signal-card__reason-more" @click="$emit('open-report', signal)">[내용 자세히 보기]</span>
       </p>
       <div v-else class="trading-signal-card__reason-empty">
-        <span class="trading-signal-card__reason-empty-badge">5-1</span>
         <span class="trading-signal-card__reason-empty-text"
-          >시그널 발생 사유 생성중 입니다</span
+          >발생 사유 생성중</span
         >
       </div>
     </div>

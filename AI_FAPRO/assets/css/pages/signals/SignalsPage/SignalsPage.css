@@ -112,16 +112,14 @@
 
 /* Custom styles for AI Report Modal dialog wrapper */
 .ai-report-modal__dialog {
-  @apply w-full max-w-7xl mx-auto mt-10 rounded-xl overflow-hidden shadow-xl;
+  @apply sm:!max-w-[900px] rounded-2xl overflow-hidden shadow-2xl border-0;
 }
 .ai-report-modal__header {
-  @apply w-full bg-[#FFF6EB] dark:bg-slate-900 border-b border-[#EAEAEA] dark:border-slate-800 p-6 flex items-start justify-between relative overflow-hidden;
+  @apply w-full border-b border-slate-200 dark:border-slate-800 p-6 flex items-start justify-between relative bg-white dark:bg-slate-900;
 }
 
-/* Optional: a subtle background glow or pattern */
-.ai-report-modal__header::before {
-  content: "";
-  @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-purple-500 to-amber-500;
+.ai-report-modal__content {
+  @apply p-6 bg-slate-50 dark:bg-slate-950;
 }
 
 .ai-report-modal__header-content {
@@ -144,16 +142,16 @@
   @apply text-xs font-bold px-2.5 py-1 rounded-md tracking-wide;
 }
 
-.ai-report-modal__badge--cyan {
-  @apply bg-primary-light/50 dark:bg-primary-dark/20 text-primary dark:text-primary-light border border-primary-light dark:border-primary-dark/30;
+.ai-report-modal__badge--blue {
+  @apply bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800;
 }
 
-.ai-report-modal__badge--amber {
-  @apply bg-amber-500 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800;
+.ai-report-modal__badge--orange {
+  @apply bg-orange-50 dark:bg-orange-950/30 text-orange-700 dark:text-orange-400 border border-orange-200 dark:border-orange-800;
 }
 
-.ai-report-modal__badge--purple {
-  @apply bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-800;
+.ai-report-modal__badge--indigo {
+  @apply bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800;
 }
 
 .ai-report-modal__title {
@@ -161,11 +159,8 @@
 }
 
 .ai-report-modal__ticker {
-  @apply text-base font-semibold text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800 px-2.5 py-0.5 rounded-lg border border-slate-300 dark:border-slate-700;
+  @apply text-base font-normal text-slate-500 dark:text-slate-400;
 }
 .ai-report-modal__close-btn {
   @apply p-2 hover:bg-[#EAEAEA] dark:hover:bg-slate-800 rounded-full transition-colors text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 border-0 bg-transparent cursor-pointer relative z-10;
-}
-.ai-report-modal__content {
-  @apply p-8 m-0 bg-[#F8F9FA] dark:bg-slate-900;
 }

@@ -14,16 +14,16 @@
 
 /* ── 카드 레이아웃 ── */
 .ai-report-score__card {
-  @apply bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-400 dark:border-slate-700 shadow-sm overflow-hidden;
+  @apply p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-all;
 }
 .ai-report-score__card-header {
-  @apply p-4 border-b border-slate-300 dark:border-slate-700/50 bg-slate-200/50 dark:bg-slate-800/80;
+  @apply mb-3 pb-3 border-b border-slate-200 dark:border-slate-800;
 }
 .ai-report-score__card-header--cyan {
-  @apply bg-gradient-to-r from-primary-light/20 to-primary-light/10 dark:from-primary-dark/10 dark:to-primary-dark/5;
+  @apply bg-blue-50/50 dark:bg-blue-950/20 border-blue-100 dark:border-blue-900/30 rounded-lg p-3 border;
 }
 .ai-report-score__card-title {
-  @apply text-[15px] font-bold text-slate-800 dark:text-slate-100;
+  @apply text-[15px] font-bold text-slate-800 dark:text-slate-200;
 }
 .ai-report-score__card-title--between {
   @apply flex items-center justify-between;
@@ -35,10 +35,10 @@
   @apply text-primary dark:text-primary-light font-bold;
 }
 .ai-report-score__card-body {
-  @apply p-5;
+  @apply space-y-3;
 }
 .ai-report-score__card-body--padded {
-  @apply pt-4;
+  @apply pt-0;
 }
 .ai-report-score__card-body--factors {
   @apply space-y-2;
@@ -55,7 +55,7 @@
   @apply w-32 text-[13px] text-slate-700 dark:text-slate-300;
 }
 .ai-report-score__progress-bar {
-  @apply flex-1 h-6 bg-slate-100 dark:bg-slate-700/50 rounded-full overflow-hidden;
+  @apply flex-1 h-6 bg-slate-50 dark:bg-slate-800/50 rounded-full overflow-hidden border border-slate-200 dark:border-slate-800;
 }
 .ai-report-score__progress-fill {
   @apply h-full transition-all duration-500 ease-out;

@@ -24,6 +24,29 @@
 
     <!-- Extracted Box Detail From Card -->
     <div class="strategic-modal__detail-grid">
+      <!-- Opinion Box -->
+      <div class="strategic-modal__detail-section strategic-modal__detail-section--opinion">
+        <div class="strategic-modal__section-header text-blue-600">
+          <info-icon class="strategic-modal__section-icon" />
+          <h4 class="strategic-modal__section-title">전문가 의견</h4>
+        </div>
+        <p class="strategic-modal__opinion-text">{{ stock.characteristic }}</p>
+      </div>
+
+      <!-- Rationale Box -->
+      <div class="strategic-modal__detail-section strategic-modal__detail-section--rationale">
+        <div class="strategic-modal__section-header text-slate-700">
+          <book-open-icon class="strategic-modal__section-icon" />
+          <h4 class="strategic-modal__section-title">투자 근거</h4>
+        </div>
+        <ul class="strategic-modal__point-list text-slate-600">
+          <li v-for="(item, idx) in stock.rationale" :key="idx" class="strategic-modal__point-item">
+            <span class="strategic-modal__point-bullet bg-slate-400"></span>
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+
       <!-- Upside Driver -->
       <div
         class="strategic-modal__detail-section strategic-modal__detail-section--upside"
@@ -71,7 +94,7 @@
 /**
  * 기능: AI 중장기 유망주 종목 상세 프리뷰
  */
-import { TrendingUpIcon, AlertTriangleIcon } from "vue-feather-icons";
+import { TrendingUpIcon, AlertTriangleIcon, InfoIcon, BookOpenIcon } from "vue-feather-icons";
 import "~/assets/css/pages/strategic-stocks/StrategicStockPreview/StrategicStockPreview.css";
 
 export default {
@@ -79,6 +102,8 @@ export default {
   components: {
     TrendingUpIcon,
     AlertTriangleIcon,
+    InfoIcon,
+    BookOpenIcon,
   },
   props: {
     stock: {

@@ -54,3 +54,9 @@
 .issue-proposal__footer {
   @apply flex items-center gap-3 bg-slate-50 dark:bg-slate-900/50;
 }
+
+/* ── 모달 커스텀 사이즈 ── */
+.proposal-modal-dialog {
+  width: 900px !important;
+  max-width: 95vw !important;
+}

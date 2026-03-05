@@ -126,6 +126,18 @@
   @apply bg-red-900/10;
 }
 
+.strategic-modal__detail-section--opinion {
+  @apply col-span-full bg-blue-50 dark:bg-blue-900/10 border-b border-blue-100 dark:border-blue-800/30;
+}
+
+.strategic-modal__opinion-text {
+  @apply text-sm text-blue-700 dark:text-blue-300 font-bold leading-relaxed m-0;
+}
+
+.strategic-modal__detail-section--rationale {
+  @apply col-span-full bg-slate-50/50 dark:bg-slate-800/30 border-b border-slate-200 dark:border-slate-800;
+}
+
 .strategic-modal__section-header {
   @apply fapro-section-header mb-3;
 }

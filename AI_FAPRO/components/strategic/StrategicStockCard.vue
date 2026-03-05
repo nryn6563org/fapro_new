@@ -5,8 +5,8 @@
       <div class="strategic-card__row">
         <!-- Stock Info Area -->
         <div class="strategic-card__col-info">
-          <span class="strategic-card__code">{{ stock.code }}</span>
           <h3 class="strategic-card__name">{{ stock.name }}</h3>
+          <span class="strategic-card__code">{{ stock.code }}</span>
         </div>
 
         <!-- Price Area -->
@@ -51,14 +51,6 @@
             <navigation-icon class="strategic-card__btn-icon" />
             제안하기
           </button>
-          <div class="strategic-card__arrow-box">
-            <chevron-down-icon
-              :class="[
-                'strategic-card__arrow-icon',
-                { 'strategic-card__arrow-icon--expanded': isExpanded },
-              ]"
-            />
-          </div>
         </div>
       </div>
     </div>
@@ -141,7 +133,6 @@
 import {
   TrendingUpIcon,
   TrendingDownIcon,
-  ChevronDownIcon,
   AlertTriangleIcon,
   InfoIcon,
   NavigationIcon,
@@ -153,7 +144,6 @@ export default {
   components: {
     TrendingUpIcon,
     TrendingDownIcon,
-    ChevronDownIcon,
     AlertTriangleIcon,
     InfoIcon,
     NavigationIcon,

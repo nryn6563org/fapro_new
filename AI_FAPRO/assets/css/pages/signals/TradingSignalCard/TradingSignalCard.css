@@ -152,7 +152,7 @@
 
 /* AI 분석 생성 중 빈 상태 */
 .trading-signal-card__reason-empty {
-  @apply flex flex-col items-center justify-center py-6 mt-1 bg-slate-500 dark:bg-slate-800/30 rounded border border-dashed border-slate-300 dark:border-slate-700;
+  @apply flex flex-col items-center justify-center py-6 mt-1 bg-slate-50/80 dark:bg-slate-800/30 rounded border border-dashed border-slate-300 dark:border-slate-700;
 }
 /* AI 배지: primary 컬러 */
 .trading-signal-card__reason-empty-badge {

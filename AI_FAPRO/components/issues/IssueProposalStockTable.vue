@@ -1,9 +1,5 @@
 <template>
   <div class="issue-proposal-table">
-    <div class="issue-proposal__label mb-3">
-      <trending-up-icon class="w-4 h-4 text-primary mr-2" />
-      등락률 상순 5개 연관종목
-    </div>
     <div class="issue-proposal-table__wrapper">
       <table class="issue-proposal-table__table">
         <thead>
@@ -11,7 +7,6 @@
             <th class="text-left">종목명</th>
             <th class="text-right">현재가</th>
             <th class="text-right">등락률</th>
-            <th class="text-center">시그널점수</th>
             <th class="text-center">AI 시그널</th>
             <th class="text-center">다른 이슈</th>
           </tr>
@@ -20,24 +15,21 @@
           <tr v-for="(stock, idx) in sortedStocks" :key="idx">
             <td class="text-left font-bold text-slate-900 dark:text-white">
               {{ stock.name }}
-              <div class="text-[10px] text-slate-400 font-normal">{{ stock.ticker }}</div>
+              <div class="issue-proposal-table__ticker">{{ stock.ticker }}</div>
             </td>
-            <td class="text-right font-semibold text-slate-700 dark:text-slate-300">
+            <td class="text-right font-bold text-slate-700 dark:text-slate-300">
               {{ stock.price?.toLocaleString() }}원
             </td>
-            <td :class="['text-right font-bold', stock.changePercent >= 0 ? 'text-red-600' : 'text-blue-600']">
+            <td :class="['text-right font-black', stock.changePercent >= 0 ? 'text-red-500' : 'text-blue-500']">
               {{ stock.changePercent > 0 ? '+' : '' }}{{ stock.changePercent }}%
             </td>
             <td class="text-center">
-              <span class="fapro-badge fapro-badge--amber fapro-badge--xs">{{ stock.signalScore }}</span>
-            </td>
-            <td class="text-center">
-              <span :class="['fapro-badge fapro-badge--xs', stock.aiSignal === '매수' ? 'fapro-badge--red' : 'fapro-badge--blue']">
+              <span :class="['issue-proposal-table__ai-badge', getAiSignalClass(stock.aiSignal)]">
                 {{ stock.aiSignal }}
               </span>
             </td>
             <td class="text-center">
-              <div class="flex gap-1 justify-center">
+              <div class="flex gap-1.5 justify-center flex-wrap">
                 <span v-for="tag in stock.otherIssues?.slice(0, 2)" :key="tag" class="issue-proposal-table__tag">
                   {{ tag }}
                 </span>
@@ -51,12 +43,22 @@
 </template>
 
 <script>
-import { TrendingUpIcon } from "vue-feather-icons";
 import "~/assets/css/pages/issues/IssueProposalStockTable/IssueProposalStockTable.css";
+import { featuredStocks } from "~/utils/issueDetectionMockData.js";
+
+/**
+ * 기능: 이슈 제안서 내 연관 종목 테이블
+ */
+const FALLBACK_STOCKS = [
+  { ticker: "196170", name: "알테오젠", price: 285000, changePercent: 6.65, aiSignal: "보유", otherIssues: ["바이오", "신약"] },
+  { ticker: "000660", name: "SK하이닉스", price: 184500, changePercent: 4.83, aiSignal: "매수", otherIssues: ["AI반도체", "HBM"] },
+  { ticker: "247540", name: "에코프로비엠", price: 178500, changePercent: 5.24, aiSignal: "보유", otherIssues: ["2차전지", "양극재"] },
+  { ticker: "058470", name: "리노공업", price: 168000, changePercent: 4.48, aiSignal: "매수", otherIssues: ["반도체", "소켓"] },
+  { ticker: "005930", name: "삼성전자", price: 73500, changePercent: 1.66, aiSignal: "보유", otherIssues: ["HBM", "CXL"] },
+];
 
 export default {
   name: "IssueProposalStockTable",
-  components: { TrendingUpIcon },
   props: {
     stocks: {
       type: Array,
@@ -65,9 +67,33 @@ export default {
   },
   computed: {
     sortedStocks() {
-      return [...this.stocks]
+      let resolved = [];
+
+      if (this.stocks && this.stocks.length > 0) {
+        // stocks가 ticker 문자열 배열인 경우 → featuredStocks에서 조회
+        if (typeof this.stocks[0] === "string") {
+          resolved = featuredStocks.filter(s => this.stocks.includes(s.ticker));
+        } else {
+          // stocks가 이미 객체 배열인 경우 그대로 사용
+          resolved = this.stocks;
+        }
+      }
+
+      // 조회 결과가 없으면 폴백 데이터 사용
+      if (resolved.length === 0) {
+        resolved = FALLBACK_STOCKS;
+      }
+
+      return [...resolved]
         .sort((a, b) => Math.abs(b.changePercent) - Math.abs(a.changePercent))
         .slice(0, 5);
+    }
+  },
+  methods: {
+    getAiSignalClass(signal) {
+      if (signal === "매수") return "issue-proposal-table__ai-badge--red";
+      if (signal === "보유") return "issue-proposal-table__ai-badge--green";
+      return "issue-proposal-table__ai-badge--gray";
     }
   }
 };

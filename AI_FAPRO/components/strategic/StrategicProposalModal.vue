@@ -9,9 +9,9 @@
     <!-- Header Component -->
     <template #header>
       <div class="strategic-modal__header">
-        <h2 class="strategic-modal__title">고객에게 종목 제안</h2>
+        <h2 class="strategic-modal__title">AI 추천 전략 유망주 제안</h2>
         <p class="strategic-modal__subtitle">
-          선택한 종목 정보를 고객에게 전송합니다.
+          AI가 분석한 중장기 유망주 정보를 고객님께 전송합니다.
         </p>
         <button
           type="button"
@@ -103,10 +103,10 @@
             type="button"
             class="strategic-modal__btn-primary"
             :disabled="selectedClients.length === 0"
-            @click="copyContent"
+            @click="handleSend"
           >
-            <copy-icon class="w-4 h-4 mr-2" />
-            내용복사
+            <navigation-icon class="w-4 h-4 mr-2" />
+            전송하기
           </button>
         </div>
       </template>
@@ -123,7 +123,7 @@ import {
   MailIcon,
   MessageCircleIcon,
   MessageSquareIcon,
-  CopyIcon,
+  NavigationIcon,
 } from "vue-feather-icons";
 import StrategicStockPreview from "~/components/strategic/StrategicStockPreview.vue";
 import StrategicClientList from "~/components/strategic/StrategicClientList.vue";
@@ -141,7 +141,7 @@ export default {
     MailIcon,
     MessageCircleIcon,
     MessageSquareIcon,
-    CopyIcon,
+    NavigationIcon,
   },
   props: {
     isOpen: {
@@ -181,10 +181,11 @@ export default {
       }, 300);
     },
     generateMessageSample() {
-      this.messageSample = `[AI 추천 전략 유망주]\n${this.stock.name} (${this.stock.code})\n\n고객님께 새로운 투자 기회를 안내해 드립니다.\n현재가: ${this.stock.currentPrice}원.\n\nAI 기반 상승 예측 내용과 상세 분석 리포트는 다음 링크에서 확인하실 수 있습니다.`;
+      this.messageSample = `[AI 추천 전략 유망주]\n${this.stock.name} (${this.stock.code})\n\n안녕하세요. 고객님을 위한 AI 분석 중장기 유망주 정보를 안내해 드립니다.\n\n▶ 종목명: ${this.stock.name}\n▶ 현재가: ${this.stock.currentPrice}원 (${this.stock.changePercent})\n▶ 의견: ${this.stock.characteristic}\n\n■ 투자 전략 및 분석\n${this.stock.rationale.map(r => `- ${r}`).join('\n')}\n\n상세 분석 리포트는 아래 링크에서 확인하실 수 있습니다.\n[상세보기 링크]\n\n감사합니다.`;
     },
-    copyContent() {
-      console.log(`내용 복사됨:\n${this.messageSample}`);
+    handleSend() {
+      alert("준비중 입니다");
+      console.log(`전송 시도:\n${this.messageSample}`);
       console.log(`선택된 고객: ${this.selectedClients.length}명`);
       console.log(`전송 방식: ${this.transmissionMethod}`);
       this.closeModal();

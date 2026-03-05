@@ -25,9 +25,12 @@
   @apply px-3 py-3 border-b border-gray-200 dark:border-gray-700 transition-colors;
 }
 
-/* 강조 행 (핵심 종목 하이라이트) */
-.issue-detail-table__row--highlight {
-  @apply bg-primary/5 dark:bg-primary/10;
+/* 마우스 오버 배경색 추가 */
+.issue-detail__table tr {
+  @apply transition-colors;
+}
+.issue-detail__table tr:hover {
+  @apply bg-slate-50 dark:bg-slate-800/50;
 }
 
 /* 종목 상태 뱃지 기본 스타일 */

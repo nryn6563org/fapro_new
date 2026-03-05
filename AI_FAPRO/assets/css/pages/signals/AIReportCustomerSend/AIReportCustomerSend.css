@@ -12,7 +12,7 @@
   @apply w-full bg-white dark:bg-slate-900 p-0;
 }
 .ai-report-send__card-header {
-  @apply mb-4;
+  @apply my-4;
 }
 .ai-report-send__card-title {
   @apply text-[15px] font-bold text-slate-800 dark:text-slate-200 flex items-center mb-1;
@@ -51,7 +51,8 @@
 
 /* ── 고객 그리드 ── */
 .ai-report-send__target-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[300px] overflow-y-auto pr-2 pb-2;
+  @apply grid grid-cols-1 md:grid-cols-2 gap-3 overflow-y-auto pr-2 pb-2;
+  max-height: calc(3 * 90px + 2 * 0.75rem); /* 3 rows * card height + 2 gaps */
 }
 .ai-report-send__client-card {
   @apply border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 p-3 rounded-lg cursor-pointer transition-all flex items-start gap-3;

@@ -48,18 +48,28 @@
 /* 2컬럼 레이아웃 */
 .issue-detail__body-grid {
   @apply grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-8;
+  align-items: stretch;
 }
 .issue-detail__col-left {
-  @apply flex flex-col gap-6;
+  @apply flex flex-col justify-between;
 }
 .issue-detail__col-right {
-  @apply flex flex-col gap-6;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+.issue-detail__col-right > * {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 하단 100% 너비 영역 (뉴스 및 액션) */
+.issue-detail__bottom-row {
+  @apply flex flex-col gap-6 mt-6 pt-0;
 }
 
 /* 세그먼트 섹션 */
-.issue-detail__segment {
-  @apply mb-6;
-}
 .issue-detail__section-label {
   @apply flex items-center gap-2 mb-3;
 }
@@ -67,7 +77,7 @@
   @apply w-5 h-5;
 }
 .issue-detail__section-title {
-  @apply font-bold text-base text-slate-900 dark:text-white m-0;
+  @apply font-bold text-base text-slate-900 dark:text-white m-0 flex gap-2;
 }
 
 /* 세그먼트 박스: 표준 내부 박스 배경 */
@@ -101,7 +111,7 @@
 
 /* 푸터 */
 .issue-detail__footer {
-  @apply pt-4 border-t border-slate-200 dark:border-slate-800;
+  @apply pt-4 ;
 }
 /* 제안 버튼: 표준 브랜드 버튼 스타일 */
 .issue-detail__btn-propose {

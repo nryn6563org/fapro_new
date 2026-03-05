@@ -18,17 +18,6 @@
         <div class="ai-report-score__progress-list">
           <!-- Iterate scores statically based on mock data -->
           <div class="ai-report-score__progress-item">
-            <div class="ai-report-score__progress-label">시스코어</div>
-            <div class="ai-report-score__progress-bar">
-              <div
-                class="ai-report-score__progress-fill ai-report-score__progress-fill--green"
-                style="width: 90%"
-              ></div>
-            </div>
-            <div class="ai-report-score__progress-value">9.0</div>
-          </div>
-
-          <div class="ai-report-score__progress-item">
             <div class="ai-report-score__progress-label">밸류(Value)</div>
             <div class="ai-report-score__progress-bar">
               <div
@@ -40,7 +29,7 @@
           </div>
 
           <div class="ai-report-score__progress-item">
-            <div class="ai-report-score__progress-label">퀄리티(Quality)</div>
+            <div class="ai-report-score__progress-label">우량성(Quality)</div>
             <div class="ai-report-score__progress-bar">
               <div
                 class="ai-report-score__progress-fill ai-report-score__progress-fill--yellow"

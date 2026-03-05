@@ -42,28 +42,25 @@
   @apply text-xs text-slate-500 mt-2 text-right;
 }
 
-/* 전송 방법 그리드 */
-.issue-proposal__method-grid {
-  @apply grid grid-cols-3 gap-3;
+/* 전송 및 다운로드 큰 버튼 */
+.issue-proposal-action-btn {
+  @apply flex flex-col items-center justify-center p-6 rounded-2xl border transition-all cursor-pointer;
 }
-/* 전송 버튼 기본 */
-.issue-proposal__method-btn {
-  @apply relative flex flex-col items-center justify-center py-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-500 transition-all cursor-pointer;
+.issue-proposal-action-btn--email {
+  @apply bg-sky-50 dark:bg-sky-500/5 border-sky-100 dark:border-sky-500/20 text-sky-600 dark:text-sky-400;
 }
-.issue-proposal__method-btn:hover {
-  @apply border-primary/40 bg-white dark:bg-slate-700;
+.issue-proposal-action-btn--email:hover:not(:disabled) {
+  @apply bg-sky-100 dark:bg-sky-500/10 border-sky-200 dark:border-sky-500/30;
 }
-/* 이메일 활성: 표준 액센트 스타일 */
-.issue-proposal__method-btn--active-email {
-  @apply bg-primary/5 dark:bg-primary/10 border-primary text-primary dark:text-primary-light;
+.issue-proposal-action-btn--email:disabled {
+  @apply opacity-50 cursor-not-allowed grayscale;
 }
-/* 카카오 활성: 브랜드 옐로 유지 */
-.issue-proposal__method-btn--active-kakao {
-  @apply border-amber-500 bg-amber-500 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400;
+
+.issue-proposal-action-btn--download {
+  @apply bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300;
 }
-/* SMS 활성: 표준 액센트 스타일 */
-.issue-proposal__method-btn--active-sms {
-  @apply bg-primary/5 dark:bg-primary/10 border-primary text-primary dark:text-primary-light;
+.issue-proposal-action-btn--download:hover {
+  @apply bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-700;
 }
 
 .issue-proposal__check-icon {

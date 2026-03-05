@@ -1,28 +1,40 @@
 <template>
-  <div class="issue-proposal__form flex flex-col gap-6">
+  <div class="issue-proposal__form flex flex-col gap-10">
+    <!-- Issue Info Section -->
+    <IssueProposalInfo :issue="issue" />
+
     <!-- Context & Stock Table & Outlook -->
-    <IssueProposalContext :form-data.sync="localFormData" :issue-stocks="issue ? issue.relatedStocks : []" />
+    <IssueProposalContext :issue="issue" :form-data.sync="localFormData" :issue-stocks="issue ? issue.relatedStocks : []" />
 
-    <!-- Attachment Section (#22) -->
-    <div class="proposal-section">
-      <div class="issue-proposal__label mb-3">
-        <div class="fapro-badge fapro-badge--slate fapro-badge--sm mr-2">22</div>
-        첨부파일 추가
-      </div>
-      <div class="fapro-section !p-4 bg-slate-50/50 dark:bg-slate-800/30 !shadow-none border-dashed border-2 flex flex-col items-center justify-center cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-all text-slate-400">
-        <paperclip-icon class="w-6 h-6 mb-2" />
-        <p class="text-xs">클릭하여 첨부파일 다이얼로그 노출하여 파일 업로드 가능하게 구현(이미지, 문서 등)</p>
-      </div>
-    </div>
-
-    <!-- Client Selection (#23) -->
+    <!-- Client Selection -->
     <IssueProposalClients
       :clients="clients"
       :selected-client-ids.sync="localSelectedClients"
     />
 
-    <!-- Send Method -->
-    <IssueProposalMethod :send-method.sync="localSendMethod" />
+    <!-- Send & Download Section -->
+    <div class="issue-proposal-section">
+      <div class="issue-proposal-section__header mb-4">
+        <h3 class="issue-proposal-section__title">전송 및 다운로드</h3>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <button
+          class="issue-proposal-action-btn issue-proposal-action-btn--email"
+          :disabled="localSelectedClients.length === 0"
+          @click="$emit('send', { method: 'email', clients: localSelectedClients })"
+        >
+          <mail-icon class="w-5 h-5 mb-1" />
+          <span class="font-black">선택한 고객에게 이메일 전송</span>
+        </button>
+        <button
+          class="issue-proposal-action-btn issue-proposal-action-btn--download"
+          @click="$emit('download')"
+        >
+          <download-icon class="w-5 h-5 mb-1" />
+          <span class="font-black">PDF 다운로드</span>
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -30,19 +42,20 @@
 /**
  * 기능: 제안서 작성 입력 및 설정 폼 영역
  */
-import { PaperclipIcon } from "vue-feather-icons";
+import { MailIcon, DownloadIcon } from "vue-feather-icons";
+import IssueProposalInfo from "~/components/issues/IssueProposalInfo.vue";
 import IssueProposalContext from "~/components/issues/IssueProposalContext.vue";
 import IssueProposalClients from "~/components/issues/IssueProposalClients.vue";
-import IssueProposalMethod from "~/components/issues/IssueProposalMethod.vue";
 import "~/assets/css/pages/issues/IssueProposalForm/IssueProposalForm.css";
 
 export default {
   name: "IssueProposalForm",
   components: {
+    IssueProposalInfo,
     IssueProposalContext,
     IssueProposalClients,
-    IssueProposalMethod,
-    PaperclipIcon,
+    MailIcon,
+    DownloadIcon,
   },
   props: {
     issue: {

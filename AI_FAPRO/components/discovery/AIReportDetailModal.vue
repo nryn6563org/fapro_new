@@ -3,76 +3,52 @@
     v-if="isOpen"
     :is-open="isOpen"
     modal-id="ai-report-detail-modal"
-    custom-dialog-class="discovery-modal__dialog"
+    custom-dialog-class="ai-report-modal__dialog"
     @close="$emit('close')"
   >
     <!-- Header Component -->
     <template #header>
-      <div class="discovery-modal__header">
-        <div class="discovery-modal__header-content">
-          <div class="discovery-modal__header-icon">
-            <star-icon class="w-6 h-6 text-amber-500" />
+      <template v-if="report">
+        <div class="ai-report-modal__header">
+          <div class="ai-report-modal__header-content">
+            <div class="ai-report-modal__icon-box">
+              <activity-icon
+                size="28"
+                class="text-primary dark:text-primary-light"
+              />
+            </div>
+            <div class="ai-report-modal__title-wrapper">
+              <h2 class="ai-report-modal__title">
+                {{ report.stockName }}
+                <span class="ai-report-modal__ticker">({{ report.stockCode || 'A000000' }})</span>
+              </h2>
+              <div class="ai-report-modal__badges">
+                <span class="ai-report-modal__badge ai-report-modal__badge--blue">
+                  {{ report.investment }}
+                </span>
+                <span class="ai-report-modal__badge ai-report-modal__badge--orange">
+                  목표가 {{ report.targetPrice }}
+                </span>
+                <span class="ai-report-modal__badge ai-report-modal__badge--indigo">
+                  {{ report.upside }} 상승여력
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="discovery-modal__header-text">
-            <h2 class="discovery-modal__title">AI 생성 리포트</h2>
-            <p class="discovery-modal__subtitle">
-              AI가 분석한 종목 리포트를 확인하세요
-            </p>
-          </div>
+          <button
+            type="button"
+            class="ai-report-modal__close-btn"
+            @click="$emit('close')"
+          >
+            <x-icon size="24" />
+          </button>
         </div>
-        <button
-          type="button"
-          class="discovery-modal__close-btn"
-          @click="$emit('close')"
-        >
-          <x-icon size="24" />
-        </button>
-      </div>
+      </template>
     </template>
 
     <!-- Body Component -->
-    <div class="discovery-modal__body">
+    <div class="ai-report-modal__content">
       <template v-if="report">
-        <!-- Header Info Card -->
-        <div class="discovery-modal__info-card">
-          <div class="discovery-modal__info-header">
-            <h3 class="discovery-modal__stock-name">{{ report.stockName }}</h3>
-            <p class="discovery-modal__report-title">{{ report.title }}</p>
-          </div>
-
-          <div class="discovery-modal__stats-grid">
-            <div class="discovery-modal__stat-col">
-              <span class="discovery-modal__stat-label">투자의견</span>
-              <div
-                :class="[
-                  'discovery-modal__badge',
-                  getInvestmentColor(report.investment),
-                ]"
-              >
-                {{ report.investment }}
-              </div>
-            </div>
-            <div class="discovery-modal__stat-col">
-              <span class="discovery-modal__stat-label">목표가</span>
-              <div class="discovery-modal__stat-value">
-                {{ report.targetPrice }}
-              </div>
-            </div>
-            <div class="discovery-modal__stat-col">
-              <span class="discovery-modal__stat-label">현재가</span>
-              <div class="discovery-modal__stat-value--muted">
-                {{ report.currentPrice }}
-              </div>
-            </div>
-            <div class="discovery-modal__stat-col">
-              <span class="discovery-modal__stat-label">상승여력</span>
-              <div class="discovery-modal__stat-value--highlight">
-                <trending-up-icon class="w-4 h-4 mr-1" />
-                {{ report.upside }}
-              </div>
-            </div>
-          </div>
-        </div>
 
         <!-- 생성 사유 -->
         <div class="discovery-modal__section">
@@ -125,9 +101,11 @@ import {
   FileTextIcon,
   DownloadIcon,
   MailIcon,
+  ActivityIcon,
 } from "vue-feather-icons";
 import ModalVanilla from "~/components/modal/ModalVanilla.vue";
 import "~/assets/css/pages/discovery/AIReportDetailModal/AIReportDetailModal.css";
+import "~/assets/css/pages/signals/SignalsPage/SignalsPage.css";
 
 export default {
   name: "AIReportDetailModal",
@@ -138,6 +116,7 @@ export default {
     FileTextIcon,
     DownloadIcon,
     MailIcon,
+    ActivityIcon,
     ModalVanilla,
   },
   props: {

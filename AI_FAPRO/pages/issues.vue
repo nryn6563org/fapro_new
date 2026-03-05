@@ -7,14 +7,12 @@
         <div class="issues-header__title-box">
           <h1 class="issues-header__title">AI이슈포착</h1>
           <p class="issues-header__subtitle">
-            대형주로 구성된 이슈 맵 - 총 {{ issues.length }}개 이슈가
-            발생했습니다.
+            중소형주 및 대형주 이슈를 포착 합니다
           </p>
         </div>
         <div class="issues-header__action-box">
           <div class="issues-header__time-info">
             <p class="issues-header__time-text">{{ formattedTime }}</p>
-            <p class="issues-header__time-label">최종 업데이트</p>
           </div>
           <button class="issues-header__btn-refresh" @click="refreshData">
             <refresh-cw-icon size="16" class="issues-header__refresh-icon" />
@@ -110,10 +108,10 @@
       </div>
     </transition>
 
-    <!-- Proposal Modal -->
     <issue-proposal-modal
       :is-open="isProposalModalOpen"
       :issue="selectedIssueForProposal"
+      :clients="sampleClients"
       @close="isProposalModalOpen = false"
       @send="handleProposalSend"
     />
@@ -148,16 +146,26 @@ export default {
   layout: "default",
   data() {
     return {
-      issueType: "small", // 'small' or 'large'
+      issueType: "all", // 'all', 'small', or 'large'
       selectedIssueId: null,
       isProposalModalOpen: false,
       selectedIssueForProposal: null,
       currentTime: new Date(),
       timer: null,
+      sampleClients: [
+        { id: 1, name: "김철수", email: "chulsoo.kim@email.com", type: "VVIP" },
+        { id: 2, name: "이영희", email: "younghee.lee@email.com", type: "VIP" },
+        { id: 3, name: "박지성", email: "js.park@email.com", type: "General" },
+        { id: 4, name: "최유리", email: "yuri.choi@email.com", type: "VVIP" },
+        { id: 5, name: "정민수", email: "ms.jung@email.com", type: "VIP" },
+      ],
     };
   },
   computed: {
     issues() {
+      if (this.issueType === "all") {
+        return [...issueData, ...largeCapIssueData];
+      }
       return this.issueType === "small" ? issueData : largeCapIssueData;
     },
     smallCapStats() {
@@ -172,13 +180,8 @@ export default {
     },
     formattedTime() {
       const d = this.currentTime;
-      return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(
-        2,
-        "0"
-      )}.${String(d.getDate()).padStart(2, "0")} ${String(
-        d.getHours()
-      ).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}:${String(
-        d.getSeconds()
+      return `${String(d.getMonth() + 1).padStart(2, "0")}.${String(
+        d.getDate()
       ).padStart(2, "0")}`;
     },
   },
@@ -194,7 +197,7 @@ export default {
   mounted() {
     this.timer = setInterval(() => {
       this.currentTime = new Date();
-    }, 1000);
+    }, 60000); // 분 단위 갱신
   },
   beforeDestroy() {
     if (this.timer) clearInterval(this.timer);

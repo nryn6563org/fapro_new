@@ -1,26 +1,74 @@
+/* ── 이슈 제안서 연관 종목 테이블 스타일 (IssueDetailStockTable 동일 디자인) ── */
+
+/* 테이블 외곽 컨테이너 */
 .issue-proposal-table__wrapper {
-  @apply overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800;
+  @apply overflow-hidden bg-white dark:bg-slate-900 shadow-sm relative border border-gray-200 dark:border-gray-700 rounded-xl mt-2;
 }
+
+/* 테이블 기본 구조 */
 .issue-proposal-table__table {
-  @apply w-full border-collapse;
+  @apply w-full text-[13px] border-collapse;
 }
+
+/* 테이블 헤더 셀 */
 .issue-proposal-table__table th {
-  @apply bg-slate-50 px-3 py-2 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200;
-}
-.dark .issue-proposal-table__table th {
-  @apply bg-slate-900/50 border-slate-800;
+  @apply bg-slate-50 dark:bg-slate-800/50 px-3 py-3 text-xs font-bold text-slate-500 dark:text-slate-400 border-b border-gray-200 dark:border-gray-700;
 }
 
+/* 테이블 데이터 셀 */
 .issue-proposal-table__table td {
-  @apply px-3 py-3 text-xs border-b border-slate-100;
-}
-.dark .issue-proposal-table__table td {
-  @apply border-slate-800/50;
+  @apply px-3 py-3 border-b border-gray-200 dark:border-gray-700 transition-colors;
 }
 
+/* 마우스 오버 배경색 */
+.issue-proposal-table__table tr {
+  @apply transition-colors;
+}
+.issue-proposal-table__table tr:hover {
+  @apply bg-slate-50 dark:bg-slate-800/50;
+}
+
+/* 마지막 행 보더 제거 */
 .issue-proposal-table__table tr:last-child td {
   @apply border-b-0;
 }
+
+/* 틱커 sub-text */
+.issue-proposal-table__ticker {
+  @apply text-[10px] text-slate-400 font-normal mt-0.5 leading-none;
+}
+
+/* AI 시그널 뱃지 기본 스타일 */
+.issue-proposal-table__ai-badge {
+  @apply inline-flex px-3 py-1 rounded-full text-xs font-semibold;
+}
+
+/* 매수 뱃지: 상승 시맨틱 컬러 */
+.issue-proposal-table__ai-badge--red {
+  background-color: rgba(251, 44, 54, 0.1);
+  color: #fb2c36;
+}
+.dark .issue-proposal-table__ai-badge--red {
+  background-color: rgba(251, 44, 54, 0.15);
+  color: #ff7b82;
+}
+
+/* 보유 뱃지: primary 계열 */
+.issue-proposal-table__ai-badge--green {
+  background-color: rgba(83, 104, 255, 0.1);
+  color: #5368ff;
+}
+.dark .issue-proposal-table__ai-badge--green {
+  background-color: rgba(83, 104, 255, 0.15);
+  color: #7b8dff;
+}
+
+/* 관망 뱃지 */
+.issue-proposal-table__ai-badge--gray {
+  @apply bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400;
+}
+
+/* 다른 이슈 태그 */
 .issue-proposal-table__tag {
-  @apply text-[10px] px-1.5 py-0.5 rounded-md border border-teal-100 dark:border-teal-900/50 text-teal-600 dark:text-teal-400 bg-teal-50/50 dark:bg-teal-900/20 whitespace-nowrap;
+  @apply inline-flex px-2 py-0.5 rounded-full text-xs border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400;
 }
