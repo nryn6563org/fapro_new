@@ -10,8 +10,8 @@
       >
         <div class="ai-report-stock__info-list">
           <div class="ai-report-stock__info-row">
-            <span class="ai-report-stock__info-label">Price as of 9/6/07</span>
-            <span class="ai-report-stock__info-value">$117.62</span>
+            <span class="ai-report-stock__info-label">Price as of {{ signal?.generatedDate || '9/6/07' }}</span>
+            <span class="ai-report-stock__info-value">{{ signal?.price || signal?.currentPrice || '$117.62' }}</span>
           </div>
           <div class="ai-report-stock__info-row">
             <span class="ai-report-stock__info-label"
@@ -45,7 +45,7 @@
             <div class="ai-report-stock__theme-row">
               <span class="ai-report-stock__theme-label">Sector</span>
               <span class="ai-report-stock__theme-value"
-                >Information Technology</span
+                >{{ signal?.category || 'Information Technology' }}</span
               >
             </div>
             <div class="ai-report-stock__theme-row">
@@ -58,7 +58,6 @@
               <span class="ai-report-stock__theme-label"
                 >Schwab Industry Rating</span
               >
-              <span class="ai-report-stock__theme-value">-</span>
             </div>
             <div class="ai-report-stock__theme-row">
               <span class="ai-report-stock__theme-label">Sub-Industry</span>
@@ -72,7 +71,7 @@
           <div class="ai-report-stock__opinion-box">
             <h4 class="ai-report-stock__opinion-header">
               <span>투자의견 종합</span>
-              <span class="ai-report-stock__opinion-highlight">강력매수</span>
+              <span class="ai-report-stock__opinion-highlight">{{ signal?.investment || signal?.signalBadge || '강력매수' }}</span>
             </h4>
             <div class="ai-report-stock__ranking">
               <div class="ai-report-stock__ranking-header">
@@ -87,7 +86,7 @@
                   <div class="flex-1 bg-blue-200 dark:bg-blue-800/40"></div>
                 </div>
                 <!-- 현재 위치 표시 (삼각형) -->
-                <div class="ai-report-stock__ranking-marker" style="left: 75%">
+                <div class="ai-report-stock__ranking-marker" :style="{ left: (signal?.aiScore || 75) + '%' }">
                   <div class="ai-report-stock__ranking-triangle"></div>
                 </div>
               </div>
@@ -109,12 +108,10 @@
             <h4 class="ai-report-stock__target-price-title">목표주가(3개월)</h4>
             <div class="ai-report-stock__target-price-values">
               <div class="ai-report-stock__target-price-main">
-                210,000
-                <span class="ai-report-stock__target-price-unit">원</span>
+                {{ signal?.targetPrice || '210,000' }}
               </div>
               <div class="ai-report-stock__target-price-sub">
-                160,000
-                <span class="ai-report-stock__target-price-sub-unit">원</span>
+                {{ signal?.currentPrice || signal?.price || '160,000' }}
               </div>
             </div>
           </div>
@@ -256,5 +253,11 @@ import "~/assets/css/pages/signals/AIReportStockInfo/AIReportStockInfo.css";
 
 export default {
   name: "AIReportStockInfo",
+  props: {
+    signal: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
 };
 </script>

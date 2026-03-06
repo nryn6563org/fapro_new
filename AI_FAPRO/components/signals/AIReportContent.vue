@@ -6,7 +6,11 @@
         <!-- Left Column: Investment & Score -->
         <div class="ai-report-content__col-left">
           <a-i-report-investment :signal="signal" />
-          <a-i-report-score :signal="signal" />
+          <a-i-report-score
+            :score="signal?.aiScore"
+            :investment="signal?.investment || signal?.signalBadge"
+            :buy-factors="signal?.keyPoints"
+          />
         </div>
 
         <!-- Right Column: Stock Info & Radar -->

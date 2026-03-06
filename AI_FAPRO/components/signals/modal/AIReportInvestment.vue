@@ -1,13 +1,13 @@
 <template>
   <div class="ai-report-investment">
     <!-- 기업 정보 (투자브리프) -->
-    <AIReportInvestmentBrief :ai-report="signal?.aiReport" />
+    <AIReportInvestmentBrief :ai-report="signal?.aiReport || signal?.reason" />
 
     <!-- 52주 차트 -->
     <AIReportInvestmentChart />
 
     <!-- AI 추천 사유 -->
-    <AIReportInvestmentReason />
+    <AIReportInvestmentReason :reason="signal?.reason" />
   </div>
 </template>
 
