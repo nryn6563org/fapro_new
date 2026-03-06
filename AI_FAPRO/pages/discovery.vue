@@ -8,6 +8,9 @@
         </p>
       </div>
       <div class="discovery-page__action-box">
+        <div class="discovery-page__time-info">
+          <p class="discovery-page__time-text">{{ formattedTime }}</p>
+        </div>
         <button class="discovery-page__refresh-btn" @click="refreshData">
           <refresh-cw-icon size="16" class="discovery-page__refresh-icon" />
           <span class="discovery-page__refresh-text">새로고침</span>
@@ -72,12 +75,11 @@ export default {
     };
   },
   computed: {
-    formattedDateOnly() {
+    formattedTime() {
       const d = this.currentTime;
-      return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(
-        2,
-        "0"
-      )}.${String(d.getDate()).padStart(2, "0")}`;
+      return `${String(d.getMonth() + 1).padStart(2, "0")}.${String(
+        d.getDate()
+      ).padStart(2, "0")}`;
     },
   },
   mounted() {

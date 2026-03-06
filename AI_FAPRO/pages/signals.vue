@@ -66,13 +66,8 @@ export default {
      */
     formattedTime() {
       const d = this.currentTime;
-      return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(
-        2,
-        "0"
-      )}.${String(d.getDate()).padStart(2, "0")} ${String(
-        d.getHours()
-      ).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}:${String(
-        d.getSeconds()
+      return `${String(d.getMonth() + 1).padStart(2, "0")}.${String(
+        d.getDate()
       ).padStart(2, "0")}`;
     },
   },

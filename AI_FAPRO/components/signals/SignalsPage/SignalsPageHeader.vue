@@ -9,7 +9,6 @@
     <div class="signals-page__action-box">
       <div class="signals-page__time-info">
         <p class="signals-page__time-text">{{ formattedTime }}</p>
-        <p class="signals-page__time-label">최종 업데이트</p>
       </div>
       <button class="signals-page__refresh-btn" @click="$emit('refresh')">
         <refresh-cw-icon size="16" class="signals-page__refresh-icon" />
