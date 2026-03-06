@@ -83,6 +83,7 @@ export default {
             email: "chulsoo@example.com",
             portfolio: "15억",
             investmentStyle: "공격투자형",
+            reason: "최근 반도체 섹터의 강한 수급과 함께 공격적인 포트폴리오 확장이 필요한 시점입니다.",
           },
           {
             id: 2,
@@ -90,6 +91,7 @@ export default {
             email: "younghee@example.com",
             portfolio: "8억",
             investmentStyle: "안정추구형",
+            reason: "변동성이 적은 우량주 위주의 안정적인 수익 확보를 위해 매수를 제안합니다.",
           },
         ];
         this.checkedCustomerIds = this.internalCustomers.map((c) => c.id);

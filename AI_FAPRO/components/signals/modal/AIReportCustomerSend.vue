@@ -69,9 +69,9 @@
                     </span>
                   </div>
                   <div class="ai-report-send__client-details">
-                    <p class="ai-report-send__client-memo">
-                      고객 특이사항: {{ client.memo }}
-                    </p>
+                    <div :class="['ai-report-send__client-reason', isBuy ? 'ai-report-send__client-reason--red' : 'ai-report-send__client-reason--blue']">
+                      제안 사유: {{ client.memo }}
+                    </div>
                     <p class="ai-report-send__client-assets">
                       총 자산: {{ client.assets }} / 총 수익률:
                       {{ client.return }}
@@ -184,6 +184,11 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    isBuy() {
+      return this.signal?.tradeHistory?.[0]?.signal === "매수";
+    },
   },
   watch: {
     selectedClients(val) {

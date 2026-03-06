@@ -40,24 +40,25 @@
 
 /* ── 종목별 제안 사유 블록 ── */
 .proposal-item__stock-reason {
-  @apply mt-2 text-[11px] leading-relaxed px-3 py-2 rounded-lg flex items-start gap-1.5 border;
+  @apply mt-2 text-[11px] leading-relaxed px-3 py-2 rounded-lg flex items-start gap-1 border;
 }
 
 /* 탭 테마별 배경/색상 */
 .proposal-item__stock-reason--buy {
-  @apply proposal-item__stock-reason bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-100 dark:border-emerald-900/40 w-full;
+  @apply proposal-item__stock-reason bg-buy-light/80 dark:bg-buy/10 text-buy dark:text-buy border-buy/20 w-full !items-center !leading-[18px];
 }
 
 .proposal-item__stock-reason--sell {
-  @apply proposal-item__stock-reason bg-blue-50/80 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border-blue-100 dark:border-blue-900/40 w-full;
+  @apply proposal-item__stock-reason bg-sell-light/80 dark:bg-sell/10 text-sell dark:text-sell border-sell/20 w-full !items-center !leading-[18px];
 }
 
 .proposal-item__stock-reason--neutral {
-  @apply proposal-item__stock-reason bg-amber-50/80 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border-amber-100 dark:border-amber-900/40 w-full;
+  @apply proposal-item__stock-reason bg-gray-100/80 dark:bg-gray-800/40 text-slate-700 dark:text-slate-300 border-gray-200 dark:border-gray-700 w-full;
 }
 
 .proposal-item__stock-reason-label {
   @apply font-bold whitespace-nowrap;
+  margin-top: 1px; /* Fine-tune emoji alignment with text */
 }
 
 .proposal-section__icon {

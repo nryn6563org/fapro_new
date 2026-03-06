@@ -102,8 +102,18 @@
 .ai-report-send__client-details {
   @apply flex flex-col gap-1;
 }
-.ai-report-send__client-memo {
-  @apply text-[12px] font-medium text-slate-600 dark:text-slate-400;
+.ai-report-send__client-reason {
+  @apply text-[12px] px-3 py-2 rounded-lg leading-relaxed border flex items-start gap-1 relative mb-1;
+}
+.ai-report-send__client-reason--red {
+  @apply text-buy bg-buy/10 border-buy/20;
+}
+.ai-report-send__client-reason--blue {
+  @apply text-sell bg-sell/10 border-sell/20;
+}
+.ai-report-send__client-reason::before {
+  content: "💡";
+  @apply text-[12px];
 }
 .ai-report-send__client-assets {
   @apply text-[12px] font-medium text-slate-500 dark:text-slate-500;

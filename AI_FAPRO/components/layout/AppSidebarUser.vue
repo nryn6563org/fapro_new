@@ -37,7 +37,7 @@
 
         <!-- Action Buttons -->
         <div class="app-sidebar__actions">
-          <button class="app-sidebar__logout-btn">
+          <button class="app-sidebar__logout-btn" @click="handleLogout">
             <log-out-icon size="14" />
             <span>로그아웃</span>
           </button>
@@ -87,6 +87,16 @@ export default {
     isCollapsed: {
       type: Boolean,
       default: false,
+    },
+  },
+  methods: {
+    /**
+     * @description 로그아웃 처리를 수행합니다.
+     */
+    handleLogout() {
+      this.$store.dispatch("auth/logout");
+      // 메인 페이지로 이동 (필요시)
+      this.$router.push("/");
     },
   },
 };

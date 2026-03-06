@@ -1,5 +1,5 @@
 export const state = () => ({
-  isLoggedIn: false
+  isLoggedIn: true
 });
 
 export const mutations = {
@@ -14,5 +14,8 @@ export const actions = {
     setTimeout(() => {
       commit('SET_LOGGED_IN', true);
     }, 500);
+  },
+  logout({ commit }) {
+    commit('SET_LOGGED_IN', false);
   }
 };

@@ -65,7 +65,13 @@
   @apply text-[13px] text-slate-600 dark:text-slate-400 leading-tight;
 }
 .proposal-item__reason {
-  @apply text-[12px] text-emerald-600 dark:text-emerald-400 bg-emerald-50/40 dark:bg-emerald-950/20 px-3 py-2 rounded-lg leading-relaxed border border-emerald-100/50 dark:border-emerald-900/40 flex items-start gap-1 relative;
+  @apply text-[12px] px-3 py-2 rounded-lg leading-relaxed border flex items-start gap-1 relative;
+}
+.proposal-item__reason--red {
+  @apply text-buy bg-buy/10 border-buy/20;
+}
+.proposal-item__reason--blue {
+  @apply text-sell bg-sell/10 border-sell/20;
 }
 .proposal-item__reason::before {
   content: "💡";
