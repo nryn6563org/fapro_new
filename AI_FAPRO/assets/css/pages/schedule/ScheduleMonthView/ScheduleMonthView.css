@@ -13,7 +13,7 @@
 }
 
 .month-view__grid {
-  @apply grid grid-cols-7 gap-px bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-sm;
+  @apply grid grid-cols-7 gap-px bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm;
 }
 
 .month-view__th {
@@ -33,7 +33,7 @@
 }
 
 .month-view__cell--day {
-  @apply hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition-colors;
+  @apply hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition-colors bg-white;
 }
 
 .month-view__cell--empty {

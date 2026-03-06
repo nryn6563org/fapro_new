@@ -83,7 +83,7 @@ export default {
         clients,
         method,
       });
-      alert(`${method === 'email' ? '이메일' : '제안서'}가 성공적으로 전송되었습니다.`);
+      alert("준비중입니다.");
       this.$emit("close");
     },
     handleDownload() {

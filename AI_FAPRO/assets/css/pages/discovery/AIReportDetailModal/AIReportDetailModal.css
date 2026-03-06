@@ -145,7 +145,7 @@
 
 /* Sections */
 .discovery-modal__section {
-  @apply space-y-3;
+  @apply space-y-3 mt-10 first:mt-0;
 }
 .discovery-modal__section-title {
   @apply flex items-center gap-2 text-lg font-bold text-slate-900;

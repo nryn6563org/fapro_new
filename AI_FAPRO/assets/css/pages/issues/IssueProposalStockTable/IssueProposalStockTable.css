@@ -12,7 +12,7 @@
 
 /* 테이블 헤더 셀 */
 .issue-proposal-table__table th {
-  @apply fapro-th;
+  @apply fapro-th text-center;
 }
 
 .issue-proposal-table__th--left {

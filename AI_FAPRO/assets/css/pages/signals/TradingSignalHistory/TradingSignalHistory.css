@@ -52,13 +52,13 @@
   @apply w-full text-[13px] border-collapse;
 }
 .trading-signal-history__th {
-  @apply fapro-th;
+  @apply fapro-th text-center;
 }
 .trading-signal-history__td {
-  @apply fapro-td;
+  @apply fapro-td text-center;
 }
 .trading-signal-history__td--last {
-  @apply border-0;
+  @apply border-0 text-right;
 }
 .trading-signal-history__table-right {
   @apply text-right;
