@@ -1,7 +1,7 @@
 <template>
   <div class="week-view">
     <div class="week-view__container">
-      <!-- Week Header -->
+      <!-- 주간 헤더 -->
       <div class="week-view__header">
         <div class="week-view__time-label">GMT+9</div>
         <div
@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <!-- Time Grid -->
+      <!-- 시간 격자 -->
       <div class="week-view__grid">
         <div v-for="hour in timeSlots" :key="hour" class="week-view__row">
           <div class="week-view__hour-label">
@@ -122,7 +122,7 @@ export default {
       });
     },
     getEventColorClass(color) {
-      // Map 'bg-blue-500' to a BEM class
+      // 'bg-blue-500' 형식을 BEM 클래스로 변환
       return `week-view__event--${color.replace("bg-", "")}`;
     },
   },

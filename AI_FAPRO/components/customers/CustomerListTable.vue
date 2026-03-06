@@ -21,7 +21,7 @@
             <td class="customer-table__td">
               <div class="customer-table__name-box">
                 <div class="customer-table__avatar">
-                  <user-icon class="w-4 h-4 text-white" />
+                  <user-icon class="customer-table__avatar-icon" />
                 </div>
                 <span class="customer-table__name">{{ customer.name }}</span>
               </div>
@@ -40,7 +40,7 @@
               {{ customer.totalAssets }}
             </td>
             <td class="customer-table__td">
-              <span class="text-slate-700 dark:text-slate-300">{{
+              <span class="customer-table__holdings-text">{{
                 customer.holdings
               }}</span>
             </td>
@@ -52,7 +52,7 @@
                 class="customer-table__detail-btn"
                 @click="$emit('view-detail', customer)"
               >
-                <user-icon class="w-4 h-4 mr-1" />
+                <user-icon class="customer-table__detail-icon" />
                 상세보기
               </button>
             </td>

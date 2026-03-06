@@ -12,7 +12,10 @@
   @apply w-full bg-white dark:bg-slate-900 p-0;
 }
 .ai-report-send__card-header {
-  @apply my-4;
+  @apply my-4 pb-4 border-b border-slate-200 dark:border-slate-700;
+}
+.ai-report-send__card-body {
+  @apply pt-4;
 }
 .ai-report-send__card-title {
   @apply text-[15px] font-bold text-slate-800 dark:text-slate-200 flex items-center mb-1;
@@ -118,6 +121,9 @@
 }
 .ai-report-send__btn-primary {
   @apply flex-1 flex items-center justify-center py-3 bg-primary hover:bg-primary-hover text-white font-bold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+}
+.ai-report-send__btn-icon {
+  @apply mr-2;
 }
 .ai-report-send__btn-secondary {
   @apply flex items-center justify-center px-6 py-3 bg-white dark:bg-slate-900 text-primary border border-primary font-bold rounded-lg hover:bg-emerald-500 dark:hover:bg-emerald-900/10 transition-colors;

@@ -4,16 +4,6 @@
       <h2 class="today-proposal__header-title">
         {{ currentDate }} 오늘의 제안
       </h2>
-      <!-- <button
-        class="today-proposal__header-refresh-btn"
-        @click="$emit('refresh')"
-      >
-        <refresh-cw-icon
-          size="16"
-          class="today-proposal__header-refresh-icon"
-        />
-        <span class="today-proposal__header-refresh-text">실시간 업데이트</span>
-      </button> -->
     </div>
 
     <!-- Cards Container -->
@@ -203,7 +193,7 @@
  * 오늘 타겟 고객, 매수 타겟 종목, 매도 타겟 종목 3개 카드를 표시합니다.
  * 각 항목의 제안하기 버튼 클릭 시 ContactProposalModal을 구동합니다.
  */
-import { SendIcon /*, RefreshCwIcon */ } from "vue-feather-icons";
+import { SendIcon } from "vue-feather-icons";
 import {
   todayProposalCustomers,
   todayProposalStocks,
@@ -215,7 +205,6 @@ export default {
   name: "TodayProposalCard",
   components: {
     SendIcon,
-    // RefreshCwIcon,
   },
   props: {
     currentDate: {

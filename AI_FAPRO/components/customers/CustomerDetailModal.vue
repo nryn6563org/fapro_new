@@ -6,7 +6,7 @@
       <div class="customer-modal__header">
         <div class="customer-modal__header-left">
           <div class="customer-modal__icon-box">
-            <user-icon class="w-6 h-6 text-white" />
+            <user-icon class="customer-modal__icon" />
           </div>
           <div>
             <h2 class="customer-modal__title">{{ customer.name }}님의 정보</h2>
@@ -14,7 +14,7 @@
           </div>
         </div>
         <button class="customer-modal__close" @click="$emit('close')">
-          <x-icon class="w-6 h-6" />
+          <x-icon class="customer-modal__close-icon" />
         </button>
       </div>
 
@@ -43,7 +43,7 @@
             class="customer-modal__btn customer-modal__btn--outline"
             @click="$emit('view-holdings', customer)"
           >
-            <eye-icon class="w-4 h-4" /> 보유종목 상세보기
+            <eye-icon class="customer-modal__btn-icon" /> 보유종목 상세보기
           </button>
         </div>
         <button

@@ -60,6 +60,18 @@
 .ai-report-score__progress-fill {
   @apply h-full transition-all duration-500 ease-out;
 }
+.ai-report-score__progress-fill--w-30 {
+  width: 30%;
+}
+.ai-report-score__progress-fill--w-60 {
+  width: 60%;
+}
+.ai-report-score__progress-fill--w-80 {
+  width: 80%;
+}
+.ai-report-score__progress-fill--w-100 {
+  width: 100%;
+}
 .ai-report-score__progress-fill--green {
   @apply bg-green-500 dark:bg-green-400;
 }

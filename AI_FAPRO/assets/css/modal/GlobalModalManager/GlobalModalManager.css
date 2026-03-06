@@ -7,6 +7,11 @@
   ============================================================
 */
 
+/* ── 포탈 앵커 (숨김 처리) ── */
+.global-modal-manager {
+  display: none;
+}
+
 /* ── 모달 액션 버튼 영역 ── */
 .global-modal__actions {
   @apply flex justify-end gap-3;

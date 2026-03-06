@@ -21,8 +21,7 @@
             <div class="ai-report-score__progress-label">밸류(Value)</div>
             <div class="ai-report-score__progress-bar">
               <div
-                class="ai-report-score__progress-fill ai-report-score__progress-fill--red"
-                style="width: 30%"
+                class="ai-report-score__progress-fill ai-report-score__progress-fill--red ai-report-score__progress-fill--w-30"
               ></div>
             </div>
             <div class="ai-report-score__progress-value">3.0</div>
@@ -32,8 +31,7 @@
             <div class="ai-report-score__progress-label">우량성(Quality)</div>
             <div class="ai-report-score__progress-bar">
               <div
-                class="ai-report-score__progress-fill ai-report-score__progress-fill--yellow"
-                style="width: 60%"
+                class="ai-report-score__progress-fill ai-report-score__progress-fill--yellow ai-report-score__progress-fill--w-60"
               ></div>
             </div>
             <div class="ai-report-score__progress-value">6.0</div>
@@ -43,8 +41,7 @@
             <div class="ai-report-score__progress-label">모멘텀(Momentum)</div>
             <div class="ai-report-score__progress-bar">
               <div
-                class="ai-report-score__progress-fill ai-report-score__progress-fill--green"
-                style="width: 80%"
+                class="ai-report-score__progress-fill ai-report-score__progress-fill--green ai-report-score__progress-fill--w-80"
               ></div>
             </div>
             <div class="ai-report-score__progress-value">8.0</div>
@@ -56,8 +53,7 @@
             </div>
             <div class="ai-report-score__progress-bar">
               <div
-                class="ai-report-score__progress-fill ai-report-score__progress-fill--green"
-                style="width: 100%"
+                class="ai-report-score__progress-fill ai-report-score__progress-fill--green ai-report-score__progress-fill--w-100"
               ></div>
             </div>
             <div class="ai-report-score__progress-value">10.0</div>

@@ -6,7 +6,7 @@
     custom-dialog-class="strategic-modal__dialog"
     @close="closeModal"
   >
-    <!-- Header Component -->
+    <!-- 헤더 컴포넌트 -->
     <template #header>
       <div class="strategic-modal__header">
         <h2 class="strategic-modal__title">AI 추천 전략 유망주 제안</h2>
@@ -23,19 +23,19 @@
       </div>
     </template>
 
-    <!-- Body Component -->
+    <!-- 본문 컴포넌트 -->
     <div class="strategic-modal__body">
       <template v-if="stock">
-        <!-- Stock Details Preview -->
+        <!-- 종목 상세 미리보기 -->
         <StrategicStockPreview :stock="stock" />
 
-        <!-- Client Selection -->
+        <!-- 고객 선택 -->
         <StrategicClientList
           :clients="clientsList"
           :selected-clients.sync="selectedClients"
         />
 
-        <!-- Transmission Method Tabs -->
+        <!-- 전송 방식 탭 -->
         <div class="strategic-modal__form-group">
           <label class="strategic-modal__form-label">전송 방식</label>
           <div class="strategic-modal__tabs">
@@ -78,7 +78,7 @@
           </div>
         </div>
 
-        <!-- Message Sample -->
+        <!-- 메시지 샘플 -->
         <div class="strategic-modal__form-group">
           <div class="strategic-modal__form-header">
             <label class="strategic-modal__form-label">메시지 내용</label>
@@ -90,7 +90,7 @@
           ></textarea>
         </div>
 
-        <!-- Send Actions -->
+        <!-- 전송 액션 -->
         <div class="strategic-modal__actions">
           <button
             type="button"
@@ -155,7 +155,7 @@ export default {
   },
   data() {
     return {
-      transmissionMethod: "kakao", // 'sms', 'kakao', 'email'
+      transmissionMethod: "kakao", // 'sms', 'kakao', 'email' 중 하나
       selectedClients: [],
       clientsList: clients,
       messageSample: "",
@@ -174,7 +174,7 @@ export default {
   methods: {
     closeModal() {
       this.$emit("close");
-      // Reset form after animation
+      // 애니메이션 후 폼 초기화
       setTimeout(() => {
         this.selectedClients = [];
         this.transmissionMethod = "kakao";
@@ -185,9 +185,6 @@ export default {
     },
     handleSend() {
       alert("준비중 입니다");
-      console.log(`전송 시도:\n${this.messageSample}`);
-      console.log(`선택된 고객: ${this.selectedClients.length}명`);
-      console.log(`전송 방식: ${this.transmissionMethod}`);
       this.closeModal();
     },
   },

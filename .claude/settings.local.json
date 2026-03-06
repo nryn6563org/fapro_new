@@ -7,7 +7,12 @@
       "Bash(npm run build)",
       "Bash(timeout 90 npm run build)",
       "Bash(node fix-css-typos.js)",
-      "Bash(node /Users/nryn6563/WorkSpace/FAPRO_NEW/fix-css-typos.js)"
+      "Bash(node /Users/nryn6563/WorkSpace/FAPRO_NEW/fix-css-typos.js)",
+      "Bash(find /Users/nryn6563/WorkSpace/FAPRO_NEW/AI_FAPRO/.claude/worktrees/vigorous-hoover -type f -name \"*.vue\" -exec wc -l {} +)",
+      "Bash(xargs -I {} basename {})",
+      "Bash(sort -k2 -rn)",
+      "Bash(comm -13 /tmp/components.txt /tmp/css_dirs.txt)",
+      "Bash(xargs -I {} basename {} .css)"
     ],
     "deny": [],
     "ask": []

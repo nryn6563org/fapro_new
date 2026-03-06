@@ -58,8 +58,8 @@
           <div class="ai-report-investment__chart-mock">
             <div class="ai-report-investment__chart-y-axis">
               <span>최고</span>
-              <span class="mt-8">현재</span>
-              <span class="mt-8">최저</span>
+              <span class="ai-report-investment__chart-y-axis-gap">현재</span>
+              <span class="ai-report-investment__chart-y-axis-gap">최저</span>
             </div>
             <div class="ai-report-investment__chart-svg-wrapper">
               <svg
@@ -112,8 +112,8 @@
             </div>
             <div class="ai-report-investment__chart-y-axis">
               <span>250K</span>
-              <span class="mt-8">200K</span>
-              <span class="mt-8">150K</span>
+              <span class="ai-report-investment__chart-y-axis-gap">200K</span>
+              <span class="ai-report-investment__chart-y-axis-gap">150K</span>
             </div>
           </div>
         </div>

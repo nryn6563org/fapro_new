@@ -1,7 +1,6 @@
 <template>
   <article
     class="customer-intelligence-card customer-intelligence-card--rose animate-local-fade-up"
-    style="animation-delay: 500ms"
   >
     <header class="customer-intelligence-card__header">
       <div class="customer-intelligence-card__header-content">

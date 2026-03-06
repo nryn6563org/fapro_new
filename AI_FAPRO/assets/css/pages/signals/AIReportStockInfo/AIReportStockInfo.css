@@ -17,10 +17,10 @@
   @apply p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-all;
 }
 .ai-report-stock__card-header {
-  @apply mb-3;
+  @apply mb-3 pb-3 border-b-0 space-y-0;
 }
 .ai-report-stock__card-title {
-  @apply text-[15px] font-bold text-slate-800 dark:text-slate-200;
+  @apply text-sm font-bold text-slate-800 dark:text-slate-200;
 }
 .ai-report-stock__card-body {
   @apply space-y-3;
@@ -82,8 +82,28 @@
 .ai-report-stock__ranking-bar {
   @apply absolute inset-0 flex overflow-hidden rounded-[2px];
 }
+/* 랭킹 바 세그먼트 */
+.ai-report-stock__ranking-segment {
+  @apply flex-1;
+}
+.ai-report-stock__ranking-segment--sell {
+  @apply bg-red-100;
+}
+.ai-report-stock__ranking-segment--hold {
+  @apply bg-slate-100 dark:bg-slate-700;
+}
+.ai-report-stock__ranking-segment--buy-light {
+  @apply bg-blue-100 dark:bg-blue-900/40;
+}
+.ai-report-stock__ranking-segment--buy {
+  @apply bg-blue-200 dark:bg-blue-800/40;
+}
+
 .ai-report-stock__ranking-marker {
   @apply absolute top-0 bottom-0 flex items-center transform -translate-x-1/2;
+}
+.ai-report-stock__ranking-marker--pos-75 {
+  left: 75%;
 }
 .ai-report-stock__ranking-triangle {
   @apply w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-slate-900 dark:border-t-slate-100 drop-shadow-sm;
@@ -121,6 +141,9 @@
 /* ── 레이더 차트 ── */
 .ai-report-stock__radar-wrapper {
   @apply relative w-full aspect-square mt-2 flex items-center justify-center p-2 mb-2;
+}
+.ai-report-stock__radar-svg {
+  @apply w-full h-full;
 }
 .ai-report-stock__radar-bg-line {
   @apply stroke-slate-200 dark:stroke-slate-700;

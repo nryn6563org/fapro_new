@@ -9,17 +9,6 @@
           오늘 AI가 추천하는 타겟 고객과 종목을 빠르게 제안해 보세요.
         </p>
       </div>
-      <!-- 최종 업데이트 시간 표시 및 새로고침 버튼 -->
-      <!-- <div class="index-page__action-box">
-        <div class="index-page__time-info">
-          <p class="index-page__time-text">{{ formattedTime }}</p>
-          <p class="index-page__time-label">최종 업데이트</p>
-        </div>
-        <button class="index-page__refresh-btn" @click="refreshData">
-          <refresh-cw-icon size="16" class="index-page__refresh-icon" />
-          <span class="index-page__refresh-text">새로고침</span>
-        </button>
-      </div> -->
     </div>
 
     <!-- ── 오늘의 제안 카드: AI가 추천하는 오늘의 제안 목록 ── -->
@@ -43,7 +32,6 @@
 </template>
 
 <script>
-// import { RefreshCwIcon } from "vue-feather-icons";
 import TodayProposalCard from "~/components/dashboard/TodayProposalCard.vue";
 import CustomerIntelligenceCard from "~/components/dashboard/CustomerIntelligenceCard.vue";
 import TodayProposalModal from "~/components/dashboard/TodayProposalModal.vue";
@@ -57,7 +45,6 @@ import "~/assets/css/pages/index/IndexPage/IndexPage.css";
 export default {
   name: "IndexPage",
   components: {
-    // RefreshCwIcon,
     TodayProposalCard,
     CustomerIntelligenceCard,
     TodayProposalModal,
@@ -69,56 +56,13 @@ export default {
         month: "long",
         day: "numeric",
       }),
-      // 실시간 갱신용 현재 시각 객체
-      currentTime: new Date(),
-      // setInterval 타이머 참조 (컴포넌트 소멸 시 정리용)
-      timer: null,
       // 모달 제어 상태
       isModalOpen: false,
       selectedProposalType: "target-customer",
       selectedProposalData: {},
     };
   },
-  computed: {
-    /**
-     * @description 현재 시각을 'YYYY.MM.DD HH:MM:SS' 형식의 문자열로 반환합니다.
-     * @returns {string} 포맷된 날짜·시간 문자열
-     */
-    /*
-    formattedTime() {
-      const d = this.currentTime;
-      return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(
-        2,
-        "0"
-      )}.${String(d.getDate()).padStart(2, "0")} ${String(
-        d.getHours()
-      ).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}:${String(
-        d.getSeconds()
-      ).padStart(2, "0")}`;
-    },
-    */
-  },
-  mounted() {
-    // 1초마다 currentTime을 갱신하여 실시간 시계 표시
-    // this.timer = setInterval(() => {
-    //   this.currentTime = new Date();
-    // }, 1000);
-  },
-  beforeDestroy() {
-    // 컴포넌트 소멸 전 타이머 정리 (메모리 누수 방지)
-    // if (this.timer) clearInterval(this.timer);
-  },
   methods: {
-    /**
-     * @description 페이지 데이터를 새로고침합니다.
-     * 현재 시각을 갱신하고 API 재조회를 트리거합니다.
-     */
-    refreshData() {
-      this.currentTime = new Date();
-      // API 데이터 새로고침 트리거
-      console.log("데이터 새로고침 중...");
-    },
-
     /**
      * @description 제안 모달을 엽니다.
      * 하위 컴포넌트의 'propose' 이벤트를 수신하여

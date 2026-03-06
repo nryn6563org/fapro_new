@@ -42,8 +42,16 @@
   @apply fapro-modal-subtitle;
 }
 
+.customer-modal__icon {
+  @apply w-6 h-6 text-white;
+}
+
 .customer-modal__close {
   @apply fapro-modal-close;
+}
+
+.customer-modal__close-icon {
+  @apply w-6 h-6;
 }
 
 /* ── Body ── */
@@ -62,6 +70,10 @@
 
 .customer-modal__btn {
   @apply flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-black transition-all border-0 cursor-pointer;
+}
+
+.customer-modal__btn-icon {
+  @apply w-4 h-4;
 }
 
 .customer-modal__btn--outline {

@@ -2,8 +2,8 @@
   <div class="ai-report-stock">
     <!-- 주가 정보 -->
     <div class="ai-report-stock__card">
-      <div class="ai-report-stock__card-header pb-3 border-b-0 space-y-0">
-        <h3 class="ai-report-stock__card-title text-sm">주가</h3>
+      <div class="ai-report-stock__card-header">
+        <h3 class="ai-report-stock__card-title">주가</h3>
       </div>
       <div
         class="ai-report-stock__card-body ai-report-stock__card-body--padded"
@@ -33,8 +33,8 @@
 
     <!-- 심볼 및 테마 -->
     <div class="ai-report-stock__card">
-      <div class="ai-report-stock__card-header pb-3 border-b-0 space-y-0">
-        <h3 class="ai-report-stock__card-title text-sm">업종 및 테마</h3>
+      <div class="ai-report-stock__card-header">
+        <h3 class="ai-report-stock__card-title">업종 및 테마</h3>
       </div>
       <div
         class="ai-report-stock__card-body ai-report-stock__card-body--padded"
@@ -80,14 +80,14 @@
               </div>
               <div class="ai-report-stock__ranking-bar-wrapper">
                 <div class="ai-report-stock__ranking-bar">
-                  <div class="flex-1 bg-red-100"></div>
-                  <div class="flex-1 bg-slate-100 dark:bg-slate-700"></div>
-                  <div class="flex-1 bg-slate-100 dark:bg-slate-700"></div>
-                  <div class="flex-1 bg-blue-100 dark:bg-blue-900/40"></div>
-                  <div class="flex-1 bg-blue-200 dark:bg-blue-800/40"></div>
+                  <div class="ai-report-stock__ranking-segment--danger"></div>
+                  <div class="ai-report-stock__ranking-segment--neutral"></div>
+                  <div class="ai-report-stock__ranking-segment--neutral"></div>
+                  <div class="ai-report-stock__ranking-segment--info"></div>
+                  <div class="ai-report-stock__ranking-segment--info-dark"></div>
                 </div>
                 <!-- 현재 위치 표시 (삼각형) -->
-                <div class="ai-report-stock__ranking-marker" style="left: 75%">
+                <div class="ai-report-stock__ranking-marker ai-report-stock__ranking-marker--pos-75">
                   <div class="ai-report-stock__ranking-triangle"></div>
                 </div>
               </div>
@@ -124,14 +124,14 @@
 
     <!-- 레이더 차트 (종합 분석) -->
     <div class="ai-report-stock__card">
-      <div class="ai-report-stock__card-header pb-3 border-b-0 space-y-0">
-        <h3 class="ai-report-stock__card-title text-sm">종합 분석</h3>
+      <div class="ai-report-stock__card-header">
+        <h3 class="ai-report-stock__card-title">종합 분석</h3>
       </div>
       <div
         class="ai-report-stock__card-body ai-report-stock__card-body--padded"
       >
         <div class="ai-report-stock__radar-wrapper">
-          <svg viewBox="0 0 200 200" class="w-full h-full">
+          <svg viewBox="0 0 200 200" class="ai-report-stock__radar-chart">
             <!-- 배경 오각형들 -->
             <polygon
               points="100,20 175,70 155,145 45,145 25,70"

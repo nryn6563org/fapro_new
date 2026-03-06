@@ -78,6 +78,9 @@
 .ai-report-investment__chart-y-axis {
   @apply text-xs flex flex-col items-end text-slate-400 dark:text-slate-500;
 }
+.ai-report-investment__chart-y-axis-gap {
+  @apply mt-8;
+}
 .ai-report-investment__chart-svg-wrapper {
   @apply flex-1 h-full mx-4 relative;
 }

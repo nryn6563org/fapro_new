@@ -30,8 +30,8 @@
             </td>
             <td class="customer-holdings__td">
               <div class="customer-holdings__profit-box">
-                <trending-up-icon v-if="isUp(holding.profit)" class="w-3.5 h-3.5 text-emerald-500" />
-                <trending-down-icon v-else-if="isDown(holding.profit)" class="w-3.5 h-3.5 text-blue-500" />
+                <trending-up-icon v-if="isUp(holding.profit)" class="customer-holdings__trend-icon--up" />
+                <trending-down-icon v-else-if="isDown(holding.profit)" class="customer-holdings__trend-icon--down" />
                 <span :class="getProfitClass(holding.profit)">{{ holding.profit || "-" }}</span>
               </div>
             </td>
@@ -40,7 +40,7 @@
             </td>
           </tr>
           <tr v-if="!holdings || holdings.length === 0">
-            <td colspan="7" class="customer-holdings__td text-center py-10 text-slate-400">
+            <td colspan="7" class="customer-holdings__td--empty">
               보유 종목 데이터가 없습니다.
             </td>
           </tr>

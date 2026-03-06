@@ -3,7 +3,7 @@
     <div class="schedule-header__left">
       <div class="schedule-header__title-group">
         <div class="schedule-header__icon-box">
-          <calendar-icon class="w-5 h-5 text-white" />
+          <calendar-icon class="schedule-header__title-icon" />
         </div>
         <h1 class="schedule-header__title">캘린더</h1>
       </div>
@@ -14,10 +14,10 @@
 
       <div class="schedule-header__nav-group">
         <button class="schedule-header__nav-btn" @click="$emit('prev')">
-          <chevron-left-icon class="w-4 h-4" />
+          <chevron-left-icon class="schedule-header__nav-icon" />
         </button>
         <button class="schedule-header__nav-btn" @click="$emit('next')">
-          <chevron-right-icon class="w-4 h-4" />
+          <chevron-right-icon class="schedule-header__nav-icon" />
         </button>
       </div>
 
@@ -45,7 +45,7 @@
         @click="$emit('unsync')"
       >
         <check-circle-icon
-          class="w-4 h-4 schedule-header__sync-icon--success"
+          class="schedule-header__sync-icon--success"
         />
         <span class="schedule-header__sync-label">캘린더 동기화 해제</span>
       </button>
@@ -57,9 +57,9 @@
       >
         <loader-icon
           v-if="isSyncing"
-          class="w-4 h-4 schedule-header__sync-icon--loading"
+          class="schedule-header__sync-icon--loading"
         />
-        <refresh-cw-icon v-else class="w-4 h-4 schedule-header__sync-icon" />
+        <refresh-cw-icon v-else class="schedule-header__sync-icon" />
         <span class="schedule-header__sync-label">{{
           isSyncing ? "동기화 중" : "캘린더 동기화"
         }}</span>
@@ -67,7 +67,7 @@
 
       <!-- Google Calendar Link -->
       <button class="schedule-header__ext-btn" @click="openGoogleCalendar">
-        <external-link-icon class="w-4 h-4 schedule-header__ext-icon" />
+        <external-link-icon class="schedule-header__ext-icon" />
         Google Calendar
       </button>
 

@@ -3,7 +3,7 @@
     <!-- Create Button -->
     <div class="schedule-sidebar__action">
       <button class="schedule-sidebar__create-btn">
-        <plus-icon class="w-4 h-4 mr-2" />
+        <plus-icon class="schedule-sidebar__create-icon" />
         일정 업데이트
       </button>
     </div>
@@ -17,13 +17,13 @@
             class="schedule-sidebar__mini-nav"
             @click="$emit('prev-month')"
           >
-            <chevron-left-icon class="w-4 h-4" />
+            <chevron-left-icon class="schedule-sidebar__mini-nav-icon" />
           </button>
           <button
             class="schedule-sidebar__mini-nav"
             @click="$emit('next-month')"
           >
-            <chevron-right-icon class="w-4 h-4" />
+            <chevron-right-icon class="schedule-sidebar__mini-nav-icon" />
           </button>
         </div>
       </div>
@@ -78,7 +78,7 @@
           <div
             :class="[
               'schedule-sidebar__filter-dot',
-              cal.checked ? cal.color : 'bg-slate-300 dark:bg-slate-700',
+              cal.checked ? cal.color : 'schedule-sidebar__filter-dot--unchecked',
             ]"
           ></div>
           <span class="schedule-sidebar__filter-label">{{ cal.name }}</span>

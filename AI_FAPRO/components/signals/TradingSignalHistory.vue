@@ -1,6 +1,6 @@
 <template>
   <div class="trading-signal-history">
-    <!-- Chart Section -->
+    <!-- 차트 섹션 -->
     <div class="trading-signal-history__section">
       <div class="trading-signal-history__header">
         <h4 class="trading-signal-history__title">매매신호 차트</h4>
@@ -30,12 +30,12 @@
           ref="chartContainer"
           class="trading-signal-history__chart-container"
         >
-          <!-- D3 chart will be rendered here -->
+          <!-- D3 차트가 여기에 렌더링됨 -->
         </div>
       </div>
     </div>
 
-    <!-- History Table -->
+    <!-- 이력 테이블 -->
     <div class="trading-signal-history__section">
       <h4 class="trading-signal-history__title mb-2">매매신호 발생 내역</h4>
       <div class="trading-signal-history__table-wrapper">
@@ -158,7 +158,7 @@ export default {
     drawChart() {
       if (!this.$refs.chartContainer) return;
       const container = this.$refs.chartContainer;
-      container.innerHTML = ""; // Clear previous chart
+      container.innerHTML = ""; // 이전 차트 초기화
 
       const data = this.signal.priceHistory || [];
       if (data.length === 0) return;
@@ -180,26 +180,26 @@ export default {
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-      // X Scale (categorical dates)
+      // X축 스케일 (날짜 범주형)
       const x = d3
         .scalePoint()
         .domain(data.map((d) => d.date))
         .range([0, innerWidth])
         .padding(0.1);
 
-      // Y Scale
+      // Y축 스케일
       const yMin = d3.min(data, (d) => d.price) * 0.95;
       const yMax = d3.max(data, (d) => d.price) * 1.05;
       const y = d3.scaleLinear().domain([yMin, yMax]).range([innerHeight, 0]);
 
-      // Line generator
+      // 선 생성기
       const line = d3
         .line()
         .x((d) => x(d.date))
         .y((d) => y(d.price))
         .curve(d3.curveMonotoneX);
 
-      // Grid lines
+      // 격자선
       const yAxisGrid = d3
         .axisLeft(y)
         .tickSize(-innerWidth)
@@ -213,7 +213,7 @@ export default {
         .attr("stroke-dasharray", "3,3");
       g.select(".y-grid .domain").remove();
 
-      // Axes
+      // 축
       const xAxis = d3.axisBottom(x);
       g.append("g")
         .attr("transform", `translate(0,${innerHeight})`)
@@ -237,8 +237,8 @@ export default {
       g.select(".domain").remove();
       g.selectAll(".tick line").remove();
 
-      // Line path
-      const lineColor = this.type === "buy" ? "#ef4444" : "#3b82f6"; // red-500 or blue-500
+      // 선 그래프 경로
+      const lineColor = this.type === "buy" ? "#ef4444" : "#3b82f6"; // 매수: red-500, 매도: blue-500
       g.append("path")
         .datum(data)
         .attr("fill", "none")
@@ -246,7 +246,7 @@ export default {
         .attr("stroke-width", 2.5)
         .attr("d", line);
 
-      // Points
+      // 데이터 포인트
       g.selectAll("circle")
         .data(data)
         .enter()

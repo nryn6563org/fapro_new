@@ -47,7 +47,7 @@
 
       <div class="analysis-side__divider"></div>
 
-      <!-- Tabs -->
+      <!-- 탭 -->
       <div class="analysis-side__tabs">
         <div class="analysis-side__tabs-list">
           <button
@@ -98,7 +98,7 @@
           </div>
         </div>
 
-        <!-- Related Stocks -->
+        <!-- 관련 종목 -->
         <div class="analysis-side__stocks-section">
           <div class="analysis-side__section-label">
             <target-icon class="analysis-side__section-icon" />
@@ -122,7 +122,7 @@
           </div>
         </div>
 
-        <!-- Related News Section -->
+        <!-- 관련 뉴스 섹션 -->
         <div v-if="issue.newsSummary" class="analysis-side__news-section">
           <div class="analysis-side__section-label">
             <file-text-icon class="analysis-side__section-icon--teal" />
@@ -135,7 +135,7 @@
       </div>
     </div>
 
-    <!-- Empty State -->
+    <!-- 빈 상태 -->
     <div v-else class="analysis-side__empty">
       <target-icon class="analysis-side__empty-icon" />
       <p class="analysis-side__empty-title">이슈를 선택해주세요</p>
@@ -154,7 +154,6 @@ import {
   TrendingUpIcon,
   TrendingDownIcon,
   MinusIcon,
-  // HashIcon,
   TargetIcon,
   ArrowUpIcon,
   ArrowDownIcon,
@@ -169,7 +168,6 @@ export default {
     TrendingUpIcon,
     TrendingDownIcon,
     MinusIcon,
-    // HashIcon,
     TargetIcon,
     ArrowUpIcon,
     ArrowDownIcon,
@@ -197,7 +195,7 @@ export default {
   },
   watch: {
     issue() {
-      // Reset tab when issue changes
+      // 이슈 변경 시 탭 초기화
       this.activeTab = "reason";
     },
   },

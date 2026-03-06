@@ -1,6 +1,6 @@
 <template>
   <!-- Global Modal Manager acts as a portal anchor if needed, but Modal-Vanilla mounts to body -->
-  <div class="global-modal-manager" style="display: none"></div>
+  <div class="global-modal-manager"></div>
 </template>
 
 <script>

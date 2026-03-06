@@ -48,6 +48,20 @@
   @apply flex items-center gap-1;
 }
 
+/* 수익 추세 아이콘 */
+.customer-holdings__trend-icon--up {
+  @apply w-3.5 h-3.5 text-emerald-500;
+}
+
+.customer-holdings__trend-icon--down {
+  @apply w-3.5 h-3.5 text-blue-500;
+}
+
+/* 빈 데이터 행 */
+.customer-holdings__td--empty {
+  @apply fapro-td text-center py-10 text-slate-400;
+}
+
 /* 수익/손실 컬러 (프로젝트 시맨틱 컬러 적용) */
 .text-profit-up {
   @apply text-buy font-bold;

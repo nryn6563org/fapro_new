@@ -172,3 +172,14 @@
 .customer-intelligence-card__btn-icon {
   @apply mr-2;
 }
+
+/* ── 카드별 애니메이션 지연 ── */
+.customer-intelligence-card--amber {
+  animation-delay: 300ms;
+}
+.customer-intelligence-card--emerald {
+  animation-delay: 400ms;
+}
+.customer-intelligence-card--rose {
+  animation-delay: 500ms;
+}

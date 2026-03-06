@@ -78,16 +78,16 @@ export default {
   },
   computed: {
     parsedTitle() {
-      // Split the title on '-' if it exists to separate it from the signal badge string
+      // 제목에서 '-'를 기준으로 분리하여 시그널 배지 문자열을 추출
       return this.report.title.split(" - ")[0] || this.report.title;
     },
     signalBadge() {
-      // Temporary extraction logic for the signal portion from standard titles like "알테오젠 - 강력매도" -> "강력매도"
+      // "알테오젠 - 강력매도" 형식의 제목에서 시그널 부분을 임시 추출하는 로직
       if (this.report.signalBadge) return this.report.signalBadge;
 
       const parts = this.report.title.split(" - ");
       if (parts.length > 1) {
-        // e.g., "강력매도" -> "강력매도신호" logic handling
+        // 예: "강력매도" -> "강력매도신호" 변환 처리
         let sig = parts[1];
         if (!sig.includes("신호")) sig += "신호";
         return sig;

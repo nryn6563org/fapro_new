@@ -2,14 +2,14 @@
   <div class="ai-report-send">
     <div class="ai-report-send__card">
       <div
-        class="ai-report-send__card-header pb-4 border-b border-slate-200 dark:border-slate-700"
+        class="ai-report-send__card-header"
       >
         <h3 class="ai-report-send__card-title">
           <mail-icon size="20" class="ai-report-send__title-icon" />
           이 종목을 제안 하면 좋을 고객
         </h3>
       </div>
-      <div class="ai-report-send__card-body pt-4">
+      <div class="ai-report-send__card-body">
         <div class="ai-report-send__content-wrapper">
           <!-- 고객 선택 영역 -->
           <div class="ai-report-send__target-section">
@@ -88,11 +88,11 @@
               class="ai-report-send__btn-primary"
               :disabled="selectedClients.length === 0"
             >
-              <send-icon size="20" class="mr-2" />
+              <send-icon size="20" class="ai-report-send__btn-icon" />
               선택한 고객에게 이메일 전송
             </button>
             <button class="ai-report-send__btn-secondary">
-              <download-icon size="20" class="mr-2" />
+              <download-icon size="20" class="ai-report-send__btn-icon" />
               PDF 다운로드
             </button>
           </div>
@@ -126,7 +126,7 @@ export default {
     return {
       selectAll: true,
       selectedClients: ["c1", "c2", "c3", "c4", "c5", "c6"],
-      // Mock Data based on the UI flow #9
+      // 목업 데이터 (UI 플로우 #9 기반)
       clients: [
         {
           id: "c1",

@@ -40,12 +40,20 @@
   @apply w-8 h-8 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm;
 }
 
+.customer-table__avatar-icon {
+  @apply w-4 h-4 text-white;
+}
+
 .customer-table__name {
   @apply font-bold text-sm text-slate-800 dark:text-white;
 }
 
 .customer-table__td--slate {
   @apply text-[13px] text-slate-700 dark:text-slate-300 font-medium;
+}
+
+.customer-table__holdings-text {
+  @apply text-slate-700 dark:text-slate-300;
 }
 
 .customer-table__td--notes {
@@ -77,6 +85,10 @@
 .dark .customer-table__type-badge--stable {
   background-color: rgba(83, 104, 255, 0.15);
   color: #7b8dff;
+}
+
+.customer-table__detail-icon {
+  @apply w-4 h-4 mr-1;
 }
 
 /* 상세 버튼 */

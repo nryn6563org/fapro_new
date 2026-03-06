@@ -1,8 +1,8 @@
 <template>
   <div class="issues-page">
-    <!-- Header & Stats Container -->
+    <!-- 헤더 및 통계 컨테이너 -->
     <div class="issues-page__top-section">
-      <!-- Header -->
+      <!-- 헤더 -->
       <header class="issues-header">
         <div class="issues-header__title-box">
           <h1 class="issues-header__title">AI이슈포착</h1>
@@ -21,9 +21,9 @@
         </div>
       </header>
 
-      <!-- Stats Bar (2 Cards) -->
+      <!-- 통계 바 (카드 2개) -->
       <div class="issues-stats-bar">
-        <!-- Card 1: Small/Mid Cap -->
+        <!-- 카드 1: 중소형주 -->
         <div class="issues-stats-card">
           <div class="issues-stats-card__icon issues-stats-card__icon--orange">
             <bar-chart-2-icon class="w-5 h-5 text-orange-500" />
@@ -48,7 +48,7 @@
           </div>
         </div>
 
-        <!-- Card 2: Large Cap -->
+        <!-- 카드 2: 대형주 -->
         <div class="issues-stats-card">
           <div class="issues-stats-card__icon issues-stats-card__icon--slate">
             <bar-chart-2-icon
@@ -77,9 +77,9 @@
       </div>
     </div>
 
-    <!-- Main Content Grid -->
+    <!-- 메인 콘텐츠 그리드 -->
     <div class="issues-page__main-grid">
-      <!-- Left: Bubble Chart -->
+      <!-- 좌측: 버블 차트 -->
       <div class="issues-page__chart-section">
         <issue-bubble-chart
           :issues="issues"
@@ -89,13 +89,13 @@
         />
       </div>
 
-      <!-- Right: Quick Analysis -->
+      <!-- 우측: 빠른 분석 -->
       <div class="issues-page__analysis-section">
         <issue-analysis-side :issue="selectedIssue" />
       </div>
     </div>
 
-    <!-- Bottom: Deep Analysis (Transition when an issue is selected) -->
+    <!-- 하단: 심층 분석 (이슈 선택 시 트랜지션) -->
     <transition name="fade-slide">
       <div
         v-if="selectedIssueId"
@@ -146,7 +146,7 @@ export default {
   layout: "default",
   data() {
     return {
-      issueType: "all", // 'all', 'small', or 'large'
+      issueType: "all", // 'all', 'small', 'large' 중 하나
       selectedIssueId: null,
       isProposalModalOpen: false,
       selectedIssueForProposal: null,
@@ -187,7 +187,7 @@ export default {
   },
   watch: {
     issueType() {
-      // Switch selection to the largest issue of the new type
+      // 새 유형의 가장 큰 이슈로 선택 전환
       this.setDefaultIssue();
     },
   },
@@ -208,7 +208,7 @@ export default {
     },
     setDefaultIssue() {
       if (this.issues && this.issues.length > 0) {
-        // Find the issue with the maximum size
+        // 크기가 가장 큰 이슈 찾기
         const largestIssue = this.issues.reduce(
           (max, issue) => (issue.size > max.size ? issue : max),
           this.issues[0]
@@ -224,8 +224,7 @@ export default {
       this.isProposalModalOpen = true;
     },
     handleProposalSend(data) {
-      console.log("Sending proposal:", data);
-      // In a real app, this would hit an API
+      // TODO: API 연동 시 제안 데이터 전송 구현
     },
     calculateStats(data) {
       const stats = { total: data.length, high: 0, mid: 0, low: 0 };
