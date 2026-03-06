@@ -30,7 +30,7 @@
 /* 체크박스 액센트 */
 .issue-proposal__checkbox {
   @apply w-4 h-4 rounded border-slate-300;
-  accent-color: var(--color-primary, #5368ff);
+  accent-color: theme('colors.primary');
 }
 .issue-proposal__client-info {
   @apply flex flex-col cursor-pointer;

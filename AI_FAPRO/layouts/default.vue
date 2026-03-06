@@ -1,17 +1,24 @@
 <template>
   <div class="main-layout">
-    <app-sidebar />
-    <div class="main-layout__content-wrapper">
-      <main class="main-layout__main">
-        <nuxt />
-      </main>
-    </div>
+    <template v-if="isLoggedIn">
+      <app-sidebar />
+      <div class="main-layout__content-wrapper">
+        <main class="main-layout__main">
+          <nuxt />
+        </main>
+      </div>
+    </template>
+    
+    <landing-view v-else />
+
     <global-modal-manager />
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 import AppSidebar from "~/components/layout/AppSidebar.vue";
+import LandingView from "~/components/auth/LandingView.vue";
 import GlobalModalManager from "~/components/modal/GlobalModalManager.vue";
 import "~/assets/css/layout/default/default.css";
 
@@ -25,6 +32,7 @@ export default {
   components: {
     AppSidebar,
     GlobalModalManager,
+    LandingView,
   },
   data() {
     return {
@@ -38,6 +46,9 @@ export default {
         class: this.isDarkMode ? "dark" : "",
       },
     };
+  },
+  computed: {
+    ...mapState('auth', ['isLoggedIn']),
   },
   mounted() {
     // localStorage 또는 시스템 환경 설정에서 다크 모드 초기값 확인

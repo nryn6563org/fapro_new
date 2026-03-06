@@ -47,42 +47,36 @@
 
 /* Buy Column Specifics */
 .signals-page__column--buy {
-  border-color: rgba(251, 44, 54, 0.4);
+  @apply border-buy/40;
 }
 .dark .signals-page__column--buy {
-  border-color: rgba(251, 44, 54, 0.25);
+  @apply border-buy/25;
 }
 .signals-page__column-header--buy {
-  background-color: rgba(251, 44, 54, 0.05);
-  border-bottom: 1px solid rgba(251, 44, 54, 0.1);
+  @apply bg-buy/5 border-b border-buy/10;
 }
 .signals-page__column-icon-bg--buy {
-  background-color: var(--color-buy);
+  @apply bg-buy;
 }
 .signals-page__column-badge--buy {
-  background-color: rgba(251, 44, 54, 0.1);
-  color: var(--color-buy);
-  border: 1px solid rgba(251, 44, 54, 0.2);
+  @apply bg-buy/10 text-buy border border-buy/20;
 }
 
 /* Sell Column Specifics */
 .signals-page__column--sell {
-  border-color: rgba(43, 127, 255, 0.4);
+  @apply border-sell/40;
 }
 .dark .signals-page__column--sell {
-  border-color: rgba(43, 127, 255, 0.25);
+  @apply border-sell/25;
 }
 .signals-page__column-header--sell {
-  background-color: rgba(43, 127, 255, 0.05);
-  border-bottom: 1px solid rgba(43, 127, 255, 0.1);
+  @apply bg-sell/5 border-b border-sell/10;
 }
 .signals-page__column-icon-bg--sell {
-  background-color: var(--color-sell);
+  @apply bg-sell;
 }
 .signals-page__column-badge--sell {
-  background-color: rgba(43, 127, 255, 0.1);
-  color: var(--color-sell);
-  border: 1px solid rgba(43, 127, 255, 0.2);
+  @apply bg-sell/10 text-sell border border-sell/20;
 }
 
 /* Column Header Common */
@@ -116,10 +110,6 @@
 }
 .ai-report-modal__header {
   @apply w-full border-b border-slate-200 dark:border-slate-800 p-6 flex items-start justify-between relative bg-white dark:bg-slate-900;
-}
-
-.ai-report-modal__content {
-  @apply p-6 bg-slate-50 dark:bg-slate-950;
 }
 
 .ai-report-modal__header-content {

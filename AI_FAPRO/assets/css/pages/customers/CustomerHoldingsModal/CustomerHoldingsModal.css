@@ -2,7 +2,7 @@
 
 /* 1. 기본 레이아웃 및 모달 컨테이너 (Rule 12: CSS Hierarchy) */
 .customer-holdings {
-  @apply relative bg-slate-100 rounded-2xl shadow-2xl w-full max-h-[90vh] overflow-y-auto;
+  @apply relative rounded-xl w-full max-h-[90vh] overflow-y-auto;
 }
 
 .dark /* [고객 보유 종목 및 AI 분석 모달 스타일] - Rule 15: External Library Styling Control */
@@ -126,18 +126,11 @@
   @apply w-full border-collapse;
 }
 .customer-holdings__th {
-  @apply bg-slate-200 px-4 py-3 text-left text-xs font-semibold text-slate-700 border-b border-slate-400;
+  @apply fapro-th;
 }
 
-.dark .customer-holdings__th {
-  @apply bg-slate-900 text-slate-400 border-slate-800;
-}
 .customer-holdings__td {
-  @apply px-4 py-3 text-sm text-slate-900 border-b border-slate-300;
-}
-
-.dark .customer-holdings__td {
-  @apply text-slate-300 border-slate-800;
+  @apply fapro-td;
 }
 .customer-holdings__td-name {
   @apply font-medium;

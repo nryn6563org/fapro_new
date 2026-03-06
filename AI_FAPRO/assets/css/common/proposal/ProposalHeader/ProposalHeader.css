@@ -24,16 +24,14 @@
 /* ── 헤더 아이콘 색상 변형 ── */
 /* teal → primary 브랜드 컬러 */
 .proposal-header__icon--teal {
-  @apply proposal-header__icon;
-  color: #5368ff;
+  @apply proposal-header__icon text-primary;
 }
 .proposal-header__icon--orange {
   @apply proposal-header__icon text-amber-500;
 }
 /* violet → sell 시맨틱 컬러 */
 .proposal-header__icon--violet {
-  @apply proposal-header__icon;
-  color: #2b7fff;
+  @apply proposal-header__icon text-sell;
 }
 
 /* ── 헤더 텍스트 ── */
@@ -60,11 +58,10 @@
 /* ── 헤더 테마 변형 ── */
 /* teal → primary 계열 */
 .proposal-header--teal {
-  background-color: #e1e4ff;
+  @apply bg-primary/10;
 }
 .proposal-header--teal .proposal-header__icon-wrapper {
-  background-color: rgba(83, 104, 255, 0.15);
-  color: #5368ff;
+  @apply bg-primary/15 text-primary;
 }
 .proposal-header--purple {
   @apply bg-purple-50;
@@ -87,13 +84,11 @@
 /* ── 배지 색상 변형 ── */
 /* 매수 → buy 시맨틱 컬러 */
 .proposal-badge--red {
-  background-color: #fff0f1;
-  color: #fb2c36;
+  @apply bg-buy/10 text-buy;
 }
 /* 매도 → sell 시맨틱 컬러 */
 .proposal-badge--blue {
-  background-color: #e1e4ff;
-  color: #2b7fff;
+  @apply bg-sell/10 text-sell;
 }
 .proposal-badge--purple {
   @apply bg-purple-100 text-purple-600;
@@ -103,6 +98,5 @@
 }
 /* 확인/완료 → primary 계열 */
 .proposal-badge--green {
-  background-color: #e1e4ff;
-  color: #5368ff;
+  @apply bg-primary/10 text-primary;
 }

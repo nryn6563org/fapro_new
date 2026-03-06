@@ -9,8 +9,10 @@
   @apply flex items-center justify-between mb-4;
 }
 .customer-ai-search__icon-box {
-  @apply w-10 h-10 rounded-lg flex items-center justify-center;
-  background-color: #5368ff;
+  @apply w-10 h-10 rounded-lg flex items-center justify-center bg-primary;
+}
+.customer-ai-search__header-icon {
+  @apply w-5 h-5 text-white;
 }
 .customer-ai-search__title {
   @apply text-lg font-bold text-slate-900 dark:text-white m-0 tracking-tight;
@@ -27,12 +29,10 @@
   @apply absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400;
 }
 .customer-ai-search__input {
-  @apply w-full pl-11 pr-24 py-3.5 text-sm bg-white dark:bg-slate-900 rounded-lg focus:outline-none focus:ring-0 shadow-sm dark:text-white transition-all font-medium;
-  border: 2px solid #5368ff;
+  @apply w-full pl-11 pr-24 py-3.5 text-sm bg-white dark:bg-slate-900 rounded-lg focus:outline-none focus:ring-0 shadow-sm dark:text-white transition-all font-medium border-2 border-primary;
 }
 .customer-ai-search__search-btn {
-  @apply absolute right-1.5 top-1/2 -translate-y-1/2 text-white px-5 py-2.5 rounded border-0 cursor-pointer font-bold text-sm transition-colors;
-  background-color: #5368ff;
+  @apply absolute right-1.5 top-1/2 -translate-y-1/2 text-white px-5 py-2.5 rounded border-0 cursor-pointer font-bold text-sm transition-colors bg-primary;
 }
 .customer-ai-search__search-btn:hover {
   background-color: #4253cc;
@@ -40,8 +40,7 @@
 
 /* 힌트 */
 .customer-ai-search__hint {
-  @apply flex items-center gap-2 text-sm mb-2;
-  color: #5368ff;
+  @apply flex items-center gap-2 text-sm mb-2 text-primary;
 }
 
 /* 추천 검색 */
@@ -54,16 +53,13 @@
 
 /* 필터 */
 .customer-ai-search__filters {
-  @apply flex items-center gap-3 flex-wrap mt-6 pt-5;
-  border-top: 1px solid rgba(83, 104, 255, 0.2);
+  @apply flex items-center gap-3 flex-wrap mt-6 pt-5 border-t border-primary/20;
 }
 .customer-ai-search__filter-btn {
   @apply px-4 py-1.5 rounded-full text-sm font-semibold transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 border-2 border-transparent cursor-pointer shadow-sm;
 }
 .customer-ai-search__filter-btn--active {
-  @apply text-white;
-  background-color: #5368ff;
-  border-color: #5368ff;
+  @apply text-white bg-primary border-primary;
 }
 .customer-ai-search__filter-btn--active:hover {
   background-color: #4253cc;
@@ -78,13 +74,11 @@
 }
 
 .customer-ai-search__recommends-icon {
-  @apply w-4 h-4 mt-0.5 flex-shrink-0;
-  color: #5368ff;
+  @apply w-4 h-4 mt-0.5 flex-shrink-0 text-primary;
 }
 
 .customer-ai-search__recommends-label {
-  @apply font-medium;
-  color: #5368ff;
+  @apply font-medium text-primary;
 }
 
 .customer-ai-search__filters-label {

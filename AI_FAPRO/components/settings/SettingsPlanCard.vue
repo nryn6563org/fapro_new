@@ -19,7 +19,11 @@
     <div class="space-y-4">
       <div class="flex items-center gap-2">
         <h3 class="plan-card__title">{{ label }}</h3>
-        <star-icon v-if="type === 'pro'" class="plan-card__crown-icon" />
+        <component
+          :is="type === 'pro' ? 'award-icon' : 'user-icon'"
+          v-if="type === 'pro'"
+          class="plan-card__crown-icon"
+        />
       </div>
 
       <div>
@@ -45,9 +49,7 @@
                 : 'plan-card__feature-icon--basic',
             ]"
           />
-          <span class="text-sm text-slate-600 dark:text-slate-400 font-bold">{{
-            feature
-          }}</span>
+          <span class="plan-card__feature-text">{{ feature }}</span>
         </div>
       </div>
     </div>
@@ -58,7 +60,7 @@
 /**
  * 기능: 구독 플랜 카드
  */
-import { CheckIcon, StarIcon } from "vue-feather-icons";
+import { CheckIcon, StarIcon, AwardIcon, UserIcon } from "vue-feather-icons";
 import "~/assets/css/pages/settings/SettingsPlanCard/SettingsPlanCard.css";
 
 export default {
@@ -66,6 +68,8 @@ export default {
   components: {
     CheckIcon,
     StarIcon,
+    AwardIcon,
+    UserIcon,
   },
   props: {
     type: { type: String, default: "basic" },

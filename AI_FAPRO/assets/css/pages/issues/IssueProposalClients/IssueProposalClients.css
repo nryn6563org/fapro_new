@@ -23,7 +23,7 @@
 /* 체크박스 커스텀 */
 .issue-proposal-clients__checkbox {
   @apply w-5 h-5 rounded border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 transition-all cursor-pointer;
-  accent-color: #5368ff;
+  accent-color: theme('colors.primary');
 }
 
 .issue-proposal-clients__info {

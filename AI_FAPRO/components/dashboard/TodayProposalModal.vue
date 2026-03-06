@@ -108,7 +108,7 @@ export default {
       }
     },
     handleCopy(content) {
-      console.log("Copied content:", content);
+      alert("준비중입니다.");
     },
   },
 };

@@ -23,6 +23,10 @@
   @apply flex items-center bg-[#F59E0B] hover:bg-[#F59E0B]/90 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-amber-500/20 hover:scale-105 active:scale-95 transition-all border-0 cursor-pointer;
 }
 
+.customers-page__btn-icon {
+  @apply w-4 h-4 mr-2;
+}
+
 .customers-page__btn-outline {
   @apply flex items-center bg-slate-100 dark:bg-slate-900 border border-slate-400 dark:border-slate-800 text-slate-600 dark:text-slate-400 px-6 py-3 rounded-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-800 transition-all cursor-pointer;
 }
@@ -30,4 +34,12 @@
 /* Content Area */
 .customers-page__content {
   @apply w-full;
+}
+
+.customers-page__search-section {
+  @apply mt-8;
+}
+
+.customers-page__table-section {
+  @apply mt-8;
 }

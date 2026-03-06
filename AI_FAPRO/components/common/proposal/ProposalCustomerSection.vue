@@ -25,13 +25,21 @@
               </span>
             </div>
           </div>
-          <div v-if="customer.reason" class="proposal-item__reason">
-            {{ customer.reason }}
-          </div>
-          <div v-else class="proposal-item__meta">
-            {{ customer.email || "이메일 정보 없음" }} | 총 자산:
-            {{ customer.assets || customer.portfolio || "0원" }}
-          </div>
+          <!-- 오늘 매수/매도 타겟 종목: 제안사유 한줄 추가, 이메일/자산 삭제 -->
+          <template v-if="contextMode === 'today-buy' || contextMode === 'today-sell'">
+             <div v-if="customer.reason" class="proposal-item__reason">
+                {{ customer.reason }}
+              </div>
+          </template>
+          <template v-else>
+            <div v-if="customer.reason" class="proposal-item__reason">
+              {{ customer.reason }}
+            </div>
+            <div v-else class="proposal-item__meta">
+              {{ customer.email || "이메일 정보 없음" }} | 총 자산:
+              {{ customer.assets || customer.portfolio || "0원" }}
+            </div>
+          </template>
         </div>
       </label>
     </div>
@@ -50,12 +58,22 @@
             </span>
           </div>
         </div>
-        <div v-if="singleCustomer.reason" class="proposal-item__reason">
-          {{ singleCustomer.reason }}
-        </div>
-        <div v-else class="proposal-item__meta">
-          {{ singleCustomer.portfolio || "포트폴리오 정보 없음" }} · {{ singleCustomer.investmentStyle || "투자성향 미지정" }}
-        </div>
+        <!-- 오늘 타겟 고객: 고객명 하단 제안사유 삭제 -->
+        <template v-if="contextMode === 'today-customer'">
+          <!-- 제안사유 삭제 -->
+        </template>
+        <!-- 스마트 고객 관리: 고객명 밑 한줄 삭제 -->
+        <template v-else-if="contextMode === 'smart-client'">
+          <!-- 메타 정보 삭제 -->
+        </template>
+        <template v-else>
+          <div v-if="singleCustomer.reason" class="proposal-item__reason">
+            {{ singleCustomer.reason }}
+          </div>
+          <div v-else class="proposal-item__meta">
+            {{ singleCustomer.portfolio || "포트폴리오 정보 없음" }} · {{ singleCustomer.investmentStyle || "투자성향 미지정" }}
+          </div>
+        </template>
       </div>
     </div>
   </section>
@@ -78,6 +96,10 @@ export default {
     mode: {
       type: String,
       default: "display" // 'display', 'select'
+    },
+    contextMode: {
+      type: String,
+      default: ""
     },
     customers: {
       type: Array,

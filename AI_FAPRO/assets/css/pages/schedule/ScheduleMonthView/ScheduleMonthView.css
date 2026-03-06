@@ -1,60 +1,63 @@
 /* ── 일정 월간 뷰 스타일 ── */
 
 .month-view {
-  @apply p-4 h-full overflow-auto;
+  @apply p-8 h-full overflow-auto bg-white dark:bg-slate-950;
+}
+
+.month-view__header {
+  @apply grid grid-cols-7 border-b border-slate-200 dark:border-slate-800;
+}
+
+.month-view__weekday {
+  @apply p-4 text-center border-r border-slate-200 dark:border-slate-800 text-[12px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest;
 }
 
 .month-view__grid {
-  @apply grid grid-cols-7 gap-px bg-slate-200 dark:bg-slate-800 border border-slate-400 dark:border-slate-800;
+  @apply grid grid-cols-7 gap-px bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-sm;
 }
 
 .month-view__th {
-  @apply bg-slate-200 dark:bg-slate-900 p-2 text-center text-sm font-bold uppercase;
+  @apply bg-slate-50/50 dark:bg-slate-900 p-4 text-center text-[13px] font-black uppercase tracking-widest text-slate-400;
 }
 
-/* 일요일: 빨간색 (한국 달력 관례) */
 .month-view__th--sunday {
-  @apply text-red-500 dark:text-red-400;
+  @apply text-red-400;
 }
 
-/* 토요일: 파란색 (한국 달력 관례) */
 .month-view__th--saturday {
-  @apply text-blue-500 dark:text-blue-400;
+  @apply text-indigo-400;
 }
 
 .month-view__cell {
-  @apply bg-slate-100 dark:bg-slate-950 h-32 p-2 relative flex flex-col;
+  @apply min-h-[160px] p-2 border-r border-slate-200 dark:border-slate-800 flex flex-col gap-2 transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-900/30 cursor-pointer relative;
 }
 
 .month-view__cell--day {
-  @apply hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors;
+  @apply hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition-colors;
 }
 
 .month-view__cell--empty {
-  @apply bg-slate-200/50 dark:bg-slate-900/50;
+  @apply bg-slate-50/30 dark:bg-slate-900/30;
 }
 
 .month-view__day-num {
-  @apply text-sm mb-1 flex items-center justify-center;
+  @apply text-[15px] font-black mb-2 flex items-center justify-center;
 }
 
-/* 오늘 날짜: primary 브랜드 컬러 */
 .month-view__day-num--today {
-  @apply text-white rounded-full font-black;
-  background-color: #5368ff;
-  width: 1.5rem;
-  height: 1.5rem;
-  box-shadow: 0 2px 6px rgba(83, 104, 255, 0.3);
+  @apply text-white rounded-xl;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  width: 2rem;
+  height: 2rem;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
 }
 
-/* 일요일 날짜: 빨간색 (한국 달력 관례) */
 .month-view__day-num--sunday {
-  @apply text-red-500 dark:text-red-400;
+  @apply text-red-500;
 }
 
-/* 토요일 날짜: 파란색 (한국 달력 관례) */
 .month-view__day-num--saturday {
-  @apply text-blue-500 dark:text-blue-400;
+  @apply text-indigo-500;
 }
 
 .month-view__day-num--weekday {
@@ -62,30 +65,22 @@
 }
 
 .month-view__events {
-  @apply space-y-1 mt-1;
+  @apply space-y-1.5 mt-1 overflow-hidden;
 }
 
-.month-view__event-tag {
-  @apply text-white text-xs px-1.5 py-0.5 rounded truncate font-medium;
-}
-
-.month-view__more {
-  @apply text-xs text-slate-500 dark:text-slate-600 px-1 font-bold;
-}
-
-/* 이벤트 카테고리 색상 (캘린더 이벤트 구분용) */
+/* Event Category Colors: Premium Soft Pill Style (Single Class Approach) */
 .month-view__event-tag--blue-500 {
-  background-color: #5368ff;
+  @apply text-[12px] font-black px-2.5 py-1 rounded-lg truncate shadow-sm border border-blue-100 bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-800/50;
 }
 
 .month-view__event-tag--teal-500 {
-  @apply bg-teal-500;
+  @apply text-[12px] font-black px-2.5 py-1 rounded-lg truncate shadow-sm border border-teal-100 bg-teal-50 text-teal-600 dark:bg-teal-900/20 dark:text-teal-400 dark:border-teal-800/50;
 }
 
 .month-view__event-tag--purple-500 {
-  @apply bg-purple-500;
+  @apply text-[12px] font-black px-2.5 py-1 rounded-lg truncate shadow-sm border border-purple-100 bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400 dark:border-purple-800/50;
 }
 
 .month-view__event-tag--amber-500 {
-  @apply bg-amber-500;
+  @apply text-[12px] font-black px-2.5 py-1 rounded-lg truncate shadow-sm border border-amber-100 bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800/50;
 }

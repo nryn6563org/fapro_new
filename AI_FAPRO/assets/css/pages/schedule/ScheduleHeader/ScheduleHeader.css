@@ -1,45 +1,44 @@
 /* ── 일정 헤더 스타일 ── */
 
 .schedule-header {
-  @apply flex items-center justify-between px-6 py-4 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shrink-0;
+  @apply flex items-center justify-between px-8 py-5 bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800 shrink-0;
 }
 
 .schedule-header__left {
-  @apply flex items-center gap-4;
+  @apply flex items-center gap-6;
 }
 
 .schedule-header__title-group {
-  @apply flex items-center gap-2 mr-2;
+  @apply flex items-center gap-3 mr-4;
 }
 
-/* 타이틀 아이콘: primary 브랜드 컬러 */
 .schedule-header__icon-box {
-  @apply w-8 h-8 rounded-lg flex items-center justify-center;
-  background-color: #5368ff;
+  @apply w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-100 dark:shadow-none;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
 }
 
 .schedule-header__title {
-  @apply text-xl font-bold text-slate-800 dark:text-white m-0;
+  @apply text-2xl font-black text-slate-800 dark:text-white m-0;
 }
 
 .schedule-header__today-btn {
-  @apply px-4 py-1.5 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-sm font-bold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer text-slate-700 dark:text-slate-300 shadow-sm;
+  @apply px-5 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-sm font-black rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer text-slate-600 dark:text-slate-300 shadow-sm active:scale-95;
 }
 
 .schedule-header__nav-group {
-  @apply flex items-center gap-1;
+  @apply flex items-center gap-2;
 }
 
 .schedule-header__nav-btn {
-  @apply w-8 h-8 flex items-center justify-center p-0 bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors border-0 cursor-pointer text-slate-600 dark:text-slate-400;
+  @apply w-10 h-10 flex items-center justify-center p-0 bg-white dark:bg-slate-900 border border-slate-50 dark:border-slate-800 shadow-sm hover:shadow-md hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-all border-0 cursor-pointer text-slate-500 dark:text-slate-400 active:scale-95;
 }
 
 .schedule-header__date-text {
-  @apply text-xl font-medium text-slate-800 dark:text-slate-200 m-0 ml-2;
+  @apply text-xl font-black text-slate-800 dark:text-slate-200 m-0 ml-2;
 }
 
 .schedule-header__right {
-  @apply flex items-center gap-3;
+  @apply flex items-center gap-4;
 }
 
 .schedule-header__search-container {
@@ -47,63 +46,58 @@
 }
 
 .schedule-header__search-icon {
-  @apply absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400;
+  @apply absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400;
 }
 
-/* 검색 입력 포커스: primary 컬러 */
 .schedule-header__search-input {
-  @apply pl-9 pr-4 w-64 h-9 border border-slate-200 dark:border-slate-800 rounded-lg bg-slate-500 dark:bg-slate-900 focus:bg-white dark:focus:bg-slate-800 outline-none transition-all text-sm font-medium text-slate-700 dark:text-slate-300;
+  @apply pl-10 pr-4 w-72 h-10 border border-slate-100 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900 focus:bg-white dark:focus:bg-slate-800 outline-none transition-all text-sm font-bold text-slate-700 dark:text-slate-300 shadow-inner;
 }
 .schedule-header__search-input:focus {
-  border-color: #5368ff;
-  box-shadow: 0 0 0 1px #5368ff;
+  @apply border-indigo-400 ring-2 ring-indigo-50 dark:ring-indigo-900/20;
 }
 
-.schedule-header__sync-badge {
-  @apply flex items-center gap-1.5 px-4 py-1.5 rounded-lg cursor-pointer transition-colors border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-sm;
+/* Sync Badge Status (Single Class Approach) */
+.schedule-header__sync-badge--default {
+  @apply flex items-center gap-2 px-5 py-2.5 rounded-xl cursor-pointer transition-all border-0 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white shadow-lg shadow-indigo-100 dark:shadow-none hover:scale-[1.02] active:scale-[0.98];
 }
-/* 동기화 완료 상태: 성공(초록) 의미 유지 */
+
 .schedule-header__sync-badge--active {
-  @apply bg-emerald-500 border-emerald-200 hover:bg-emerald-100 dark:bg-emerald-900/10 dark:border-emerald-900/30;
+  @apply flex items-center gap-2 px-5 py-2.5 rounded-xl cursor-pointer transition-all border-0 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg shadow-emerald-100 dark:shadow-none hover:scale-[1.02] active:scale-[0.98];
 }
+
 .schedule-header__sync-label {
-  @apply text-sm font-bold text-slate-700 dark:text-slate-300;
-}
-.schedule-header__sync-badge--active .schedule-header__sync-label {
-  @apply text-emerald-600;
-}
-.dark .schedule-header__sync-badge--active .schedule-header__sync-label {
-  @apply text-emerald-500;
+  @apply font-black text-[13px];
 }
 
 .schedule-header__sync-icon--success {
-  @apply text-emerald-500 dark:text-emerald-400;
+  @apply text-white;
 }
 
 .schedule-header__sync-icon--loading {
-  @apply animate-spin text-slate-500 dark:text-slate-400;
+  @apply animate-spin text-white;
 }
 
 .schedule-header__sync-icon {
-  @apply text-slate-500 dark:text-slate-400;
+  @apply text-white;
 }
 
 .schedule-header__ext-btn {
-  @apply flex items-center gap-1.5 px-4 py-1.5 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-sm font-bold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all cursor-pointer text-slate-700 dark:text-slate-300 shadow-sm;
+  @apply flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-sm font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all cursor-pointer text-slate-600 dark:text-slate-300 shadow-sm;
 }
 
 .schedule-header__ext-icon {
-  @apply text-slate-500 dark:text-slate-400;
+  @apply text-slate-400;
 }
 
+/* View Mode Selector (Single Class Approach) */
 .schedule-header__view-select {
-  @apply flex gap-1 bg-slate-500 dark:bg-slate-900 p-1 rounded-lg border border-slate-200 dark:border-slate-800;
+  @apply flex items-center bg-slate-100/50 dark:bg-slate-900/50 p-1 rounded-[14px] border border-slate-200/60 dark:border-slate-800/60 backdrop-blur-sm;
 }
-.schedule-header__view-btn {
-  @apply px-4 py-1 rounded-md text-sm font-bold bg-transparent border-0 cursor-pointer text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors min-w-[40px];
+
+.schedule-header__view-btn--default {
+  @apply px-5 py-2 text-[13px] font-bold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all border-0 bg-transparent cursor-pointer rounded-[10px];
 }
-/* 활성 뷰 버튼: primary 컬러 */
+
 .schedule-header__view-btn--active {
-  @apply bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700;
-  color: #5368ff;
+  @apply px-5 py-2 text-[13px] font-black bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 transition-all border-0 cursor-pointer rounded-[10px] shadow-[0_4px_12px_rgba(0,0,0,0.08)] dark:shadow-none scale-[1.02];
 }

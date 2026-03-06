@@ -1,7 +1,7 @@
 /* ── 일정 주간 뷰 스타일 ── */
 
 .week-view {
-  @apply h-full overflow-auto bg-slate-100 dark:bg-slate-900;
+  @apply h-full overflow-auto bg-white dark:bg-slate-950;
 }
 
 .week-view__container {
@@ -10,78 +10,128 @@
 
 /* 헤더 */
 .week-view__header {
-  @apply grid grid-cols-[80px_repeat(7,1fr)] border-b border-slate-400 dark:border-slate-800 sticky top-0 bg-slate-100 dark:bg-slate-900 z-10 shadow-sm;
+  @apply grid grid-cols-[80px_repeat(7,1fr)] border-b border-slate-200 dark:border-slate-800 sticky top-0 bg-white dark:bg-slate-950 z-10 shadow-sm;
 }
 
 .week-view__time-label {
-  @apply p-4 border-r border-slate-400 dark:border-slate-800 text-xs font-black text-slate-400 dark:text-slate-600 uppercase;
+  @apply p-4 border-r border-slate-200 dark:border-slate-800 text-[12px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-tighter flex items-end justify-center;
 }
 
-.week-view__day-col {
-  @apply p-4 text-center border-r border-slate-400 dark:border-slate-800 cursor-pointer transition-colors;
+.week-view__day-col--default {
+  @apply p-4 text-center border-r border-slate-200 dark:border-slate-800 cursor-pointer transition-all hover:bg-slate-50 dark:hover:bg-slate-900;
 }
 
-/* 선택된 날 컬럼: primary 배경 */
 .week-view__day-col--selected {
-  background-color: rgba(83, 104, 255, 0.05);
-}
-.dark .week-view__day-col--selected {
-  background-color: rgba(83, 104, 255, 0.08);
+  @apply p-4 text-center border-r border-slate-200 dark:border-slate-800 cursor-pointer bg-indigo-50/30 dark:bg-indigo-900/10;
 }
 
-.week-view__weekday {
-  @apply text-xs font-black mb-1 uppercase;
+.week-view__weekday--sun {
+  @apply text-xs font-black mb-2 uppercase text-red-400;
 }
 
-.week-view__date-num {
-  @apply text-3xl font-light text-slate-700 dark:text-slate-300;
+.week-view__weekday--sat {
+  @apply text-xs font-black mb-2 uppercase text-indigo-400;
 }
 
-/* 오늘 날짜 원: primary 브랜드 컬러 */
+.week-view__weekday--default {
+  @apply text-xs font-black mb-2 uppercase text-slate-400;
+}
+
+/* 날짜 숫자 & 오늘 강조 */
+.week-view__date-num--default {
+  @apply text-2xl font-black text-slate-700 dark:text-slate-300;
+}
+
+.week-view__date-num--sun {
+  @apply text-2xl font-black text-red-500;
+}
+
+.week-view__date-num--sat {
+  @apply text-2xl font-black text-indigo-500;
+}
+
+.week-view__date-num--selected-default {
+  @apply text-2xl font-black text-indigo-600 dark:text-indigo-400;
+}
+
+.week-view__date-num--selected-sun {
+  @apply text-2xl font-black text-red-600;
+}
+
+.week-view__date-num--selected-sat {
+  @apply text-2xl font-black text-indigo-700;
+}
+
 .week-view__date-num--today {
-  @apply w-12 h-12 mx-auto text-white rounded-full flex items-center justify-center font-black;
-  background-color: #5368ff;
-  box-shadow: 0 4px 12px rgba(83, 104, 255, 0.35);
+  @apply text-2xl font-black text-white w-10 h-10 mx-auto flex items-center justify-center rounded-xl shadow-lg shadow-indigo-200 dark:shadow-none bg-gradient-to-br from-indigo-500 to-indigo-600 scale-110;
 }
 
-/* 그리드 */
+/* 그리드 레이아웃 */
+.week-view__grid {
+  @apply border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950;
+  max-height: 768px; /* 8 hours * 96px (h-24) */
+  overflow-y: auto;
+}
+
+/* Custom Scrollbar for Premium Feel */
+.week-view__grid::-webkit-scrollbar {
+  width: 6px;
+}
+.week-view__grid::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+.week-view__grid::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 dark:bg-slate-800 rounded-full;
+}
+.week-view__grid::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-300 dark:bg-slate-700;
+}
+
 .week-view__row {
-  @apply grid grid-cols-[80px_repeat(7,1fr)] border-b border-slate-300 dark:border-slate-800;
+  @apply grid grid-cols-[80px_repeat(7,1fr)] border-b border-slate-200 dark:border-slate-800;
 }
 
 .week-view__hour-label {
-  @apply p-2 text-xs font-black text-slate-400 dark:text-slate-600 text-right pr-4 border-r border-slate-400 dark:border-slate-800 h-20 flex items-start justify-end;
+  @apply p-4 text-[12px] font-black text-slate-300 dark:text-slate-600 border-r border-slate-200 dark:border-slate-800 h-24 flex items-start justify-center;
 }
 
 .week-view__slot {
-  @apply border-r border-slate-300 dark:border-slate-800 p-1 relative h-20 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors;
+  @apply border-r border-slate-200 dark:border-slate-800 p-2 relative h-24 hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors;
 }
 
-.week-view__event {
-  @apply text-white p-2 rounded-lg cursor-pointer hover:opacity-90 transition-all shadow-md overflow-hidden;
-}
-
-.week-view__event-title {
-  @apply font-bold truncate text-xs;
-}
-
-.week-view__event-time {
-  @apply text-[9px] opacity-90;
-}
-
-/* 이벤트 카테고리 색상 (캘린더 이벤트 구분용) */
+/* 이벤트 카드 스타일 (월간 뷰와 일관성 유지) */
 .week-view__event--blue-500 {
-  background-color: #5368ff;
+  @apply flex flex-col gap-1 p-2 rounded-xl cursor-pointer transition-all border border-blue-100 bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-800/50 hover:shadow-md hover:scale-[1.02] active:scale-[0.98];
+  animation-name: fadeIn;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
 }
 
 .week-view__event--teal-500 {
-  @apply bg-teal-500;
+  @apply flex flex-col gap-1 p-2 rounded-xl cursor-pointer transition-all border border-teal-100 bg-teal-50 text-teal-600 dark:bg-teal-900/20 dark:text-teal-400 dark:border-teal-800/50 hover:shadow-md hover:scale-[1.02] active:scale-[0.98];
+  animation-name: fadeIn;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
 }
 
 .week-view__event--purple-500 {
-  @apply bg-purple-500;
+  @apply flex flex-col gap-1 p-2 rounded-xl cursor-pointer transition-all border border-purple-100 bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400 dark:border-purple-800/50 hover:shadow-md hover:scale-[1.02] active:scale-[0.98];
+  animation-name: fadeIn;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
 }
 
 .week-view__event--amber-500 {
-  @apply bg-amber-500;
+  @apply flex flex-col gap-1 p-2 rounded-xl cursor-pointer transition-all border border-amber-100 bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800/50 hover:shadow-md hover:scale-[1.02] active:scale-[0.98];
+  animation-name: fadeIn;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+}
+
+.week-view__event-title {
+  @apply font-black truncate text-[12px];
+}
+
+.week-view__event-time {
+  @apply text-[12px] font-bold opacity-70;
 }

@@ -15,10 +15,10 @@
       <button
         type="button"
         class="proposal-editor__copy-btn"
-        @click="copyContent"
+        @click="sendProposal"
       >
         <copy-icon size="14" />
-        내용 복사
+        전송하기
       </button>
     </div>
 
@@ -31,7 +31,7 @@
 <script>
 /**
  * ProposalMessageEditor
- * 기능: 제안 메시지 편집 및 복사 컴포넌트
+ * 기능: 제안 메시지 편집 및 전송 컴포넌트
  */
 import { FileTextIcon, CopyIcon } from "vue-feather-icons";
 import "~/assets/css/common/proposal/ProposalMessageEditor/ProposalMessageEditor.css";
@@ -57,14 +57,8 @@ export default {
     },
   },
   methods: {
-    async copyContent() {
-      try {
-        await navigator.clipboard.writeText(this.internalValue);
-        this.$emit("copy", this.internalValue);
-        alert("내용이 복사 되었습니다.");
-      } catch (err) {
-        console.error("Failed to copy text: ", err);
-      }
+    sendProposal() {
+      alert("준비중 입니다.");
     },
   },
 };

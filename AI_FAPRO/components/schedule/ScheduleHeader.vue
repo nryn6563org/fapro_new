@@ -41,7 +41,7 @@
       <!-- Sync Status -->
       <button
         v-if="isSynced"
-        class="schedule-header__sync-badge schedule-header__sync-badge--active"
+        class="schedule-header__sync-badge--active"
         @click="$emit('unsync')"
       >
         <check-circle-icon
@@ -51,7 +51,7 @@
       </button>
       <button
         v-else
-        class="schedule-header__sync-badge"
+        class="schedule-header__sync-badge--default"
         :disabled="isSyncing"
         @click="$emit('sync')"
       >
@@ -76,10 +76,7 @@
         <button
           v-for="v in ['day', 'week', 'month']"
           :key="v"
-          :class="[
-            'schedule-header__view-btn',
-            { 'schedule-header__view-btn--active': viewMode === v },
-          ]"
+          :class="getViewBtnClass(v)"
           @click="$emit('update:viewMode', v)"
         >
           {{ v === "day" ? "일" : v === "week" ? "주" : "월" }}
@@ -149,6 +146,10 @@ export default {
   methods: {
     openGoogleCalendar() {
       window.open("https://calendar.google.com", "_blank");
+    },
+    getViewBtnClass(v) {
+      if (this.viewMode === v) return "schedule-header__view-btn--active";
+      return "schedule-header__view-btn--default";
     },
   },
 };

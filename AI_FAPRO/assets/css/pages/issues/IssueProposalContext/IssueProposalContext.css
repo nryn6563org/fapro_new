@@ -68,7 +68,7 @@
 }
 
 .issue-proposal-section__news-meta {
-  @apply flex items-center gap-2 mt-2 text-[10px] text-slate-400;
+  @apply flex items-center gap-2 mt-2 text-[12px] text-slate-400;
 }
 
 /* 입력 필드 (의견 작성용) */

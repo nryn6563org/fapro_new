@@ -1,37 +1,6 @@
 <template>
   <div class="customers-page">
-    <!-- Header -->
-    <header class="customers-page__header">
-      <div class="customers-page__header-left">
-        <h1 class="customers-page__h1">고객 목록</h1>
-        <p class="customers-page__h1-desc">
-          엑셀 파일 업로드로 간편하게 고객 정보를 관리하세요
-        </p>
-      </div>
-      <div class="customers-page__header-actions">
-        <button
-          class="customers-page__btn-amber"
-          @click="handleAction('스마트 온보딩')"
-        >
-          <zap-icon class="w-4 h-4 mr-2" />
-          스마트온보딩
-        </button>
-        <button
-          class="customers-page__btn-outline"
-          @click="handleAction('템플릿 다운로드')"
-        >
-          <download-icon class="w-4 h-4 mr-2" />
-          템플릿 다운로드
-        </button>
-        <button
-          class="customers-page__btn-outline"
-          @click="handleAction('내보내기')"
-        >
-          <upload-icon class="w-4 h-4 mr-2" />
-          내보내기
-        </button>
-      </div>
-    </header>
+    <CustomersPageHeader @action="handleAction" />
 
     <!-- Content -->
     <div class="customers-page__content">
@@ -39,7 +8,7 @@
       <customer-upload-area @upload="onFileUpload" />
 
       <!-- AI Search & Filter -->
-      <div class="mt-8">
+      <div class="customers-page__search-section">
         <customer-ai-search
           :search-query.sync="searchQuery"
           :recent-searches="recentCustomerSearches"
@@ -50,7 +19,7 @@
       </div>
 
       <!-- Table Section -->
-      <div class="mt-8">
+      <div class="customers-page__table-section">
         <customer-list-table
           :customers="filteredCustomers"
           @view-detail="onViewDetail"
@@ -59,7 +28,7 @@
       </div>
     </div>
 
-    <!-- 모달 영역: v-if 직접 렌더링 -->
+    <!-- 모달 영역 -->
     <customer-detail-modal
       v-if="selectedCustomer"
       :customer="selectedCustomer"
@@ -77,15 +46,14 @@
 
 <script>
 /**
- * 기능: 고객 목록 메인 페이지 (고객 관리)
- * 모달: v-if 직접 렌더링 방식 (fapro-modal 디자인 시스템 적용)
+ * 기능: 고객 목록 메인 페이지 (Rule 9 준수)
  */
-import { ZapIcon, DownloadIcon, UploadIcon } from "vue-feather-icons";
 import CustomerUploadArea from "~/components/customers/CustomerUploadArea.vue";
 import CustomerAiSearch from "~/components/customers/CustomerAiSearch.vue";
 import CustomerListTable from "~/components/customers/CustomerListTable.vue";
 import CustomerDetailModal from "~/components/customers/CustomerDetailModal.vue";
 import CustomerHoldingsModal from "~/components/customers/CustomerHoldingsModal.vue";
+import CustomersPageHeader from "~/components/customers/CustomersPage/CustomersPageHeader.vue";
 import {
   sampleCustomers,
   recentCustomerSearches,
@@ -101,9 +69,7 @@ export default {
     CustomerListTable,
     CustomerDetailModal,
     CustomerHoldingsModal,
-    ZapIcon,
-    DownloadIcon,
-    UploadIcon,
+    CustomersPageHeader,
   },
   layout: "default",
   data() {
@@ -113,7 +79,6 @@ export default {
       selectedFilter: "전체",
       recentCustomerSearches,
       customerQuickFilters,
-      /* 모달 상태 관리 */
       selectedCustomer: null,
       holdingsCustomer: null,
     };
@@ -136,21 +101,17 @@ export default {
   },
   methods: {
     onFileUpload(file) {
-      console.log("File processing...", file.name);
       alert(`${file.name} 파일 업로드 처리를 시작합니다.`);
     },
     onSearch(query) {
       this.searchQuery = query;
     },
-    /* 고객 상세 모달 열기 */
     onViewDetail(customer) {
       this.selectedCustomer = customer;
     },
-    /* 보유종목 모달 열기 */
     onViewHoldings(customer) {
       this.holdingsCustomer = customer;
     },
-    /* 상세 모달에서 보유종목 모달로 전환 */
     onViewHoldingsFromModal(customer) {
       this.selectedCustomer = null;
       this.$nextTick(() => {

@@ -33,8 +33,7 @@ export const getWeekDays = (date) => {
 };
 
 export const formatTime = (hour) => {
-  if (hour === 12) return "오후 12:00";
-  return hour > 12 ? `오후 ${hour - 12}:00` : `오전 ${hour}:00`;
+  return `${hour.toString().padStart(2, "0")}:00`;
 };
 
-export const timeSlots = Array.from({ length: 14 }, (_, i) => i + 8); // 8:00 - 21:00
+export const timeSlots = Array.from({ length: 24 }, (_, i) => i); // 0:00 - 23:00

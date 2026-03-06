@@ -26,7 +26,7 @@
             'app-sidebar__nav-item--expanded': isMenuExpanded(item.label),
             'app-sidebar__nav-item--parent-active': isChildActive(item),
           }"
-          @click="!isCollapsed && toggleMenu(item.label)"
+          @click="handleParentClick(item)"
         >
           <component :is="item.icon" size="20" class="app-sidebar__nav-icon" />
           <transition name="fade">
@@ -134,6 +134,27 @@ export default {
      */
     toggleMenu(label) {
       this.$set(this.expandedMenus, label, !this.expandedMenus[label]);
+    },
+    /**
+     * @description 부모 메뉴 클릭 핸들러
+     * 사이드바가 접힌 상태이면 펼치기 이벤트를 발생시키고 첫 번째 자식 메뉴로 이동합니다.
+     * 펼쳐진 상태이면 하위 메뉴를 토글합니다.
+     * @param {Object} item - 클릭된 메뉴 항목
+     */
+    handleParentClick(item) {
+      if (this.isCollapsed) {
+        // 1. 사이드바 펼치기 이벤트 전송
+        this.$emit('toggle-collapse');
+        // 2. 첫 번째 자식 메뉴로 이동
+        if (item.children && item.children.length > 0) {
+          const firstChild = item.children[0];
+          if (this.$route.path !== firstChild.path) {
+            this.$router.push(firstChild.path);
+          }
+        }
+      } else {
+        this.toggleMenu(item.label);
+      }
     },
     /**
      * 특정 그룹 메뉴가 현재 펼쳐진 상태인지 확인합니다.

@@ -1,17 +1,16 @@
 <template>
   <aside class="app-sidebar" :class="{ 'app-sidebar--collapsed': isCollapsed }">
     <!-- ── 로고 영역 ── -->
-    <div class="app-sidebar__logo-container">
-      <transition name="fade">
-        <!-- 사이드바 펼침 상태일 때만 로고 텍스트 표시 -->
-        <div v-if="!isCollapsed" class="app-sidebar__logo-wrapper">
-          <div class="app-sidebar__logo-icon">
-            <zap-icon size="20" class="text-white" />
-          </div>
-          <span class="app-sidebar__logo-text">AI FA_pro</span>
+    <nuxt-link to="/" class="app-sidebar__logo-container">
+      <div class="app-sidebar__logo-wrapper">
+        <div class="app-sidebar__logo-icon">
+          <zap-icon size="20" class="text-white" />
         </div>
-      </transition>
-    </div>
+        <transition name="fade">
+          <span v-if="!isCollapsed" class="app-sidebar__logo-text">AI FA_pro</span>
+        </transition>
+      </div>
+    </nuxt-link>
 
     <!-- ── 사이드바 접기/펼치기 토글 버튼 ── -->
     <button class="app-sidebar__toggle-btn" @click="toggleSidebar">
@@ -23,7 +22,11 @@
     </button>
 
     <!-- ── 네비게이션 메뉴 ── -->
-    <AppSidebarNav :is-collapsed="isCollapsed" :nav-items="navItems" />
+    <AppSidebarNav
+      :is-collapsed="isCollapsed"
+      :nav-items="navItems"
+      @toggle-collapse="toggleSidebar"
+    />
 
     <!-- ── 사용자 정보 영역 ── -->
     <AppSidebarUser :is-collapsed="isCollapsed" />

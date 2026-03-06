@@ -12,14 +12,12 @@
 
 /* 아이콘 래퍼 박스 */
 .schedule-placeholder__icon-wrapper {
-  @apply w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-sm;
-  background-color: rgba(83, 104, 255, 0.1);
+  @apply w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-sm bg-primary/10;
 }
 
 /* 안내 아이콘 */
 .schedule-placeholder__icon {
-  @apply w-12 h-12;
-  color: #5368ff;
+  @apply w-12 h-12 text-primary;
 }
 
 /* 안내 제목 텍스트 */
@@ -34,12 +32,10 @@
 
 /* 캘린더 동기화 버튼 */
 .schedule-placeholder__sync-btn {
-  @apply px-8 py-3 text-white font-bold rounded-xl transition-all cursor-pointer border-0 text-sm;
-  background-color: #5368ff;
-  box-shadow: 0 4px 14px rgba(83, 104, 255, 0.25);
+  @apply px-8 py-3 text-white font-bold rounded-xl transition-all cursor-pointer border-0 text-sm bg-primary shadow-lg shadow-primary/25;
 }
 .schedule-placeholder__sync-btn:hover {
-  background-color: #4253cc;
+  @apply bg-primary/90 shadow-xl shadow-primary/30;
 }
 
 /* 버튼 클릭 시 눌림 효과 */

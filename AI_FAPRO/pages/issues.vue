@@ -1,85 +1,14 @@
 <template>
   <div class="issues-page">
-    <!-- Header & Stats Container -->
     <div class="issues-page__top-section">
-      <!-- Header -->
-      <header class="issues-header">
-        <div class="issues-header__title-box">
-          <h1 class="issues-header__title">AI이슈포착</h1>
-          <p class="issues-header__subtitle">
-            중소형주 및 대형주 이슈를 포착 합니다
-          </p>
-        </div>
-        <div class="issues-header__action-box">
-          <div class="issues-header__time-info">
-            <p class="issues-header__time-text">{{ formattedTime }}</p>
-          </div>
-          <button class="issues-header__btn-refresh" @click="refreshData">
-            <refresh-cw-icon size="16" class="issues-header__refresh-icon" />
-            <span class="issues-header__refresh-text">새로고침</span>
-          </button>
-        </div>
-      </header>
-
-      <!-- Stats Bar (2 Cards) -->
-      <div class="issues-stats-bar">
-        <!-- Card 1: Small/Mid Cap -->
-        <div class="issues-stats-card">
-          <div class="issues-stats-card__icon issues-stats-card__icon--orange">
-            <bar-chart-2-icon class="w-5 h-5 text-orange-500" />
-          </div>
-          <div class="flex-1">
-            <div class="issues-stats-card__label">중소형주 이슈</div>
-            <div class="issues-stats-card__value">{{ smallCapStats.total }}건</div>
-          </div>
-          <div class="issues-stats-card__breakdown">
-            <span class="issues-stats-card__badge-label">강도별</span>
-            <span class="issues-stats-card__strength-high"
-              >고 <span class="issues-stats-card__strength-num">{{ smallCapStats.high }}</span></span
-            >
-            <span class="issues-stats-card__dot">·</span>
-            <span class="issues-stats-card__strength-mid"
-              >중 <span class="issues-stats-card__strength-num">{{ smallCapStats.mid }}</span></span
-            >
-            <span class="issues-stats-card__dot">·</span>
-            <span class="issues-stats-card__strength-low"
-              >저 <span class="issues-stats-card__strength-num">{{ smallCapStats.low }}</span></span
-            >
-          </div>
-        </div>
-
-        <!-- Card 2: Large Cap -->
-        <div class="issues-stats-card">
-          <div class="issues-stats-card__icon issues-stats-card__icon--slate">
-            <bar-chart-2-icon
-              class="w-5 h-5 text-slate-500 dark:text-slate-400"
-            />
-          </div>
-          <div class="flex-1">
-            <div class="issues-stats-card__label">대형주 이슈</div>
-            <div class="issues-stats-card__value">{{ largeCapStats.total }}건</div>
-          </div>
-          <div class="issues-stats-card__breakdown">
-            <span class="issues-stats-card__badge-label">강도별</span>
-            <span class="issues-stats-card__strength-high"
-              >고 <span class="issues-stats-card__strength-num">{{ largeCapStats.high }}</span></span
-            >
-            <span class="issues-stats-card__dot">·</span>
-            <span class="issues-stats-card__strength-mid"
-              >중 <span class="issues-stats-card__strength-num">{{ largeCapStats.mid }}</span></span
-            >
-            <span class="issues-stats-card__dot">·</span>
-            <span class="issues-stats-card__strength-low"
-              >저 <span class="issues-stats-card__strength-num">{{ largeCapStats.low }}</span></span
-            >
-          </div>
-        </div>
-      </div>
+      <IssuesPageHeader :formatted-time="formattedTime" @refresh="refreshData" />
+      <IssuesPageStats
+        :small-cap-stats="smallCapStats"
+        :large-cap-stats="largeCapStats"
+      />
     </div>
 
-    <!-- Main Content Grid -->
     <div class="issues-page__main-grid">
-      <!-- Left: Bubble Chart -->
       <div class="issues-page__chart-section">
         <issue-bubble-chart
           :issues="issues"
@@ -89,7 +18,6 @@
         />
       </div>
 
-      <!-- Right: Quick Analysis -->
       <div class="issues-page__analysis-section">
         <issue-analysis-side :issue="selectedIssue" />
       </div>
@@ -120,13 +48,14 @@
 
 <script>
 /**
- * 기능: AI 이슈 탐지 페이지 (Nuxt Migration)
+ * 기능: AI 이슈 탐지 페이지 (Rule 9 준수)
  */
-import { RefreshCwIcon, BarChart2Icon } from "vue-feather-icons";
 import IssueBubbleChart from "~/components/issues/IssueBubbleChart.vue";
 import IssueAnalysisSide from "~/components/issues/IssueAnalysisSide.vue";
 import IssueDetailSection from "~/components/issues/IssueDetailSection.vue";
 import IssueProposalModal from "~/components/issues/IssueProposalModal.vue";
+import IssuesPageHeader from "~/components/issues/IssuesPage/IssuesPageHeader.vue";
+import IssuesPageStats from "~/components/issues/IssuesPage/IssuesPageStats.vue";
 import {
   issueData,
   largeCapIssueData,
@@ -140,13 +69,13 @@ export default {
     IssueAnalysisSide,
     IssueDetailSection,
     IssueProposalModal,
-    RefreshCwIcon,
-    BarChart2Icon,
+    IssuesPageHeader,
+    IssuesPageStats,
   },
   layout: "default",
   data() {
     return {
-      issueType: "all", // 'all', 'small', or 'large'
+      issueType: "all",
       selectedIssueId: null,
       isProposalModalOpen: false,
       selectedIssueForProposal: null,
@@ -187,7 +116,6 @@ export default {
   },
   watch: {
     issueType() {
-      // Switch selection to the largest issue of the new type
       this.setDefaultIssue();
     },
   },
@@ -197,7 +125,7 @@ export default {
   mounted() {
     this.timer = setInterval(() => {
       this.currentTime = new Date();
-    }, 60000); // 분 단위 갱신
+    }, 60000);
   },
   beforeDestroy() {
     if (this.timer) clearInterval(this.timer);
@@ -208,7 +136,6 @@ export default {
     },
     setDefaultIssue() {
       if (this.issues && this.issues.length > 0) {
-        // Find the issue with the maximum size
         const largestIssue = this.issues.reduce(
           (max, issue) => (issue.size > max.size ? issue : max),
           this.issues[0]
@@ -225,7 +152,6 @@ export default {
     },
     handleProposalSend(data) {
       console.log("Sending proposal:", data);
-      // In a real app, this would hit an API
     },
     calculateStats(data) {
       const stats = { total: data.length, high: 0, mid: 0, low: 0 };

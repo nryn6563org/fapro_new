@@ -1,28 +1,28 @@
 /* ── 일정 사이드바 스타일 ── */
 
 .schedule-sidebar {
-  @apply w-64 border-r border-slate-400 dark:border-slate-800 flex flex-col bg-slate-100 dark:bg-slate-900;
+  @apply w-72 border-r border-slate-100 dark:border-slate-800 flex flex-col bg-white dark:bg-slate-900 shadow-sm z-10;
 }
 
 .schedule-sidebar__action {
-  @apply p-4;
+  @apply p-6;
 }
 
 .schedule-sidebar__create-btn {
-  @apply w-full flex items-center justify-start bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 py-2.5 px-4 rounded-xl font-bold transition-all cursor-pointer;
+  @apply w-full flex items-center justify-center bg-indigo-600 hover:bg-indigo-700 text-white border-0 py-3.5 px-4 rounded-2xl font-black transition-all cursor-pointer shadow-lg shadow-indigo-100 dark:shadow-none active:scale-95;
 }
 
 /* 미니 캘린더 */
 .schedule-sidebar__mini-cal {
-  @apply px-4 pb-4;
+  @apply px-6 pb-6;
 }
 
 .schedule-sidebar__section-title {
-  @apply text-sm font-bold text-slate-700 dark:text-white m-0;
+  @apply text-[15px] font-black text-slate-800 dark:text-white mb-4;
 }
 
 .schedule-sidebar__mini-header {
-  @apply flex items-center justify-between mb-3;
+  @apply flex items-center justify-between mb-4;
 }
 
 .schedule-sidebar__mini-nav-container {
@@ -30,7 +30,7 @@
 }
 
 .schedule-sidebar__mini-nav {
-  @apply p-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded transition-colors border-0 bg-transparent cursor-pointer text-slate-600;
+  @apply p-1.5 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-all border-0 bg-transparent cursor-pointer text-slate-400 hover:text-slate-600 active:scale-90;
 }
 
 .schedule-sidebar__mini-days {
@@ -38,17 +38,15 @@
 }
 
 .schedule-sidebar__mini-dot {
-  @apply h-6 flex items-center justify-center text-xs font-black uppercase;
+  @apply h-8 flex items-center justify-center text-[12px] font-black uppercase tracking-widest text-slate-400;
 }
 
-/* 일요일: 빨간색 (한국 달력 관례) */
 .schedule-sidebar__mini-dot--sunday {
-  @apply text-red-600;
+  @apply text-red-400;
 }
 
-/* 토요일: 파란색 (한국 달력 관례) */
 .schedule-sidebar__mini-dot--saturday {
-  @apply text-blue-600;
+  @apply text-indigo-400;
 }
 
 .schedule-sidebar__mini-grid {
@@ -56,51 +54,78 @@
 }
 
 .schedule-sidebar__empty-day {
-  @apply h-8;
+  @apply h-9;
 }
 
 .schedule-sidebar__day-btn {
-  @apply h-8 flex items-center justify-center text-xs rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative border-0 bg-transparent cursor-pointer text-slate-700 dark:text-slate-400;
+  @apply h-9 flex items-center justify-center text-[13px] font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all relative border-0 bg-transparent cursor-pointer text-slate-600 dark:text-slate-400 active:scale-90;
 }
 
-/* 선택된 날짜: primary 브랜드 컬러 */
+/* 선택된 날짜: primary gradient */
 .schedule-sidebar__day-btn--selected {
   @apply text-white font-black;
-  background-color: #5368ff;
-  box-shadow: 0 2px 6px rgba(83, 104, 255, 0.3);
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
 }
 .schedule-sidebar__day-btn--selected:hover {
-  background-color: #4253cc;
+  @apply opacity-90;
 }
 
-/* 오늘 날짜: primary 컬러 강조 */
+/* 오늘 날짜: indigo 강조 */
 .schedule-sidebar__day-btn--today {
-  @apply font-black;
-  color: #5368ff;
+  @apply font-black text-indigo-600 dark:text-indigo-400;
 }
 
-/* 이벤트 있는 날 표시 점: primary 컬러 */
+/* 이벤트 있는 날 표시 점 */
 .schedule-sidebar__has-event {
-  @apply absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full;
-  background-color: #5368ff;
+  @apply absolute bottom-1.5 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full;
+  background-color: #6366f1;
 }
 
 /* 필터 */
 .schedule-sidebar__filters {
-  @apply px-4 pb-4 border-t border-slate-400 dark:border-slate-800 pt-4;
+  @apply px-6 py-8 border-t border-slate-50 dark:border-slate-800;
 }
 
 .schedule-sidebar__filter-list {
-  @apply space-y-2;
+  @apply space-y-3;
 }
 
 .schedule-sidebar__filter-item {
-  @apply flex items-center gap-2 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 rounded px-2 py-1.5 -mx-2 transition-all;
+  @apply flex items-center gap-3 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl px-3 py-2.5 -mx-3 transition-all active:scale-[0.98];
 }
 .schedule-sidebar__filter-label {
-  @apply text-sm text-slate-700 dark:text-slate-300 font-medium;
+  @apply text-[14px] text-slate-600 dark:text-slate-300 font-bold;
 }
 
 .schedule-sidebar__filter-dot {
-  @apply w-3 h-3 rounded-full flex-shrink-0 transition-colors;
+  @apply w-3.5 h-3.5 rounded-full flex-shrink-0 transition-all ring-offset-2 ring-transparent;
+}
+
+.schedule-sidebar__filter-item:hover .schedule-sidebar__filter-dot {
+  @apply scale-110;
+}
+
+.schedule-sidebar__filter-dot--inactive {
+  @apply bg-slate-200 dark:bg-slate-700;
+}
+
+.schedule-sidebar__filter-dot--active-blue-500 {
+  @apply bg-blue-500 shadow-sm shadow-blue-200 dark:shadow-none;
+}
+
+.schedule-sidebar__filter-dot--active-teal-500 {
+  @apply bg-teal-500 shadow-sm shadow-teal-200 dark:shadow-none;
+}
+
+.schedule-sidebar__filter-dot--active-amber-500 {
+  @apply bg-amber-500 shadow-sm shadow-amber-200 dark:shadow-none;
+}
+
+.schedule-sidebar__filter-dot--active-purple-500 {
+  @apply bg-purple-500 shadow-sm shadow-purple-200 dark:shadow-none;
+}
+
+.schedule-sidebar__day-btn--default {
+  @apply text-slate-600 dark:text-slate-400;
 }

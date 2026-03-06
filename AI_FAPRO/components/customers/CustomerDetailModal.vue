@@ -1,7 +1,7 @@
 <template>
   <div v-if="customer" id="customer-detail-modal" class="customer-modal">
     <div class="customer-modal__overlay" @click="$emit('close')"></div>
-    <div class="customer-modal__container animate__animated animate__fadeInUp">
+    <div class="customer-modal__container animate__animated animate__fadeIn animate__faster">
       <!-- Header -->
       <div class="customer-modal__header">
         <div class="customer-modal__header-left">
@@ -35,24 +35,6 @@
         </div>
       </div>
 
-      <!-- Footer -->
-      <div class="customer-modal__footer">
-        <div>
-          <button
-            v-if="customer.holdingDetails && customer.holdingDetails.length"
-            class="customer-modal__btn customer-modal__btn--outline"
-            @click="$emit('view-holdings', customer)"
-          >
-            <eye-icon class="w-4 h-4" /> 보유종목 상세보기
-          </button>
-        </div>
-        <button
-          class="customer-modal__btn customer-modal__btn--outline"
-          @click="$emit('close')"
-        >
-          닫기
-        </button>
-      </div>
     </div>
   </div>
 </template>
@@ -61,7 +43,7 @@
 /**
  * 기능: 고객 정보 상세 조회 모달 (fapro-modal 디자인 시스템 적용)
  */
-import { UserIcon, XIcon, EyeIcon } from "vue-feather-icons";
+import { UserIcon, XIcon } from "vue-feather-icons";
 import CustomerDetailStats from "~/components/customers/CustomerDetailStats.vue";
 import CustomerDetailHoldings from "~/components/customers/CustomerDetailHoldings.vue";
 import CustomerDetailAnalysis from "~/components/customers/CustomerDetailAnalysis.vue";
@@ -73,7 +55,6 @@ export default {
   components: {
     UserIcon,
     XIcon,
-    EyeIcon,
     CustomerDetailStats,
     CustomerDetailHoldings,
     CustomerDetailAnalysis,
@@ -81,6 +62,12 @@ export default {
   },
   props: {
     customer: { type: Object, default: null },
+  },
+  mounted() {
+    document.body.classList.add("modal-open");
+  },
+  beforeDestroy() {
+    document.body.classList.remove("modal-open");
   },
 };
 </script>

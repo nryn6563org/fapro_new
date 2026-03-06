@@ -54,6 +54,15 @@
 .issues-stats-card__icon--slate {
   @apply bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700;
 }
+.issues-stats-card__chart-icon-orange {
+  @apply w-5 h-5 text-orange-500;
+}
+.issues-stats-card__chart-icon-slate {
+  @apply w-5 h-5 text-slate-500 dark:text-slate-400;
+}
+.issues-stats-card__content {
+  @apply flex-1;
+}
 .issues-stats-card__label {
   @apply text-xs font-bold text-slate-500 dark:text-slate-400 mb-0.5;
 }
@@ -68,7 +77,7 @@
 }
 .issues-stats-card__strength-high {
   @apply font-bold;
-  color: #fb2c36;
+  @apply text-buy;
 }
 .issues-stats-card__strength-mid {
   @apply text-orange-500;

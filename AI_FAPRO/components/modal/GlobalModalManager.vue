@@ -68,11 +68,13 @@ export default {
 
       this.activeModal = new Modal(modalOptions);
       this.activeModal.show();
+      document.body.classList.add("modal-open");
     },
     handleCloseModal() {
       if (this.activeModal) {
         this.activeModal.hide();
         this.activeModal = null;
+        document.body.classList.remove("modal-open");
       }
     },
   },

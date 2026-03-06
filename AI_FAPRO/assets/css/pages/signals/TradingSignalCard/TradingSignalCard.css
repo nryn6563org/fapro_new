@@ -5,17 +5,17 @@
 }
 /* 매수 카드: buy 시맨틱 컬러 */
 .trading-signal-card--buy {
-  border-color: rgba(251, 44, 54, 0.4);
+  @apply border-buy/40;
 }
 .dark .trading-signal-card--buy {
-  border-color: rgba(251, 44, 54, 0.25);
+  @apply border-buy/25;
 }
 /* 매도 카드: sell 시맨틱 컬러 */
 .trading-signal-card--sell {
-  border-color: rgba(43, 127, 255, 0.4);
+  @apply border-sell/40;
 }
 .dark .trading-signal-card--sell {
-  border-color: rgba(43, 127, 255, 0.25);
+  @apply border-sell/25;
 }
 
 /* 헤더 박스 */
@@ -23,20 +23,16 @@
   @apply p-4 w-full border-b border-transparent;
 }
 .trading-signal-card--buy .trading-signal-card__header-box {
-  background-color: rgba(251, 44, 54, 0.05);
-  border-color: rgba(251, 44, 54, 0.1);
+  @apply bg-buy/5 border-buy/10;
 }
 .dark .trading-signal-card--buy .trading-signal-card__header-box {
-  background-color: rgba(251, 44, 54, 0.08);
-  border-color: rgba(251, 44, 54, 0.15);
+  @apply bg-buy/8 border-buy/15;
 }
 .trading-signal-card--sell .trading-signal-card__header-box {
-  background-color: rgba(43, 127, 255, 0.05);
-  border-color: rgba(43, 127, 255, 0.1);
+  @apply bg-sell/5 border-sell/10;
 }
 .dark .trading-signal-card--sell .trading-signal-card__header-box {
-  background-color: rgba(43, 127, 255, 0.08);
-  border-color: rgba(43, 127, 255, 0.15);
+  @apply bg-sell/8 border-sell/15;
 }
 
 /* 타임 배지 */
@@ -48,17 +44,17 @@
 }
 /* 매수 텍스트: buy 시맨틱 컬러 */
 .trading-signal-card__time-text--buy {
-  color: #fb2c36;
+  @apply text-buy;
 }
 .dark .trading-signal-card__time-text--buy {
-  color: #ff7b82;
+  @apply text-buy/80;
 }
 /* 매도 텍스트: sell 시맨틱 컬러 */
 .trading-signal-card__time-text--sell {
-  color: #2b7fff;
+  @apply text-sell;
 }
 .dark .trading-signal-card__time-text--sell {
-  color: #7b8dff;
+  @apply text-sell/80;
 }
 
 .trading-signal-card__name {
@@ -72,25 +68,23 @@
 }
 /* 매수 가격: buy 컬러 */
 .trading-signal-card__price--buy {
-  color: #fb2c36;
+  @apply text-buy;
 }
 .dark .trading-signal-card__price--buy {
-  color: #ff7b82;
+  @apply text-buy/80;
 }
-/* 매도 가격: sell 컬러 */
 .trading-signal-card__price--sell {
-  color: #2b7fff;
+  @apply text-sell;
 }
 .dark .trading-signal-card__price--sell {
-  color: #7b8dff;
+  @apply text-sell/80;
 }
 /* 등락률: sell 컬러 (하락 맥락) */
 .trading-signal-card__change {
-  @apply text-sm font-semibold;
-  color: #2b7fff;
+  @apply text-sm font-semibold text-sell;
 }
 .dark .trading-signal-card__change {
-  color: #7b8dff;
+  @apply text-sell/80;
 }
 
 /* 액션 영역 */
@@ -98,16 +92,16 @@
   @apply flex items-center gap-2 w-full pt-4 border-t border-slate-200 dark:border-slate-700/50;
 }
 .trading-signal-card--buy .trading-signal-card__actions {
-  border-color: rgba(251, 44, 54, 0.2);
+  @apply border-buy/20;
 }
 .dark .trading-signal-card--buy .trading-signal-card__actions {
-  border-color: rgba(251, 44, 54, 0.15);
+  @apply border-buy/15;
 }
 .trading-signal-card--sell .trading-signal-card__actions {
-  border-color: rgba(43, 127, 255, 0.2);
+  @apply border-sell/20;
 }
 .dark .trading-signal-card--sell .trading-signal-card__actions {
-  border-color: rgba(43, 127, 255, 0.15);
+  @apply border-sell/15;
 }
 .trading-signal-card__btn-detail {
   @apply flex-1 flex items-center justify-center py-2 text-sm rounded border bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors font-semibold;
@@ -127,10 +121,10 @@
 /* 리포트 버튼: primary 브랜드 컬러 */
 .trading-signal-card__btn-report {
   @apply flex-1 flex items-center justify-center py-2 text-sm rounded text-white transition-colors border border-transparent font-semibold;
-  background-color: #5368ff;
+  @apply bg-primary;
 }
 .trading-signal-card__btn-report:hover {
-  background-color: #4253cc;
+  @apply bg-primary/90;
 }
 .trading-signal-card__btn-icon {
   @apply mr-1.5;
@@ -154,10 +148,8 @@
 .trading-signal-card__reason-empty {
   @apply flex flex-col items-center justify-center py-6 mt-1 bg-slate-50/80 dark:bg-slate-800/30 rounded border border-dashed border-slate-300 dark:border-slate-700;
 }
-/* AI 배지: primary 컬러 */
 .trading-signal-card__reason-empty-badge {
-  @apply text-white text-[10px] font-bold px-1.5 py-0.5 rounded mb-2 inline-flex items-center;
-  background-color: #5368ff;
+  @apply text-white text-[12px] font-bold px-1.5 py-0.5 rounded mb-2 inline-flex items-center bg-primary;
 }
 .trading-signal-card__reason-empty-text {
   @apply text-sm font-medium text-slate-500 dark:text-slate-400;

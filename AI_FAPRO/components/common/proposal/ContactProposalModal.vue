@@ -21,6 +21,7 @@
         <ProposalCustomerSection
           v-if="showCustomerSection"
           :mode="config.customerMode"
+          :context-mode="mode"
           :customers="customers"
           :selected-ids.sync="internalSelectedCustomerIds"
           :single-customer="singleCustomer"

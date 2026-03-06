@@ -89,7 +89,7 @@
   @apply w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-slate-900 dark:border-t-slate-100 drop-shadow-sm;
 }
 .ai-report-stock__ranking-ticks {
-  @apply flex items-center justify-between text-[9px] text-slate-400 dark:text-slate-500 px-0.5 mt-1;
+  @apply flex items-center justify-between text-[12px] text-slate-400 dark:text-slate-500 px-0.5 mt-1;
 }
 .ai-report-stock__ranking-labels {
   @apply flex items-center justify-between text-xs text-slate-600 dark:text-slate-400 font-medium mt-1;

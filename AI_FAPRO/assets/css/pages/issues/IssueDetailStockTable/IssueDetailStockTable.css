@@ -44,36 +44,30 @@
 }
 /* primary 계열 뱃지 (구 teal) */
 .issue-detail-table__badge--teal {
-  background-color: rgba(83, 104, 255, 0.1);
-  color: #5368ff;
+  @apply bg-primary/10 text-primary;
 }
 .dark .issue-detail-table__badge--teal {
-  background-color: rgba(83, 104, 255, 0.15);
-  color: #7b8dff;
+  @apply bg-primary/15 text-primary/80;
 }
 .issue-detail-table__badge--orange {
   @apply bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400;
 }
 /* 매수(상승): buy 시맨틱 컬러 */
 .issue-detail-table__badge--red {
-  background-color: rgba(251, 44, 54, 0.1);
-  color: #fb2c36;
+  @apply bg-buy/10 text-buy;
 }
 .dark .issue-detail-table__badge--red {
-  background-color: rgba(251, 44, 54, 0.15);
-  color: #ff7b82;
+  @apply bg-buy/15 text-buy/80;
 }
 .issue-detail-table__badge--yellow {
   @apply bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400;
 }
 /* 매도(하락): sell 시맨틱 컬러 */
 .issue-detail-table__badge--blue {
-  background-color: rgba(43, 127, 255, 0.1);
-  color: #2b7fff;
+  @apply bg-sell/10 text-sell;
 }
 .dark .issue-detail-table__badge--blue {
-  background-color: rgba(43, 127, 255, 0.15);
-  color: #7b8dff;
+  @apply bg-sell/15 text-sell/80;
 }
 
 /* 관련 이슈 태그 목록 */
@@ -117,8 +111,8 @@
   @apply font-bold;
 }
 .issue-detail-table__change--up {
-  @apply text-red-600;
+  @apply text-buy;
 }
 .issue-detail-table__change--down {
-  @apply text-blue-600;
+  @apply text-sell;
 }

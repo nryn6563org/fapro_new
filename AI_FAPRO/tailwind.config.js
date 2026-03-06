@@ -12,6 +12,24 @@ module.exports = {
         "primary-dark": "#323e99",
         "primary-900": "#151c96",
 
+        /* ── 뉴트럴(그레이) 팔레트 ── */
+        surface: {
+          light: "#F8F9FA",
+          dark: "#020617" // slate-950
+        },
+        "base-border": {
+          light: "#EAEAEA",
+          dark: "#1e293b" // slate-800
+        },
+        "base-text": {
+          light: "#2F343A",
+          dark: "#F8F9FA",
+          muted: {
+            light: "#6F6F6F",
+            dark: "#94a3b8" // slate-400
+          }
+        },
+
         /* ── 매수(상승) 시맨틱 컬러 ── */
         buy: "#FB2C36",
         "buy-hover": "#D91C25",
@@ -36,6 +54,10 @@ module.exports = {
       },
       animation: {
         "local-fade-up": "localFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both"
+      },
+      opacity: {
+        8: "0.08",
+        15: "0.15"
       }
     }
   },
@@ -50,10 +72,10 @@ module.exports = {
           "@apply flex flex-col": {}
         },
         ".fapro-page-header__title": {
-          "@apply text-3xl font-bold text-[#2F343A] dark:text-white tracking-tight": {}
+          "@apply text-3xl font-bold text-slate-800 dark:text-white tracking-tight": {}
         },
         ".fapro-page-header__subtitle": {
-          "@apply text-[#6F6F6F] dark:text-slate-400 mt-1 text-sm font-normal": {}
+          "@apply text-slate-500 dark:text-slate-400 mt-1 text-sm font-normal": {}
         },
         ".fapro-page-header__action-box": {
           "@apply flex items-center gap-4": {}
@@ -62,10 +84,10 @@ module.exports = {
           "@apply text-right": {}
         },
         ".fapro-page-header__time-text": {
-          "@apply text-sm font-bold text-[#2F343A] dark:text-white": {}
+          "@apply text-sm font-bold text-slate-800 dark:text-white": {}
         },
         ".fapro-page-header__time-label": {
-          "@apply text-xs text-[#6F6F6F] dark:text-slate-400": {}
+          "@apply text-xs text-slate-500 dark:text-slate-400": {}
         },
 
         /* ── 공통 버튼 시스템 ── */
@@ -79,15 +101,15 @@ module.exports = {
         },
         /* 보조 아웃라인 버튼 */
         ".fapro-btn-outline": {
-          "@apply px-5 py-2.5 bg-white dark:bg-slate-900 border border-[#EAEAEA] dark:border-slate-800 text-[#6F6F6F] dark:text-slate-300 font-medium rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300 cursor-pointer": {}
+          "@apply px-5 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 font-medium rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300 cursor-pointer": {}
         },
 
         /* ── 모달 공통 레이아웃 ── */
         ".fapro-modal-overlay": {
-          "@apply fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#2F343A]/60 backdrop-blur-sm dark:bg-black/70 !m-0": {}
+          "@apply fixed inset-0 z-[10020] flex items-center justify-center p-4 bg-[#2F343A]/60 backdrop-blur-sm dark:bg-black/70 !m-0": {}
         },
         ".fapro-modal-container": {
-          "@apply relative w-full max-w-4xl max-h-[90vh] bg-[#FFF6EB] dark:bg-slate-950 rounded-2xl shadow-xl flex flex-col overflow-hidden border border-[#EAEAEA] dark:border-slate-800": {}
+          "@apply relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-slate-950 rounded-2xl shadow-xl flex flex-col overflow-hidden border border-[#EAEAEA] dark:border-slate-800": {}
         },
         ".fapro-modal-container--sm": {
           "@apply max-w-2xl": {}
@@ -99,7 +121,7 @@ module.exports = {
           "@apply max-w-4xl": {}
         },
         ".fapro-modal-header": {
-          "@apply flex items-center justify-between p-6 md:px-8 border-b border-[#EAEAEA] dark:border-slate-800 bg-[#FFF6EB] dark:bg-slate-900/50 flex-shrink-0": {}
+          "@apply flex items-center justify-between p-6 md:px-8 border-b border-[#EAEAEA] dark:border-slate-800 bg-white dark:bg-slate-900/50 flex-shrink-0": {}
         },
         ".fapro-modal-header--sticky": {
           "@apply sticky top-0 backdrop-blur-md z-10": {}
@@ -111,13 +133,13 @@ module.exports = {
           "@apply text-sm text-slate-500 dark:text-slate-400 mt-1 m-0": {}
         },
         ".fapro-modal-close": {
-          "@apply p-2 rounded-full hover:bg-[#EAEAEA] dark:hover:bg-slate-800 text-[#6F6F6F] transition-colors border-0 bg-transparent cursor-pointer": {}
+          "@apply p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors border-0 bg-transparent cursor-pointer": {}
         },
         ".fapro-modal-body": {
           "@apply flex-1 overflow-y-auto p-6 md:p-8": {}
         },
         ".fapro-modal-footer": {
-          "@apply p-6 md:px-8 border-t border-[#EAEAEA] dark:border-slate-800 bg-[#FFF6EB] dark:bg-slate-900/50 flex items-center gap-3 flex-shrink-0": {}
+          "@apply p-6 md:px-8 border-t border-[#EAEAEA] dark:border-slate-800 bg-white dark:bg-slate-900/50 flex items-center gap-3 flex-shrink-0": {}
         },
         ".fapro-modal-footer--sticky": {
           "@apply sticky bottom-0 backdrop-blur-md": {}
@@ -224,10 +246,10 @@ module.exports = {
           "@apply transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-800/30 border-b border-slate-100 dark:border-slate-800 last:border-0": {}
         },
         ".fapro-th": {
-          "@apply px-4 py-3 text-left text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap": {}
+          "@apply px-3 py-3 text-left text-xs font-bold text-slate-500 dark:text-slate-400 border-b border-gray-200 dark:border-gray-700 whitespace-nowrap": {}
         },
         ".fapro-td": {
-          "@apply px-4 py-4 whitespace-nowrap text-[13px] text-slate-800 dark:text-slate-200 font-medium": {}
+          "@apply px-3 py-3 whitespace-nowrap text-[13px] text-slate-800 dark:text-slate-200 font-medium border-b border-gray-200 dark:border-gray-700 transition-colors": {}
         }
       });
     }

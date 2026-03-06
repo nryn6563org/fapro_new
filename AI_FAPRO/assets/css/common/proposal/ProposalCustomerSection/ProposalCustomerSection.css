@@ -30,14 +30,12 @@
 /* 매수 → buy 시맨틱 컬러 */
 .proposal-badge--red {
   @apply proposal-badge;
-  background-color: #fff0f1;
-  color: #fb2c36;
+  @apply bg-buy/10 text-buy;
 }
 /* 매도 → sell 시맨틱 컬러 */
 .proposal-badge--blue {
   @apply proposal-badge;
-  background-color: #e1e4ff;
-  color: #2b7fff;
+  @apply bg-sell/10 text-sell;
 }
 
 /* ── 아이템 내부 요소 ── */
@@ -61,17 +59,17 @@
   @apply text-[12px] text-slate-400 font-medium leading-5;
 }
 .proposal-item__style {
-  @apply text-[11px] text-slate-500 font-medium;
+  @apply text-[12px] text-slate-500 font-medium;
 }
 .proposal-item__meta {
   @apply text-[13px] text-slate-600 dark:text-slate-400 leading-tight;
 }
 .proposal-item__reason {
-  @apply text-[11px] text-emerald-600 dark:text-emerald-400 bg-emerald-50/40 dark:bg-emerald-950/20 px-3 py-2 rounded-lg leading-relaxed border border-emerald-100/50 dark:border-emerald-900/40 flex items-start gap-1 relative;
+  @apply text-[12px] text-emerald-600 dark:text-emerald-400 bg-emerald-50/40 dark:bg-emerald-950/20 px-3 py-2 rounded-lg leading-relaxed border border-emerald-100/50 dark:border-emerald-900/40 flex items-start gap-1 relative;
 }
 .proposal-item__reason::before {
   content: "💡";
-  @apply text-[10px];
+  @apply text-[12px];
 }
 
 /* ── 섹션 아이콘 ── */

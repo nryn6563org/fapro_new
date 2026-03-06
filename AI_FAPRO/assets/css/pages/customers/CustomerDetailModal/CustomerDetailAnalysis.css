@@ -1,48 +1,61 @@
 /* ── AI 고객 분석 카드 스타일 (브랜드 컬러 적용) ── */
 
 .customer-analysis {
-  @apply bg-primary-light/30 dark:bg-primary/10 border border-primary-light dark:border-primary/30 rounded-2xl p-6 relative;
+  @apply mb-8;
 }
 
-.customer-analysis__header {
-  @apply flex items-center gap-3 mb-5;
+.customer-analysis__section-label {
+  @apply flex items-center gap-2 mb-4;
 }
 
-.customer-analysis__icon-box {
-  @apply fapro-modal-icon fapro-modal-icon--primary;
-  @apply w-10 h-10;
+.customer-analysis__section-title {
+  @apply text-sm font-bold text-slate-800 dark:text-slate-200 m-0;
 }
 
-.customer-analysis__title-group {
-  @apply flex flex-col;
+/* 분석 그리드 */
+.customer-analysis__grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
 }
 
-.customer-analysis__title {
-  @apply text-base font-bold text-slate-900 dark:text-white m-0;
+.customer-analysis__card {
+  @apply bg-slate-50 dark:bg-slate-800/20 p-5 rounded-xl border border-slate-100 dark:border-slate-800 transition-all duration-300;
+  @apply flex flex-col gap-2;
 }
 
-.customer-analysis__subtitle {
-  @apply text-xs text-slate-500 dark:text-slate-400 m-0;
+.customer-analysis__card:hover {
+  @apply bg-white dark:bg-slate-800 border-primary/20 shadow-sm;
 }
 
-/* 분석 리스트 */
-.customer-analysis__list {
-  @apply space-y-4 bg-white/70 dark:bg-slate-900/50 p-6 rounded-xl border border-white/50 dark:border-slate-800/50;
+.customer-analysis__card--highlight {
+  @apply border-orange-100 dark:border-orange-900/30 bg-orange-50/30 dark:bg-orange-900/5;
 }
 
-.customer-analysis__item {
-  @apply flex gap-3 text-[14px] leading-relaxed text-slate-700 dark:text-slate-300;
+.customer-analysis__card-header {
+  @apply flex items-center gap-2;
 }
 
-.customer-analysis__bullet {
-  @apply text-primary mt-1 flex-shrink-0;
+.customer-analysis__card-icon {
+  @apply w-4 h-4 text-primary;
 }
 
-.customer-analysis__label {
-  @apply font-bold text-slate-900 dark:text-white mr-1;
+.customer-analysis__card--highlight .customer-analysis__card-icon {
+  @apply text-orange-500;
 }
 
-/* 특수 라벨 컬러 (추천 액션) */
-.customer-analysis__label--highlight {
-  @apply text-orange-500 dark:text-orange-400;
+.customer-analysis__card-label {
+  @apply text-[11px] font-black uppercase tracking-widest text-slate-400;
 }
+
+.customer-analysis__card--highlight .customer-analysis__card-label {
+  @apply text-orange-500;
+}
+
+.customer-analysis__card-body {
+  @apply flex-grow;
+}
+
+.customer-analysis__card-content {
+  @apply text-[13px] leading-relaxed text-slate-600 dark:text-slate-400 m-0 font-medium;
+}
+
+

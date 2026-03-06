@@ -35,7 +35,7 @@
   @apply text-sm font-bold text-slate-800 dark:text-slate-200 leading-none;
 }
 .ai-report-send__target-desc {
-  @apply text-[11px] text-slate-500 dark:text-slate-400 font-medium;
+  @apply text-[12px] text-slate-500 dark:text-slate-400 font-medium;
 }
 
 /* ── 전체 선택 체크박스 ── */
@@ -57,11 +57,8 @@
 .ai-report-send__client-card {
   @apply border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 p-3 rounded-lg cursor-pointer transition-all flex items-start gap-3;
 }
-.ai-report-send__client-card:hover {
-  @apply border-primary/50 shadow-sm bg-slate-500 dark:bg-slate-800/30;
-}
 .ai-report-send__client-card--active {
-  @apply !border-primary ring-1 ring-primary bg-primary-light/30 dark:bg-primary-dark/10 shadow-sm;
+  @apply !border-primary bg-primary-light/30 dark:bg-primary-dark/10 shadow-sm;
 }
 
 /* ── 고객 카드 내부 ── */
@@ -81,12 +78,12 @@
   @apply text-[13px] font-bold text-slate-800 dark:text-slate-200;
 }
 .ai-report-send__client-email {
-  @apply text-[11px] font-medium text-slate-500 dark:text-slate-400;
+  @apply text-[12px] font-medium text-slate-500 dark:text-slate-400;
 }
 
 /* ── 고객 유형 배지 ── */
 .ai-report-send__client-badge {
-  @apply text-[10px] font-bold px-2 py-0.5 rounded-full min-w-max;
+  @apply text-[12px] font-bold px-2 py-0.5 rounded-full min-w-max;
 }
 .ai-report-send__client-badge--aggressive {
   @apply text-amber-700 bg-amber-100 border border-amber-200 dark:text-amber-400 dark:bg-amber-900/30 dark:border-amber-800;
@@ -106,10 +103,10 @@
   @apply flex flex-col gap-1;
 }
 .ai-report-send__client-memo {
-  @apply text-[11px] font-medium text-slate-600 dark:text-slate-400;
+  @apply text-[12px] font-medium text-slate-600 dark:text-slate-400;
 }
 .ai-report-send__client-assets {
-  @apply text-[11px] font-medium text-slate-500 dark:text-slate-500;
+  @apply text-[12px] font-medium text-slate-500 dark:text-slate-500;
 }
 
 /* ── 액션 버튼 그룹 ── */

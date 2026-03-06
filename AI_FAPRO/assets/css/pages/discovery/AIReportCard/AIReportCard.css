@@ -7,8 +7,7 @@
 /* 상단 primary 라인 삭제 */
 /* .ai-report-card::before {
   content: "";
-  @apply absolute top-0 left-0 w-full h-1 opacity-80;
-  background: linear-gradient(to right, #5368ff, #7b8dff);
+  @apply absolute top-0 left-0 w-full h-1 opacity-80 bg-gradient-to-r from-primary to-primary-light;
 } */
 
 /* 헤더 */
@@ -27,29 +26,21 @@
 
 /* 신호 유형 배지 */
 .ai-report-card__signal-badge {
-  @apply text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm;
+  @apply text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm;
 }
 /* 매수 배지: buy 시맨틱 컬러 */
 .ai-report-card__signal-badge--buy {
-  background-color: rgba(251, 44, 54, 0.1);
-  color: #fb2c36;
-  border: 1px solid rgba(251, 44, 54, 0.15);
+  @apply bg-buy/10 text-buy border border-buy/15;
 }
 .dark .ai-report-card__signal-badge--buy {
-  background-color: rgba(251, 44, 54, 0.12);
-  color: #ff7b82;
-  border-color: rgba(251, 44, 54, 0.2);
+  @apply bg-buy/15 text-buy/80 border-buy/20;
 }
 /* 매도 배지: sell 시맨틱 컬러 */
 .ai-report-card__signal-badge--sell {
-  background-color: rgba(43, 127, 255, 0.1);
-  color: #2b7fff;
-  border: 1px solid rgba(43, 127, 255, 0.15);
+  @apply bg-sell/10 text-sell border border-sell/15;
 }
 .dark .ai-report-card__signal-badge--sell {
-  background-color: rgba(43, 127, 255, 0.12);
-  color: #7b8dff;
-  border-color: rgba(43, 127, 255, 0.2);
+  @apply bg-sell/15 text-sell/80 border-sell/20;
 }
 .ai-report-card__signal-badge--neutral {
   @apply bg-slate-500 text-white dark:bg-slate-500/20 dark:text-slate-200 border border-slate-400 dark:border-slate-500/30;
@@ -92,13 +83,10 @@
 }
 /* 상세 보기 버튼: primary 브랜드 컬러 */
 .ai-report-card__btn-view {
-  @apply flex items-center justify-center px-5 py-2 text-xs font-bold rounded-xl text-white transition-all duration-300 cursor-pointer active:scale-95;
-  background-color: #5368ff;
-  box-shadow: 0 4px 12px rgba(83, 104, 255, 0.2);
+  @apply flex items-center justify-center px-5 py-2 text-xs font-bold rounded-xl text-white transition-all duration-300 cursor-pointer active:scale-95 bg-primary shadow-lg shadow-primary/20;
 }
 .ai-report-card__btn-view:hover {
-  background-color: #4253cc;
-  box-shadow: 0 6px 16px rgba(83, 104, 255, 0.3);
+  @apply bg-primary/90 shadow-xl shadow-primary/30;
 }
 .ai-report-card__btn-icon {
   @apply w-3.5 h-3.5 mr-1.5;

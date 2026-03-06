@@ -10,16 +10,14 @@
 }
 /* 탭 컨테이너 테두리: primary 컬러 */
 .issue-chart__tabs-container {
-  @apply flex items-center bg-white dark:bg-slate-900 rounded-full shadow-sm;
-  border: 1px solid #5368ff;
+  @apply flex items-center bg-white dark:bg-slate-900 rounded-full shadow-sm border border-primary;
 }
 .issue-chart__tab {
   @apply px-4 py-1.5 text-[13px] font-bold rounded-full transition-colors border-0 bg-transparent cursor-pointer text-slate-500 dark:text-slate-400;
 }
 /* 활성 탭: primary 컬러 */
 .issue-chart__tab--active {
-  @apply text-white;
-  background-color: #5368ff;
+  @apply text-white bg-primary;
 }
 
 /* 영역 */
@@ -41,17 +39,17 @@
 }
 /* 상승 버블: buy 시맨틱 컬러 */
 .issue-chart__bubble--up {
-  @apply bg-rose-500 hover:bg-rose-600;
+  @apply bg-buy hover:bg-buy/90;
 }
 .issue-chart__bubble--up:hover {
-  shadow: 0 4px 12px rgba(251, 44, 54, 0.3);
+  @apply shadow-lg shadow-buy/30;
 }
 /* 하락 버블: sell 시맨틱 컬러 */
 .issue-chart__bubble--down {
-  @apply bg-blue-500 hover:bg-blue-600;
+  @apply bg-sell hover:bg-sell/90;
 }
 .issue-chart__bubble--down:hover {
-  shadow: 0 4px 12px rgba(43, 127, 255, 0.3);
+  @apply shadow-lg shadow-sell/30;
 }
 .issue-chart__bubble--neutral {
   @apply bg-slate-400 hover:bg-slate-500;
@@ -69,8 +67,7 @@
 }
 /* 선택된 버블: primary 링 */
 .issue-chart__bubble--selected {
-  @apply ring-2 ring-offset-2 dark:ring-offset-slate-950 scale-105;
-  --tw-ring-color: #5368ff;
+  @apply ring-2 ring-primary ring-offset-2 dark:ring-offset-slate-950 scale-105;
 }
 
 .issue-chart__bubble-content {

@@ -1,21 +1,37 @@
 /* Tailwind directives container */
 
 .settings-account__card {
-  @apply bg-slate-100 dark:bg-slate-900 border border-slate-400 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm;
+  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm;
 }
 
 .settings-account__header {
-  @apply bg-slate-200 dark:bg-slate-950 border-b border-slate-400 dark:border-slate-800 px-6 py-4 flex items-center gap-2;
+  @apply bg-slate-50/50 dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800 px-6 py-4 flex items-center gap-2;
 }
 
 .settings-account__title {
-  @apply text-lg font-bold text-slate-900 dark:text-white m-0;
+  @apply text-lg font-bold text-slate-800 dark:text-white m-0;
 }
 
 .settings-account__grid {
-  @apply p-6 grid grid-cols-1 md:grid-cols-2 gap-3;
+  @apply p-6 grid grid-cols-1 md:grid-cols-2 gap-4;
 }
 
 .settings-account__btn {
-  @apply flex items-center justify-start h-12 px-4 border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 rounded-lg text-sm font-bold text-slate-700 dark:text-slate-400 transition-all cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700;
+  @apply flex items-center h-14 px-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl transition-all cursor-pointer hover:border-slate-400 dark:hover:border-slate-500 hover:shadow-md;
+}
+
+.settings-account__btn-icon-wrapper {
+  @apply w-10 h-10 flex items-center justify-center bg-slate-50 dark:bg-slate-800 rounded-lg mr-3 transition-colors;
+}
+
+.settings-account__btn:hover .settings-account__btn-icon-wrapper {
+  @apply bg-slate-100 dark:bg-slate-700;
+}
+
+.settings-account__btn-icon {
+  @apply w-5 h-5 text-slate-500 dark:text-slate-400;
+}
+
+.settings-account__btn-label {
+  @apply text-[15px] font-bold text-slate-700 dark:text-slate-300;
 }

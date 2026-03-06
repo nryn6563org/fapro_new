@@ -1,19 +1,19 @@
 <template>
-  <div class="settings-billing space-y-6">
+  <div class="settings-billing space-y-8">
     <!-- Card Details -->
-    <div class="space-y-3">
-      <label class="text-xs font-bold text-slate-500 uppercase"
-        >결제 수단</label
-      >
+    <div class="space-y-4">
+      <label class="settings-billing__label">결제 수단</label>
       <div class="settings-billing__info-box">
         <div class="flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <credit-card-icon class="w-6 h-6 text-slate-600" />
+          <div class="flex items-center gap-4">
+            <div class="settings-billing__card-icon-wrapper">
+              <credit-card-icon class="w-6 h-6 text-slate-500" />
+            </div>
             <div>
-              <p class="font-bold text-slate-900 dark:text-white m-0">
+              <p class="settings-billing__card-name">
                 {{ paymentMethod }}
               </p>
-              <p class="text-xs text-slate-500 m-0 mt-1 font-bold">
+              <p class="settings-billing__card-desc">
                 주결제 카드
               </p>
             </div>
@@ -24,16 +24,16 @@
     </div>
 
     <!-- Billing Dates -->
-    <div class="grid grid-cols-2 gap-4">
-      <div class="space-y-2">
-        <label class="text-xs font-bold text-slate-500">다음 결제일</label>
-        <p class="text-lg font-black text-slate-900 dark:text-white m-0">
+    <div class="grid grid-cols-2 gap-8 px-2">
+      <div class="space-y-3">
+        <label class="settings-billing__label">다음 결제일</label>
+        <p class="settings-billing__date-value">
           {{ nextBillingDate }}
         </p>
       </div>
-      <div class="space-y-2">
-        <label class="text-xs font-bold text-slate-500">월 결제 금액</label>
-        <p class="text-lg font-black text-slate-900 dark:text-white m-0">
+      <div class="space-y-3">
+        <label class="settings-billing__label">월 결제 금액</label>
+        <p class="settings-billing__price-value">
           ₩{{ monthlyPrice.toLocaleString() }}
         </p>
       </div>
@@ -41,10 +41,9 @@
 
     <div class="settings-billing__divider"></div>
 
-    <div class="space-y-2 mt-4">
-      <button class="settings-billing__action-btn">결제 내역 조회</button>
+    <div class="flex justify-center mt-4">
       <button
-        class="settings-billing__action-btn settings-billing__action-btn--danger"
+        class="settings-billing__cancel-btn"
         @click="cancelSubscription"
       >
         구독 취소

@@ -55,19 +55,4 @@
   @apply space-y-6;
 }
 
-/* ── Footer ── */
-.customer-modal__footer {
-  @apply fapro-modal-footer fapro-modal-footer--sticky justify-between;
-}
 
-.customer-modal__btn {
-  @apply flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-black transition-all border-0 cursor-pointer;
-}
-
-.customer-modal__btn--outline {
-  @apply fapro-btn-outline;
-}
-
-.customer-modal__btn--primary {
-  @apply fapro-btn-primary shadow-lg shadow-primary/20;
-}

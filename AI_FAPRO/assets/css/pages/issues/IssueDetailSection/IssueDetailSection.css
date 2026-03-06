@@ -21,11 +21,11 @@
 }
 /* 상승: buy 시맨틱 컬러 */
 .issue-detail__icon-box--up {
-  @apply issue-detail__icon-box bg-rose-50 dark:bg-rose-500/10 border-rose-100 dark:border-rose-500/20;
+  @apply issue-detail__icon-box bg-buy/5 dark:bg-buy/10 border-buy/20 dark:border-buy/25;
 }
 /* 하락: sell 시맨틱 컬러 */
 .issue-detail__icon-box--down {
-  @apply issue-detail__icon-box bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-500/20;
+  @apply issue-detail__icon-box bg-sell/5 dark:bg-sell/10 border-sell/20 dark:border-sell/25;
 }
 .issue-detail__icon-box--neutral {
   @apply issue-detail__icon-box bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700;
@@ -34,8 +34,8 @@
 .issue-detail__icon {
   @apply w-6 h-6;
 }
-.issue-detail__icon-box--up .issue-detail__icon { @apply text-rose-500; }
-.issue-detail__icon-box--down .issue-detail__icon { @apply text-blue-500; }
+.issue-detail__icon-box--up .issue-detail__icon { @apply text-buy; }
+.issue-detail__icon-box--down .issue-detail__icon { @apply text-sell; }
 .issue-detail__icon-box--neutral .issue-detail__icon { @apply text-slate-500; }
 
 .issue-detail__title {
@@ -90,13 +90,11 @@
 .issue-detail__segment-label {
   @apply text-xs text-slate-600 dark:text-slate-400 mb-1;
 }
-/* 세그먼트 수치: primary 컬러 */
 .issue-detail__segment-value {
-  @apply text-xl font-bold;
-  color: #5368ff;
+  @apply text-xl font-bold text-primary;
 }
 .issue-detail__segment-value--teal {
-  color: #5368ff;
+  @apply text-primary;
 }
 .issue-detail__segment-value--muted {
   @apply text-slate-500;
@@ -141,5 +139,5 @@
   @apply w-5 h-5 mr-2;
 }
 .issue-detail__btn-badge {
-  @apply flex items-center justify-center bg-white text-slate-700 px-1.5 py-0.5 rounded-md text-[10px] font-bold ml-2 opacity-80;
+  @apply flex items-center justify-center bg-white text-slate-700 px-1.5 py-0.5 rounded-md text-[12px] font-bold ml-2 opacity-80;
 }

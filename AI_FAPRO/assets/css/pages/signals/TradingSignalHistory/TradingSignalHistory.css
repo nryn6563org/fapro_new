@@ -30,7 +30,7 @@
 /* 라디오 액센트: primary 컬러 */
 .trading-signal-history__radio {
   @apply cursor-pointer w-3.5 h-3.5;
-  accent-color: #5368ff;
+  @apply accent-primary;
 }
 .trading-signal-history__radio-text {
   @apply text-xs font-medium text-slate-600 dark:text-slate-400;
@@ -49,19 +49,22 @@
   @apply bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm;
 }
 .trading-signal-history__table {
-  @apply w-full text-xs text-left;
+  @apply w-full text-[13px] border-collapse;
 }
 .trading-signal-history__th {
-  @apply py-2 px-3 font-semibold text-slate-700 bg-slate-500 border-b border-slate-200 dark:text-slate-300 dark:bg-slate-800 dark:border-slate-700 whitespace-nowrap;
+  @apply fapro-th;
 }
 .trading-signal-history__td {
-  @apply py-2 px-3 border-b border-slate-200 text-slate-600 dark:border-slate-700 dark:text-slate-400 font-medium;
+  @apply fapro-td;
 }
 .trading-signal-history__td--last {
   @apply border-0;
 }
 .trading-signal-history__table-right {
   @apply text-right;
+}
+.trading-signal-history__table tr:hover {
+  @apply bg-slate-50 dark:bg-slate-800/50;
 }
 
 /* 배지 & 수익률 */
@@ -70,30 +73,22 @@
 }
 /* 매수 배지: buy 시맨틱 컬러 */
 .trading-signal-history__badge--buy {
-  background-color: rgba(251, 44, 54, 0.1);
-  color: #fb2c36;
-  border: 1px solid rgba(251, 44, 54, 0.2);
+  @apply bg-buy/10 text-buy border-buy/20;
 }
 .dark .trading-signal-history__badge--buy {
-  background-color: rgba(251, 44, 54, 0.15);
-  color: #ff7b82;
-  border-color: rgba(251, 44, 54, 0.25);
+  @apply bg-buy/15 text-buy/80 border-buy/25;
 }
 /* 매도 배지: sell 시맨틱 컬러 */
 .trading-signal-history__badge--sell {
-  background-color: rgba(43, 127, 255, 0.1);
-  color: #2b7fff;
-  border: 1px solid rgba(43, 127, 255, 0.2);
+  @apply bg-sell/10 text-sell border-sell/20;
 }
 .dark .trading-signal-history__badge--sell {
-  background-color: rgba(43, 127, 255, 0.15);
-  color: #7b8dff;
-  border-color: rgba(43, 127, 255, 0.25);
+  @apply bg-sell/15 text-sell/80 border-sell/25;
 }
 /* 수익률 양수: buy 컬러(상승) */
 .trading-signal-history__return--positive {
   @apply font-bold;
-  color: #fb2c36;
+  @apply text-buy;
 }
 .dark .trading-signal-history__return--positive {
   color: #ff7b82;
@@ -101,7 +96,7 @@
 /* 수익률 음수: sell 컬러(하락) */
 .trading-signal-history__return--negative {
   @apply font-bold;
-  color: #2b7fff;
+  @apply text-sell;
 }
 .dark .trading-signal-history__return--negative {
   color: #7b8dff;

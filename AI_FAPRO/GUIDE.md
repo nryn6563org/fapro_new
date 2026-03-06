@@ -25,45 +25,74 @@
 14. **Smart Search & UX**: Autocomplete enforcement.
 15. **External Library Styling Control**: Styles in `assets/css/`.
 
-## NPM Packages Used
-
-- `nuxt`: ^2.15.8
-- `tailwindcss`: ^3.3.7
-- `modal-vanilla`: ^0.13.0
-- `vue-feather-icons`: ^5.1.0 (Icon Library)
-- `echarts`: ^5.5.1 (Data Visualization)
-- `autocompleter`: ^9.3.2 (Smart Search)
-- `animate.css`: (Styling)
-
 ## Route Visual Tree (Rule 11)
 
-### [/customers] - 고객 관리 시스템
+### [/] - AI 컨텍 제안 (메인)
+
+```mermaid
+graph TD
+    Page["pages/index.vue"] --> CSS_Page["assets/css/pages/index/IndexPage.css"]
+    Page --> Comp_Hero["components/index/IndexHero.vue"]
+    Page --> Comp_Banner["components/index/IndexBanner.vue"]
+    Page --> Comp_Proposal["components/index/IndexProposalList.vue"]
+```
+
+### [/issues] - AI 이슈 포착
+
+```mermaid
+graph TD
+    Page["pages/issues.vue"] --> CSS_Page["assets/css/pages/issues/IssuesPage.css"]
+    Page --> Header["components/issues/IssuesPage/IssuesPageHeader.vue"]
+    Page --> Stats["components/issues/IssuesPage/IssuesPageStats.vue"]
+    Page --> Chart["components/issues/IssueBubbleChart.vue"]
+    Page --> Analysis["components/issues/IssueAnalysisSide.vue"]
+    Page --> Detail["components/issues/IssueDetailSection.vue"]
+    Page --> Modal["components/issues/IssueProposalModal.vue"]
+```
+
+### [/customers] - 고객 목록
 
 ```mermaid
 graph TD
     Page["pages/customers.vue"] --> CSS_Page["assets/css/pages/customers/CustomersPage.css"]
+    Page --> Header["components/customers/CustomersPage/CustomersPageHeader.vue"]
+    Page --> Upload["components/customers/CustomerUploadArea.vue"]
+    Page --> Search["components/customers/CustomerAiSearch.vue"]
+    Search --> SearchHeader["components/customers/CustomerAiSearch/CustomerAiSearchHeader.vue"]
+    Search --> SearchRecommends["components/customers/CustomerAiSearch/CustomerAiSearchRecommends.vue"]
+    Search --> SearchFilters["components/customers/CustomerAiSearch/CustomerAiSearchFilters.vue"]
+    Page --> Table["components/customers/CustomerListTable.vue"]
+    Page --> DetailModal["components/customers/CustomerDetailModal.vue"]
+    Page --> HoldingsModal["components/customers/CustomerHoldingsModal.vue"]
+    HoldingsModal --> H_Header["components/customers/CustomerHoldingsModal/CustomerHoldingsHeader.vue"]
+    HoldingsModal --> H_Summary["components/customers/CustomerHoldingsModal/CustomerHoldingsSummary.vue"]
+    HoldingsModal --> H_Table["components/customers/CustomerHoldingsModal/CustomerHoldingsTable.vue"]
+    HoldingsModal --> H_AI["components/customers/CustomerHoldingsModal/CustomerHoldingsAiAnalysis.vue"]
+```
 
-    Page --> Comp_Upload["components/customers/CustomerUploadArea.vue"]
-    Comp_Upload --> CSS_Upload["assets/css/pages/customers/CustomerUploadArea.css"]
+### [/signals] - AI 매매신호 포착
 
-    Page --> Comp_Search["components/customers/CustomerAiSearch.vue"]
-    Comp_Search --> CSS_Search["assets/css/pages/customers/CustomerAiSearch.css"]
-    Comp_Search --> Lib_Autocomplete["Lib: Autocomplete (Rule 14)"]
+```mermaid
+graph TD
+    Page["pages/signals.vue"] --> CSS_Page["assets/css/pages/signals/SignalsPage.css"]
+    Page --> Card["components/signals/TradingSignalCard.vue"]
+```
 
-    Page --> Comp_Table["components/customers/CustomerListTable.vue"]
-    Comp_Table --> CSS_Table["assets/css/pages/customers/CustomerListTable.css"]
+### [/discovery] - AI 인텔리전스 리포트
 
-    Page --> Comp_Detail["components/customers/CustomerDetailModal.vue"]
-    Comp_Detail --> CSS_Detail["assets/css/pages/customers/CustomerDetailModal.css"]
-    Comp_Detail --> Lib_ModalV1["Lib: Modal-Vanilla (Rule 7)"]
-    Comp_Detail --> Lib_Animate1["Lib: Animate.css (Rule 7)"]
+```mermaid
+graph TD
+    Page["pages/discovery.vue"] --> CSS_Page["assets/css/pages/discovery/DiscoveryPage.css"]
+    Page --> Card["components/discovery/AIReportCard.vue"]
+```
 
-    Page --> Comp_Holdings["components/customers/CustomerHoldingsModal.vue"]
-    Comp_Holdings --> CSS_Holdings["assets/css/pages/customers/CustomerHoldingsModal.css"]
-    Comp_Holdings --> Lib_ModalV2["Lib: Modal-Vanilla (Rule 7)"]
-    Comp_Holdings --> Lib_Animate2["Lib: Animate.css (Rule 7)"]
+### [/strategic-stocks] - AI 중장기 유망주
 
-    Page --> MockData["utils/customerMockData.js"]
+```mermaid
+graph TD
+    Page["pages/strategic-stocks.vue"] --> CSS_Page["assets/css/pages/strategic-stocks/StrategicStocksPage.css"]
+    Page --> Card["components/strategic-stocks/StrategicStockCard.vue"]
+    Page --> Modal["components/strategic-stocks/StrategicProposalModal.vue"]
 ```
 
 ## Directory Structure
@@ -73,3 +102,4 @@ graph TD
 - `pages/`: Nuxt based routing.
 - `utils/`: Mock data and utility functions.
 - `layouts/`: Application layouts.
+- `plugins/`: Vue plugins (Modal, Autocomplete, etc).

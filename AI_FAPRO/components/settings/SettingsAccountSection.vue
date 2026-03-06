@@ -9,11 +9,13 @@
         <button
           v-for="action in actions"
           :key="action.id"
-          :class="['settings-account__btn', action.hoverClass]"
+          class="settings-account__btn"
           @click="handleAction(action.id)"
         >
-          <component :is="action.icon" class="w-4 h-4 mr-2" />
-          {{ action.label }}
+          <div class="settings-account__btn-icon-wrapper">
+            <component :is="action.icon" class="settings-account__btn-icon" />
+          </div>
+          <span class="settings-account__btn-label">{{ action.label }}</span>
         </button>
       </div>
     </div>
@@ -53,37 +55,31 @@ export default {
           id: "findId",
           label: "아이디 찾기",
           icon: "mail-icon",
-          hoverClass: "hover:border-[#14B8A6] hover:text-[#14B8A6]",
         },
         {
           id: "findPassword",
           label: "비밀번호 찾기",
           icon: "key-icon",
-          hoverClass: "hover:border-[#14B8A6] hover:text-[#14B8A6]",
         },
         {
           id: "changePassword",
           label: "비밀번호 변경",
           icon: "lock-icon",
-          hoverClass: "hover:border-[#F59E0B] hover:text-[#F59E0B]",
         },
         {
           id: "updateInfo",
           label: "회원정보 변경",
           icon: "user-icon",
-          hoverClass: "hover:border-[#F59E0B] hover:text-[#F59E0B]",
         },
         {
           id: "register",
           label: "회원가입",
           icon: "user-plus-icon",
-          hoverClass: "hover:border-blue-500 hover:text-blue-500",
         },
         {
           id: "withdraw",
           label: "회원탈퇴",
           icon: "user-minus-icon",
-          hoverClass: "hover:border-red-500 hover:text-red-500 hover:bg-red-50",
         },
       ],
     };

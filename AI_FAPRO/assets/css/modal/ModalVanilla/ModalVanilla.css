@@ -10,7 +10,7 @@
 
 /* ── 모달 컨테이너 (고정 레이어) ── */
 .modal {
-  @apply fixed inset-0 z-[100] hidden overflow-y-auto overflow-x-hidden p-4 sm:p-0;
+  @apply fixed inset-0 z-[10020] hidden overflow-y-auto overflow-x-hidden p-4 sm:p-0;
 }
 
 /* ── modal-vanilla JS가 .in 클래스를 부여하여 표시 ── */
@@ -31,7 +31,7 @@
 
 /* ── 백드롭 (배경 오버레이) ── */
 .modal-backdrop {
-  @apply fixed inset-0 z-[90] bg-slate-900 bg-opacity-60 transition-opacity;
+  @apply fixed inset-0 z-[10015] bg-slate-900 bg-opacity-60 transition-opacity;
 }
 .modal-backdrop.fade {
   @apply opacity-0;
@@ -43,7 +43,7 @@
 
 /* ── 다이얼로그 박스 ── */
 .modal-dialog {
-  @apply bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all align-middle sm:max-w-2xl w-full relative z-[100] mx-auto;
+  @apply bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all align-middle sm:max-w-2xl w-full relative z-[10021] mx-auto;
   flex: 0 1 auto;
 }
 

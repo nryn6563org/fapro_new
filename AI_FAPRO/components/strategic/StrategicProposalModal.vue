@@ -35,77 +35,77 @@
           :selected-clients.sync="selectedClients"
         />
 
-        <!-- Transmission Method Tabs -->
-        <div class="strategic-modal__form-group">
-          <label class="strategic-modal__form-label">전송 방식</label>
-          <div class="strategic-modal__tabs">
-            <button
-              :class="[
-                'strategic-modal__tab',
-                transmissionMethod === 'sms'
-                  ? 'strategic-modal__tab--active-sms'
-                  : '',
-              ]"
-              @click="transmissionMethod = 'sms'"
-            >
-              <message-square-icon class="w-4 h-4 mr-2" />
-              문자
-            </button>
-            <button
-              :class="[
-                'strategic-modal__tab',
-                transmissionMethod === 'kakao'
-                  ? 'strategic-modal__tab--active-kakao'
-                  : '',
-              ]"
-              @click="transmissionMethod = 'kakao'"
-            >
-              <message-circle-icon class="w-4 h-4 mr-2" />
-              카카오톡
-            </button>
-            <button
-              :class="[
-                'strategic-modal__tab',
-                transmissionMethod === 'email'
-                  ? 'strategic-modal__tab--active-email'
-                  : '',
-              ]"
-              @click="transmissionMethod = 'email'"
-            >
-              <mail-icon class="w-4 h-4 mr-2" />
-              이메일
-            </button>
+        <!-- Transmission & Message Section -->
+        <div class="strategic-modal__form-section">
+          <!-- Transmission Method -->
+          <div class="strategic-modal__form-group-item">
+            <label class="strategic-modal__form-label">전송방법 선택</label>
+            <div class="strategic-modal__delivery-tabs">
+              <button
+                :class="[
+                  'strategic-modal__delivery-tab',
+                  transmissionMethod === 'sms'
+                    ? 'strategic-modal__delivery-tab--active-sms'
+                    : '',
+                ]"
+                @click="transmissionMethod = 'sms'"
+              >
+                <phone-icon class="strategic-modal__tab-icon" />
+                문자
+              </button>
+              <button
+                :class="[
+                  'strategic-modal__delivery-tab',
+                  transmissionMethod === 'kakao'
+                    ? 'strategic-modal__delivery-tab--active-kakao'
+                    : '',
+                ]"
+                @click="transmissionMethod = 'kakao'"
+              >
+                <message-circle-icon class="strategic-modal__tab-icon" />
+                카카오톡
+              </button>
+              <button
+                :class="[
+                  'strategic-modal__delivery-tab',
+                  transmissionMethod === 'email'
+                    ? 'strategic-modal__delivery-tab--active-email'
+                    : '',
+                ]"
+                @click="transmissionMethod = 'email'"
+              >
+                <mail-icon class="strategic-modal__tab-icon" />
+                이메일
+              </button>
+            </div>
           </div>
-        </div>
 
-        <!-- Message Sample -->
-        <div class="strategic-modal__form-group">
-          <div class="strategic-modal__form-header">
-            <label class="strategic-modal__form-label">메시지 내용</label>
+          <!-- Message Sample (Themed Preview) -->
+          <div class="strategic-modal__form-group-item">
+            <label class="strategic-modal__form-label">메시지 내용 샘플</label>
+            <div :class="['strategic-modal__message-preview-container', `strategic-modal__message-preview-container--${transmissionMethod}`]">
+              <div class="strategic-modal__message-preview-card">
+                <textarea
+                  v-model="messageSample"
+                  class="strategic-modal__textarea-message"
+                  placeholder="전송될 메시지 내용입니다."
+                ></textarea>
+              </div>
+            </div>
           </div>
-          <textarea
-            v-model="messageSample"
-            class="strategic-modal__textarea-message"
-            placeholder="전송될 메시지 내용입니다."
-          ></textarea>
         </div>
 
         <!-- Send Actions -->
         <div class="strategic-modal__actions">
-          <button
-            type="button"
-            class="strategic-modal__btn-outline"
-            @click="closeModal"
-          >
+          <button class="strategic-modal__btn-outline" @click="$emit('close')">
             취소
           </button>
           <button
-            type="button"
             class="strategic-modal__btn-primary"
-            :disabled="selectedClients.length === 0"
+            :disabled="!selectedClients.length"
             @click="handleSend"
           >
-            <navigation-icon class="w-4 h-4 mr-2" />
+            <send-icon class="w-4 h-4 mr-2" />
             전송하기
           </button>
         </div>
@@ -122,8 +122,8 @@ import {
   XIcon,
   MailIcon,
   MessageCircleIcon,
-  MessageSquareIcon,
-  NavigationIcon,
+  PhoneIcon,
+  SendIcon,
 } from "vue-feather-icons";
 import StrategicStockPreview from "~/components/strategic/StrategicStockPreview.vue";
 import StrategicClientList from "~/components/strategic/StrategicClientList.vue";
@@ -140,8 +140,8 @@ export default {
     XIcon,
     MailIcon,
     MessageCircleIcon,
-    MessageSquareIcon,
-    NavigationIcon,
+    PhoneIcon,
+    SendIcon,
   },
   props: {
     isOpen: {

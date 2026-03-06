@@ -1,7 +1,7 @@
 /* ── 일정 일간 뷰 스타일 ── */
 
 .day-view {
-  @apply h-full overflow-auto bg-slate-100 dark:bg-slate-900;
+  @apply h-full bg-white dark:bg-slate-950;
 }
 
 .day-view__container {
@@ -10,358 +10,112 @@
 
 /* 헤더 */
 .day-view__header {
-  @apply grid grid-cols-[100px_1fr] border-b border-slate-400 dark:border-slate-800 sticky top-0 bg-slate-100 dark:bg-slate-900 z-10 shadow-sm;
+  @apply grid grid-cols-[100px_1fr] border-b border-slate-200 dark:border-slate-800 sticky top-0 bg-white dark:bg-slate-950 z-10 shadow-sm;
 }
 
 .day-view__time-label {
-  @apply p-6 border-r border-slate-400 dark:border-slate-800 text-xs font-black text-slate-400 dark:text-slate-600 uppercase;
+  @apply p-6 border-r border-slate-200 dark:border-slate-800 text-[12px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-tighter flex items-end justify-center;
 }
 
 .day-view__day-info {
-  @apply p-6 text-center border-r border-slate-400 dark:border-slate-800;
+  @apply p-6 flex flex-col items-center justify-center;
 }
 
 .day-view__weekday {
-  @apply text-sm font-black text-slate-500 uppercase tracking-widest mb-1;
+  @apply text-sm font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2;
 }
 
-.day-view__date-num {
-  @apply text-4xl font-light text-slate-700 dark:text-slate-300;
+.day-view__date-num--default {
+  @apply text-4xl font-black text-slate-700 dark:text-slate-300;
 }
 
-/* 오늘 날짜 원: primary 브랜드 컬러 */
 .day-view__date-num--today {
-  @apply w-16 h-16 mx-auto text-white rounded-full flex items-center justify-center font-black;
-  background-color: #5368ff;
-  box-shadow: 0 6px 20px rgba(83, 104, 255, 0.3);
+  @apply text-4xl font-black text-white w-16 h-16 mx-auto flex items-center justify-center rounded-2xl shadow-xl shadow-indigo-200 dark:shadow-none bg-gradient-to-br from-indigo-500 to-indigo-600 scale-105;
 }
 
 /* 그리드 */
+.day-view__grid {
+  @apply border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950;
+  max-height: 768px; /* 8 hours * 96px (h-24) */
+  overflow-y: auto;
+}
+
+/* Custom Scrollbar */
+.day-view__grid::-webkit-scrollbar {
+  width: 6px;
+}
+.day-view__grid::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+.day-view__grid::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 dark:bg-slate-800 rounded-full;
+}
+.day-view__grid::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-300 dark:bg-slate-700;
+}
+
 .day-view__row {
-  @apply grid grid-cols-[100px_1fr] border-b border-slate-300 dark:border-slate-800;
+  @apply grid grid-cols-[100px_1fr] border-b border-slate-200 dark:border-slate-800;
 }
 
 .day-view__hour-label {
-  @apply p-4 text-xs font-black text-slate-400 dark:text-slate-600 text-right pr-6 border-r border-slate-400 dark:border-slate-800 h-24 flex items-start justify-end;
+  @apply p-4 text-[12px] font-black text-slate-300 dark:text-slate-600 border-r border-slate-200 dark:border-slate-800 min-h-[96px] flex items-start justify-center;
 }
 
 .day-view__slot {
-  @apply border-r border-slate-300 dark:border-slate-800 p-2 relative h-24 flex flex-col gap-1 overflow-y-auto hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors;
+  @apply border-r border-slate-200 dark:border-slate-800 p-2 relative min-h-[96px] flex flex-col gap-2 hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors;
 }
 
-.day-view__event {
-  @apply text-white p-3 rounded-xl cursor-not-allowed hover:scale-[1.01] transition-all shadow-lg;
+/* 이벤트 카드 스타일 (프리미엄 통일) */
+.day-view__event--blue-500 {
+  @apply flex flex-col gap-2 p-4 rounded-2xl cursor-pointer transition-all border border-blue-100 bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-800/50 hover:shadow-lg hover:scale-[1.01] active:scale-[0.99];
+  animation-name: fadeInRight;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+}
+
+.day-view__event--teal-500 {
+  @apply flex flex-col gap-2 p-4 rounded-2xl cursor-pointer transition-all border border-teal-100 bg-teal-50 text-teal-600 dark:bg-teal-900/20 dark:text-teal-400 dark:border-teal-800/50 hover:shadow-lg hover:scale-[1.01] active:scale-[0.99];
+  animation-name: fadeInRight;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+}
+
+.day-view__event--purple-500 {
+  @apply flex flex-col gap-2 p-4 rounded-2xl cursor-pointer transition-all border border-purple-100 bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400 dark:border-purple-800/50 hover:shadow-lg hover:scale-[1.01] active:scale-[0.99];
+  animation-name: fadeInRight;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+}
+
+.day-view__event--amber-500 {
+  @apply flex flex-col gap-2 p-4 rounded-2xl cursor-pointer transition-all border border-amber-100 bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800/50 hover:shadow-lg hover:scale-[1.01] active:scale-[0.99];
+  animation-name: fadeInRight;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
 }
 
 .day-view__event-header {
-  @apply flex items-center justify-between mb-1;
+  @apply flex items-center justify-between mb-0.5;
 }
 
 .day-view__event-title {
-  @apply font-black text-sm;
+  @apply font-black text-[15px] truncate max-w-[80%];
 }
 
 .day-view__event-type {
-  @apply text-xs opacity-80;
+  @apply text-[12px] font-bold px-2 py-0.5 rounded-full bg-white/50 dark:bg-black/20 opacity-80;
 }
 
 .day-view__event-details {
-  @apply flex items-center gap-3 text-xs opacity-90;
+  @apply flex items-center gap-4 text-[12px] font-bold opacity-70 mt-1;
 }
 
 .day-view__event-detail-item {
-  @apply flex items-center gap-1;
+  @apply flex items-center gap-1.5;
 }
 
-/* 이벤트 카테고리 색상 (캘린더 이벤트 구분용) */
-.day-view__event--blue-500 {
-  background-color: #5368ff;
-}
-
-.day-view__event--teal-500 {
-  @apply bg-teal-500;
-}
-
-.day-view__event--purple-500 {
-  @apply bg-purple-500;
-}
-
-.day-view__event--amber-500 {
-  @apply bg-amber-500;
-}
-
-.day-view__event--orange-500 {
-  @apply bg-orange-500;
-}
-
-.day-view__event--pink-500 {
-  @apply bg-pink-500;
-}
-
-.day-view__event--red-500 {
-  @apply bg-red-500;
-}
-
-.day-view__event--green-500 {
-  @apply bg-green-500;
-}
-
-.day-view__event--yellow-500 {
-  @apply bg-yellow-500;
-}
-
-.day-view__event--indigo-500 {
-  @apply bg-indigo-500;
-}
-
-.day-view__event--violet-500 {
-  @apply bg-violet-500;
-}
-
-.day-view__event--fuchsia-500 {
-  @apply bg-fuchsia-500;
-}
-
-.day-view__event--rose-500 {
-  @apply bg-rose-500;
-}
-
-.day-view__event--cyan-500 {
-  @apply bg-cyan-500;
-}
-
-.day-view__event--lime-500 {
-  @apply bg-lime-500;
-}
-
-.day-view__event--emerald-500 {
-  @apply bg-emerald-500;
-}
-
-.day-view__event--sky-500 {
-  @apply bg-sky-500;
-}
-
-.day-view__event--slate-500 {
-  @apply bg-slate-500;
-}
-
-.day-view__event--gray-500 {
-  @apply bg-gray-500;
-}
-
-.day-view__event--zinc-500 {
-  @apply bg-zinc-500;
-}
-
-.day-view__event--neutral-500 {
-  @apply bg-neutral-500;
-}
-
-.day-view__event--stone-500 {
-  @apply bg-stone-500;
-}
-
-.day-view__event--orange-500 {
-  @apply bg-orange-500;
-}
-
-.day-view__event--amber-500 {
-  @apply bg-amber-500;
-}
-
-.day-view__event--yellow-500 {
-  @apply bg-yellow-500;
-}
-
-.day-view__event--lime-500 {
-  @apply bg-lime-500;
-}
-
-.day-view__event--emerald-500 {
-  @apply bg-emerald-500;
-}
-
-.day-view__event--teal-500 {
-  @apply bg-teal-500;
-}
-
-.day-view__event--cyan-500 {
-  @apply bg-cyan-500;
-}
-
-.day-view__event--blue-500 {
-  @apply bg-blue-500;
-}
-
-.day-view__event--indigo-500 {
-  @apply bg-indigo-500;
-}
-
-.day-view__event--purple-500 {
-  @apply bg-purple-500;
-}
-
-.day-view__event--pink-500 {
-  @apply bg-pink-500;
-}
-
-.day-view__event--rose-500 {
-  @apply bg-rose-500;
-}
-
-.day-view__event--fuchsia-500 {
-  @apply bg-fuchsia-500;
-}
-
-.day-view__event--violet-500 {
-  @apply bg-violet-500;
-}
-
-.day-view__event--purple-500 {
-  @apply bg-purple-500;
-}
-
-.day-view__event--pink-500 {
-  @apply bg-pink-500;
-}
-
-.day-view__event--red-500 {
-  @apply bg-red-500;
-}
-
-.day-view__event--green-500 {
-  @apply bg-green-500;
-}
-
-.day-view__event--yellow-500 {
-  @apply bg-yellow-500;
-}
-
-.day-view__event--indigo-500 {
-  @apply bg-indigo-500;
-}
-
-.day-view__event--violet-500 {
-  @apply bg-violet-500;
-}
-
-.day-view__event--fuchsia-500 {
-  @apply bg-fuchsia-500;
-}
-
-.day-view__event--rose-500 {
-  @apply bg-rose-500;
-}
-
-.day-view__event--cyan-500 {
-  @apply bg-cyan-500;
-}
-
-.day-view__event--lime-500 {
-  @apply bg-lime-500;
-}
-
-.day-view__event--emerald-500 {
-  @apply bg-emerald-500;
-}
-
-.day-view__event--sky-500 {
-  @apply bg-sky-500;
-}
-
-.day-view__event--slate-500 {
-  @apply bg-slate-500;
-}
-
-.day-view__event--gray-500 {
-  @apply bg-gray-500;
-}
-
-.day-view__event--zinc-500 {
-  @apply bg-zinc-500;
-}
-
-.day-view__event--neutral-500 {
-  @apply bg-neutral-500;
-}
-
-.day-view__event--stone-500 {
-  @apply bg-stone-500;
-}
-
-.day-view__event--orange-500 {
-  @apply bg-orange-500;
-}
-
-.day-view__event--amber-500 {
-  @apply bg-amber-500;
-}
-
-.day-view__event--yellow-500 {
-  @apply bg-yellow-500;
-}
-
-.day-view__event--lime-500 {
-  @apply bg-lime-500;
-}
-
-.day-view__event--emerald-500 {
-  @apply bg-emerald-500;
-}
-
-.day-view__event--teal-500 {
-  @apply bg-teal-500;
-}
-
-.day-view__event--cyan-500 {
-  @apply bg-cyan-500;
-}
-
-.day-view__event--blue-500 {
-  @apply bg-blue-500;
-}
-
-.day-view__event--indigo-500 {
-  @apply bg-indigo-500;
-}
-
-.day-view__event--purple-500 {
-  @apply bg-purple-500;
-}
-
-.day-view__event--pink-500 {
-  @apply bg-pink-500;
-}
-
-.day-view__event--rose-500 {
-  @apply bg-rose-500;
-}
-
-.day-view__event--fuchsia-500 {
-  @apply bg-fuchsia-500;
-}
-
-.day-view__event--violet-500 {
-  @apply bg-violet-500;
-}
-
-.day-view__event--purple-500 {
-  @apply bg-purple-500;
-}
-
-.day-view__event--pink-500 {
-  @apply bg-pink-500;
-}
-
-.day-view__event--red-500 {
-  @apply bg-red-500;
-}
-
-.day-view__event--green-500 {
-  @apply bg-green-500;
-}
-
-.day-view__event--yellow-500 {
-  @apply bg-yellow-500
-}
+/* 기타 색상 호환성 (필요 시 복구) */
+.day-view__event--emerald-500 { @apply day-view__event--teal-500; }
+.day-view__event--pink-500 { @apply day-view__event--purple-500; }
+.day-view__event--indigo-500 { @apply day-view__event--blue-500; }

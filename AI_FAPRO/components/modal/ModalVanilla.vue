@@ -1,6 +1,6 @@
 <template>
   <div :id="modalId" ref="modal" class="modal fade" tabindex="-1" role="dialog">
-    <div :class="['modal-dialog', customDialogClass]" role="document">
+    <div :class="['modal-dialog', 'animate__animated animate__fadeIn animate__faster', customDialogClass]" role="document">
       <div class="modal-content">
         <div v-if="title || $slots.header" class="modal-header">
           <slot name="header">
@@ -73,9 +73,11 @@ export default {
     isOpen(val) {
       if (val) {
         this.modalInstance.show();
+        document.body.classList.add("modal-open");
       } else if (this.modalInstance && this.modalInstance._visible) {
         // 모달이 열려 있는 상태에서만 hide() 호출 (내부적으로 classList 참조 에러 방지)
         this.modalInstance.hide();
+        document.body.classList.remove("modal-open");
       }
     },
   },
@@ -96,9 +98,11 @@ export default {
 
     if (this.isOpen) {
       this.modalInstance.show();
+      document.body.classList.add("modal-open");
     }
   },
   beforeDestroy() {
+    document.body.classList.remove("modal-open");
     if (this.modalInstance && this.modalInstance._visible) {
       // 컴포넌트 파괴 시 모달이 열려 있는 경우에만 안전하게 닫음
       this.modalInstance.hide();

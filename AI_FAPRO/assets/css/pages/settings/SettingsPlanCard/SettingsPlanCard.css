@@ -1,59 +1,69 @@
 /* Tailwind directives container */
 
 .plan-card {
-  @apply relative p-6 rounded-xl border-2 transition-all cursor-pointer bg-slate-100 dark:bg-slate-800 border-slate-400 dark:border-slate-800 hover:border-slate-300;
+  @apply relative p-7 rounded-2xl border-2 transition-all cursor-pointer bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 hover:border-slate-200 dark:hover:border-slate-700 shadow-sm;
 }
 
 .plan-card--active {
-  @apply border-primary bg-primary/5;
+  @apply border-teal-500 bg-teal-50/30;
+}
+
+.plan-card--pro {
+  @apply bg-white dark:bg-slate-900 border-slate-100;
 }
 
 .plan-card--pro.plan-card--active {
-  @apply border-[#F59E0B] bg-gradient-to-br from-[#F59E0B]/10 to-[#F59E0B]/5;
+  @apply border-amber-500 bg-amber-50/50;
 }
 
 .plan-card__check {
-  @apply absolute top-4 right-4 w-6 h-6 rounded-full flex items-center justify-center;
+  @apply absolute top-4 right-4 w-7 h-7 rounded-full flex items-center justify-center shadow-sm;
 }
+
 .plan-card__check--basic {
-  @apply bg-primary;
+  @apply bg-teal-500;
 }
+
 .plan-card__check--pro {
-  @apply bg-[#F59E0B];
+  @apply bg-amber-500;
 }
 
 .plan-card__title {
-  @apply text-xl font-black text-slate-900 dark:text-white m-0;
+  @apply text-xl font-black text-slate-800 dark:text-white m-0;
 }
 
 .plan-card__price {
-  @apply text-2xl font-black text-slate-900 dark:text-white m-0;
+  @apply text-3xl font-black text-slate-900 dark:text-white m-0;
 }
 
 .plan-card__period {
-  @apply text-xs font-medium text-slate-500 uppercase tracking-tighter;
+  @apply text-sm font-medium text-slate-400;
 }
 
 .plan-card__divider {
-  @apply h-px bg-slate-200 dark:bg-slate-800 my-4;
+  @apply h-px bg-slate-100 dark:bg-slate-800 my-5;
 }
 
 .plan-card__feature {
-  @apply flex items-start gap-2;
+  @apply flex items-center gap-3;
 }
 
 .plan-card__crown-icon {
-  @apply w-5 h-5 text-[#F59E0B];
+  @apply w-5 h-5 text-amber-500;
 }
 
 .plan-card__feature-icon {
-  @apply w-4 h-4 flex-shrink-0 mt-0.5;
+  @apply w-4 h-4 flex-shrink-0;
 }
 
 .plan-card__feature-icon--basic {
-  @apply text-primary;
+  @apply text-teal-500;
 }
 
 .plan-card__feature-icon--pro {
-  @apply text-[#F59E0B];
+  @apply text-amber-500;
+}
+
+.plan-card__feature-text {
+  @apply text-[14px] font-bold text-slate-600 dark:text-slate-400;
 }

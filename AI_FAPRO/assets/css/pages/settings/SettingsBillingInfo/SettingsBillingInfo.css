@@ -1,21 +1,38 @@
 /* Tailwind directives container */
 
+.settings-billing__label {
+  @apply text-[13px] font-bold text-slate-400 uppercase tracking-tight;
+}
+
 .settings-billing__info-box {
-  @apply p-4 bg-slate-200 dark:bg-slate-950 rounded-xl border border-slate-400 dark:border-slate-800;
+  @apply p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm transition-all;
+}
+
+.settings-billing__card-icon-wrapper {
+  @apply w-12 h-12 flex items-center justify-center bg-slate-50 dark:bg-slate-800 rounded-xl;
+}
+
+.settings-billing__card-name {
+  @apply text-[15px] font-bold text-slate-800 dark:text-white m-0;
+}
+
+.settings-billing__card-desc {
+  @apply text-xs text-slate-400 m-0 mt-0.5 font-bold;
 }
 
 .settings-billing__change-btn {
-  @apply px-4 py-1.5 border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-xs font-bold rounded-lg hover:bg-slate-100 transition-all cursor-pointer;
+  @apply px-4 py-2 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-600 dark:text-slate-400 rounded-lg hover:border-slate-400 transition-all cursor-pointer;
+}
+
+.settings-billing__date-value,
+.settings-billing__price-value {
+  @apply text-xl font-black text-slate-800 dark:text-white m-0;
 }
 
 .settings-billing__divider {
-  @apply h-px bg-slate-200 dark:bg-slate-800 my-2;
+  @apply h-px bg-slate-100 dark:bg-slate-800 my-6;
 }
 
-.settings-billing__action-btn {
-  @apply w-full flex items-center justify-start px-4 py-3 bg-slate-100 dark:bg-slate-800 border border-slate-400 dark:border-slate-800 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all cursor-pointer;
-}
-
-.settings-billing__action-btn--danger {
-  @apply text-red-600 hover:text-red-700 hover:bg-red-500 dark:hover:bg-red-900/10 border-red-100 dark:border-red-900/30;
+.settings-billing__cancel-btn {
+  @apply text-sm font-bold text-slate-400 hover:text-red-500 transition-colors cursor-pointer bg-transparent border-0;
 }

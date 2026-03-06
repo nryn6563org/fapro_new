@@ -7,11 +7,10 @@
 
 /* 드래그 중: primary 브랜드 컬러 */
 .customer-upload--dragging {
-  border-color: #5368ff;
-  background-color: rgba(83, 104, 255, 0.04);
+  @apply border-primary bg-primary/5;
 }
 .dark .customer-upload--dragging {
-  background-color: rgba(83, 104, 255, 0.08);
+  @apply bg-primary/10;
 }
 
 .customer-upload__content {
@@ -20,8 +19,7 @@
 
 /* 아이콘 배경: primary 브랜드 컬러 */
 .customer-upload__icon-box {
-  @apply w-16 h-16 rounded-full flex items-center justify-center shadow-lg;
-  background-color: #5368ff;
+  @apply w-16 h-16 rounded-full flex items-center justify-center shadow-lg bg-primary;
 }
 
 .customer-upload__icon {
@@ -38,8 +36,7 @@
 
 /* 업로드 버튼: primary 브랜드 컬러 */
 .customer-upload__btn {
-  @apply flex items-center justify-center text-white px-6 py-2 rounded-lg font-bold transition-all border-0 cursor-pointer;
-  background-color: #5368ff;
+  @apply flex items-center justify-center text-white px-6 py-2 rounded-lg font-bold transition-all border-0 cursor-pointer bg-primary;
 }
 .customer-upload__btn:hover {
   background-color: #4253cc;

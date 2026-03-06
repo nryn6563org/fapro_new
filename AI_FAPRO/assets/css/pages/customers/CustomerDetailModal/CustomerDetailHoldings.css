@@ -1,19 +1,19 @@
 /* ── 고객 보유종목 상세 테이블 스타일 (fapro 디자인 시스템) ── */
 
 .customer-holdings {
-  @apply fapro-card overflow-hidden;
+  @apply mb-8;
 }
 
-.customer-holdings__header {
-  @apply fapro-card-header;
+.customer-holdings__section-label {
+  @apply flex items-center gap-2 mb-4;
 }
 
-.customer-holdings__title {
-  @apply fapro-card-title m-0;
+.customer-holdings__section-title {
+  @apply text-sm font-bold text-slate-800 dark:text-slate-200 m-0;
 }
 
-.customer-holdings__table-container {
-  @apply overflow-x-auto;
+.customer-holdings__table-wrapper {
+  @apply overflow-hidden border border-slate-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-900;
 }
 
 .customer-holdings__table {
@@ -21,19 +21,25 @@
 }
 
 .customer-holdings__thead {
-  @apply fapro-table-head;
+  @apply bg-slate-50 dark:bg-slate-800/30;
 }
 
 .customer-holdings__th {
   @apply fapro-th;
+  @apply border-b border-slate-200 dark:border-slate-800;
 }
 
 .customer-holdings__tr {
-  @apply fapro-table-row;
+  @apply border-b border-slate-100 dark:border-slate-800 last:border-0 transition-all duration-200;
+}
+
+.customer-holdings__tr:hover {
+  @apply bg-slate-50/80 dark:bg-slate-800/20 transform-none;
 }
 
 .customer-holdings__td {
   @apply fapro-td;
+  @apply border-b border-slate-100 dark:border-slate-800;
 }
 
 .customer-holdings__td--name {
@@ -45,14 +51,28 @@
 }
 
 .customer-holdings__profit-box {
-  @apply flex items-center gap-1;
+  @apply flex items-center gap-1.5;
+}
+
+.customer-holdings__rate-badge {
+  @apply px-2.5 py-1 rounded-lg text-xs font-bold inline-block;
 }
 
 /* 수익/손실 컬러 (프로젝트 시맨틱 컬러 적용) */
 .text-profit-up {
-  @apply text-buy font-bold;
+  @apply text-buy;
 }
 
 .text-profit-down {
-  @apply text-sell font-bold;
+  @apply text-sell;
 }
+
+.customer-holdings__rate-badge.text-profit-up {
+  @apply bg-buy/10;
+}
+
+.customer-holdings__rate-badge.text-profit-down {
+  @apply bg-sell/10;
+}
+
+

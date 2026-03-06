@@ -76,10 +76,8 @@
           @click="$emit('toggle-calendar', cal.id)"
         >
           <div
-            :class="[
-              'schedule-sidebar__filter-dot',
-              cal.checked ? cal.color : 'bg-slate-300 dark:bg-slate-700',
-            ]"
+            class="schedule-sidebar__filter-dot"
+            :class="getFilterDotClass(cal)"
           ></div>
           <span class="schedule-sidebar__filter-label">{{ cal.name }}</span>
         </div>
@@ -165,10 +163,15 @@ export default {
       );
       return this.events.some((e) => isSameDay(e.date, date));
     },
+    getFilterDotClass(cal) {
+      if (!cal.checked) return "schedule-sidebar__filter-dot--inactive";
+      const colorName = cal.color.replace("bg-", "");
+      return `schedule-sidebar__filter-dot--active-${colorName}`;
+    },
     getDayClass(day) {
       if (this.isSelected(day)) return "schedule-sidebar__day-btn--selected";
       if (this.isToday(day)) return "schedule-sidebar__day-btn--today";
-      return "";
+      return "schedule-sidebar__day-btn--default";
     },
   },
 };

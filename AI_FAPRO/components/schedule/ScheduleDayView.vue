@@ -8,19 +8,14 @@
           <div class="day-view__weekday">
             {{ formatWeekday(selectedDate) }}
           </div>
-          <div
-            :class="[
-              'day-view__date-num',
-              { 'day-view__date-num--today': isToday(selectedDate) },
-            ]"
-          >
+          <div :class="getDateNumLabelClass(selectedDate)">
             {{ selectedDate.getDate() }}
           </div>
         </div>
       </div>
 
       <!-- Time Grid -->
-      <div class="day-view__grid">
+      <div ref="grid" class="day-view__grid">
         <div v-for="hour in timeSlots" :key="hour" class="day-view__row">
           <div class="day-view__hour-label">
             {{ formatTime(hour) }}
@@ -29,12 +24,7 @@
             <div
               v-for="event in getEventsForHour(hour)"
               :key="event.id"
-              :class="[
-                'day-view__event',
-                'animate__animated',
-                'animate__fadeInRight',
-                getEventColorClass(event.color),
-              ]"
+              :class="getEventTagClass(event)"
             >
               <div class="day-view__event-header">
                 <span class="day-view__event-title">{{ event.title }}</span>
@@ -81,7 +71,37 @@ export default {
       timeSlots,
     };
   },
+  watch: {
+    selectedDate: {
+      immediate: true,
+      handler(newDate) {
+        this.scrollToFirstEvent(newDate);
+      },
+    },
+  },
   methods: {
+    scrollToFirstEvent(date) {
+      this.$nextTick(() => {
+        const grid = this.$refs.grid;
+        if (!grid) return;
+
+        const dayEvents = this.events.filter((e) => isSameDay(e.date, date));
+        let hourToScroll = 9; // 기본 9시
+
+        if (dayEvents.length > 0) {
+          const hours = dayEvents.map((e) =>
+            parseInt(e.startTime.split(":")[0])
+          );
+          hourToScroll = Math.min(...hours);
+        }
+
+        const scrollOffset = hourToScroll * 96; // h-24 = 96px
+        grid.scrollTo({
+          top: scrollOffset,
+          behavior: "smooth",
+        });
+      });
+    },
     formatWeekday(date) {
       return date.toLocaleDateString("ko-KR", { weekday: "long" });
     },
@@ -98,8 +118,13 @@ export default {
         return sameDay && eventHour === hour;
       });
     },
-    getEventColorClass(color) {
-      return `day-view__event--${color.replace("bg-", "")}`;
+    getDateNumLabelClass(date) {
+      if (this.isToday(date)) return "day-view__date-num--today";
+      return "day-view__date-num--default";
+    },
+    getEventTagClass(event) {
+      const color = event.color.replace("bg-", "");
+      return `day-view__event--${color}`;
     },
   },
 };

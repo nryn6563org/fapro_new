@@ -12,7 +12,7 @@
   @apply max-w-2xl max-h-[90vh];
 } /* ── Header (모달 전용 스타일) ── */
 .strategic-modal__header {
-  @apply fapro-modal-header border-b border-slate-300 bg-gradient-to-br from-slate-100 to-slate-200 rounded-t-xl overflow-hidden;
+  @apply fapro-modal-header flex-col items-start overflow-hidden;
 }
 
 .dark /* ── Header (모달 전용 스타일) ── */
@@ -32,7 +32,7 @@
   @apply fapro-modal-close absolute top-4 right-4 text-slate-400 hover:text-slate-600;
 } /* ── Body ── */
 .strategic-modal__body {
-  @apply fapro-modal-body space-y-6 bg-slate-100;
+  @apply fapro-modal-body space-y-6 !p-0;
 }
 
 .dark /* ── Body ── */
@@ -40,131 +40,119 @@
   @apply bg-slate-900;
 }
 
-/* ── Stock Details Preview (모달 전용 스타일) ── */
-.strategic-modal__preview {
-  @apply fapro-section mb-6 overflow-hidden;
+/* ── Strategic Stock Preview Section (리뉴얼) ── */
+.strategic-modal__preview-container {
+  @apply fapro-section space-y-3 p-5 border-t border-slate-200 dark:border-slate-800;
 }
 
-.strategic-modal__preview-header {
-  @apply flex items-center justify-between p-5 border-b border-slate-200 bg-slate-50;
+.strategic-modal__preview-main-title {
+  @apply text-base font-bold text-slate-800;
 }
 
-.dark .strategic-modal__preview-header {
-  @apply border-slate-700 bg-slate-900/50;
+.strategic-modal__preview-card {
+  @apply bg-white dark:bg-slate-900 overflow-hidden;
 }
 
-.strategic-modal__preview-title-row {
-  @apply flex items-center gap-3;
+/* ── Card Header Row ── */
+.strategic-modal__card-header {
+  @apply flex items-center py-3 border-b border-slate-200 dark:border-slate-800;
 }
 
-.strategic-modal__stock-code {
-  @apply text-sm text-slate-500 font-medium font-mono bg-white px-2 py-1 rounded border border-slate-200;
+.strategic-modal__header-left {
+  @apply flex items-baseline gap-1 mr-4;
 }
 
-.dark .strategic-modal__stock-code {
-  @apply bg-slate-800 border-slate-700;
+.strategic-modal__header-mid {
+  @apply flex items-center gap-2 mx-4;
 }
 
-.strategic-modal__stock-name {
-  @apply text-xl font-bold text-slate-900 m-0;
+.strategic-modal__header-item-divider {
+  @apply w-[1px] h-3 bg-slate-200 dark:bg-slate-700;
 }
 
-.dark .strategic-modal__stock-name {
-  @apply text-white;
+.strategic-modal__header-code {
+  @apply text-[12px] text-slate-400 font-mono;
 }
 
-.strategic-modal__preview-price-row {
-  @apply flex items-center gap-3;
+.strategic-modal__header-name {
+  @apply text-base font-bold text-slate-900 dark:text-white m-0;
 }
 
-.strategic-modal__stat-value {
-  @apply text-lg font-bold text-slate-900;
+.strategic-modal__header-price {
+  @apply text-sm font-bold text-slate-800 dark:text-slate-200;
 }
 
-.dark .strategic-modal__stat-value {
-  @apply text-white;
+.strategic-modal__header-change {
+  @apply text-sm font-bold;
 }
 
-.strategic-modal__stat-change {
-  @apply text-base font-bold;
+.strategic-modal__header-info {
+  @apply px-4;
 }
 
-.strategic-modal__stat-change-up {
-  @apply text-red-500;
+.strategic-modal__header-char {
+  @apply text-[13px] font-medium text-slate-500 dark:text-slate-400;
 }
 
-.strategic-modal__stat-change-down {
-  @apply text-primary;
+.strategic-modal__header-right {
+  @apply ml-2;
 }
 
-/* ── Detail Grid Inside Preview ── */
-.strategic-modal__detail-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-0 border-t-0 p-0;
+/* ── Card Content Sections ── */
+.strategic-modal__card-content {
+  @apply p-4 space-y-4;
 }
 
-.strategic-modal__detail-section {
-  @apply p-5 border-b md:border-b-0 md:border-r border-slate-200 last:border-0;
+.strategic-modal__content-section {
+  @apply p-4 rounded-lg border-l-4 transition-all;
 }
 
-.dark .strategic-modal__detail-section {
-  @apply border-slate-700;
+/* 상승 동력 */
+.strategic-modal__content-section--upside {
+  @apply bg-emerald-50/50 border-emerald-500;
 }
 
-.strategic-modal__detail-section-upside {
-  @apply bg-emerald-500/30;
+/* 하락 위험 */
+.strategic-modal__content-section--risk {
+  @apply bg-red-50/50 border-red-500;
 }
 
-.dark .strategic-modal__detail-section-upside {
-  @apply bg-emerald-900/10;
+/* 투자 근거 */
+.strategic-modal__content-section--rationale {
+  @apply bg-slate-50/70 border-slate-500;
 }
 
-.strategic-modal__detail-section-risk {
-  @apply bg-red-500/30;
+.strategic-modal__section-label-row {
+  @apply flex items-center mb-3;
 }
 
-.dark .strategic-modal__detail-section-risk {
-  @apply bg-red-900/10;
+.strategic-modal__section-label {
+  @apply text-sm font-bold text-slate-900;
 }
 
-.strategic-modal__detail-section--opinion {
-  @apply col-span-full bg-blue-50 dark:bg-blue-900/10 border-b border-blue-100 dark:border-blue-800/30;
+.strategic-modal__content-list {
+  @apply space-y-2.5 m-0 p-0 list-none;
 }
 
-.strategic-modal__opinion-text {
-  @apply text-sm text-blue-700 dark:text-blue-300 font-bold leading-relaxed m-0;
+.strategic-modal__content-item {
+  @apply flex items-start gap-2.5 text-[13px] font-medium text-slate-600 leading-relaxed;
 }
 
-.strategic-modal__detail-section--rationale {
-  @apply col-span-full bg-slate-50/50 dark:bg-slate-800/30 border-b border-slate-200 dark:border-slate-800;
-}
-
-.strategic-modal__section-header {
-  @apply fapro-section-header mb-3;
-}
-
-.strategic-modal__section-icon {
-  @apply fapro-section-icon;
-}
-
-.strategic-modal__section-title {
-  @apply font-bold text-sm m-0;
-}
-
-.strategic-modal__point-list {
-  @apply space-y-2 m-0 p-0 pl-1 list-none;
-}
-
-.strategic-modal__point-item {
-  @apply flex items-start gap-2 text-[13px] font-medium leading-relaxed;
-}
-
-.strategic-modal__point-bullet {
-  @apply w-1 h-1 rounded-full mt-2 flex-shrink-0;
+.strategic-modal__content-bullet {
+  @apply w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0;
 }
 
 /* ── Forms ── */
 .strategic-modal__form-group {
   @apply fapro-section space-y-3 p-5;
+}
+
+.strategic-modal__form-section {
+  @apply fapro-section space-y-5 p-6 bg-slate-50/50 dark:bg-slate-800/20 border-t border-slate-200 dark:border-slate-800;
+}
+
+.strategic-modal__form-group-item {
+  @apply space-y-3;
 }
 
 .strategic-modal__form-label {
@@ -178,57 +166,75 @@
 .dark .strategic-modal__form-header {
   @apply border-slate-700;
 } /* ── Transmision Method Tabs (모달 전용 스타일) ── */
-.strategic-modal__tabs {
-  @apply flex gap-2 w-full mb-2 bg-slate-100 p-1 rounded-xl border border-slate-200;
+.strategic-modal__delivery-tabs {
+  @apply grid grid-cols-3 gap-2;
 }
 
-.dark /* ── Transmision Method Tabs (모달 전용 스타일) ── */
-.strategic-modal__tabs {
-  @apply bg-slate-900 border-slate-700;
+.strategic-modal__delivery-tab {
+  @apply flex items-center justify-center py-2.5 text-[13px] font-bold rounded-xl border transition-all cursor-pointer bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-500;
 }
 
-.strategic-modal__tab {
-  @apply flex-1 flex items-center justify-center py-2.5 text-sm font-semibold rounded-lg text-slate-500 hover:text-slate-700 transition-all border-0 bg-transparent cursor-pointer;
+.strategic-modal__tab-icon {
+  @apply w-4 h-4 mr-1.5;
 }
 
-.dark .strategic-modal__tab {
-  @apply text-slate-400 hover:text-slate-200;
+/* SMS: Reddish color */
+.strategic-modal__delivery-tab--active-sms {
+  @apply bg-[#C25D5D] text-white border-[#C25D5D] shadow-md shadow-[#C25D5D]/20;
 }
 
-.strategic-modal__tab-active-sms {
-  @apply bg-white text-slate-900 shadow-sm ring-1 ring-slate-200;
+/* 카카오톡: Yellow color */
+.strategic-modal__delivery-tab--active-kakao {
+  @apply bg-[#FFCD00] text-slate-900 border-[#FFCD00] shadow-md shadow-[#FFCD00]/20;
 }
 
-.dark .strategic-modal__tab-active-sms {
-  @apply bg-slate-800 text-white ring-slate-700;
+/* 이메일: Teal color */
+.strategic-modal__delivery-tab--active-email {
+  @apply bg-[#00897B] text-white border-[#00897B] shadow-md shadow-[#00897B]/20;
 }
 
-.strategic-modal__tab-active-kao {
-  @apply bg-yellow-100 hover:bg-yellow-100 text-yellow-600 shadow-sm;
+.strategic-modal__message-preview-container {
+  @apply p-6 rounded-xl transition-colors duration-300;
 }
 
-.strategic-modal__tab-active-email {
-  @apply bg-primary hover:bg-primary text-white shadow-sm;
+/* SMS: Blue Theme */
+.strategic-modal__message-preview-container--sms {
+  @apply bg-rose-50/80 border border-rose-100;
+}
+
+/* Kakao: Yellow Theme */
+.strategic-modal__message-preview-container--kakao {
+  @apply bg-amber-50/80 border border-amber-100;
+}
+
+/* Email: Teal Theme */
+.strategic-modal__message-preview-container--email {
+  @apply bg-teal-50/80 border border-teal-100;
+}
+
+.strategic-modal__message-preview-card {
+  @apply bg-white rounded-xl border border-slate-100 shadow-sm p-5;
 }
 
 .strategic-modal__textarea-message {
-  @apply fapro-form-textarea min-h-[160px] text-[13px] leading-relaxed shadow-inner;
-} /* ── Client List (모달 전용 스타일) ── */
+  @apply w-full min-h-[300px] text-[13px] leading-relaxed border-0 p-0 focus:ring-0 resize-none bg-transparent text-slate-700;
+}
+ /* ── Client List (모달 전용 스타일) ── */
 .strategic-modal__client-list {
-  @apply mt-3 border border-slate-300 rounded-xl max-h-[200px] overflow-y-auto bg-slate-50 shadow-inner;
+  @apply mt-3 overflow-y-auto max-h-[240px]
 }
 
 .dark /* ── Client List (모달 전용 스타일) ── */
 .strategic-modal__client-list {
-  @apply border-slate-700 bg-slate-900;
+  @apply border-slate-700 bg-slate-900 ;
 }
 
 .strategic-modal__client-item {
-  @apply flex items-center gap-4 p-4 hover:bg-white transition-colors;
+  @apply flex items-center gap-4 p-4 transition-colors border-b border-slate-200;
 }
 
 .dark .strategic-modal__client-item {
-  @apply hover:bg-slate-800;
+  @apply hover:bg-slate-800 border-b border-slate-700;
 }
 
 .strategic-modal__client-item-border {
@@ -320,7 +326,7 @@
 }
 
 .strategic-modal__btn-primary {
-  @apply fapro-btn-primary flex-[2] flex items-center justify-center py-3 text-[15px] bg-slate-900 hover:bg-slate-800 text-white disabled:opacity-50 disabled:cursor-not-allowed shadow-md;
+  @apply fapro-btn-primary flex-[2] flex items-center justify-center py-3 text-[15px] bg-primary hover:bg-primary/90 text-white disabled:opacity-50 disabled:cursor-not-allowed shadow-md transition-all;
 }
 
 .dark .strategic-modal__btn-primary {

@@ -1,7 +1,7 @@
 <template>
   <div class="settings-page">
     <div class="settings-page__container">
-      <div class="mb-8">
+      <div class="settings-page__title-wrapper">
         <h1 class="settings-page__title">설정</h1>
       </div>
 
@@ -9,19 +9,17 @@
       <settings-account-section />
 
       <!-- Billing & Payment Information -->
-      <div class="settings-page__card mt-6">
+      <div class="settings-page__card mt-8">
         <div class="settings-page__header">
-          <credit-card-icon class="settings-page__header-icon w-5 h-5" />
+          <credit-card-icon class="settings-page__header-icon" />
           <h2 class="settings-page__h2">결제 정보</h2>
         </div>
 
-        <div class="p-6 space-y-6">
+        <div class="settings-page__content">
           <!-- Subscription Plans -->
-          <div>
-            <label class="text-xs font-bold text-slate-500 uppercase block mb-4"
-              >현재 구독 플랜</label
-            >
-            <div class="grid md:grid-cols-2 gap-4">
+          <div class="space-y-6">
+            <label class="settings-page__label">현재 구독 플랜</label>
+            <div class="settings-page__grid">
               <settings-plan-card
                 type="basic"
                 label="일반"
@@ -40,8 +38,8 @@
               />
             </div>
 
-            <!-- Transition Button Logic (Design #33) -->
-            <div class="mt-4">
+            <!-- Promotion / Transition Button -->
+            <div class="mt-8">
               <div
                 v-if="selectedPlan === activePlan"
                 class="settings-page__status-box"
@@ -50,7 +48,7 @@
                   v-if="activePlan === 'pro'"
                   class="settings-page__pro-status"
                 >
-                  <star-icon class="w-4 h-4" />
+                  <award-icon class="w-5 h-5" />
                   Pro 플랜 이용 중
                 </div>
                 <div v-else class="settings-page__basic-status">
@@ -69,8 +67,8 @@
                 @click="handlePlanChange"
               >
                 <component
-                  :is="selectedPlan === 'pro' ? 'star-icon' : 'arrow-down-icon'"
-                  class="w-4 h-4 mr-2"
+                  :is="selectedPlan === 'pro' ? 'award-icon' : 'arrow-down-icon'"
+                  class="settings-page__btn-icon"
                 />
                 {{
                   selectedPlan === "pro"
@@ -82,7 +80,7 @@
           </div>
 
           <!-- Payment Info Component -->
-          <div v-if="activePlan === 'pro'" class="pt-2">
+          <div v-if="activePlan === 'pro'" class="settings-page__billing-wrapper mt-10">
             <settings-billing-info
               :payment-method="paymentMethod"
               :next-billing-date="nextBillingDateLabel"
@@ -99,7 +97,7 @@
 /**
  * 기능: 설정 메인 페이지 (회원정보 및 구독 관리)
  */
-import { CreditCardIcon, StarIcon, ArrowDownIcon } from "vue-feather-icons";
+import { CreditCardIcon, StarIcon, AwardIcon, ArrowDownIcon } from "vue-feather-icons";
 import SettingsAccountSection from "~/components/settings/SettingsAccountSection.vue";
 import SettingsPlanCard from "~/components/settings/SettingsPlanCard.vue";
 import SettingsBillingInfo from "~/components/settings/SettingsBillingInfo.vue";
@@ -113,6 +111,7 @@ export default {
     SettingsBillingInfo,
     CreditCardIcon,
     StarIcon,
+    AwardIcon,
     ArrowDownIcon,
   },
   layout: "default",

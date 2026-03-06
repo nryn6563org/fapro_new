@@ -37,7 +37,7 @@
           <div
             v-for="event in getEvents(day).slice(0, 2)"
             :key="event.id"
-            :class="['month-view__event-tag', getEventColorClass(event.color)]"
+            :class="getEventTagClass(event)"
           >
             {{ event.startTime }} {{ event.title }}
           </div>
@@ -118,9 +118,10 @@ export default {
       if (dayOfWeek === 6) return "month-view__day-num--saturday";
       return "month-view__day-num--weekday";
     },
-    getEventColorClass(color) {
-      // Map 'bg-blue-500' to a BEM class
-      return `month-view__event-tag--${color.replace("bg-", "")}`;
+    getEventTagClass(event) {
+      // Map 'bg-blue-500' to a BEM class like 'month-view__event-tag--blue-500'
+      const colorName = event.color.replace("bg-", "");
+      return `month-view__event-tag--${colorName}`;
     },
   },
 };

@@ -12,7 +12,7 @@
 
 /* 테이블 헤더 셀 */
 .issue-proposal-table__table th {
-  @apply bg-slate-50 dark:bg-slate-800/50 px-3 py-3 text-xs font-bold text-slate-500 dark:text-slate-400 border-b border-gray-200 dark:border-gray-700;
+  @apply fapro-th;
 }
 
 .issue-proposal-table__th--left {
@@ -29,7 +29,7 @@
 
 /* 테이블 데이터 셀 */
 .issue-proposal-table__table td {
-  @apply px-3 py-3 border-b border-gray-200 dark:border-gray-700 transition-colors;
+  @apply fapro-td;
 }
 
 /* 마우스 오버 배경색 */
@@ -47,7 +47,7 @@
 
 /* 틱커 sub-text */
 .issue-proposal-table__ticker {
-  @apply text-[10px] text-slate-400 font-normal mt-0.5 leading-none;
+  @apply text-[12px] text-slate-400 font-normal mt-0.5 leading-none;
 }
 
 .issue-proposal-table__td--name {
@@ -63,11 +63,11 @@
 }
 
 .issue-proposal-table__td--change-up {
-  @apply text-red-500;
+  @apply text-buy;
 }
 
 .issue-proposal-table__td--change-down {
-  @apply text-blue-500;
+  @apply text-sell;
 }
 
 .issue-proposal-table__td--center {
@@ -85,22 +85,18 @@
 
 /* 매수 뱃지: 상승 시맨틱 컬러 */
 .issue-proposal-table__ai-badge--red {
-  background-color: rgba(251, 44, 54, 0.1);
-  color: #fb2c36;
+  @apply bg-buy/10 text-buy;
 }
 .dark .issue-proposal-table__ai-badge--red {
-  background-color: rgba(251, 44, 54, 0.15);
-  color: #ff7b82;
+  @apply bg-buy/15 text-buy/80;
 }
 
 /* 보유 뱃지: primary 계열 */
 .issue-proposal-table__ai-badge--green {
-  background-color: rgba(83, 104, 255, 0.1);
-  color: #5368ff;
+  @apply bg-primary/10 text-primary;
 }
 .dark .issue-proposal-table__ai-badge--green {
-  background-color: rgba(83, 104, 255, 0.15);
-  color: #7b8dff;
+  @apply bg-primary/15 text-primary/80;
 }
 
 /* 관망 뱃지 */

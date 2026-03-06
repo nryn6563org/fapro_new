@@ -129,12 +129,12 @@
 
 /* 상승(매수): buy 시맨틱 컬러 #FB2C36 */
 .today-proposal-item__change--up {
-  color: #fb2c36;
+  @apply text-buy;
 }
 
 /* 하락(매도): sell 시맨틱 컬러 #2B7FFF */
 .today-proposal-item__change--down {
-  color: #2b7fff;
+  @apply text-sell;
 }
 
 .today-proposal-item__bottom {
@@ -148,38 +148,26 @@
 
 /* 오늘 타겟 배지: primary */
 .today-proposal__badge--teal {
-  background-color: rgba(83, 104, 255, 0.1);
-  color: #5368ff;
-  border: 1px solid rgba(83, 104, 255, 0.2);
+  @apply bg-primary/10 text-primary border border-primary/20;
 }
 .dark .today-proposal__badge--teal {
-  background-color: rgba(83, 104, 255, 0.15);
-  color: #8090ff;
-  border: 1px solid rgba(83, 104, 255, 0.25);
+  @apply bg-primary/15 text-primary/80 border-primary/25;
 }
 
 /* 매수 배지: buy */
 .today-proposal__badge--orange {
-  background-color: rgba(251, 44, 54, 0.1);
-  color: #fb2c36;
-  border: 1px solid rgba(251, 44, 54, 0.2);
+  @apply bg-buy/10 text-buy border border-buy/20;
 }
 .dark .today-proposal__badge--orange {
-  background-color: rgba(251, 44, 54, 0.15);
-  color: #ff8087;
-  border: 1px solid rgba(251, 44, 54, 0.25);
+  @apply bg-buy/15 text-buy/80 border-buy/25;
 }
 
 /* 매도 배지: sell */
 .today-proposal__badge--violet {
-  background-color: rgba(43, 127, 255, 0.1);
-  color: #2b7fff;
-  border: 1px solid rgba(43, 127, 255, 0.2);
+  @apply bg-sell/10 text-sell border border-sell/20;
 }
 .dark .today-proposal__badge--violet {
-  background-color: rgba(43, 127, 255, 0.15);
-  color: #8090ff;
-  border: 1px solid rgba(43, 127, 255, 0.25);
+  @apply bg-sell/15 text-sell/80 border-sell/25;
 }
 
 .today-proposal__badge--outline {
@@ -188,26 +176,18 @@
 
 /* 매수제안 아웃라인 배지: buy 컬러 */
 .today-proposal__badge--outline-red {
-  border-color: rgba(251, 44, 54, 0.4);
-  color: #fb2c36;
-  background-color: rgba(251, 44, 54, 0.06);
+  @apply border-buy/40 text-buy bg-buy/5;
 }
 .dark .today-proposal__badge--outline-red {
-  border-color: rgba(251, 44, 54, 0.35);
-  color: #ff7b82;
-  background-color: rgba(251, 44, 54, 0.1);
+  @apply border-buy/35 text-buy/80 bg-buy/10;
 }
 
 /* 매도제안 아웃라인 배지: sell 컬러 */
 .today-proposal__badge--outline-blue {
-  border-color: rgba(43, 127, 255, 0.4);
-  color: #2b7fff;
-  background-color: rgba(43, 127, 255, 0.06);
+  @apply border-sell/40 text-sell bg-sell/5;
 }
 .dark .today-proposal__badge--outline-blue {
-  border-color: rgba(43, 127, 255, 0.35);
-  color: #8090ff;
-  background-color: rgba(43, 127, 255, 0.1);
+  @apply border-sell/35 text-sell/80 bg-sell/10;
 }
 
 /* ── 제안 버튼 ── */
@@ -217,35 +197,26 @@
 
 /* 오늘 타겟 버튼: primary */
 .today-proposal__btn--teal {
-  background-color: #5368ff;
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(83, 104, 255, 0.2);
+  @apply bg-primary text-white shadow-primary/20;
 }
 .today-proposal__btn--teal:hover {
-  background-color: #4253cc;
-  box-shadow: 0 6px 16px rgba(83, 104, 255, 0.3);
+  @apply bg-primary/90 shadow-primary/30;
 }
 
 /* 매수 버튼: buy */
 .today-proposal__btn--orange {
-  background-color: #fb2c36;
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(251, 44, 54, 0.2);
+  @apply bg-buy text-white shadow-lg shadow-buy/20;
 }
 .today-proposal__btn--orange:hover {
-  background-color: #d91c25;
-  box-shadow: 0 6px 16px rgba(251, 44, 54, 0.3);
+  @apply bg-buy/90 shadow-xl shadow-buy/30;
 }
 
 /* 매도 버튼: sell */
 .today-proposal__btn--violet {
-  background-color: #2b7fff;
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(43, 127, 255, 0.2);
+  @apply bg-sell text-white shadow-lg shadow-sell/20;
 }
 .today-proposal__btn--violet:hover {
-  background-color: #4253cc;
-  box-shadow: 0 6px 16px rgba(43, 127, 255, 0.3);
+  @apply bg-sell/90 shadow-xl shadow-sell/30;
 }
 
 .today-proposal__btn-icon {
@@ -281,14 +252,12 @@
 
 /* 상승 표시: buy 컬러 */
 .proposal-item__change--up {
-  color: #fb2c36;
-  @apply font-bold;
+  @apply text-buy font-bold;
 }
 
 /* 하락 표시: sell 컬러 */
 .proposal-item__change--down {
-  color: #2b7fff;
-  @apply font-bold;
+  @apply text-sell font-bold;
 }
 
 .proposal-item__bottom {

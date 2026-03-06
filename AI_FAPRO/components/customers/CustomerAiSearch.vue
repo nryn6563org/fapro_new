@@ -1,20 +1,7 @@
 <template>
   <div class="customer-ai-search">
     <div class="customer-ai-search__card">
-      <!-- Header -->
-      <div class="customer-ai-search__header">
-        <div class="customer-ai-search__header-inner">
-          <div class="customer-ai-search__icon-box">
-            <zap-icon class="w-5 h-5 text-white" />
-          </div>
-          <div>
-            <h2 class="customer-ai-search__title">AI 고객 검색</h2>
-            <p class="customer-ai-search__subtitle">
-              문장으로 쉽고 편리하게 고객을 검색해 보세요.
-            </p>
-          </div>
-        </div>
-      </div>
+      <CustomerAiSearchHeader />
 
       <!-- Input Area -->
       <div class="customer-ai-search__input-wrapper">
@@ -37,64 +24,32 @@
 
       <!-- Hint -->
       <div class="customer-ai-search__hint">
-        <zap-icon class="w-4 h-4 text-teal-500" />
-        <span class="font-medium"
-          >자연어 검색 예시 : 공격투자형 고객 중 2차전지 관심 있는 고객
-          찾아줘</span
-        >
+        <zap-icon size="16" />
+        <span>자연어 검색 예시 : 공격투자형 고객 중 2차전지 관심 있는 고객 찾아줘</span>
       </div>
 
-      <!-- Recommendations -->
-      <div class="customer-ai-search__recommends">
-        <div class="customer-ai-search__recommends-title">
-          <zap-icon class="customer-ai-search__recommends-icon" />
-          <span class="customer-ai-search__recommends-label"
-            >추천 검색어 (클릭하여 바로 검색)</span
-          >
-        </div>
-        <div class="customer-ai-search__recommend-list">
-          <div
-            v-for="(search, index) in recentSearches"
-            :key="index"
-            class="customer-ai-search__recommend-item"
-            @click="handleQuickSearch(search)"
-          >
-            {{ search }}
-          </div>
-        </div>
-      </div>
+      <CustomerAiSearchRecommends
+        :recent-searches="recentSearches"
+        @select="handleQuickSearch"
+      />
 
-      <!-- Filter Types -->
-      <div class="customer-ai-search__filters">
-        <span class="customer-ai-search__filters-label">
-          ▼ 투자유형 필터:
-        </span>
-        <div class="customer-ai-search__filters-group">
-          <button
-            v-for="category in filterCategories"
-            :key="category"
-            :class="[
-              'customer-ai-search__filter-btn',
-              {
-                'customer-ai-search__filter-btn--active':
-                  selectedFilter === category,
-              },
-            ]"
-            @click="$emit('update:selectedFilter', category)"
-          >
-            {{ category }}
-          </button>
-        </div>
-      </div>
+      <CustomerAiSearchFilters
+        :selected="selectedFilter"
+        :categories="filterCategories"
+        @update:selected="$emit('update:selectedFilter', $event)"
+      />
     </div>
   </div>
 </template>
 
 <script>
 /**
- * 기능: AI 고객 검색 및 추천 검색어
+ * 기능: AI 고객 검색 컴포넌트 (Rule 6 & Rule 9 준수)
  */
 import { SearchIcon, ZapIcon } from "vue-feather-icons";
+import CustomerAiSearchHeader from "~/components/customers/CustomerAiSearch/CustomerAiSearchHeader.vue";
+import CustomerAiSearchRecommends from "~/components/customers/CustomerAiSearch/CustomerAiSearchRecommends.vue";
+import CustomerAiSearchFilters from "~/components/customers/CustomerAiSearch/CustomerAiSearchFilters.vue";
 import "~/assets/css/pages/customers/CustomerAiSearch/CustomerAiSearch.css";
 
 export default {
@@ -102,6 +57,9 @@ export default {
   components: {
     SearchIcon,
     ZapIcon,
+    CustomerAiSearchHeader,
+    CustomerAiSearchRecommends,
+    CustomerAiSearchFilters,
   },
   props: {
     searchQuery: { type: String, default: "" },

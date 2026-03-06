@@ -38,12 +38,12 @@
 }
 /* 상승: 매수 시맨틱 컬러 #FB2C36 */
 .strategic-card__change--up {
-  color: #fb2c36;
+  @apply text-buy;
   @apply font-semibold;
 }
 /* 하락: 매도 시맨틱 컬러 #2B7FFF */
 .strategic-card__change--down {
-  color: #2b7fff;
+  @apply text-sell;
   @apply font-semibold;
 }
 

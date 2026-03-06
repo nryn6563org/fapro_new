@@ -1,7 +1,7 @@
 <template>
   <div v-if="show" class="schedule-sync-modal">
     <div class="schedule-sync-modal__overlay" @click="$emit('close')"></div>
-    <div class="schedule-sync-modal__box animate__animated animate__zoomIn">
+    <div class="schedule-sync-modal__box animate__animated animate__fadeIn animate__faster">
       <!-- Sync Start Modal -->
       <div v-if="mode === 'sync'" class="schedule-sync-modal__body">
         <div class="schedule-sync-modal__header">
@@ -152,6 +152,18 @@ export default {
         "캘린더 알림 및 리마인더 연동",
       ],
     };
+  },
+  watch: {
+    show(val) {
+      if (val) document.body.classList.add("modal-open");
+      else document.body.classList.remove("modal-open");
+    },
+  },
+  mounted() {
+    if (this.show) document.body.classList.add("modal-open");
+  },
+  beforeDestroy() {
+    document.body.classList.remove("modal-open");
   },
 };
 </script>
