@@ -40,9 +40,9 @@
     </div>
 
     <!-- Details Modal -->
-    <a-i-report-detail-modal
+    <a-i-report-modal
       :is-open="isReportModalOpen"
-      :report="activeReport"
+      :data="activeReport"
       @close="closeReport"
     />
   </div>
@@ -54,7 +54,7 @@
  */
 import { RefreshCwIcon } from "vue-feather-icons";
 import AIReportCard from "~/components/discovery/AIReportCard.vue";
-import AIReportDetailModal from "~/components/discovery/AIReportDetailModal.vue";
+import AIReportModal from "~/components/modal/AIReportModal.vue";
 import { aiReports } from "~/utils/discoveryMockData.js";
 import "~/assets/css/pages/discovery/DiscoveryPage/DiscoveryPage.css";
 
@@ -63,7 +63,7 @@ export default {
   components: {
     RefreshCwIcon,
     AIReportCard,
-    AIReportDetailModal,
+    AIReportModal,
   },
   data() {
     return {

@@ -24,9 +24,9 @@
     </div>
 
     <!-- AI 리포트 상세 모달 -->
-    <signals-page-report-modal
+    <a-i-report-modal
       :is-open="isReportModalOpen"
-      :signal="activeReportSignal"
+      :data="activeReportSignal"
       @close="closeReport"
     />
   </div>
@@ -38,7 +38,7 @@
  */
 import SignalsPageHeader from "~/components/signals/SignalsPage/SignalsPageHeader.vue";
 import SignalsPageSignalColumn from "~/components/signals/SignalsPage/SignalsPageSignalColumn.vue";
-import SignalsPageReportModal from "~/components/signals/SignalsPage/SignalsPageReportModal.vue";
+import AIReportModal from "~/components/modal/AIReportModal.vue";
 import { buySignals, sellSignals } from "~/utils/signalsMockData.js";
 import "~/assets/css/pages/signals/SignalsPage/SignalsPage.css";
 
@@ -47,7 +47,7 @@ export default {
   components: {
     SignalsPageHeader,
     SignalsPageSignalColumn,
-    SignalsPageReportModal,
+    AIReportModal,
   },
   data() {
     return {

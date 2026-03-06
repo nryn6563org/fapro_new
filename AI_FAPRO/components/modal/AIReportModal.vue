@@ -2,25 +2,30 @@
   <modal-vanilla
     v-if="isOpen"
     :is-open="isOpen"
-    modal-id="ai-report-detail-modal"
     custom-dialog-class="ai-report-modal__dialog"
     @close="$emit('close')"
   >
     <template #header>
-      <div v-if="report" class="ai-report-modal__header">
+      <div v-if="data" class="ai-report-modal__header">
         <div class="ai-report-modal__header-content">
           <div class="ai-report-modal__icon-box">
             <activity-icon size="28" class="text-primary dark:text-primary-light" />
           </div>
           <div class="ai-report-modal__title-wrapper">
             <h2 class="ai-report-modal__title">
-              {{ report.stockName || report.title }}
-              <span class="ai-report-modal__ticker">{{ report.ticker }}</span>
+              {{ data.name || data.stockName || data.title }}
+              <span class="ai-report-modal__ticker">{{ data.ticker }}</span>
             </h2>
             <div class="ai-report-modal__badges">
-              <span class="ai-report-modal__badge ai-report-modal__badge--blue">{{ report.signalBadge || '매수포착' }}</span>
-              <span class="ai-report-modal__badge ai-report-modal__badge--orange">{{ report.category || '실적발표' }}</span>
-              <span class="ai-report-modal__badge ai-report-modal__badge--indigo">AI스코어 {{ report.aiScore }}</span>
+              <span class="ai-report-modal__badge ai-report-modal__badge--blue">
+                {{ data.signalBadge || '매수포착' }}
+              </span>
+              <span class="ai-report-modal__badge ai-report-modal__badge--orange">
+                {{ data.category || '실적발표' }}
+              </span>
+              <span class="ai-report-modal__badge ai-report-modal__badge--indigo">
+                AI스코어 {{ data.aiScore || 90 }}
+              </span>
             </div>
           </div>
         </div>
@@ -30,8 +35,8 @@
       </div>
     </template>
     <div class="ai-report-modal__content">
-      <template v-if="report">
-        <a-i-report-content :signal="report" />
+      <template v-if="data">
+        <a-i-report-content :signal="data" />
       </template>
     </div>
   </modal-vanilla>
@@ -39,7 +44,8 @@
 
 <script>
 /**
- * 기능: AI 종목발굴 페이지의 상세 리포트 모달 (SignalsPageReportModal과 디자인 통일)
+ * 기능: 공통 AI 리포트 상세 모달
+ * AI매매신호 포착 및 종목발굴 페이지에서 공통으로 사용됩니다.
  */
 import { XIcon, ActivityIcon } from "vue-feather-icons";
 import ModalVanilla from "~/components/modal/ModalVanilla.vue";
@@ -47,7 +53,7 @@ import AIReportContent from "~/components/signals/AIReportContent.vue";
 import "~/assets/css/pages/signals/SignalsPage/SignalsPage.css";
 
 export default {
-  name: "AIReportDetailModal",
+  name: "AIReportModal",
   components: {
     XIcon,
     ActivityIcon,
@@ -59,7 +65,8 @@ export default {
       type: Boolean,
       default: false,
     },
-    report: {
+    // 상위에서 전달받는 신호 또는 리포트 데이터
+    data: {
       type: Object,
       default: null,
     },
