@@ -5,114 +5,36 @@
         <h1 class="settings-page__title">설정</h1>
       </div>
 
-      <!-- Account Management -->
-      <settings-account-section />
+      <!-- 정보 관리 섹션 -->
+      <SettingsAccountSection />
 
-      <!-- Billing & Payment Information -->
-      <div class="settings-page__card mt-8">
-        <div class="settings-page__header">
-          <credit-card-icon class="settings-page__header-icon" />
-          <h2 class="settings-page__h2">결제 정보</h2>
-        </div>
-
-        <div class="settings-page__content">
-          <!-- Subscription Plans -->
-          <div class="space-y-6">
-            <label class="settings-page__label">현재 구독 플랜</label>
-            <div class="settings-page__grid">
-              <settings-plan-card
-                type="basic"
-                label="일반"
-                :price="100000"
-                :active="selectedPlan === 'basic'"
-                :features="basicFeatures"
-                @select="selectedPlan = 'basic'"
-              />
-              <settings-plan-card
-                type="pro"
-                label="Pro"
-                :price="150000"
-                :active="selectedPlan === 'pro'"
-                :features="proFeatures"
-                @select="selectedPlan = 'pro'"
-              />
-            </div>
-
-            <!-- Promotion / Transition Button -->
-            <div class="mt-8">
-              <div
-                v-if="selectedPlan === activePlan"
-                class="settings-page__status-box"
-              >
-                <div
-                  v-if="activePlan === 'pro'"
-                  class="settings-page__pro-status"
-                >
-                  <award-icon class="w-5 h-5" />
-                  Pro 플랜 이용 중
-                </div>
-                <div v-else class="settings-page__basic-status">
-                  일반 플랜 이용 중
-                </div>
-              </div>
-
-              <button
-                v-else
-                :class="[
-                  'settings-page__transition-btn',
-                  selectedPlan === 'pro'
-                    ? 'settings-page__transition-btn--upgrade'
-                    : 'settings-page__transition-btn--downgrade',
-                ]"
-                @click="handlePlanChange"
-              >
-                <component
-                  :is="selectedPlan === 'pro' ? 'award-icon' : 'arrow-down-icon'"
-                  class="settings-page__btn-icon"
-                />
-                {{
-                  selectedPlan === "pro"
-                    ? "Pro 플랜으로 업그레이드"
-                    : "일반 플랜으로 다운그레이드"
-                }}
-              </button>
-            </div>
-          </div>
-
-          <!-- Payment Info Component -->
-          <div v-if="activePlan === 'pro'" class="settings-page__billing-wrapper mt-10">
-            <settings-billing-info
-              :payment-method="paymentMethod"
-              :next-billing-date="nextBillingDateLabel"
-              :monthly-price="activePlan === 'pro' ? 150000 : 100000"
-            />
-          </div>
-        </div>
-      </div>
+      <!-- 결제 및 구독 섹션 -->
+      <SettingsBillingSection
+        :active-plan="activePlan"
+        :selected-plan.sync="selectedPlan"
+        :payment-method="paymentMethod"
+        :next-billing-date-label="nextBillingDateLabel"
+        :basic-features="basicFeatures"
+        :pro-features="proFeatures"
+        @change-plan="handlePlanChange"
+      />
     </div>
   </div>
 </template>
 
 <script>
 /**
- * 기능: 설정 메인 페이지 (회원정보 및 구독 관리)
+ * 기능: 설정 메인 페이지 (Modularized)
  */
-import { CreditCardIcon, StarIcon, AwardIcon, ArrowDownIcon } from "vue-feather-icons";
 import SettingsAccountSection from "~/components/settings/SettingsAccountSection.vue";
-import SettingsPlanCard from "~/components/settings/SettingsPlanCard.vue";
-import SettingsBillingInfo from "~/components/settings/SettingsBillingInfo.vue";
+import SettingsBillingSection from "~/components/settings/SettingsPage/SettingsBillingSection.vue";
 import "~/assets/css/pages/settings/SettingsPage/SettingsPage.css";
 
 export default {
   name: "SettingsPage",
   components: {
     SettingsAccountSection,
-    SettingsPlanCard,
-    SettingsBillingInfo,
-    CreditCardIcon,
-    StarIcon,
-    AwardIcon,
-    ArrowDownIcon,
+    SettingsBillingSection,
   },
   layout: "default",
   data() {
@@ -122,21 +44,24 @@ export default {
       paymentMethod: "신한카드 **** **** **** 1234",
       nextBillingDate: new Date(2025, 2, 26),
       basicFeatures: [
-        "오늘의 제안 고객 추천",
-        "오늘의 종목 제안 추천",
-        "고객 및 일정관리",
+        "AI 컨텍 제안",
+        "AI 이슈포착",
+        "AI 매매신호 포착",
+        "AI 인텔리전스 리포트",
       ],
       proFeatures: [
-        "오늘의 제안 고객 추천",
-        "오늘의 종목 제안 추천",
-        "고객 및 일정관리",
-        "AI발굴종목",
-        "AI이슈포착 정보",
-        "투자정보 제공",
+        "AI 컨텍 제안",
+        "AI 이슈포착",
+        "AI 매매신호 포착",
+        "AI 인텔리전스 리포트",
+        "AI 중장기 유망주",
       ],
     };
   },
   computed: {
+    /**
+     * @description 다음 결제일 포맷팅 레이블
+     */
     nextBillingDateLabel() {
       return this.nextBillingDate.toLocaleDateString("ko-KR", {
         year: "numeric",
@@ -146,14 +71,14 @@ export default {
     },
   },
   methods: {
+    /**
+     * @description 구독 플랜 변경 핸들러
+     */
     handlePlanChange() {
-      const action =
-        this.selectedPlan === "pro" ? "업그레이드" : "다운그레이드";
+      const action = this.selectedPlan === "pro" ? "업그레이드" : "다운그레이드";
       if (
         confirm(
-          `${
-            this.selectedPlan === "pro" ? "Pro" : "일반"
-          } 플랜으로 ${action}하시겠습니까?`
+          `${this.selectedPlan === "pro" ? "Pro" : "일반"} 플랜으로 ${action}하시겠습니까?`
         )
       ) {
         this.activePlan = this.selectedPlan;
@@ -163,3 +88,4 @@ export default {
   },
 };
 </script>
+

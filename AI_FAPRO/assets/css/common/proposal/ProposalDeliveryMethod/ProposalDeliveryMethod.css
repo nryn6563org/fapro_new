@@ -38,7 +38,7 @@
 }
 
 .proposal-section__icon--amber {
-  @apply proposal-section__icon text-amber-500;
+  @apply proposal-section__icon text-amber-500 !mr-0;
 }
 .proposal-section__icon {
   @apply w-5 h-5 mr-2;

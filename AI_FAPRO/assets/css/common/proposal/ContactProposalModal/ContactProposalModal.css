@@ -38,7 +38,7 @@
   @apply flex items-center justify-between mb-3;
 }
 .proposal-section__title-row {
-  @apply flex items-center;
+  @apply flex items-center gap-2;
 }
 .proposal-section__icon {
   @apply w-5 h-5 mr-2;

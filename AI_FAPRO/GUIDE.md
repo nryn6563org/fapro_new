@@ -74,8 +74,12 @@ graph TD
 
 ```mermaid
 graph TD
-    Page["pages/signals.vue"] --> CSS_Page["assets/css/pages/signals/SignalsPage.css"]
-    Page --> Card["components/signals/TradingSignalCard.vue"]
+    Page["pages/signals.vue"] --> CSS_Page["assets/css/pages/signals/SignalsPage/SignalsPage.css"]
+    Page --> Header["components/signals/SignalsPage/SignalsPageHeader.vue"]
+    Page --> Column["components/signals/SignalsPage/SignalsPageSignalColumn.vue"]
+    Page --> Modal["components/signals/SignalsPage/SignalsPageReportModal.vue"]
+    Column --> Card["components/signals/TradingSignalCard.vue"]
+    Modal --> Content["components/signals/AIReportContent.vue"]
 ```
 
 ### [/discovery] - AI 인텔리전스 리포트

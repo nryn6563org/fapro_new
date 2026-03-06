@@ -15,7 +15,7 @@
     />
 
     <div class="schedule-page__body">
-      <!-- Sidebar -->
+      <!-- 사이드바 (Modularized) -->
       <schedule-sidebar
         :current-date="currentDate"
         :selected-date="selectedDate"
@@ -27,32 +27,19 @@
         @toggle-calendar="toggleCalendar"
       />
 
-      <!-- Main Content Area -->
-      <div class="schedule-page__main">
-        <template v-if="isSynced">
-          <schedule-day-view
-            v-if="viewMode === 'day'"
-            :selected-date="selectedDate"
-            :events="filteredEvents"
-          />
-          <schedule-week-view
-            v-else-if="viewMode === 'week'"
-            :current-date="currentDate"
-            :selected-date="selectedDate"
-            :events="filteredEvents"
-            @select-date="selectedDate = $event"
-          />
-          <schedule-month-view
-            v-else-if="viewMode === 'month'"
-            :current-date="currentDate"
-            :events="filteredEvents"
-          />
-        </template>
-        <schedule-placeholder v-else @sync="showSyncModal = true" />
-      </div>
+      <!-- 메인 콘텐츠 영역 (Modularized) -->
+      <SchedulePageMain
+        :is-synced="isSynced"
+        :view-mode="viewMode"
+        :selected-date="selectedDate"
+        :current-date="currentDate"
+        :events="filteredEvents"
+        @select-date="selectedDate = $event"
+        @sync="showSyncModal = true"
+      />
     </div>
 
-    <!-- Sync Modals -->
+    <!-- 동기화 모달 (Modularized) -->
     <schedule-sync-modal
       :show="showSyncModal"
       mode="sync"
@@ -71,14 +58,11 @@
 
 <script>
 /**
- * 기능: 캘린더 메인 페이지 (일정 관리 및 동기화)
+ * 기능: 캘린더 메인 페이지 (Modularized)
  */
 import ScheduleHeader from "~/components/schedule/ScheduleHeader.vue";
 import ScheduleSidebar from "~/components/schedule/ScheduleSidebar.vue";
-import ScheduleDayView from "~/components/schedule/ScheduleDayView.vue";
-import ScheduleWeekView from "~/components/schedule/ScheduleWeekView.vue";
-import ScheduleMonthView from "~/components/schedule/ScheduleMonthView.vue";
-import SchedulePlaceholder from "~/components/schedule/SchedulePlaceholder.vue";
+import SchedulePageMain from "~/components/schedule/SchedulePage/SchedulePageMain.vue";
 import ScheduleSyncModal from "~/components/schedule/ScheduleSyncModal.vue";
 import { events, myCalendars } from "~/utils/scheduleMockData.js";
 import "~/assets/css/pages/schedule/SchedulePage/SchedulePage.css";
@@ -88,10 +72,7 @@ export default {
   components: {
     ScheduleHeader,
     ScheduleSidebar,
-    ScheduleDayView,
-    ScheduleWeekView,
-    ScheduleMonthView,
-    SchedulePlaceholder,
+    SchedulePageMain,
     ScheduleSyncModal,
   },
   layout: "default",
@@ -110,10 +91,11 @@ export default {
     };
   },
   computed: {
+    /**
+     * @description 검색 및 캘린더 필터가 적용된 이벤트 목록
+     */
     filteredEvents() {
-      const activeTypes = this.calendars
-        .filter((c) => c.checked)
-        .map((c) => c.name);
+      const activeTypes = this.calendars.filter((c) => c.checked).map((c) => c.name);
       return this.events.filter((e) => {
         const matchesType = activeTypes.includes(e.type);
         const matchesSearch = e.title.includes(this.searchQuery);
@@ -128,13 +110,9 @@ export default {
     },
     navigate(direction) {
       const newDate = new Date(this.currentDate);
-      if (this.viewMode === "week") {
-        newDate.setDate(newDate.getDate() + direction * 7);
-      } else if (this.viewMode === "day") {
-        newDate.setDate(newDate.getDate() + direction);
-      } else {
-        newDate.setMonth(newDate.getMonth() + direction);
-      }
+      if (this.viewMode === "week") newDate.setDate(newDate.getDate() + direction * 7);
+      else if (this.viewMode === "day") newDate.setDate(newDate.getDate() + direction);
+      else newDate.setMonth(newDate.getMonth() + direction);
       this.currentDate = newDate;
     },
     navigateMonth(direction) {
@@ -165,3 +143,4 @@ export default {
   },
 };
 </script>
+
