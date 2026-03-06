@@ -70,17 +70,7 @@ export default {
           id: "updateInfo",
           label: "회원정보 변경",
           icon: "user-icon",
-        },
-        {
-          id: "register",
-          label: "회원가입",
-          icon: "user-plus-icon",
-        },
-        {
-          id: "withdraw",
-          label: "회원탈퇴",
-          icon: "user-minus-icon",
-        },
+        }
       ],
     };
   },
@@ -90,9 +80,7 @@ export default {
         findId: "https://www.thinkpool.com/customer/idInquiry",
         findPassword: "https://www.thinkpool.com/customer/pwInquiry",
         changePassword: "https://www.thinkpool.com/customer/pwChange",
-        updateInfo: "https://www.thinkpool.com/customer/infoChange",
-        register: "https://sign.thinkpool.com/user/join.do",
-        withdraw: "https://www.thinkpool.com/customer/withdraw",
+        updateInfo: "https://www.thinkpool.com/customer/infoChange"
       };
 
       if (id === "withdraw") {
