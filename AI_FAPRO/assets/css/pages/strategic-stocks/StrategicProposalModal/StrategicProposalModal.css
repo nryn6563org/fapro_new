@@ -12,7 +12,7 @@
   @apply max-w-2xl max-h-[90vh];
 } /* ── Header (모달 전용 스타일) ── */
 .strategic-modal__header {
-  @apply fapro-modal-header flex-col items-start overflow-hidden;
+  @apply fapro-modal-header items-center gap-4 overflow-hidden;
 }
 
 .dark /* ── Header (모달 전용 스타일) ── */
