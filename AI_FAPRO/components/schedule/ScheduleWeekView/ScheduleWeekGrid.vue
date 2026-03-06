@@ -35,10 +35,11 @@ export default {
     selectedDate: { type: Date, required: true },
   },
   watch: {
-    selectedDate: {
+    weekDays: {
       immediate: true,
-      handler(newDate) {
-        this.scrollToFirstEvent(newDate);
+      handler() {
+        // 주간 뷰에서는 주의 첫 번째 이벤트가 있는 시간으로 한 번만 스크롤
+        this.scrollToFirstEvent(this.weekDays[0]);
       },
     },
   },

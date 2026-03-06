@@ -1,7 +1,7 @@
 /* Tailwind directives container */
 
 .schedule-page {
-  @apply w-full flex flex-col bg-white dark:bg-slate-900 overflow-hidden border border-slate-100 dark:border-slate-800 rounded-xl shadow-sm mt-8 mb-8 pb-4;
+  @apply w-full flex flex-col bg-white dark:bg-slate-900 overflow-hidden border border-slate-100 dark:border-slate-800 rounded-xl shadow-sm mt-8 mb-8;
 }
 
 .schedule-page__body {
