@@ -12,6 +12,10 @@
   @apply flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-800 last:border-0 transition-colors;
 }
 
+.issue-proposal-clients__row {
+  @apply flex items-center gap-3;
+}
+
 .issue-proposal-clients__item--selected {
   @apply bg-indigo-50/30 dark:bg-indigo-500/5;
 }

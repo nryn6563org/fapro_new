@@ -1,5 +1,9 @@
 /* ── 이슈 제안 섹션 블록 스타일 ── */
 
+.issue-proposal-context {
+  @apply flex flex-col gap-8;
+}
+
 .issue-proposal-section {
   @apply flex flex-col;
 }
@@ -10,6 +14,22 @@
 }
 .issue-proposal-section__title {
   @apply text-[15px] font-black text-slate-800 dark:text-slate-200;
+}
+
+.issue-proposal-section__icon--amber {
+  @apply text-amber-500;
+}
+
+.issue-proposal-section__icon--sky {
+  @apply text-sky-500;
+}
+
+.issue-proposal-section__icon--slate {
+  @apply text-slate-600;
+}
+
+.issue-proposal-section__icon--dark {
+  @apply text-slate-900;
 }
 
 /* 정보 박스 공통 - stats-grid 스타일 적용 */
@@ -26,9 +46,17 @@
   @apply bg-indigo-50/50 dark:bg-indigo-950/20 border-indigo-100 dark:border-indigo-900/30;
 }
 
+.issue-proposal-section__box--spaced {
+  @apply mb-3;
+}
+
 /* 텍스트 스타일 */
 .issue-proposal-section__text {
   @apply text-[14px] text-slate-700 dark:text-slate-300 leading-relaxed font-medium;
+}
+
+.issue-proposal-section__text-spaced {
+  @apply mb-2;
 }
 
 /* 뉴스 전용 텍스트 */
@@ -39,10 +67,22 @@
   @apply text-[13px] text-slate-500 leading-normal line-clamp-2;
 }
 
+.issue-proposal-section__news-meta {
+  @apply flex items-center gap-2 mt-2 text-[10px] text-slate-400;
+}
+
 /* 입력 필드 (의견 작성용) */
 .issue-proposal-section__textarea {
   @apply w-full min-h-[80px] p-4 rounded-lg bg-slate-100 dark:bg-slate-800/50 text-[13px] text-slate-600 dark:text-slate-400 outline-none transition-all placeholder:text-slate-400;
 }
 .issue-proposal-section__textarea:focus {
   @apply border-[1px] border-slate-200 bg-white dark:bg-slate-800;
+}
+
+.issue-proposal-section--top-spaced {
+  @apply mt-4;
+}
+
+.issue-proposal-section__header--stock {
+  @apply lg:mt-[-20px] mb-3;
 }

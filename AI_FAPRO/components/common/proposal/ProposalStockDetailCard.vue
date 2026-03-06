@@ -28,7 +28,7 @@
         class="point-box point-box--bullish"
       >
         <div
-          class="flex items-center gap-1.5 text-emerald-600 font-bold text-sm mb-2"
+          class="point-box__header--bullish"
         >
           <trending-up-icon size="16" />
           상승 동력
@@ -37,9 +37,9 @@
           <li
             v-for="(point, idx) in stock.bullishPoints"
             :key="idx"
-            class="point-item text-emerald-700"
+            class="point-item--bullish"
           >
-            <span class="point-bullet bg-emerald-500"></span>
+            <span class="point-bullet--bullish"></span>
             {{ point }}
           </li>
         </ul>
@@ -51,7 +51,7 @@
         class="point-box point-box--bearish"
       >
         <div
-          class="flex items-center gap-1.5 text-rose-500 font-bold text-sm mb-2"
+          class="point-box__header--bearish"
         >
           <alert-triangle-icon size="16" />
           하락 위험 요소
@@ -60,9 +60,9 @@
           <li
             v-for="(point, idx) in stock.bearishPoints"
             :key="idx"
-            class="point-item text-rose-600"
+            class="point-item--bearish"
           >
-            <span class="point-bullet bg-rose-500"></span>
+            <span class="point-bullet--bearish"></span>
             {{ point }}
           </li>
         </ul>
@@ -71,12 +71,12 @@
       <!-- Rationale (투자 근거) -->
       <div v-if="stock.rationale" class="point-box point-box--rationale">
         <div
-          class="flex items-center gap-1.5 text-slate-700 font-bold text-sm mb-2"
+          class="point-box__header--rationale"
         >
           <info-icon size="16" />
           투자 근거
         </div>
-        <p class="text-[13px] text-slate-600 leading-relaxed">
+        <p class="point-box__text">
           {{ stock.rationale }}
         </p>
       </div>

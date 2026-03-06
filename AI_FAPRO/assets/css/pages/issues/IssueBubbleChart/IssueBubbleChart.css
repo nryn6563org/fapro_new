@@ -104,6 +104,6 @@
 .issue-chart__footer-text {
   @apply text-xs text-slate-600 dark:text-slate-400;
 }
-.issue-chart__footer-icon--ml-2 {
-  @apply ml-2;
+.issue-chart__footer-icon--spaced {
+  @apply w-3 h-3 text-slate-500 ml-2;
 }

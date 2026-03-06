@@ -41,6 +41,28 @@
 .issue-detail__stat-value {
   @apply text-2xl font-bold m-0;
 }
+.issue-detail__stat-value--teal {
+  @apply text-teal-500;
+}
+.issue-detail__stat-value--blue {
+  @apply text-blue-600;
+}
 .issue-detail__stat-desc {
   @apply text-xs text-slate-500 mt-1 m-0;
+}
+
+/* 레이블 하단 간격 변형 */
+.issue-detail__stat-label--spaced {
+  @apply mb-2;
+}
+
+/* 통계 하이라이트 텍스트 (상승/하락) */
+.issue-detail__stat-highlight {
+  @apply font-semibold;
+}
+.issue-detail__stat-highlight--up {
+  @apply text-red-600;
+}
+.issue-detail__stat-highlight--down {
+  @apply text-blue-600;
 }

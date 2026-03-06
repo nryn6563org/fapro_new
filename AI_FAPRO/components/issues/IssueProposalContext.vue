@@ -1,14 +1,14 @@
 <template>
-  <div class="issue-proposal-context flex flex-col gap-8">
+  <div class="issue-proposal-context">
     <!-- AI Reason Section -->
     <div class="issue-proposal-section">
       <div class="issue-proposal-section__header">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" class="text-amber-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" class="issue-proposal-section__icon--amber">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor" />
         </svg>
         <span class="issue-proposal-section__title">이슈 생성 사유</span>
       </div>
-      <div class="issue-proposal-section__box issue-proposal-section__box--amber mb-3">
+      <div class="issue-proposal-section__box issue-proposal-section__box--amber issue-proposal-section__box--spaced">
         <p class="issue-proposal-section__text">
           {{ formData.aiReason }}
         </p>
@@ -25,15 +25,15 @@
     <!-- Issue Outlook Section -->
     <div class="issue-proposal-section">
       <div class="issue-proposal-section__header">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-sky-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="issue-proposal-section__icon--sky">
           <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
           <polyline points="17 6 23 6 23 12"></polyline>
         </svg>
         <span class="issue-proposal-section__title">이슈 전망</span>
       </div>
-      <div class="issue-proposal-section__box issue-proposal-section__box--sky mb-3">
+      <div class="issue-proposal-section__box issue-proposal-section__box--sky issue-proposal-section__box--spaced">
         <div v-if="issue" class="issue-proposal-section__text">
-          <div v-if="issue.positiveProspects" class="mb-2">
+          <div v-if="issue.positiveProspects" class="issue-proposal-section__text-spaced">
             <strong>단기 전망:</strong> {{ issue.positiveProspects }}
           </div>
           <div v-if="issue.negativeProspects">
@@ -56,7 +56,7 @@
     <!-- Related News Section -->
     <div class="issue-proposal-section">
       <div class="issue-proposal-section__header">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-600">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="issue-proposal-section__icon--slate">
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
           <polyline points="14 2 14 8 20 8"></polyline>
           <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -72,7 +72,7 @@
         <p class="issue-proposal-section__news-desc">
           {{ formData.newsSummary }}
         </p>
-        <div class="flex items-center gap-2 mt-2 text-[10px] text-slate-400">
+        <div class="issue-proposal-section__news-meta">
           <span>한국경제</span>
           <span>•</span>
           <span>26/03/02 14:30</span>
@@ -81,9 +81,9 @@
     </div>
 
     <!-- Related Stocks Table Section -->
-    <div class="issue-proposal-section mt-4">
-      <div class="issue-proposal-section__header lg:mt-[-20px] mb-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-slate-900">
+    <div class="issue-proposal-section issue-proposal-section--top-spaced">
+      <div class="issue-proposal-section__header issue-proposal-section__header--stock">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="issue-proposal-section__icon--dark">
           <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
           <polyline points="16 7 22 7 22 13"></polyline>
         </svg>

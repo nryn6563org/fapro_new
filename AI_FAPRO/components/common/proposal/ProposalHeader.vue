@@ -4,10 +4,10 @@
       <div v-if="iconComponent" class="proposal-header__icon-wrapper">
         <component
           :is="iconComponent"
-          :class="['proposal-header__icon', iconClass]"
+          :class="iconClass"
         />
       </div>
-      <div class="flex flex-col">
+      <div class="proposal-header__title-content">
         <h2 class="proposal-header__title">{{ title }}</h2>
         <p v-if="description" class="proposal-header__desc">
           {{ description }}
@@ -15,7 +15,7 @@
       </div>
     </div>
     <button class="proposal-header__close" @click="$emit('close')">
-      <x-icon size="20" class="text-slate-400" />
+      <x-icon size="20" class="proposal-header__close-icon" />
     </button>
   </header>
 </template>

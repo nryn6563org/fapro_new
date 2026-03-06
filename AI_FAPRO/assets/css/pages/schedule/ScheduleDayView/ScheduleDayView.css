@@ -89,3 +89,279 @@
 .day-view__event--amber-500 {
   @apply bg-amber-500;
 }
+
+.day-view__event--orange-500 {
+  @apply bg-orange-500;
+}
+
+.day-view__event--pink-500 {
+  @apply bg-pink-500;
+}
+
+.day-view__event--red-500 {
+  @apply bg-red-500;
+}
+
+.day-view__event--green-500 {
+  @apply bg-green-500;
+}
+
+.day-view__event--yellow-500 {
+  @apply bg-yellow-500;
+}
+
+.day-view__event--indigo-500 {
+  @apply bg-indigo-500;
+}
+
+.day-view__event--violet-500 {
+  @apply bg-violet-500;
+}
+
+.day-view__event--fuchsia-500 {
+  @apply bg-fuchsia-500;
+}
+
+.day-view__event--rose-500 {
+  @apply bg-rose-500;
+}
+
+.day-view__event--cyan-500 {
+  @apply bg-cyan-500;
+}
+
+.day-view__event--lime-500 {
+  @apply bg-lime-500;
+}
+
+.day-view__event--emerald-500 {
+  @apply bg-emerald-500;
+}
+
+.day-view__event--sky-500 {
+  @apply bg-sky-500;
+}
+
+.day-view__event--slate-500 {
+  @apply bg-slate-500;
+}
+
+.day-view__event--gray-500 {
+  @apply bg-gray-500;
+}
+
+.day-view__event--zinc-500 {
+  @apply bg-zinc-500;
+}
+
+.day-view__event--neutral-500 {
+  @apply bg-neutral-500;
+}
+
+.day-view__event--stone-500 {
+  @apply bg-stone-500;
+}
+
+.day-view__event--orange-500 {
+  @apply bg-orange-500;
+}
+
+.day-view__event--amber-500 {
+  @apply bg-amber-500;
+}
+
+.day-view__event--yellow-500 {
+  @apply bg-yellow-500;
+}
+
+.day-view__event--lime-500 {
+  @apply bg-lime-500;
+}
+
+.day-view__event--emerald-500 {
+  @apply bg-emerald-500;
+}
+
+.day-view__event--teal-500 {
+  @apply bg-teal-500;
+}
+
+.day-view__event--cyan-500 {
+  @apply bg-cyan-500;
+}
+
+.day-view__event--blue-500 {
+  @apply bg-blue-500;
+}
+
+.day-view__event--indigo-500 {
+  @apply bg-indigo-500;
+}
+
+.day-view__event--purple-500 {
+  @apply bg-purple-500;
+}
+
+.day-view__event--pink-500 {
+  @apply bg-pink-500;
+}
+
+.day-view__event--rose-500 {
+  @apply bg-rose-500;
+}
+
+.day-view__event--fuchsia-500 {
+  @apply bg-fuchsia-500;
+}
+
+.day-view__event--violet-500 {
+  @apply bg-violet-500;
+}
+
+.day-view__event--purple-500 {
+  @apply bg-purple-500;
+}
+
+.day-view__event--pink-500 {
+  @apply bg-pink-500;
+}
+
+.day-view__event--red-500 {
+  @apply bg-red-500;
+}
+
+.day-view__event--green-500 {
+  @apply bg-green-500;
+}
+
+.day-view__event--yellow-500 {
+  @apply bg-yellow-500;
+}
+
+.day-view__event--indigo-500 {
+  @apply bg-indigo-500;
+}
+
+.day-view__event--violet-500 {
+  @apply bg-violet-500;
+}
+
+.day-view__event--fuchsia-500 {
+  @apply bg-fuchsia-500;
+}
+
+.day-view__event--rose-500 {
+  @apply bg-rose-500;
+}
+
+.day-view__event--cyan-500 {
+  @apply bg-cyan-500;
+}
+
+.day-view__event--lime-500 {
+  @apply bg-lime-500;
+}
+
+.day-view__event--emerald-500 {
+  @apply bg-emerald-500;
+}
+
+.day-view__event--sky-500 {
+  @apply bg-sky-500;
+}
+
+.day-view__event--slate-500 {
+  @apply bg-slate-500;
+}
+
+.day-view__event--gray-500 {
+  @apply bg-gray-500;
+}
+
+.day-view__event--zinc-500 {
+  @apply bg-zinc-500;
+}
+
+.day-view__event--neutral-500 {
+  @apply bg-neutral-500;
+}
+
+.day-view__event--stone-500 {
+  @apply bg-stone-500;
+}
+
+.day-view__event--orange-500 {
+  @apply bg-orange-500;
+}
+
+.day-view__event--amber-500 {
+  @apply bg-amber-500;
+}
+
+.day-view__event--yellow-500 {
+  @apply bg-yellow-500;
+}
+
+.day-view__event--lime-500 {
+  @apply bg-lime-500;
+}
+
+.day-view__event--emerald-500 {
+  @apply bg-emerald-500;
+}
+
+.day-view__event--teal-500 {
+  @apply bg-teal-500;
+}
+
+.day-view__event--cyan-500 {
+  @apply bg-cyan-500;
+}
+
+.day-view__event--blue-500 {
+  @apply bg-blue-500;
+}
+
+.day-view__event--indigo-500 {
+  @apply bg-indigo-500;
+}
+
+.day-view__event--purple-500 {
+  @apply bg-purple-500;
+}
+
+.day-view__event--pink-500 {
+  @apply bg-pink-500;
+}
+
+.day-view__event--rose-500 {
+  @apply bg-rose-500;
+}
+
+.day-view__event--fuchsia-500 {
+  @apply bg-fuchsia-500;
+}
+
+.day-view__event--violet-500 {
+  @apply bg-violet-500;
+}
+
+.day-view__event--purple-500 {
+  @apply bg-purple-500;
+}
+
+.day-view__event--pink-500 {
+  @apply bg-pink-500;
+}
+
+.day-view__event--red-500 {
+  @apply bg-red-500;
+}
+
+.day-view__event--green-500 {
+  @apply bg-green-500;
+}
+
+.day-view__event--yellow-500 {
+  @apply bg-yellow-500
+}

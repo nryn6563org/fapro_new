@@ -3,6 +3,9 @@
 .issue-proposal__form {
   @apply flex flex-col gap-6;
 }
+.issue-proposal__form--spaced {
+  @apply gap-10;
+}
 .issue-proposal__form-group {
   @apply flex flex-col;
 }
@@ -65,4 +68,16 @@
 
 .issue-proposal__check-icon {
   @apply absolute top-2 right-2 w-4 h-4;
+}
+
+.issue-proposal-action-grid {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.issue-proposal-action-icon {
+  @apply w-5 h-5 mb-1;
+}
+
+.issue-proposal-action-text {
+  @apply font-black;
 }

@@ -57,13 +57,13 @@
   @apply p-4 rounded-xl;
 }
 .point-box--bullish {
-  @apply bg-emerald-500/50 border border-emerald-100;
+  @apply point-box bg-emerald-500/50 border border-emerald-100;
 }
 .point-box--bearish {
-  @apply bg-rose-50/50 border border-rose-100;
+  @apply point-box bg-rose-50/50 border border-rose-100;
 }
 .point-box--rationale {
-  @apply bg-slate-500 border border-slate-100;
+  @apply point-box bg-slate-500 border border-slate-100;
 }
 
 /* ── 포인트 목록 ── */
@@ -75,4 +75,35 @@
 }
 .point-bullet {
   @apply w-1.5 h-1.5 rounded-full mt-1.5 shrink-0;
+}
+
+.point-box__header {
+  @apply flex items-center gap-1.5 font-bold text-sm mb-2;
+}
+.point-box__header--bullish {
+  @apply point-box__header text-emerald-600;
+}
+.point-box__header--bearish {
+  @apply point-box__header text-rose-500;
+}
+.point-box__header--rationale {
+  @apply point-box__header text-slate-700;
+}
+
+.point-item--bullish {
+  @apply point-item text-emerald-700;
+}
+.point-item--bearish {
+  @apply point-item text-rose-600;
+}
+
+.point-bullet--bullish {
+  @apply point-bullet bg-emerald-500;
+}
+.point-bullet--bearish {
+  @apply point-bullet bg-rose-500;
+}
+
+.point-box__text {
+  @apply text-[13px] text-slate-600 leading-relaxed;
 }

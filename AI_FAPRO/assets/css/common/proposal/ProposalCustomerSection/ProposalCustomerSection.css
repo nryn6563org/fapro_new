@@ -17,10 +17,27 @@
   @apply flex items-start gap-3 py-4 px-4 rounded-xl cursor-pointer bg-gray-50 dark:bg-slate-900 border border-gray-100 dark:border-gray-800;
 }
 .proposal-item--selected {
-  @apply border-gray-500/50 dark:border-gray-500 bg-gray-50 shadow-sm;
+  @apply proposal-item border-gray-500/50 dark:border-gray-500 bg-gray-50 shadow-sm;
 }
 .proposal-item--display {
-  @apply cursor-default;
+  @apply proposal-item cursor-default;
+}
+
+/* ── 뱃지 (매수/매도) ── */
+.proposal-badge {
+  @apply text-[11px] font-semibold px-2 py-0.5 rounded-full;
+}
+/* 매수 → buy 시맨틱 컬러 */
+.proposal-badge--red {
+  @apply proposal-badge;
+  background-color: #fff0f1;
+  color: #fb2c36;
+}
+/* 매도 → sell 시맨틱 컬러 */
+.proposal-badge--blue {
+  @apply proposal-badge;
+  background-color: #e1e4ff;
+  color: #2b7fff;
 }
 
 /* ── 아이템 내부 요소 ── */
@@ -56,6 +73,15 @@
   content: "💡";
   @apply text-[10px];
 }
+
+/* ── 섹션 아이콘 ── */
+.proposal-section__icon {
+  @apply w-5 h-5;
+}
+.proposal-section__icon--emerald {
+  @apply proposal-section__icon text-emerald-500;
+}
+
 .proposal-item__action {
   @apply ml-auto flex items-center;
 }

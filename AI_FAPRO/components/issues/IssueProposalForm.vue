@@ -1,5 +1,5 @@
 <template>
-  <div class="issue-proposal__form flex flex-col gap-10">
+  <div class="issue-proposal__form issue-proposal__form--spaced">
     <!-- Issue Info Section -->
     <IssueProposalInfo :issue="issue" />
 
@@ -14,24 +14,24 @@
 
     <!-- Send & Download Section -->
     <div class="issue-proposal-section">
-      <div class="issue-proposal-section__header mb-4">
+      <div class="issue-proposal-section__header">
         <h3 class="issue-proposal-section__title">전송 및 다운로드</h3>
       </div>
-      <div class="grid grid-cols-2 gap-4">
+      <div class="issue-proposal-action-grid">
         <button
           class="issue-proposal-action-btn issue-proposal-action-btn--email"
           :disabled="localSelectedClients.length === 0"
           @click="$emit('send', { method: 'email', clients: localSelectedClients })"
         >
-          <mail-icon class="w-5 h-5 mb-1" />
-          <span class="font-black">선택한 고객에게 이메일 전송</span>
+          <mail-icon class="issue-proposal-action-icon" />
+          <span class="issue-proposal-action-text">선택한 고객에게 이메일 전송</span>
         </button>
         <button
           class="issue-proposal-action-btn issue-proposal-action-btn--download"
           @click="$emit('download')"
         >
-          <download-icon class="w-5 h-5 mb-1" />
-          <span class="font-black">PDF 다운로드</span>
+          <download-icon class="issue-proposal-action-icon" />
+          <span class="issue-proposal-action-text">PDF 다운로드</span>
         </button>
       </div>
     </div>

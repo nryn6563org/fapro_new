@@ -58,19 +58,33 @@
         />
       </div>
     </div>
+
+    <!-- 모달 영역: v-if 직접 렌더링 -->
+    <customer-detail-modal
+      v-if="selectedCustomer"
+      :customer="selectedCustomer"
+      @close="selectedCustomer = null"
+      @view-holdings="onViewHoldingsFromModal"
+    />
+
+    <customer-holdings-modal
+      v-if="holdingsCustomer"
+      :customer="holdingsCustomer"
+      @close="holdingsCustomer = null"
+    />
   </div>
 </template>
 
 <script>
 /**
  * 기능: 고객 목록 메인 페이지 (고객 관리)
- * Rule 7: Modal-Vanilla 연동 완료
+ * 모달: v-if 직접 렌더링 방식 (fapro-modal 디자인 시스템 적용)
  */
-import Vue from "vue";
 import { ZapIcon, DownloadIcon, UploadIcon } from "vue-feather-icons";
 import CustomerUploadArea from "~/components/customers/CustomerUploadArea.vue";
 import CustomerAiSearch from "~/components/customers/CustomerAiSearch.vue";
 import CustomerListTable from "~/components/customers/CustomerListTable.vue";
+import CustomerDetailModal from "~/components/customers/CustomerDetailModal.vue";
 import CustomerHoldingsModal from "~/components/customers/CustomerHoldingsModal.vue";
 import {
   sampleCustomers,
@@ -85,6 +99,8 @@ export default {
     CustomerUploadArea,
     CustomerAiSearch,
     CustomerListTable,
+    CustomerDetailModal,
+    CustomerHoldingsModal,
     ZapIcon,
     DownloadIcon,
     UploadIcon,
@@ -97,6 +113,9 @@ export default {
       selectedFilter: "전체",
       recentCustomerSearches,
       customerQuickFilters,
+      /* 모달 상태 관리 */
+      selectedCustomer: null,
+      holdingsCustomer: null,
     };
   },
   computed: {
@@ -123,25 +142,19 @@ export default {
     onSearch(query) {
       this.searchQuery = query;
     },
+    /* 고객 상세 모달 열기 */
+    onViewDetail(customer) {
+      this.selectedCustomer = customer;
+    },
+    /* 보유종목 모달 열기 */
     onViewHoldings(customer) {
-      const ComponentClass = Vue.extend(CustomerHoldingsModal);
-      const instance = new ComponentClass({
-        propsData: { customer },
-      });
-      instance.$mount();
-
-      const modal = this.$modalV.show({
-        content: instance.$el,
-        backdrop: true,
-        keyboard: true,
-      });
-
-      modal.on("hidden", () => {
-        instance.$destroy();
-      });
-
-      instance.$on("close", () => {
-        modal.hide();
+      this.holdingsCustomer = customer;
+    },
+    /* 상세 모달에서 보유종목 모달로 전환 */
+    onViewHoldingsFromModal(customer) {
+      this.selectedCustomer = null;
+      this.$nextTick(() => {
+        this.holdingsCustomer = customer;
       });
     },
     handleAction(name) {

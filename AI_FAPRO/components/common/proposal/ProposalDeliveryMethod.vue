@@ -1,8 +1,8 @@
 <template>
   <section class="proposal-section proposal-section--transparent">
-    <div class="proposal-section__header mb-4">
+    <div class="proposal-section__header">
       <div class="proposal-section__title-row">
-        <message-square-icon class="proposal-section__icon text-amber-500" />
+        <message-square-icon class="proposal-section__icon--amber" />
         <h3 class="proposal-section__title">전송 방법</h3>
       </div>
     </div>
@@ -10,15 +10,10 @@
       <button
         v-for="method in methods"
         :key="method.id"
-        class="delivery-tab"
-        :class="[
-          selectedMethod === method.id
-            ? `delivery-tab--active-${method.id}`
-            : '',
-        ]"
+        :class="selectedMethod === method.id ? `delivery-tab--active-${method.id}` : 'delivery-tab'"
         @click="$emit('update:selectedMethod', method.id)"
       >
-        <component :is="method.icon" class="w-4 h-4 mr-1.5" />
+        <component :is="method.icon" class="delivery-tab__icon" />
         {{ method.label }}
       </button>
     </div>

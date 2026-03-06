@@ -91,7 +91,7 @@
           selectedIssue.issueDate
         }}</span>
         <clock-icon
-          class="issue-chart__footer-icon issue-chart__footer-icon--ml-2"
+          class="issue-chart__footer-icon--spaced"
         />
         <span class="issue-chart__footer-text">{{
           selectedIssue.updatedAt

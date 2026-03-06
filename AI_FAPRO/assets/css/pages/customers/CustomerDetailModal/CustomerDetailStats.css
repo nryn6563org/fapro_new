@@ -1,0 +1,102 @@
+/* ── 고객 상세 통계 카드 스타일 (다크모드 지원) ── */
+
+.customer-stats__grid {
+  @apply grid grid-cols-1 md:grid-cols-4 gap-4;
+}
+
+.customer-stats__card {
+  @apply rounded-xl p-5 border transition-all;
+}
+
+/* 1. 총 투자금액 (Blue) */
+.customer-stats__card--investment {
+  @apply bg-blue-50/50 border-blue-100;
+}
+.customer-stats__label--investment {
+  @apply text-blue-600 text-[13px] font-bold mb-1;
+}
+.customer-stats__value--investment {
+  @apply text-blue-900 text-xl font-bold;
+}
+
+.dark .customer-stats__card--investment {
+  @apply bg-blue-900/20 border-blue-800/50;
+}
+.dark .customer-stats__label--investment {
+  @apply text-blue-400;
+}
+.dark .customer-stats__value--investment {
+  @apply text-blue-200;
+}
+
+/* 2. 현재 평가금액 (Green) */
+.customer-stats__card--valuation {
+  @apply bg-emerald-50/50 border-emerald-100;
+}
+.customer-stats__label--valuation {
+  @apply text-emerald-600 text-[13px] font-bold mb-1;
+}
+.customer-stats__value--valuation {
+  @apply text-emerald-900 text-xl font-bold;
+}
+
+.dark .customer-stats__card--valuation {
+  @apply bg-emerald-900/20 border-emerald-800/50;
+}
+.dark .customer-stats__label--valuation {
+  @apply text-emerald-400;
+}
+.dark .customer-stats__value--valuation {
+  @apply text-emerald-200;
+}
+
+/* 3. 예수금 (Orange) */
+.customer-stats__card--deposit {
+  @apply bg-orange-50/50 border-orange-100;
+}
+.customer-stats__label--deposit {
+  @apply text-orange-600 text-[13px] font-bold mb-1;
+}
+.customer-stats__value--deposit {
+  @apply text-orange-900 text-xl font-bold;
+}
+
+.dark .customer-stats__card--deposit {
+  @apply bg-orange-900/20 border-orange-800/50;
+}
+.dark .customer-stats__label--deposit {
+  @apply text-orange-400;
+}
+.dark .customer-stats__value--deposit {
+  @apply text-orange-200;
+}
+
+/* 4. 총 수익률 (Primary) */
+.customer-stats__card--return {
+  @apply bg-primary-light/50 border-primary-light;
+}
+.customer-stats__label--return {
+  @apply text-primary text-[13px] font-bold mb-1;
+}
+.customer-stats__value-box {
+  @apply flex items-center gap-2;
+}
+.customer-stats__value--return {
+  @apply text-primary-dark text-xl font-bold;
+}
+.customer-stats__icon--return {
+  @apply w-5 h-5 text-primary;
+}
+
+.dark .customer-stats__card--return {
+  @apply bg-primary/10 border-primary/30;
+}
+.dark .customer-stats__label--return {
+  @apply text-primary-light;
+}
+.dark .customer-stats__value--return {
+  @apply text-primary-light;
+}
+.dark .customer-stats__icon--return {
+  @apply text-primary-light;
+}

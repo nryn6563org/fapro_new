@@ -21,14 +21,14 @@
 }
 /* 상승: buy 시맨틱 컬러 */
 .issue-detail__icon-box--up {
-  @apply bg-rose-50 dark:bg-rose-500/10 border-rose-100 dark:border-rose-500/20;
+  @apply issue-detail__icon-box bg-rose-50 dark:bg-rose-500/10 border-rose-100 dark:border-rose-500/20;
 }
 /* 하락: sell 시맨틱 컬러 */
 .issue-detail__icon-box--down {
-  @apply bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-500/20;
+  @apply issue-detail__icon-box bg-blue-50 dark:bg-blue-500/10 border-blue-100 dark:border-blue-500/20;
 }
 .issue-detail__icon-box--neutral {
-  @apply bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700;
+  @apply issue-detail__icon-box bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700;
 }
 
 .issue-detail__icon {
@@ -51,7 +51,7 @@
   align-items: stretch;
 }
 .issue-detail__col-left {
-  @apply flex flex-col justify-between;
+  @apply flex flex-col justify-between gap-8;
 }
 .issue-detail__col-right {
   display: flex;

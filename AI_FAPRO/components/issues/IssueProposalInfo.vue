@@ -1,11 +1,11 @@
 <template>
   <div v-if="issue" class="proposal-section">
     <!-- Stats Row: 3 Columns -->
-    <div class="grid grid-cols-3 gap-4 mb-8">
+    <div class="issue-proposal__stats-grid">
       <!-- Intensity Card -->
       <div class="issue-proposal__stat-card issue-proposal__stat-card--red">
         <p class="issue-proposal__stat-label">이슈 등락률</p>
-        <div class="flex items-end justify-between">
+        <div class="issue-proposal__stat-footer">
           <div class="issue-proposal__stat-value-box">
             <p class="issue-proposal__stat-value issue-proposal__stat-value--red">
               {{ issue.changePercent > 0 ? '+' : '' }}{{ issue.changePercent }}%
@@ -36,7 +36,7 @@
           <p class="issue-proposal__stat-value issue-proposal__stat-value--violet">
             {{ issue.monthlyOccurrences || 0 }}번
           </p>
-          <div class="flex items-center gap-2 mt-1">
+          <div class="issue-proposal__substat-row">
             <span class="issue-proposal__stat-substat issue-proposal__stat-substat--up">
               <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
               {{ issue.occurrenceStats?.up || 0 }}번

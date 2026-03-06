@@ -1,0 +1,58 @@
+/* ── 고객 보유종목 상세 테이블 스타일 (fapro 디자인 시스템) ── */
+
+.customer-holdings {
+  @apply fapro-card overflow-hidden;
+}
+
+.customer-holdings__header {
+  @apply fapro-card-header;
+}
+
+.customer-holdings__title {
+  @apply fapro-card-title m-0;
+}
+
+.customer-holdings__table-container {
+  @apply overflow-x-auto;
+}
+
+.customer-holdings__table {
+  @apply w-full border-collapse text-[13px];
+}
+
+.customer-holdings__thead {
+  @apply fapro-table-head;
+}
+
+.customer-holdings__th {
+  @apply fapro-th;
+}
+
+.customer-holdings__tr {
+  @apply fapro-table-row;
+}
+
+.customer-holdings__td {
+  @apply fapro-td;
+}
+
+.customer-holdings__td--name {
+  @apply font-bold text-slate-900 dark:text-white;
+}
+
+.customer-holdings__td--value {
+  @apply font-bold text-slate-900 dark:text-white;
+}
+
+.customer-holdings__profit-box {
+  @apply flex items-center gap-1;
+}
+
+/* 수익/손실 컬러 (프로젝트 시맨틱 컬러 적용) */
+.text-profit-up {
+  @apply text-buy font-bold;
+}
+
+.text-profit-down {
+  @apply text-sell font-bold;
+}

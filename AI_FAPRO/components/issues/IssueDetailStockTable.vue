@@ -12,11 +12,11 @@
       <table class="issue-detail__table">
         <thead>
           <tr>
-            <th class="issue-detail__th text-left">종목명</th>
-            <th class="issue-detail__th text-right">현재가</th>
-            <th class="issue-detail__th text-right">등락률</th>
-            <th class="issue-detail__th text-center">AI시그널</th>
-            <th class="issue-detail__th text-center">다른 이슈</th>
+            <th class="issue-detail__th issue-detail__th--left">종목명</th>
+            <th class="issue-detail__th issue-detail__th--right">현재가</th>
+            <th class="issue-detail__th issue-detail__th--right">등락률</th>
+            <th class="issue-detail__th issue-detail__th--center">AI시그널</th>
+            <th class="issue-detail__th issue-detail__th--center">다른 이슈</th>
           </tr>
         </thead>
         <tbody>
@@ -28,16 +28,16 @@
             }"
           >
             <td class="issue-detail__td">
-              <span class="font-bold text-slate-900 dark:text-white">{{ stock.name }}</span>
+              <span class="issue-detail-table__stock-name">{{ stock.name }}</span>
             </td>
-            <td class="issue-detail__td text-right font-semibold text-slate-700 dark:text-slate-300">{{ Math.round(10000 * (1 + stock.changePercent / 100)).toLocaleString() }}원</td>
-            <td :class="['issue-detail__td text-right font-bold', stock.changePercent >= 0 ? 'text-red-600' : 'text-blue-600']">{{ stock.changePercent > 0 ? "+" : "" }}{{ stock.changePercent }}%</td>
-            <td class="issue-detail__td text-center">
+            <td class="issue-detail__td issue-detail__td--right issue-detail-table__price">{{ Math.round(10000 * (1 + stock.changePercent / 100)).toLocaleString() }}원</td>
+            <td :class="['issue-detail__td issue-detail__td--right issue-detail-table__change', stock.changePercent >= 0 ? 'issue-detail-table__change--up' : 'issue-detail-table__change--down']">{{ stock.changePercent > 0 ? "+" : "" }}{{ stock.changePercent }}%</td>
+            <td class="issue-detail__td issue-detail__td--center">
               <span :class="['issue-detail-table__badge', stock.aiSignal === '매수' ? 'issue-detail-table__badge--red' : stock.aiSignal === '관망' ? 'issue-detail-table__badge--yellow' : 'issue-detail-table__badge--blue']">
                 {{ stock.aiSignal }}
               </span>
             </td>
-            <td class="issue-detail__td text-center">
+            <td class="issue-detail__td issue-detail__td--center">
               <div class="issue-detail__other-issues">
                 <span v-for="tag in stock.otherIssues" :key="tag" class="issue-detail-table__tag">
                   {{ tag }}

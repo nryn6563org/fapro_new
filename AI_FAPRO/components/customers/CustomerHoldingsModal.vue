@@ -1,5 +1,5 @@
 <template>
-  <div class="customer-holdings">
+  <div v-if="customer" class="customer-holdings">
     <div class="customer-holdings__modal animate__animated animate__zoomIn">
       <!-- Header -->
       <div class="customer-holdings__header">
@@ -172,7 +172,7 @@ export default {
     ZapIcon,
   },
   props: {
-    customer: { type: Object, required: true },
+    customer: { type: Object, default: null },
   },
   methods: {
     handleEdit() {

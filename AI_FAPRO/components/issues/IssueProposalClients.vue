@@ -1,6 +1,6 @@
 <template>
   <div class="issue-proposal-clients">
-    <div class="issue-proposal-section__header mb-4">
+    <div class="issue-proposal-section__header">
       <h3 class="issue-proposal-section__title">고객 선택</h3>
     </div>
     <div class="issue-proposal-clients__list">
@@ -10,7 +10,7 @@
         class="issue-proposal-clients__item"
         :class="{ 'issue-proposal-clients__item--selected': internalSelectedClients.includes(client.id) }"
       >
-        <div class="flex items-center gap-3">
+        <div class="issue-proposal-clients__row">
           <input
             :id="'client-' + client.id"
             v-model="internalSelectedClients"

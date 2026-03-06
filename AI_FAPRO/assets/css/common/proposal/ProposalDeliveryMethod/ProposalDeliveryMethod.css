@@ -20,19 +20,30 @@
 /* ── 활성화 탭 변형 (전송 방법별) ── */
 /* SMS: Reddish color */
 .delivery-tab--active-sms {
-  @apply bg-[#C25D5D] text-white border-[#C25D5D] shadow-md shadow-[#C25D5D]/30 translate-y-0 hover:translate-y-0;
+  @apply delivery-tab bg-[#C25D5D] text-white border-[#C25D5D] shadow-md shadow-[#C25D5D]/30 translate-y-0 hover:translate-y-0;
 }
 .delivery-tab--active-sms:hover {
   @apply bg-[#A34D4D];
 }
 /* 카카오톡: 브랜드 컬러 유지 (노란색 = 카카오 공식) */
 .delivery-tab--active-kakao {
-  @apply bg-[#FFCD00] text-[#191919] border-[#FFCD00] hover:bg-[#EBC000] shadow-md shadow-[#FFCD00]/20 translate-y-0 hover:translate-y-0;
+  @apply delivery-tab bg-[#FFCD00] text-[#191919] border-[#FFCD00] hover:bg-[#EBC000] shadow-md shadow-[#FFCD00]/20 translate-y-0 hover:translate-y-0;
 }
 /* 이메일: Teal color */
 .delivery-tab--active-email {
-  @apply bg-[#00897B] text-white border-[#00897B] shadow-md shadow-[#00897B]/30 translate-y-0 hover:translate-y-0;
+  @apply delivery-tab bg-[#00897B] text-white border-[#00897B] shadow-md shadow-[#00897B]/30 translate-y-0 hover:translate-y-0;
 }
 .delivery-tab--active-email:hover {
   @apply bg-[#00796B];
+}
+
+.proposal-section__icon--amber {
+  @apply proposal-section__icon text-amber-500;
+}
+.proposal-section__icon {
+  @apply w-5 h-5 mr-2;
+}
+
+.delivery-tab__icon {
+  @apply w-4 h-4 mr-1.5;
 }

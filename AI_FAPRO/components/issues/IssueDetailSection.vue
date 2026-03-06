@@ -4,7 +4,7 @@
       <!-- Title Section -->
       <div class="issue-detail__header">
         <div class="issue-detail__title-info">
-          <div :class="['issue-detail__icon-box', 'issue-detail__icon-box--' + issue.type]">
+          <div :class="'issue-detail__icon-box--' + issue.type">
             <trending-up-icon v-if="issue.type === 'up'" class="issue-detail__icon" />
             <trending-down-icon v-else-if="issue.type === 'down'" class="issue-detail__icon" />
             <minus-icon v-else class="issue-detail__icon" />

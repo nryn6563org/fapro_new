@@ -1,0 +1,48 @@
+/* ── AI 고객 분석 카드 스타일 (브랜드 컬러 적용) ── */
+
+.customer-analysis {
+  @apply bg-primary-light/30 dark:bg-primary/10 border border-primary-light dark:border-primary/30 rounded-2xl p-6 relative;
+}
+
+.customer-analysis__header {
+  @apply flex items-center gap-3 mb-5;
+}
+
+.customer-analysis__icon-box {
+  @apply fapro-modal-icon fapro-modal-icon--primary;
+  @apply w-10 h-10;
+}
+
+.customer-analysis__title-group {
+  @apply flex flex-col;
+}
+
+.customer-analysis__title {
+  @apply text-base font-bold text-slate-900 dark:text-white m-0;
+}
+
+.customer-analysis__subtitle {
+  @apply text-xs text-slate-500 dark:text-slate-400 m-0;
+}
+
+/* 분석 리스트 */
+.customer-analysis__list {
+  @apply space-y-4 bg-white/70 dark:bg-slate-900/50 p-6 rounded-xl border border-white/50 dark:border-slate-800/50;
+}
+
+.customer-analysis__item {
+  @apply flex gap-3 text-[14px] leading-relaxed text-slate-700 dark:text-slate-300;
+}
+
+.customer-analysis__bullet {
+  @apply text-primary mt-1 flex-shrink-0;
+}
+
+.customer-analysis__label {
+  @apply font-bold text-slate-900 dark:text-white mr-1;
+}
+
+/* 특수 라벨 컬러 (추천 액션) */
+.customer-analysis__label--highlight {
+  @apply text-orange-500 dark:text-orange-400;
+}

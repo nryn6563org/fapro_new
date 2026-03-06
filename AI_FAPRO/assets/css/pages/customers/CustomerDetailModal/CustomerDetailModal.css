@@ -1,0 +1,73 @@
+/*
+  ============================================================
+  CustomerDetailModal.css
+  컴포넌트: components/customers/CustomerDetailModal.vue
+  역할: 고객 상세 정보 모달 스타일 (fapro-modal 디자인 시스템 적용)
+  모달 ID: #customer-detail-modal
+  ============================================================
+*/
+
+/* ── 모달 베이스 (fapro 공통 유틸리티 클래스 사용) ── */
+#customer-detail-modal {
+  @apply fapro-modal-overlay;
+}
+
+.customer-modal__overlay {
+  @apply absolute inset-0;
+}
+
+.customer-modal__container {
+  @apply fapro-modal-container fapro-modal-container--lg;
+  max-height: 90vh;
+}
+
+/* ── Header ── */
+.customer-modal__header {
+  @apply fapro-modal-header fapro-modal-header--sticky;
+}
+
+.customer-modal__header-left {
+  @apply flex items-center gap-3;
+}
+
+.customer-modal__icon-box {
+  @apply fapro-modal-icon fapro-modal-icon--slate;
+}
+
+.customer-modal__title {
+  @apply fapro-modal-title;
+}
+
+.customer-modal__subtitle {
+  @apply fapro-modal-subtitle;
+}
+
+.customer-modal__close {
+  @apply fapro-modal-close;
+}
+
+/* ── Body ── */
+.customer-modal__body {
+  @apply fapro-modal-body;
+}
+
+.customer-modal__content {
+  @apply space-y-6;
+}
+
+/* ── Footer ── */
+.customer-modal__footer {
+  @apply fapro-modal-footer fapro-modal-footer--sticky justify-between;
+}
+
+.customer-modal__btn {
+  @apply flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-black transition-all border-0 cursor-pointer;
+}
+
+.customer-modal__btn--outline {
+  @apply fapro-btn-outline;
+}
+
+.customer-modal__btn--primary {
+  @apply fapro-btn-primary shadow-lg shadow-primary/20;
+}

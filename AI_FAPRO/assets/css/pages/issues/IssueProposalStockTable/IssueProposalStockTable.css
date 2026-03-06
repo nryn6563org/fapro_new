@@ -15,6 +15,18 @@
   @apply bg-slate-50 dark:bg-slate-800/50 px-3 py-3 text-xs font-bold text-slate-500 dark:text-slate-400 border-b border-gray-200 dark:border-gray-700;
 }
 
+.issue-proposal-table__th--left {
+  @apply text-left;
+}
+
+.issue-proposal-table__th--right {
+  @apply text-right;
+}
+
+.issue-proposal-table__th--center {
+  @apply text-center;
+}
+
 /* 테이블 데이터 셀 */
 .issue-proposal-table__table td {
   @apply px-3 py-3 border-b border-gray-200 dark:border-gray-700 transition-colors;
@@ -36,6 +48,34 @@
 /* 틱커 sub-text */
 .issue-proposal-table__ticker {
   @apply text-[10px] text-slate-400 font-normal mt-0.5 leading-none;
+}
+
+.issue-proposal-table__td--name {
+  @apply text-left font-bold text-slate-900 dark:text-white;
+}
+
+.issue-proposal-table__td--price {
+  @apply text-right font-bold text-slate-700 dark:text-slate-300;
+}
+
+.issue-proposal-table__td--change {
+  @apply text-right font-black;
+}
+
+.issue-proposal-table__td--change-up {
+  @apply text-red-500;
+}
+
+.issue-proposal-table__td--change-down {
+  @apply text-blue-500;
+}
+
+.issue-proposal-table__td--center {
+  @apply text-center;
+}
+
+.issue-proposal-table__tag-container {
+  @apply flex gap-1.5 justify-center flex-wrap;
 }
 
 /* AI 시그널 뱃지 기본 스타일 */

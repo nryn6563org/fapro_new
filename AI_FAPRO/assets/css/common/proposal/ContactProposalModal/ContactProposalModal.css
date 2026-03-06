@@ -19,7 +19,11 @@
 
 /* ── 제안 본문 스크롤 영역 ── */
 .proposal-body {
-  @apply space-y-6 overflow-y-auto overflow-x-hidden;
+  @apply overflow-y-auto overflow-x-hidden;
+}
+
+.proposal-body--spaced {
+  @apply proposal-body space-y-6;
 }
 
 /* ── 공통 섹션 베이스 (CustomerSection, StockSection, DeliveryMethod 공유) ── */

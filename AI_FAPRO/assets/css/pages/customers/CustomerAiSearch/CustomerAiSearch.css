@@ -1,7 +1,7 @@
 /* ── 고객 AI 검색 영역 스타일 ── */
 
 .customer-ai-search__card {
-  @apply bg-primary-light/50 dark:bg-primary-dark/10 border border-primary-light dark:border-primary-dark/50 rounded-2xl p-6 mb-8;
+  @apply bg-primary-light/50 dark:bg-primary-dark/10 border border-gray-200 dark:border-gray-800 rounded-xl p-6 mb-8;
 }
 
 /* 헤더 */

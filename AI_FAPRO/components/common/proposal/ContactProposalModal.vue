@@ -16,7 +16,7 @@
     </template>
 
     <div class="proposal-container">
-      <div class="proposal-body">
+      <div class="proposal-body--spaced">
         <!-- Customer Section -->
         <ProposalCustomerSection
           v-if="showCustomerSection"

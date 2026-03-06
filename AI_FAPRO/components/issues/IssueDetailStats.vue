@@ -38,8 +38,8 @@
 
     <!-- Related Count -->
     <div class="issue-detail__stat-card issue-detail__stat-card--teal">
-      <p class="issue-detail__stat-label mb-2">연관 종목 수</p>
-      <p class="issue-detail__stat-value text-teal-500">
+      <p class="issue-detail__stat-label issue-detail__stat-label--spaced">연관 종목 수</p>
+      <p class="issue-detail__stat-value issue-detail__stat-value--teal">
         {{ issue.relatedStocks.length }}개
       </p>
       <p class="issue-detail__stat-desc">분석 대상 종목</p>
@@ -47,16 +47,16 @@
 
     <!-- Frequency -->
     <div class="issue-detail__stat-card issue-detail__stat-card--blue">
-      <p class="issue-detail__stat-label mb-2">이슈 발생 / 2월</p>
-      <p class="issue-detail__stat-value text-blue-600">
+      <p class="issue-detail__stat-label issue-detail__stat-label--spaced">이슈 발생 / 2월</p>
+      <p class="issue-detail__stat-value issue-detail__stat-value--blue">
         {{ issue.monthlyOccurrences || 0 }}번
       </p>
       <p class="issue-detail__stat-desc">
-        <span class="text-red-600 font-semibold"
+        <span class="issue-detail__stat-highlight issue-detail__stat-highlight--up"
           >{{ issue.occurrenceStats?.up || 0 }}번 상승</span
         >
         ·
-        <span class="text-blue-600 font-semibold"
+        <span class="issue-detail__stat-highlight issue-detail__stat-highlight--down"
           >{{ issue.occurrenceStats?.down || 0 }}번 하락</span
         >
       </p>

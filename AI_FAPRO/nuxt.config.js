@@ -76,11 +76,12 @@ export default {
           autoprefixer: {},
         },
       },
-      // Disable the postcss-preset-env custom-selectors feature to fix the generic :is() warnings
+      // :is() 경고 방지: postcss-preset-env 안정 기능만 활성화
       preset: {
-        stage: 1,
+        stage: 3,
         features: {
           "custom-selectors": false,
+          "nesting-rules": false,
         },
       },
     },

@@ -2,7 +2,7 @@
 
 .customer-upload {
   @apply rounded-xl border-2 border-dashed transition-all p-12 text-center;
-  @apply border-slate-300 bg-slate-100 dark:bg-slate-900 dark:border-slate-800;
+  @apply border-slate-300 bg-white dark:bg-slate-900 dark:border-slate-800;
 }
 
 /* 드래그 중: primary 브랜드 컬러 */

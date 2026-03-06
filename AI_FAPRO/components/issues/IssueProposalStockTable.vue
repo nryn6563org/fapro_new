@@ -4,32 +4,32 @@
       <table class="issue-proposal-table__table">
         <thead>
           <tr>
-            <th class="text-left">종목명</th>
-            <th class="text-right">현재가</th>
-            <th class="text-right">등락률</th>
-            <th class="text-center">AI 시그널</th>
-            <th class="text-center">다른 이슈</th>
+            <th class="issue-proposal-table__th--left">종목명</th>
+            <th class="issue-proposal-table__th--right">현재가</th>
+            <th class="issue-proposal-table__th--right">등락률</th>
+            <th class="issue-proposal-table__th--center">AI 시그널</th>
+            <th class="issue-proposal-table__th--center">다른 이슈</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(stock, idx) in sortedStocks" :key="idx">
-            <td class="text-left font-bold text-slate-900 dark:text-white">
+            <td class="issue-proposal-table__td--name">
               {{ stock.name }}
               <div class="issue-proposal-table__ticker">{{ stock.ticker }}</div>
             </td>
-            <td class="text-right font-bold text-slate-700 dark:text-slate-300">
+            <td class="issue-proposal-table__td--price">
               {{ stock.price?.toLocaleString() }}원
             </td>
-            <td :class="['text-right font-black', stock.changePercent >= 0 ? 'text-red-500' : 'text-blue-500']">
+            <td :class="['issue-proposal-table__td--change', stock.changePercent >= 0 ? 'issue-proposal-table__td--change-up' : 'issue-proposal-table__td--change-down']">
               {{ stock.changePercent > 0 ? '+' : '' }}{{ stock.changePercent }}%
             </td>
-            <td class="text-center">
+            <td class="issue-proposal-table__td--center">
               <span :class="['issue-proposal-table__ai-badge', getAiSignalClass(stock.aiSignal)]">
                 {{ stock.aiSignal }}
               </span>
             </td>
-            <td class="text-center">
-              <div class="flex gap-1.5 justify-center flex-wrap">
+            <td class="issue-proposal-table__td--center">
+              <div class="issue-proposal-table__tag-container">
                 <span v-for="tag in stock.otherIssues?.slice(0, 2)" :key="tag" class="issue-proposal-table__tag">
                   {{ tag }}
                 </span>

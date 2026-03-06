@@ -24,13 +24,15 @@
 /* ── 헤더 아이콘 색상 변형 ── */
 /* teal → primary 브랜드 컬러 */
 .proposal-header__icon--teal {
+  @apply proposal-header__icon;
   color: #5368ff;
 }
 .proposal-header__icon--orange {
-  @apply text-amber-500;
+  @apply proposal-header__icon text-amber-500;
 }
 /* violet → sell 시맨틱 컬러 */
 .proposal-header__icon--violet {
+  @apply proposal-header__icon;
   color: #2b7fff;
 }
 
@@ -40,6 +42,14 @@
 }
 .proposal-header__desc {
   @apply text-[12px] text-slate-500 dark:text-slate-400 mt-1;
+}
+
+.proposal-header__title-content {
+  @apply flex flex-col;
+}
+
+.proposal-header__close-icon {
+  @apply text-slate-400;
 }
 
 /* ── 닫기 버튼 ── */

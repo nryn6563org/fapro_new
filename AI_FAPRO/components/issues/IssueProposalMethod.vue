@@ -14,8 +14,8 @@
         ]"
         @click="internalSendMethod = 'email'"
       >
-        <mail-icon class="w-6 h-6 mb-2" />
-        <span class="font-bold">이메일</span>
+        <mail-icon class="issue-proposal__method-icon" />
+        <span class="issue-proposal__method-name">이메일</span>
         <check-icon
           v-if="internalSendMethod === 'email'"
           class="issue-proposal__check-icon"
@@ -31,8 +31,8 @@
         ]"
         @click="internalSendMethod = 'kakao'"
       >
-        <message-square-icon class="w-6 h-6 mb-2" />
-        <span class="font-bold">카카오톡</span>
+        <message-square-icon class="issue-proposal__method-icon" />
+        <span class="issue-proposal__method-name">카카오톡</span>
         <check-icon
           v-if="internalSendMethod === 'kakao'"
           class="issue-proposal__check-icon"
@@ -48,8 +48,8 @@
         ]"
         @click="internalSendMethod = 'sms'"
       >
-        <smartphone-icon class="w-6 h-6 mb-2" />
-        <span class="font-bold">문자 (SMS)</span>
+        <smartphone-icon class="issue-proposal__method-icon" />
+        <span class="issue-proposal__method-name">문자 (SMS)</span>
         <check-icon
           v-if="internalSendMethod === 'sms'"
           class="issue-proposal__check-icon"

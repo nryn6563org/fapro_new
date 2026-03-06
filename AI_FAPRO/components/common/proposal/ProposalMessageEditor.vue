@@ -1,7 +1,7 @@
 <template>
-  <div class="proposal-editor" :class="`proposal-editor--${deliveryMethod}`">
+  <div :class="`proposal-editor--${deliveryMethod}`">
     <div class="proposal-editor__label">
-      <file-text-icon size="18" class="text-indigo-500" />
+      <file-text-icon size="18" class="proposal-editor__label-icon" />
       메시지 내용
     </div>
 

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="issue && issue.newsSummary" class="issue-detail__news-detail flex flex-col">
+  <div v-if="issue && issue.newsSummary" class="issue-detail__news-detail">
     <div class="issue-detail__section-label">
       <!-- <div class="fapro-badge fapro-badge--teal fapro-badge--sm mr-2">12</div> -->
       <h5 class="issue-detail__section-title">
@@ -20,11 +20,11 @@
     </div>
     <div class="issue-detail__news-content">
       <div class="issue-detail__news-summary-box">
-        <div class="flex items-center gap-2 mb-2">
-          <zap-icon class="w-4 h-4 text-teal-500" />
-          <p class="text-xs font-bold text-teal-600">AI 뉴스 요약</p>
+        <div class="issue-detail__news-header">
+          <zap-icon class="issue-detail__news-icon" />
+          <p class="issue-detail__news-label">AI 뉴스 요약</p>
         </div>
-        <p class="text-[13px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed">
+        <p class="issue-detail__news-text">
           {{ issue.newsSummary }}
         </p>
       </div>

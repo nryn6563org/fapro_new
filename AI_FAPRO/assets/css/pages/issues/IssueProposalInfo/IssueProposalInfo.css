@@ -5,6 +5,10 @@
   @apply p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-all;
 }
 
+.issue-proposal__stats-grid {
+  @apply grid grid-cols-3 gap-4 mb-8;
+}
+
 /* 카드 테마별 색상 */
 .issue-proposal__stat-card--red {
   @apply bg-orange-50/50 dark:bg-orange-950/20 border-orange-100 dark:border-orange-900/30;
@@ -19,6 +23,10 @@
 /* 카드 레이블 */
 .issue-proposal__stat-label {
   @apply text-xs font-semibold text-slate-600 dark:text-slate-400 mb-2;
+}
+
+.issue-proposal__stat-footer {
+  @apply flex items-end justify-between;
 }
 
 /* 가치 박스 */
@@ -62,6 +70,10 @@
 }
 .issue-proposal__stat-substat--down {
   @apply text-blue-600;
+}
+
+.issue-proposal__substat-row {
+  @apply flex items-center gap-2 mt-1;
 }
 
 /* 강도 게이지 전용 */

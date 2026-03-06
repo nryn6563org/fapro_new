@@ -1,7 +1,7 @@
 <template>
-  <div class="issue-detail__extra-info flex flex-col gap-6 h-full">
+  <div class="issue-detail__extra-info">
     <!-- Analysis Reason -->
-    <div class="flex flex-col flex-1">
+    <div class="issue-detail__analysis-block">
       <div class="issue-detail__section-label">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path
@@ -18,37 +18,37 @@
         </svg>
         <h5 class="issue-detail__section-title">이슈 생성 사유 상세</h5>
       </div>
-      <div class="issue-detail__info-box issue-detail__info-box--orange flex-1">
+      <div class="issue-detail__info-box issue-detail__info-box--orange">
         <p class="issue-detail__text">{{ issue.aiReason }}</p>
       </div>
     </div>
     <!-- Outlook -->
-    <div class="flex flex-col flex-1">
+    <div class="issue-detail__analysis-block">
       <div class="issue-detail__section-label">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="mr-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="issue-detail__section-icon">
           <path d="M18.3337 5.83325L11.2503 12.9166L7.08366 8.74992L1.66699 14.1666" stroke="#155DFC" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M13.333 5.83325H18.333V10.8333" stroke="#155DFC" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         <h5 class="issue-detail__section-title">이슈 전망 상세</h5>
       </div>
-      <div class="issue-detail__info-box issue-detail__info-box--blue flex-1">
+      <div class="issue-detail__info-box issue-detail__info-box--blue">
         <p class="issue-detail__text">{{ issue.outlook }}</p>
         <div v-if="issue.positiveProspects || issue.negativeProspects" class="issue-detail__outlook-grid">
           <div class="issue-detail__outlook-item">
-            <div class="flex items-center gap-2 mb-1">
-              <div class="w-2 h-2 rounded-full bg-teal-500"></div>
-              <span class="text-xs font-bold text-slate-700 dark:text-slate-300">긍정 요인</span>
+            <div class="issue-detail__factor-header">
+              <div class="issue-detail__factor-dot issue-detail__factor-dot--positive"></div>
+              <span class="issue-detail__factor-label">긍정 요인</span>
             </div>
-            <p class="text-[13px] text-slate-500">
+            <p class="issue-detail__factor-text">
               {{ issue.positiveProspects || "데이터가 없습니다." }}
             </p>
           </div>
           <div class="issue-detail__outlook-item">
-            <div class="flex items-center gap-2 mb-1">
-              <div class="w-2 h-2 rounded-full bg-rose-500"></div>
-              <span class="text-xs font-bold text-slate-700 dark:text-slate-300">리스크 요인</span>
+            <div class="issue-detail__factor-header">
+              <div class="issue-detail__factor-dot issue-detail__factor-dot--negative"></div>
+              <span class="issue-detail__factor-label">리스크 요인</span>
             </div>
-            <p class="text-[13px] text-slate-500">
+            <p class="issue-detail__factor-text">
               {{ issue.negativeProspects || "데이터가 없습니다." }}
             </p>
           </div>

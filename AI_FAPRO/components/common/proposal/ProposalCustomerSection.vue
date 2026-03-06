@@ -2,14 +2,14 @@
   <section class="proposal-section">
     <div class="proposal-section__header">
       <div class="proposal-section__title-row">
-        <target-icon class="proposal-section__icon text-emerald-500" />
+        <target-icon class="proposal-section__icon--emerald" />
         <h3 class="proposal-section__title">제안 고객</h3>
       </div>
     </div>
 
     <!-- Mode: Selection List (Multi-customer) -->
     <div v-if="mode === 'select'" class="proposal-list">
-      <label v-for="customer in customers" :key="customer.id" class="proposal-item" :class="{ 'proposal-item--selected': isSelected(customer.id) }">
+      <label v-for="customer in customers" :key="customer.id" :class="isSelected(customer.id) ? 'proposal-item--selected' : 'proposal-item'">
         <div class="proposal-item__content">
           <div class="proposal-item__top-row">
             <div class="proposal-item__checkbox">
@@ -20,7 +20,7 @@
               <span v-if="customer.investmentStyle" class="proposal-item__style">{{ customer.investmentStyle }}</span>
             </div>
             <div class="proposal-item__action">
-              <span :class="['proposal-badge', badgeClass]">
+              <span :class="badgeClass">
                 {{ badgeText || (badgeType === "blue" ? "매도 제안" : "매수 제안") }}
               </span>
             </div>
@@ -37,7 +37,7 @@
     </div>
 
     <!-- Mode: Single Display -->
-    <div v-else class="proposal-item proposal-item--display">
+    <div v-else class="proposal-item--display">
       <div class="proposal-item__content">
         <div class="proposal-item__top-row">
           <div class="proposal-item__name-row">
@@ -45,8 +45,8 @@
             <span v-if="singleCustomer.investmentStyle" class="proposal-item__style">{{ singleCustomer.investmentStyle }}</span>
           </div>
           <div class="proposal-item__action">
-            <span :class="['proposal-badge', badgeClass]">
-              {{ badgeText || (badgeType === "blue" ? "매도 제안" : "매수 제안") }}
+            <span :class="badgeClass">
+                {{ badgeText || (badgeType === "blue" ? "매도 제안" : "매수 제안") }}
             </span>
           </div>
         </div>

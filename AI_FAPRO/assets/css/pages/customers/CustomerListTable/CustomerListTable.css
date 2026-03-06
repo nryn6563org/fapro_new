@@ -1,7 +1,7 @@
 /* ── 고객 목록 테이블 스타일 ── */
 
 .customer-table {
-  @apply bg-slate-100 dark:bg-slate-800/80 rounded-2xl shadow-sm border border-slate-300 dark:border-slate-700/50 overflow-hidden;
+  @apply overflow-hidden bg-white dark:bg-slate-900 shadow-sm relative border border-gray-200 dark:border-gray-700 rounded-xl mt-2;
 }
 
 .customer-table__wrapper {
@@ -9,23 +9,27 @@
 }
 
 .customer-table__main {
-  @apply w-full border-collapse;
+  @apply w-full text-[13px] border-collapse;
 }
 
 .customer-table__head {
-  @apply bg-gray-50/80 dark:bg-slate-800/50 border-b border-slate-300 dark:border-slate-700/50;
+  @apply bg-slate-50 dark:bg-slate-800/50;
 }
 
 .customer-table__th {
-  @apply px-4 py-3 text-left text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider bg-gray-50/50 dark:bg-slate-800/50 rounded-lg whitespace-nowrap;
+  @apply px-3 py-3 text-left text-xs font-bold text-slate-500 dark:text-slate-400 border-b border-gray-200 dark:border-gray-700 whitespace-nowrap;
 }
 
 .customer-table__row {
-  @apply hover:bg-gray-50/50 dark:hover:bg-slate-700/30 transition-colors border-b border-gray-50 dark:border-slate-700/30 last:border-0;
+  @apply transition-colors border-b border-gray-200 dark:border-gray-700 last:border-0;
+}
+
+.customer-table__row:hover {
+  @apply bg-slate-50 dark:bg-slate-800/50;
 }
 
 .customer-table__td {
-  @apply px-4 py-3.5 whitespace-nowrap text-[13px] text-slate-800 dark:text-gray-100;
+  @apply px-3 py-3 whitespace-nowrap text-[13px] text-slate-800 dark:text-gray-100;
 }
 
 .customer-table__name-box {
@@ -63,7 +67,7 @@
 }
 /* 중립형: 앰버 계열 */
 .customer-table__type-badge--neutral {
-  @apply bg-amber-500 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400;
+  @apply bg-amber-400 text-amber-900 dark:bg-amber-900/30 dark:text-amber-400;
 }
 /* 안정형: primary 계열 */
 .customer-table__type-badge--stable {
