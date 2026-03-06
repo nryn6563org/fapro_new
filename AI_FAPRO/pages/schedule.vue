@@ -35,6 +35,7 @@
         :current-date="currentDate"
         :events="filteredEvents"
         @select-date="selectedDate = $event"
+        @change-view="viewMode = $event"
         @sync="showSyncModal = true"
       />
     </div>
@@ -80,7 +81,7 @@ export default {
     return {
       currentDate: new Date(),
       selectedDate: new Date(),
-      viewMode: "week",
+      viewMode: "month",
       isSynced: true,
       isSyncing: false,
       searchQuery: "",

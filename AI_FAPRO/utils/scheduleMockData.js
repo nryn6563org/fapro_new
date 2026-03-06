@@ -88,6 +88,46 @@ const baseEvents = [
     attendees: ["한예지"]
   },
   {
+    id: 101,
+    title: "고객 미팅 (임시)",
+    startTime: "09:00",
+    endTime: "10:00",
+    date: new Date(2026, 2, 12),
+    type: "고객 미팅",
+    color: "bg-blue-500",
+    location: "회의실 A"
+  },
+  {
+    id: 102,
+    title: "상담 (임시)",
+    startTime: "13:00",
+    endTime: "14:00",
+    date: new Date(2026, 2, 12),
+    type: "상담",
+    color: "bg-teal-500",
+    location: "VIP룸"
+  },
+  {
+    id: 103,
+    title: "리뷰 (임시)",
+    startTime: "15:00",
+    endTime: "16:00",
+    date: new Date(2026, 2, 12),
+    type: "리뷰",
+    color: "bg-amber-500",
+    location: "온라인"
+  },
+  {
+    id: 104,
+    title: "리서치 (임시)",
+    startTime: "17:00",
+    endTime: "18:00",
+    date: new Date(2026, 2, 12),
+    type: "리서치",
+    color: "bg-purple-500",
+    location: "자료실"
+  },
+  {
     id: 9,
     title: "ETF 투자 상담",
     startTime: "11:00",

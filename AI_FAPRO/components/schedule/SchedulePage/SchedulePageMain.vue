@@ -17,6 +17,8 @@
         v-else-if="viewMode === 'month'"
         :current-date="currentDate"
         :events="events"
+        @select-date="$emit('select-date', $event)"
+        @change-view="$emit('change-view', $event)"
       />
     </template>
     <schedule-placeholder v-else @sync="$emit('sync')" />

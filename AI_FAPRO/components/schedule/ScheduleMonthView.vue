@@ -41,7 +41,11 @@
           >
             {{ event.startTime }} {{ event.title }}
           </div>
-          <div v-if="getEvents(day).length > 2" class="month-view__more">
+          <div
+            v-if="getEvents(day).length > 2"
+            class="month-view__more"
+            @click.stop="handleMoreClick(day)"
+          >
             +{{ getEvents(day).length - 2 }}개 더보기
           </div>
         </div>
@@ -95,7 +99,9 @@ export default {
         this.currentDate.getMonth(),
         day
       );
-      return this.events.filter((e) => isSameDay(e.date, date));
+      return this.events
+        .filter((e) => isSameDay(e.date, date))
+        .sort((a, b) => a.startTime.localeCompare(b.startTime));
     },
     isToday(day) {
       const date = new Date(
@@ -122,6 +128,15 @@ export default {
       // Map 'bg-blue-500' to a BEM class like 'month-view__event-tag--blue-500'
       const colorName = event.color.replace("bg-", "");
       return `month-view__event-tag--${colorName}`;
+    },
+    handleMoreClick(day) {
+      const date = new Date(
+        this.currentDate.getFullYear(),
+        this.currentDate.getMonth(),
+        day
+      );
+      this.$emit("select-date", date);
+      this.$emit("change-view", "day");
     },
   },
 };

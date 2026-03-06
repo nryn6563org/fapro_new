@@ -29,7 +29,7 @@
 }
 
 .month-view__cell {
-  @apply min-h-[160px] p-2 border-r border-slate-200 dark:border-slate-800 flex flex-col gap-2 transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-900/30 cursor-pointer relative;
+  @apply min-h-[160px] p-2 border-r border-slate-200 dark:border-slate-800 flex flex-col transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-900/30 cursor-pointer relative;
 }
 
 .month-view__cell--day {
@@ -41,7 +41,7 @@
 }
 
 .month-view__day-num {
-  @apply text-[15px] font-black mb-2 flex items-center justify-center;
+  @apply text-[15px] font-black absolute top-2 left-2 flex items-center justify-center;
 }
 
 .month-view__day-num--today {
@@ -65,7 +65,11 @@
 }
 
 .month-view__events {
-  @apply space-y-1.5 mt-1 overflow-hidden;
+  @apply space-y-1.5 mt-auto overflow-hidden w-full flex flex-col;
+}
+
+.month-view__more {
+  @apply text-[11px] font-black px-2 py-0.5 rounded-lg truncate shadow-sm border border-slate-200 bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700 mt-1 cursor-pointer transition-all hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-700 dark:hover:text-slate-200 text-center;
 }
 
 /* Event Category Colors: Premium Soft Pill Style (Single Class Approach) */

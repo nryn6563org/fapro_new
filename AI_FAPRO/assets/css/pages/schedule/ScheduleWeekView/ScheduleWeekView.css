@@ -96,7 +96,7 @@
 }
 
 .week-view__slot {
-  @apply border-r border-slate-200 dark:border-slate-800 p-2 relative h-24 hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors;
+  @apply border-r border-slate-200 dark:border-slate-800 p-2 relative h-24 hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors flex flex-col items-center justify-center;
 }
 
 /* 이벤트 카드 스타일 (월간 뷰와 일관성 유지) */
