@@ -49,7 +49,12 @@
                 : 'plan-card__feature-icon--basic',
             ]"
           />
-          <span class="plan-card__feature-text">{{ feature }}</span>
+          <div class="plan-card__feature-content">
+            <span class="plan-card__feature-text">{{ typeof feature === 'string' ? feature : feature.label }}</span>
+            <p v-if="typeof feature !== 'string' && feature.description" class="plan-card__feature-desc">
+              {{ feature.description }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
