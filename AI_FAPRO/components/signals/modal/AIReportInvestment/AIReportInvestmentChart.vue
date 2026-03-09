@@ -1,7 +1,19 @@
 <template>
   <div class="ai-report-investment__card">
-    <div class="ai-report-investment__card-header">
-      <h3 class="ai-report-investment__card-title">52주 차트</h3>
+    <div class="ai-report-investment__card-header ai-report-investment__card-header--between pb-2 border-b-0">
+      <h3 class="ai-report-investment__card-title">SNT에너지 (100840)</h3>
+      <div class="ai-report-investment__chart-controls mt-2 flex gap-4 text-xs font-bold text-slate-500">
+        <div class="flex items-center gap-1">
+          <input type="checkbox" checked class="accent-blue-500" />
+          <span>Key Events</span>
+        </div>
+        <div class="flex items-center gap-1 cursor-pointer">
+          <span>▲ Mountain</span>
+        </div>
+        <div class="flex items-center gap-1 cursor-pointer">
+          <span>↗ Advanced Chart</span>
+        </div>
+      </div>
     </div>
     <div class="ai-report-investment__card-body">
       <div class="ai-report-investment__chart-container">
