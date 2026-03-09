@@ -120,7 +120,7 @@
   @apply bg-red-900/10 border-red-900/20;
 }
 .schedule-sync-modal__alert-text {
-  @apply text-sm text-red-600 font-medium;
+  @apply text-sm text-white font-medium;
 }
 
 .dark .schedule-sync-modal__alert-text {
