@@ -33,7 +33,7 @@
 }
 
 .month-view__cell--day {
-  @apply hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition-colors bg-white;
+  @apply hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition-colors bg-white dark:bg-slate-950;
 }
 
 .month-view__cell--empty {
