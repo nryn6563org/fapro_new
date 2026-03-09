@@ -90,22 +90,23 @@ export default {
   },
   methods: {
     getBarStyle(value) {
-      const midpoint = 3.0; // 중앙 임계점
       const max = 10.0;
       
-      if (value <= midpoint) {
-        // 3.0 이하면 좌측으로 (0 ~ 3.0 범위를 0% ~ 50% 에 매핑)
-        const percentage = (value / midpoint) * 50;
+      if (value === 0) return { left: '50%', width: '0%' };
+
+      if (value <= 3.0) {
+        // 0~3점: 중앙(50%)에서 왼쪽으로 확장. 3점일 때 좌측 꽉 참(width 50%).
+        const width = (value / 3.0) * 50; 
         return {
-          left: `${percentage}%`,
-          width: `${50 - percentage}%`,
+          left: `${50 - width}%`,
+          width: `${width}%`,
         };
       } else {
-        // 3.0 이상이면 우측으로 (3.0 ~ 10.0 범위를 50% ~ 100% 에 매핑)
-        const percentage = 50 + ((value - midpoint) / (max - midpoint)) * 50;
+        // 3.0 초과: 중앙(50%)에서 오른쪽으로 확장. 10점일 때 우측 꽉 참.
+        const width = ((value - 3) / (max - 3)) * 50;
         return {
           left: '50%',
-          width: `${percentage - 50}%`,
+          width: `${width}%`,
         };
       }
     },

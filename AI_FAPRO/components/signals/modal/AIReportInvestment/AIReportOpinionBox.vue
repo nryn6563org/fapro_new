@@ -6,22 +6,49 @@
       </div>
       <div class="ai-report-opinion__card-body ai-report-opinion__card-body--padded">
         <div class="ai-report-opinion__ranking">
-          <div class="ai-report-opinion__ranking-header">
-            <span>Current Ranking ↓</span>
-          </div>
           <div class="ai-report-opinion__ranking-bar-wrapper">
+            <!-- 랭크 인디케이터 (Current Ranking) -->
+            <div 
+              class="ai-report-opinion__ranking-indicator"
+              :class="isLeftAligned ? 'ai-report-opinion__ranking-indicator--left' : 'ai-report-opinion__ranking-indicator--right'"
+              :style="{ left: indicatorPosition + '%' }"
+            >
+              <div v-if="isLeftAligned" class="ai-report-opinion__ranking-label-group">
+                <span class="ai-report-opinion__ranking-arrow">↓</span>
+                <span class="ai-report-opinion__ranking-text">Current Ranking</span>
+              </div>
+              <div v-else class="ai-report-opinion__ranking-label-group">
+                <span class="ai-report-opinion__ranking-text">Current Ranking</span>
+                <span class="ai-report-opinion__ranking-arrow">↓</span>
+              </div>
+            </div>
+
             <div class="ai-report-opinion__ranking-bar">
-              <div class="ai-report-opinion__ranking-segment bg-[#F5F5F5] border-r border-white">F</div>
-              <div class="ai-report-opinion__ranking-segment bg-[#E5E5E5] border-r border-white">D</div>
-              <div class="ai-report-opinion__ranking-segment bg-[#D5D5D5] border-r border-white">C</div>
-              <div class="ai-report-opinion__ranking-segment bg-[#B5B5B5] border-r border-white">B</div>
-              <div class="ai-report-opinion__ranking-segment bg-[#A5A5A5]">A</div>
+              <div class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--f" :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'F' }">F</div>
+              <div class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--d" :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'D' }">D</div>
+              <div class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--c" :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'C' }">C</div>
+              <div class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--b" :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'B' }">B</div>
+              <div class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--a" :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'A' }">A</div>
+            </div>
+
+            <!-- 눈금 및 숫자 -->
+            <div class="ai-report-opinion__ranking-ticks">
+              <div class="ai-report-opinion__tick-item" style="left: 0%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">100</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 5%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">95</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 30%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">70</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 70%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">30</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 95%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">5</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 100%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">1</span></div>
             </div>
           </div>
           <div class="ai-report-opinion__ranking-labels">
-            <span>매도</span>
-            <span>중립</span>
-            <span>매수</span>
+            <!-- 구역 구분선 -->
+            <div class="ai-report-opinion__label-divider ai-report-opinion__label-divider--left"></div>
+            <div class="ai-report-opinion__label-divider ai-report-opinion__label-divider--right"></div>
+
+            <span class="ai-report-opinion__ranking-label--sell">매도</span>
+            <span class="ai-report-opinion__ranking-label--neutral">중립</span>
+            <span class="ai-report-opinion__ranking-label--buy">매수</span>
           </div>
         </div>
 
@@ -56,6 +83,27 @@ export default {
     signal: {
       type: Object,
       default: () => ({}),
+    },
+  },
+  computed: {
+    indicatorPosition() {
+      // 100위(F) -> 0%
+      // 1위(A) -> 99% (바 오른쪽 끝 정렬을 위해 0~99 범위로 제한)
+      const rank = this.signal?.rank || 100;
+      return Math.max(0, Math.min(99, 100 - rank));
+    },
+    isLeftAligned() {
+      // F, D 영역 (Rank 100~70) 일 때 좌측 정렬 (화살표 좌측, 텍스트 우측)
+      const rank = this.signal?.rank || 100;
+      return rank >= 70;
+    },
+    activeSegment() {
+      const rank = this.signal?.rank || 100;
+      if (rank >= 95) return 'F';
+      if (rank >= 70) return 'D';
+      if (rank >= 30) return 'C';
+      if (rank >= 5) return 'B';
+      return 'A';
     },
   },
 };

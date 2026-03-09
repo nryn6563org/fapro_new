@@ -83,13 +83,13 @@
 /* Handle/Thumb style if needed to match image more closely */
 .ai-report-score__progress-fill::after {
   content: '';
-  @apply absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-inherit rounded-full shadow-sm;
+  @apply absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-inherit rounded-full shadow-sm z-20;
 }
 .ai-report-score__progress-fill--red::after {
-  @apply border-red-500;
+  @apply left-0 -translate-x-1/2 border-red-500;
 }
 .ai-report-score__progress-fill--green::after {
-  @apply border-green-500;
+  @apply right-0 translate-x-1/2 border-green-500;
 }
 .ai-report-score__progress-fill--yellow {
   @apply bg-amber-500 dark:bg-amber-400;

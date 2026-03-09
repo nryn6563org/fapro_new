@@ -13,7 +13,7 @@
 }
 
 .ai-report-opinion__ranking {
-  @apply space-y-2 mb-6;
+  @apply space-y-2 mb-6 pt-10;
 }
 
 .ai-report-opinion__ranking-header {
@@ -25,19 +25,99 @@
 }
 
 .ai-report-opinion__ranking-bar {
-  @apply flex h-10 w-full rounded-md overflow-hidden border border-slate-200 dark:border-slate-700;
+  @apply flex h-[15px] w-full overflow-hidden border border-slate-200 dark:border-slate-800;
 }
 
 .ai-report-opinion__ranking-segment {
-  @apply flex-1 flex justify-center items-center text-xs font-bold text-slate-600;
+  @apply h-full flex justify-center items-center text-[10px] font-bold text-slate-400 border-r last:border-r-0 border-white/50 dark:border-slate-800/50 bg-slate-200 dark:bg-slate-700/50;
+}
+
+.ai-report-opinion__ranking-segment--active {
+  @apply bg-[#C5DCE4] dark:bg-blue-900/60 text-slate-600 dark:text-slate-100;
+}
+
+.ai-report-opinion__ranking-segment--f { width: 5%; }
+.ai-report-opinion__ranking-segment--d { width: 25%; }
+.ai-report-opinion__ranking-segment--c { width: 40%; }
+.ai-report-opinion__ranking-segment--b { width: 25%; }
+.ai-report-opinion__ranking-segment--a { width: 5%; }
+
+.ai-report-opinion__ranking-indicator {
+  @apply absolute -top-9 flex whitespace-nowrap z-20 transition-all duration-500;
+}
+
+.ai-report-opinion__ranking-indicator--left {
+  @apply translate-x-0;
+}
+
+.ai-report-opinion__ranking-indicator--right {
+  @apply -translate-x-full;
+}
+
+.ai-report-opinion__ranking-label-group {
+  @apply flex items-center gap-0.5 text-[13px] font-bold text-slate-600 dark:text-slate-300;
+}
+
+.ai-report-opinion__ranking-indicator--left .ai-report-opinion__ranking-arrow {
+  @apply -ml-1; /* 화살표가 선 위에 오도록 보정 */
+}
+
+.ai-report-opinion__ranking-indicator--right .ai-report-opinion__ranking-arrow {
+  @apply -mr-1; /* 화살표가 선 위에 오도록 보정 */
+}
+
+.ai-report-opinion__ranking-arrow {
+  @apply text-lg text-[#7A98A5] leading-none;
+  animation: aiReportArrowBounce 1.5s infinite ease-in-out;
+}
+
+@keyframes aiReportArrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.ai-report-opinion__ranking-ticks {
+  @apply relative w-full h-10 mt-0.5;
+}
+
+.ai-report-opinion__tick-item {
+  @apply absolute top-0 -translate-x-1/2 flex flex-col items-center;
+}
+
+.ai-report-opinion__tick {
+  @apply w-[1px] h-3 bg-slate-300 dark:bg-slate-700;
+}
+
+.ai-report-opinion__tick-num {
+  @apply text-[11px] font-medium text-slate-400 dark:text-slate-500 mt-1;
 }
 
 .ai-report-opinion__ranking-labels {
-  @apply flex justify-between text-[11px] font-bold text-slate-500 mt-1;
+  @apply flex text-[13px] font-bold text-slate-600 dark:text-slate-300 mt-4 relative;
 }
 
+.ai-report-opinion__label-divider {
+  @apply absolute top-0 w-px h-6 bg-slate-200 dark:bg-slate-700 z-0;
+}
+
+.ai-report-opinion__label-divider--left {
+  left: 30%;
+}
+
+.ai-report-opinion__label-divider--right {
+  left: 70%;
+}
+
+.ai-report-opinion__ranking-label--sell { width: 30%; @apply text-center relative z-10; }
+.ai-report-opinion__ranking-label--neutral { width: 40%; @apply text-center relative z-10; }
+.ai-report-opinion__ranking-label--buy { width: 30%; @apply text-center relative z-10; }
+
 .ai-report-opinion__target-price {
-  @apply pt-4 border-t border-slate-100 dark:border-slate-800;
+  @apply pt-4 border-t border-slate-100 dark:border-slate-800 mt-4;
 }
 
 .ai-report-opinion__target-price-title {
