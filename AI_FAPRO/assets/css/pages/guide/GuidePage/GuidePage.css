@@ -39,7 +39,15 @@
 }
 
 .guide-page__path {
-  @apply text-xs font-mono text-slate-500;
+  @apply text-xs font-mono text-slate-500 block;
+}
+
+.guide-page__page-info {
+  @apply flex flex-col gap-1;
+}
+
+.guide-page__page-desc {
+  @apply text-sm text-slate-400 mt-1 max-w-2xl leading-relaxed;
 }
 
 .guide-page__tree {
@@ -59,7 +67,11 @@
 }
 
 .guide-page__meta {
-  @apply text-xs font-mono whitespace-nowrap overflow-hidden text-ellipsis;
+  @apply text-xs font-mono whitespace-nowrap overflow-hidden text-ellipsis text-slate-400;
+}
+
+.guide-page__comp-desc {
+  @apply text-sm text-slate-300 mt-3 mb-2 leading-relaxed;
 }
 
 .guide-page__comp-header {
@@ -99,7 +111,11 @@
 }
 
 .guide-page__sub-css {
-  @apply text-xs text-primary truncate mt-1;
+  @apply text-xs text-primary truncate mt-1 mb-1;
+}
+
+.guide-page__sub-desc {
+  @apply text-xs text-slate-400 leading-tight mt-1;
 }
 
 /* 컴포넌트 상세 정보 영역 (우측 플렉스 확장) */

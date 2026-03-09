@@ -35,9 +35,10 @@
         <!-- 페이지 노드 -->
         <div class="guide-page__page-node">
           <div class="guide-page__icon guide-page__icon--page">P</div>
-          <div>
+          <div class="guide-page__page-info">
             <span class="guide-page__name">{{ page.name }}</span>
             <span class="guide-page__path">pages/{{ page.file }}</span>
+            <p v-if="page.desc" class="guide-page__page-desc">{{ page.desc }}</p>
           </div>
         </div>
 
@@ -55,6 +56,7 @@
                 <span class="guide-page__name">{{ comp.name }}</span>
                 <span class="guide-page__path">components/{{ comp.file }}</span>
               </div>
+              <p v-if="comp.desc" class="guide-page__comp-desc">{{ comp.desc }}</p>
               <div class="guide-page__sub-tree">
                 <div class="guide-page__meta">
                   <span>CSS:</span> {{ comp.css }}
@@ -84,6 +86,9 @@
                     <div class="guide-page__sub-name">{{ child.name }}</div>
                     <div class="guide-page__sub-path">{{ child.file }}</div>
                     <div class="guide-page__sub-css">{{ child.css }}</div>
+                    <p v-if="child.desc" class="guide-page__sub-desc">
+                      {{ child.desc }}
+                    </p>
                   </div>
                 </div>
               </div>
