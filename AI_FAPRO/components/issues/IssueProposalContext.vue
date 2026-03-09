@@ -13,13 +13,6 @@
           {{ formData.aiReason }}
         </p>
       </div>
-      <div class="issue-proposal-section__input-box">
-        <textarea
-          v-model="localFormData.reasonOpinion"
-          class="issue-proposal-section__textarea"
-          placeholder="AI가 포착한 이슈 외 추가 설명이 필요한 경우 작성하세요..."
-        ></textarea>
-      </div>
     </div>
 
     <!-- Issue Outlook Section -->
@@ -43,13 +36,6 @@
             {{ issue.outlook }}
           </div>
         </div>
-      </div>
-      <div class="issue-proposal-section__input-box">
-        <textarea
-          v-model="localFormData.outlookOpinion"
-          class="issue-proposal-section__textarea"
-          placeholder="FA 관점의 추가 전망이나 조언을 작성하세요..."
-        ></textarea>
       </div>
     </div>
 
@@ -77,6 +63,13 @@
           <span>•</span>
           <span>26/03/02 14:30</span>
         </div>
+      </div>
+      <div class="issue-proposal-section__input-box">
+        <textarea
+          v-model="localFormData.reasonOpinion"
+          class="issue-proposal-section__textarea"
+          placeholder="AI가 포착한 이슈 외 추가 설명이 필요한 경우 작성하세요..."
+        ></textarea>
       </div>
     </div>
 

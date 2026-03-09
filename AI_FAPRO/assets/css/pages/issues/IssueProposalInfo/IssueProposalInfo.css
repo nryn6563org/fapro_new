@@ -6,7 +6,7 @@
 }
 
 .issue-proposal__stats-grid {
-  @apply grid grid-cols-3 gap-4 mb-8;
+  @apply grid grid-cols-3 gap-4;
 }
 
 /* 카드 테마별 색상 */
