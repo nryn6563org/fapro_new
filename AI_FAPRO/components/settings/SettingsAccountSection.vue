@@ -52,16 +52,6 @@ export default {
     return {
       actions: [
         {
-          id: "findId",
-          label: "아이디 찾기",
-          icon: "mail-icon",
-        },
-        {
-          id: "findPassword",
-          label: "비밀번호 찾기",
-          icon: "key-icon",
-        },
-        {
           id: "changePassword",
           label: "비밀번호 변경",
           icon: "lock-icon",
