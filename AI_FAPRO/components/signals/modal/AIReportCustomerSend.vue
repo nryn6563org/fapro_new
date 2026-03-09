@@ -70,12 +70,8 @@
                   </div>
                   <div class="ai-report-send__client-details">
                     <div :class="['ai-report-send__client-reason', isBuy ? 'ai-report-send__client-reason--red' : 'ai-report-send__client-reason--blue']">
-                      제안 사유: {{ client.memo }}
+                      {{ client.memo }}
                     </div>
-                    <p class="ai-report-send__client-assets">
-                      총 자산: {{ client.assets }} / 총 수익률:
-                      {{ client.return }}
-                    </p>
                   </div>
                 </div>
               </label>
@@ -152,8 +148,6 @@ export default {
           email: "test@gmail.com",
           type: "공격투자형",
           memo: "AI반도체 관심 높음",
-          assets: "3.2억",
-          return: "23.1%",
         },
         {
           id: "c4",
@@ -161,8 +155,6 @@ export default {
           email: "test@gmail.com",
           type: "단기매입형",
           memo: "AI반도체 관심 높음",
-          assets: "3.2억",
-          return: "23.1%",
         },
         {
           id: "c5",
@@ -170,8 +162,6 @@ export default {
           email: "test@gmail.com",
           type: "공격투자형",
           memo: "AI반도체 관심 높음",
-          assets: "3.2억",
-          return: "23.1%",
         },
         {
           id: "c6",
@@ -179,8 +169,6 @@ export default {
           email: "test@gmail.com",
           type: "중립형",
           memo: "AI반도체 관심 높음",
-          assets: "3.2억",
-          return: "23.1%",
         },
       ],
     };
