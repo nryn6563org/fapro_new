@@ -38,7 +38,7 @@
 
 /* 차트 */
 .trading-signal-history__chart-bg {
-  @apply w-full bg-slate-500 dark:bg-slate-800/40 p-2 rounded-lg border border-slate-200 dark:border-slate-700;
+  @apply w-full dark:bg-slate-800/40 p-2 rounded-lg border border-slate-200 dark:border-slate-700;
 }
 .trading-signal-history__chart-container {
   @apply w-full relative h-[180px];
