@@ -67,8 +67,6 @@ export default {
   methods: {
     handleAction(id) {
       const urls = {
-        findId: "https://www.thinkpool.com/customer/idInquiry",
-        findPassword: "https://www.thinkpool.com/customer/pwInquiry",
         changePassword: "https://www.thinkpool.com/customer/pwChange",
         updateInfo: "https://www.thinkpool.com/customer/infoChange"
       };
