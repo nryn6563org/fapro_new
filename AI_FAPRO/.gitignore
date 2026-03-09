@@ -1,1 +1,3 @@
-node_modules\n.nuxt\ndist
+node_modules
+.nuxt
+dist
