@@ -11,6 +11,7 @@
         :open-keys="openKeys"
         @toggle-detail="toggleDetail"
         @open-report="openReport"
+        @open-analysis="openAnalysis"
       />
 
       <!-- 매도 신호 컬럼 -->
@@ -20,6 +21,7 @@
         :open-keys="openKeys"
         @toggle-detail="toggleDetail"
         @open-report="openReport"
+        @open-analysis="openAnalysis"
       />
     </div>
 
@@ -28,6 +30,13 @@
       :is-open="isReportModalOpen"
       :data="activeReportSignal"
       @close="closeReport"
+    />
+
+    <!-- 종합 의견 및 대응 전략 상세 모달 -->
+    <a-i-analysis-report-modal
+      :is-open="isAnalysisModalOpen"
+      :data="activeAnalysisSignal"
+      @close="closeAnalysis"
     />
   </div>
 </template>
@@ -39,6 +48,7 @@
 import SignalsPageHeader from "~/components/signals/SignalsPage/SignalsPageHeader.vue";
 import SignalsPageSignalColumn from "~/components/signals/SignalsPage/SignalsPageSignalColumn.vue";
 import AIReportModal from "~/components/modal/AIReportModal.vue";
+import AIAnalysisReportModal from "~/components/modal/AIAnalysisReportModal.vue";
 import { buySignals, sellSignals } from "~/utils/signalsMockData.js";
 import "~/assets/css/pages/signals/SignalsPage/SignalsPage.css";
 
@@ -48,6 +58,7 @@ export default {
     SignalsPageHeader,
     SignalsPageSignalColumn,
     AIReportModal,
+    AIAnalysisReportModal,
   },
   data() {
     return {
@@ -58,6 +69,8 @@ export default {
       timer: null,
       isReportModalOpen: false,
       activeReportSignal: null,
+      isAnalysisModalOpen: false,
+      activeAnalysisSignal: null,
     };
   },
   computed: {
@@ -115,6 +128,22 @@ export default {
       // 트랜지션 완료 후 데이터 초기화 (선택적)
       setTimeout(() => {
         if (!this.isReportModalOpen) this.activeReportSignal = null;
+      }, 300);
+    },
+    /**
+     * @description 종합 분석 리포트 모달을 엽니다.
+     */
+    openAnalysis(signal) {
+      this.activeAnalysisSignal = signal;
+      this.isAnalysisModalOpen = true;
+    },
+    /**
+     * @description 종합 분석 리포트 모달을 닫습니다.
+     */
+    closeAnalysis() {
+      this.isAnalysisModalOpen = false;
+      setTimeout(() => {
+        if (!this.isAnalysisModalOpen) this.activeAnalysisSignal = null;
       }, 300);
     },
   },

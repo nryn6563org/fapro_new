@@ -56,7 +56,7 @@
       <h4 class="trading-signal-card__reason-title">시그널 발생 사유</h4>
       <p v-if="signal.reason" class="trading-signal-card__reason-text">
         {{ signal.reason }}
-        <span class="trading-signal-card__reason-more" @click="$emit('open-report', signal)">[내용 자세히 보기]</span>
+        <span class="trading-signal-card__reason-more" @click="$emit('open-analysis', signal)">[내용 자세히 보기]</span>
       </p>
       <div v-else class="trading-signal-card__reason-empty">
         <span class="trading-signal-card__reason-empty-text"

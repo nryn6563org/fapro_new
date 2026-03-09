@@ -22,6 +22,7 @@
         :is-detail-open="openKeys.includes(signal.id)"
         @toggle-detail="$emit('toggle-detail', signal.id)"
         @open-report="$emit('open-report', signal)"
+        @open-analysis="$emit('open-analysis', signal)"
       />
     </div>
   </div>

@@ -1,0 +1,129 @@
+/* AIAnalysisReportModal.css */
+
+/* Dialog Wrapper */
+.ai-analysis-report-modal__dialog {
+    @apply sm:!max-w-[800px] rounded-2xl overflow-hidden shadow-2xl border-0;
+}
+
+/* Header Section */
+.ai-analysis-report-modal__header {
+    @apply w-full border-b border-slate-200 dark:border-slate-800 p-6 flex items-center justify-between bg-white dark:bg-slate-900;
+}
+
+.ai-analysis-report-modal__title {
+    @apply text-2xl font-bold text-slate-800 dark:text-white m-0;
+}
+
+.ai-analysis-report-modal__close-btn {
+    @apply p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 border-0 bg-transparent cursor-pointer relative z-10;
+}
+
+/* Content Area */
+.ai-analysis-report-modal__content {
+    @apply space-y-6;
+}
+
+/* Section Common */
+.ai-analysis-report-modal__section {
+    @apply p-5 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800;
+}
+
+.ai-analysis-report-modal__section-title {
+    @apply flex items-center text-lg font-bold mb-4 gap-2;
+}
+
+/* Technical Analysis Section */
+.ai-analysis-report-modal__section-title--tech {
+    @apply text-blue-600 dark:text-blue-400;
+}
+
+/* Fundamental Section */
+.ai-analysis-report-modal__section-title--fundamental {
+    @apply text-red-600 dark:text-red-400;
+}
+
+/* Total Strategy Section */
+.ai-analysis-report-modal__section--total {
+    @apply bg-amber-50/50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800;
+}
+
+.ai-analysis-report-modal__section-title--total {
+    @apply text-amber-700 dark:text-amber-400;
+}
+
+/* Sub-titles and Items */
+.ai-analysis-report-modal__sub-title {
+    @apply flex items-center text-base font-bold mb-3;
+}
+
+.ai-analysis-report-modal__sub-title--positive {
+    @apply text-green-600 dark:text-green-400;
+}
+
+.ai-analysis-report-modal__sub-title--caution {
+    @apply text-red-600 dark:text-red-400;
+}
+
+.ai-analysis-report-modal__list {
+    @apply space-y-4;
+}
+
+.ai-analysis-report-modal__list-item {
+    @apply relative pl-5;
+}
+
+.ai-analysis-report-modal__list-item::before {
+    content: "";
+    @apply absolute left-0 top-[0.6rem] w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600;
+}
+
+.ai-analysis-report-modal__item-title {
+    @apply text-sm font-bold text-slate-800 dark:text-slate-200 mb-1;
+}
+
+.ai-analysis-report-modal__item-desc {
+    @apply text-xs text-slate-500 dark:text-slate-400 leading-relaxed;
+}
+
+.ai-analysis-report-modal__highlight-text {
+    @apply font-bold text-red-500 dark:text-red-400;
+}
+
+/* Strategic Box */
+.ai-analysis-report-modal__box {
+    @apply p-5 bg-white dark:bg-slate-800 border border-amber-200 dark:border-amber-700 rounded-xl mt-4 shadow-sm;
+}
+
+.ai-analysis-report-modal__box-title {
+    @apply text-sm font-bold text-amber-700 dark:text-amber-400 mb-3;
+}
+
+.ai-analysis-report-modal__box-list {
+    @apply space-y-3;
+}
+
+.ai-analysis-report-modal__box-item {
+    @apply text-xs text-slate-600 dark:text-slate-300 flex items-start gap-2;
+}
+
+.ai-analysis-report-modal__box-num {
+    @apply font-bold text-amber-600 dark:text-amber-400 flex-shrink-0;
+}
+
+/* Summary Bar */
+.ai-analysis-report-modal__section--summary {
+    @apply border-l-4 border-l-blue-500 bg-blue-50 dark:bg-blue-950/30 border-t border-r border-b border-blue-100 dark:border-blue-900;
+}
+
+.ai-analysis-report-modal__summary-content {
+    @apply text-sm text-slate-700 dark:text-slate-200 leading-relaxed;
+}
+
+/* Footer Control */
+.ai-analysis-report-modal__footer {
+    @apply flex justify-center bg-white dark:bg-slate-900;
+}
+
+.ai-analysis-report-modal__confirm-btn {
+    @apply px-10 py-3 bg-teal-500 hover:bg-teal-600 text-white rounded-xl font-bold transition-all shadow-md hover:shadow-lg active:scale-95;
+}
