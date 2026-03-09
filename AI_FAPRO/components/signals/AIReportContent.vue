@@ -58,6 +58,7 @@ import AIReportScore from "./modal/AIReportScore.vue";
 import AIReportFactors from "./modal/AIReportFactors.vue";
 import AIReportCustomerSend from "./modal/AIReportCustomerSend.vue";
 import "~/assets/css/pages/signals/AIReportContent/AIReportContent.css";
+import "~/assets/css/pages/signals/AIReportInvestment/AIReportInvestment.css";
 
 export default {
   name: "AIReportContent",
