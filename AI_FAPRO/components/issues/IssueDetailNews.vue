@@ -20,11 +20,7 @@
     </div>
     <div class="issue-detail__news-content">
       <div class="issue-detail__news-summary-box">
-        <div class="issue-detail__news-header">
-          <zap-icon class="issue-detail__news-icon" />
-          <p class="issue-detail__news-label">AI 뉴스 요약</p>
-        </div>
-        <p class="issue-detail__news-text">
+          <p class="issue-detail__news-text">
           {{ issue.newsSummary }}
         </p>
       </div>
@@ -36,13 +32,12 @@
 /**
  * 기능: 이슈 관련 뉴스 상세
  */
-import { ZapIcon } from "vue-feather-icons";
+import {  } from "vue-feather-icons";
 import "~/assets/css/pages/issues/IssueDetailNews/IssueDetailNews.css";
 
 export default {
   name: "IssueDetailNews",
   components: {
-    ZapIcon
   },
   props: {
     issue: {
