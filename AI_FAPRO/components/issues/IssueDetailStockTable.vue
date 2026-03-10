@@ -45,6 +45,14 @@
               </div>
             </td>
           </tr>
+          <!-- Empty rows padding -->
+          <tr v-for="i in emptyRowsCount" :key="'empty-' + i" class="issue-detail__empty-row">
+            <td class="issue-detail__td">&nbsp;</td>
+            <td class="issue-detail__td">&nbsp;</td>
+            <td class="issue-detail__td">&nbsp;</td>
+            <td class="issue-detail__td">&nbsp;</td>
+            <td class="issue-detail__td">&nbsp;</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -103,10 +111,10 @@ export default {
   },
   computed: {
     /**
-     * 전체 페이지 수 계산
+     * 전체 페이지 수 계산 (공백 데이터 포함 무조건 1개 이상)
      */
     totalPages() {
-      return Math.ceil(this.stocks.length / this.itemsPerPage);
+      return Math.max(1, Math.ceil(this.stocks.length / this.itemsPerPage));
     },
     /**
      * 현재 페이지에 해당하는 종목 리스트
@@ -115,6 +123,12 @@ export default {
       const start = (this.currentPage - 1) * this.itemsPerPage;
       const end = start + this.itemsPerPage;
       return this.stocks.slice(start, end);
+    },
+    /**
+     * 부족한 행 개수 계산
+     */
+    emptyRowsCount() {
+      return Math.max(0, this.itemsPerPage - this.paginatedStocks.length);
     }
   },
   watch: {
