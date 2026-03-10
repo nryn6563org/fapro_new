@@ -271,13 +271,13 @@ export const structure = [
             name: "IssueDetailStats",
             file: "issues/IssueDetailStats.vue",
             css: "pages/issues/IssueDetailStats/IssueDetailStats.css",
-            desc: "이슈와 관련된 거래 대금 및 상승 종목 비율 등의 통계 수치입니다."
+            desc: "이슈 등락률 및 4단계 강도(최저, 저, 중, 고) 시각화 지표입니다. 등락률 색상은 강도에 맞춰 동기화됩니다."
           },
           {
             name: "IssueDetailStockTable",
             file: "issues/IssueDetailStockTable.vue",
             css: "pages/issues/IssueDetailStockTable/IssueDetailStockTable.css",
-            desc: "해당 이슈에 반응한 상위 연관 종목들의 데이터 테이블입니다."
+            desc: "연관 종목 데이터 테이블입니다. 데이터 개수와 관계없이 항상 5개 행(빈 영역 포함)을 유지합니다."
           },
           {
             name: "IssueDetailAnalysis",
@@ -297,7 +297,7 @@ export const structure = [
         name: "IssueAnalysisSide",
         file: "issues/IssueAnalysisSide.vue",
         css: "pages/issues/IssueAnalysisSide/IssueAnalysisSide.css",
-        desc: "이슈 분석 보조 지표 및 사이드 바 형태의 분석 데이터입니다."
+        desc: "이슈 상세 분석 사이드 패널입니다. 4단계 강도 지표와 동기화된 등락률 색상을 표시합니다."
       },
       {
         name: "IssueProposalModal",
@@ -309,7 +309,7 @@ export const structure = [
             name: "IssueProposalInfo",
             file: "issues/IssueProposalInfo.vue",
             css: "pages/issues/IssueProposalInfo/IssueProposalInfo.css",
-            desc: "제안의 근거가 되는 이슈 요약 정보를 표시합니다."
+            desc: "제안의 근거가 되는 이슈 요약 카드입니다. 4단계 강도와 등락률 색상 동기화 패치 버전이 적용되었습니다."
           },
           {
             name: "IssueProposalForm",
