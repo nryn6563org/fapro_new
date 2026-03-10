@@ -81,8 +81,20 @@
   @apply flex gap-1 mb-1;
 }
 .issue-proposal__gauge-bar {
-  @apply w-1.5 h-6 rounded-full bg-slate-200 dark:bg-slate-800 transition-colors;
+  @apply w-1 h-6 rounded-full transition-colors;
 }
-.issue-proposal__gauge-bar--active {
-  @apply bg-rose-500;
+.issue-proposal__gauge-bar--dimmed {
+  @apply bg-slate-100 dark:bg-slate-800/50;
+}
+.issue-proposal__gauge-bar--1 {
+  @apply bg-blue-500;
+}
+.issue-proposal__gauge-bar--2 {
+  @apply bg-blue-900;
+}
+.issue-proposal__gauge-bar--3 {
+  @apply bg-orange-500;
+}
+.issue-proposal__gauge-bar--4 {
+  @apply bg-red-600;
 }

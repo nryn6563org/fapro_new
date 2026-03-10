@@ -117,12 +117,13 @@ export default {
     },
     handleProposalSend(data) { console.log("Sending proposal:", data); },
     calculateStats(data) {
-      const stats = { total: data.length, high: 0, mid: 0, low: 0 };
+      const stats = { total: data.length, high: 0, mid: 0, low: 0, lowest: 0 };
       data.forEach((issue) => {
         const abs = Math.abs(issue.changePercent);
-        if (abs > 5) stats.high++;
-        else if (abs > 3) stats.mid++;
-        else stats.low++;
+        if (abs > 7) stats.high++;
+        else if (abs > 4) stats.mid++;
+        else if (abs > 1) stats.low++;
+        else stats.lowest++;
       });
       return stats;
     },

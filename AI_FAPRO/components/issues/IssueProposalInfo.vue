@@ -10,10 +10,17 @@
             <p class="issue-proposal__stat-value issue-proposal__stat-value--red">
               {{ issue.changePercent > 0 ? '+' : '' }}{{ issue.changePercent }}%
             </p>
-            <span class="issue-proposal__stat-badge issue-proposal__stat-badge--red">고강도</span>
+            <span class="issue-proposal__stat-badge issue-proposal__stat-badge--red">{{ intensityText }}</span>
           </div>
           <div class="issue-proposal__intensity-gauge">
-            <div v-for="i in 3" :key="i" :class="['issue-proposal__gauge-bar', i <= 2 ? 'issue-proposal__gauge-bar--active' : '']"></div>
+            <div
+              v-for="i in 4"
+              :key="i"
+              :class="[
+                'issue-proposal__gauge-bar',
+                i === intensityLevel ? 'issue-proposal__gauge-bar--' + i : 'issue-proposal__gauge-bar--dimmed'
+              ]"
+            ></div>
           </div>
         </div>
       </div>
@@ -64,6 +71,25 @@ export default {
     issue: {
       type: Object,
       default: () => ({}),
+    },
+  },
+  computed: {
+    intensityLevel() {
+      if (!this.issue) return 0;
+      const abs = Math.abs(this.issue.changePercent);
+      if (abs > 7) return 4;
+      if (abs > 4) return 3;
+      if (abs > 1) return 2;
+      return 1;
+    },
+    intensityText() {
+      const levels = {
+        4: "고강도",
+        3: "중강도",
+        2: "저강도",
+        1: "최저강도",
+      };
+      return levels[this.intensityLevel] || "";
     },
   },
 };

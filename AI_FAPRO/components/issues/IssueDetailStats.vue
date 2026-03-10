@@ -6,17 +6,19 @@
         <p class="issue-detail__stat-label">등락률</p>
         <div class="issue-detail__intensity-bars">
           <div
-            v-for="i in 3"
+            v-for="i in 4"
             :key="i"
             :class="[
               'issue-detail__intensity-bar',
-              i <= intensityLevel
-                ? i === 3
-                  ? 'bg-rose-500'
-                  : i === 2
+              i === intensityLevel
+                ? i === 4
+                  ? 'bg-red-600'
+                  : i === 3
                   ? 'bg-orange-500'
-                  : 'bg-slate-400'
-                : 'bg-slate-200 dark:bg-slate-800',
+                  : i === 2
+                  ? 'bg-blue-900'
+                  : 'bg-blue-500'
+                : 'bg-slate-100 dark:bg-slate-800/50',
             ]"
           ></div>
         </div>

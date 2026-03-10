@@ -33,13 +33,16 @@
           <span class="analysis-side__intensity-label">강도</span>
           <div class="analysis-side__intensity-bars">
             <div
-                :class="Math.abs(issue.changePercent) > 5 ? 'analysis-side__bar--high' : 'analysis-side__bar--empty'"
+                :class="(Math.abs(issue.changePercent) >= 0 && Math.abs(issue.changePercent) <= 1) ? 'analysis-side__bar--lowest' : 'analysis-side__bar--empty'"
             ></div>
             <div
-                :class="Math.abs(issue.changePercent) > 3 ? 'analysis-side__bar--mid' : 'analysis-side__bar--empty'"
+                :class="(Math.abs(issue.changePercent) > 1 && Math.abs(issue.changePercent) <= 4) ? 'analysis-side__bar--low' : 'analysis-side__bar--empty'"
             ></div>
             <div
-                :class="Math.abs(issue.changePercent) > 0 ? 'analysis-side__bar--low' : 'analysis-side__bar--empty'"
+                :class="(Math.abs(issue.changePercent) > 4 && Math.abs(issue.changePercent) <= 7) ? 'analysis-side__bar--mid' : 'analysis-side__bar--empty'"
+            ></div>
+            <div
+                :class="Math.abs(issue.changePercent) > 7 ? 'analysis-side__bar--high' : 'analysis-side__bar--empty'"
             ></div>
           </div>
         </div>

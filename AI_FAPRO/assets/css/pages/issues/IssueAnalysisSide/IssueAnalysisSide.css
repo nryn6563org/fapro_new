@@ -73,20 +73,23 @@
   @apply flex items-center gap-1;
 }
 .analysis-side__bar {
-  @apply w-1.5 h-6 rounded-full;
+  @apply w-1 h-5 rounded-full;
 }
 /* 강도 높음: buy 시맨틱 컬러 */
 .analysis-side__bar--high {
-  @apply analysis-side__bar bg-buy;
+  @apply analysis-side__bar bg-red-600;
 }
 .analysis-side__bar--mid {
   @apply analysis-side__bar bg-orange-500;
 }
 .analysis-side__bar--low {
-  @apply analysis-side__bar bg-slate-400;
+  @apply analysis-side__bar bg-blue-900;
+}
+.analysis-side__bar--lowest {
+  @apply analysis-side__bar bg-blue-500;
 }
 .analysis-side__bar--empty {
-  @apply analysis-side__bar bg-slate-200 dark:bg-slate-800;
+  @apply analysis-side__bar bg-slate-100 dark:bg-slate-800/50;
 }
 
 .analysis-side__divider {

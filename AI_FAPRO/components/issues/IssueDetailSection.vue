@@ -123,14 +123,19 @@ export default {
     intensityLevel() {
       if (!this.issue) return 0;
       const abs = Math.abs(this.issue.changePercent);
-      if (abs > 5) return 3;
-      if (abs > 3) return 2;
+      if (abs > 7) return 4;
+      if (abs > 4) return 3;
+      if (abs > 1) return 2;
       return 1;
     },
     intensityText() {
-      if (this.intensityLevel === 3) return "매우 강함";
-      if (this.intensityLevel === 2) return "강함";
-      return "보통";
+      const levels = {
+        4: "매우 강함",
+        3: "강함",
+        2: "보통",
+        1: "최저",
+      };
+      return levels[this.intensityLevel] || "";
     },
     sortedStocks() {
       if (!this.issue) return [];
