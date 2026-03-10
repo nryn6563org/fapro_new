@@ -109,7 +109,7 @@
 
 /* 푸터 */
 .issue-detail__footer {
-  @apply pt-4 ;
+  @apply pt-10 ;
 }
 /* 제안 버튼: 표준 브랜드 버튼 스타일 */
 .issue-detail__btn-propose {

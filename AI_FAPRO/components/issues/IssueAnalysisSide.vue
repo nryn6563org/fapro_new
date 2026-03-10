@@ -135,7 +135,7 @@
         <div v-if="issue.newsSummary" class="analysis-side__news-section">
           <div class="analysis-side__section-label">
             <file-text-icon class="analysis-side__section-icon--teal" />
-            <h5 class="analysis-side__section-title">관련 뉴스</h5>
+            <h5 class="analysis-side__section-title">AI 뉴스 요약</h5>
           </div>
           <div class="analysis-side__news-box">
             <p class="analysis-side__news-text">{{ issue.newsSummary }}</p>

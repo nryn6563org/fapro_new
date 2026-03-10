@@ -75,8 +75,6 @@
           <IssueDetailAnalysis :issue="issue" />
         </div>
       </div>
-      <!-- News Report -->
-      <IssueDetailNews :issue="issue" />
 
       <!-- Propose Action -->
       <div class="issue-detail__footer">
@@ -99,7 +97,6 @@ import "~/assets/css/pages/issues/IssueDetailSection/IssueDetailSection.css";
 import IssueDetailStats from "~/components/issues/IssueDetailStats.vue";
 import IssueDetailStockTable from "~/components/issues/IssueDetailStockTable.vue";
 import IssueDetailAnalysis from "~/components/issues/IssueDetailAnalysis.vue";
-import IssueDetailNews from "~/components/issues/IssueDetailNews.vue";
 
 export default {
   name: "IssueDetailSection",
@@ -110,8 +107,7 @@ export default {
     ZapIcon,
     IssueDetailStats,
     IssueDetailStockTable,
-    IssueDetailAnalysis,
-    IssueDetailNews
+    IssueDetailAnalysis
   },
   props: {
     issue: {
