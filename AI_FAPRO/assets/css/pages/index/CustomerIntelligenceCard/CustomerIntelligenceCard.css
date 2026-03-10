@@ -11,11 +11,16 @@
 
 /* Header */
 .customer-intelligence-section__header {
-  @apply flex items-center gap-3 mb-6;
+  @apply flex flex-row justify-between items-center gap-3 mb-6;
 }
 
 .customer-intelligence-section__title {
   @apply text-xl font-black text-slate-900 dark:text-white tracking-tight;
+}
+
+.customer-intelligence-section__update-time {
+  @apply text-[11px] font-medium text-slate-400 dark:text-slate-500 uppercase;
+  letter-spacing: -0.01em;
 }
 
 /* Grid */
