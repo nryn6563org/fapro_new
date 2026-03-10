@@ -58,7 +58,7 @@
   @apply fapro-td text-center;
 }
 .trading-signal-history__td--last {
-  @apply border-0 text-right;
+  @apply border-0 text-center;
 }
 .trading-signal-history__table-right {
   @apply text-right;
