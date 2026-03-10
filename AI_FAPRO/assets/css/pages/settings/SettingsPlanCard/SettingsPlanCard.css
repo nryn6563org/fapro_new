@@ -5,15 +5,15 @@
 }
 
 .plan-card--active {
-  @apply border-teal-500 bg-teal-50/30;
+  @apply border-teal-500 bg-teal-50/30 dark:bg-teal-900/20;
 }
 
 .plan-card--pro {
-  @apply bg-white dark:bg-slate-900 border-slate-100;
+  @apply bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800;
 }
 
 .plan-card--pro.plan-card--active {
-  @apply border-amber-500 bg-amber-50/50;
+  @apply border-amber-500 bg-amber-50/50 dark:bg-amber-900/20;
 }
 
 .plan-card__check {
