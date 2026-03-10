@@ -29,6 +29,9 @@
 .issue-detail__table tr {
   @apply transition-colors;
 }
+.issue-detail__empty-row td{
+  @apply bg-slate-100/80 dark:bg-slate-800/80;
+}
 .issue-detail__table tr:hover:not(.issue-detail__empty-row) {
   @apply bg-slate-50 dark:bg-slate-800/50;
 }
