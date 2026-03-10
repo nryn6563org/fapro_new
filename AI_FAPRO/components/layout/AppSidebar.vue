@@ -7,7 +7,7 @@
           <zap-icon size="20" class="text-white" />
         </div>
         <transition name="fade">
-          <span v-if="!isCollapsed" class="app-sidebar__logo-text">AI FA_pro</span>
+          <span v-if="!isCollapsed" class="app-sidebar__logo-text">AI FA PRO</span>
         </transition>
       </div>
     </nuxt-link>
