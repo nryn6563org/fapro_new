@@ -21,6 +21,9 @@
       <!-- Body -->
       <div class="customer-modal__body">
         <div class="customer-modal__content">
+          <div class="customer-modal__update-wrapper">
+            <span class="customer-modal__update-time">업데이트 03/10 15:30</span>
+          </div>
           <!-- 1. 통계 요약 -->
           <customer-detail-stats :customer="customer" />
 

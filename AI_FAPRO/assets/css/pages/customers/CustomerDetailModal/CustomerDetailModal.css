@@ -42,6 +42,15 @@
   @apply fapro-modal-subtitle;
 }
 
+.customer-modal__update-wrapper {
+  @apply flex justify-end mb-2;
+}
+
+.customer-modal__update-time {
+  @apply text-[11px] font-medium text-slate-400 dark:text-slate-500 uppercase;
+  letter-spacing: -0.01em;
+}
+
 .customer-modal__close {
   @apply fapro-modal-close;
 }
