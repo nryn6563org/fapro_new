@@ -1,7 +1,7 @@
 <template>
   <div class="issue-detail__extra-info">
     <!-- Analysis Reason -->
-    <div class="issue-detail__analysis-block">
+    <div class="issue-detail__analysis-block issue-detail__analysis-block--reason">
       <div class="issue-detail__section-label">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path
@@ -23,7 +23,7 @@
       </div>
     </div>
     <!-- Outlook -->
-    <div class="issue-detail__analysis-block">
+    <div class="issue-detail__analysis-block issue-detail__analysis-block--outlook">
       <div class="issue-detail__section-label">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="issue-detail__section-icon">
           <path d="M18.3337 5.83325L11.2503 12.9166L7.08366 8.74992L1.66699 14.1666" stroke="#155DFC" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
@@ -33,7 +33,7 @@
       </div>
       <div class="issue-detail__info-box issue-detail__info-box--blue">
         <p class="issue-detail__text">{{ issue.outlook }}</p>
-        <div v-if="issue.positiveProspects || issue.negativeProspects" class="issue-detail__outlook-grid">
+        <div class="issue-detail__outlook-grid">
           <div class="issue-detail__outlook-item">
             <div class="issue-detail__factor-header">
               <div class="issue-detail__factor-dot issue-detail__factor-dot--positive"></div>

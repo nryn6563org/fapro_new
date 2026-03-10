@@ -21,7 +21,7 @@
         </thead>
         <tbody>
           <tr
-            v-for="(stock, idx) in stocks"
+            v-for="(stock, idx) in paginatedStocks"
             :key="idx"
             :class="{
               'issue-detail-table__row--highlight': Math.abs(stock.changePercent) >= 5
@@ -48,6 +48,36 @@
         </tbody>
       </table>
     </div>
+
+    <!-- 페이징 컨트롤 -->
+    <div class="issue-detail__pagination">
+      <button
+        class="issue-detail__page-btn"
+        :disabled="currentPage === 1"
+        @click="currentPage--"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+
+      <div class="issue-detail__page-numbers">
+        <button
+          v-for="page in totalPages"
+          :key="page"
+          :class="['issue-detail__page-num', { 'issue-detail__page-num--active': currentPage === page }]"
+          @click="currentPage = page"
+        >
+          {{ page }}
+        </button>
+      </div>
+
+      <button
+        class="issue-detail__page-btn"
+        :disabled="currentPage === totalPages"
+        @click="currentPage++"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -63,6 +93,36 @@ export default {
     stocks: {
       type: Array,
       default: () => []
+    }
+  },
+  data() {
+    return {
+      currentPage: 1,
+      itemsPerPage: 5
+    };
+  },
+  computed: {
+    /**
+     * 전체 페이지 수 계산
+     */
+    totalPages() {
+      return Math.ceil(this.stocks.length / this.itemsPerPage);
+    },
+    /**
+     * 현재 페이지에 해당하는 종목 리스트
+     */
+    paginatedStocks() {
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      const end = start + this.itemsPerPage;
+      return this.stocks.slice(start, end);
+    }
+  },
+  watch: {
+    /**
+     * 데이터가 변경되면 1페이지로 복귀
+     */
+    stocks() {
+      this.currentPage = 1;
     }
   }
 };

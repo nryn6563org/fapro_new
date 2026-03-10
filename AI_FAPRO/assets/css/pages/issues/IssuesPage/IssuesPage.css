@@ -97,7 +97,7 @@
   @apply grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6;
 }
 .issues-page__chart-section {
-  @apply fapro-section overflow-hidden h-[644px] p-4;
+  @apply fapro-section overflow-hidden h-[644px] p-4 w-[972.5px];
 }
 .issues-page__analysis-section {
   @apply h-full;

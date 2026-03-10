@@ -7,7 +7,7 @@
 
 /* 테이블 외곽 컨테이너 */
 .issue-detail__table-wrapper {
-  @apply overflow-hidden bg-white dark:bg-slate-900 shadow-sm relative border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden mt-2;
+  @apply overflow-hidden bg-white dark:bg-slate-900 shadow-sm relative border border-gray-200 dark:border-gray-700 rounded-xl mt-2;
 }
 
 /* 테이블 기본 구조 */
@@ -115,4 +115,37 @@
 }
 .issue-detail-table__change--down {
   @apply text-sell;
+}
+
+/* ── 페이징 스타일 ── */
+.issue-detail__pagination {
+  @apply flex items-center justify-center gap-2 mt-4;
+}
+
+.issue-detail__page-numbers {
+  @apply flex items-center gap-1;
+}
+
+.issue-detail__page-btn {
+  @apply w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 transition-all;
+}
+
+.issue-detail__page-btn:hover:not(:disabled) {
+  @apply border-primary text-primary bg-primary/5;
+}
+
+.issue-detail__page-btn:disabled {
+  @apply opacity-30 cursor-not-allowed;
+}
+
+.issue-detail__page-num {
+  @apply w-8 h-8 flex items-center justify-center rounded-lg text-sm font-medium text-slate-500 dark:text-slate-400 transition-all;
+}
+
+.issue-detail__page-num:hover:not(.issue-detail__page-num--active) {
+  @apply bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white;
+}
+
+.issue-detail__page-num--active {
+  @apply bg-primary text-white font-bold;
 }

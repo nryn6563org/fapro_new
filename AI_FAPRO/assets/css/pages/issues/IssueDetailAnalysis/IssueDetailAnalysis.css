@@ -8,7 +8,17 @@
 
 /* 분석 블록 (사유/전망) 공통 래퍼 */
 .issue-detail__analysis-block {
-  @apply flex flex-col flex-1;
+  @apply flex flex-col;
+}
+
+.issue-detail__analysis-block--reason {
+  height: 210px !important;
+  flex: none !important;
+}
+
+.issue-detail__analysis-block--outlook {
+  height: 426px !important;
+  flex: none !important;
 }
 
 /* 섹션 아이콘 간격 */
@@ -18,16 +28,12 @@
 
 .issue-detail__extra-info > div {
   @apply border border-slate-200 dark:border-slate-800 rounded-2xl p-6 bg-white dark:bg-slate-900 shadow-sm relative flex flex-col;
-  flex: 1;
-}
-
-.issue-detail__extra-info > div > *:last-child {
-  @apply flex-1;
 }
 
 /* 정보 박스 기본 스타일 - 내부 테두리 약화 */
 .issue-detail__info-box {
-  @apply fapro-section !shadow-none bg-slate-50/50 dark:bg-slate-800/20 border-0 !p-0 flex flex-col;
+  @apply fapro-section !shadow-none bg-slate-50/50 dark:bg-slate-800/20 border-0 !p-0 flex flex-col overflow-y-auto;
+  flex: 1;
 }
 
 /* 텍스트 컬러 표준화 */
