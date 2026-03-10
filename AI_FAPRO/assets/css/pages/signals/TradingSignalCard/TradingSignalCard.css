@@ -141,7 +141,7 @@
   @apply text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed break-keep;
 }
 .trading-signal-card__reason-more {
-  @apply text-[12px] font-medium text-slate-400 ml-1 cursor-pointer hover:text-slate-600 transition-colors;
+  @apply text-[12px] font-semibold text-blue-400 ml-1 cursor-pointer hover:text-blue-700 hover:font-bold transition-colors;
 }
 
 /* AI 분석 생성 중 빈 상태 */
