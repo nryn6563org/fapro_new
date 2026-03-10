@@ -41,6 +41,10 @@
 .issue-detail__stat-value {
   @apply text-2xl font-bold m-0;
 }
+.issue-detail__stat-value--intensity-1 { @apply text-blue-500; }
+.issue-detail__stat-value--intensity-2 { @apply text-blue-900; }
+.issue-detail__stat-value--intensity-3 { @apply text-orange-500; }
+.issue-detail__stat-value--intensity-4 { @apply text-red-600; }
 .issue-detail__stat-value--teal {
   @apply text-teal-500;
 }

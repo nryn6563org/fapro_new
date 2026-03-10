@@ -57,6 +57,10 @@
 .analysis-side__change-text--neutral {
   @apply analysis-side__change-text text-slate-600 font-bold;
 }
+.analysis-side__change-text--intensity-1 { @apply text-blue-500 font-bold; }
+.analysis-side__change-text--intensity-2 { @apply text-blue-900 font-bold; }
+.analysis-side__change-text--intensity-3 { @apply text-orange-500 font-bold; }
+.analysis-side__change-text--intensity-4 { @apply text-red-600 font-bold; }
 
 .analysis-side__change-text {
   /* base styles if any, for now empty or specific common styles */

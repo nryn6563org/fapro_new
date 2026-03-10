@@ -7,7 +7,7 @@
         <p class="issue-proposal__stat-label">이슈 등락률</p>
         <div class="issue-proposal__stat-footer">
           <div class="issue-proposal__stat-value-box">
-            <p class="issue-proposal__stat-value issue-proposal__stat-value--red">
+            <p :class="['issue-proposal__stat-value', 'issue-proposal__stat-value--intensity-' + intensityLevel]">
               {{ issue.changePercent > 0 ? '+' : '' }}{{ issue.changePercent }}%
             </p>
             <span class="issue-proposal__stat-badge issue-proposal__stat-badge--red">{{ intensityText }}</span>

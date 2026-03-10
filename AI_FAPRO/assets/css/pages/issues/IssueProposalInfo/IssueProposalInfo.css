@@ -41,6 +41,10 @@
 .issue-proposal__stat-value--red {
   @apply text-red-600;
 }
+.issue-proposal__stat-value--intensity-1 { @apply text-blue-500; }
+.issue-proposal__stat-value--intensity-2 { @apply text-blue-900; }
+.issue-proposal__stat-value--intensity-3 { @apply text-orange-500; }
+.issue-proposal__stat-value--intensity-4 { @apply text-red-600; }
 .issue-proposal__stat-value--teal {
   @apply text-teal-500;
 }

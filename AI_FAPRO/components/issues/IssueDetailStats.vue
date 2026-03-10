@@ -26,11 +26,7 @@
       <p
         :class="[
           'issue-detail__stat-value',
-          issue.type === 'up'
-            ? 'text-red-600'
-            : issue.type === 'down'
-            ? 'text-blue-600'
-            : 'text-slate-600',
+          'issue-detail__stat-value--intensity-' + intensityLevel
         ]"
       >
         {{ issue.changePercent > 0 ? "+" : "" }}{{ issue.changePercent }}%

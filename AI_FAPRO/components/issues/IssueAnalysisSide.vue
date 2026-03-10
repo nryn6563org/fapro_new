@@ -21,7 +21,13 @@
             <p class="analysis-side__subtitle">
               등락률:
               <span
-                  :class="'analysis-side__change-text--' + issue.type"
+                  :class="[
+                    'analysis-side__change-text',
+                    Math.abs(issue.changePercent) > 7 ? 'analysis-side__change-text--intensity-4' :
+                    Math.abs(issue.changePercent) > 4 ? 'analysis-side__change-text--intensity-3' :
+                    Math.abs(issue.changePercent) > 1 ? 'analysis-side__change-text--intensity-2' :
+                    'analysis-side__change-text--intensity-1'
+                  ]"
               >
                 {{ issue.changePercent > 0 ? "+" : ""
                 }}{{ issue.changePercent }}%
