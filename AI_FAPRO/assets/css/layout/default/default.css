@@ -7,7 +7,11 @@
 
 /* ── 기본 래퍼 ── */
 .main-layout {
-  @apply flex bg-slate-100 dark:bg-slate-950 overflow-y-auto pl-[280px];
+  @apply flex bg-slate-100 dark:bg-slate-950 overflow-y-auto pl-[280px] transition-all duration-300;
+}
+
+.main-layout--collapsed {
+  @apply pl-[80px];
 }
 
 /* ── 콘텐츠 영역 래퍼 ── */

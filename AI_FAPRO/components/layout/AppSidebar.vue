@@ -40,6 +40,7 @@
  * 접기/펼치기 토글 기능을 제공합니다.
  * 하위 컴포넌트로 AppSidebarNav(네비게이션)와 AppSidebarUser(사용자 정보)를 포함합니다.
  */
+import { mapState, mapMutations } from "vuex";
 import { ZapIcon, ChevronLeftIcon } from "vue-feather-icons";
 import AppSidebarNav from "~/components/layout/AppSidebarNav.vue";
 import AppSidebarUser from "~/components/layout/AppSidebarUser.vue";
@@ -56,8 +57,6 @@ export default {
   },
   data() {
     return {
-      /** @type {boolean} 사이드바 접힘 상태 (true: 접힘, false: 펼침) */
-      isCollapsed: false,
       /**
        * @type {Array} 네비게이션 메뉴 항목 목록.
        * 그룹(children 포함)과 단일 메뉴 항목을 모두 지원합니다.
@@ -98,13 +97,19 @@ export default {
       ],
     };
   },
+  computed: {
+    ...mapState("ui", {
+      isCollapsed: (state) => state.isSidebarCollapsed,
+    }),
+  },
   methods: {
+    ...mapMutations("ui", ["TOGGLE_SIDEBAR"]),
     /**
      * 사이드바 접기/펼치기 상태를 토글합니다.
      * isCollapsed 값을 반전시켜 사이드바 너비를 변경합니다.
      */
     toggleSidebar() {
-      this.isCollapsed = !this.isCollapsed;
+      this.TOGGLE_SIDEBAR();
     },
   },
 };

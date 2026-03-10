@@ -1,5 +1,5 @@
 <template>
-  <div class="main-layout">
+  <div class="main-layout" :class="{ 'main-layout--collapsed': isSidebarCollapsed }">
     <template v-if="isLoggedIn">
       <app-sidebar />
       <div class="main-layout__content-wrapper">
@@ -49,6 +49,7 @@ export default {
   },
   computed: {
     ...mapState('auth', ['isLoggedIn']),
+    ...mapState('ui', ['isSidebarCollapsed']),
   },
   mounted() {
     // localStorage 또는 시스템 환경 설정에서 다크 모드 초기값 확인
