@@ -209,7 +209,7 @@ import {
   todayProposalStocks,
   todayIssueStocks,
 } from "~/utils/mockData.js";
-import "~/assets/css/pages/index/TodayProposalCard/TodayProposalCard.css";
+import "~/assets/css/pages/contact/TodayProposalCard/TodayProposalCard.css";
 
 export default {
   name: "TodayProposalCard",

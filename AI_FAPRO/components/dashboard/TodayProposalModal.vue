@@ -20,7 +20,7 @@
  * 리팩토링: 모든 디자인 케이스(#1~#4)를 ContactProposalModal로 매핑.
  */
 import ContactProposalModal from "~/components/common/proposal/ContactProposalModal.vue";
-import "~/assets/css/pages/index/TodayProposalModal/TodayProposalModal.css";
+import "~/assets/css/pages/contact/TodayProposalModal/TodayProposalModal.css";
 
 export default {
   name: "TodayProposalModal",

@@ -34,7 +34,7 @@
  * @emits {propose} 제안하기 버튼 클릭 시 발행 - ('CustomerIntelligence', item) 형태
  */
 import { customerIntelligence } from "~/utils/mockData.js";
-import "~/assets/css/pages/index/CustomerIntelligenceCard/CustomerIntelligenceCard.css";
+import "~/assets/css/pages/contact/CustomerIntelligenceCard/CustomerIntelligenceCard.css";
 import IntelligenceCashCard from "~/components/dashboard/IntelligenceCashCard.vue";
 import IntelligenceTopCard from "~/components/dashboard/IntelligenceTopCard.vue";
 import IntelligenceDropCard from "~/components/dashboard/IntelligenceDropCard.vue";
