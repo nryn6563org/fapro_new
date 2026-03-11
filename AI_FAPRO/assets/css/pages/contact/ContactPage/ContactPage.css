@@ -1,0 +1,55 @@
+/*
+  IndexPage Styles
+  -------------------
+  BEM Block: contact-page
+*/
+
+.contact-page {
+  @apply p-6 pb-12 space-y-10 w-[1440px];
+}
+
+.contact-page__header {
+  @apply fapro-page-header;
+}
+
+.contact-page__title-box {
+  @apply fapro-page-header__title-box;
+}
+
+.contact-page__title {
+  @apply fapro-page-header__title;
+}
+
+.contact-page__subtitle {
+  @apply fapro-page-header__subtitle;
+}
+
+.contact-page__action-box {
+  @apply fapro-page-header__action-box;
+}
+
+.contact-page__time-info {
+  @apply fapro-page-header__time-info;
+}
+
+.contact-page__time-text {
+  @apply fapro-page-header__time-text;
+}
+
+.contact-page__time-label {
+  @apply fapro-page-header__time-label;
+}
+
+.contact-page__refresh-btn {
+  @apply fapro-btn-refresh;
+}
+
+.contact-page__refresh-icon {
+  @apply w-4 h-4;
+}
+
+.contact-page__refresh-text {
+  @apply text-sm font-semibold;
+}
+
+

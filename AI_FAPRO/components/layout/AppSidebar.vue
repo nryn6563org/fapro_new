@@ -66,17 +66,17 @@ export default {
           label: "AI 세일즈 파트너",
           icon: "ZapIcon",
           children: [
-            { path: "/", label: "AI 컨텍 제안", icon: "BriefcaseIcon" },
+            {
+              path: "/",
+              label: "AI 인텔리전스 리포트",
+              icon: "FileTextIcon",
+            },
+            { path: "/contact", label: "AI 컨텍 제안", icon: "BriefcaseIcon" },
             { path: "/issues", label: "AI 이슈 포착", icon: "TargetIcon" },
             {
               path: "/signals",
               label: "AI 매매신호 포착",
               icon: "TrendingUpIcon",
-            },
-            {
-              path: "/discovery",
-              label: "AI 인텔리전스 리포트",
-              icon: "FileTextIcon",
             },
           ],
         },

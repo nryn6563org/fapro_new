@@ -55,19 +55,19 @@ export const structure = [
   },
   {
     name: "AI 컨텍 제안 (대시보드)",
-    file: "index.vue",
+    file: "contact.vue",
     components: [
       {
         name: "TodayProposalCard",
         file: "dashboard/TodayProposalCard.vue",
-        css: "pages/index/TodayProposalCard/TodayProposalCard.css",
+        css: "pages/contact/TodayProposalCard/TodayProposalCard.css",
         api: "utils/mockData.js",
         desc: "금일의 추천 고객 및 종목 제안을 요약하여 보여주는 카드 형태의 위젯입니다.",
         children: [
           {
             name: "TodayProposalModal",
             file: "dashboard/TodayProposalModal.vue",
-            css: "pages/index/TodayProposalModal/TodayProposalModal.css",
+            css: "pages/contact/TodayProposalModal/TodayProposalModal.css",
             desc: "추천 사유 및 제안 상세 내용을 팝업 형태로 제공합니다."
           }
         ]
@@ -75,7 +75,7 @@ export const structure = [
       {
         name: "CustomerIntelligenceCard",
         file: "dashboard/CustomerIntelligenceCard.vue",
-        css: "pages/index/CustomerIntelligenceCard/CustomerIntelligenceCard.css",
+        css: "pages/contact/CustomerIntelligenceCard/CustomerIntelligenceCard.css",
         api: "utils/mockData.js (customerIntelligence)"
       },
       {
@@ -180,19 +180,19 @@ export const structure = [
   },
   {
     name: "AI 인텔리전스 리포트",
-    file: "discovery.vue",
+    file: "index.vue",
     desc: "AI가 분석한 유망 종목 리스트와 상세 인텔리전스 리포트를 제공하는 페이지입니다.",
     components: [
       {
         name: "AIReportCard",
         file: "discovery/AIReportCard.vue",
-        css: "pages/discovery/AIReportCard/AIReportCard.css",
+        css: "pages/index/AIReportCard/AIReportCard.css",
         desc: "종목명, 수익률, 분석 요약 등 리포트의 핵심 정보를 시각화한 카드입니다."
       },
       {
         name: "AIReportDetailModal",
         file: "discovery/AIReportDetailModal.vue",
-        css: "pages/discovery/AIReportDetailModal/AIReportDetailModal.css",
+        css: "pages/index/AIReportDetailModal/AIReportDetailModal.css",
         desc: "리포트 전체 내용과 심층 분석 데이터를 제공하는 상세 보기 모달입니다."
       }
     ]

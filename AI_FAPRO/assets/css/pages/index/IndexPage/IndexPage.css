@@ -1,55 +1,77 @@
-/*
-  IndexPage Styles
-  -------------------
-  BEM Block: index-page
-*/
-
+/* Tailwind directives container for component */
 .index-page {
-  @apply p-6 pb-12 space-y-10 w-[1440px];
+  @apply p-6 pb-12 w-full flex flex-col gap-6;
 }
 
+/* Header */
 .index-page__header {
   @apply fapro-page-header;
 }
-
 .index-page__title-box {
   @apply fapro-page-header__title-box;
 }
-
 .index-page__title {
   @apply fapro-page-header__title;
 }
-
 .index-page__subtitle {
   @apply fapro-page-header__subtitle;
 }
-
 .index-page__action-box {
   @apply fapro-page-header__action-box;
 }
-
 .index-page__time-info {
   @apply fapro-page-header__time-info;
 }
-
 .index-page__time-text {
   @apply fapro-page-header__time-text;
 }
-
 .index-page__time-label {
   @apply fapro-page-header__time-label;
 }
-
 .index-page__refresh-btn {
   @apply fapro-btn-refresh;
 }
-
 .index-page__refresh-icon {
   @apply w-4 h-4;
 }
-
 .index-page__refresh-text {
   @apply text-sm font-semibold;
 }
 
+/* Content Area */
+.index-page__content {
+  @apply w-full;
+}
+.index-page__summary-bar {
+  @apply flex items-center justify-end mb-4;
+}
+.index-page__summary-text {
+  @apply text-sm text-slate-600 dark:text-slate-400;
+}
+.index-page__summary-count {
+  @apply font-bold text-slate-900 dark:text-white;
+}
 
+/* Split Grid */
+.index-page__split-grid {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
+}
+
+/* Column */
+.index-page__column {
+  @apply flex flex-col gap-4;
+}
+
+/* Card List */
+.index-page__card-list {
+  @apply flex flex-col gap-4;
+}
+
+/* Empty State */
+.index-page__empty {
+  @apply p-8 text-center text-sm text-slate-400 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl;
+}
+
+.index-page .fapro-section {
+  @apply h-full;
+}

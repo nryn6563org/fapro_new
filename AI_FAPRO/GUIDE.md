@@ -27,14 +27,21 @@
 
 ## Route Visual Tree (Rule 11)
 
-### [/] - AI 컨텍 제안 (메인)
+### [/] - AI 인텔리전스 리포트 (메인)
 
 ```mermaid
 graph TD
-    Page["pages/index.vue"] --> CSS_Page["assets/css/pages/index/IndexPage.css"]
-    Page --> Comp_Hero["components/index/IndexHero.vue"]
-    Page --> Comp_Banner["components/index/IndexBanner.vue"]
-    Page --> Comp_Proposal["components/index/IndexProposalList.vue"]
+    Page["pages/index.vue"] --> CSS_Page["assets/css/pages/index/IndexPage/IndexPage.css"]
+    Page --> Card["components/discovery/AIReportCard.vue"]
+```
+
+### [/contact] - AI 컨텍 제안
+
+```mermaid
+graph TD
+    Page["pages/contact.vue"] --> CSS_Page["assets/css/pages/contact/ContactPage/ContactPage.css"]
+    Page --> TodayProposalCard["components/dashboard/TodayProposalCard.vue"]
+    Page --> CustomerIntelligenceCard["components/dashboard/CustomerIntelligenceCard.vue"]
 ```
 
 ### [/issues] - AI 이슈 포착
@@ -44,10 +51,10 @@ graph TD
     Page["pages/issues.vue"] --> CSS_Page["assets/css/pages/issues/IssuesPage.css"]
     Page --> Header["components/issues/IssuesPage/IssuesPageHeader.vue"]
     Page --> Stats["components/issues/IssuesPage/IssuesPageStats.vue"]
-    Page --> Chart["components/issues/IssueBubbleChart.vue"]
-    Page --> Analysis["components/issues/IssueAnalysisSide.vue"]
-    Page --> Detail["components/issues/IssueDetailSection.vue"]
-    Page --> Modal["components/issues/IssueProposalModal.vue"]
+    Chart["components/issues/IssueBubbleChart.vue"]
+    Analysis["components/issues/IssueAnalysisSide.vue"]
+    Detail["components/issues/IssueDetailSection.vue"]
+    Modal["components/issues/IssueProposalModal.vue"]
 ```
 
 ### [/customers] - 고객 목록
@@ -82,13 +89,6 @@ graph TD
     Modal --> Content["components/signals/AIReportContent.vue"]
 ```
 
-### [/discovery] - AI 인텔리전스 리포트
-
-```mermaid
-graph TD
-    Page["pages/discovery.vue"] --> CSS_Page["assets/css/pages/discovery/DiscoveryPage.css"]
-    Page --> Card["components/discovery/AIReportCard.vue"]
-```
 
 ### [/strategic-stocks] - AI 중장기 유망주
 

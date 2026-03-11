@@ -1,141 +1,149 @@
 <template>
-  <!-- ── 대시보드 메인 페이지 ── -->
   <div class="index-page">
-    <!-- ── 페이지 헤더: 타이틀 및 새로고침 버튼 영역 ── -->
     <div class="index-page__header">
       <div class="index-page__title-box">
-        <h1 class="index-page__title">AI 컨택 제안</h1>
+        <h1 class="index-page__title">AI 인텔리전스 리포트</h1>
         <p class="index-page__subtitle">
-          오늘 AI가 추천하는 타겟 고객과 종목을 빠르게 제안해 보세요.
+          최근 AI매매신호가 발생한 종목의 AI분석리포트 입니다.
         </p>
       </div>
-      <!-- 최종 업데이트 시간 표시 및 새로고침 버튼 -->
-      <!-- <div class="index-page__action-box">
+      <div class="index-page__action-box">
         <div class="index-page__time-info">
           <p class="index-page__time-text">{{ formattedTime }}</p>
-          <p class="index-page__time-label">최종 업데이트</p>
         </div>
         <button class="index-page__refresh-btn" @click="refreshData">
           <refresh-cw-icon size="16" class="index-page__refresh-icon" />
           <span class="index-page__refresh-text">새로고침</span>
         </button>
-      </div> -->
+      </div>
     </div>
 
-    <!-- ── 오늘의 제안 카드: AI가 추천하는 오늘의 제안 목록 ── -->
-    <today-proposal-card
-      :current-date="currentDate"
-      @propose="openProposalModal"
-      @refresh="refreshData"
-    />
+    <!-- Content -->
+    <div class="index-page__content">
+      <div class="index-page__summary-bar">
+        <p class="index-page__summary-text">
+          총
+          <span class="index-page__summary-count"
+            >{{ aiReports.length }}개</span
+          >의 AI 리포트
+        </p>
+      </div>
 
-    <!-- ── 고객 인텔리전스 카드: AI 분석 기반 고객 정보 ── -->
-    <customer-intelligence-card @propose="openProposalModal" />
+      <div class="index-page__split-grid">
+        <!-- ── 매수 신호 컬럼 ── -->
+        <div class="index-page__column">
+          <div class="index-page__card-list">
+            <a-i-report-card
+              v-for="report in buyReports"
+              :key="report.id"
+              :report="report"
+              @open-report="openReport"
+            />
+            <div v-if="buyReports.length === 0" class="index-page__empty">
+              매수 신호가 없습니다.
+            </div>
+          </div>
+        </div>
 
-    <!-- 오늘의 제안 통합 모달 -->
-    <today-proposal-modal
-      v-if="isModalOpen"
-      :proposal-type="selectedProposalType"
-      :proposal-data="selectedProposalData"
-      @close-modal="isModalOpen = false"
+        <!-- ── 매도 신호 컬럼 ── -->
+        <div class="index-page__column">
+          <div class="index-page__card-list">
+            <a-i-report-card
+              v-for="report in sellReports"
+              :key="report.id"
+              :report="report"
+              @open-report="openReport"
+            />
+            <div v-if="sellReports.length === 0" class="index-page__empty">
+              매도 신호가 없습니다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Modal -->
+    <a-i-report-modal
+      :is-open="isReportModalOpen"
+      :data="activeReport"
+      @close="closeReport"
     />
   </div>
 </template>
 
 <script>
-// import { RefreshCwIcon } from "vue-feather-icons";
-import TodayProposalCard from "~/components/dashboard/TodayProposalCard.vue";
-import CustomerIntelligenceCard from "~/components/dashboard/CustomerIntelligenceCard.vue";
-import TodayProposalModal from "~/components/dashboard/TodayProposalModal.vue";
+/**
+ * 기능: AI 종목발굴(인텔리전스 리포트) 페이지
+ */
+import { RefreshCwIcon } from "vue-feather-icons";
+import AIReportCard from "~/components/discovery/AIReportCard.vue";
+import AIReportModal from "~/components/modal/AIReportModal.vue";
+import { aiReports } from "~/utils/discoveryMockData.js";
 import "~/assets/css/pages/index/IndexPage/IndexPage.css";
 
-/**
- * 기능: 대시보드 메인 페이지
- * AI 컨택 제안 기능을 제공하며, 오늘의 제안 카드와
- * 고객 인텔리전스 카드를 포함합니다.
- */
 export default {
   name: "IndexPage",
   components: {
-    // RefreshCwIcon,
-    TodayProposalCard,
-    CustomerIntelligenceCard,
-    TodayProposalModal,
+    RefreshCwIcon,
+    AIReportCard,
+    AIReportModal,
   },
   data() {
     return {
-      // 한국어 형식으로 포맷된 현재 날짜 (예: "3월 4일")
-      currentDate: new Date().toLocaleDateString("ko-KR", {
-        month: "long",
-        day: "numeric",
-      }),
-      // 실시간 갱신용 현재 시각 객체
+      aiReports,
       currentTime: new Date(),
-      // setInterval 타이머 참조 (컴포넌트 소멸 시 정리용)
       timer: null,
-      // 모달 제어 상태
-      isModalOpen: false,
-      selectedProposalType: "target-customer",
-      selectedProposalData: {},
+      isReportModalOpen: false,
+      activeReport: null,
     };
   },
   computed: {
-    /**
-     * @description 현재 시각을 'YYYY.MM.DD HH:MM:SS' 형식의 문자열로 반환합니다.
-     * @returns {string} 포맷된 날짜·시간 문자열
-     */
-    /*
     formattedTime() {
       const d = this.currentTime;
-      return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(
-        2,
-        "0"
-      )}.${String(d.getDate()).padStart(2, "0")} ${String(
-        d.getHours()
-      ).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}:${String(
-        d.getSeconds()
+      return `${String(d.getMonth() + 1).padStart(2, "0")}.${String(
+        d.getDate()
       ).padStart(2, "0")}`;
     },
-    */
+    /**
+     * @type {Array} 매수 신호 리포트 (최대 4개)
+     */
+    buyReports() {
+      return this.aiReports
+        .filter((r) => r.signalBadge === "매수신호")
+        .slice(0, 4);
+    },
+    /**
+     * @type {Array} 매도 신호 리포트 (최대 4개)
+     */
+    sellReports() {
+      return this.aiReports
+        .filter((r) => r.signalBadge === "매도신호")
+        .slice(0, 4);
+    },
   },
   mounted() {
-    // 1초마다 currentTime을 갱신하여 실시간 시계 표시
-    // this.timer = setInterval(() => {
-    //   this.currentTime = new Date();
-    // }, 1000);
+    this.timer = setInterval(() => {
+      this.currentTime = new Date();
+    }, 1000);
   },
   beforeDestroy() {
-    // 컴포넌트 소멸 전 타이머 정리 (메모리 누수 방지)
-    // if (this.timer) clearInterval(this.timer);
+    if (this.timer) clearInterval(this.timer);
   },
   methods: {
-    /**
-     * @description 페이지 데이터를 새로고침합니다.
-     * 현재 시각을 갱신하고 API 재조회를 트리거합니다.
-     */
     refreshData() {
       this.currentTime = new Date();
-      // API 데이터 새로고침 트리거
-      console.log("데이터 새로고침 중...");
+      // To simulate refresh UX
     },
-
-    /**
-     * @description 제안 모달을 엽니다.
-     * 하위 컴포넌트의 'propose' 이벤트를 수신하여
-     * Modal-Vanilla 기반 모달을 구동합니다.
-     * @param {string} type - 제안 유형 (예: 'stock', 'contact')
-     * @param {Object} item - 제안 대상 고객 또는 종목 객체
-     */
-    openProposalModal(type, item) {
-      if (type === "CustomerIntelligence") {
-        this.selectedProposalType = "smart-client";
-      } else {
-        this.selectedProposalType = type;
-      }
-      this.selectedProposalData = item;
-      this.isModalOpen = true;
+    openReport(report) {
+      this.activeReport = report;
+      this.isReportModalOpen = true;
+    },
+    closeReport() {
+      this.isReportModalOpen = false;
+      setTimeout(() => {
+        this.activeReport = null;
+      }, 300);
     },
   },
 };
 </script>
-

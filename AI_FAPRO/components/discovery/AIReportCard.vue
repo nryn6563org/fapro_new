@@ -61,7 +61,7 @@
  * 기능: AI 종목발굴 페이지의 리포트 카드 (150라인 준수를 위한 분리)
  */
 import { CalendarIcon, ClockIcon, EyeIcon } from "vue-feather-icons";
-import "~/assets/css/pages/discovery/AIReportCard/AIReportCard.css";
+import "~/assets/css/pages/index/AIReportCard/AIReportCard.css";
 
 export default {
   name: "AIReportCard",
