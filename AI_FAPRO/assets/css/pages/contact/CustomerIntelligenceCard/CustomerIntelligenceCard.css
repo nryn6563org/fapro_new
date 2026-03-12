@@ -173,7 +173,7 @@
 }
 
 .customer-intelligence-card__btn--block {
-  @apply w-full h-10 text-xs rounded-xl shadow-sm;
+  @apply w-full h-10 text-[14px] rounded-xl shadow-sm;
 }
 
 .customer-intelligence-card__btn--amber-solid {
