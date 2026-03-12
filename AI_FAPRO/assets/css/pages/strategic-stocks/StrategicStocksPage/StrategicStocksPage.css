@@ -40,5 +40,5 @@
 
 /* Card List */
 .strategic-page__card-list {
-  @apply space-y-4;
+  @apply grid grid-cols-1 gap-4 items-start;
 }

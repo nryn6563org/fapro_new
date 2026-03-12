@@ -23,8 +23,19 @@
         :key="item.id"
         class="customer-intelligence-item customer-intelligence-item--hover-amber"
       >
+        <div class="customer-intelligence-item__top">
+          <div class="customer-intelligence-item__info">
+            <h4 class="customer-intelligence-item__name">{{ item.name }}</h4>
+          </div>
+          <button
+            class="customer-intelligence-card__btn customer-intelligence-card__btn--compact customer-intelligence-card__btn--amber-solid"
+            @click="$emit('propose', 'CustomerIntelligence', item)"
+          >
+            <send-icon size="12" class="customer-intelligence-card__btn-icon" />
+            제안하기
+          </button>
+        </div>
         <div class="customer-intelligence-item__content">
-          <h4 class="customer-intelligence-item__name">{{ item.name }}</h4>
           <div class="customer-intelligence-item__stats">
             <div class="stat-row">
               <span class="stat-row__label">총 자산</span>
@@ -47,14 +58,6 @@
           </div>
           <div class="customer-intelligence-alert__text">{{ item.aiKeyword }}</div>
         </div>
-
-        <button
-          class="customer-intelligence-card__btn customer-intelligence-card__btn--block customer-intelligence-card__btn--amber-solid"
-          @click="$emit('propose', 'CustomerIntelligence', item)"
-        >
-          <send-icon size="12" class="customer-intelligence-card__btn-icon" />
-          제안하기
-        </button>
       </div>
     </div>
   </article>

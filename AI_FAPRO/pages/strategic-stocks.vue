@@ -92,11 +92,11 @@ export default {
   methods: {
     toggleCard(id) {
       if (this.expandedCards.includes(id)) {
-        this.expandedCards = this.expandedCards.filter(
-          (cardId) => cardId !== id
-        );
+        // 이미 열려있는 카드를 클릭하면 닫음
+        this.expandedCards = [];
       } else {
-        this.expandedCards.push(id);
+        // 새로운 카드를 열면 기존의 모든 카드를 닫고 해당 카드만 엶
+        this.expandedCards = [id];
       }
     },
     refreshData() {

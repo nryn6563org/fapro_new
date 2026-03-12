@@ -72,15 +72,23 @@
   BEM Block: customer-intelligence-item
 */
 .customer-intelligence-item {
-  @apply fapro-item-card;
+  @apply fapro-item-card flex-col;
+}
+
+.customer-intelligence-item__top {
+  @apply flex w-full items-center justify-between gap-3 mb-3;
+}
+
+.customer-intelligence-item__info {
+  @apply flex flex-col gap-1 flex-1 pl-1;
 }
 
 .customer-intelligence-item__content {
-  @apply flex-1 min-w-0 mb-3;
+  @apply flex-1 min-w-0 mb-3 w-full px-1;
 }
 
 .customer-intelligence-item__name {
-  @apply font-bold text-base text-slate-800 dark:text-white mb-2;
+  @apply font-bold text-base text-slate-800 dark:text-white m-0;
 }
 
 .customer-intelligence-item__stats {
@@ -129,7 +137,7 @@
   BEM Block: customer-intelligence-alert
 */
 .customer-intelligence-alert {
-  @apply rounded-xl px-3 py-2.5 mb-3 border;
+  @apply rounded-xl px-3 py-2.5 border;
 }
 .customer-intelligence-alert--amber {
   @apply bg-amber-50 border-amber-100 dark:bg-amber-900/10 dark:border-amber-900/30;
@@ -160,18 +168,22 @@
   @apply flex items-center justify-center font-bold transition-all duration-300 active:scale-95;
 }
 
+.customer-intelligence-card__btn--compact {
+  @apply px-4 text-xs h-9 rounded-xl;
+}
+
 .customer-intelligence-card__btn--block {
   @apply w-full h-10 text-xs rounded-xl shadow-sm;
 }
 
 .customer-intelligence-card__btn--amber-solid {
-  @apply bg-amber-500 hover:bg-amber-600 text-white shadow-amber-500/20 hover:shadow-lg hover:shadow-amber-500/30;
+  @apply bg-amber-500 hover:bg-amber-600 text-white shadow-lg shadow-amber-500/20;
 }
 .customer-intelligence-card__btn--emerald-solid {
-  @apply bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/20 hover:shadow-lg hover:shadow-emerald-500/30;
+  @apply bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/20;
 }
 .customer-intelligence-card__btn--rose-solid {
-  @apply bg-rose-500 hover:bg-rose-600 text-white shadow-rose-500/20 hover:shadow-lg hover:shadow-rose-500/30;
+  @apply bg-rose-500 hover:bg-rose-600 text-white shadow-lg shadow-rose-500/20;
 }
 
 .customer-intelligence-card__btn-icon {
