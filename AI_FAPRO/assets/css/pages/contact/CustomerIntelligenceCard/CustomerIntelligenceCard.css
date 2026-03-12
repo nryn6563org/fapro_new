@@ -169,7 +169,7 @@
 }
 
 .customer-intelligence-card__btn--compact {
-  @apply px-4 text-xs h-9 rounded-xl;
+  @apply px-4 text-[14px] h-9 rounded-xl;
 }
 
 .customer-intelligence-card__btn--block {
