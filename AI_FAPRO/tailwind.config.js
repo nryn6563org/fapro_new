@@ -72,10 +72,10 @@ module.exports = {
           "@apply flex flex-col": {}
         },
         ".fapro-page-header__title": {
-          "@apply text-3xl font-bold text-slate-800 dark:text-white tracking-tight": {}
+          "@apply text-[28px] font-bold text-slate-800 dark:text-white tracking-tight": {}
         },
         ".fapro-page-header__subtitle": {
-          "@apply text-slate-500 dark:text-slate-400 mt-1 text-sm font-normal": {}
+          "@apply text-slate-500 dark:text-slate-400 mt-1 text-[14px] font-normal": {}
         },
         ".fapro-page-header__action-box": {
           "@apply flex items-center gap-4": {}
@@ -84,7 +84,7 @@ module.exports = {
           "@apply text-right": {}
         },
         ".fapro-page-header__time-text": {
-          "@apply text-sm font-bold text-slate-800 dark:text-white": {}
+          "@apply text-[16px] font-bold text-slate-800 dark:text-white": {}
         },
         ".fapro-page-header__time-label": {
           "@apply text-xs text-slate-500 dark:text-slate-400": {}
@@ -218,10 +218,10 @@ module.exports = {
           "@apply p-5 pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between": {}
         },
         ".fapro-card-title": {
-          "@apply text-base font-bold text-slate-800 dark:text-slate-100 tracking-tight": {}
+          "@apply text-[18px] font-bold text-slate-800 dark:text-slate-100 tracking-tight": {}
         },
         ".fapro-card-desc": {
-          "@apply text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-normal": {}
+          "@apply text-[14px] text-slate-500 dark:text-slate-400 mt-0.5 font-normal": {}
         },
         ".fapro-card-body": {
           "@apply p-5": {}

@@ -40,25 +40,25 @@
   @apply flex items-center gap-2 mb-2;
 }
 .trading-signal-card__time-text {
-  @apply text-[13px] font-bold;
+  @apply text-[12px] font-bold;
 }
 /* 매수 텍스트: buy 시맨틱 컬러 */
 .trading-signal-card__time-text--buy {
-  @apply text-buy;
+  @apply text-buy text-[12px];
 }
 .dark .trading-signal-card__time-text--buy {
   @apply text-buy/80;
 }
 /* 매도 텍스트: sell 시맨틱 컬러 */
 .trading-signal-card__time-text--sell {
-  @apply text-sell;
+  @apply text-sell text-[12px];
 }
 .dark .trading-signal-card__time-text--sell {
   @apply text-sell/80;
 }
 
 .trading-signal-card__name {
-  @apply text-2xl font-bold text-slate-900 dark:text-white mb-2;
+  @apply text-[18px] font-bold text-slate-900 dark:text-white mb-2;
 }
 .trading-signal-card__price-row {
   @apply flex items-center justify-between mb-4;
@@ -68,13 +68,13 @@
 }
 /* 매수 가격: buy 컬러 */
 .trading-signal-card__price--buy {
-  @apply text-buy;
+  @apply text-buy text-[18px];
 }
 .dark .trading-signal-card__price--buy {
   @apply text-buy/80;
 }
 .trading-signal-card__price--sell {
-  @apply text-sell;
+  @apply text-sell text-[18px];
 }
 .dark .trading-signal-card__price--sell {
   @apply text-sell/80;
@@ -107,7 +107,7 @@
   @apply flex-1 flex items-center justify-center py-2 text-sm rounded border bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors font-semibold;
 }
 .trading-signal-card--buy .trading-signal-card__btn-detail {
-  @apply border-slate-300 text-slate-700;
+  @apply border-slate-300 text-slate-700 text-[14px];
 }
 .dark .trading-signal-card--buy .trading-signal-card__btn-detail {
   @apply text-slate-200 border-slate-600;
@@ -135,13 +135,13 @@
   @apply px-4 py-4 bg-white dark:bg-slate-900 flex-1;
 }
 .trading-signal-card__reason-title {
-  @apply text-[13px] font-bold text-slate-800 dark:text-slate-200 mb-2;
+  @apply text-[14px] font-bold text-slate-800 dark:text-slate-200 mb-2;
 }
 .trading-signal-card__reason-text {
-  @apply text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed break-keep;
+  @apply text-[14x] text-slate-600 dark:text-slate-400 leading-relaxed break-keep;
 }
 .trading-signal-card__reason-more {
-  @apply text-[12px] font-semibold text-blue-400 ml-1 cursor-pointer hover:text-blue-700 hover:font-bold transition-colors;
+  @apply text-[13px] font-semibold text-blue-400 ml-1 cursor-pointer hover:text-blue-700 hover:font-bold transition-colors;
 }
 
 /* AI 분석 생성 중 빈 상태 */

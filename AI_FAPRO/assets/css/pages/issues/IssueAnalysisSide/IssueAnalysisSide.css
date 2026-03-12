@@ -117,7 +117,7 @@
   @apply flex gap-2 mb-3;
 }
 .analysis-side__tab-btn {
-  @apply flex-1 flex items-center justify-center py-2 text-[13px] font-bold rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 cursor-pointer text-slate-500 dark:text-slate-400 transition-all shadow-sm;
+  @apply flex-1 flex items-center justify-center py-2 text-[14px] font-bold rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 cursor-pointer text-slate-500 dark:text-slate-400 transition-all shadow-sm;
 }
 /* 활성 탭: primary 브랜드 컬러 */
 .analysis-side__tab-btn--active {
@@ -142,7 +142,7 @@
   @apply analysis-side__content-box;
 }
 .analysis-side__text {
-  @apply text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed m-0;
+  @apply text-[14px] text-slate-700 dark:text-slate-300 leading-relaxed m-0;
 }
 
 /* 종목 섹션 */
@@ -157,7 +157,7 @@
   @apply w-4 h-4 text-primary;
 }
 .analysis-side__section-title {
-  @apply font-bold text-[13px] text-slate-900 dark:text-white m-0;
+  @apply font-bold text-[14px] text-slate-900 dark:text-white m-0;
 }
 
 .analysis-side__stocks-grid {

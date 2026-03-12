@@ -18,10 +18,10 @@
   @apply flex items-center gap-2;
 }
 .strategic-card__code {
-  @apply text-xs font-medium text-slate-400 dark:text-slate-500;
+  @apply text-[12px] font-medium text-slate-400 dark:text-slate-500;
 }
 .strategic-card__name {
-  @apply text-lg font-bold text-slate-900 dark:text-white m-0 truncate;
+  @apply text-[18px] font-bold text-slate-900 dark:text-white m-0 truncate;
 }
 
 /* Col 2: 가격 */
@@ -29,7 +29,7 @@
   @apply flex items-center justify-end;
 }
 .strategic-card__price-value {
-  @apply font-bold text-slate-900 dark:text-white text-[15px];
+  @apply font-bold text-slate-900 dark:text-white text-[16px];
 }
 
 /* Col 3: 등락 */
@@ -37,7 +37,7 @@
   @apply flex items-center justify-end;
 }
 .strategic-card__change-value {
-  @apply font-bold text-[15px];
+  @apply font-bold text-[12px];
 }
 /* 상승: buy 시맨틱 컬러 */
 .strategic-card__change-value--up {
@@ -65,7 +65,7 @@
 }
 /* 제안 버튼: primary 브랜드 컬러 */
 .strategic-card__btn-propose {
-  @apply flex items-center justify-center px-5 py-2 text-xs font-bold rounded-xl text-white transition-all duration-300 cursor-pointer active:scale-95 border-0 bg-primary shadow-lg shadow-primary/20;
+  @apply flex items-center justify-center px-5 py-2 text-[14px] font-bold rounded-xl text-white transition-all duration-300 cursor-pointer active:scale-95 border-0 bg-primary shadow-lg shadow-primary/20;
 }
 .strategic-card__btn-propose:hover {
   @apply bg-primary/90 shadow-xl shadow-primary/30;
@@ -111,14 +111,14 @@
   @apply w-4 h-4;
 }
 .strategic-card__section-title {
-  @apply font-bold text-sm m-0 tracking-tight;
+  @apply font-bold text-[14px] m-0 tracking-tight;
 }
 
 .strategic-card__point-list {
   @apply space-y-2 m-0 p-0 pl-1 list-none;
 }
 .strategic-card__point-item {
-  @apply flex items-start gap-2 text-[13px] font-medium leading-relaxed;
+  @apply flex items-start gap-2 text-[14px] font-medium leading-relaxed;
 }
 .strategic-card__point-bullet {
   @apply w-1 h-1 rounded-full mt-2 flex-shrink-0;

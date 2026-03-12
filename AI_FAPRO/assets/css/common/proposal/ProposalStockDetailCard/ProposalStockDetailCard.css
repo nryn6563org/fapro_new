@@ -26,7 +26,7 @@
   @apply text-[12px] font-mono text-slate-400 uppercase tracking-wider;
 }
 .strategic-card__name {
-  @apply text-lg font-bold text-slate-800;
+  @apply text-[18px] font-bold text-slate-800;
 }
 
 /* ── 가격 정보 ── */

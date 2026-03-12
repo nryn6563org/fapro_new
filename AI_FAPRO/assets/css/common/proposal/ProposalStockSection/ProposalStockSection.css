@@ -32,10 +32,10 @@
 }
 
 .proposal-item__change--up {
-  @apply text-red-500 font-semibold;
+  @apply text-red-500 text-[12px];
 }
 .proposal-item__change--down {
-  @apply text-blue-500 font-semibold;
+  @apply text-blue-500 text-[12px];
 }
 
 /* ── 종목별 제안 사유 블록 ── */

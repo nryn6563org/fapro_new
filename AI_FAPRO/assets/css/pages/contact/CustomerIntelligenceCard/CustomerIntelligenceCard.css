@@ -15,7 +15,7 @@
 }
 
 .customer-intelligence-section__title {
-  @apply text-xl font-black text-slate-900 dark:text-white tracking-tight;
+  @apply text-[22px] font-black text-slate-900 dark:text-white tracking-tight;
 }
 
 .customer-intelligence-section__update-time {
@@ -88,7 +88,7 @@
 }
 
 .customer-intelligence-item__name {
-  @apply font-bold text-base text-slate-800 dark:text-white m-0;
+  @apply font-bold text-[16px] text-slate-800 dark:text-white m-0;
 }
 
 .customer-intelligence-item__stats {
@@ -100,10 +100,10 @@
   @apply flex justify-between gap-2;
 }
 .stat-row__label {
-  @apply text-slate-500 dark:text-slate-400;
+  @apply text-slate-500 dark:text-slate-400 text-[14px];
 }
 .stat-row__value {
-  @apply text-slate-700 dark:text-slate-300 truncate text-right;
+  @apply text-slate-700 dark:text-slate-300 truncate text-right text-[14px];
 }
 .stat-row__value--semibold {
   @apply font-semibold;
@@ -150,17 +150,17 @@
 }
 
 .customer-intelligence-alert__title--amber {
-  @apply text-amber-700 dark:text-amber-400 font-bold mb-1 block;
+  @apply text-amber-700 dark:text-amber-400 font-bold mb-1 block text-[14px];
 }
 .customer-intelligence-alert__title--emerald {
-  @apply text-emerald-700 dark:text-emerald-400 font-bold mb-1 block;
+  @apply text-emerald-700 dark:text-emerald-400 font-bold mb-1 block text-[14px];
 }
 .customer-intelligence-alert__title--rose {
-  @apply text-rose-700 dark:text-rose-400 font-bold mb-1 block;
+  @apply text-rose-700 dark:text-rose-400 font-bold mb-1 block text-[14px];
 }
 
 .customer-intelligence-alert__text {
-  @apply text-xs text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2;
+  @apply text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2 text-[13px];
 }
 
 /* Button modifiers */
