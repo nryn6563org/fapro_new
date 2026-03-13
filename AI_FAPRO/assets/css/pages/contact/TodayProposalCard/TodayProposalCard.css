@@ -112,7 +112,7 @@
 }
 
 .today-proposal-item__meta {
-  @apply text-[14px] text-slate-500 dark:text-slate-400 font-semibold;
+  @apply text-sm text-slate-500 dark:text-slate-400 font-semibold;
 }
 
 .today-proposal-item__right {
@@ -138,7 +138,7 @@
 }
 
 .today-proposal-item__bottom {
-  @apply pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between w-full pl-1 text-[14px];
+  @apply pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between w-full pl-1 text-sm;
 }
 
 /* ── 배지 시스템 ── */
@@ -192,7 +192,7 @@
 
 /* ── 제안 버튼 ── */
 .today-proposal__btn {
-  @apply flex items-center justify-center font-bold transition-all duration-300 active:scale-95 px-4 text-[14px] h-9 rounded-xl;
+  @apply flex items-center justify-center font-bold transition-all duration-300 active:scale-95 px-4 text-sm h-9 rounded-xl;
 }
 
 /* 오늘 타겟 버튼: primary */
@@ -247,7 +247,7 @@
 }
 
 .proposal-item__meta {
-  @apply text-[14px] text-slate-500 dark:text-slate-400 font-semibold;
+  @apply text-sm text-slate-500 dark:text-slate-400 font-semibold;
 }
 
 /* 상승 표시: buy 컬러 */
@@ -261,7 +261,7 @@
 }
 
 .proposal-item__bottom {
-  @apply pt-3 border-t border-slate-200 dark:border-slate-700/50 text-[14px] text-slate-500 dark:text-slate-400 w-full px-1;
+  @apply pt-3 border-t border-slate-200 dark:border-slate-700/50 text-sm text-slate-500 dark:text-slate-400 w-full px-1;
 }
 
 /* ── wrapper 공통 ── */

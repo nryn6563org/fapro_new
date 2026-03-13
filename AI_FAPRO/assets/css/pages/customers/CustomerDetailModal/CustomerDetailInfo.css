@@ -49,5 +49,5 @@
 }
 
 .customer-info__memo-text {
-  @apply text-[14px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed m-0;
+  @apply text-sm font-medium text-slate-700 dark:text-slate-300 leading-relaxed m-0;
 }

@@ -71,10 +71,10 @@
   @apply text-sm leading-none;
 }
 .ai-report-card__reason-title {
-  @apply text-[14px] font-bold text-slate-800 dark:text-slate-200;
+  @apply text-sm font-bold text-slate-800 dark:text-slate-200;
 }
 .ai-report-card__reason-text {
-  @apply text-[14px] text-slate-600 dark:text-slate-400 leading-relaxed break-keep;
+  @apply text-sm text-slate-600 dark:text-slate-400 leading-relaxed break-keep;
 }
 
 /* 액션 버튼 */
@@ -83,7 +83,7 @@
 }
 /* 상세 보기 버튼: primary 브랜드 컬러 */
 .ai-report-card__btn-view {
-  @apply flex items-center justify-center px-5 py-2 text-[14px] font-bold rounded-xl text-white transition-all duration-300 cursor-pointer active:scale-95 bg-primary shadow-lg shadow-primary/20;
+  @apply flex items-center justify-center px-5 py-2 text-sm font-bold rounded-xl text-white transition-all duration-300 cursor-pointer active:scale-95 bg-primary shadow-lg shadow-primary/20;
 }
 .ai-report-card__btn-view:hover {
   @apply bg-primary/90 shadow-xl shadow-primary/30;

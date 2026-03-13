@@ -47,7 +47,7 @@
   @apply flex flex-1 items-center justify-between;
 }
 .app-sidebar__nav-label{
-  @apply !text-[14px]
+  @apply !text-sm
 }
 .app-sidebar__subnav-label{
   @apply !text-[13px]

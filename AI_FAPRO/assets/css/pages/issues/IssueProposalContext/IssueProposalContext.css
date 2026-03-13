@@ -52,7 +52,7 @@
 
 /* 텍스트 스타일 */
 .issue-proposal-section__text {
-  @apply text-[14px] text-slate-700 dark:text-slate-300 leading-relaxed font-medium;
+  @apply text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-medium;
 }
 
 .issue-proposal-section__text-spaced {
@@ -61,7 +61,7 @@
 
 /* 뉴스 전용 텍스트 */
 .issue-proposal-section__news-title {
-  @apply text-[14px] font-black text-slate-900 dark:text-white mb-2 leading-tight;
+  @apply text-sm font-black text-slate-900 dark:text-white mb-2 leading-tight;
 }
 .issue-proposal-section__news-desc {
   @apply text-[13px] text-slate-500 leading-normal line-clamp-2;

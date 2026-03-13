@@ -62,7 +62,7 @@
   @apply text-[12px] text-slate-500 font-medium;
 }
 .proposal-item__meta {
-  @apply text-[13px] text-slate-600 dark:text-slate-400 leading-tight;
+  @apply text-sm text-slate-600 dark:text-slate-400 leading-tight;
 }
 .proposal-item__reason {
   @apply text-[12px] px-3 py-2 rounded-lg leading-relaxed border flex items-start gap-1 relative;

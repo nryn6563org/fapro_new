@@ -58,6 +58,9 @@ module.exports = {
       opacity: {
         8: "0.08",
         15: "0.15"
+      },
+      fontSize: {
+        sm: "14px"
       }
     }
   },
@@ -75,7 +78,7 @@ module.exports = {
           "@apply text-[28px] font-bold text-slate-800 dark:text-white tracking-tight": {}
         },
         ".fapro-page-header__subtitle": {
-          "@apply text-slate-500 dark:text-slate-400 mt-1 text-[14px] font-normal": {}
+          "@apply text-slate-500 dark:text-slate-400 mt-1 text-sm font-normal": {}
         },
         ".fapro-page-header__action-box": {
           "@apply flex items-center gap-4": {}
@@ -221,7 +224,7 @@ module.exports = {
           "@apply text-[18px] font-bold text-slate-800 dark:text-slate-100 tracking-tight": {}
         },
         ".fapro-card-desc": {
-          "@apply text-[14px] text-slate-500 dark:text-slate-400 mt-0.5 font-normal": {}
+          "@apply text-sm text-slate-500 dark:text-slate-400 mt-0.5 font-normal": {}
         },
         ".fapro-card-body": {
           "@apply p-5": {}

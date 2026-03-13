@@ -31,7 +31,7 @@
 }
 
 .issue-proposal-clients__name {
-  @apply text-[14px] font-black text-slate-900 dark:text-white leading-tight;
+  @apply text-sm font-black text-slate-900 dark:text-white leading-tight;
 }
 
 .issue-proposal-clients__email {

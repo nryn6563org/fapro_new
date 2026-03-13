@@ -64,7 +64,7 @@
   @apply flex-1;
 }
 .issues-stats-card__label {
-  @apply text-[14px] font-bold text-slate-500 dark:text-slate-400 mb-0.5;
+  @apply text-sm font-bold text-slate-500 dark:text-slate-400 mb-0.5;
 }
 .issues-stats-card__value {
   @apply text-[18px] font-black text-slate-900 dark:text-white tracking-tight;
