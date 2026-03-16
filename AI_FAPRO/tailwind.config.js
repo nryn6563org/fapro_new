@@ -60,7 +60,37 @@ module.exports = {
         15: "0.15"
       },
       fontSize: {
-        sm: "14px"
+        "2xs": "10px",
+        xs: "12px",
+        sm: "14px",
+        base: "16px",
+        lg: "18px",
+        xl: "20px",
+        "2xl": "22px",
+        "3xl": "24px",
+        "4xl": "26px",
+        "5xl": "28px",
+        "6xl": "30px",
+        "7xl": "32px",
+        "8xl": "34px",
+        "9xl": "36px",
+        "10xl": "38px",
+        "11xl": "40px",
+        oxs: "11px",
+        osm: "13px",
+        obase: "15px",
+        olg: "17px",
+        oxl: "19px",
+        o2xl: "21px",
+        o3xl: "23px",
+        o4xl: "25px",
+        o5xl: "27px",
+        o6xl: "29px",
+        o7xl: "31px",
+        o8xl: "33px",
+        o9xl: "35px",
+        o10xl: "37px",
+        o11xl: "39px"
       }
     }
   },

@@ -1,7 +1,7 @@
 /* Tailwind directives container */
 
 .settings-billing__label {
-  @apply text-[13px] font-bold text-slate-400 uppercase tracking-tight;
+  @apply text-osm font-bold text-slate-400 uppercase tracking-tight;
 }
 
 .settings-billing__info-box {
@@ -13,7 +13,7 @@
 }
 
 .settings-billing__card-name {
-  @apply text-[15px] font-bold text-slate-800 dark:text-white m-0;
+  @apply text-obase font-bold text-slate-800 dark:text-white m-0;
 }
 
 .settings-billing__card-desc {

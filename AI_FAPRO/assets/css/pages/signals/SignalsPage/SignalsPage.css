@@ -93,7 +93,7 @@
   @apply w-6 h-6;
 }
 .signals-page__column-title {
-  @apply text-[18px] font-bold text-slate-800 dark:text-slate-100;
+  @apply text-lg font-bold text-slate-800 dark:text-slate-100;
 }
 .signals-page__column-badge {
   @apply px-2.5 py-0.5 rounded-full text-xs font-semibold;

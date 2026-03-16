@@ -9,7 +9,7 @@
 }
 
 .customer-table__main {
-  @apply w-full text-[13px] border-collapse;
+  @apply w-full text-osm border-collapse;
 }
 
 .customer-table__head {
@@ -45,7 +45,7 @@
 }
 
 .customer-table__td--slate {
-  @apply text-[13px] text-slate-700 dark:text-slate-300 font-medium;
+  @apply text-osm text-slate-700 dark:text-slate-300 font-medium;
 }
 
 .customer-table__td--notes {

@@ -36,10 +36,10 @@
 
 /* ── 헤더 텍스트 ── */
 .proposal-header__title {
-  @apply text-[18px] font-bold text-slate-900 dark:text-white tracking-tight leading-tight;
+  @apply text-lg font-bold text-slate-900 dark:text-white tracking-tight leading-tight;
 }
 .proposal-header__desc {
-  @apply text-[12px] text-slate-500 dark:text-slate-400 mt-1;
+  @apply text-xs text-slate-500 dark:text-slate-400 mt-1;
 }
 
 .proposal-header__title-content {
@@ -75,7 +75,7 @@
 
 /* ── 공통 배지 ── */
 .proposal-badge {
-  @apply rounded-full px-2.5 py-0.5 text-[11px] font-bold inline-block whitespace-nowrap tracking-wide leading-none;
+  @apply rounded-full px-2.5 py-0.5 text-oxs font-bold inline-block whitespace-nowrap tracking-wide leading-none;
 }
 .proposal-badge--outline {
   @apply border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-400 px-2 py-0.5 rounded-md;

@@ -9,7 +9,7 @@
 }
 
 .month-view__weekday {
-  @apply p-4 text-center border-r border-slate-200 dark:border-slate-800 text-[12px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest;
+  @apply p-4 text-center border-r border-slate-200 dark:border-slate-800 text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest;
 }
 
 .month-view__grid {
@@ -17,7 +17,7 @@
 }
 
 .month-view__th {
-  @apply bg-slate-50/50 dark:bg-slate-900 p-4 text-center text-[13px] font-black uppercase tracking-widest text-slate-400;
+  @apply bg-slate-50/50 dark:bg-slate-900 p-4 text-center text-osm font-black uppercase tracking-widest text-slate-400;
 }
 
 .month-view__th--sunday {
@@ -41,7 +41,7 @@
 }
 
 .month-view__day-num {
-  @apply text-[15px] font-black absolute top-2 left-2 flex items-center justify-center;
+  @apply text-obase font-black absolute top-2 left-2 flex items-center justify-center;
 }
 
 .month-view__day-num--today {
@@ -69,22 +69,22 @@
 }
 
 .month-view__more {
-  @apply text-[11px] font-black px-2 py-0.5 rounded-lg truncate shadow-sm border border-slate-200 bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700 mt-1 cursor-pointer transition-all hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-700 dark:hover:text-slate-200 text-center;
+  @apply text-oxs font-black px-2 py-0.5 rounded-lg truncate shadow-sm border border-slate-200 bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700 mt-1 cursor-pointer transition-all hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-700 dark:hover:text-slate-200 text-center;
 }
 
 /* Event Category Colors: Premium Soft Pill Style (Single Class Approach) */
 .month-view__event-tag--blue-500 {
-  @apply text-[12px] font-black px-2.5 py-1 rounded-lg truncate shadow-sm border border-blue-100 bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-800/50;
+  @apply text-xs font-black px-2.5 py-1 rounded-lg truncate shadow-sm border border-blue-100 bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-800/50;
 }
 
 .month-view__event-tag--teal-500 {
-  @apply text-[12px] font-black px-2.5 py-1 rounded-lg truncate shadow-sm border border-teal-100 bg-teal-50 text-teal-600 dark:bg-teal-900/20 dark:text-teal-400 dark:border-teal-800/50;
+  @apply text-xs font-black px-2.5 py-1 rounded-lg truncate shadow-sm border border-teal-100 bg-teal-50 text-teal-600 dark:bg-teal-900/20 dark:text-teal-400 dark:border-teal-800/50;
 }
 
 .month-view__event-tag--purple-500 {
-  @apply text-[12px] font-black px-2.5 py-1 rounded-lg truncate shadow-sm border border-purple-100 bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400 dark:border-purple-800/50;
+  @apply text-xs font-black px-2.5 py-1 rounded-lg truncate shadow-sm border border-purple-100 bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400 dark:border-purple-800/50;
 }
 
 .month-view__event-tag--amber-500 {
-  @apply text-[12px] font-black px-2.5 py-1 rounded-lg truncate shadow-sm border border-amber-100 bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800/50;
+  @apply text-xs font-black px-2.5 py-1 rounded-lg truncate shadow-sm border border-amber-100 bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800/50;
 }

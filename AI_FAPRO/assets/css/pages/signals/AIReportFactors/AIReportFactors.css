@@ -29,5 +29,5 @@
 }
 
 .ai-report-factors__list-text {
-  @apply text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed;
+  @apply text-osm text-slate-600 dark:text-slate-400 leading-relaxed;
 }

@@ -13,7 +13,7 @@
   @apply flex items-center bg-white dark:bg-slate-900 rounded-full shadow-sm border border-primary;
 }
 .issue-chart__tab {
-  @apply px-4 py-1.5 text-[13px] font-bold rounded-full transition-colors border-0 bg-transparent cursor-pointer text-slate-500 dark:text-slate-400;
+  @apply px-4 py-1.5 text-osm font-bold rounded-full transition-colors border-0 bg-transparent cursor-pointer text-slate-500 dark:text-slate-400;
 }
 /* 활성 탭: primary 컬러 */
 .issue-chart__tab--active {

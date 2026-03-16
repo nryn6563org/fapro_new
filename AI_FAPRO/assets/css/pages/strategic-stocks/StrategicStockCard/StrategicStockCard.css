@@ -18,10 +18,10 @@
   @apply flex items-center gap-2;
 }
 .strategic-card__code {
-  @apply text-[12px] font-medium text-slate-400 dark:text-slate-500;
+  @apply text-xs font-medium text-slate-400 dark:text-slate-500;
 }
 .strategic-card__name {
-  @apply text-[18px] font-bold text-slate-900 dark:text-white m-0 truncate;
+  @apply text-lg font-bold text-slate-900 dark:text-white m-0 truncate;
 }
 
 /* Col 2: 가격 */
@@ -29,7 +29,7 @@
   @apply flex items-center justify-end;
 }
 .strategic-card__price-value {
-  @apply font-bold text-slate-900 dark:text-white text-[16px];
+  @apply font-bold text-slate-900 dark:text-white text-base;
 }
 
 /* Col 3: 등락 */
@@ -37,7 +37,7 @@
   @apply flex items-center justify-end;
 }
 .strategic-card__change-value {
-  @apply font-bold text-[12px];
+  @apply font-bold text-xs;
 }
 /* 상승: buy 시맨틱 컬러 */
 .strategic-card__change-value--up {
@@ -56,7 +56,7 @@
   @apply w-3.5 h-3.5 mr-2;
 }
 .strategic-card__trait-text {
-  @apply text-[13px] font-bold truncate tracking-tight;
+  @apply text-osm font-bold truncate tracking-tight;
 }
 
 /* Col 5: 액션 */

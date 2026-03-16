@@ -23,7 +23,7 @@
   @apply bg-blue-50/50 dark:bg-blue-950/20 border-blue-100 dark:border-blue-900/30 rounded-lg p-3 border;
 }
 .ai-report-score__card-title {
-  @apply text-[15px] font-bold text-slate-800 dark:text-slate-200;
+  @apply text-obase font-bold text-slate-800 dark:text-slate-200;
 }
 .ai-report-score__card-title--between {
   @apply flex items-center justify-between;
@@ -60,7 +60,7 @@
   @apply flex items-center gap-3 w-full;
 }
 .ai-report-score__progress-label {
-  @apply w-28 text-[13px] font-medium text-slate-700 dark:text-slate-300;
+  @apply w-28 text-osm font-medium text-slate-700 dark:text-slate-300;
 }
 .ai-report-score__progress-bar-container {
   @apply flex-1 h-2 relative;
@@ -121,10 +121,10 @@
   @apply fill-green-500 stroke-green-600;
 }
 .ai-report-score__radar-label {
-  @apply text-[11px] font-bold fill-slate-500 dark:fill-slate-400;
+  @apply text-oxs font-bold fill-slate-500 dark:fill-slate-400;
 }
 .ai-report-score__radar-val {
-  @apply text-[10px] font-bold fill-slate-700 dark:fill-slate-300;
+  @apply text-2xs font-bold fill-slate-700 dark:fill-slate-300;
 }
 
 /* ── 팩터 리뷰 ── */

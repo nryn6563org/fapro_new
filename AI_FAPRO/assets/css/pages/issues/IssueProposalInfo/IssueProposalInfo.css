@@ -54,7 +54,7 @@
 
 /* 뱃지 */
 .issue-proposal__stat-badge {
-  @apply mt-2 inline-flex self-start px-2 py-0.5 rounded text-[12px] font-black uppercase;
+  @apply mt-2 inline-flex self-start px-2 py-0.5 rounded text-xs font-black uppercase;
 }
 .issue-proposal__stat-badge--red {
   @apply bg-rose-500 text-white;
@@ -67,7 +67,7 @@
 
 /* 하단 수치 (빈도용) */
 .issue-proposal__stat-substat {
-  @apply flex items-center gap-0.5 text-[12px] font-bold;
+  @apply flex items-center gap-0.5 text-xs font-bold;
 }
 .issue-proposal__stat-substat--up {
   @apply text-red-600;

@@ -66,7 +66,7 @@
 }
 
 .schedule-header__sync-label {
-  @apply font-black text-[13px];
+  @apply font-black text-osm;
 }
 
 .schedule-header__sync-icon--success {
@@ -95,9 +95,9 @@
 }
 
 .schedule-header__view-btn--default {
-  @apply px-5 py-2 text-[13px] font-bold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all border-0 bg-transparent cursor-pointer rounded-[10px];
+  @apply px-5 py-2 text-osm font-bold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all border-0 bg-transparent cursor-pointer rounded-[10px];
 }
 
 .schedule-header__view-btn--active {
-  @apply px-5 py-2 text-[13px] font-black bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 transition-all border-0 cursor-pointer rounded-[10px] shadow-[0_4px_12px_rgba(0,0,0,0.08)] dark:shadow-none scale-[1.02];
+  @apply px-5 py-2 text-osm font-black bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 transition-all border-0 cursor-pointer rounded-[10px] shadow-[0_4px_12px_rgba(0,0,0,0.08)] dark:shadow-none scale-[1.02];
 }

@@ -100,15 +100,15 @@
 }
 
 .day-view__event-title {
-  @apply font-black text-[15px] truncate max-w-[80%];
+  @apply font-black text-obase truncate max-w-[80%];
 }
 
 .day-view__event-type {
-  @apply text-[12px] font-bold px-2 py-0.5 rounded-full bg-white/50 dark:bg-black/20 opacity-80;
+  @apply text-xs font-bold px-2 py-0.5 rounded-full bg-white/50 dark:bg-black/20 opacity-80;
 }
 
 .day-view__event-details {
-  @apply flex items-center gap-4 text-[12px] font-bold opacity-70 mt-1;
+  @apply flex items-center gap-4 text-xs font-bold opacity-70 mt-1;
 }
 
 .day-view__event-detail-item {

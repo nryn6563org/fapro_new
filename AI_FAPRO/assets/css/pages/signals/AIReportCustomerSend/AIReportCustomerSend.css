@@ -15,7 +15,7 @@
   @apply my-4;
 }
 .ai-report-send__card-title {
-  @apply text-[15px] font-bold text-slate-800 dark:text-slate-200 flex items-center mb-1;
+  @apply text-obase font-bold text-slate-800 dark:text-slate-200 flex items-center mb-1;
 }
 .ai-report-send__title-icon {
   @apply text-primary mr-2;
@@ -35,7 +35,7 @@
   @apply text-sm font-bold text-slate-800 dark:text-slate-200 leading-none;
 }
 .ai-report-send__target-desc {
-  @apply text-[12px] text-slate-500 dark:text-slate-400 font-medium;
+  @apply text-xs text-slate-500 dark:text-slate-400 font-medium;
 }
 
 /* ── 전체 선택 체크박스 ── */
@@ -75,15 +75,15 @@
   @apply flex items-center gap-1.5;
 }
 .ai-report-send__client-name {
-  @apply text-[13px] font-bold text-slate-800 dark:text-slate-200;
+  @apply text-osm font-bold text-slate-800 dark:text-slate-200;
 }
 .ai-report-send__client-email {
-  @apply text-[12px] font-medium text-slate-500 dark:text-slate-400;
+  @apply text-xs font-medium text-slate-500 dark:text-slate-400;
 }
 
 /* ── 고객 유형 배지 ── */
 .ai-report-send__client-badge {
-  @apply text-[12px] font-bold px-2 py-0.5 rounded-full min-w-max;
+  @apply text-xs font-bold px-2 py-0.5 rounded-full min-w-max;
 }
 .ai-report-send__client-badge--aggressive {
   @apply text-amber-700 bg-amber-100 border border-amber-200 dark:text-amber-400 dark:bg-amber-900/30 dark:border-amber-800;
@@ -103,7 +103,7 @@
   @apply flex flex-col gap-1;
 }
 .ai-report-send__client-reason {
-  @apply text-[12px] px-3 py-2 rounded-lg leading-relaxed border flex items-start gap-1 relative mb-1;
+  @apply text-xs px-3 py-2 rounded-lg leading-relaxed border flex items-start gap-1 relative mb-1;
 }
 .ai-report-send__client-reason--red {
   @apply text-buy bg-buy/10 border-buy/20;
@@ -113,10 +113,10 @@
 }
 .ai-report-send__client-reason::before {
   content: "💡";
-  @apply text-[12px];
+  @apply text-xs;
 }
 .ai-report-send__client-assets {
-  @apply text-[12px] font-medium text-slate-500 dark:text-slate-500;
+  @apply text-xs font-medium text-slate-500 dark:text-slate-500;
 }
 
 /* ── 액션 버튼 그룹 ── */

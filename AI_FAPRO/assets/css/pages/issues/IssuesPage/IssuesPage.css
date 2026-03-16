@@ -67,13 +67,13 @@
   @apply text-sm font-bold text-slate-500 dark:text-slate-400 mb-0.5;
 }
 .issues-stats-card__value {
-  @apply text-[18px] font-black text-slate-900 dark:text-white tracking-tight;
+  @apply text-lg font-black text-slate-900 dark:text-white tracking-tight;
 }
 .issues-stats-card__breakdown {
   @apply flex items-center gap-2 ml-auto text-xs font-bold bg-slate-50/50 dark:bg-slate-800/50 px-4 py-2 rounded-xl border border-slate-100 dark:border-slate-800/60;
 }
 .issues-stats-card__badge-label {
-  @apply text-[11px] text-slate-400 mr-1 hidden sm:inline-block;
+  @apply text-oxs text-slate-400 mr-1 hidden sm:inline-block;
 }
 .issues-stats-card__strength-high {
   @apply font-bold text-red-600;

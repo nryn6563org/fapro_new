@@ -43,7 +43,7 @@
 }
 
 .customer-analysis__card-label {
-  @apply text-[11px] font-black uppercase tracking-widest text-slate-400;
+  @apply text-oxs font-black uppercase tracking-widest text-slate-400;
 }
 
 .customer-analysis__card--highlight .customer-analysis__card-label {
@@ -55,7 +55,7 @@
 }
 
 .customer-analysis__card-content {
-  @apply text-[13px] leading-relaxed text-slate-600 dark:text-slate-400 m-0 font-medium;
+  @apply text-osm leading-relaxed text-slate-600 dark:text-slate-400 m-0 font-medium;
 }
 
 

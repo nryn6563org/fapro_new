@@ -16,7 +16,7 @@
 }
 
 .today-proposal__header-title {
-  @apply text-[22px] font-bold text-slate-900 dark:text-white tracking-tight;
+  @apply text-2xl font-bold text-slate-900 dark:text-white tracking-tight;
 }
 
 /* 새로고침 버튼: primary 브랜드 컬러 */
@@ -108,7 +108,7 @@
 }
 
 .today-proposal-item__name {
-  @apply text-[16px] font-bold text-slate-900 dark:text-white;
+  @apply text-base font-bold text-slate-900 dark:text-white;
 }
 
 .today-proposal-item__meta {
@@ -129,12 +129,12 @@
 
 /* 상승(매수): buy 시맨틱 컬러 #FB2C36 */
 .today-proposal-item__change--up {
-  @apply text-buy text-[12px];
+  @apply text-buy text-xs;
 }
 
 /* 하락(매도): sell 시맨틱 컬러 #2B7FFF */
 .today-proposal-item__change--down {
-  @apply text-sell text-[12px];
+  @apply text-sell text-xs;
 }
 
 .today-proposal-item__bottom {
@@ -143,7 +143,7 @@
 
 /* ── 배지 시스템 ── */
 .today-proposal__badge {
-  @apply rounded-full px-3 py-1 text-[12px] font-bold tracking-wider uppercase min-w-[55px] text-center;
+  @apply rounded-full px-3 py-1 text-xs font-bold tracking-wider uppercase min-w-[55px] text-center;
 }
 
 /* 오늘 타겟 배지: primary */
@@ -243,7 +243,7 @@
 }
 
 .proposal-item__name {
-  @apply text-[16px] font-bold text-slate-900 dark:text-white;
+  @apply text-base font-bold text-slate-900 dark:text-white;
 }
 
 .proposal-item__meta {

@@ -25,7 +25,7 @@
 
 /* ── 뱃지 (매수/매도) ── */
 .proposal-badge {
-  @apply text-[11px] font-semibold px-2 py-0.5 rounded-full;
+  @apply text-oxs font-semibold px-2 py-0.5 rounded-full;
 }
 /* 매수 → buy 시맨틱 컬러 */
 .proposal-badge--red {
@@ -52,20 +52,20 @@
   @apply flex items-center justify-between w-full gap-2;
 }
 .proposal-item__name {
-  @apply text-[15px] font-bold text-slate-900 dark:text-white leading-5;
+  @apply text-obase font-bold text-slate-900 dark:text-white leading-5;
 }
 .proposal-item__ticker,
 .proposal-item__style {
-  @apply text-[12px] text-slate-400 font-medium leading-5;
+  @apply text-xs text-slate-400 font-medium leading-5;
 }
 .proposal-item__style {
-  @apply text-[12px] text-slate-500 font-medium;
+  @apply text-xs text-slate-500 font-medium;
 }
 .proposal-item__meta {
   @apply text-sm text-slate-600 dark:text-slate-400 leading-tight;
 }
 .proposal-item__reason {
-  @apply text-[12px] px-3 py-2 rounded-lg leading-relaxed border flex items-start gap-1 relative;
+  @apply text-xs px-3 py-2 rounded-lg leading-relaxed border flex items-start gap-1 relative;
 }
 .proposal-item__reason--red {
   @apply text-buy bg-buy/10 border-buy/20;
@@ -75,7 +75,7 @@
 }
 .proposal-item__reason::before {
   content: "💡";
-  @apply text-[12px];
+  @apply text-xs;
 }
 
 /* ── 섹션 아이콘 ── */

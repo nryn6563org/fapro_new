@@ -17,7 +17,7 @@
 }
 
 .customer-holdings__table {
-  @apply w-full border-collapse text-[13px];
+  @apply w-full border-collapse text-osm;
 }
 
 .customer-holdings__thead {

@@ -9,7 +9,7 @@
 }
 
 .ai-report-opinion__card-title {
-  @apply text-[15px] font-bold text-slate-800 dark:text-slate-200;
+  @apply text-obase font-bold text-slate-800 dark:text-slate-200;
 }
 
 .ai-report-opinion__ranking {
@@ -17,7 +17,7 @@
 }
 
 .ai-report-opinion__ranking-header {
-  @apply text-[11px] text-slate-400 font-medium text-right;
+  @apply text-oxs text-slate-400 font-medium text-right;
 }
 
 .ai-report-opinion__ranking-bar-wrapper {
@@ -29,7 +29,7 @@
 }
 
 .ai-report-opinion__ranking-segment {
-  @apply h-full flex justify-center items-center text-[10px] font-bold text-slate-400 border-r last:border-r-0 border-white/50 dark:border-slate-800/50 bg-slate-200 dark:bg-slate-700/50;
+  @apply h-full flex justify-center items-center text-2xs font-bold text-slate-400 border-r last:border-r-0 border-white/50 dark:border-slate-800/50 bg-slate-200 dark:bg-slate-700/50;
 }
 
 .ai-report-opinion__ranking-segment--active {
@@ -55,7 +55,7 @@
 }
 
 .ai-report-opinion__ranking-label-group {
-  @apply flex items-center gap-0.5 text-[13px] font-bold text-slate-600 dark:text-slate-300;
+  @apply flex items-center gap-0.5 text-osm font-bold text-slate-600 dark:text-slate-300;
 }
 
 .ai-report-opinion__ranking-indicator--left .ai-report-opinion__ranking-arrow {
@@ -93,11 +93,11 @@
 }
 
 .ai-report-opinion__tick-num {
-  @apply text-[11px] font-medium text-slate-400 dark:text-slate-500 mt-1;
+  @apply text-oxs font-medium text-slate-400 dark:text-slate-500 mt-1;
 }
 
 .ai-report-opinion__ranking-labels {
-  @apply flex text-[13px] font-bold text-slate-600 dark:text-slate-300 mt-4 relative;
+  @apply flex text-osm font-bold text-slate-600 dark:text-slate-300 mt-4 relative;
 }
 
 .ai-report-opinion__label-divider {

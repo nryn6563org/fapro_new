@@ -82,5 +82,5 @@
 
 /* 전망 요인 본문 텍스트 */
 .issue-detail__factor-text {
-  @apply text-[13px] text-slate-500;
+  @apply text-osm text-slate-500;
 }

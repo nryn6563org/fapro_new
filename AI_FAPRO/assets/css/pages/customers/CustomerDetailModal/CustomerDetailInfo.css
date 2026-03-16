@@ -6,7 +6,7 @@
 
 /* 섹션 타이틀 */
 .customer-info__section-title {
-  @apply text-[13px] font-bold text-slate-500 dark:text-slate-400 mb-4 block uppercase tracking-wider;
+  @apply text-osm font-bold text-slate-500 dark:text-slate-400 mb-4 block uppercase tracking-wider;
 }
 
 /* 좌측: 기본 정보 리스트 */
@@ -31,7 +31,7 @@
 }
 
 .customer-info__value {
-  @apply text-[15px] font-bold text-slate-900 dark:text-white;
+  @apply text-obase font-bold text-slate-900 dark:text-white;
 }
 
 /* 투자유형 뱃지 (fapro-badge 기반) */

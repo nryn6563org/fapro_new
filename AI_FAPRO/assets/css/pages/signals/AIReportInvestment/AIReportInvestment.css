@@ -23,7 +23,7 @@
   @apply bg-orange-50/50 dark:bg-orange-950/20 border-orange-100 dark:border-orange-900/30 rounded-lg p-3 border;
 }
 .ai-report-investment__card-title {
-  @apply text-[15px] font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2;
+  @apply text-obase font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2;
 }
 .ai-report-investment__card-body {
   @apply space-y-3;
@@ -34,7 +34,7 @@
 
 /* ── 투자 텍스트 ── */
 .ai-report-investment__text {
-  @apply text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed w-full whitespace-pre-wrap;
+  @apply text-osm text-slate-600 dark:text-slate-400 leading-relaxed w-full whitespace-pre-wrap;
 }
 
 /* ── 정보 그리드 ── */
@@ -102,10 +102,10 @@
   @apply text-amber-500 flex-shrink-0;
 }
 .ai-report-investment__desc {
-  @apply text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed mb-3;
+  @apply text-osm text-slate-700 dark:text-slate-300 leading-relaxed mb-3;
 }
 .ai-report-investment__highlight-text {
-  @apply font-bold text-primary dark:text-primary-light ml-1 text-[15px];
+  @apply font-bold text-primary dark:text-primary-light ml-1 text-obase;
 }
 .ai-report-investment__subtext {
   @apply text-xs text-slate-500 dark:text-slate-400 leading-relaxed;

@@ -18,7 +18,7 @@
 }
 
 .schedule-sidebar__section-title {
-  @apply text-[15px] font-black text-slate-800 dark:text-white mb-4;
+  @apply text-obase font-black text-slate-800 dark:text-white mb-4;
 }
 
 .schedule-sidebar__mini-header {
@@ -38,7 +38,7 @@
 }
 
 .schedule-sidebar__mini-dot {
-  @apply h-8 flex items-center justify-center text-[12px] font-black uppercase tracking-widest text-slate-400;
+  @apply h-8 flex items-center justify-center text-xs font-black uppercase tracking-widest text-slate-400;
 }
 
 .schedule-sidebar__mini-dot--sunday {
@@ -58,7 +58,7 @@
 }
 
 .schedule-sidebar__day-btn {
-  @apply h-9 flex items-center justify-center text-[13px] font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all relative border-0 bg-transparent cursor-pointer text-slate-600 dark:text-slate-400 active:scale-90;
+  @apply h-9 flex items-center justify-center text-osm font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all relative border-0 bg-transparent cursor-pointer text-slate-600 dark:text-slate-400 active:scale-90;
 }
 
 /* 선택된 날짜: primary gradient */

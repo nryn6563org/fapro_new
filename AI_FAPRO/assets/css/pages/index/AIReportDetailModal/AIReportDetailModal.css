@@ -163,7 +163,7 @@
   @apply bg-slate-800/30 border-slate-800/40;
 }
 .discovery-modal__reason-text {
-  @apply text-[13px] text-slate-700 font-medium whitespace-pre-wrap leading-relaxed break-words;
+  @apply text-osm text-slate-700 font-medium whitespace-pre-wrap leading-relaxed break-words;
 }
 
 .dark .discovery-modal__reason-text {
@@ -178,7 +178,7 @@
   @apply bg-slate-800/20 border-slate-800/30;
 }
 .discovery-modal__markdown-text {
-  @apply whitespace-pre-wrap font-sans text-[13px] text-slate-600 leading-relaxed m-0 break-words;
+  @apply whitespace-pre-wrap font-sans text-osm text-slate-600 leading-relaxed m-0 break-words;
 }
 
 .dark .discovery-modal__markdown-text {

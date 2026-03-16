@@ -23,10 +23,10 @@
   @apply flex items-center gap-2;
 }
 .strategic-card__ticker {
-  @apply text-[12px] font-mono text-slate-400 uppercase tracking-wider;
+  @apply text-xs font-mono text-slate-400 uppercase tracking-wider;
 }
 .strategic-card__name {
-  @apply text-[18px] font-bold text-slate-800;
+  @apply text-lg font-bold text-slate-800;
 }
 
 /* ── 가격 정보 ── */
@@ -71,7 +71,7 @@
   @apply space-y-2;
 }
 .point-item {
-  @apply flex items-start gap-2 text-[13px] leading-snug;
+  @apply flex items-start gap-2 text-osm leading-snug;
 }
 .point-bullet {
   @apply w-1.5 h-1.5 rounded-full mt-1.5 shrink-0;
@@ -105,5 +105,5 @@
 }
 
 .point-box__text {
-  @apply text-[13px] text-slate-600 leading-relaxed;
+  @apply text-osm text-slate-600 leading-relaxed;
 }

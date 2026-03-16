@@ -50,7 +50,7 @@
   @apply !text-sm
 }
 .app-sidebar__subnav-label{
-  @apply !text-[13px]
+  @apply !text-osm
 }
 
 /* ── 서브 내비게이션 ── */
@@ -59,7 +59,7 @@
 }
 
 .app-sidebar__subnav-item {
-  @apply flex items-center gap-2 px-3 py-2 font-medium text-[13px] text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light transition-all duration-200 cursor-pointer rounded-r-lg hover:bg-primary/5;
+  @apply flex items-center gap-2 px-3 py-2 font-medium text-osm text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light transition-all duration-200 cursor-pointer rounded-r-lg hover:bg-primary/5;
 }
 
 /* 서브 아이템 활성 상태 */

@@ -37,10 +37,10 @@
 
 /* ── 복사 버튼 ── */
 .proposal-editor__copy-btn {
-  @apply absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500 text-white text-[12px] font-bold rounded-lg shadow-sm hover:bg-emerald-600 active:scale-95 transition-all z-10;
+  @apply absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500 text-white text-xs font-bold rounded-lg shadow-sm hover:bg-emerald-600 active:scale-95 transition-all z-10;
 }
 
 /* ── 안내 문구 ── */
 .proposal-editor__hint {
-  @apply mt-2 text-[12px] text-slate-400;
+  @apply mt-2 text-xs text-slate-400;
 }

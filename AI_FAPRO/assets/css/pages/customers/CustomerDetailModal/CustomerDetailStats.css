@@ -13,7 +13,7 @@
   @apply bg-blue-50/50 border-blue-100;
 }
 .customer-stats__label--investment {
-  @apply text-blue-600 text-[13px] font-bold mb-1;
+  @apply text-blue-600 text-osm font-bold mb-1;
 }
 .customer-stats__value--investment {
   @apply text-blue-900 text-xl font-bold;
@@ -34,7 +34,7 @@
   @apply bg-emerald-50/50 border-emerald-100;
 }
 .customer-stats__label--valuation {
-  @apply text-emerald-600 text-[13px] font-bold mb-1;
+  @apply text-emerald-600 text-osm font-bold mb-1;
 }
 .customer-stats__value--valuation {
   @apply text-emerald-900 text-xl font-bold;
@@ -55,7 +55,7 @@
   @apply bg-orange-50/50 border-orange-100;
 }
 .customer-stats__label--deposit {
-  @apply text-orange-600 text-[13px] font-bold mb-1;
+  @apply text-orange-600 text-osm font-bold mb-1;
 }
 .customer-stats__value--deposit {
   @apply text-orange-900 text-xl font-bold;
@@ -76,7 +76,7 @@
   @apply bg-primary-light/50 border-primary-light;
 }
 .customer-stats__label--return {
-  @apply text-primary text-[13px] font-bold mb-1;
+  @apply text-primary text-osm font-bold mb-1;
 }
 .customer-stats__value-box {
   @apply flex items-center gap-2;

@@ -14,7 +14,7 @@
 
 /* ── 공통 버튼 베이스 ── */
 .global-modal__btn {
-  @apply px-5 py-2.5 rounded-xl font-bold text-[13px] transition-all duration-300 flex items-center justify-center cursor-pointer shadow-md active:scale-95 border-0;
+  @apply px-5 py-2.5 rounded-xl font-bold text-osm transition-all duration-300 flex items-center justify-center cursor-pointer shadow-md active:scale-95 border-0;
 }
 
 /* ── 외곽선 버튼 (취소) ── */

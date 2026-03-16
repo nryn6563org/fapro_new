@@ -7,7 +7,7 @@
 
 /* 테이블 기본 구조 */
 .issue-proposal-table__table {
-  @apply w-full text-[13px] border-collapse;
+  @apply w-full text-osm border-collapse;
 }
 
 /* 테이블 헤더 셀 */
@@ -47,7 +47,7 @@
 
 /* 틱커 sub-text */
 .issue-proposal-table__ticker {
-  @apply text-[12px] text-slate-400 font-normal mt-0.5 leading-none;
+  @apply text-xs text-slate-400 font-normal mt-0.5 leading-none;
 }
 
 .issue-proposal-table__td--name {

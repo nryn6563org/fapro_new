@@ -37,7 +37,7 @@
 }
 
 .settings-page__label {
-  @apply text-[13px] font-bold text-slate-400 uppercase tracking-tight block mb-4;
+  @apply text-osm font-bold text-slate-400 uppercase tracking-tight block mb-4;
 }
 
 .settings-page__grid {
@@ -65,11 +65,11 @@
 }
 
 .settings-page__basic-status {
-  @apply p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800 text-[15px] font-bold text-slate-400 text-center;
+  @apply p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800 text-obase font-bold text-slate-400 text-center;
 }
 
 .settings-page__pro-status {
-  @apply p-5 bg-amber-50/50 dark:bg-amber-900/20 rounded-2xl border border-amber-100 dark:border-amber-900/40 flex items-center justify-center gap-2 text-[15px] font-bold text-amber-500;
+  @apply p-5 bg-amber-50/50 dark:bg-amber-900/20 rounded-2xl border border-amber-100 dark:border-amber-900/40 flex items-center justify-center gap-2 text-obase font-bold text-amber-500;
 }
 
 .settings-page__billing-wrapper {

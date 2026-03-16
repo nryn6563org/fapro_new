@@ -13,7 +13,7 @@
   @apply flex items-center gap-2 mb-3;
 }
 .issue-proposal-section__title {
-  @apply text-[15px] font-black text-slate-800 dark:text-slate-200;
+  @apply text-obase font-black text-slate-800 dark:text-slate-200;
 }
 
 .issue-proposal-section__icon--amber {
@@ -64,16 +64,16 @@
   @apply text-sm font-black text-slate-900 dark:text-white mb-2 leading-tight;
 }
 .issue-proposal-section__news-desc {
-  @apply text-[13px] text-slate-500 leading-normal line-clamp-2;
+  @apply text-osm text-slate-500 leading-normal line-clamp-2;
 }
 
 .issue-proposal-section__news-meta {
-  @apply flex items-center gap-2 mt-2 text-[12px] text-slate-400;
+  @apply flex items-center gap-2 mt-2 text-xs text-slate-400;
 }
 
 /* 입력 필드 (의견 작성용) */
 .issue-proposal-section__textarea {
-  @apply w-full min-h-[80px] p-4 rounded-xl bg-slate-100 dark:bg-slate-800/50 text-[13px] text-slate-600 dark:text-slate-400 outline-none transition-all placeholder:text-slate-400;
+  @apply w-full min-h-[80px] p-4 rounded-xl bg-slate-100 dark:bg-slate-800/50 text-osm text-slate-600 dark:text-slate-400 outline-none transition-all placeholder:text-slate-400;
 }
 .issue-proposal-section__textarea:focus {
   @apply border-[1px] border-slate-200 bg-white dark:bg-slate-800;

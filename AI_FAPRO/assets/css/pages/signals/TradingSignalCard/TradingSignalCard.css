@@ -40,25 +40,25 @@
   @apply flex items-center gap-2 mb-2;
 }
 .trading-signal-card__time-text {
-  @apply text-[12px] font-bold;
+  @apply text-xs font-bold;
 }
 /* 매수 텍스트: buy 시맨틱 컬러 */
 .trading-signal-card__time-text--buy {
-  @apply text-buy text-[12px];
+  @apply text-buy text-xs;
 }
 .dark .trading-signal-card__time-text--buy {
   @apply text-buy/80;
 }
 /* 매도 텍스트: sell 시맨틱 컬러 */
 .trading-signal-card__time-text--sell {
-  @apply text-sell text-[12px];
+  @apply text-sell text-xs;
 }
 .dark .trading-signal-card__time-text--sell {
   @apply text-sell/80;
 }
 
 .trading-signal-card__name {
-  @apply text-[18px] font-bold text-slate-900 dark:text-white mb-2;
+  @apply text-lg font-bold text-slate-900 dark:text-white mb-2;
 }
 .trading-signal-card__price-row {
   @apply flex items-center justify-between mb-4;
@@ -68,13 +68,13 @@
 }
 /* 매수 가격: buy 컬러 */
 .trading-signal-card__price--buy {
-  @apply text-buy text-[18px];
+  @apply text-buy text-lg;
 }
 .dark .trading-signal-card__price--buy {
   @apply text-buy/80;
 }
 .trading-signal-card__price--sell {
-  @apply text-sell text-[18px];
+  @apply text-sell text-lg;
 }
 .dark .trading-signal-card__price--sell {
   @apply text-sell/80;
@@ -141,7 +141,7 @@
   @apply text-sm text-slate-600 dark:text-slate-400 leading-relaxed break-keep;
 }
 .trading-signal-card__reason-more {
-  @apply text-[13px] font-semibold text-blue-400 ml-1 cursor-pointer hover:text-blue-700 hover:font-bold transition-colors;
+  @apply text-osm font-semibold text-blue-400 ml-1 cursor-pointer hover:text-blue-700 hover:font-bold transition-colors;
 }
 
 /* AI 분석 생성 중 빈 상태 */
@@ -149,7 +149,7 @@
   @apply flex flex-col items-center justify-center py-6 mt-1 bg-slate-50/80 dark:bg-slate-800/30 rounded border border-dashed border-slate-300 dark:border-slate-700;
 }
 .trading-signal-card__reason-empty-badge {
-  @apply text-white text-[12px] font-bold px-1.5 py-0.5 rounded mb-2 inline-flex items-center bg-primary;
+  @apply text-white text-xs font-bold px-1.5 py-0.5 rounded mb-2 inline-flex items-center bg-primary;
 }
 .trading-signal-card__reason-empty-text {
   @apply text-sm font-medium text-slate-500 dark:text-slate-400;
