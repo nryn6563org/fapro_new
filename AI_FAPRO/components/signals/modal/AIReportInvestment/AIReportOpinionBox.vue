@@ -33,12 +33,12 @@
 
             <!-- 눈금 및 숫자 -->
             <div class="ai-report-opinion__ranking-ticks">
-              <div class="ai-report-opinion__tick-item" style="left: 0%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">100</span></div>
-              <div class="ai-report-opinion__tick-item" style="left: 5%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">95</span></div>
-              <div class="ai-report-opinion__tick-item" style="left: 30%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">70</span></div>
-              <div class="ai-report-opinion__tick-item" style="left: 70%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">30</span></div>
-              <div class="ai-report-opinion__tick-item" style="left: 95%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">5</span></div>
-              <div class="ai-report-opinion__tick-item" style="left: 100%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">1</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 0%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">1</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 5%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">5</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 30%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">30</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 70%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">70</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 95%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">95</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 100%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">100</span></div>
             </div>
           </div>
           <div class="ai-report-opinion__ranking-labels">
