@@ -4,16 +4,7 @@
       <h2 class="today-proposal__header-title">
         {{ currentDate }} 오늘의 제안
       </h2>
-      <!-- <button
-        class="today-proposal__header-refresh-btn"
-        @click="$emit('refresh')"
-      >
-        <refresh-cw-icon
-          size="16"
-          class="today-proposal__header-refresh-icon"
-        />
-        <span class="today-proposal__header-refresh-text">실시간 업데이트</span>
-      </button> -->
+      <span class="today-proposal__update-time">업데이트 03/10 15:30</span>
     </div>
 
     <!-- Cards Container -->
