@@ -88,6 +88,13 @@
 .ai-report-card__btn-view:hover {
   @apply bg-primary/90 shadow-xl shadow-primary/30;
 }
+.ai-report-card__btn-view:disabled {
+  background-color: #ECECF0 !important;
+  color: #A0A0A0 !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
 .ai-report-card__btn-icon {
   @apply w-3.5 h-3.5 mr-1.5;
 }

@@ -200,6 +200,14 @@
   @apply flex items-center justify-center font-bold transition-all duration-300 active:scale-95 px-4 text-sm h-9 rounded-xl;
 }
 
+.today-proposal__btn:disabled {
+  background-color: #ECECF0 !important;
+  color: #A0A0A0 !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
 /* 오늘 타겟 버튼: primary */
 .today-proposal__btn--teal {
   @apply bg-primary text-white shadow-primary/20;
