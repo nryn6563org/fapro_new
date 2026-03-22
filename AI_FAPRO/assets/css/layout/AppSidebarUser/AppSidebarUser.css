@@ -15,7 +15,7 @@
 
 /* ── 프로모션 배너 ── */
 .app-sidebar__banner {
-  @apply bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-4 flex flex-col gap-2 shadow-lg shadow-primary/20 mb-2 relative overflow-hidden;
+  @apply bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-4 flex flex-col gap-2 shadow-lg shadow-primary/20 mb-2 relative overflow-hidden cursor-pointer;
 }
 .app-sidebar__banner-header,
 .app-sidebar__banner-text {

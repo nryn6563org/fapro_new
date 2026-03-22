@@ -3,7 +3,7 @@
     <transition name="fade">
       <div v-if="!isCollapsed" class="app-sidebar__user-wrapper">
         <!-- Thinkpool Banner -->
-        <div class="app-sidebar__banner">
+        <div class="app-sidebar__banner" @click="openThinkpool">
           <!-- Background Bubbles -->
           <div
             class="app-sidebar__banner-bubble app-sidebar__banner-bubble--1"
@@ -90,6 +90,12 @@ export default {
     },
   },
   methods: {
+    /**
+     * @description 씽크풀 사이트를 새 창으로 엽니다.
+     */
+    openThinkpool() {
+      window.open("https://www.thinkpool.com/", "_blank");
+    },
     /**
      * @description 로그아웃 처리를 수행합니다.
      */
