@@ -52,12 +52,8 @@ export default {
     ...mapState('ui', ['isSidebarCollapsed']),
   },
   mounted() {
-    // localStorage 또는 시스템 환경 설정에서 다크 모드 초기값 확인
-    if (
-      localStorage.getItem("theme") === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
+    // localStorage에서 다크 모드 초기값 확인 (사용자 선택 우선)
+    if (localStorage.getItem("theme") === "dark") {
       this.isDarkMode = true;
     }
     this.$bus.$on("toggle-theme", this.toggleTheme);

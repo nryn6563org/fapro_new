@@ -10,7 +10,7 @@
       <div class="landing-view__content">
         <h1 class="landing-view__title">로그인이 필요한 서비스입니다.</h1>
         <p class="landing-view__description">
-          AI FA Pro의 스마트한 일지 및 일정 관리 서비스를 이용하시려면<br />
+          AI FA Pro 서비스를 이용하시려면 <br>
           먼저 로그인을 진행해 주세요.
         </p>
       </div>
