@@ -5,7 +5,7 @@
 */
 
 .ai-report-factors__grid {
-  @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-4;
 }
 
 .ai-report-factors__card {

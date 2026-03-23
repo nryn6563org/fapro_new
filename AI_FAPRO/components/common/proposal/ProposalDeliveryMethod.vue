@@ -10,8 +10,8 @@
       <button
         v-for="method in methods"
         :key="method.id"
-        :class="selectedMethod === method.id ? `delivery-tab--active-${method.id}` : 'delivery-tab'"
-        @click="$emit('update:selectedMethod', method.id)"
+        :class="['delivery-tab', selectedMethod === method.id ? `delivery-tab--active-${method.id}` : '']"
+        @click="$emit('update:selectedMethod', method.id); $emit('update:selected-method', method.id)"
       >
         <component :is="method.icon" class="delivery-tab__icon" />
         {{ method.label }}

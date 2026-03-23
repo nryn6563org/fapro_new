@@ -83,6 +83,7 @@
             <button
               class="ai-report-send__btn-primary"
               :disabled="selectedClients.length === 0"
+              @click="handleSend"
             >
               <send-icon size="20" class="mr-2" />
               선택한 고객에게 이메일 전송
@@ -199,6 +200,9 @@ export default {
       if (type === "단기매입형")
         return "ai-report-send__client-badge--shortterm";
       return "ai-report-send__client-badge--neutral";
+    },
+    handleSend() {
+      alert("준비중입니다");
     },
   },
 };

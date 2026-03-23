@@ -27,12 +27,12 @@
           </div>
           <!-- 오늘 매수/매도 타겟 종목: 제안사유 한줄 추가, 이메일/자산 삭제 -->
           <template v-if="contextMode === 'today-buy' || contextMode === 'today-sell'">
-             <div v-if="customer.reason" :class="['proposal-item__reason', badgeType === 'blue' ? 'proposal-item__reason--blue' : 'proposal-item__reason--red']">
+             <div v-if="customer.reason" :class="['proposal-item__reason', 'proposal-item__reason--emerald']">
                 {{ customer.reason }}
               </div>
           </template>
           <template v-else>
-            <div v-if="customer.reason" :class="['proposal-item__reason', badgeType === 'blue' ? 'proposal-item__reason--blue' : 'proposal-item__reason--red']">
+            <div v-if="customer.reason" :class="['proposal-item__reason', 'proposal-item__reason--emerald']">
               {{ customer.reason }}
             </div>
             <div v-else class="proposal-item__meta">
@@ -67,7 +67,7 @@
           <!-- 메타 정보 삭제 -->
         </template>
         <template v-else>
-          <div v-if="singleCustomer.reason" :class="['proposal-item__reason', badgeType === 'blue' ? 'proposal-item__reason--blue' : 'proposal-item__reason--red']">
+          <div v-if="singleCustomer.reason" :class="['proposal-item__reason', 'proposal-item__reason--emerald']">
             {{ singleCustomer.reason }}
           </div>
           <div v-else class="proposal-item__meta">

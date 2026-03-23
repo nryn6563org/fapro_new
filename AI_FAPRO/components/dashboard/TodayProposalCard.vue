@@ -16,7 +16,7 @@
             <div>
               <h3 class="proposal-card__title">오늘 타겟 고객</h3>
               <p class="proposal-card__desc">
-                AI매매신호 발생 종목 대상 매수 또는 매도를 진행할 고객 입니다.
+                AI매매신호 발생 종목중 매수 또는 매도를 제안할 고객 입니다.
               </p>
             </div>
             <span class="today-proposal__badge today-proposal__badge--teal"

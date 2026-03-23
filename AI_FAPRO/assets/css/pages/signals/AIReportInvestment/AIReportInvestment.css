@@ -14,7 +14,7 @@
 
 /* ── 카드 레이아웃 ── */
 .ai-report-investment__card {
-  @apply p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-all;
+  @apply p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-all min-h-[287px];
 }
 .ai-report-investment__card-header {
   @apply mb-3 pb-3 border-b border-slate-200 dark:border-slate-800;

@@ -67,11 +67,8 @@
 .proposal-item__reason {
   @apply text-xs px-3 py-2 rounded-lg leading-relaxed border flex items-start gap-1 relative;
 }
-.proposal-item__reason--red {
-  @apply text-buy bg-buy/10 border-buy/20;
-}
-.proposal-item__reason--blue {
-  @apply text-sell bg-sell/10 border-sell/20;
+.proposal-item__reason--emerald {
+  @apply text-emerald-600 bg-emerald-50 border-emerald-100 dark:text-emerald-400 dark:bg-emerald-950/40 dark:border-emerald-800;
 }
 .proposal-item__reason::before {
   content: "💡";

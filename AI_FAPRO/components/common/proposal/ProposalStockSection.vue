@@ -141,9 +141,7 @@ export default {
     },
     stockReasonClass(stock) {
       if (!stock.change) return "proposal-item__stock-reason--neutral";
-      if (stock.change.startsWith("+")) return "proposal-item__stock-reason--buy";
-      if (stock.change.startsWith("-")) return "proposal-item__stock-reason--sell";
-      return "proposal-item__stock-reason--neutral";
+      return "proposal-item__stock-reason--emerald";
     }
   }
 };

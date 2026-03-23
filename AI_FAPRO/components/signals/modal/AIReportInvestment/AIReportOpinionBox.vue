@@ -15,10 +15,10 @@
             >
               <div v-if="isLeftAligned" class="ai-report-opinion__ranking-label-group">
                 <span class="ai-report-opinion__ranking-arrow">↓</span>
-                <span class="ai-report-opinion__ranking-text">Current Ranking</span>
+                <span class="ai-report-opinion__ranking-text">Current Ranking(78)</span>
               </div>
               <div v-else class="ai-report-opinion__ranking-label-group">
-                <span class="ai-report-opinion__ranking-text">Current Ranking</span>
+                <span class="ai-report-opinion__ranking-text">Current Ranking(78)</span>
                 <span class="ai-report-opinion__ranking-arrow">↓</span>
               </div>
             </div>
@@ -54,7 +54,7 @@
 
         <!-- 목표주가 -->
         <div class="ai-report-opinion__target-price">
-          <h4 class="ai-report-opinion__target-price-title">목표주가(3개월)</h4>
+          <h4 class="ai-report-opinion__target-price-title">목표주가(1개월)</h4>
           <div class="ai-report-opinion__target-price-values">
             <div class="ai-report-opinion__target-price-main">
               <span>{{ signal?.targetPrice || '62,000' }}</span>

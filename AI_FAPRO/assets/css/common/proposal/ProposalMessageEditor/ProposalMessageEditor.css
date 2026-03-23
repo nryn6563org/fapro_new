@@ -24,15 +24,31 @@
 .proposal-editor--kakao { @apply proposal-editor; }
 .proposal-editor--email { @apply proposal-editor; }
 
-/* ── 텍스트에어리어 래퍼 ── */
-.proposal-editor__textarea-wrapper {
-  @apply relative;
+/* ── 미리보기 컨테이너 (테마별 배경) ── */
+.proposal-editor__preview-container {
+  @apply p-5 rounded-xl transition-colors duration-300 relative;
+}
+
+.proposal-editor__preview-container--sms {
+  @apply bg-rose-50/80 dark:bg-rose-900/10 border border-rose-100 dark:border-rose-900/30;
+}
+
+.proposal-editor__preview-container--kakao {
+  @apply bg-amber-50/80 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30;
+}
+
+.proposal-editor__preview-container--email {
+  @apply bg-teal-50/80 dark:bg-teal-900/10 border border-teal-100 dark:border-teal-900/30;
+}
+
+/* ── 미리보기 카드 (흰색 바탕) ── */
+.proposal-editor__preview-card {
+  @apply bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm p-4 relative;
 }
 
 /* ── 텍스트에어리어 ── */
-.proposal-editor__textarea {
-  @apply w-full h-[200px] p-5 text-sm text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 rounded-xl resize-none outline-none transition-all;
-  @apply bg-slate-100/50 dark:bg-slate-800/50 focus:bg-white;
+.proposal-editor__textarea-message {
+  @apply w-full h-[200px] text-sm leading-relaxed border-0 p-0 focus:ring-0 resize-none bg-transparent text-slate-700 dark:text-slate-300 outline-none;
 }
 
 /* ── 복사 버튼 ── */

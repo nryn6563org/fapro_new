@@ -5,21 +5,23 @@
       메시지 내용
     </div>
 
-    <div class="proposal-editor__textarea-wrapper">
-      <textarea
-        v-model="internalValue"
-        class="proposal-editor__textarea"
-        placeholder="전송할 메시지를 입력하세요..."
-      ></textarea>
+    <div :class="['proposal-editor__preview-container', `proposal-editor__preview-container--${deliveryMethod}`]">
+      <div class="proposal-editor__preview-card">
+        <textarea
+          v-model="internalValue"
+          class="proposal-editor__textarea-message"
+          placeholder="전송할 메시지를 입력하세요..."
+        ></textarea>
 
-      <button
-        type="button"
-        class="proposal-editor__copy-btn"
-        @click="sendProposal"
-      >
-        <copy-icon size="14" />
-        전송하기
-      </button>
+        <button
+          type="button"
+          class="proposal-editor__copy-btn"
+          @click="sendProposal"
+        >
+          <copy-icon size="14" />
+          전송하기
+        </button>
+      </div>
     </div>
 
     <p class="proposal-editor__hint">

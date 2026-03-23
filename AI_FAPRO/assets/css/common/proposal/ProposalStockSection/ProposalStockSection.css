@@ -44,12 +44,8 @@
 }
 
 /* 탭 테마별 배경/색상 */
-.proposal-item__stock-reason--buy {
-  @apply proposal-item__stock-reason bg-buy-light/80 dark:bg-buy/10 text-buy dark:text-buy border-buy/20 w-full !items-center !leading-[18px];
-}
-
-.proposal-item__stock-reason--sell {
-  @apply proposal-item__stock-reason bg-sell-light/80 dark:bg-sell/10 text-sell dark:text-sell border-sell/20 w-full !items-center !leading-[18px];
+.proposal-item__stock-reason--emerald {
+  @apply proposal-item__stock-reason bg-emerald-50 text-emerald-600 border-emerald-100 dark:bg-emerald-950/40 dark:text-emerald-400 dark:border-emerald-800 w-full !items-center !leading-[18px];
 }
 
 .proposal-item__stock-reason--neutral {
