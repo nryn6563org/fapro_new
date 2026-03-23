@@ -8,7 +8,7 @@
         <div>
           <h3 class="customer-intelligence-card__title">수익률 하위 고객</h3>
           <p class="customer-intelligence-card__desc">
-            자산 수익 하락률이 높은 고객들입니다. (최근 일주일)
+            자산 수익 하락률이 높은 고객들입니다.
           </p>
         </div>
         <span class="customer-intelligence-card__badge customer-intelligence-card__badge--rose">
