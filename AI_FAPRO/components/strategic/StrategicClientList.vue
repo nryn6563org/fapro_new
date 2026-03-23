@@ -1,7 +1,7 @@
 <template>
   <div class="strategic-modal__form-group">
     <div class="strategic-modal__form-header">
-      <label class="strategic-modal__form-label">누구에게 보낼까요?</label>
+      <label class="strategic-modal__form-label">제안할 고객</label>
       <span class="strategic-modal__client-summary-count"
         >{{ internalSelectedClients.length }}명 선택됨</span
       >
