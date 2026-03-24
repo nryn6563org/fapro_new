@@ -13,13 +13,13 @@
       <table class="customer-holdings__table">
         <thead class="customer-holdings__thead">
           <tr>
-            <th class="customer-holdings__th text-left">종목명</th>
-            <th class="customer-holdings__th text-right">보유수량</th>
-            <th class="customer-holdings__th text-right">평균단가</th>
-            <th class="customer-holdings__th text-right">현재가</th>
-            <th class="customer-holdings__th text-right">평가금액</th>
-            <th class="customer-holdings__th text-right">손익</th>
-            <th class="customer-holdings__th text-center">수익률</th>
+            <th class="customer-holdings__th">종목명</th>
+            <th class="customer-holdings__th">보유수량</th>
+            <th class="customer-holdings__th">평균단가</th>
+            <th class="customer-holdings__th">현재가</th>
+            <th class="customer-holdings__th">평가금액</th>
+            <th class="customer-holdings__th">손익</th>
+            <th class="customer-holdings__th">수익률</th>
           </tr>
         </thead>
         <tbody class="customer-holdings__tbody">
