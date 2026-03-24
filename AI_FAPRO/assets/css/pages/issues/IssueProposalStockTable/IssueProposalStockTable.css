@@ -63,11 +63,11 @@
 }
 
 .issue-proposal-table__td--change-up {
-  @apply text-buy;
+  @apply !text-buy;
 }
 
 .issue-proposal-table__td--change-down {
-  @apply text-sell;
+  @apply !text-sell;
 }
 
 .issue-proposal-table__td--center {
