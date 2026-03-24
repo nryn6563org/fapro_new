@@ -5,7 +5,7 @@
       <div class="strategic-page__title-box">
         <h1 class="strategic-page__title">AI 중장기 유망주</h1>
         <p class="strategic-page__subtitle">
-          AI가 발굴한 오늘의 유망주 입니다.
+          AI가 발굴한 오늘의 유망주 입니다. 6개월 이상 중장기 포트폴리오 구성에 적합 합니다.
         </p>
       </div>
       <div class="strategic-page__action-box">

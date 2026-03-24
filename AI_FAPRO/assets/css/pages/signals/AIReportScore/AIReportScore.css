@@ -105,6 +105,9 @@
 .ai-report-score__radar-wrapper {
   @apply w-full aspect-square max-w-[240px] relative;
 }
+.ai-report-score__radar-wrapper svg {
+  overflow: visible;
+}
 .ai-report-score__radar-grid {
   @apply stroke-slate-200 dark:stroke-slate-800 stroke-[1px];
 }
