@@ -303,3 +303,13 @@
 .today-proposal__item-group {
   @apply today-proposal-item;
 }
+
+/* "오늘 매수 타겟 종목", "오늘 매도 타겟 종목" 리스트 종목명 8글자 제한 (말줄임) */
+.today-proposal__card-orange .today-proposal-item__name,
+.today-proposal__card-violet .proposal-item__name {
+  display: inline-block;
+  max-width: 8em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

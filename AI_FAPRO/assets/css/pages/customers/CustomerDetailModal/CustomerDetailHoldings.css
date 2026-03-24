@@ -26,7 +26,7 @@
 
 .customer-holdings__th {
   @apply fapro-th;
-  @apply border-b border-slate-200 dark:border-slate-800;
+  @apply border-b border-slate-200 dark:border-slate-800 text-center;
 }
 
 .customer-holdings__tr {
