@@ -50,7 +50,10 @@
           <span class="ai-report-card__reason-icon">✨</span>
           <span class="ai-report-card__reason-title">시그널 발생 사유</span>
         </div>
-        <p class="ai-report-card__reason-text">{{ report.reason }}</p>
+        <p class="ai-report-card__reason-text">
+          {{ report.reason }}
+          <span class="trading-signal-card__reason-more" @click="$emit('open-analysis', report)">[내용 자세히 보기]</span>
+        </p>
       </div>
     </div>
   </div>

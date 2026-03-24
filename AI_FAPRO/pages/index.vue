@@ -38,6 +38,7 @@
               :key="report.id"
               :report="report"
               @open-report="openReport"
+              @open-analysis="openAnalysis"
             />
             <div v-if="buyReports.length === 0" class="index-page__empty">
               매수 신호가 없습니다.
@@ -53,6 +54,7 @@
               :key="report.id"
               :report="report"
               @open-report="openReport"
+              @open-analysis="openAnalysis"
             />
             <div v-if="sellReports.length === 0" class="index-page__empty">
               매도 신호가 없습니다.
@@ -68,6 +70,13 @@
       :data="activeReport"
       @close="closeReport"
     />
+
+    <!-- Analysis Modal -->
+    <a-i-analysis-report-modal
+      :is-open="isAnalysisModalOpen"
+      :data="activeAnalysisReport"
+      @close="closeAnalysis"
+    />
   </div>
 </template>
 
@@ -78,6 +87,7 @@
 import { RefreshCwIcon } from "vue-feather-icons";
 import AIReportCard from "~/components/discovery/AIReportCard.vue";
 import AIReportModal from "~/components/modal/AIReportModal.vue";
+import AIAnalysisReportModal from "~/components/modal/AIAnalysisReportModal.vue";
 import { aiReports } from "~/utils/discoveryMockData.js";
 import "~/assets/css/pages/index/IndexPage/IndexPage.css";
 
@@ -87,6 +97,7 @@ export default {
     RefreshCwIcon,
     AIReportCard,
     AIReportModal,
+    AIAnalysisReportModal,
   },
   data() {
     return {
@@ -95,6 +106,8 @@ export default {
       timer: null,
       isReportModalOpen: false,
       activeReport: null,
+      isAnalysisModalOpen: false,
+      activeAnalysisReport: null,
     };
   },
   computed: {
@@ -142,6 +155,16 @@ export default {
       this.isReportModalOpen = false;
       setTimeout(() => {
         this.activeReport = null;
+      }, 300);
+    },
+    openAnalysis(report) {
+      this.activeAnalysisReport = report;
+      this.isAnalysisModalOpen = true;
+    },
+    closeAnalysis() {
+      this.isAnalysisModalOpen = false;
+      setTimeout(() => {
+        this.activeAnalysisReport = null;
       }, 300);
     },
   },
