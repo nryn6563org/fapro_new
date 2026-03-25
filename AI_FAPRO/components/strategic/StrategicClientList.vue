@@ -30,12 +30,15 @@
           class="strategic-modal__client-label"
         >
           <div class="strategic-modal__client-info">
-            <div>
+            <div class="strategic-modal__client-info-text">
               <p class="strategic-modal__client-name">
                 {{ client.name }}
                 <span class="strategic-modal__client-email">{{
                   client.email
                 }}</span>
+              </p>
+              <p v-if="client.memo" class="strategic-modal__client-memo">
+                특이 사항 : {{ client.memo }}
               </p>
             </div>
             <div class="strategic-modal__client-portfolio">

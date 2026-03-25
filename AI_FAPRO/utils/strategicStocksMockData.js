@@ -165,9 +165,10 @@ export const stocks = [
 export const clients = [
   {
     id: "1",
-    name: "이기수",
-    email: "kisu.lee@example.com",
+    name: "김민준",
+    email: "minjun.kim@email.com",
     portfolio: "2.4억",
+    memo: "AI반도체 관심 높음",
   },
   {
     id: "2",
@@ -186,6 +187,7 @@ export const clients = [
     name: "최지훈",
     email: "jihoon.choi@example.com",
     portfolio: "950만",
+    memo: "바이오, 헬스케어 관심 높음",
   },
   {
     id: "5",
