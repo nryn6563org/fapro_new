@@ -81,7 +81,7 @@ export default {
   computed: {
     scoreItems() {
       return [
-        { label: "밸류(Value)", value: this.signal?.scores?.value || 3.0 },
+        { label: "밸류(Value)", value: this.signal?.scores?.value || 5.0 },
         { label: "퀄리티(Quality)", value: this.signal?.scores?.quality || 6.0 },
         { label: "모멘텀(Momentum)", value: this.signal?.scores?.momentum || 8.0 },
         { label: "테크니컬(Technical)", value: this.signal?.scores?.technical || 10.0 },
@@ -94,16 +94,16 @@ export default {
       
       if (value === 0) return { left: '50%', width: '0%' };
 
-      if (value <= 3.0) {
+      if (value <= 4.0) {
         // 0~3점: 중앙(50%)에서 왼쪽으로 확장. 3점일 때 좌측 꽉 참(width 50%).
-        const width = (value / 3.0) * 50; 
+        const width = (value / 4.0) * 50; 
         return {
           left: `${50 - width}%`,
           width: `${width}%`,
         };
       } else {
-        // 3.0 초과: 중앙(50%)에서 오른쪽으로 확장. 10점일 때 우측 꽉 참.
-        const width = ((value - 3) / (max - 3)) * 50;
+        // 4.0 초과: 중앙(50%)에서 오른쪽으로 확장. 10점일 때 우측 꽉 참.
+        const width = ((value - 5) / (max - 5)) * 50;
         return {
           left: '50%',
           width: `${width}%`,
@@ -111,7 +111,7 @@ export default {
       }
     },
     getBarColorClass(value) {
-      return value <= 3.0 ? 'ai-report-score__progress-fill--red' : 'ai-report-score__progress-fill--green';
+      return value <= 4.0 ? 'ai-report-score__progress-fill--red' : 'ai-report-score__progress-fill--green';
     }
   }
 };
