@@ -52,6 +52,20 @@ export const sampleCustomers = [
         profitRate: "+3.89%",
       },
     ],
+    proposalHistory: [
+      { date: "26.03.25", description: "{삼성전자} AI리포트 제안", channel: "이메일" },
+      { date: "26.03.15", description: "{한국항공우주, 두산에너빌리티} 오늘 타겟 고객 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{잉글우드랩} 오늘 매수 타겟 종목 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{잉글우드랩} 오늘 매도 타겟 종목 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{우진, 삼성전자} 매수 대기 고객 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{우진, 삼성전자} 수익률 상위 고객 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{우진, 삼성전자} 수익률 하위 고객 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{반도체} AI이슈포착 고객 제안", channel: "이메일" },
+      { date: "26.03.12", description: "{삼성전자} AI매매신호포착 고객 제안", channel: "이메일" },
+      { date: "26.03.12", description: "{삼성전자} AI중장기 유망주 고객 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.10", description: "{SK하이닉스} AI리포트 제안", channel: "이메일" },
+      { date: "26.03.08", description: "{NAVER} 오늘 타겟 고객 제안", channel: "문자/카카오톡/이메일" },
+    ],
   },
   {
     id: "2",
@@ -82,6 +96,11 @@ export const sampleCustomers = [
         profit: "+1,500만원",
         profitRate: "+5.26%",
       },
+    ],
+    proposalHistory: [
+      { date: "26.03.20", description: "{삼성바이오로직스} AI리포트 제안", channel: "이메일" },
+      { date: "26.03.15", description: "{삼성물산} 오늘 타겟 고객 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.10", description: "{바이오} AI이슈포착 고객 제안", channel: "이메일" },
     ],
   },
   {
