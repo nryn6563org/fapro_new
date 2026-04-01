@@ -35,6 +35,9 @@
 
           <!-- 4. 기본 정보 & 메모 -->
           <customer-detail-info :customer="customer" />
+
+          <!-- 5. 고객 제안 히스토리 -->
+          <customer-detail-proposal-history :proposal-history="customer.proposalHistory || []" />
         </div>
       </div>
 
@@ -51,6 +54,7 @@ import CustomerDetailStats from "~/components/customers/CustomerDetailStats.vue"
 import CustomerDetailHoldings from "~/components/customers/CustomerDetailHoldings.vue";
 import CustomerDetailAnalysis from "~/components/customers/CustomerDetailAnalysis.vue";
 import CustomerDetailInfo from "~/components/customers/CustomerDetailInfo.vue";
+import CustomerDetailProposalHistory from "~/components/customers/CustomerDetailProposalHistory.vue";
 import "~/assets/css/pages/customers/CustomerDetailModal/CustomerDetailModal.css";
 
 export default {
@@ -62,6 +66,7 @@ export default {
     CustomerDetailHoldings,
     CustomerDetailAnalysis,
     CustomerDetailInfo,
+    CustomerDetailProposalHistory,
   },
   props: {
     customer: { type: Object, default: null },
@@ -74,3 +79,4 @@ export default {
   },
 };
 </script>
+
