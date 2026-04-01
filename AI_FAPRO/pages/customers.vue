@@ -26,6 +26,9 @@
           @view-holdings="onViewHoldings"
         />
       </div>
+
+      <!-- 제안 히스토리 섹션 -->
+      <customer-proposal-history :customers="customers" />
     </div>
 
     <!-- 모달 영역 -->
@@ -53,6 +56,7 @@ import CustomerAiSearch from "~/components/customers/CustomerAiSearch.vue";
 import CustomerListTable from "~/components/customers/CustomerListTable.vue";
 import CustomerDetailModal from "~/components/customers/CustomerDetailModal.vue";
 import CustomerHoldingsModal from "~/components/customers/CustomerHoldingsModal.vue";
+import CustomerProposalHistory from "~/components/customers/CustomerProposalHistory.vue";
 import CustomersPageHeader from "~/components/customers/CustomersPage/CustomersPageHeader.vue";
 import {
   sampleCustomers,
@@ -69,6 +73,7 @@ export default {
     CustomerListTable,
     CustomerDetailModal,
     CustomerHoldingsModal,
+    CustomerProposalHistory,
     CustomersPageHeader,
   },
   layout: "default",
