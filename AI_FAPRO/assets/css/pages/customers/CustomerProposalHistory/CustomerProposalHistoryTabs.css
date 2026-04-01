@@ -1,0 +1,21 @@
+/* ── 제안 히스토리 탭 필터 스타일 ── */
+
+.proposal-history-tabs {
+  @apply flex items-center gap-2 overflow-x-auto pb-2;
+}
+
+.proposal-history-tabs__btn {
+  @apply inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 whitespace-nowrap transition-all cursor-pointer;
+}
+
+.proposal-history-tabs__btn:hover {
+  @apply bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300;
+}
+
+.proposal-history-tabs__btn--active {
+  @apply bg-primary text-white border-primary;
+}
+
+.proposal-history-tabs__btn--active:hover {
+  @apply bg-primary text-white;
+}

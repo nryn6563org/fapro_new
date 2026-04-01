@@ -142,6 +142,13 @@ export const sampleCustomers = [
         profitRate: "+5.63%",
       },
     ],
+    proposalHistory: [
+      { date: "26.03.15", description: "{한국항공우주, 두산에너빌리티} 오늘 타겟 고객 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{현대차} 오늘 매수 타겟 종목 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{LG에너지솔루션} 매수 대기 고객 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{2차전지} AI이슈포착 고객 제안", channel: "이메일" },
+      { date: "26.03.10", description: "{포스코퓨처엠} AI중장기 유망주 고객 제안", channel: "문자/카카오톡/이메일" },
+    ],
   },
   {
     id: "4",
@@ -191,6 +198,12 @@ export const sampleCustomers = [
         profitRate: "+4.48%",
       },
     ],
+    proposalHistory: [
+      { date: "26.03.25", description: "{카카오} AI리포트 제안", channel: "이메일" },
+      { date: "26.03.12", description: "{네이버} 오늘 매도 타겟 종목 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{카카오, 네이버} 수익률 상위 고객 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{엔씨소프트} AI매매신호포착 고객 제안", channel: "이메일" },
+    ],
   },
   {
     id: "5",
@@ -231,6 +244,11 @@ export const sampleCustomers = [
         profitRate: "+4.13%",
       },
     ],
+    proposalHistory: [
+      { date: "26.03.15", description: "{KB금융} 오늘 타겟 고객 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{신한지주, 하나금융지주} 수익률 하위 고객 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.10", description: "{KB금융} AI리포트 제안", channel: "이메일" },
+    ],
   },
   {
     id: "6",
@@ -270,6 +288,13 @@ export const sampleCustomers = [
         profit: "+1,410만원",
         profitRate: "+4.20%",
       },
+    ],
+    proposalHistory: [
+      { date: "26.03.20", description: "{셀트리온} AI리포트 제안", channel: "이메일" },
+      { date: "26.03.12", description: "{삼성바이오로직스} 오늘 매수 타겟 종목 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{셀트리온} 매수 대기 고객 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.12", description: "{유한양행} AI중장기 유망주 고객 제안", channel: "문자/카카오톡/이메일" },
+      { date: "26.03.08", description: "{바이오} AI이슈포착 고객 제안", channel: "이메일" },
     ],
   },
 ];
