@@ -54,22 +54,22 @@
             </button>
           </div>
 
-          <!-- 결제 중 상태: 업그레이드/다운그레이드 버튼 -->
-          <div v-else class="settings-page__change-btns">
-            <button
-              class="settings-page__transition-btn settings-page__transition-btn--downgrade"
-              @click="$emit('change-plan', 'basic')"
-            >
-              일반 플랜으로 변경
-            </button>
-            <button
-              class="settings-page__transition-btn settings-page__transition-btn--upgrade"
-              @click="$emit('change-plan', 'pro')"
-            >
-              <award-icon class="settings-page__btn-icon" />
-              Pro 플랜으로 변경
-            </button>
-          </div>
+          <!-- 결제 상태: 다른 플랜 선택 시 해당 변경 버튼만 표시 -->
+          <button
+            v-else-if="selectedPlan !== activePlan && selectedPlan === 'basic'"
+            class="settings-page__transition-btn settings-page__transition-btn--downgrade"
+            @click="$emit('change-plan', 'basic')"
+          >
+            일반 플랜으로 변경
+          </button>
+          <button
+            v-else-if="selectedPlan !== activePlan && selectedPlan === 'pro'"
+            class="settings-page__transition-btn settings-page__transition-btn--upgrade"
+            @click="$emit('change-plan', 'pro')"
+          >
+            <award-icon class="settings-page__btn-icon" />
+            Pro 플랜으로 변경
+          </button>
         </div>
       </div>
 
