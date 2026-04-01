@@ -1,4 +1,42 @@
-/* 결제 정보 2x2 그리드 레이아웃 */
+/* 결제 수단 섹션 */
+
+.settings-billing__payment-section {
+  @apply space-y-4 mb-8;
+}
+
+.settings-billing__info-box {
+  @apply p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm transition-all;
+}
+
+.settings-billing__card-row {
+  @apply flex items-center justify-between;
+}
+
+.settings-billing__card-info {
+  @apply flex items-center gap-4;
+}
+
+.settings-billing__card-icon-wrapper {
+  @apply w-12 h-12 flex items-center justify-center bg-slate-50 dark:bg-slate-800 rounded-xl;
+}
+
+.settings-billing__card-icon {
+  @apply w-6 h-6 text-slate-500;
+}
+
+.settings-billing__card-name {
+  @apply text-obase font-bold text-slate-800 dark:text-white m-0;
+}
+
+.settings-billing__card-desc {
+  @apply text-xs text-slate-400 m-0 mt-0.5 font-bold;
+}
+
+.settings-billing__change-btn {
+  @apply px-4 py-2 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-600 dark:text-slate-400 rounded-lg hover:border-slate-400 transition-all cursor-pointer;
+}
+
+/* 결제 정보 2x2 그리드 */
 
 .settings-billing__grid {
   @apply grid grid-cols-2 gap-8 px-2;
