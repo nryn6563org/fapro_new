@@ -44,6 +44,40 @@
   @apply grid md:grid-cols-2 gap-6;
 }
 
+/* 구독 상태 바 */
+.settings-page__subscription-bar {
+  @apply flex items-center justify-between p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800;
+}
+
+.settings-page__subscription-info {
+  @apply flex items-center gap-2;
+}
+
+.settings-page__subscription-icon {
+  @apply w-5 h-5 text-amber-500;
+}
+
+.settings-page__subscription-text {
+  @apply text-obase font-bold text-amber-500;
+}
+
+.settings-page__payment-btn {
+  @apply px-8 py-3 rounded-full text-sm font-black border-0 cursor-pointer transition-all hover:scale-[1.02] active:scale-[0.98];
+}
+
+.settings-page__payment-btn--pro {
+  @apply bg-amber-500 text-white shadow-lg shadow-amber-200/50 dark:shadow-amber-900/30;
+}
+
+.settings-page__payment-btn--basic {
+  @apply bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400;
+}
+
+/* 플랜 변경 버튼 */
+.settings-page__change-btns {
+  @apply flex flex-col gap-3;
+}
+
 .settings-page__transition-btn {
   @apply w-full flex items-center justify-center py-5 text-white rounded-2xl text-lg font-black shadow-lg hover:scale-[1.01] active:scale-[0.99] transition-all border-0 cursor-pointer;
 }
@@ -53,23 +87,11 @@
 }
 
 .settings-page__transition-btn--downgrade {
-  @apply bg-gradient-to-r from-slate-400 to-slate-500 shadow-slate-200/50 dark:shadow-slate-900/30;
+  @apply bg-gradient-to-r from-teal-400 to-teal-500 shadow-teal-200/50 dark:shadow-teal-900/30;
 }
 
 .settings-page__btn-icon {
   @apply w-5 h-5 mr-2;
-}
-
-.settings-page__status-box {
-  @apply mt-2;
-}
-
-.settings-page__basic-status {
-  @apply p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-800 text-obase font-bold text-slate-400 text-center;
-}
-
-.settings-page__pro-status {
-  @apply p-5 bg-amber-50/50 dark:bg-amber-900/20 rounded-2xl border border-amber-100 dark:border-amber-900/40 flex items-center justify-center gap-2 text-obase font-bold text-amber-500;
 }
 
 .settings-page__billing-wrapper {

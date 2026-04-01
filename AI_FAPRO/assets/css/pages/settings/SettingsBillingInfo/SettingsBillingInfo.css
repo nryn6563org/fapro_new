@@ -1,38 +1,21 @@
-/* Tailwind directives container */
+/* 결제 정보 2x2 그리드 레이아웃 */
+
+.settings-billing__grid {
+  @apply grid grid-cols-2 gap-8 px-2;
+}
+
+.settings-billing__item {
+  @apply space-y-3;
+}
 
 .settings-billing__label {
-  @apply text-osm font-bold text-slate-400 uppercase tracking-tight;
+  @apply text-osm font-bold text-slate-400 uppercase tracking-tight block;
 }
 
-.settings-billing__info-box {
-  @apply p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm transition-all;
-}
-
-.settings-billing__card-icon-wrapper {
-  @apply w-12 h-12 flex items-center justify-center bg-slate-50 dark:bg-slate-800 rounded-xl;
-}
-
-.settings-billing__card-name {
-  @apply text-obase font-bold text-slate-800 dark:text-white m-0;
-}
-
-.settings-billing__card-desc {
-  @apply text-xs text-slate-400 m-0 mt-0.5 font-bold;
-}
-
-.settings-billing__change-btn {
-  @apply px-4 py-2 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-600 dark:text-slate-400 rounded-lg hover:border-slate-400 transition-all cursor-pointer;
-}
-
-.settings-billing__date-value,
-.settings-billing__price-value {
+.settings-billing__value {
   @apply text-xl font-black text-slate-800 dark:text-white m-0;
 }
 
-.settings-billing__divider {
-  @apply h-px bg-slate-100 dark:bg-slate-800 my-6;
-}
-
-.settings-billing__cancel-btn {
-  @apply text-sm font-bold text-slate-400 hover:text-red-500 transition-colors cursor-pointer bg-transparent border-0;
+.settings-billing__notice {
+  @apply text-sm font-medium text-slate-400 dark:text-slate-500 mt-8 m-0;
 }
