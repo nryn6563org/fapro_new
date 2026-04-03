@@ -38,15 +38,15 @@
           <div class="strategic-modal__form-group-item">
             <label class="strategic-modal__form-label">전송방법 선택</label>
             <div class="strategic-modal__delivery-tabs">
-              <button :class="['strategic-modal__delivery-tab', transmissionMethod === 'sms' ? 'strategic-modal__delivery-tab--active-sms' : '']" @click="transmissionMethod = 'sms'">
+              <button :class="['strategic-modal__delivery-tab', transmissionMethod === 'sms' ? 'strategic-modal__delivery-tab--active' : '']" @click="transmissionMethod = 'sms'">
                 <phone-icon class="strategic-modal__tab-icon" />
                 문자
               </button>
-              <button :class="['strategic-modal__delivery-tab', transmissionMethod === 'kakao' ? 'strategic-modal__delivery-tab--active-kakao' : '']" @click="transmissionMethod = 'kakao'">
+              <button :class="['strategic-modal__delivery-tab', transmissionMethod === 'kakao' ? 'strategic-modal__delivery-tab--active' : '']" @click="transmissionMethod = 'kakao'">
                 <message-circle-icon class="strategic-modal__tab-icon" />
                 카카오톡
               </button>
-              <button :class="['strategic-modal__delivery-tab', transmissionMethod === 'email' ? 'strategic-modal__delivery-tab--active-email' : '']" @click="transmissionMethod = 'email'">
+              <button :class="['strategic-modal__delivery-tab', transmissionMethod === 'email' ? 'strategic-modal__delivery-tab--active' : '']" @click="transmissionMethod = 'email'">
                 <mail-icon class="strategic-modal__tab-icon" />
                 이메일
               </button>
@@ -56,7 +56,7 @@
           <!-- Message Sample (Themed Preview) -->
           <div class="strategic-modal__form-group-item">
             <label class="strategic-modal__form-label">메시지 내용 샘플</label>
-            <div :class="['strategic-modal__message-preview-container', `strategic-modal__message-preview-container--${transmissionMethod}`]">
+            <div class="strategic-modal__message-preview-container">
               <div class="strategic-modal__message-preview-card">
                 <textarea v-model="messageSample" class="strategic-modal__textarea-message" placeholder="전송될 메시지 내용입니다."></textarea>
               </div>

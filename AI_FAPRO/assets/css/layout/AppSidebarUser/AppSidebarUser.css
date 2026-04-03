@@ -7,15 +7,15 @@
 
 /* ── 사용자 섹션 컨테이너 ── */
 .app-sidebar__user-section {
-  @apply p-4 mt-auto border-t border-slate-300 dark:border-slate-800;
+  @apply p-5 mt-auto border-t border-white border-opacity-20;
 }
 .app-sidebar__user-wrapper {
-  @apply flex flex-col gap-3;
+  @apply flex flex-col gap-5;
 }
 
 /* ── 프로모션 배너 ── */
 .app-sidebar__banner {
-  @apply bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-4 flex flex-col gap-2 shadow-lg shadow-primary/20 mb-2 relative overflow-hidden cursor-pointer;
+  @apply bg-white/10 rounded-2xl p-4 flex flex-col gap-2 relative overflow-hidden cursor-pointer;
 }
 .app-sidebar__banner-header,
 .app-sidebar__banner-text {
@@ -56,28 +56,35 @@
   }
 }
 
+/* TP 뱃지 */
+.app-sidebar__banner-badge {
+  @apply bg-white/20 text-white text-oxs font-bold px-1.5 py-0.5 rounded-md;
+}
+.app-sidebar__banner-title {
+  @apply text-white font-bold text-sm;
+}
 .app-sidebar__banner-header {
   @apply flex items-center gap-2 text-white font-bold text-sm;
 }
 .app-sidebar__banner-text {
-  @apply text-oxs leading-relaxed text-white/80 m-0 font-medium;
+  @apply text-oxs leading-relaxed text-white/70 m-0 font-medium;
 }
 
 /* ── 프로필 영역 ── */
 .app-sidebar__profile {
-  @apply flex items-center gap-3 p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-300 cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-800;
+  @apply flex items-center gap-3 p-3 rounded-2xl transition-all duration-300 cursor-pointer;
 }
 .app-sidebar__avatar {
-  @apply w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 font-bold border-2 border-primary/20;
+  @apply w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center flex-shrink-0 font-bold;
 }
 .app-sidebar__profile-info {
   @apply flex flex-col;
 }
 .app-sidebar__profile-name {
-  @apply text-sm font-bold text-slate-800 dark:text-white;
+  @apply text-sm font-bold text-white;
 }
 .app-sidebar__profile-role {
-  @apply text-xs text-slate-500 dark:text-slate-400;
+  @apply text-xs text-white/60;
 }
 
 /* ── 액션 버튼 영역 ── */
@@ -85,9 +92,31 @@
   @apply flex items-center gap-2;
 }
 .app-sidebar__logout-btn {
-  @apply flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white border border-slate-200 dark:bg-slate-900/50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-all duration-300 text-oxs font-bold cursor-pointer active:scale-95;
+  @apply flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-transparent border border-white/30 hover:bg-white/10 text-white/80 hover:text-white transition-all duration-300 !text-sm font-bold cursor-pointer active:scale-95;
 }
 .app-sidebar__theme-btn,
 .app-sidebar__settings-btn {
-  @apply w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 dark:bg-slate-900/50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-all duration-300 cursor-pointer active:scale-95;
+  @apply w-10 h-10 flex items-center justify-center rounded-xl bg-transparent border border-white/30 hover:bg-white/10 text-white/80 hover:text-white transition-all duration-300 cursor-pointer active:scale-95;
+}
+
+/* ── 축소 상태 사용자 섹션 ── */
+.app-sidebar__user-wrapper--collapsed {
+  @apply flex flex-col items-center gap-[26px];
+}
+
+.app-sidebar__avatar--collapsed {
+  @apply w-10 h-10 flex items-center justify-center rounded-full border-2 border-[#ced5ff]/50;
+  background: linear-gradient(139.16deg, #67deff 16.16%, #004ea8 85.27%);
+}
+
+.app-sidebar__avatar--collapsed img {
+  @apply object-contain opacity-100;
+}
+
+.app-sidebar__actions--collapsed {
+  @apply flex flex-col items-center gap-1 w-full;
+}
+
+.app-sidebar__action-btn--collapsed {
+  @apply w-[38px] h-[38px] flex items-center justify-center rounded-[8px] bg-transparent border border-[#e2e8f0]/50 hover:bg-white/10 text-white/80 hover:text-white transition-all duration-300 cursor-pointer active:scale-95;
 }

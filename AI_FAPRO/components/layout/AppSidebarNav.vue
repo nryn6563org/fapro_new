@@ -50,16 +50,14 @@ export default {
      * @param {Object} item - 클릭된 메뉴 항목
      */
     handleParentClick(item) {
-      if (this.isCollapsed) {
-        this.$emit("toggle-collapse");
-        if (item.children && item.children.length > 0) {
-          const firstChild = item.children[0];
-          if (this.$route.path !== firstChild.path) {
-            this.$router.push(firstChild.path);
-          }
+      if (item.children && item.children.length > 0) {
+        const firstChild = item.children[0];
+        if (this.$route.path !== firstChild.path) {
+          this.$router.push(firstChild.path);
         }
-      } else {
-        this.$set(this.expandedMenus, item.label, !this.expandedMenus[item.label]);
+        if (!this.isCollapsed) {
+          this.$set(this.expandedMenus, item.label, true);
+        }
       }
     },
   },

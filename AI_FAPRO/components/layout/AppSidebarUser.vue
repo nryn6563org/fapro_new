@@ -1,7 +1,8 @@
 <template>
-  <div class="app-sidebar__user-section">
-    <transition name="fade">
-      <div v-if="!isCollapsed" class="app-sidebar__user-wrapper">
+  <div class="app-sidebar__user-section" :class="{ 'app-sidebar__user-section--collapsed': isCollapsed }">
+    <transition name="fade" mode="out-in">
+      <!-- ── 펼침 상태 ── -->
+      <div v-if="!isCollapsed" key="expanded-user" class="app-sidebar__user-wrapper">
         <!-- Thinkpool Banner -->
         <div class="app-sidebar__banner" @click="openThinkpool">
           <!-- Background Bubbles -->
@@ -16,7 +17,7 @@
           ></div>
 
           <div class="app-sidebar__banner-header">
-            <zap-icon size="14" class="text-white" />
+            <span class="app-sidebar__banner-badge">TP</span>
             <span class="app-sidebar__banner-title">씽크풀</span>
           </div>
           <p class="app-sidebar__banner-text">
@@ -27,7 +28,7 @@
         <!-- User Profile -->
         <div class="app-sidebar__profile">
           <div class="app-sidebar__avatar">
-            <user-icon size="16" class="text-teal-600" />
+            <img src="~/assets/img/layout/user.png">
           </div>
           <div class="app-sidebar__profile-info">
             <div class="app-sidebar__profile-name">FA 김승원</div>
@@ -38,7 +39,7 @@
         <!-- Action Buttons -->
         <div class="app-sidebar__actions">
           <button class="app-sidebar__logout-btn" @click="handleLogout">
-            <log-out-icon size="14" />
+            <log-out-icon size="24" />
             <span>로그아웃</span>
           </button>
           <button
@@ -46,14 +47,32 @@
             title="테마 변경"
             @click="$bus.$emit('toggle-theme')"
           >
-            <moon-icon size="14" />
+            <moon-icon size="24" />
           </button>
           <nuxt-link
             to="/settings"
             class="app-sidebar__settings-btn"
             title="설정"
           >
-            <settings-icon size="14" />
+            <settings-icon size="24" />
+          </nuxt-link>
+        </div>
+      </div>
+
+      <!-- ── 축소 상태 ── -->
+      <div v-else key="collapsed-user" class="app-sidebar__user-wrapper--collapsed">
+        <div class="app-sidebar__avatar app-sidebar__avatar--collapsed">
+          <img src="~/assets/img/layout/user.png">
+        </div>
+        <div class="app-sidebar__actions--collapsed">
+          <button class="app-sidebar__action-btn--collapsed" title="로그아웃" @click="handleLogout">
+            <log-out-icon size="22" />
+          </button>
+          <button class="app-sidebar__action-btn--collapsed" title="테마 변경" @click="$bus.$emit('toggle-theme')">
+            <moon-icon size="22" />
+          </button>
+          <nuxt-link to="/settings" class="app-sidebar__action-btn--collapsed" title="설정">
+            <settings-icon size="22" />
           </nuxt-link>
         </div>
       </div>
@@ -66,8 +85,6 @@
  * 기능: 사이드바 하단 프로필 및 부가 메뉴
  */
 import {
-  ZapIcon,
-  UserIcon,
   MoonIcon,
   LogOutIcon,
   SettingsIcon,
@@ -77,8 +94,6 @@ import "~/assets/css/layout/AppSidebarUser/AppSidebarUser.css";
 export default {
   name: "AppSidebarUser",
   components: {
-    ZapIcon,
-    UserIcon,
     MoonIcon,
     LogOutIcon,
     SettingsIcon,

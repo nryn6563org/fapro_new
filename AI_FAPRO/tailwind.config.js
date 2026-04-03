@@ -41,7 +41,11 @@ module.exports = {
         "sell-light": "#EAF2FF"
       },
       fontFamily: {
-        sans: ["Pretendard", '"DM Sans"', "sans-serif"]
+        sans: ["Pretendard", '"Plus Jakarta Sans"', '"DM Sans"', '"Spoqa Han Sans Neo"', "sans-serif"],
+        jakarta: ['"Plus Jakarta Sans"', "sans-serif"],
+        dm: ['"DM Sans"', "sans-serif"],
+        pretendard: ["Pretendard", "sans-serif"],
+        spoqa: ['"Spoqa Han Sans Neo"', "sans-serif"],
       },
       screens: {
         md: "768px" // 반응형 기준 (min-width 768px)
@@ -99,28 +103,37 @@ module.exports = {
       addComponents({
         /* ── 페이지 헤더 공통 레이아웃 ── */
         ".fapro-page-header": {
-          "@apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6 mb-2": {}
+          "@apply flex flex-col md:flex-row md:items-center justify-between w-full border-b border-[#4F46E5]/30 dark:border-slate-800 pb-[12px] px-[4px] relative": {}
         },
         ".fapro-page-header__title-box": {
-          "@apply flex flex-col": {}
+          "@apply flex flex-[1_0_0] flex-col gap-[8px] items-start": {}
         },
         ".fapro-page-header__title": {
-          "@apply text-[28px] font-bold text-slate-800 dark:text-white tracking-tight": {}
+          "@apply text-[28px] font-bold font-spoqa text-[#25252C] dark:text-white leading-normal whitespace-nowrap": {}
         },
         ".fapro-page-header__subtitle": {
-          "@apply text-slate-500 dark:text-slate-400 mt-1 text-sm font-normal": {}
+          "@apply text-[#333B4A] dark:text-slate-400 text-[14px] font-normal font-spoqa leading-normal truncate min-w-[265px]": {}
         },
         ".fapro-page-header__action-box": {
-          "@apply flex items-center gap-4": {}
+          "@apply flex items-center gap-[16px] shrink-0": {}
         },
         ".fapro-page-header__time-info": {
           "@apply text-right": {}
         },
         ".fapro-page-header__time-text": {
-          "@apply text-[16px] font-bold text-slate-800 dark:text-white": {}
+          "@apply text-[16px] font-bold font-spoqa text-[#333] dark:text-slate-200 leading-normal whitespace-nowrap": {}
         },
         ".fapro-page-header__time-label": {
-          "@apply text-xs text-slate-500 dark:text-slate-400": {}
+          "@apply text-[12px] font-normal text-slate-500 dark:text-slate-400": {}
+        },
+        ".fapro-page-header__btn-refresh": {
+          "@apply flex items-center justify-center gap-[8px] h-[40px] px-[16px] py-[10px] bg-white dark:bg-slate-800 border border-[#b5b2e8] dark:border-slate-700 rounded-[8px] cursor-pointer transition-colors hover:bg-slate-50 dark:hover:bg-slate-700 shrink-0": {}
+        },
+        ".fapro-page-header__refresh-icon": {
+          "@apply w-[24px] h-[24px] text-[#5368ff] dark:text-primary-light flex-shrink-0": {}
+        },
+        ".fapro-page-header__refresh-text": {
+          "@apply text-[#5368ff] dark:text-primary-light text-[14px] font-bold font-spoqa tracking-[0.28px] leading-normal whitespace-nowrap": {}
         },
 
         /* ── 공통 버튼 시스템 ── */

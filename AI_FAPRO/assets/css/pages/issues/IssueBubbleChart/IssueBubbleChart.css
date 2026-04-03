@@ -10,14 +10,14 @@
 }
 /* 탭 컨테이너 테두리: primary 컬러 */
 .issue-chart__tabs-container {
-  @apply flex items-center bg-white dark:bg-slate-900 rounded-full shadow-sm border border-primary;
+  @apply bg-[#eff0ff] flex items-center gap-[8px] p-[2px] rounded-[900px] w-fit shadow-none border-none;
 }
 .issue-chart__tab {
-  @apply px-4 py-1.5 text-osm font-bold rounded-full transition-colors border-0 bg-transparent cursor-pointer text-slate-500 dark:text-slate-400;
+  @apply bg-transparent flex h-[30px] items-center justify-center px-[12px] py-[6px] rounded-[100px] text-primary text-[14px] font-medium font-['Spoqa_Han_Sans_Neo'] tracking-[-0.35px] whitespace-nowrap cursor-pointer transition-colors border-none;
 }
 /* 활성 탭: primary 컬러 */
 .issue-chart__tab--active {
-  @apply text-white bg-primary;
+  @apply bg-primary rounded-[100px] text-white font-bold;
 }
 
 /* 영역 */

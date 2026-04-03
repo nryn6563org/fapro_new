@@ -1,9 +1,7 @@
 <template>
   <div class="ai-report-send">
     <div class="ai-report-send__card">
-      <div
-        class="ai-report-send__card-header pb-4 border-b border-slate-200 dark:border-slate-700"
-      >
+      <div class="ai-report-send__card-header pb-4 border-b border-slate-200 dark:border-slate-700">
         <h3 class="ai-report-send__card-title">
           <mail-icon size="20" class="ai-report-send__title-icon" />
           이 종목을 제안 하면 좋을 고객
@@ -15,21 +13,14 @@
           <div class="ai-report-send__target-section">
             <div class="ai-report-send__target-header">
               <div class="ai-report-send__target-info">
-                <label class="ai-report-send__target-label"
-                  >전송 대상 선택</label
-                >
-                <span class="ai-report-send__target-desc"
-                  >(전송 대상은 AI로직에 의해 해당 종목에 매칭된 고객이 추천
-                  되었습니다.)</span
-                >
+                <label class="ai-report-send__target-label">전송 대상 선택</label>
+                <span class="ai-report-send__target-desc">(전송 대상은 AI로직에 의해 해당 종목에 매칭된 고객이 추천
+                  되었습니다.)</span>
               </div>
               <label class="ai-report-send__select-all">
                 <input
-                  v-model="selectAll"
-                  type="checkbox"
-                  class="ai-report-send__select-all-checkbox"
-                  @change="toggleSelectAll"
-                />
+v-model="selectAll" type="checkbox" class="ai-report-send__select-all-checkbox"
+                  @change="toggleSelectAll" />
                 <span class="ai-report-send__select-all-text">전체 선택</span>
               </label>
             </div>
@@ -37,41 +28,26 @@
             <!-- 고객 리스트 (그리드) -->
             <div class="ai-report-send__target-grid">
               <label
-                v-for="(client, idx) in clients"
-                :key="idx"
-                class="ai-report-send__client-card"
-                :class="{
-                  'ai-report-send__client-card--active':
-                    selectedClients.includes(client.id),
-                }"
-              >
-                <input
-                  v-model="selectedClients"
-                  type="checkbox"
-                  :value="client.id"
-                  class="ai-report-send__client-checkbox"
-                />
+v-for="(client, idx) in clients" :key="idx" class="ai-report-send__client-card" :class="{
+                'ai-report-send__client-card--active':
+                  selectedClients.includes(client.id),
+              }">
+                <input v-model="selectedClients" type="checkbox" :value="client.id" class="ai-report-send__client-checkbox sr-only">
                 <div class="ai-report-send__client-info">
                   <div class="ai-report-send__client-header">
                     <div class="ai-report-send__client-name-wrap">
-                      <span class="ai-report-send__client-name">{{
-                        client.name
-                      }}</span>
-                      <span class="ai-report-send__client-email"
-                        >({{ client.email }})</span
-                      >
+                      <div class="ai-report-send__client-checkbox-custom">
+                        <check-icon v-if="selectedClients.includes(client.id)" size="12" />
+                      </div>
+                      <span class="ai-report-send__client-name">{{ client.name }}</span>
+                      <span class="ai-report-send__client-email">({{ client.email }})</span>
                     </div>
-                    <span
-                      class="ai-report-send__client-badge"
-                      :class="getBadgeClass(client.type)"
-                    >
+                    <span class="ai-report-send__client-badge" :class="getBadgeClass(client.type)">
                       {{ client.type }}
                     </span>
                   </div>
-                  <div class="ai-report-send__client-details">
-                    <div :class="['ai-report-send__client-reason', isBuy ? 'ai-report-send__client-reason--red' : 'ai-report-send__client-reason--blue']">
-                      {{ client.memo }}
-                    </div>
+                  <div class="ai-report-send__client-reason">
+                    {{ client.memo }}
                   </div>
                 </div>
               </label>
@@ -80,11 +56,7 @@
 
           <!-- 전송 버튼 영역 -->
           <div class="ai-report-send__action-group">
-            <button
-              class="ai-report-send__btn-primary"
-              :disabled="selectedClients.length === 0"
-              @click="handleSend"
-            >
+            <button class="ai-report-send__btn-primary" :disabled="selectedClients.length === 0" @click="handleSend">
               <send-icon size="20" class="mr-2" />
               선택한 고객에게 이메일 전송
             </button>
@@ -103,7 +75,7 @@
 /**
  * 기능: AI 리포트의 고객 발송 영역 (모달 하단 전체 너비)
  */
-import { MailIcon, SendIcon, DownloadIcon } from "vue-feather-icons";
+import { MailIcon, SendIcon, DownloadIcon, CheckIcon } from "vue-feather-icons";
 import "~/assets/css/pages/signals/AIReportCustomerSend/AIReportCustomerSend.css";
 
 export default {
@@ -112,6 +84,7 @@ export default {
     MailIcon,
     SendIcon,
     DownloadIcon,
+    CheckIcon,
   },
   props: {
     signal: {

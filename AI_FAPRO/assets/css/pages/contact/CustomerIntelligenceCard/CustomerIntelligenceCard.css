@@ -4,188 +4,200 @@
   BEM Block: customer-intelligence-section
 */
 
-/* Wrapper */
 .customer-intelligence-section {
-  @apply mt-8 space-y-6;
+  @apply flex flex-col gap-4 w-full shrink-0;
 }
 
-/* Header */
 .customer-intelligence-section__header {
-  @apply flex flex-row justify-between items-center gap-3 mb-6;
+  @apply flex items-end justify-between w-full h-[46px] pt-[16px] px-[4px] shrink-0;
 }
 
 .customer-intelligence-section__title {
-  @apply text-2xl font-black text-slate-900 dark:text-white tracking-tight;
+  @apply text-[#333] text-[24px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal];
 }
 
 .customer-intelligence-section__update-time {
-  @apply text-oxs font-medium text-slate-400 dark:text-slate-500 uppercase;
-  letter-spacing: -0.01em;
+  @apply text-[#94a3b8] text-[13px] font-medium font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap overflow-hidden text-ellipsis leading-[normal];
 }
 
-/* Grid */
 .customer-intelligence-section__grid {
-  @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
+  @apply flex w-full justify-between items-start shrink-0;
 }
 
-/* 
-  BEM Block: customer-intelligence-card
-*/
+/* Base Card */
 .customer-intelligence-card {
-  @apply fapro-card fapro-card--hover;
+  @apply flex flex-col overflow-clip rounded-[16px] border border-[#e2e8f0] w-[450px] shrink-0 self-stretch;
 }
 
 .customer-intelligence-card__header {
-  @apply fapro-card-header;
+  @apply bg-white border-b border-[#e5e7eb] pt-[16px] px-[16px] pb-[12px] flex flex-col w-full shrink-0 items-start;
 }
 
 .customer-intelligence-card__header-content {
-  @apply flex flex-col w-full sm:flex-row items-start sm:items-center justify-between gap-2;
+  @apply flex items-center justify-center w-full h-[49px] shrink-0 rounded-[8px];
+}
+
+.customer-intelligence-card__header-content > div:first-child {
+  @apply flex flex-col gap-[8px] items-start w-full shrink-0 flex-1 relative;
 }
 
 .customer-intelligence-card__title {
-  @apply fapro-card-title;
+  @apply text-[#333] text-[18px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal] flex items-center gap-[8px];
 }
 
 .customer-intelligence-card__desc {
-  @apply fapro-card-desc;
+  @apply text-[#333b4a] text-[14px] font-normal font-['Spoqa_Han_Sans_Neo'] tracking-[-0.42px] whitespace-nowrap overflow-hidden text-ellipsis w-full flex-1 flex items-center min-h-[0px] min-w-[0px] leading-[normal];
 }
 
+/* Badges Header */
 .customer-intelligence-card__badge {
-  @apply rounded-full px-3 py-1 text-oxs font-bold tracking-wider uppercase min-w-[55px] text-center;
+  @apply flex flex-row items-center justify-center px-[8px] py-[10px] rounded-[8px] h-full w-[70px] shrink-0;
 }
+.customer-intelligence-card__badge-value {
+  @apply text-[20px] font-bold tracking-[-0.6px] leading-[normal];
+}
+.customer-intelligence-card__badge-unit {
+  @apply text-[16px] font-bold tracking-[-0.48px] leading-[normal];
+}
+
+/* Badges variants */
 .customer-intelligence-card__badge--amber {
-  @apply bg-amber-100/50 text-amber-700 dark:bg-amber-400/10 dark:text-amber-400 border border-amber-200/50 dark:border-amber-400/20;
+  @apply bg-[#eff0ff] text-primary;
 }
+
 .customer-intelligence-card__badge--emerald {
-  @apply bg-emerald-100/50 text-emerald-700 dark:bg-emerald-400/10 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-400/20;
+  @apply bg-[#fff1f2] text-buy;
 }
+
 .customer-intelligence-card__badge--rose {
-  @apply bg-rose-100/50 text-rose-700 dark:bg-rose-400/10 dark:text-rose-400 border border-rose-200/50 dark:border-rose-400/20;
+  @apply bg-[#eff4ff] text-[#2773ff];
 }
 
+/* Body container */
 .customer-intelligence-card__body {
-  @apply fapro-card-body space-y-3;
+  @apply bg-white flex flex-col gap-[8px] items-start p-[16px] w-full shrink-0 flex-1 relative overflow-y-auto overflow-x-hidden max-h-[820px];
 }
 
-/*
-  BEM Block: customer-intelligence-item
-*/
+/* Items */
 .customer-intelligence-item {
-  @apply fapro-item-card flex-col;
+  @apply bg-[#f9fafb] border border-[#e7eaf0] rounded-[8px] p-[16px] flex flex-col gap-[12px] w-full shrink-0 items-center box-border;
 }
 
 .customer-intelligence-item__top {
-  @apply flex w-full items-center justify-between gap-3 mb-3;
+  @apply flex items-start flex-col gap-[8px] w-full shrink-0 relative;
 }
 
 .customer-intelligence-item__info {
-  @apply flex flex-col gap-1 flex-1 pl-1;
-}
-
-.customer-intelligence-item__content {
-  @apply flex-1 min-w-0 mb-3 w-full px-1;
+  @apply flex items-center justify-between w-full shrink-0 relative;
 }
 
 .customer-intelligence-item__name {
-  @apply font-bold text-base text-slate-800 dark:text-white m-0;
+  @apply text-[#333] text-[16px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal] m-0;
 }
 
+.customer-intelligence-card__btn {
+  @apply bg-primary h-[34px] flex items-center justify-center px-[16px] py-[10px] rounded-[8px] shrink-0 leading-[normal];
+}
+.customer-intelligence-card__btn-text {
+  @apply text-[14px] text-white font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[0.28px] whitespace-nowrap;
+}
+.customer-intelligence-card__btn-icon {
+  @apply hidden; /* removed in this design */
+}
+
+/* Stats */
 .customer-intelligence-item__stats {
-  @apply space-y-1.5 pt-2 text-sm;
+  @apply flex flex-col gap-[8px] items-start w-full relative shrink-0;
 }
 
-/* BEM Block: stat-row */
 .stat-row {
-  @apply flex justify-between gap-2;
+  @apply flex gap-[20px] items-start w-full relative shrink-0;
 }
+
 .stat-row__label {
-  @apply text-slate-500 dark:text-slate-400 text-sm;
+  @apply text-[#66738c] text-[14px] font-normal font-['Spoqa_Han_Sans_Neo'] leading-[normal] whitespace-nowrap overflow-hidden text-ellipsis flex-1 min-w-[0px] min-h-[0px];
 }
+
+.stat-row__label-container {
+  @apply flex items-start w-[189px] shrink-0 relative;
+}
+
+.stat-row__value-container {
+  @apply flex items-start flex-1 min-w-[0px] min-h-[0px] relative;
+}
+
 .stat-row__value {
-  @apply text-slate-700 dark:text-slate-300 truncate text-right text-sm;
+  @apply text-[14px] leading-[normal] whitespace-nowrap overflow-hidden text-ellipsis text-right flex-1 min-w-[0px] min-h-[0px];
 }
+
+/* Typography variants for specific stat-rows */
 .stat-row__value--semibold {
-  @apply font-semibold;
+  @apply font-medium font-['Spoqa_Han_Sans_Neo'];
 }
 .stat-row__value--bold {
-  @apply font-bold;
+  @apply font-bold font-['Spoqa_Han_Sans_Neo'];
 }
 .stat-row__value--medium {
-  @apply font-medium;
+  @apply font-medium font-['Spoqa_Han_Sans_Neo'];
 }
 .stat-row__value--amber-700 {
-  @apply text-amber-600 dark:text-amber-500;
+  @apply text-[#333b4a];
 }
 .stat-row__value--amber-600 {
-  @apply text-amber-500 dark:text-amber-400;
+  @apply text-[#333b4a];
 }
 .stat-row__value--emerald-700 {
-  @apply text-emerald-600 dark:text-emerald-500;
+  @apply text-[#333b4a];
 }
 .stat-row__value--emerald-600 {
-  @apply text-emerald-500 dark:text-emerald-400;
+  @apply text-buy; /* 12억원 red */
 }
 .stat-row__value--rose-700 {
-  @apply text-rose-600 dark:text-rose-500;
+  @apply text-[#333b4a];
 }
 .stat-row__value--rose-600 {
-  @apply text-rose-500 dark:text-rose-400;
+  @apply text-buy; /* total return red */
 }
 
-/*
-  BEM Block: customer-intelligence-alert
-*/
+/* Alert boxes */
 .customer-intelligence-alert {
-  @apply rounded-xl px-3 py-2.5 border;
-}
-.customer-intelligence-alert--amber {
-  @apply bg-amber-50 border-amber-100 dark:bg-amber-900/10 dark:border-amber-900/30;
-}
-.customer-intelligence-alert--emerald {
-  @apply bg-emerald-50 border-emerald-100 dark:bg-emerald-900/10 dark:border-emerald-900/30;
-}
-.customer-intelligence-alert--rose {
-  @apply bg-rose-50 border-rose-100 dark:bg-rose-900/10 dark:border-rose-900/30;
+  @apply flex flex-col gap-[4px] items-start justify-center p-[12px] rounded-[8px] border border-solid w-full shrink-0 relative;
 }
 
-.customer-intelligence-alert__title--amber {
-  @apply text-amber-700 dark:text-amber-400 font-bold mb-1 block text-sm;
+.customer-intelligence-alert__title-box {
+  @apply flex gap-[4px] items-center w-full shrink-0 relative;
 }
-.customer-intelligence-alert__title--emerald {
-  @apply text-emerald-700 dark:text-emerald-400 font-bold mb-1 block text-sm;
+
+.customer-intelligence-alert__title {
+  @apply text-[14px] font-bold font-['Spoqa_Han_Sans_Neo'] leading-[normal] whitespace-nowrap shrink-0 m-0 block;
 }
-.customer-intelligence-alert__title--rose {
-  @apply text-rose-700 dark:text-rose-400 font-bold mb-1 block text-sm;
+
+.customer-intelligence-alert__icon {
+  @apply overflow-clip relative shrink-0 w-[18px] h-[18px];
 }
 
 .customer-intelligence-alert__text {
-  @apply text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2 text-osm;
+  @apply text-[#666] text-[13px] font-normal font-['Spoqa_Han_Sans_Neo'] leading-[normal] shrink-0 w-full;
 }
 
-/* Button modifiers */
-.customer-intelligence-card__btn {
-  @apply flex items-center justify-center font-bold transition-all duration-300 active:scale-95;
+/* Color schemes for alert boxes */
+.customer-intelligence-alert--amber {
+  @apply bg-[#eff0ff] border-[#d8d1f2];
+}
+.customer-intelligence-alert__title--amber {
+  @apply text-primary;
 }
 
-.customer-intelligence-card__btn--compact {
-  @apply px-4 text-sm h-9 rounded-xl;
+.customer-intelligence-alert--emerald {
+  @apply bg-[#fff1f2] border-[#fbdbdd];
+}
+.customer-intelligence-alert__title--emerald {
+  @apply text-[#be1215];
 }
 
-.customer-intelligence-card__btn--block {
-  @apply w-full h-10 text-sm rounded-xl shadow-sm;
+.customer-intelligence-alert--rose {
+  @apply bg-[#eff4ff] border-[#d2def5];
 }
-
-.customer-intelligence-card__btn--amber-solid {
-  @apply bg-amber-500 hover:bg-amber-600 text-white shadow-lg shadow-amber-500/20;
-}
-.customer-intelligence-card__btn--emerald-solid {
-  @apply bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/20;
-}
-.customer-intelligence-card__btn--rose-solid {
-  @apply bg-rose-500 hover:bg-rose-600 text-white shadow-lg shadow-rose-500/20;
-}
-
-.customer-intelligence-card__btn-icon {
-  @apply mr-2;
+.customer-intelligence-alert__title--rose {
+  @apply text-[#2768e2];
 }

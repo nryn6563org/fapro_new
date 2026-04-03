@@ -4,7 +4,7 @@
     <!-- ── 섹션 헤더: 타이틀 표시 ── -->
     <div class="customer-intelligence-section__header">
       <h2 class="customer-intelligence-section__title">스마트 고객관리</h2>
-      <span class="customer-intelligence-section__update-time">업데이트 03/10 15:30</span>
+      <span class="customer-intelligence-section__update-time">업데이트 03/26 15:45</span>
     </div>
 
     <!-- ── 인텔리전스 카드 3열 그리드 (매수대기 / 수익 상위 / 수익 하위) ── -->

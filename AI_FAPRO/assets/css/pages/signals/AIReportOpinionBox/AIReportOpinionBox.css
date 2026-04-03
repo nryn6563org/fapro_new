@@ -29,11 +29,11 @@
 }
 
 .ai-report-opinion__ranking-segment {
-  @apply h-full flex justify-center items-center text-2xs font-bold text-slate-400 border-r last:border-r-0 border-white/50 dark:border-slate-800/50 bg-slate-200 dark:bg-slate-700/50;
+  @apply h-full flex justify-center items-center text-2xs font-bold text-slate-500 border-r last:border-r-0 border-white/50 dark:border-slate-800/50 bg-[#DCD9FF] dark:bg-slate-700/50;
 }
 
 .ai-report-opinion__ranking-segment--active {
-  @apply bg-[#C5DCE4] dark:bg-blue-900/60 text-slate-600 dark:text-slate-100;
+  @apply bg-[#4F46E5] text-white dark:text-white;
 }
 
 .ai-report-opinion__ranking-segment--f { width: 5%; }

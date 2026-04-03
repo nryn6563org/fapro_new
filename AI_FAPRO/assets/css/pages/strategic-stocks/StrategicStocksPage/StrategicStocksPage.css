@@ -29,16 +29,16 @@
   @apply fapro-page-header__time-label;
 }
 .strategic-page__refresh-btn {
-  @apply fapro-btn-refresh;
+  @apply fapro-page-header__btn-refresh;
 }
 .strategic-page__refresh-icon {
-  @apply w-4 h-4;
+  @apply fapro-page-header__refresh-icon;
 }
 .strategic-page__refresh-text {
-  @apply text-sm font-semibold;
+  @apply fapro-page-header__refresh-text;
 }
 
 /* Card List */
 .strategic-page__card-list {
-  @apply grid grid-cols-1 gap-4 items-start;
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-4 items-start;
 }

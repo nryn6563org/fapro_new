@@ -26,24 +26,24 @@
 
 /* ── 미리보기 컨테이너 (테마별 배경) ── */
 .proposal-editor__preview-container {
-  @apply p-5 rounded-xl transition-colors duration-300 relative;
+  @apply px-4 py-2 rounded-[8px] transition-colors duration-300 relative border border-solid flex flex-col gap-2;
 }
 
 .proposal-editor__preview-container--sms {
-  @apply bg-rose-50/80 dark:bg-rose-900/10 border border-rose-100 dark:border-rose-900/30;
+  @apply bg-rose-50/80 dark:bg-rose-900/10 border-rose-100 dark:border-rose-900/30;
 }
 
 .proposal-editor__preview-container--kakao {
-  @apply bg-amber-50/80 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30;
+  @apply bg-amber-50/80 dark:bg-amber-900/10 border-amber-100 dark:border-amber-900/30;
 }
 
 .proposal-editor__preview-container--email {
-  @apply bg-teal-50/80 dark:bg-teal-900/10 border border-teal-100 dark:border-teal-900/30;
+  @apply bg-[#f6f7ff] dark:bg-slate-900/20 border-[#9eaaff] dark:border-slate-700;
 }
 
 /* ── 미리보기 카드 (흰색 바탕) ── */
 .proposal-editor__preview-card {
-  @apply bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm p-4 relative;
+  @apply bg-white dark:bg-slate-800 rounded-[4px] border border-slate-100 dark:border-slate-700 shadow-sm p-4 relative min-h-[212px];
 }
 
 /* ── 텍스트에어리어 ── */
@@ -51,9 +51,13 @@
   @apply w-full h-[200px] text-sm leading-relaxed border-0 p-0 focus:ring-0 resize-none bg-transparent text-slate-700 dark:text-slate-300 outline-none;
 }
 
-/* ── 복사 버튼 ── */
-.proposal-editor__copy-btn {
-  @apply absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500 text-white text-xs font-bold rounded-lg shadow-sm hover:bg-emerald-600 active:scale-95 transition-all z-10;
+/* ── 버튼 영역 ── */
+.proposal-editor__action-row {
+  @apply flex justify-end px-1 py-1;
+}
+
+.proposal-editor__send-btn {
+  @apply px-8 py-2 bg-primary text-white text-[14px] font-bold rounded-[8px] shadow-sm hover:bg-[#4355db] active:scale-95 transition-all;
 }
 
 /* ── 안내 문구 ── */

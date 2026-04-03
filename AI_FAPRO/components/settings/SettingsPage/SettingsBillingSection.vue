@@ -89,7 +89,7 @@
 /**
  * 기능: 설정 페이지의 결제 및 구독 관리 섹션
  */
-import { CreditCardIcon, AwardIcon, ArrowDownIcon } from "vue-feather-icons";
+import { CreditCardIcon, AwardIcon } from "vue-feather-icons";
 import SettingsPlanCard from "~/components/settings/SettingsPlanCard.vue";
 import SettingsBillingInfo from "~/components/settings/SettingsBillingInfo.vue";
 
@@ -98,7 +98,6 @@ export default {
   components: {
     CreditCardIcon,
     AwardIcon,
-    ArrowDownIcon,
     SettingsPlanCard,
     SettingsBillingInfo,
   },

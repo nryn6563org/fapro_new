@@ -1,10 +1,5 @@
 <template>
-  <modal-vanilla
-    v-if="isOpen"
-    :is-open="isOpen"
-    custom-dialog-class="ai-report-modal__dialog"
-    @close="$emit('close')"
-  >
+  <modal-vanilla v-if="isOpen" :is-open="isOpen" custom-dialog-class="ai-report-modal__dialog" @close="$emit('close')">
     <template #header>
       <div v-if="data" class="ai-report-modal__header">
         <div class="ai-report-modal__header-content">

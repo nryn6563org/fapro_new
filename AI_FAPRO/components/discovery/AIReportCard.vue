@@ -28,7 +28,6 @@
           class="ai-report-card__btn-view"
           @click="$emit('open-report', report)"
         >
-          <eye-icon class="ai-report-card__btn-icon" />
           리포트 보기
         </button>
       </div>
@@ -38,7 +37,9 @@
       <!-- 리포트 요약 -->
       <div class="ai-report-card__reason-box">
         <div class="ai-report-card__reason-header">
-          <span class="ai-report-card__reason-icon">✨</span>
+          <span class="ai-report-card__reason-icon">
+            <img src="~/assets/img/layout/icons/spakles.svg" alt="spakles" />
+          </span>
           <span class="ai-report-card__reason-title">리포트 요약</span>
         </div>
         <p class="ai-report-card__reason-text">{{ report.summary }}</p>
@@ -47,7 +48,9 @@
       <!-- 시그널 발생 사유 -->
       <div class="ai-report-card__reason-box">
         <div class="ai-report-card__reason-header">
-          <span class="ai-report-card__reason-icon">✨</span>
+          <span class="ai-report-card__reason-icon">
+            <img src="~/assets/img/layout/icons/spakles.svg" alt="spakles" />
+          </span>
           <span class="ai-report-card__reason-title">시그널 발생 사유</span>
         </div>
         <p class="ai-report-card__reason-text">
@@ -63,15 +66,14 @@
 /**
  * 기능: AI 종목발굴 페이지의 리포트 카드 (150라인 준수를 위한 분리)
  */
-import { CalendarIcon, ClockIcon, EyeIcon } from "vue-feather-icons";
+import { CalendarIcon, ClockIcon } from "vue-feather-icons";
 import "~/assets/css/pages/index/AIReportCard/AIReportCard.css";
 
 export default {
   name: "AIReportCard",
   components: {
     CalendarIcon,
-    ClockIcon,
-    EyeIcon,
+    ClockIcon
   },
   props: {
     report: {
@@ -92,7 +94,7 @@ export default {
       if (parts.length > 1) {
         // e.g., "강력매도" -> "강력매도신호" logic handling
         let sig = parts[1];
-        if (!sig.includes("신호")) sig += "신호";
+        if (!sig.includes("제안")) sig += "제안";
         return sig;
       }
       return "";

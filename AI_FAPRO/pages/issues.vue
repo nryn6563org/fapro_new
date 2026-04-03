@@ -115,7 +115,9 @@ export default {
       this.selectedIssueForProposal = issue;
       this.isProposalModalOpen = true;
     },
-    handleProposalSend(data) { console.log("Sending proposal:", data); },
+    handleProposalSend(data) {
+      // API 전송 로직 등 추가 예정
+    },
     calculateStats(data) {
       const stats = { total: data.length, high: 0, mid: 0, low: 0, lowest: 0 };
       data.forEach((issue) => {

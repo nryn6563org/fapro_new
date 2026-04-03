@@ -1,79 +1,109 @@
 <template>
   <div class="strategic-card">
-    <!-- Collapsed Row -->
-    <div class="strategic-card__header" @click="$emit('toggle')">
-      <div class="strategic-card__row">
-        <!-- Stock Info Area -->
-        <div class="strategic-card__col-info">
+    <!-- Header Section -->
+    <div class="strategic-card__header">
+      <div class="strategic-card__info-group">
+        <div class="strategic-card__name-box">
           <h3 class="strategic-card__name">{{ stock.name }}</h3>
           <span class="strategic-card__code">{{ stock.code }}</span>
         </div>
-
-        <!-- Price Area -->
-        <div class="strategic-card__col-price">
-          <span class="strategic-card__price-value">{{ stock.currentPrice }}</span>
-        </div>
-
-        <!-- Change Area -->
-        <div class="strategic-card__col-change">
-          <span
-            :class="[
-              'strategic-card__change-value',
-              stock.isPositive ? 'strategic-card__change-value--up' : 'strategic-card__change-value--down',
-            ]"
-          >
-            {{ stock.changePercent }}
-          </span>
-        </div>
-
-        <!-- Trait Area -->
-        <div class="strategic-card__col-trait">
-          <trending-up-icon v-if="stock.isPositive" class="strategic-card__trait-icon" />
-          <trending-down-icon v-else class="strategic-card__trait-icon" />
-          <span class="strategic-card__trait-text">{{ stock.characteristic }}</span>
-        </div>
-
-        <!-- Actions Area -->
-        <div class="strategic-card__col-actions">
-          <button class="strategic-card__btn-propose" @click.stop="$emit('propose', stock)">
-            <navigation-icon class="strategic-card__btn-icon" />
-            제안하기
-          </button>
+        <div class="strategic-card__price-trait-box">
+          <div class="strategic-card__price-box">
+            <span class="strategic-card__price">{{ stock.currentPrice }}</span>
+            <span
+              :class="[
+                'strategic-card__change',
+                stock.isPositive ? 'strategic-card__change--up' : 'strategic-card__change--down',
+              ]"
+            >
+              {{ stock.changePercent }}
+            </span>
+          </div>
+          <p class="strategic-card__trait">{{ stock.characteristic }}</p>
         </div>
       </div>
+      <button class="strategic-card__btn-propose" @click.stop="$emit('propose', stock)">
+        제안하기
+      </button>
     </div>
 
-    <!-- Expanded Content -->
-    <StrategicStockCardExpanded v-if="isExpanded" :stock="stock" />
+    <!-- Analysis Sections -->
+    <div class="strategic-card__analysis">
+      <!-- Upside Drivers -->
+      <div class="strategic-card__section strategic-card__section--upside">
+        <div class="strategic-card__section-header">
+          <div class="strategic-card__icon-wrapper strategic-card__icon-wrapper--upside">
+            <trending-up-icon size="14" />
+          </div>
+          <p class="strategic-card__section-title">
+            상승이유 <span class="strategic-card__section-subtitle">(Upside Drivers)</span>
+          </p>
+        </div>
+        <ul class="strategic-card__list">
+          <li v-for="(item, idx) in stock.upside" :key="idx" class="strategic-card__item">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Downside Risks -->
+      <div class="strategic-card__section strategic-card__section--downside">
+        <div class="strategic-card__section-header">
+          <div class="strategic-card__icon-wrapper strategic-card__icon-wrapper--downside">
+            <info-icon size="14" />
+          </div>
+          <p class="strategic-card__section-title">
+            하락 위험 요소 <span class="strategic-card__section-subtitle">(Downside Risks)</span>
+          </p>
+        </div>
+        <ul class="strategic-card__list">
+          <li v-for="(item, idx) in stock.downside" :key="idx" class="strategic-card__item">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Rationale -->
+      <div class="strategic-card__section strategic-card__section--rationale">
+        <div class="strategic-card__section-header">
+          <div class="strategic-card__icon-wrapper strategic-card__icon-wrapper--rationale">
+            <check-icon size="14" />
+          </div>
+          <p class="strategic-card__section-title">
+            투자근거 <span class="strategic-card__section-subtitle">(Rationale)</span>
+          </p>
+        </div>
+        <ul class="strategic-card__list">
+          <li v-for="(item, idx) in stock.rationale" :key="idx" class="strategic-card__item">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 /**
- * 기능: AI 중장기 유망주 카드 컴포넌트 (Modularized)
+ * 기능: AI 중장기 유망주 카드 컴포넌트 (Figma 259:5820 정적 디자인)
  */
 import {
   TrendingUpIcon,
-  TrendingDownIcon,
-  NavigationIcon,
+  InfoIcon,
+  CheckIcon,
 } from "vue-feather-icons";
-import StrategicStockCardExpanded from "./StrategicStockCard/StrategicStockCardExpanded.vue";
 import "~/assets/css/pages/strategic-stocks/StrategicStockCard/StrategicStockCard.css";
 
 export default {
   name: "StrategicStockCard",
   components: {
     TrendingUpIcon,
-    TrendingDownIcon,
-    NavigationIcon,
-    StrategicStockCardExpanded,
+    InfoIcon,
+    CheckIcon,
   },
   props: {
     // 종목 데이터
     stock: { type: Object, required: true },
-    // 확장 상태 여부
-    isExpanded: { type: Boolean, default: false },
   },
 };
 </script>
-

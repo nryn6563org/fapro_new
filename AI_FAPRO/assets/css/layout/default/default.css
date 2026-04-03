@@ -7,7 +7,7 @@
 
 /* ── 기본 래퍼 ── */
 .main-layout {
-  @apply flex bg-slate-100 dark:bg-slate-950 overflow-y-auto pl-[280px] transition-all duration-300;
+  @apply font-spoqa flex bg-[#F1F5F9] dark:bg-slate-950 overflow-y-auto pl-[280px] transition-all duration-300;
 }
 
 .main-layout--collapsed {
@@ -16,7 +16,7 @@
 
 /* ── 콘텐츠 영역 래퍼 ── */
 .main-layout__content-wrapper {
-  @apply flex-1 flex flex-col max-w-[1440px] mx-auto min-h-screen;
+  @apply flex-1 flex flex-col max-w-[1440px] mx-auto min-h-screen pt-[30px];
 }
 
 /* ── 메인 콘텐츠 영역 ── */

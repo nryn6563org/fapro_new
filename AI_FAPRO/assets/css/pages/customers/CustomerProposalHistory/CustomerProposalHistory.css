@@ -1,73 +1,133 @@
-/* ── 전체 고객 제안 히스토리 스타일 ── */
+/* ── 전체 고객 제안 히스토리 스타일 (리뉴얼) ── */
 
 .customer-proposal-history {
-  @apply mt-8;
-}
-
-.customer-proposal-history__title {
-  @apply text-lg font-bold text-slate-800 dark:text-white mb-4;
+  @apply mt-10;
 }
 
 .customer-proposal-history__card {
-  @apply fapro-card p-0 overflow-hidden mt-4;
+  @apply flex flex-col p-0 overflow-hidden;
 }
 
-/* 리스트 */
+.customer-proposal-history__card-header {
+  @apply flex flex-col items-start gap-4 p-6 border-b border-slate-100 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm;
+}
+
+.customer-proposal-history__header-title {
+  @apply flex items-center gap-3 text-[18px] font-bold text-slate-800 dark:text-white tracking-tight;
+}
+
+.customer-proposal-history__card-body {
+  @apply flex-1 p-0;
+}
+
+/* 리스트 및 타임라인 */
 .customer-proposal-history__list {
-  @apply divide-y divide-slate-100 dark:divide-slate-700;
+  @apply flex flex-col p-6;
 }
 
 .customer-proposal-history__item {
-  @apply flex items-start gap-3 px-5 py-3 transition-colors;
+  @apply flex items-stretch gap-6 relative;
 }
 
-.customer-proposal-history__item:hover {
-  @apply bg-slate-50 dark:bg-slate-800/50;
+.customer-proposal-history__item:first-child .customer-proposal-history__line {
+  @apply top-6;
+}
+
+.customer-proposal-history__timeline {
+  @apply relative flex flex-col items-center w-4;
+}
+
+.customer-proposal-history__line {
+  @apply absolute top-0 bottom-0 w-[2px] bg-slate-100 dark:bg-slate-800 left-1/2 -translate-x-1/2;
+}
+
+.customer-proposal-history__dot {
+  @apply w-3 h-3 rounded-full border-2 border-white dark:border-slate-900 z-10 mt-[18px] shadow-sm;
+}
+
+/* 아이템 컨텐츠 */
+.customer-proposal-history__item-content {
+  @apply flex-1 pb-10;
+}
+
+.customer-proposal-history__item:last-child .customer-proposal-history__item-content {
+  @apply pb-0;
+}
+
+.customer-proposal-history__item-header {
+  @apply flex items-center justify-between mb-2;
+}
+
+.customer-proposal-history__item-type-box {
+  @apply flex items-center gap-2;
+}
+
+.customer-proposal-history__type-icon {
+  @apply bg-transparent !bg-none p-0;
 }
 
 .customer-proposal-history__date {
-  @apply text-xs font-bold text-slate-400 dark:text-slate-500 whitespace-nowrap mt-0.5;
-  min-width: 70px;
+  @apply text-xs font-bold text-slate-500 dark:text-slate-400;
 }
 
-.customer-proposal-history__content {
-  @apply flex-1 min-w-0;
+.customer-proposal-history__channel {
+  @apply text-[11px] font-medium text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-800/50 px-2 py-0.5 rounded-md border border-slate-100 dark:border-slate-700/50;
+}
+
+.customer-proposal-history__item-body {
+  @apply bg-slate-50/50 dark:bg-slate-800/30 p-4 rounded-xl border border-slate-100 dark:border-slate-700/50 transition-all hover:shadow-md hover:bg-white dark:hover:bg-slate-800/60;
 }
 
 .customer-proposal-history__text {
-  @apply text-sm font-medium text-slate-700 dark:text-slate-300 leading-snug;
+  @apply text-[14px] leading-relaxed text-slate-700 dark:text-slate-300 flex flex-wrap items-center gap-1.5;
+}
+
+.customer-proposal-history__name {
+  @apply font-bold text-slate-900 dark:text-white bg-primary/10 dark:bg-primary/20 text-primary px-1.5 py-0.5 rounded-md;
+}
+
+.customer-proposal-history__desc {
+  @apply font-medium;
 }
 
 /* 페이징 */
 .customer-proposal-history__pagination {
-  @apply flex items-center justify-center gap-1 px-5 py-3 border-t border-slate-100 dark:border-slate-700;
+  @apply flex items-center justify-center gap-1.5 px-6 py-4 border-t border-slate-100 dark:border-slate-800 bg-white/30 dark:bg-slate-900/10;
 }
 
 .customer-proposal-history__page-btn {
-  @apply w-7 h-7 flex items-center justify-center rounded text-xs font-bold text-slate-500 dark:text-slate-400 transition-colors cursor-pointer;
-}
-
-.customer-proposal-history__page-btn:hover {
-  @apply bg-slate-100 dark:bg-slate-700;
+  @apply w-8 h-8 flex items-center justify-center rounded-lg text-xs font-bold text-slate-500 dark:text-slate-400 transition-all cursor-pointer border border-transparent hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-800 dark:hover:text-slate-200;
 }
 
 .customer-proposal-history__page-btn--active {
-  @apply bg-primary text-white;
-}
-
-.customer-proposal-history__page-btn--active:hover {
-  @apply bg-primary text-white;
+  @apply bg-primary text-white shadow-md shadow-primary/20 hover:bg-primary-hover hover:text-white border-primary;
 }
 
 .customer-proposal-history__page-btn--disabled {
-  @apply opacity-30 cursor-not-allowed;
-}
-
-.customer-proposal-history__page-btn--disabled:hover {
-  @apply bg-transparent;
+  @apply opacity-30 cursor-not-allowed hover:bg-transparent hover:text-slate-500 dark:hover:text-slate-400;
 }
 
 /* 빈 상태 */
 .customer-proposal-history__empty {
-  @apply flex items-center justify-center py-8 text-sm font-medium text-slate-400 dark:text-slate-500;
+  @apply flex flex-col items-center justify-center py-20 px-6;
+}
+
+.customer-proposal-history__empty-box {
+  @apply flex flex-col items-center text-center;
+}
+
+.customer-proposal-history__empty-box p {
+  @apply text-[14px] font-medium text-slate-400 dark:text-slate-500 mt-2;
+}
+
+/* 컬러 클래스 (Vue에서 전달되는 유틸리티 클래스 보완) */
+.customer-proposal-history__dot.bg-indigo-500,
+.customer-proposal-history__dot.bg-amber-500,
+.customer-proposal-history__dot.bg-rose-500,
+.customer-proposal-history__dot.bg-blue-500,
+.customer-proposal-history__dot.bg-slate-500,
+.customer-proposal-history__dot.bg-violet-500,
+.customer-proposal-history__dot.bg-pink-500,
+.customer-proposal-history__dot.bg-emerald-500 {
+  @apply border-white dark:border-slate-900;
 }

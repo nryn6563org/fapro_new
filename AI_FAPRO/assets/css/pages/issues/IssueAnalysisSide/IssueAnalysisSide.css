@@ -114,21 +114,21 @@
   gap: 1rem;
 }
 .analysis-side__tabs-list {
-  @apply flex gap-2 mb-3;
+  @apply flex gap-[8px] mb-[12px];
 }
 .analysis-side__tab-btn {
-  @apply flex-1 flex items-center justify-center py-2 text-sm font-bold rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 cursor-pointer text-slate-500 dark:text-slate-400 transition-all shadow-sm;
+  @apply bg-white border border-primary flex items-center justify-center px-[16px] py-[10px] rounded-[8px] text-primary text-[14px] font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[0.28px] whitespace-nowrap flex-1 cursor-pointer transition-colors shadow-none;
 }
 /* 활성 탭: primary 브랜드 컬러 */
 .analysis-side__tab-btn--active {
-  @apply analysis-side__tab-btn shadow-sm bg-primary text-white border-primary ring-1 ring-primary/20 !important;
+  @apply !bg-primary !border-primary !text-white !shadow-none !ring-0;
 }
 .dark .analysis-side__tab-btn--active {
-  @apply bg-primary text-white border-primary/50;
+  @apply !bg-primary !text-white !border-primary;
 }
 
 .analysis-side__tab-icon {
-  @apply w-3.5 h-3.5 mr-1.5;
+  @apply hidden; /* Icons are not in Figma design */
 }
 
 .analysis-side__content-box {

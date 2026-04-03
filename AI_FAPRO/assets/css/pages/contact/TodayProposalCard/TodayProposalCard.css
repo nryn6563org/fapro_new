@@ -2,314 +2,170 @@
   TodayProposalCard Styles
   ------------------------
   BEM Block: today-proposal, proposal-card, today-proposal-item
-  컬러: 오늘타겟(primary #5368ff), 매수(buy #FB2C36), 매도(sell #2B7FFF)
 */
 
-/* ── 래퍼 ── */
-.today-proposal {
-  @apply space-y-6;
+.proposal-wrapper {
+  @apply flex flex-col gap-4 w-full shrink-0;
 }
 
-/* ── 헤더 ── */
 .today-proposal__header {
-  @apply flex mb-6 justify-between items-center;
+  @apply flex items-end justify-between w-full pt-[16px] px-[4px];
 }
 
 .today-proposal__header-title {
-  @apply text-2xl font-bold text-slate-900 dark:text-white tracking-tight;
+  @apply text-[#333] text-[24px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap;
 }
 
 .today-proposal__update-time {
-  @apply text-oxs font-medium text-slate-400 dark:text-slate-500 uppercase;
-  letter-spacing: -0.01em;
+  @apply text-[#94a3b8] text-[13px] font-medium font-['Spoqa_Han_Sans_Neo'];
 }
 
-/* 새로고침 버튼: primary 브랜드 컬러 */
-.today-proposal__header-refresh-btn {
-  @apply flex items-center gap-2 px-3 py-1.5 bg-primary hover:bg-primary-hover text-white rounded-lg transition-colors shadow-sm w-fit;
-}
-
-.today-proposal__header-refresh-icon {
-  @apply w-3.5 h-3.5;
-}
-
-.today-proposal__header-refresh-text {
-  @apply text-sm font-semibold;
-}
-
-/* ── 그리드 레이아웃 ── */
 .today-proposal__grid {
-  @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
+  @apply flex w-full justify-between shrink-0;
 }
 
-/*
-  BEM Block: proposal-card
-  상단 컬러라인으로 카드 유형 구분
-*/
 .proposal-card {
-  @apply fapro-card fapro-card--hover;
-}
-
-.proposal-card::before {
-  content: "";
-  @apply absolute top-0 left-0 w-full h-1.5 opacity-80 z-10;
-}
-
-.proposal-card--delay-100 {
-  animation-delay: 100ms;
-}
-.proposal-card--delay-200 {
-  animation-delay: 200ms;
+  @apply flex flex-col overflow-clip rounded-[16px] border border-[#e2e8f0] w-[450px] shrink-0;
 }
 
 .proposal-card__header {
-  @apply fapro-card-header w-full;
+  @apply bg-white border-b border-[#e5e7eb] pt-[16px] px-[16px] pb-[12px] flex flex-col w-full shrink-0;
 }
 
 .proposal-card__header-content {
-  @apply flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 w-full;
+  @apply flex items-center justify-between w-full h-[49px] shrink-0;
 }
 
 .proposal-card__title {
-  @apply fapro-card-title;
+  @apply text-[#333] text-[18px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal] mb-[8px]; 
 }
 
 .proposal-card__desc {
-  @apply fapro-card-desc;
+  @apply text-[#333b4a] text-[14px] font-normal font-['Spoqa_Han_Sans_Neo'] tracking-[-0.42px] whitespace-nowrap overflow-hidden text-ellipsis w-[265px];
+}
+
+.today-proposal__badge {
+  @apply flex flex-row items-center justify-center px-[8px] py-[10px] rounded-[8px] h-full w-[70px] shrink-0;
+}
+
+.today-proposal__badge--teal {
+  @apply bg-[#eff0ff] text-primary;
+}
+
+.today-proposal__badge--orange {
+  @apply bg-[#fff1f2] text-buy;
+}
+
+.today-proposal__badge--violet {
+  @apply bg-[#eff4ff] text-[#2773ff];
+}
+
+.today-proposal__badge-value {
+  @apply text-[20px] font-bold tracking-[-0.6px] leading-[normal];
+}
+
+.today-proposal__badge-unit {
+  @apply text-[16px] font-bold tracking-[-0.48px] leading-[normal];
 }
 
 .proposal-card__body {
-  @apply fapro-card-body space-y-4 max-h-[400px] overflow-y-auto;
+  @apply bg-white flex flex-col gap-[8px] pt-[8px] px-[16px] pb-[16px] w-full shrink-0 h-full overflow-y-auto overflow-x-hidden max-h-[820px];
 }
 
-/*
-  BEM Block: today-proposal-item (종목 아이템)
-*/
-.today-proposal-item {
-  @apply fapro-item-card flex flex-col items-start justify-between gap-4;
-}
-.today-proposal-item__top {
-  @apply flex w-full justify-between items-start;
+.proposal-item, .today-proposal-item {
+  @apply bg-[#f9fafb] border border-[#e7eaf0] rounded-[8px] px-[16px] py-[12px] flex flex-col items-center justify-center w-full shrink-0;
 }
 
-.today-proposal-item__left {
-  @apply flex items-center gap-4;
+.proposal-item__info, .today-proposal-item__info {
+  @apply flex flex-col gap-[8px] items-start w-full min-w-0 flex-1;
 }
 
-.today-proposal-item__icon-wrapper {
-  @apply w-10 h-10 rounded-lg flex items-center justify-center transition-colors;
+.proposal-item__top, .today-proposal-item__top {
+  @apply border-b border-[#e2e8f0] pb-[8px] flex items-center w-full min-w-0 gap-[8px] shrink-0;
 }
 
-.today-proposal-item__icon {
-  @apply w-5 h-5;
+.proposal-item__name-row, .today-proposal-item__name-row {
+  @apply flex items-center gap-[8px] shrink-0;
 }
 
-.today-proposal-item__info {
-  @apply flex flex-col gap-2 pl-1;
+.proposal-item__name, .today-proposal-item__name {
+  @apply text-[#333] text-[16px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap;
 }
 
-.today-proposal-item__name-row {
-  @apply flex items-center gap-2;
+.today-proposal__badge-buy, .today-proposal__badge-sell {
+  @apply flex items-center justify-center px-[12px] py-[4px] rounded-[100px] border shrink-0 font-medium font-['Spoqa_Han_Sans_Neo'] text-[12px] whitespace-nowrap leading-[normal];
 }
 
-.today-proposal-item__name {
-  @apply text-base font-bold text-slate-900 dark:text-white;
+.today-proposal__badge-buy {
+  @apply bg-[#fff5f7] border-buy text-buy;
 }
 
-.today-proposal-item__meta {
-  @apply text-sm text-slate-500 dark:text-slate-400 font-semibold;
+.today-proposal__badge-sell {
+  @apply bg-[#eff4ff] border-[#2773ff] text-[#2773ff];
 }
 
-.today-proposal-item__right {
-  @apply flex flex-col items-end;
-}
-
-.today-proposal-item__price {
-  @apply text-base font-bold text-slate-900 dark:text-white;
-}
-
-.today-proposal-item__change {
-  @apply flex items-center gap-1 text-sm font-bold mt-0.5;
-}
-
-/* 상승(매수): buy 시맨틱 컬러 #FB2C36 */
-.today-proposal-item__change--up {
-  @apply text-buy text-xs;
-}
-
-/* 하락(매도): sell 시맨틱 컬러 #2B7FFF */
-.today-proposal-item__change--down {
-  @apply text-sell text-xs;
-}
-
-.today-proposal-item__bottom {
-  @apply pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between w-full pl-1 text-sm;
-}
-
-/* ── 배지 시스템 ── */
-.today-proposal__badge {
-  @apply rounded-full px-3 py-1 text-xs font-bold tracking-wider uppercase min-w-[55px] text-center;
-}
-
-/* 오늘 타겟 배지: primary */
-.today-proposal__badge--teal {
-  @apply bg-primary/10 text-primary border border-primary/20;
-}
-.dark .today-proposal__badge--teal {
-  @apply bg-primary/15 text-primary/80 border-primary/25;
-}
-
-/* 매수 배지: buy */
-.today-proposal__badge--orange {
-  @apply bg-buy/10 text-buy border border-buy/20;
-}
-.dark .today-proposal__badge--orange {
-  @apply bg-buy/15 text-buy/80 border-buy/25;
-}
-
-/* 매도 배지: sell */
-.today-proposal__badge--violet {
-  @apply bg-sell/10 text-sell border border-sell/20;
-}
-.dark .today-proposal__badge--violet {
-  @apply bg-sell/15 text-sell/80 border-sell/25;
-}
-
-.today-proposal__badge--outline {
-  @apply border text-xs;
-}
-
-/* 매수제안 아웃라인 배지: buy 컬러 */
-.today-proposal__badge--outline-red {
-  @apply border-buy/40 text-buy bg-buy/5;
-}
-.dark .today-proposal__badge--outline-red {
-  @apply border-buy/35 text-buy/80 bg-buy/10;
-}
-
-/* 매도제안 아웃라인 배지: sell 컬러 */
-.today-proposal__badge--outline-blue {
-  @apply border-sell/40 text-sell bg-sell/5;
-}
-.dark .today-proposal__badge--outline-blue {
-  @apply border-sell/35 text-sell/80 bg-sell/10;
-}
-
-/* ── 제안 버튼 ── */
-.today-proposal__btn {
-  @apply flex items-center justify-center font-bold transition-all duration-300 active:scale-95 px-4 text-sm h-9 rounded-xl;
-}
-
-.today-proposal__btn:disabled {
-  background-color: #ECECF0 !important;
-  color: #A0A0A0 !important;
-  box-shadow: none !important;
-  cursor: not-allowed !important;
-  transform: none !important;
-}
-
-/* 오늘 타겟 버튼: primary */
-.today-proposal__btn--teal {
-  @apply bg-primary text-white shadow-primary/20;
-}
-.today-proposal__btn--teal:hover {
-  @apply bg-primary/90 shadow-primary/30;
-}
-
-/* 매수 버튼: buy */
-.today-proposal__btn--orange {
-  @apply bg-buy text-white shadow-lg shadow-buy/20;
-}
-.today-proposal__btn--orange:hover {
-  @apply bg-buy/90 shadow-xl shadow-buy/30;
-}
-
-/* 매도 버튼: sell */
-.today-proposal__btn--violet {
-  @apply bg-sell text-white shadow-lg shadow-sell/20;
-}
-.today-proposal__btn--violet:hover {
-  @apply bg-sell/90 shadow-xl shadow-sell/30;
-}
-
-.today-proposal__btn-icon {
-  @apply mr-2;
-}
-
-/*
-  BEM Block: proposal-item (고객 아이템 공통)
-*/
-.proposal-item {
-  @apply fapro-item-card flex-col;
-}
-
-.proposal-item__top {
-  @apply flex w-full items-start justify-between gap-3;
-}
-
-.proposal-item__info {
-  @apply flex flex-col gap-2 flex-1 pl-1;
-}
-
-.proposal-item__name-row {
-  @apply flex items-center gap-2;
-}
-
-.proposal-item__name {
-  @apply text-base font-bold text-slate-900 dark:text-white;
+.proposal-item__meta, .today-proposal-item__meta {
+  @apply flex items-center w-full;
 }
 
 .proposal-item__meta {
-  @apply text-sm text-slate-500 dark:text-slate-400 font-semibold;
+  @apply text-[14px] text-[#333b4a] font-normal leading-[normal] truncate;
 }
 
-/* 상승 표시: buy 컬러 */
-.proposal-item__change--up {
-  @apply text-buy font-bold;
+.today-proposal-item__meta {
+  @apply flex items-end justify-end gap-[10px] shrink-0;
 }
 
-/* 하락 표시: sell 컬러 */
-.proposal-item__change--down {
-  @apply text-sell font-bold;
+.today-proposal-item__price {
+  @apply text-[#333b4a] text-[14px] font-bold font-['Spoqa_Han_Sans_Neo'] leading-[0] shrink-0 whitespace-nowrap overflow-hidden text-ellipsis;
 }
 
-.proposal-item__bottom {
-  @apply pt-3 border-t border-slate-200 dark:border-slate-700/50 text-sm text-slate-500 dark:text-slate-400 w-full px-1;
+.today-proposal-item__price span {
+  @apply font-normal leading-[normal];
 }
 
-/* ── wrapper 공통 ── */
-.proposal-wrapper {
-  @apply space-y-6;
+.today-proposal-item__change {
+  @apply flex items-center justify-center pt-[2px] h-[18px] text-[12px] font-medium font-['Spoqa_Han_Sans_Neo'] leading-[normal] shrink-0 rounded-[100px] whitespace-nowrap;
 }
 
-/* 추가된 단일 BEM 클래스 (Rule 6 대응) */
+.today-proposal-item__change--up {
+  @apply text-buy;
+}
+
+.today-proposal-item__change--down {
+  @apply text-[#2773ff];
+}
+
+.today-proposal__btn {
+  @apply bg-primary h-[34px] flex items-center justify-center px-[16px] py-[10px] rounded-[8px] text-[14px] text-white font-bold tracking-[0.28px] whitespace-nowrap shrink-0 leading-[normal];
+}
+
+.today-proposal__btn-icon {
+  @apply mr-[4px];
+}
+
+.proposal-item__bottom, .today-proposal-item__bottom {
+  @apply flex items-center w-full pt-[8px];
+}
+.proposal-item__bottom p, .today-proposal-item__bottom p {
+  @apply flex flex-1 items-center min-w-[265px] text-[13px] text-[#3c4453] overflow-hidden text-ellipsis whitespace-nowrap leading-[0] font-normal font-['Spoqa_Han_Sans_Neo'];
+}
+.proposal-item__bottom-label, .today-proposal-item__bottom-label {
+  @apply text-[#66738c] leading-[normal];
+}
+.proposal-item__bottom-value, .today-proposal-item__bottom-value {
+  @apply text-[#333b4a] leading-[normal];
+}
+
+/* Animations */
 .today-proposal__card-teal {
   @apply proposal-card animate-local-fade-up;
 }
-
 .today-proposal__card-orange {
-  @apply proposal-card proposal-card--delay-100 animate-local-fade-up;
+  @apply proposal-card animate-local-fade-up;
+  animation-delay: 100ms;
 }
-
 .today-proposal__card-violet {
-  @apply proposal-card proposal-card--delay-200 animate-local-fade-up;
-}
-.today-proposal__badge-buy {
-  @apply today-proposal__badge today-proposal__badge--outline today-proposal__badge--outline-red;
-}
-.today-proposal__badge-sell {
-  @apply today-proposal__badge today-proposal__badge--outline today-proposal__badge--outline-blue;
-}
-.today-proposal__item-group {
-  @apply today-proposal-item;
-}
-
-/* "오늘 매수 타겟 종목", "오늘 매도 타겟 종목" 리스트 종목명 8글자 제한 (말줄임) */
-.today-proposal__card-orange .today-proposal-item__name,
-.today-proposal__card-violet .proposal-item__name {
-  display: inline-block;
-  max-width: 8em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  @apply proposal-card animate-local-fade-up;
+  animation-delay: 200ms;
 }

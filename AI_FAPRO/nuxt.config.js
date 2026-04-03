@@ -35,9 +35,15 @@ export default {
       },
       {
         rel: "stylesheet",
-        as: "style",
-        crossorigin: "",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap",
+      },
+      {
+        rel: "stylesheet",
         href: "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css",
+      },
+      {
+        rel: "stylesheet",
+        href: "//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css",
       },
     ],
     script: [{ src: "https://d3js.org/d3.v7.min.js" }],

@@ -1,163 +1,152 @@
 /* ── 매매 신호 카드 스타일 ── */
 
 .trading-signal-card {
-  @apply mb-4 border rounded-lg transition-all relative overflow-hidden bg-white dark:bg-slate-900 shadow-sm flex flex-col;
+  @apply w-full flex flex-col gap-[10px] px-[16px] py-[12px] rounded-[8px] shrink-0 transition-all border-0 shadow-none;
 }
-/* 매수 카드: buy 시맨틱 컬러 */
+
+/* Buy Theme */
 .trading-signal-card--buy {
-  @apply border-buy/40;
+  @apply bg-[#fff4f5];
 }
 .dark .trading-signal-card--buy {
-  @apply border-buy/25;
+  @apply bg-[#fdabaf]/10;
 }
-/* 매도 카드: sell 시맨틱 컬러 */
+
+/* Sell Theme */
 .trading-signal-card--sell {
-  @apply border-sell/40;
+  @apply bg-[#f2f6ff];
 }
 .dark .trading-signal-card--sell {
-  @apply border-sell/25;
+  @apply bg-[#2773ff]/10;
 }
 
-/* 헤더 박스 */
-.trading-signal-card__header-box {
-  @apply p-4 w-full border-b border-transparent;
+/* Badge Row */
+.trading-signal-card__badge-row {
+  @apply flex w-full items-center;
 }
-.trading-signal-card--buy .trading-signal-card__header-box {
-  @apply bg-buy/5 border-buy/10;
+.trading-signal-card__top-badge {
+  @apply h-[18px] px-[8px] rounded-[100px] flex items-center justify-center shrink-0;
 }
-.dark .trading-signal-card--buy .trading-signal-card__header-box {
-  @apply bg-buy/8 border-buy/15;
-}
-.trading-signal-card--sell .trading-signal-card__header-box {
-  @apply bg-sell/5 border-sell/10;
-}
-.dark .trading-signal-card--sell .trading-signal-card__header-box {
-  @apply bg-sell/8 border-sell/15;
+.trading-signal-card__top-badge-text {
+  @apply text-[12px] font-normal tracking-[0.24px] font-['Spoqa_Han_Sans_Neo'];
 }
 
-/* 타임 배지 */
-.trading-signal-card__time-badge {
-  @apply flex items-center gap-2 mb-2;
+/* Buy Badge Color */
+.trading-signal-card--buy .trading-signal-card__top-badge {
+  @apply bg-[#ffe3e5];
 }
-.trading-signal-card__time-text {
-  @apply text-xs font-bold;
+.dark .trading-signal-card--buy .trading-signal-card__top-badge {
+  @apply bg-[#ffe3e5]/20;
 }
-/* 매수 텍스트: buy 시맨틱 컬러 */
-.trading-signal-card__time-text--buy {
-  @apply text-buy text-xs;
-}
-.dark .trading-signal-card__time-text--buy {
-  @apply text-buy/80;
-}
-/* 매도 텍스트: sell 시맨틱 컬러 */
-.trading-signal-card__time-text--sell {
-  @apply text-sell text-xs;
-}
-.dark .trading-signal-card__time-text--sell {
-  @apply text-sell/80;
+.trading-signal-card--buy .trading-signal-card__top-badge-text {
+  @apply text-buy;
 }
 
+/* Sell Badge Color! */
+.trading-signal-card--sell .trading-signal-card__top-badge {
+  @apply bg-[#e6eeff];
+}
+.dark .trading-signal-card--sell .trading-signal-card__top-badge {
+  @apply bg-[#e6eeff]/20;
+}
+.trading-signal-card--sell .trading-signal-card__top-badge-text {
+  @apply text-[#2773ff];
+}
+
+
+/* Info Row (Title & Price) */
+.trading-signal-card__info-row {
+  @apply flex items-start justify-between w-full;
+}
 .trading-signal-card__name {
-  @apply text-lg font-bold text-slate-900 dark:text-white mb-2;
+  @apply text-[22px] font-bold text-[#333] dark:text-slate-100 font-['Spoqa_Han_Sans_Neo'];
 }
-.trading-signal-card__price-row {
-  @apply flex items-center justify-between mb-4;
+.trading-signal-card__price-box {
+  @apply flex items-center gap-[8px];
+}
+.trading-signal-card__price-label {
+  @apply text-[12px] font-normal text-[#333b4a] dark:text-slate-400 font-['Spoqa_Han_Sans_Neo'];
 }
 .trading-signal-card__price {
-  @apply text-base font-bold;
-}
-/* 매수 가격: buy 컬러 */
-.trading-signal-card__price--buy {
-  @apply text-buy text-lg;
-}
-.dark .trading-signal-card__price--buy {
-  @apply text-buy/80;
-}
-.trading-signal-card__price--sell {
-  @apply text-sell text-lg;
-}
-.dark .trading-signal-card__price--sell {
-  @apply text-sell/80;
-}
-/* 등락률: sell 컬러 (하락 맥락) */
-.trading-signal-card__change {
-  @apply text-sm font-semibold text-sell;
-}
-.dark .trading-signal-card__change {
-  @apply text-sell/80;
+  @apply text-[18px] font-bold font-['Spoqa_Han_Sans_Neo'];
 }
 
-/* 액션 영역 */
-.trading-signal-card__actions {
-  @apply flex items-center gap-2 w-full pt-4 border-t border-slate-200 dark:border-slate-700/50;
+/* Price Color */
+.trading-signal-card--buy .trading-signal-card__price {
+  @apply text-buy;
 }
-.trading-signal-card--buy .trading-signal-card__actions {
-  @apply border-buy/20;
+.trading-signal-card--sell .trading-signal-card__price {
+  @apply text-[#2773ff];
 }
-.dark .trading-signal-card--buy .trading-signal-card__actions {
-  @apply border-buy/15;
+
+/* Actions Row */
+.trading-signal-card__actions-row {
+  @apply flex gap-[10px] w-full;
 }
-.trading-signal-card--sell .trading-signal-card__actions {
-  @apply border-sell/20;
-}
-.dark .trading-signal-card--sell .trading-signal-card__actions {
-  @apply border-sell/15;
-}
+
+/* Detail Button */
 .trading-signal-card__btn-detail {
-  @apply flex-1 flex items-center justify-center py-2 text-sm rounded border bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors font-semibold;
+  @apply flex-[1_0_0] h-[34px] flex items-center justify-center rounded-[4px] bg-white cursor-pointer transition-colors;
 }
-.trading-signal-card--buy .trading-signal-card__btn-detail {
-  @apply border-slate-300 text-slate-700 text-sm;
+.dark .trading-signal-card__btn-detail {
+  @apply bg-slate-900;
 }
-.dark .trading-signal-card--buy .trading-signal-card__btn-detail {
-  @apply text-slate-200 border-slate-600;
-}
-.trading-signal-card--sell .trading-signal-card__btn-detail {
-  @apply border-slate-300 text-slate-700;
-}
-.dark .trading-signal-card--sell .trading-signal-card__btn-detail {
-  @apply text-slate-200 border-slate-600;
-}
-/* 리포트 버튼: primary 브랜드 컬러 */
-.trading-signal-card__btn-report {
-  @apply flex-1 flex items-center justify-center py-2 text-sm rounded text-white transition-colors border border-transparent font-semibold;
-  @apply bg-primary;
-}
-.trading-signal-card__btn-report:hover {
-  @apply bg-primary/90;
-}
-.trading-signal-card__btn-report:disabled {
-  background-color: #ECECF0 !important;
-  color: #A0A0A0 !important;
-  box-shadow: none !important;
-  cursor: not-allowed !important;
-  pointer-events: none;
-}
-.trading-signal-card__btn-icon {
-  @apply mr-1.5;
+.trading-signal-card__btn-detail-text {
+  @apply text-[14px] font-bold font-['Spoqa_Han_Sans_Neo'];
 }
 
-/* 분석 근거 박스 */
+.trading-signal-card--buy .trading-signal-card__btn-detail {
+  @apply border border-buy dark:border-buy/50 hover:bg-[#fff4f5] dark:hover:bg-slate-800;
+}
+.trading-signal-card--buy .trading-signal-card__btn-detail-text {
+  @apply text-[#e55946];
+}
+
+.trading-signal-card--sell .trading-signal-card__btn-detail {
+  @apply border border-[#2773ff] dark:border-[#2773ff]/50 hover:bg-[#f2f6ff] dark:hover:bg-slate-800;
+}
+.trading-signal-card--sell .trading-signal-card__btn-detail-text {
+  @apply text-[#2773ff];
+}
+
+
+/* Report Button */
+.trading-signal-card__btn-report {
+  @apply flex-[1_0_0] h-[34px] flex items-center justify-center rounded-[4px] cursor-pointer transition-colors;
+}
+.trading-signal-card__btn-report-text {
+  @apply text-[14px] font-bold text-white font-['Spoqa_Han_Sans_Neo'];
+}
+
+.trading-signal-card--buy .trading-signal-card__btn-report {
+  @apply bg-[#ef4a52] hover:bg-[#ef4a52]/90;
+}
+.trading-signal-card--sell .trading-signal-card__btn-report {
+  @apply bg-[#2773ff] hover:bg-[#2773ff]/90;
+}
+
+
+/* Reason Box */
 .trading-signal-card__reason-box {
-  @apply px-4 py-4 bg-white dark:bg-slate-900 flex-1;
+  @apply bg-white dark:bg-slate-900 p-[12px] rounded-[4px] w-full flex flex-col gap-[8px];
 }
 .trading-signal-card__reason-title {
-  @apply text-sm font-bold text-slate-800 dark:text-slate-200 mb-2;
+  @apply text-[#333b4a] dark:text-slate-300 text-[14px] font-bold font-['Spoqa_Han_Sans_Neo'];
 }
 .trading-signal-card__reason-text {
-  @apply text-sm text-slate-600 dark:text-slate-400 leading-relaxed break-keep;
+  @apply text-[#666] dark:text-slate-400 text-[13px] font-normal leading-[1.4] break-keep font-['Spoqa_Han_Sans_Neo'] line-clamp-5;
+}
+.trading-signal-card__reason-content {
+  @apply flex flex-col gap-[4px];
 }
 .trading-signal-card__reason-more {
-  @apply text-osm font-semibold text-blue-400 ml-1 cursor-pointer hover:text-blue-700 hover:font-bold transition-colors;
+  @apply font-bold text-blue-500 text-[13px] inline-block cursor-pointer hover:text-blue-600 transition-colors self-end;
 }
 
-/* AI 분석 생성 중 빈 상태 */
+/* Empty State */
 .trading-signal-card__reason-empty {
-  @apply flex flex-col items-center justify-center py-6 mt-1 bg-slate-50/80 dark:bg-slate-800/30 rounded border border-dashed border-slate-300 dark:border-slate-700;
-}
-.trading-signal-card__reason-empty-badge {
-  @apply text-white text-xs font-bold px-1.5 py-0.5 rounded mb-2 inline-flex items-center bg-primary;
+  @apply flex items-center justify-center py-[10px];
 }
 .trading-signal-card__reason-empty-text {
-  @apply text-sm font-medium text-slate-500 dark:text-slate-400;
+  @apply text-[13px] text-slate-400 font-normal;
 }

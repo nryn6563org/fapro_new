@@ -116,7 +116,6 @@ export default {
     refreshData() {
       this.currentTime = new Date();
       // API 데이터 새로고침 트리거
-      console.log("데이터 새로고침 중...");
     },
 
     /**

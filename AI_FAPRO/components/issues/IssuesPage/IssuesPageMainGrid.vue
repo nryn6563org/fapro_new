@@ -1,12 +1,13 @@
 <template>
   <div class="issues-page__main-grid">
+    <div class="issues-page__main-grid-header">
+      <h3 class="issues-page__main-grid-title">스마트 고객관리</h3>
+    </div>
+
     <div class="issues-page__chart-section">
       <issue-bubble-chart
-        :issues="issues"
-        :type.sync="innerIssueType"
-        :selected-id="selectedId"
-        @select="$emit('select', $event)"
-      />
+:issues="issues" :type.sync="innerIssueType" :selected-id="selectedId"
+        @select="$emit('select', $event)" />
     </div>
 
     <div class="issues-page__analysis-section">

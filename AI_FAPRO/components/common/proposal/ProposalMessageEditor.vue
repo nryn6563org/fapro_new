@@ -12,13 +12,14 @@
           class="proposal-editor__textarea-message"
           placeholder="전송할 메시지를 입력하세요..."
         ></textarea>
+      </div>
 
+      <div class="proposal-editor__action-row">
         <button
           type="button"
-          class="proposal-editor__copy-btn"
+          class="proposal-editor__send-btn"
           @click="sendProposal"
         >
-          <copy-icon size="14" />
           전송하기
         </button>
       </div>
@@ -35,14 +36,13 @@
  * ProposalMessageEditor
  * 기능: 제안 메시지 편집 및 전송 컴포넌트
  */
-import { FileTextIcon, CopyIcon } from "vue-feather-icons";
+import { FileTextIcon } from "vue-feather-icons";
 import "~/assets/css/common/proposal/ProposalMessageEditor/ProposalMessageEditor.css";
 
 export default {
   name: "ProposalMessageEditor",
   components: {
     FileTextIcon,
-    CopyIcon,
   },
   props: {
     value: { type: String, default: "" },

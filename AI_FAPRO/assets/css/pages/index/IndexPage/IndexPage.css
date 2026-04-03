@@ -1,6 +1,6 @@
 /* Tailwind directives container for component */
 .index-page {
-  @apply p-6 pb-12 w-full flex flex-col gap-6;
+  @apply p-6 pb-12 w-full flex flex-col gap-5;
 }
 
 /* Header */
@@ -29,13 +29,48 @@
   @apply fapro-page-header__time-label;
 }
 .index-page__refresh-btn {
-  @apply fapro-btn-refresh;
+  @apply fapro-page-header__btn-refresh;
 }
 .index-page__refresh-icon {
-  @apply w-4 h-4;
+  @apply fapro-page-header__refresh-icon;
 }
 .index-page__refresh-text {
-  @apply text-sm font-semibold;
+  @apply fapro-page-header__refresh-text;
+}
+
+/* 시간 필터 바 */
+.index-page__time-filter {
+  @apply flex flex-col items-start pt-3 pb-4 gap-2
+  bg-white dark:bg-slate-900 border border-[#E5E7EB] dark:border-slate-700 rounded-lg;
+}
+
+.index-page__time-filter-top {
+  @apply px-5 ml-[33px];
+}
+
+.index-page__time-filter-row {
+  @apply flex items-start justify-between self-stretch px-5;
+}
+
+.index-page__time-slot {
+  @apply flex items-center justify-center px-2.5 py-1.5 rounded-full
+  text-sm font-medium text-[#888] font-spoqa tracking-[0.28px]
+  bg-transparent border border-[#D8D8D8] dark:border-slate-600 dark:text-slate-400
+  hover:bg-slate-50 dark:hover:bg-slate-800
+  transition-all duration-200 cursor-pointer whitespace-nowrap;
+}
+
+.index-page__time-slot--active {
+  @apply bg-primary text-white border-primary
+  hover:bg-primary-hover dark:bg-primary dark:text-white dark:border-primary;
+}
+
+.index-page__time-group {
+  @apply flex items-center gap-1;
+}
+
+.index-page__time-group-label {
+  @apply text-sm font-bold text-[#666] dark:text-slate-400 font-spoqa tracking-[0.28px] mr-1;
 }
 
 /* Content Area */
@@ -43,35 +78,21 @@
   @apply w-full;
 }
 .index-page__summary-bar {
-  @apply flex items-center justify-end mb-4;
+  @apply flex items-center justify-start pb-2;
 }
 .index-page__summary-text {
-  @apply text-sm text-slate-600 dark:text-slate-400;
+  @apply text-[16px] text-[#333333] dark:text-slate-400;
 }
 .index-page__summary-count {
-  @apply font-bold text-slate-900 dark:text-white;
+  @apply text-[16px] font-bold text-primary dark:text-white;
 }
 
-/* Split Grid */
-.index-page__split-grid {
-  @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
-}
-
-/* Column */
-.index-page__column {
-  @apply flex flex-col gap-4;
-}
-
-/* Card List */
-.index-page__card-list {
-  @apply flex flex-col gap-4;
+/* 2열 그리드 */
+.index-page__grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
 }
 
 /* Empty State */
 .index-page__empty {
-  @apply p-8 text-center text-sm text-slate-400 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl;
-}
-
-.index-page .fapro-section {
-  @apply h-full;
+  @apply col-span-full p-8 text-center text-sm text-slate-400 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl;
 }

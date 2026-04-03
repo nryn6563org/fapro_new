@@ -1,7 +1,7 @@
 /* ── AI 리포트 카드 스타일 ── */
 
 .ai-report-card {
-  @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden hover:-translate-y-1;
+  @apply bg-white dark:bg-slate-900 border border-[#E5E7EB] dark:border-slate-800 rounded-[8px] p-4 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden hover:-translate-y-1;
 }
 /* 상단 primary 라인 */
 /* 상단 primary 라인 삭제 */
@@ -26,18 +26,18 @@
 
 /* 신호 유형 배지 */
 .ai-report-card__signal-badge {
-  @apply text-xs px-3 py-1 rounded-full uppercase tracking-wider shadow-sm;
+  @apply leading-[14px] h-[26px] text-[12px] px-3 py-[6px] rounded-full shadow-sm;
 }
 /* 매수 배지: buy 시맨틱 컬러 */
 .ai-report-card__signal-badge--buy {
-  @apply bg-buy/10 text-buy border border-buy/15;
+  @apply bg-[#FFF5F7] text-buy border border-buy
 }
 .dark .ai-report-card__signal-badge--buy {
   @apply bg-buy/15 text-buy/80 border-buy/20;
 }
 /* 매도 배지: sell 시맨틱 컬러 */
 .ai-report-card__signal-badge--sell {
-  @apply bg-sell/10 text-sell border border-sell/15;
+  @apply bg-[#EFF4FF] text-[#2773FF] border border-[#2773FF]
 }
 .dark .ai-report-card__signal-badge--sell {
   @apply bg-sell/15 text-sell/80 border-sell/20;
@@ -62,19 +62,19 @@
   @apply flex flex-col gap-3;
 }
 .ai-report-card__reason-box {
-  @apply bg-slate-50/50 dark:bg-slate-800/30 rounded-2xl p-4 border border-slate-100 dark:border-slate-800/40 hover:bg-white dark:hover:bg-slate-800 transition-colors;
+  @apply bg-[#F9FAFB] dark:bg-slate-800/30 rounded-[8px] p-3 border border-[#F3F4F6] dark:border-slate-800/40 transition-colors;
 }
 .ai-report-card__reason-header {
-  @apply flex items-center gap-1.5 mb-2;
+  @apply flex items-center gap-1.5 mb-1;
 }
 .ai-report-card__reason-icon {
   @apply text-sm leading-none;
 }
 .ai-report-card__reason-title {
-  @apply text-sm font-bold text-slate-800 dark:text-slate-200;
+  @apply text-sm font-bold text-[#333] dark:text-slate-200;
 }
 .ai-report-card__reason-text {
-  @apply text-sm text-slate-600 dark:text-slate-400 leading-relaxed break-keep;
+  @apply text-sm text-[#66738C] dark:text-slate-400 leading-[21px] break-keep;
 }
 
 /* 액션 버튼 */
@@ -83,7 +83,7 @@
 }
 /* 상세 보기 버튼: primary 브랜드 컬러 */
 .ai-report-card__btn-view {
-  @apply flex items-center justify-center px-5 py-2 text-sm font-bold rounded-xl text-white transition-all duration-300 cursor-pointer active:scale-95 bg-primary shadow-lg shadow-primary/20;
+  @apply flex items-center justify-center px-4 py-2.5 text-sm font-bold rounded-xl text-white transition-all duration-300 cursor-pointer active:scale-95 bg-primary shadow-lg shadow-primary/20;
 }
 .ai-report-card__btn-view:hover {
   @apply bg-primary/90 shadow-xl shadow-primary/30;

@@ -18,10 +18,9 @@
                   <!-- Center reference line -->
                   <div class="ai-report-score__center-line"></div>
                   <!-- Progress Fill -->
-                  <div 
-                    :class="['ai-report-score__progress-fill', getBarColorClass(item.value)]"
-                    :style="getBarStyle(item.value)"
-                  ></div>
+                  <div
+:class="['ai-report-score__progress-fill', getBarColorClass(item.value)]"
+                    :style="getBarStyle(item.value)"></div>
                 </div>
               </div>
               <div class="ai-report-score__progress-value">{{ item.value.toFixed(1) }}</div>
@@ -41,9 +40,13 @@
 
               <!-- Data Polygons -->
               <!-- Mock Industry Avg (Blue) -->
-              <polygon points="100,50 160,100 100,130 50,100" class="ai-report-score__radar-polygon ai-report-score__radar-polygon--blue" />
+              <polygon
+points="100,50 160,100 100,130 50,100"
+                class="ai-report-score__radar-polygon ai-report-score__radar-polygon--blue" />
               <!-- Stock Data (Green) -->
-              <polygon points="100,23.2 146.4,100 100,113.6 62.4,100" class="ai-report-score__radar-polygon ai-report-score__radar-polygon--green" />
+              <polygon
+points="100,23.2 146.4,100 100,113.6 62.4,100"
+                class="ai-report-score__radar-polygon ai-report-score__radar-polygon--green" />
 
               <!-- Labels -->
               <text x="100" y="12" text-anchor="middle" class="ai-report-score__radar-label">Technical</text>
@@ -91,12 +94,12 @@ export default {
   methods: {
     getBarStyle(value) {
       const max = 10.0;
-      
+
       if (value === 0) return { left: '50%', width: '0%' };
 
       if (value <= 4.0) {
         // 0~3점: 중앙(50%)에서 왼쪽으로 확장. 3점일 때 좌측 꽉 참(width 50%).
-        const width = (value / 4.0) * 50; 
+        const width = (value / 4.0) * 50;
         return {
           left: `${50 - width}%`,
           width: `${width}%`,

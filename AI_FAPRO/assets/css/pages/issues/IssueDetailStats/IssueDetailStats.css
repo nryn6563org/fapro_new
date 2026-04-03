@@ -7,19 +7,10 @@
 
 /* 통계 카드 기본 스타일 */
 .issue-detail__stat-card {
-  @apply p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-all;
+  @apply p-4 rounded-xl border border-[#E2E8F0] dark:border-slate-800 bg-[#FBFCFD] dark:bg-slate-900 shadow-sm transition-all;
 }
 
-/* 통계 카드 색상 변형 - 간소화된 틴트 */
-.issue-detail__stat-card--orange {
-  @apply bg-orange-50/50 dark:bg-orange-950/20 border-orange-100 dark:border-orange-900/30;
-}
-.issue-detail__stat-card--teal {
-  @apply bg-blue-50/50 dark:bg-blue-950/20 border-blue-100 dark:border-blue-900/30;
-}
-.issue-detail__stat-card--blue {
-  @apply bg-indigo-50/50 dark:bg-indigo-950/20 border-indigo-100 dark:border-indigo-900/30;
-}
+/* 통계 카드 색상 변형 (배경/테두리 모두 통일됨에 따라 변형 클래스 제거) */
 
 /* 통계 카드 헤더 (레이블 + 강도 막대) */
 .issue-detail__stat-header {

@@ -12,41 +12,17 @@
   @apply grid grid-cols-3 gap-2;
 }
 
-/* ── 탭 버튼 베이스 ── */
+/* ── 탭 버튼 베이스 (비활성: Outline Blue) ── */
 .delivery-tab {
-  @apply flex items-center justify-center py-2.5 text-osm font-bold rounded-xl border transition-all cursor-pointer bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 hover:-translate-y-0.5;
+  @apply flex items-center justify-center py-2.5 text-[14px] font-bold rounded-[8px] border border-primary transition-all cursor-pointer bg-white dark:bg-slate-900 text-primary hover:bg-slate-50 dark:hover:bg-slate-800;
 }
 
-/* ── 활성화 탭 변형 (전송 방법별) ── */
-/* SMS: Reddish color */
-.delivery-tab--active-sms {
-  @apply shadow-md shadow-[#C25D5D]/30 translate-y-0;
-  background-color: #C25D5D !important;
-  color: white !important;
-  border-color: #C25D5D !important;
+/* ── 활성화 탭 (통일: Solid Blue) ── */
+.delivery-tab--active {
+  @apply bg-primary text-white border-primary shadow-sm;
 }
-.delivery-tab--active-sms:hover {
-  background-color: #A34D4D !important;
-}
-/* 카카오톡: 브랜드 컬러 유지 (노란색 = 카카오 공식) */
-.delivery-tab--active-kakao {
-  @apply shadow-md shadow-[#FFCD00]/20 translate-y-0;
-  background-color: #FFCD00 !important;
-  color: #191919 !important;
-  border-color: #FFCD00 !important;
-}
-.delivery-tab--active-kakao:hover {
-  background-color: #EBC000 !important;
-}
-/* 이메일: Teal color */
-.delivery-tab--active-email {
-  @apply shadow-md shadow-[#00897B]/30 translate-y-0;
-  background-color: #00897B !important;
-  color: white !important;
-  border-color: #00897B !important;
-}
-.delivery-tab--active-email:hover {
-  background-color: #00796B !important;
+.delivery-tab--active:hover {
+  @apply bg-[#4253cc];
 }
 
 .proposal-section__icon--amber {

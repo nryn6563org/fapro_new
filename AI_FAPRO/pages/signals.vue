@@ -100,7 +100,6 @@ export default {
      */
     refreshData() {
       this.currentTime = new Date();
-      console.log("Signals data refreshed.");
     },
     /**
      * @description 특정 신호 카드의 상세 정보 열림 상태를 토글합니다.

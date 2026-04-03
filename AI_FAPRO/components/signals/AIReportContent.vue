@@ -4,7 +4,9 @@
       <!-- Section 1: Brief & Stock Info (Flex 2:1) -->
       <div class="ai-report-content__row ai-report-content__row--flex">
         <div class="ai-report-content__col-left">
-          <a-i-report-investment-brief :signal="processedSignal" :ai-report="processedSignal?.aiReport || processedSignal?.reason" />
+          <a-i-report-investment-brief
+:signal="processedSignal"
+            :ai-report="processedSignal?.aiReport || processedSignal?.reason" />
         </div>
         <div class="ai-report-content__col-right">
           <a-i-report-stock-info :signal="processedSignal" />

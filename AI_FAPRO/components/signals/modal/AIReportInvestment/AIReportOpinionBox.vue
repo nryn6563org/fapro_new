@@ -8,11 +8,10 @@
         <div class="ai-report-opinion__ranking">
           <div class="ai-report-opinion__ranking-bar-wrapper">
             <!-- 랭크 인디케이터 (Current Ranking) -->
-            <div 
-              class="ai-report-opinion__ranking-indicator"
+            <div
+class="ai-report-opinion__ranking-indicator"
               :class="isLeftAligned ? 'ai-report-opinion__ranking-indicator--left' : 'ai-report-opinion__ranking-indicator--right'"
-              :style="{ left: indicatorPosition + '%' }"
-            >
+              :style="{ left: indicatorPosition + '%' }">
               <div v-if="isLeftAligned" class="ai-report-opinion__ranking-label-group">
                 <span class="ai-report-opinion__ranking-arrow">↓</span>
                 <span class="ai-report-opinion__ranking-text">Current Ranking(78)</span>
@@ -24,21 +23,37 @@
             </div>
 
             <div class="ai-report-opinion__ranking-bar">
-              <div class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--f" :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'F' }">F</div>
-              <div class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--d" :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'D' }">D</div>
-              <div class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--c" :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'C' }">C</div>
-              <div class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--b" :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'B' }">B</div>
-              <div class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--a" :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'A' }">A</div>
+              <div
+class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--f"
+                :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'F' }">F</div>
+              <div
+class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--d"
+                :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'D' }">D</div>
+              <div
+class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--c"
+                :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'C' }">C</div>
+              <div
+class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--b"
+                :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'B' }">B</div>
+              <div
+class="ai-report-opinion__ranking-segment ai-report-opinion__ranking-segment--a"
+                :class="{ 'ai-report-opinion__ranking-segment--active': activeSegment === 'A' }">A</div>
             </div>
 
             <!-- 눈금 및 숫자 -->
             <div class="ai-report-opinion__ranking-ticks">
-              <div class="ai-report-opinion__tick-item" style="left: 0%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">1</span></div>
-              <div class="ai-report-opinion__tick-item" style="left: 5%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">5</span></div>
-              <div class="ai-report-opinion__tick-item" style="left: 30%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">30</span></div>
-              <div class="ai-report-opinion__tick-item" style="left: 70%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">70</span></div>
-              <div class="ai-report-opinion__tick-item" style="left: 95%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">95</span></div>
-              <div class="ai-report-opinion__tick-item" style="left: 100%"><span class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">100</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 0%"><span
+                  class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">1</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 5%"><span
+                  class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">5</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 30%"><span
+                  class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">30</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 70%"><span
+                  class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">70</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 95%"><span
+                  class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">95</span></div>
+              <div class="ai-report-opinion__tick-item" style="left: 100%"><span
+                  class="ai-report-opinion__tick"></span><span class="ai-report-opinion__tick-num">100</span></div>
             </div>
           </div>
           <div class="ai-report-opinion__ranking-labels">

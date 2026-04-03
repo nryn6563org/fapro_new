@@ -7,6 +7,9 @@
 .issues-header {
   @apply fapro-page-header;
 }
+.issues-header-content {
+  @apply flex items-center justify-between w-full rounded-[8px];
+}
 .issues-header__title-box {
   @apply fapro-page-header__title-box;
 }
@@ -19,84 +22,78 @@
 .issues-header__action-box {
   @apply fapro-page-header__action-box;
 }
-.issues-header__time-info {
-  @apply fapro-page-header__time-info;
-}
 .issues-header__time-text {
   @apply fapro-page-header__time-text;
 }
-.issues-header__time-label {
-  @apply fapro-page-header__time-label;
-}
 .issues-header__btn-refresh {
-  @apply fapro-btn-refresh;
+  @apply fapro-page-header__btn-refresh;
 }
 .issues-header__refresh-icon {
-  @apply w-4 h-4;
+  @apply fapro-page-header__refresh-icon !w-[18px] !h-[18px];
 }
 .issues-header__refresh-text {
-  @apply text-sm font-semibold;
+  @apply fapro-page-header__refresh-text;
 }
 
 /* Stats Bar */
 .issues-stats-bar {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+  @apply flex gap-[20px] items-start w-full mt-5;
 }
 .issues-stats-card {
-  @apply fapro-card fapro-card--hover flex items-center py-4 px-6;
+  @apply border border-[#e2e8f0] rounded-[16px] bg-white p-[16px] flex flex-row items-center justify-between flex-1 shrink-0 gap-[8px];
+}
+.issues-stats-card-left {
+  @apply flex items-center gap-[8px] flex-1;
 }
 .issues-stats-card__icon {
-  @apply w-[56px] h-[56px] mr-4 flex flex-shrink-0 items-center justify-center rounded-2xl border transition-all;
+  @apply bg-[#f9fafb] border border-[#e8ecf3] rounded-[8px] w-[56px] h-[56px] flex items-center justify-center shrink-0;
 }
-.issues-stats-card__icon--orange {
-  @apply bg-orange-50 dark:bg-orange-500/10 border-orange-100 dark:border-orange-500/20;
-}
-.issues-stats-card__icon--slate {
-  @apply bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700;
-}
-.issues-stats-card__chart-icon-orange {
-  @apply w-5 h-5 text-orange-500;
-}
-.issues-stats-card__chart-icon-slate {
-  @apply w-5 h-5 text-slate-500 dark:text-slate-400;
+.issues-stats-card__chart-icon {
+  @apply text-[#4f46e5]; /* Default icon color, could be customized */
 }
 .issues-stats-card__content {
-  @apply flex-1;
+  @apply flex flex-col gap-[4px] items-start flex-1;
 }
 .issues-stats-card__label {
-  @apply text-sm font-bold text-slate-500 dark:text-slate-400 mb-0.5;
+  @apply text-[#333b4a] text-[14px] font-normal font-['Spoqa_Han_Sans_Neo'] leading-[normal] truncate w-full;
 }
 .issues-stats-card__value {
-  @apply text-lg font-black text-slate-900 dark:text-white tracking-tight;
+  @apply text-[#333] text-[18px] font-bold font-['Spoqa_Han_Sans_Neo'] leading-[normal];
 }
 .issues-stats-card__breakdown {
-  @apply flex items-center gap-2 ml-auto text-xs font-bold bg-slate-50/50 dark:bg-slate-800/50 px-4 py-2 rounded-xl border border-slate-100 dark:border-slate-800/60;
+  @apply bg-[#fbfcfd] border border-[#e2e8f0] rounded-[8px] px-[12px] py-[6px] flex items-center gap-[12px] shrink-0;
 }
 .issues-stats-card__badge-label {
-  @apply text-oxs text-slate-400 mr-1 hidden sm:inline-block;
+  @apply text-[#333b4a] text-[13px] font-medium font-['Spoqa_Han_Sans_Neo'] tracking-[-0.39px] leading-[normal] shrink-0;
 }
 .issues-stats-card__strength-high {
-  @apply font-bold text-red-600;
+  @apply text-buy text-[13px] font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[-0.39px] leading-[normal] shrink-0;
 }
 .issues-stats-card__strength-mid {
-  @apply text-orange-500;
+  @apply text-[#f97325] text-[13px] font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[-0.39px] leading-[normal] shrink-0;
 }
 .issues-stats-card__strength-low {
-  @apply text-blue-900;
+  @apply text-[#687d97] text-[13px] font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[-0.39px] leading-[normal] shrink-0;
 }
 .issues-stats-card__strength-lowest {
-  @apply text-blue-500;
+  @apply hidden; /* The design only shows 고, 중, 저 */
 }
 .issues-stats-card__strength-num {
-  @apply font-bold ml-0.5;
+  @apply ml-1;
 }
 .issues-stats-card__dot {
-  @apply text-slate-300 dark:text-slate-600 mx-0.5;
+  @apply hidden;
 }
 
 /* Grid Layout */
 .issues-page__main-grid {
   @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+}
+.issues-page__main-grid-header {
+  @apply col-span-1 lg:col-span-2 flex flex-col items-start pt-[16px] px-[4px] w-full shrink-0;
+}
+.issues-page__main-grid-title {
+  @apply text-[#333] text-[22px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal] flex items-center h-[28px];
 }
 .issues-page__chart-section {
   @apply fapro-section overflow-hidden h-[644px] p-4 w-full;

@@ -12,7 +12,8 @@
           </p>
         </div>
         <span class="customer-intelligence-card__badge customer-intelligence-card__badge--amber">
-          {{ items.length }}명
+          <span class="customer-intelligence-card__badge-value">{{ items.length }}</span>
+          <span class="customer-intelligence-card__badge-unit">명</span>
         </span>
       </div>
     </header>
@@ -21,40 +22,58 @@
       <div
         v-for="item in items"
         :key="item.id"
-        class="customer-intelligence-item customer-intelligence-item--hover-amber"
+        class="customer-intelligence-item"
       >
         <div class="customer-intelligence-item__top">
           <div class="customer-intelligence-item__info">
             <h4 class="customer-intelligence-item__name">{{ item.name }}</h4>
+            <button
+              class="customer-intelligence-card__btn"
+              @click="$emit('propose', 'CustomerIntelligence', item)"
+            >
+              <span class="customer-intelligence-card__btn-text">제안하기</span>
+            </button>
           </div>
-          <button
-            class="customer-intelligence-card__btn customer-intelligence-card__btn--compact customer-intelligence-card__btn--amber-solid"
-            @click="$emit('propose', 'CustomerIntelligence', item)"
-          >
-            <send-icon size="12" class="customer-intelligence-card__btn-icon" />
-            제안하기
-          </button>
-        </div>
-        <div class="customer-intelligence-item__content">
+          
           <div class="customer-intelligence-item__stats">
             <div class="stat-row">
-              <span class="stat-row__label">총 자산</span>
-              <span class="stat-row__value stat-row__value--semibold">{{ item.aum }}</span>
+              <div class="stat-row__label-container">
+                <span class="stat-row__label">총 자산</span>
+              </div>
+              <div class="stat-row__value-container">
+                <span class="stat-row__value stat-row__value--emerald-600">{{ item.aum }}</span>
+              </div>
             </div>
             <div class="stat-row">
-              <span class="stat-row__label">예수금</span>
-              <span class="stat-row__value stat-row__value--bold stat-row__value--amber-700">{{ item.cashBalance }}</span>
+              <div class="stat-row__label-container">
+                <span class="stat-row__label">예수금</span>
+              </div>
+              <div class="stat-row__value-container">
+                <span class="stat-row__value stat-row__value--bold">{{ item.cashBalance }}</span>
+              </div>
             </div>
             <div class="stat-row">
-              <span class="stat-row__label">현금 비중</span>
-              <span class="stat-row__value stat-row__value--semibold stat-row__value--amber-600">{{ item.cashRatio }}</span>
+              <div class="stat-row__label-container">
+                <span class="stat-row__label">현금 비중</span>
+              </div>
+              <div class="stat-row__value-container">
+                <span class="stat-row__value stat-row__value--medium">{{ item.cashRatio }}</span>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="customer-intelligence-alert customer-intelligence-alert--amber">
-          <div class="customer-intelligence-alert__title customer-intelligence-alert__title--amber">
-            ✨ AI 투자 제안
+          <div class="customer-intelligence-alert__title-box">
+            <div class="customer-intelligence-alert__icon">
+              <!-- Using simple sparkle SVG inline simulating sparkles -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <span class="customer-intelligence-alert__title customer-intelligence-alert__title--amber">
+              AI 대응 전략
+            </span>
           </div>
           <div class="customer-intelligence-alert__text">{{ item.aiKeyword }}</div>
         </div>
@@ -64,11 +83,8 @@
 </template>
 
 <script>
-import { SendIcon } from "vue-feather-icons";
-
 export default {
   name: "IntelligenceCashCard",
-  components: { SendIcon },
   props: {
     items: {
       type: Array,

@@ -38,39 +38,21 @@
 
 /* 종목 상태 뱃지 기본 스타일 */
 .issue-detail-table__badge {
-  @apply inline-flex px-3 py-1 rounded-full text-xs font-semibold;
+  @apply inline-flex items-center justify-center px-[8px] py-[4px] rounded-[100px] text-[12px] font-['Spoqa_Han_Sans_Neo'] font-medium whitespace-nowrap;
 }
 
-/* 뱃지 색상 변형 */
-.issue-detail-table__badge--green {
-  @apply bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400;
+/* 뱃지 색상 변형 (매수, 보유, 관망, 매도) */
+.issue-detail-table__badge--buy {
+  @apply bg-[#ffe3db] text-buy;
 }
-/* primary 계열 뱃지 (구 teal) */
-.issue-detail-table__badge--teal {
-  @apply bg-primary/10 text-primary;
+.issue-detail-table__badge--hold {
+  @apply bg-[#fff7db] text-[#df851d];
 }
-.dark .issue-detail-table__badge--teal {
-  @apply bg-primary/15 text-primary/80;
+.issue-detail-table__badge--observe {
+  @apply bg-[#e1fbf3] text-[#10b981];
 }
-.issue-detail-table__badge--orange {
-  @apply bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400;
-}
-/* 매수(상승): buy 시맨틱 컬러 */
-.issue-detail-table__badge--red {
-  @apply bg-buy/10 text-buy;
-}
-.dark .issue-detail-table__badge--red {
-  @apply bg-buy/15 text-buy/80;
-}
-.issue-detail-table__badge--yellow {
-  @apply bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400;
-}
-/* 매도(하락): sell 시맨틱 컬러 */
-.issue-detail-table__badge--blue {
-  @apply bg-sell/10 text-sell;
-}
-.dark .issue-detail-table__badge--blue {
-  @apply bg-sell/15 text-sell/80;
+.issue-detail-table__badge--sell {
+  @apply bg-[#dbe7ff] text-[#2773ff];
 }
 
 /* 관련 이슈 태그 목록 */

@@ -37,7 +37,8 @@
 }
 
 .customer-table__avatar {
-  @apply w-8 h-8 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm;
+  background: linear-gradient(139deg, #8D7AFA 16%, #3611BC 85%);
+  @apply w-8 h-8 rounded-full flex items-center justify-center text-white border border-[#CED5FF]/50 shadow-sm;
 }
 
 .customer-table__name {
@@ -54,25 +55,31 @@
 
 /* 투자 성향 배지 */
 .customer-table__type-badge {
-  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide;
+  @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium tracking-wide;
 }
-/* 공격형: buy 계열 (고위험) */
+
+/* 공격형: Aggressive Type */
 .customer-table__type-badge--aggressive {
-  @apply bg-buy/10 text-buy;
+  @apply bg-[#ffe3db] text-buy;
 }
 .dark .customer-table__type-badge--aggressive {
-  @apply bg-buy/15 text-buy/80;
+  @apply bg-buy/10 text-buy;
 }
-/* 중립형: 앰버 계열 */
+
+/* 중립형: Neutral Type */
 .customer-table__type-badge--neutral {
-  @apply bg-amber-400 text-amber-900 dark:bg-amber-900/30 dark:text-amber-400;
+  @apply bg-[#dde3ee] text-[#66738c];
 }
-/* 안정형: primary 계열 */
+.dark .customer-table__type-badge--neutral {
+  @apply bg-[#66738c]/10 text-[#66738c];
+}
+
+/* 안정형: Stable Type */
 .customer-table__type-badge--stable {
-  @apply bg-primary/10 text-primary;
+  @apply bg-[#e1fbf3] text-[#10b981];
 }
 .dark .customer-table__type-badge--stable {
-  @apply bg-primary/15 text-primary/80;
+  @apply bg-[#10b981]/15 text-[#10b981];
 }
 
 /* 상세 버튼 */

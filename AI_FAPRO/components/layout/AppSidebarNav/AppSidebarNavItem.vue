@@ -5,13 +5,23 @@
       v-if="item.path"
       :to="item.path"
       class="app-sidebar__nav-item"
-      :class="{ 'app-sidebar__nav-item--active': $route.path === item.path }"
+      :class="{
+        'app-sidebar__nav-item--active': $route.path === item.path,
+        'app-sidebar__nav-item--collapsed': isCollapsed
+      }"
     >
-      <component :is="item.icon" size="20" class="app-sidebar__nav-icon" />
+      <img :src="item.iconSvg" width="24" height="24" class="app-sidebar__nav-icon" />
       <transition name="fade">
-        <span v-if="!isCollapsed" class="app-sidebar__nav-label">
-          {{ item.label }}
-        </span>
+        <div v-if="!isCollapsed" class="app-sidebar__nav-label-wrapper">
+          <span class="app-sidebar__nav-label">{{ item.label }}</span>
+          <img
+            v-if="$route.path === item.path"
+            :src="caretUp"
+            width="18"
+            height="18"
+            class="app-sidebar__nav-caret app-sidebar__nav-caret--active"
+          />
+        </div>
       </transition>
     </nuxt-link>
 
@@ -22,23 +32,26 @@
         :class="{
           'app-sidebar__nav-item--expanded': isExpanded,
           'app-sidebar__nav-item--parent-active': isChildActive,
+          'app-sidebar__nav-item--collapsed': isCollapsed
         }"
         @click="$emit('parent-click', item)"
       >
-        <component :is="item.icon" size="20" class="app-sidebar__nav-icon" />
+        <img :src="item.iconSvg" width="24" height="24" class="app-sidebar__nav-icon" />
         <transition name="fade">
           <div v-if="!isCollapsed" class="app-sidebar__nav-label-wrapper">
             <span class="app-sidebar__nav-label">{{ item.label }}</span>
-            <chevron-down-icon
-              size="16"
-              class="transition-transform duration-200"
-              :class="{ 'rotate-180': isExpanded }"
+            <img
+              :src="caretUp"
+              width="18"
+              height="18"
+              class="app-sidebar__nav-caret transition-transform duration-200"
+              :class="isChildActive ? 'app-sidebar__nav-caret--active' : { 'rotate-90': !isExpanded }"
             />
           </div>
         </transition>
       </div>
 
-      <!-- 하위 메뉴 목록 -->
+      <!-- 하위 메뉴 목록 (펼침 상태) -->
       <transition name="slide">
         <div
           v-if="!isCollapsed && isExpanded"
@@ -58,6 +71,19 @@
           </nuxt-link>
         </div>
       </transition>
+
+      <!-- 하위 메뉴 점 (축소 상태) -->
+      <div v-if="isCollapsed" class="app-sidebar__nav-dots">
+        <nuxt-link
+          v-for="(child, childIndex) in item.children"
+          :key="'collapsed-child-' + childIndex"
+          :to="child.path"
+          class="app-sidebar__nav-dot-link"
+          :class="{ 'app-sidebar__nav-dot-link--active': $route.path === child.path }"
+        >
+          <div class="app-sidebar__nav-dot"></div>
+        </nuxt-link>
+      </div>
     </div>
   </div>
 </template>
@@ -66,37 +92,19 @@
 /**
  * 기능: 앱 사이드바 네비게이션 단일 항목/그룹 컴포넌트
  */
-import {
-  ZapIcon,
-  StarIcon,
-  BriefcaseIcon,
-  TrendingUpIcon,
-  FileTextIcon,
-  TargetIcon,
-  UsersIcon,
-  CalendarIcon,
-  SettingsIcon,
-  ChevronDownIcon,
-} from "vue-feather-icons";
+import caretUp from "~/assets/img/layout/icons/caret-up.svg";
 
 export default {
   name: "AppSidebarNavItem",
-  components: {
-    ZapIcon,
-    StarIcon,
-    BriefcaseIcon,
-    TrendingUpIcon,
-    FileTextIcon,
-    TargetIcon,
-    UsersIcon,
-    CalendarIcon,
-    SettingsIcon,
-    ChevronDownIcon,
-  },
   props: {
     item: { type: Object, required: true },
     isCollapsed: { type: Boolean, default: false },
     isExpanded: { type: Boolean, default: false },
+  },
+  data() {
+    return {
+      caretUp,
+    };
   },
   computed: {
     /**

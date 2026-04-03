@@ -25,8 +25,6 @@
         v-for="stock in stocks"
         :key="stock.id"
         :stock="stock"
-        :is-expanded="expandedCards.includes(stock.id)"
-        @toggle="toggleCard(stock.id)"
         @propose="openProposalModal"
       />
     </div>
@@ -65,7 +63,6 @@ export default {
       timer: null,
       isProposalModalOpen: false,
       selectedStock: null,
-      expandedCards: [],
     };
   },
   computed: {
@@ -80,25 +77,11 @@ export default {
     this.timer = setInterval(() => {
       this.currentTime = new Date();
     }, 1000);
-
-    // Initialize the first card as expanded by default
-    if (this.stocks && this.stocks.length > 0) {
-      this.expandedCards.push(this.stocks[0].id);
-    }
   },
   beforeDestroy() {
     if (this.timer) clearInterval(this.timer);
   },
   methods: {
-    toggleCard(id) {
-      if (this.expandedCards.includes(id)) {
-        // 이미 열려있는 카드를 클릭하면 닫음
-        this.expandedCards = [];
-      } else {
-        // 새로운 카드를 열면 기존의 모든 카드를 닫고 해당 카드만 엶
-        this.expandedCards = [id];
-      }
-    },
     refreshData() {
       this.currentTime = new Date();
     },

@@ -1,19 +1,19 @@
 <template>
   <header class="issues-header">
-    <div class="issues-header__title-box">
-      <h1 class="issues-header__title">AI이슈포착</h1>
-      <p class="issues-header__subtitle">
-        중소형주 및 대형주 이슈를 포착 합니다
-      </p>
-    </div>
-    <div class="issues-header__action-box">
-      <div class="issues-header__time-info">
-        <p class="issues-header__time-text">{{ formattedTime }}</p>
+    <div class="issues-header-content">
+      <div class="issues-header__title-box">
+        <h1 class="issues-header__title">AI 이슈 포착</h1>
+        <p class="issues-header__subtitle">
+          오늘 AI가 추천하는 타겟 고객과 종목을 빠르게 제안해 보세요.
+        </p>
       </div>
-      <button class="issues-header__btn-refresh" @click="$emit('refresh')">
-        <refresh-cw-icon size="16" class="issues-header__refresh-icon" />
-        <span class="issues-header__refresh-text">새로고침</span>
-      </button>
+      <div class="issues-header__action-box">
+        <p class="issues-header__time-text">{{ formattedTime }}</p>
+        <button class="issues-header__btn-refresh" @click="$emit('refresh')">
+          <refresh-cw-icon class="issues-header__refresh-icon" />
+          <span class="issues-header__refresh-text">새로고침</span>
+        </button>
+      </div>
     </div>
   </header>
 </template>

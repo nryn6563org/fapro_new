@@ -60,7 +60,8 @@
       <div class="analysis-side__tabs">
         <div class="analysis-side__tabs-list">
           <button
-            :class="activeTab === 'reason' ? 'analysis-side__tab-btn--active' : 'analysis-side__tab-btn'"
+            class="analysis-side__tab-btn"
+            :class="{ 'analysis-side__tab-btn--active': activeTab === 'reason' }"
             @click="activeTab = 'reason'"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" class="analysis-side__tab-icon">
@@ -80,7 +81,8 @@
             AI 이슈 생성 사유
           </button>
           <button
-            :class="activeTab === 'outlook' ? 'analysis-side__tab-btn--active' : 'analysis-side__tab-btn'"
+            class="analysis-side__tab-btn"
+            :class="{ 'analysis-side__tab-btn--active': activeTab === 'outlook' }"
             @click="activeTab = 'outlook'"
           >
             <trending-up-icon class="analysis-side__tab-icon" />

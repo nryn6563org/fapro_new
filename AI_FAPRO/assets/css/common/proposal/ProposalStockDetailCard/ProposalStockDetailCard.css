@@ -9,13 +9,10 @@
 
 /* ── 전략 카드 루트 ── */
 .strategic-card {
-  @apply mt-6 border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm;
+  @apply border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm;
 }
 
 /* ── 카드 헤더 ── */
-.strategic-card__header {
-  @apply p-5;
-}
 .strategic-card__title-row {
   @apply flex items-center justify-between mb-1;
 }

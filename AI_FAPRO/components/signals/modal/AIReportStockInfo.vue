@@ -29,7 +29,8 @@
           </div>
           <div class="ai-report-stock__info-row">
             <span class="ai-report-stock__info-label">52주 최고 | 최저</span>
-            <span class="ai-report-stock__info-value">{{ signal?.low52 || '35,000' }} | {{ signal?.high52 || '75,000' }}</span>
+            <span class="ai-report-stock__info-value">{{ signal?.low52 || '35,000' }} | {{ signal?.high52 || '75,000'
+              }}</span>
           </div>
           <div class="ai-report-stock__info-row">
             <span class="ai-report-stock__info-label">PER</span>

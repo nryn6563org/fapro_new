@@ -1,125 +1,116 @@
-/* ── 전략 유망주 카드 스타일 ── */
+/* ── 전략 유망주 카드 스타일 (Figma 259:5820) ── */
 
 .strategic-card {
-  @apply fapro-card fapro-card--hover;
-  @apply !rounded-xl; /* 특화된 대형 라운드 유지 */
+  @apply bg-white dark:bg-slate-900 border border-[#e5e7eb] dark:border-slate-800 rounded-[8px] p-[16px] flex flex-col gap-[16px] w-full shadow-sm;
 }
 
-/* 헤더 / 접힌 뷰 */
+/* Header Section */
 .strategic-card__header {
-  @apply p-4 cursor-pointer;
+  @apply flex items-center justify-between w-full h-[34px];
 }
-.strategic-card__row {
-  @apply flex justify-between gap-4;
+.strategic-card__info-group {
+  @apply flex items-center gap-[20px] flex-1 min-w-0;
 }
-
-/* Col 1: 종목 정보 */
-.strategic-card__col-info {
-  @apply flex items-center gap-2;
-}
-.strategic-card__code {
-  @apply text-xs font-medium text-slate-400 dark:text-slate-500;
+.strategic-card__name-box {
+  @apply flex items-center gap-[8px] shrink-0;
 }
 .strategic-card__name {
-  @apply text-lg font-bold text-slate-900 dark:text-white m-0 truncate;
+  @apply text-[18px] font-bold text-[#333] dark:text-slate-100 font-['Spoqa_Han_Sans_Neo'] leading-[normal];
+}
+.strategic-card__code {
+  @apply text-[12px] text-[#66738c] dark:text-slate-500 font-normal leading-[normal];
 }
 
-/* Col 2: 가격 */
-.strategic-card__col-price {
-  @apply flex items-center justify-end;
+.strategic-card__price-trait-box {
+  @apply flex items-center gap-[16px] shrink-0;
 }
-.strategic-card__price-value {
-  @apply font-bold text-slate-900 dark:text-white text-base;
+.strategic-card__price-box {
+  @apply flex items-center gap-[8px] shrink-0;
 }
-
-/* Col 3: 등락 */
-.strategic-card__col-change {
-  @apply flex items-center justify-end;
+.strategic-card__price {
+  @apply text-[16px] font-bold text-[#333] dark:text-slate-100 leading-[normal];
 }
-.strategic-card__change-value {
-  @apply font-bold text-xs;
+.strategic-card__change {
+  @apply text-[12px] font-bold leading-[normal];
 }
-/* 상승: buy 시맨틱 컬러 */
-.strategic-card__change-value--up {
+.strategic-card__change--up {
   @apply text-buy;
 }
-/* 하락: sell 시맨틱 컬러 */
-.strategic-card__change-value--down {
-  @apply text-sell;
+.strategic-card__change--down {
+  @apply text-[#2773ff];
+}
+.strategic-card__trait {
+  @apply text-[13px] text-[#66738c] dark:text-slate-400 font-medium leading-[normal] truncate;
 }
 
-/* Col 4: 특성 */
-.strategic-card__col-trait {
-  @apply flex-1 flex items-center text-slate-600 dark:text-slate-400;
-}
-.strategic-card__trait-icon {
-  @apply w-3.5 h-3.5 mr-2;
-}
-.strategic-card__trait-text {
-  @apply text-osm font-bold truncate tracking-tight;
-}
-
-/* Col 5: 액션 */
-.strategic-card__col-actions {
-  @apply flex items-center justify-end gap-4 md:min-w-[160px];
-}
-/* 제안 버튼: primary 브랜드 컬러 */
 .strategic-card__btn-propose {
-  @apply flex items-center justify-center px-5 py-2 text-sm font-bold rounded-xl text-white transition-all duration-300 cursor-pointer active:scale-95 border-0 bg-primary shadow-lg shadow-primary/20;
-}
-.strategic-card__btn-propose:hover {
-  @apply bg-primary/90 shadow-xl shadow-primary/30;
-}
-.strategic-card__btn-icon {
-  @apply w-3.5 h-3.5 mr-1.5;
-}
-/* 화살표 박스 삭제 */
-/* .strategic-card__arrow-box { ... } */
-
-/* 펼쳐진 콘텐츠 */
-.strategic-card__expanded {
-  @apply border-t border-slate-100 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-900;
-}
-.strategic-card__expanded-inner {
-  @apply p-8 space-y-6;
+  @apply h-[34px] px-[16px] py-[10px] bg-primary hover:bg-[#4052e6] text-white text-[14px] font-bold rounded-[8px] flex items-center justify-center transition-colors shrink-0;
 }
 
-/* 상세 섹션 */
-.strategic-card__detail-section {
-  @apply rounded-xl p-5 border;
-}
-/* 상승 여력 섹션 */
-.strategic-card__detail-section--upside {
-  @apply bg-emerald-50/50 dark:bg-emerald-900/10 border-emerald-100 dark:border-emerald-500/20;
-}
-/* 리스크 섹션 */
-.strategic-card__detail-section--risk {
-  @apply bg-red-50/50 dark:bg-red-900/10 border-red-100 dark:border-red-500/20;
-}
-/* 근거 섹션: primary 계열 */
-.strategic-card__detail-section--evidence {
-  @apply bg-primary/5 border-primary/15;
-}
-.dark .strategic-card__detail-section--evidence {
-  @apply bg-primary/10 border-primary/25;
+/* Analysis Areas */
+.strategic-card__analysis {
+  @apply flex flex-col gap-[12px] w-full;
 }
 
+.strategic-card__section {
+  @apply border border-solid rounded-[8px] p-[12px] flex flex-col gap-[8px] w-full;
+}
+
+/* Upside Section */
+.strategic-card__section--upside {
+  @apply bg-[#fff4f5] border-[#fdabaf];
+}
+.dark .strategic-card__section--upside {
+  @apply bg-buy/10 border-buy/30;
+}
+.strategic-card__icon-wrapper--upside {
+  @apply bg-buy;
+}
+
+/* Downside Section */
+.strategic-card__section--downside {
+  @apply bg-[#f4f8ff] border-[#acf];
+}
+.dark .strategic-card__section--downside {
+  @apply bg-[#2773ff]/10 border-[#2773ff]/30;
+}
+.strategic-card__icon-wrapper--downside {
+  @apply bg-[#2773ff];
+}
+
+/* Rationale Section */
+.strategic-card__section--rationale {
+  @apply bg-[#f4fdfa] border-[#b7edd2];
+}
+.dark .strategic-card__section--rationale {
+  @apply bg-[#1ea389]/10 border-[#1ea389]/30;
+}
+.strategic-card__icon-wrapper--rationale {
+  @apply bg-[#1ea389];
+}
+
+/* Section Common Header */
 .strategic-card__section-header {
-  @apply flex items-center gap-2 mb-3;
+  @apply flex items-center gap-[8px] w-full;
 }
-.strategic-card__section-icon {
-  @apply w-4 h-4;
+.strategic-card__icon-wrapper {
+  @apply w-[24px] h-[24px] rounded-full flex items-center justify-center text-white shrink-0;
 }
 .strategic-card__section-title {
-  @apply font-bold text-sm m-0 tracking-tight;
+  @apply text-[14px] font-bold text-[#333] dark:text-slate-100;
+}
+.strategic-card__section-subtitle {
+  @apply text-[12px] font-bold text-[#333] dark:text-slate-300;
 }
 
-.strategic-card__point-list {
-  @apply space-y-2 m-0 p-0 pl-1 list-none;
+/* Point List */
+.strategic-card__list {
+  @apply flex flex-col gap-[4px] w-full m-0 p-0 list-none;
 }
-.strategic-card__point-item {
-  @apply flex items-start gap-2 text-sm font-medium leading-relaxed;
+.strategic-card__item {
+  @apply relative text-[14px] text-[#66738c] dark:text-slate-400 font-normal leading-[1.5] pl-[12px];
 }
-.strategic-card__point-bullet {
-  @apply w-1 h-1 rounded-full mt-2 flex-shrink-0;
+.strategic-card__item::before {
+  content: "•";
+  @apply absolute left-0 text-[#66738c] dark:text-slate-500 font-bold;
 }

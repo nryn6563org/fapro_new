@@ -35,11 +35,7 @@
             <span class="mt-8">최저</span>
           </div>
           <div class="ai-report-investment__chart-svg-wrapper">
-            <svg
-              viewBox="0 0 300 100"
-              preserveAspectRatio="none"
-              class="ai-report-investment__chart-svg"
-            >
+            <svg viewBox="0 0 300 100" preserveAspectRatio="none" class="ai-report-investment__chart-svg">
               <defs>
                 <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                   <stop offset="0%" stop-color="rgba(59, 130, 246, 0.3)" />
@@ -47,24 +43,12 @@
                 </linearGradient>
               </defs>
               <path
-                d="M 0 60 L 50 45 L 100 55 L 150 35 L 200 50 L 250 40 L 300 30"
-                fill="none"
-                stroke="#3B82F6"
-                stroke-width="2"
-              />
+d="M 0 60 L 50 45 L 100 55 L 150 35 L 200 50 L 250 40 L 300 30" fill="none" stroke="#3B82F6"
+                stroke-width="2" />
               <path
-                d="M 0 60 L 50 45 L 100 55 L 150 35 L 200 50 L 250 40 L 300 30 L 300 100 L 0 100 Z"
-                fill="url(#chartGradient)"
-              />
-              <line
-                x1="0"
-                y1="45"
-                x2="300"
-                y2="45"
-                stroke="#F59E0B"
-                stroke-width="1"
-                stroke-dasharray="4 2"
-              />
+d="M 0 60 L 50 45 L 100 55 L 150 35 L 200 50 L 250 40 L 300 30 L 300 100 L 0 100 Z"
+                fill="url(#chartGradient)" />
+              <line x1="0" y1="45" x2="300" y2="45" stroke="#F59E0B" stroke-width="1" stroke-dasharray="4 2" />
             </svg>
             <span class="ai-report-investment__data-point ai-report-investment__data-point--1"></span>
             <span class="ai-report-investment__data-point ai-report-investment__data-point--2"></span>

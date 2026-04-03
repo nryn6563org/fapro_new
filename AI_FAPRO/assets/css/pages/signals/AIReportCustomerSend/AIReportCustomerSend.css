@@ -52,30 +52,37 @@
 /* ── 고객 그리드 ── */
 .ai-report-send__target-grid {
   @apply grid grid-cols-1 md:grid-cols-2 gap-3 overflow-y-auto pr-2 pb-2;
-  max-height: calc(3 * 90px + 2 * 0.75rem); /* 3 rows * card height + 2 gaps */
+  max-height: 480px; /* Approximately 3 rows with the new card height + gaps */
 }
 .ai-report-send__client-card {
-  @apply border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 p-3 rounded-lg cursor-pointer transition-all flex items-start gap-3;
+  @apply border border-[#9EAAFF] bg-[#F6F7FF] dark:bg-slate-800 dark:border-slate-700 p-3 rounded-lg cursor-pointer transition-all flex items-start gap-3;
 }
 .ai-report-send__client-card--active {
-  @apply !border-primary bg-primary-light/30 dark:bg-primary-dark/10 shadow-sm;
+  @apply !border-primary bg-[#F0F2FF] dark:bg-slate-700 shadow-sm;
 }
 
 /* ── 고객 카드 내부 ── */
 .ai-report-send__client-checkbox {
-  @apply w-4 h-4 mt-1 cursor-pointer accent-primary flex-shrink-0;
+  @apply sr-only;
 }
 .ai-report-send__client-info {
   @apply flex-1 min-w-0;
 }
 .ai-report-send__client-header {
-  @apply flex items-center justify-between mb-3;
+  @apply flex items-center justify-between mb-2 px-1;
 }
 .ai-report-send__client-name-wrap {
-  @apply flex items-center gap-1.5;
+  @apply flex items-center gap-2.5;
+}
+.ai-report-send__client-checkbox-custom {
+  @apply w-[18px] h-[18px] border border-[#9EAAFF] bg-white rounded-sm shrink-0 flex items-center justify-center text-transparent transition-all;
+  line-height: 1;
+}
+.ai-report-send__client-card--active .ai-report-send__client-checkbox-custom {
+  @apply bg-[#4F46E5] border-[#4F46E5] text-white font-bold text-[13px];
 }
 .ai-report-send__client-name {
-  @apply text-osm font-bold text-slate-800 dark:text-slate-200;
+  @apply text-osm font-bold text-slate-900 dark:text-slate-100;
 }
 .ai-report-send__client-email {
   @apply text-xs font-medium text-slate-500 dark:text-slate-400;
@@ -99,21 +106,11 @@
 }
 
 /* ── 고객 상세 정보 ── */
-.ai-report-send__client-details {
-  @apply flex flex-col gap-1;
-}
 .ai-report-send__client-reason {
-  @apply text-xs px-3 py-2 rounded-lg leading-relaxed border flex items-start gap-1 relative mb-1;
-}
-.ai-report-send__client-reason--red {
-  @apply text-buy bg-buy/10 border-buy/20;
-}
-.ai-report-send__client-reason--blue {
-  @apply text-sell bg-sell/10 border-sell/20;
+  @apply text-[14px] text-[#333] dark:text-slate-300 leading-relaxed border-0 bg-white p-5 rounded-md mb-0 flex items-center gap-0 font-semibold mt-1.5;
 }
 .ai-report-send__client-reason::before {
-  content: "💡";
-  @apply text-xs;
+  display: none;
 }
 .ai-report-send__client-assets {
   @apply text-xs font-medium text-slate-500 dark:text-slate-500;

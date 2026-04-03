@@ -7,7 +7,8 @@
 
 /* ── 사이드바 컨테이너 ── */
 .app-sidebar {
-  @apply bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 border-r border-slate-300 dark:border-slate-800 flex flex-col shadow-sm transition-all duration-300 ease-in-out w-[280px] h-screen fixed top-0 left-0 z-[10014];
+  @apply bg-[#4F46E5] dark:bg-slate-900 text-slate-800 dark:text-slate-200
+  flex flex-col shadow-sm transition-all duration-300 ease-in-out w-[280px] h-screen fixed top-0 left-0 z-[10014];
 }
 
 /* 축소 상태 */
@@ -17,40 +18,72 @@
 
 /* ── 로고 섹션 ── */
 .app-sidebar__logo-container {
-  @apply h-16 flex items-center justify-between px-6 border-b border-slate-300 dark:border-slate-800 cursor-pointer no-underline;
-}
-
-.app-sidebar--collapsed .app-sidebar__logo-container {
-  @apply justify-center px-0 transition-all duration-300;
+  @apply h-[110px] flex w-full items-center justify-center cursor-pointer relative;
 }
 
 .app-sidebar__logo-wrapper {
-  @apply flex items-center gap-2;
+  @apply flex items-center justify-center gap-2 w-full transition-all duration-300;
 }
 
-.app-sidebar__logo-icon {
-  @apply w-8 h-8 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:rotate-12;
+.app-sidebar--collapsed .app-sidebar__logo-wrapper {
+  @apply gap-0;
 }
 
-.app-sidebar--collapsed .app-sidebar__logo-icon {
-  @apply rotate-12 scale-110 shadow-primary/40;
+.app-sidebar__logo-icon-img {
+  @apply w-[42px] h-[41px] transition-all duration-300 flex-shrink-0;
+  aspect-ratio: 42/41;
+  background: url('~/assets/img/layout/logo_icon.png') 50% / cover no-repeat;
 }
 
-.app-sidebar__logo-text {
-  @apply font-semibold text-lg text-slate-900 dark:text-white;
+.app-sidebar__logo-text-img {
+  @apply w-[142px] h-[28px] object-contain transition-all duration-300;
+}
+
+
+/* ── 메인 레이아웃 전환 시 여백 조정 ── */
+.main-layout {
+    @apply transition-all duration-300;
 }
 
 /* ── 토글 버튼 ── */
 .app-sidebar__toggle-btn {
-  @apply absolute -right-3 top-20 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center shadow-lg hover:bg-primary-hover hover:scale-110 active:scale-90 transition-all z-20 border-2 border-white dark:border-slate-900;
+  @apply absolute -right-[17.5px] top-[42px] w-[35px] h-[35px] bg-white rounded-full flex items-center justify-center shadow-md transition-all z-[10015] border border-slate-200 cursor-pointer active:scale-95;
 }
 
-/* ── 페이드 애니메이션 ── */
+.app-sidebar__toggle-btn img {
+    @apply transition-transform duration-300;
+}
+
+.app-sidebar--collapsed .app-sidebar__toggle-btn img {
+    @apply rotate-180;
+}
+
+/* ── 페이드 애니메이션 (로고 및 레이블) ── */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.2s;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+  transform: translateX(-10px);
+}
+
+.fade-enter-to,
+.fade-leave {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 슬라이드 애니메이션 (서브 메뉴) */
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s ease;
+  max-height: 200px;
+  overflow: hidden;
+}
+.slide-enter,
+.slide-leave-to {
+  opacity: 0;
+  max-height: 0;
 }

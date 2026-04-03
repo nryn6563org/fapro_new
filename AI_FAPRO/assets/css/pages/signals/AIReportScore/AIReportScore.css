@@ -75,10 +75,10 @@
   @apply absolute top-0 h-full transition-all duration-500 ease-out z-0;
 }
 .ai-report-score__progress-fill--green {
-  @apply bg-green-500 dark:bg-green-400;
+  @apply bg-[#EF4A51] dark:bg-[#EF4A51];
 }
 .ai-report-score__progress-fill--red {
-  @apply bg-red-500 dark:bg-red-400;
+  @apply bg-[#2773FF] dark:bg-[#2773FF];
 }
 /* Handle/Thumb style if needed to match image more closely */
 .ai-report-score__progress-fill::after {
@@ -86,10 +86,10 @@
   @apply absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-inherit rounded-full shadow-sm z-20;
 }
 .ai-report-score__progress-fill--red::after {
-  @apply left-0 -translate-x-1/2 border-red-500;
+  @apply left-0 -translate-x-1/2 border-[#2773FF];
 }
 .ai-report-score__progress-fill--green::after {
-  @apply right-0 translate-x-1/2 border-green-500;
+  @apply right-0 translate-x-1/2 border-[#EF4A51];
 }
 .ai-report-score__progress-fill--yellow {
   @apply bg-amber-500 dark:bg-amber-400;
@@ -117,11 +117,11 @@
 }
 .ai-report-score__radar-polygon--blue {
   fill-opacity: 0.2;
-  @apply fill-blue-400 stroke-blue-500;
+  @apply fill-[#2773FF] stroke-[#2773FF];
 }
 .ai-report-score__radar-polygon--green {
   fill-opacity: 0.3;
-  @apply fill-green-500 stroke-green-600;
+  @apply fill-[#EF4A51] stroke-[#EF4A51];
 }
 .ai-report-score__radar-label {
   @apply text-oxs font-bold fill-slate-500 dark:fill-slate-400;

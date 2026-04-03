@@ -33,7 +33,7 @@
             <td class="issue-detail__td issue-detail__td--right issue-detail-table__price">{{ Math.round(10000 * (1 + stock.changePercent / 100)).toLocaleString() }}원</td>
             <td :class="['issue-detail__td issue-detail__td--right issue-detail-table__change', stock.changePercent >= 0 ? 'issue-detail-table__change--up' : 'issue-detail-table__change--down']">{{ stock.changePercent > 0 ? "+" : "" }}{{ stock.changePercent }}%</td>
             <td class="issue-detail__td issue-detail__td--center">
-              <span :class="['issue-detail-table__badge', stock.aiSignal === '매수' ? 'issue-detail-table__badge--red' : stock.aiSignal === '관망' ? 'issue-detail-table__badge--yellow' : 'issue-detail-table__badge--blue']">
+              <span :class="['issue-detail-table__badge', stock.aiSignal === '매수' ? 'issue-detail-table__badge--buy' : stock.aiSignal === '보유' ? 'issue-detail-table__badge--hold' : stock.aiSignal === '관망' ? 'issue-detail-table__badge--observe' : 'issue-detail-table__badge--sell']">
                 {{ stock.aiSignal }}
               </span>
             </td>

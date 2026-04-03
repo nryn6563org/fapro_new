@@ -1,24 +1,23 @@
 <template>
-  <aside class="app-sidebar" :class="{ 'app-sidebar--collapsed': isCollapsed }">
+    <aside class="app-sidebar" :class="{ 'app-sidebar--collapsed': isCollapsed }">
     <!-- ── 로고 영역 ── -->
     <nuxt-link to="/" class="app-sidebar__logo-container">
       <div class="app-sidebar__logo-wrapper">
-        <div class="app-sidebar__logo-icon">
-          <zap-icon size="20" class="text-white" />
-        </div>
+        <!-- New Logo Structure: Persistent Icon + Conditional Text -->
+        <div class="app-sidebar__logo-icon-img"></div>
         <transition name="fade">
-          <span v-if="!isCollapsed" class="app-sidebar__logo-text">AI FA Pro</span>
+          <img
+            v-if="!isCollapsed"
+            src="~/assets/img/layout/logo_text.png"
+            class="app-sidebar__logo-text-img"
+          />
         </transition>
       </div>
     </nuxt-link>
 
     <!-- ── 사이드바 접기/펼치기 토글 버튼 ── -->
     <button class="app-sidebar__toggle-btn" @click="toggleSidebar">
-      <chevron-left-icon
-        size="16"
-        class="text-white transition-transform"
-        :class="{ 'rotate-180': isCollapsed }"
-      />
+      <img src="~/assets/img/layout/app-sidebar__toggle-btn.png" width="35">
     </button>
 
     <!-- ── 네비게이션 메뉴 ── -->
@@ -41,7 +40,6 @@
  * 하위 컴포넌트로 AppSidebarNav(네비게이션)와 AppSidebarUser(사용자 정보)를 포함합니다.
  */
 import { mapState, mapMutations } from "vuex";
-import { ZapIcon, ChevronLeftIcon } from "vue-feather-icons";
 import AppSidebarNav from "~/components/layout/AppSidebarNav.vue";
 import AppSidebarUser from "~/components/layout/AppSidebarUser.vue";
 import "~/assets/css/layout/AppSidebar/AppSidebar.css";
@@ -50,8 +48,6 @@ import "~/assets/css/layout/AppSidebar/AppSidebarTheme.css";
 export default {
   name: "AppSidebar",
   components: {
-    ZapIcon,
-    ChevronLeftIcon,
     AppSidebarNav,
     AppSidebarUser,
   },
@@ -64,36 +60,24 @@ export default {
       navItems: [
         {
           label: "AI 세일즈 파트너",
-          icon: "ZapIcon",
+          iconSvg: require("~/assets/img/layout/icons/nav-home.svg"),
           children: [
-            {
-              path: "/",
-              label: "AI 인텔리전스 리포트",
-              icon: "FileTextIcon",
-            },
-            { path: "/contact", label: "AI 컨텍 제안", icon: "BriefcaseIcon" },
-            { path: "/issues", label: "AI 이슈 포착", icon: "TargetIcon" },
-            {
-              path: "/signals",
-              label: "AI 매매신호 포착",
-              icon: "TrendingUpIcon",
-            },
+            { path: "/", label: "AI 인텔리전스 리포트" },
+            { path: "/contact", label: "AI 컨텍 제안" },
+            { path: "/issues", label: "AI 이슈 포착" },
+            { path: "/signals", label: "AI 매매신호 포착" },
           ],
         },
         {
           label: "프리미엄 인사이트",
-          icon: "StarIcon",
+          iconSvg: require("~/assets/img/layout/icons/nav-list.svg"),
           children: [
-            {
-              path: "/strategic-stocks",
-              label: "AI 중장기 유망주",
-              icon: "StarIcon",
-            },
+            { path: "/strategic-stocks", label: "AI 중장기 유망주" },
           ],
         },
-        { path: "/customers", label: "고객 목록", icon: "UsersIcon" },
-        { path: "/schedule", label: "일정", icon: "CalendarIcon" },
-        { path: "/settings", label: "설정", icon: "SettingsIcon" },
+        { path: "/customers", label: "고객 목록", iconSvg: require("~/assets/img/layout/icons/nav-users.svg") },
+        { path: "/schedule", label: "일정", iconSvg: require("~/assets/img/layout/icons/nav-package.svg") },
+        { path: "/settings", label: "설정", iconSvg: require("~/assets/img/layout/icons/nav-settings.svg") },
       ],
     };
   },
