@@ -12,10 +12,10 @@
               <span class="ai-report-modal__ticker">{{ data.ticker }}</span>
             </h2>
             <div class="ai-report-modal__badges">
-              <span class="ai-report-modal__badge ai-report-modal__badge--blue">
+              <span class="ai-report-modal__badge ai-report-modal__badge--indigo">
                 {{ data.signalBadge || '매수포착' }}
               </span>
-              <span class="ai-report-modal__badge ai-report-modal__badge--orange">
+              <span class="ai-report-modal__badge ai-report-modal__badge--indigo">
                 {{ data.category || '실적발표' }}
               </span>
               <span class="ai-report-modal__badge ai-report-modal__badge--indigo">
