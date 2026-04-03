@@ -105,8 +105,7 @@
 }
 
 .app-sidebar__avatar--collapsed {
-  @apply w-10 h-10 flex items-center justify-center rounded-full border-2 border-[#ced5ff]/50;
-  background: linear-gradient(139.16deg, #67deff 16.16%, #004ea8 85.27%);
+  @apply w-10 h-10 flex items-center justify-center rounded-full;
 }
 
 .app-sidebar__avatar--collapsed img {
