@@ -53,7 +53,7 @@
   @apply border-[#fdabaf]/40;
 }
 .signals-page__column-header--buy {
-  @apply bg-[#fff4f5] border-b border-[#e5e7eb] !pb-[12px] !pt-[16px] !px-[16px] !p-0;
+  @apply bg-[#fff4f5] border-b border-[#e5e7eb] dark:border-slate-700 !pb-[12px] !pt-[16px] !px-[16px] !p-0;
 }
 .dark .signals-page__column-header--buy {
   @apply bg-[#fff4f5]/5 border-slate-700;
@@ -68,7 +68,7 @@
   @apply !w-[24px] !h-[24px];
 }
 .signals-page__column-header--buy .signals-page__column-title {
-  @apply text-[#333] text-[18px] font-bold font-['Spoqa_Han_Sans_Neo'] leading-[normal];
+  @apply text-[#333] dark:text-slate-100 text-[18px] font-bold font-['Spoqa_Han_Sans_Neo'] leading-[normal];
 }
 .dark .signals-page__column-header--buy .signals-page__column-title {
   @apply text-slate-100;

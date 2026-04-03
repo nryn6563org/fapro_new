@@ -4,7 +4,7 @@
       <div class="modal-content">
         <div v-if="title || $slots.header" class="modal-header">
           <slot name="header">
-            <h5 class="modal-title font-bold text-lg text-slate-800">
+            <h5 class="modal-title font-bold text-lg text-slate-800 dark:text-slate-100">
               {{ title }}
             </h5>
             <button
@@ -15,7 +15,7 @@
             >
               <x-icon
                 size="20"
-                class="text-slate-500 hover:text-slate-800 transition-colors"
+                class="text-slate-500 hover:text-slate-800 dark:text-slate-100 transition-colors"
               />
             </button>
           </slot>

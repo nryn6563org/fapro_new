@@ -13,7 +13,7 @@
 }
 
 .today-proposal__header-title {
-  @apply text-[#333] text-[24px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap;
+  @apply text-[#333] dark:text-slate-100 text-[24px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap;
 }
 
 .today-proposal__update-time {
@@ -25,11 +25,11 @@
 }
 
 .proposal-card {
-  @apply flex flex-col overflow-clip rounded-[16px] border border-[#e2e8f0] w-[450px] shrink-0;
+  @apply flex flex-col overflow-clip rounded-[16px] border border-[#e2e8f0] dark:border-slate-700 w-[450px] shrink-0;
 }
 
 .proposal-card__header {
-  @apply bg-white border-b border-[#e5e7eb] pt-[16px] px-[16px] pb-[12px] flex flex-col w-full shrink-0;
+  @apply bg-white dark:bg-slate-900 border-b border-[#e5e7eb] dark:border-slate-700 pt-[16px] px-[16px] pb-[12px] flex flex-col w-full shrink-0;
 }
 
 .proposal-card__header-content {
@@ -37,11 +37,11 @@
 }
 
 .proposal-card__title {
-  @apply text-[#333] text-[18px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal] mb-[8px]; 
+  @apply text-[#333] dark:text-slate-100 text-[18px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal] mb-[8px]; 
 }
 
 .proposal-card__desc {
-  @apply text-[#333b4a] text-[14px] font-normal font-['Spoqa_Han_Sans_Neo'] tracking-[-0.42px] whitespace-nowrap overflow-hidden text-ellipsis w-[265px];
+  @apply text-[#333b4a] dark:text-slate-400 text-[14px] font-normal font-['Spoqa_Han_Sans_Neo'] tracking-[-0.42px] whitespace-nowrap overflow-hidden text-ellipsis w-[265px];
 }
 
 .today-proposal__badge {
@@ -69,11 +69,11 @@
 }
 
 .proposal-card__body {
-  @apply bg-white flex flex-col gap-[8px] pt-[8px] px-[16px] pb-[16px] w-full shrink-0 h-full overflow-y-auto overflow-x-hidden max-h-[820px];
+  @apply bg-white dark:bg-slate-900 flex flex-col gap-[8px] pt-[8px] px-[16px] pb-[16px] w-full shrink-0 h-full overflow-y-auto overflow-x-hidden max-h-[820px];
 }
 
 .proposal-item, .today-proposal-item {
-  @apply bg-[#f9fafb] border border-[#e7eaf0] rounded-[8px] px-[16px] py-[12px] flex flex-col items-center justify-center w-full shrink-0;
+  @apply bg-[#f9fafb] dark:bg-slate-800/50 border border-[#e7eaf0] dark:border-slate-700/50 rounded-[8px] px-[16px] py-[12px] flex flex-col items-center justify-center w-full shrink-0;
 }
 
 .proposal-item__info, .today-proposal-item__info {
@@ -81,7 +81,7 @@
 }
 
 .proposal-item__top, .today-proposal-item__top {
-  @apply border-b border-[#e2e8f0] pb-[8px] flex items-center w-full min-w-0 gap-[8px] shrink-0;
+  @apply border-b border-[#e2e8f0] dark:border-slate-700 pb-[8px] flex items-center w-full min-w-0 gap-[8px] shrink-0;
 }
 
 .proposal-item__name-row, .today-proposal-item__name-row {
@@ -89,7 +89,7 @@
 }
 
 .proposal-item__name, .today-proposal-item__name {
-  @apply text-[#333] text-[16px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap;
+  @apply text-[#333] dark:text-slate-100 text-[16px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap;
 }
 
 .today-proposal__badge-buy, .today-proposal__badge-sell {
@@ -109,15 +109,15 @@
 }
 
 .proposal-item__meta {
-  @apply text-[14px] text-[#333b4a] font-normal leading-[normal] truncate;
+  @apply text-[14px] text-[#333b4a] dark:text-slate-400 font-normal leading-[normal] truncate;
 }
 
 .today-proposal-item__meta {
-  @apply flex items-end justify-end gap-[10px] shrink-0;
+  @apply flex items-center justify-start gap-[10px] shrink-0;
 }
 
 .today-proposal-item__price {
-  @apply text-[#333b4a] text-[14px] font-bold font-['Spoqa_Han_Sans_Neo'] leading-[0] shrink-0 whitespace-nowrap overflow-hidden text-ellipsis;
+  @apply text-[#333b4a] dark:text-slate-200 text-[14px] font-bold font-['Spoqa_Han_Sans_Neo'] leading-[0] shrink-0 whitespace-nowrap overflow-hidden text-ellipsis;
 }
 
 .today-proposal-item__price span {
@@ -129,11 +129,11 @@
 }
 
 .today-proposal-item__change--up {
-  @apply text-buy;
+  @apply text-buy dark:text-red-400;
 }
 
 .today-proposal-item__change--down {
-  @apply text-[#2773ff];
+  @apply text-[#2773ff] dark:text-blue-400;
 }
 
 .today-proposal__btn {
@@ -148,13 +148,13 @@
   @apply flex items-center w-full pt-[8px];
 }
 .proposal-item__bottom p, .today-proposal-item__bottom p {
-  @apply flex flex-1 items-center min-w-[265px] text-[13px] text-[#3c4453] overflow-hidden text-ellipsis whitespace-nowrap leading-[0] font-normal font-['Spoqa_Han_Sans_Neo'];
+  @apply flex flex-1 items-center min-w-[265px] text-[13px] text-[#3c4453] dark:text-slate-300 overflow-hidden text-ellipsis whitespace-nowrap leading-[0] font-normal font-['Spoqa_Han_Sans_Neo'];
 }
 .proposal-item__bottom-label, .today-proposal-item__bottom-label {
-  @apply text-[#66738c] leading-[normal];
+  @apply text-[#66738c] dark:text-slate-400 leading-[normal];
 }
 .proposal-item__bottom-value, .today-proposal-item__bottom-value {
-  @apply text-[#333b4a] leading-[normal];
+  @apply text-[#333b4a] dark:text-slate-200 leading-[normal];
 }
 
 /* Animations */

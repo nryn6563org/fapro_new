@@ -160,7 +160,7 @@
 }
 
 .strategic-modal__form-header {
-  @apply flex items-center justify-between pb-2 border-b border-slate-200;
+  @apply flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-700;
 }
 
 .dark .strategic-modal__form-header {
@@ -205,7 +205,7 @@
 }
 
 .strategic-modal__client-item {
-  @apply flex items-center gap-4 p-4 transition-colors border-b border-slate-200;
+  @apply flex items-center gap-4 p-4 transition-colors border-b border-slate-200 dark:border-slate-700;
 }
 
 .dark .strategic-modal__client-item {
@@ -213,7 +213,7 @@
 }
 
 .strategic-modal__client-item-border {
-  @apply border-b border-slate-200;
+  @apply border-b border-slate-200 dark:border-slate-700;
 }
 
 .dark .strategic-modal__client-item-border {
@@ -237,7 +237,7 @@
 }
 
 .strategic-modal__client-name {
-  @apply text-sm font-bold text-slate-800 m-0;
+  @apply text-sm font-bold text-slate-800 dark:text-slate-100 m-0;
 }
 
 .dark .strategic-modal__client-name {
@@ -261,7 +261,7 @@
 }
 
 .strategic-modal__client-portfolio {
-  @apply text-right bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200;
+  @apply text-right bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700;
 }
 
 .dark .strategic-modal__client-portfolio {
@@ -313,5 +313,5 @@
 }
 
 .dark .strategic-modal__btn-primary {
-  @apply bg-white hover:bg-slate-100 text-slate-900;
+  @apply bg-white  hover:bg-slate-100  text-slate-900 ;
 }

@@ -83,7 +83,7 @@
 /* Handle/Thumb style if needed to match image more closely */
 .ai-report-score__progress-fill::after {
   content: '';
-  @apply absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-inherit rounded-full shadow-sm z-20;
+  @apply absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white dark:bg-slate-900 border-2 border-inherit rounded-full shadow-sm z-20;
 }
 .ai-report-score__progress-fill--red::after {
   @apply left-0 -translate-x-1/2 border-[#2773FF];

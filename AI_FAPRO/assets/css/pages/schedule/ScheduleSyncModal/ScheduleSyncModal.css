@@ -8,7 +8,7 @@
   @apply absolute inset-0;
 }
 .schedule-sync-modal__box {
-  @apply relative bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden;
+  @apply relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden;
 }
 
 .dark .schedule-sync-modal__box {
@@ -62,7 +62,7 @@
   @apply text-red-500;
 }
 .schedule-sync-modal__title {
-  @apply text-lg font-bold text-slate-800 m-0;
+  @apply text-lg font-bold text-slate-800 dark:text-slate-100 m-0;
 }
 
 .dark .schedule-sync-modal__title {
@@ -91,7 +91,7 @@
   @apply text-slate-400;
 }
 .schedule-sync-modal__description-bold {
-  @apply text-base text-slate-800 mb-4 font-bold;
+  @apply text-base text-slate-800 dark:text-slate-100 mb-4 font-bold;
 }
 
 .dark .schedule-sync-modal__description-bold {
@@ -131,7 +131,7 @@
   @apply flex justify-end gap-2 mt-2;
 }
 .schedule-sync-modal__btn-cancel {
-  @apply px-4 py-2 border border-slate-300 bg-white text-slate-700 font-bold rounded-lg hover:bg-slate-50 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-slate-200;
+  @apply px-4 py-2 border border-slate-300 bg-white dark:bg-slate-900 text-slate-700 font-bold rounded-lg hover:bg-slate-50 dark:bg-slate-800 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-slate-200;
 }
 
 .dark .schedule-sync-modal__btn-cancel {
@@ -168,7 +168,7 @@
   @apply text-slate-400;
 }
 .schedule-sync-modal__title-mb-2 {
-  @apply mb-2 font-bold text-slate-800;
+  @apply mb-2 font-bold text-slate-800 dark:text-slate-100;
 }
 
 .dark .schedule-sync-modal__title-mb-2 {

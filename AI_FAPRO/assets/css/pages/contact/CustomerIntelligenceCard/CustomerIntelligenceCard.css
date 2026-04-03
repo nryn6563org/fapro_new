@@ -13,7 +13,7 @@
 }
 
 .customer-intelligence-section__title {
-  @apply text-[#333] text-[24px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal];
+  @apply text-[#333] dark:text-slate-100 text-[24px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal];
 }
 
 .customer-intelligence-section__update-time {
@@ -26,11 +26,11 @@
 
 /* Base Card */
 .customer-intelligence-card {
-  @apply flex flex-col overflow-clip rounded-[16px] border border-[#e2e8f0] w-[450px] shrink-0 self-stretch;
+  @apply flex flex-col overflow-clip rounded-[16px] border border-[#e2e8f0] dark:border-slate-700 w-[450px] shrink-0 self-stretch;
 }
 
 .customer-intelligence-card__header {
-  @apply bg-white border-b border-[#e5e7eb] pt-[16px] px-[16px] pb-[12px] flex flex-col w-full shrink-0 items-start;
+  @apply bg-white dark:bg-slate-900 border-b border-[#e5e7eb] dark:border-slate-700 pt-[16px] px-[16px] pb-[12px] flex flex-col w-full shrink-0 items-start;
 }
 
 .customer-intelligence-card__header-content {
@@ -42,11 +42,11 @@
 }
 
 .customer-intelligence-card__title {
-  @apply text-[#333] text-[18px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal] flex items-center gap-[8px];
+  @apply text-[#333] dark:text-slate-100 text-[18px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal] flex items-center gap-[8px];
 }
 
 .customer-intelligence-card__desc {
-  @apply text-[#333b4a] text-[14px] font-normal font-['Spoqa_Han_Sans_Neo'] tracking-[-0.42px] whitespace-nowrap overflow-hidden text-ellipsis w-full flex-1 flex items-center min-h-[0px] min-w-[0px] leading-[normal];
+  @apply text-[#333b4a] dark:text-slate-400 text-[14px] font-normal font-['Spoqa_Han_Sans_Neo'] tracking-[-0.42px] whitespace-nowrap overflow-hidden text-ellipsis w-full flex-1 flex items-center min-h-[0px] min-w-[0px] leading-[normal];
 }
 
 /* Badges Header */
@@ -61,26 +61,26 @@
 }
 
 /* Badges variants */
-.customer-intelligence-card__badge--amber {
-  @apply bg-[#eff0ff] text-primary;
+.today-proposal__badge--teal {
+  @apply bg-[#eff0ff] dark:bg-indigo-950/50 text-primary dark:text-indigo-300;
 }
 
-.customer-intelligence-card__badge--emerald {
-  @apply bg-[#fff1f2] text-buy;
+.today-proposal__badge--orange {
+  @apply bg-[#fff1f2] dark:bg-red-950/50 text-buy dark:text-red-400;
 }
 
-.customer-intelligence-card__badge--rose {
-  @apply bg-[#eff4ff] text-[#2773ff];
+.today-proposal__badge--violet {
+  @apply bg-[#eff4ff] dark:bg-blue-950/50 text-[#2773ff] dark:text-blue-400;
 }
 
 /* Body container */
 .customer-intelligence-card__body {
-  @apply bg-white flex flex-col gap-[8px] items-start p-[16px] w-full shrink-0 flex-1 relative overflow-y-auto overflow-x-hidden max-h-[820px];
+  @apply bg-white dark:bg-slate-900 flex flex-col gap-[8px] items-start p-[16px] w-full shrink-0 flex-1 relative overflow-y-auto overflow-x-hidden max-h-[820px];
 }
 
 /* Items */
 .customer-intelligence-item {
-  @apply bg-[#f9fafb] border border-[#e7eaf0] rounded-[8px] p-[16px] flex flex-col gap-[12px] w-full shrink-0 items-center box-border;
+  @apply bg-[#f9fafb] dark:bg-slate-800/50 border border-[#e7eaf0] dark:border-slate-700/50 rounded-[8px] p-[16px] flex flex-col gap-[12px] w-full shrink-0 items-center box-border;
 }
 
 .customer-intelligence-item__top {
@@ -92,7 +92,7 @@
 }
 
 .customer-intelligence-item__name {
-  @apply text-[#333] text-[16px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal] m-0;
+  @apply text-[#333] dark:text-slate-100 text-[16px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal] m-0;
 }
 
 .customer-intelligence-card__btn {
@@ -115,7 +115,7 @@
 }
 
 .stat-row__label {
-  @apply text-[#66738c] text-[14px] font-normal font-['Spoqa_Han_Sans_Neo'] leading-[normal] whitespace-nowrap overflow-hidden text-ellipsis flex-1 min-w-[0px] min-h-[0px];
+  @apply text-[#66738c] dark:text-slate-400 text-[14px] font-normal font-['Spoqa_Han_Sans_Neo'] leading-[normal] whitespace-nowrap overflow-hidden text-ellipsis flex-1 min-w-[0px] min-h-[0px];
 }
 
 .stat-row__label-container {
@@ -127,7 +127,7 @@
 }
 
 .stat-row__value {
-  @apply text-[14px] leading-[normal] whitespace-nowrap overflow-hidden text-ellipsis text-right flex-1 min-w-[0px] min-h-[0px];
+  @apply text-[14px] leading-[normal] whitespace-nowrap overflow-hidden text-ellipsis text-right flex-1 min-w-[0px] min-h-[0px] text-[#333b4a] dark:text-slate-200;
 }
 
 /* Typography variants for specific stat-rows */
@@ -140,23 +140,11 @@
 .stat-row__value--medium {
   @apply font-medium font-['Spoqa_Han_Sans_Neo'];
 }
-.stat-row__value--amber-700 {
-  @apply text-[#333b4a];
+.stat-row__value--amber-700, .stat-row__value--amber-600, .stat-row__value--emerald-700, .stat-row__value--rose-700 {
+  @apply text-[#333b4a] dark:text-slate-300;
 }
-.stat-row__value--amber-600 {
-  @apply text-[#333b4a];
-}
-.stat-row__value--emerald-700 {
-  @apply text-[#333b4a];
-}
-.stat-row__value--emerald-600 {
-  @apply text-buy; /* 12억원 red */
-}
-.stat-row__value--rose-700 {
-  @apply text-[#333b4a];
-}
-.stat-row__value--rose-600 {
-  @apply text-buy; /* total return red */
+.stat-row__value--emerald-600, .stat-row__value--rose-600 {
+  @apply text-buy dark:text-red-400; /* 12억원 red / total return red */
 }
 
 /* Alert boxes */
@@ -177,27 +165,27 @@
 }
 
 .customer-intelligence-alert__text {
-  @apply text-[#666] text-[13px] font-normal font-['Spoqa_Han_Sans_Neo'] leading-[normal] shrink-0 w-full;
+  @apply text-[#666] dark:text-slate-300 text-[13px] font-normal font-['Spoqa_Han_Sans_Neo'] leading-[normal] shrink-0 w-full;
 }
 
 /* Color schemes for alert boxes */
 .customer-intelligence-alert--amber {
-  @apply bg-[#eff0ff] border-[#d8d1f2];
+  @apply bg-[#eff0ff] dark:bg-indigo-950/40 border-[#d8d1f2] dark:border-indigo-800/50;
 }
 .customer-intelligence-alert__title--amber {
-  @apply text-primary;
+  @apply text-primary dark:text-indigo-300;
 }
 
 .customer-intelligence-alert--emerald {
-  @apply bg-[#fff1f2] border-[#fbdbdd];
+  @apply bg-[#fff1f2] dark:bg-red-950/40 border-[#fbdbdd] dark:border-red-800/50;
 }
 .customer-intelligence-alert__title--emerald {
-  @apply text-[#be1215];
+  @apply text-[#be1215] dark:text-red-300;
 }
 
 .customer-intelligence-alert--rose {
-  @apply bg-[#eff4ff] border-[#d2def5];
+  @apply bg-[#eff4ff] dark:bg-blue-950/40 border-[#d2def5] dark:border-blue-800/50;
 }
 .customer-intelligence-alert__title--rose {
-  @apply text-[#2768e2];
+  @apply text-[#2768e2] dark:text-blue-300;
 }

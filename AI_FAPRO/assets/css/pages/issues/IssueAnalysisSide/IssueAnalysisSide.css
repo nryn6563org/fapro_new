@@ -117,7 +117,7 @@
   @apply flex gap-[8px] mb-[12px];
 }
 .analysis-side__tab-btn {
-  @apply bg-white border border-primary flex items-center justify-center px-[16px] py-[10px] rounded-[8px] text-primary text-[14px] font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[0.28px] whitespace-nowrap flex-1 cursor-pointer transition-colors shadow-none;
+  @apply bg-white dark:bg-slate-900 border border-primary flex items-center justify-center px-[16px] py-[10px] rounded-[8px] text-primary text-[14px] font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[0.28px] whitespace-nowrap flex-1 cursor-pointer transition-colors shadow-none;
 }
 /* 활성 탭: primary 브랜드 컬러 */
 .analysis-side__tab-btn--active {

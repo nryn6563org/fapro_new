@@ -29,7 +29,7 @@
 }
 
 .issue-proposal-section__icon--dark {
-  @apply text-slate-900;
+  @apply text-slate-900 dark:text-white;
 }
 
 /* 정보 박스 공통 - stats-grid 스타일 적용 */
@@ -76,7 +76,7 @@
   @apply w-full min-h-[80px] p-4 rounded-xl bg-slate-100 dark:bg-slate-800/50 text-osm text-slate-600 dark:text-slate-400 outline-none transition-all placeholder:text-slate-400;
 }
 .issue-proposal-section__textarea:focus {
-  @apply border-[1px] border-slate-200 bg-white dark:bg-slate-800;
+  @apply border-[1px] border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800;
 }
 
 .issue-proposal-section--top-spaced {

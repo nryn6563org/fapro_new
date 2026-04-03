@@ -40,40 +40,40 @@
   @apply flex gap-[20px] items-start w-full mt-5;
 }
 .issues-stats-card {
-  @apply border border-[#e2e8f0] rounded-[16px] bg-white p-[16px] flex flex-row items-center justify-between flex-1 shrink-0 gap-[8px];
+  @apply border border-[#e2e8f0] dark:border-slate-700 rounded-[16px] bg-white dark:bg-slate-900 p-[16px] flex flex-row items-center justify-between flex-1 shrink-0 gap-[8px];
 }
 .issues-stats-card-left {
   @apply flex items-center gap-[8px] flex-1;
 }
 .issues-stats-card__icon {
-  @apply bg-[#f9fafb] border border-[#e8ecf3] rounded-[8px] w-[56px] h-[56px] flex items-center justify-center shrink-0;
+  @apply bg-[#f9fafb] dark:bg-slate-800 border border-[#e8ecf3] dark:border-slate-700 rounded-[8px] w-[56px] h-[56px] flex items-center justify-center shrink-0;
 }
 .issues-stats-card__chart-icon {
-  @apply text-[#4f46e5]; /* Default icon color, could be customized */
+  @apply text-[#4f46e5] dark:text-indigo-400; /* Default icon color, could be customized */
 }
 .issues-stats-card__content {
   @apply flex flex-col gap-[4px] items-start flex-1;
 }
 .issues-stats-card__label {
-  @apply text-[#333b4a] text-[14px] font-normal font-['Spoqa_Han_Sans_Neo'] leading-[normal] truncate w-full;
+  @apply text-[#333b4a] dark:text-slate-400 text-[14px] font-normal font-['Spoqa_Han_Sans_Neo'] leading-[normal] truncate w-full;
 }
 .issues-stats-card__value {
-  @apply text-[#333] text-[18px] font-bold font-['Spoqa_Han_Sans_Neo'] leading-[normal];
+  @apply text-[#333] dark:text-slate-100 text-[18px] font-bold font-['Spoqa_Han_Sans_Neo'] leading-[normal];
 }
 .issues-stats-card__breakdown {
-  @apply bg-[#fbfcfd] border border-[#e2e8f0] rounded-[8px] px-[12px] py-[6px] flex items-center gap-[12px] shrink-0;
+  @apply bg-[#fbfcfd] dark:bg-slate-800 border border-[#e2e8f0] dark:border-slate-700 rounded-[8px] px-[12px] py-[6px] flex items-center gap-[12px] shrink-0;
 }
 .issues-stats-card__badge-label {
-  @apply text-[#333b4a] text-[13px] font-medium font-['Spoqa_Han_Sans_Neo'] tracking-[-0.39px] leading-[normal] shrink-0;
+  @apply text-[#333b4a] dark:text-slate-300 text-[13px] font-medium font-['Spoqa_Han_Sans_Neo'] tracking-[-0.39px] leading-[normal] shrink-0;
 }
 .issues-stats-card__strength-high {
-  @apply text-buy text-[13px] font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[-0.39px] leading-[normal] shrink-0;
+  @apply text-buy dark:text-red-400 text-[13px] font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[-0.39px] leading-[normal] shrink-0;
 }
 .issues-stats-card__strength-mid {
-  @apply text-[#f97325] text-[13px] font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[-0.39px] leading-[normal] shrink-0;
+  @apply text-[#f97325] dark:text-orange-400 text-[13px] font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[-0.39px] leading-[normal] shrink-0;
 }
 .issues-stats-card__strength-low {
-  @apply text-[#687d97] text-[13px] font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[-0.39px] leading-[normal] shrink-0;
+  @apply text-[#687d97] dark:text-slate-400 text-[13px] font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[-0.39px] leading-[normal] shrink-0;
 }
 .issues-stats-card__strength-lowest {
   @apply hidden; /* The design only shows 고, 중, 저 */
@@ -93,7 +93,7 @@
   @apply col-span-1 lg:col-span-2 flex flex-col items-start pt-[16px] px-[4px] w-full shrink-0;
 }
 .issues-page__main-grid-title {
-  @apply text-[#333] text-[22px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal] flex items-center h-[28px];
+  @apply text-[#333] dark:text-slate-100 text-[22px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap leading-[normal] flex items-center h-[28px];
 }
 .issues-page__chart-section {
   @apply fapro-section overflow-hidden h-[644px] p-4 w-full;

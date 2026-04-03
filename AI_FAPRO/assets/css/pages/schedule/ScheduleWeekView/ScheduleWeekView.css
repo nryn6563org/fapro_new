@@ -18,7 +18,7 @@
 }
 
 .week-view__day-col--default {
-  @apply p-4 text-center border-r border-slate-300 dark:border-slate-800 cursor-pointer transition-all hover:bg-slate-50 dark:hover:bg-slate-900;
+  @apply p-4 text-center border-r border-slate-300 dark:border-slate-800 cursor-pointer transition-all hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-900;
 }
 
 .week-view__day-col--selected {

@@ -14,10 +14,10 @@
 
 /* ── 선택 가능한 목록 아이템 ── */
 .proposal-item {
-  @apply flex items-start gap-3 py-4 px-4 rounded-xl cursor-pointer bg-gray-50 dark:bg-slate-900 border border-gray-100 dark:border-gray-800;
+  @apply flex items-start gap-3 py-4 px-4 rounded-xl cursor-pointer bg-gray-50 dark:bg-slate-800 border border-gray-100 dark:border-gray-800;
 }
 .proposal-item--selected {
-  @apply proposal-item border-gray-500/50 dark:border-gray-500 bg-gray-50 shadow-sm;
+  @apply proposal-item border-gray-500/50 dark:border-gray-500 bg-gray-50 dark:bg-slate-800 shadow-sm;
 }
 .proposal-item--display {
   @apply proposal-item cursor-default;

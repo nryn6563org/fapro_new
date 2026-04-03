@@ -1,6 +1,6 @@
 <template>
   <div class="customer-proposal-history !mt-4">
-    <div class="customer-proposal-history__card fapro-card !shadow-none !border-slate-200 dark:!border-slate-800">
+    <div class="customer-proposal-history__card fapro-card !shadow-none !border-slate-200 dark:border-slate-700 dark:!border-slate-800">
       <div class="customer-proposal-history__card-header fapro-card-header !p-4 !pb-3 bg-slate-50/50 dark:bg-slate-900/30">
         <div class="customer-proposal-history__header-title text-[15px]">
           <activity-icon size="16" class="text-primary" />

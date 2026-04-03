@@ -47,7 +47,7 @@
 
 /* ── 토글 버튼 ── */
 .app-sidebar__toggle-btn {
-  @apply absolute -right-[17.5px] top-[42px] w-[35px] h-[35px] rounded-full flex items-center justify-center shadow-md transition-all z-[10015] border border-slate-200 cursor-pointer active:scale-95;
+  @apply absolute -right-[17.5px] top-[42px] w-[35px] h-[35px] bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-md transition-all z-[10015] border border-slate-200 dark:border-slate-700 cursor-pointer active:scale-95;
 }
 
 .app-sidebar__toggle-btn img {
