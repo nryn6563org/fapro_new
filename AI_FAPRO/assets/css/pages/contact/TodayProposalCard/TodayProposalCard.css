@@ -72,23 +72,23 @@
   @apply bg-white dark:bg-slate-900 flex flex-col gap-[8px] pt-[8px] px-[16px] pb-[16px] w-full shrink-0 h-full overflow-y-auto overflow-x-hidden max-h-[820px];
 }
 
-.proposal-item, .today-proposal-item {
+.today-proposal-item {
   @apply bg-[#f9fafb] dark:bg-slate-800/50 border border-[#e7eaf0] dark:border-slate-700/50 rounded-[8px] px-[16px] py-[12px] flex flex-col items-center justify-center w-full shrink-0;
 }
 
-.proposal-item__info, .today-proposal-item__info {
+.today-proposal-item__info {
   @apply flex flex-col gap-[8px] items-start w-full min-w-0 flex-1;
 }
 
-.proposal-item__top, .today-proposal-item__top {
+.today-proposal-item__top {
   @apply border-b border-[#e2e8f0] dark:border-slate-700 pb-[8px] flex items-center w-full min-w-0 gap-[8px] shrink-0;
 }
 
-.proposal-item__name-row, .today-proposal-item__name-row {
+.today-proposal-item__name-row {
   @apply flex items-center gap-[8px] shrink-0;
 }
 
-.proposal-item__name, .today-proposal-item__name {
+.today-proposal-item__name {
   @apply text-[#333] dark:text-slate-100 text-[16px] font-bold font-['Spoqa_Han_Sans_Neo'] whitespace-nowrap;
 }
 
@@ -104,16 +104,8 @@
   @apply bg-[#eff4ff] border-[#2773ff] text-[#2773ff];
 }
 
-.proposal-item__meta, .today-proposal-item__meta {
-  @apply flex items-center w-full;
-}
-
-.proposal-item__meta {
-  @apply text-[14px] text-[#333b4a] dark:text-slate-400 font-normal leading-[normal] truncate;
-}
-
 .today-proposal-item__meta {
-  @apply flex items-center justify-start gap-[10px] shrink-0;
+  @apply flex items-center justify-start gap-[10px] shrink-0 w-full text-[14px] text-[#333b4a] dark:text-slate-400 font-normal leading-[normal] truncate;
 }
 
 .today-proposal-item__price {
@@ -144,16 +136,16 @@
   @apply mr-[4px];
 }
 
-.proposal-item__bottom, .today-proposal-item__bottom {
+.today-proposal-item__bottom {
   @apply flex items-center w-full pt-[8px];
 }
-.proposal-item__bottom p, .today-proposal-item__bottom p {
+.today-proposal-item__bottom p {
   @apply flex flex-1 items-center min-w-[265px] text-[13px] text-[#3c4453] dark:text-slate-300 overflow-hidden text-ellipsis whitespace-nowrap leading-[0] font-normal font-['Spoqa_Han_Sans_Neo'];
 }
-.proposal-item__bottom-label, .today-proposal-item__bottom-label {
+.today-proposal-item__bottom-label {
   @apply text-[#66738c] dark:text-slate-400 leading-[normal];
 }
-.proposal-item__bottom-value, .today-proposal-item__bottom-value {
+.today-proposal-item__bottom-value {
   @apply text-[#333b4a] dark:text-slate-200 leading-[normal];
 }
 

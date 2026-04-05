@@ -26,16 +26,16 @@
           </div>
         </header>
         <div class="proposal-card__body">
-          <div v-for="item in customers" :key="item.id" class="proposal-item">
-            <div class="proposal-item__top">
-              <div class="proposal-item__info">
-                <div class="proposal-item__name-row">
-                  <span class="proposal-item__name">{{ item.name }}</span>
+          <div v-for="item in customers" :key="item.id" class="today-proposal-item">
+            <div class="today-proposal-item__top">
+              <div class="today-proposal-item__info">
+                <div class="today-proposal-item__name-row">
+                  <span class="today-proposal-item__name">{{ item.name }}</span>
                   <span :class="item.action === 'buy' ? 'today-proposal__badge-buy' : 'today-proposal__badge-sell'">
                     {{ item.action === "buy" ? "매수제안" : "매도제안" }}
                   </span>
                 </div>
-                <div class="proposal-item__meta">
+                <div class="today-proposal-item__meta">
                   {{ item.portfolio }} · {{ item.investmentStyle }}
                 </div>
               </div>
@@ -43,10 +43,10 @@
                 제안하기
               </button>
             </div>
-            <div class="proposal-item__bottom">
+            <div class="today-proposal-item__bottom">
               <p>
-                <span class="proposal-item__bottom-label">제안종목 : </span>
-                <span class="proposal-item__bottom-value">
+                <span class="today-proposal-item__bottom-label">제안종목 : </span>
+                <span class="today-proposal-item__bottom-value">
                   {{ Array.isArray(item.targetStock) ? item.targetStock.join(", ") : item.targetStock }}
                 </span>
               </p>
