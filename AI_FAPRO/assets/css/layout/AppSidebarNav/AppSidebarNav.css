@@ -18,12 +18,27 @@
   @apply flex flex-col;
 }
 
-/* ── 내비게이션 아이템 ── */
-.app-sidebar__nav-item {
+.app-sidebar__nav-item,
+.app-sidebar__nav-item-wrapper:hover .app-sidebar__nav-item {
   @apply flex items-center h-[50px] gap-3 pl-5 pr-[15px] relative
-  font-medium text-sm text-white hover:font-bold hover:text-[#4F46E5] hover:bg-[#F1F5F9] rounded-[100px_0_0_100px] cursor-pointer after:hidden
-  after:content-[''] after:w-[15px] after:h-[78px] after:absolute after:right-0 after:top-[-14px] after:z-30 after:bg-[url('~/assets/img/layout/sidebar-after.png')] after:bg-left-top hover:after:block
+  font-medium text-sm text-white rounded-[100px_0_0_100px] cursor-pointer
   transition-all duration-300;
+}
+
+.app-sidebar__nav-item:hover,
+.app-sidebar__nav-item-wrapper:hover .app-sidebar__nav-item {
+  @apply font-bold text-[#4F46E5] bg-[#F1F5F9];
+}
+
+.app-sidebar__nav-item::after {
+  @apply content-[''] w-[15px] h-[78px] absolute right-0 top-[-14px] z-30 
+  bg-[url('~/assets/img/layout/sidebar-after.png')] bg-left-top opacity-0
+  transition-opacity duration-300 pointer-events-none;
+}
+
+.app-sidebar__nav-item:hover::after,
+.app-sidebar__nav-item-wrapper:hover .app-sidebar__nav-item::after {
+  @apply opacity-100;
 }
 
 .app-sidebar__nav-item--collapsed {
@@ -45,13 +60,13 @@
 /* 활성(현재 페이지) 상태 */
 .app-sidebar__nav-item--active {
   @apply bg-[#F1F5F9] text-[#4F46E5] font-bold
-  after:content-[''] after:block after:w-[15px] after:h-[78px] after:absolute after:right-0 after:top-[-14px] after:z-30 after:bg-[url('~/assets/img/layout/sidebar-after.png')] after:bg-left-top
+  after:opacity-100;
 }
 
 /* 부모 메뉴 활성 상태 (하위 메뉴 펼침) */
 .app-sidebar__nav-item--parent-active {
   @apply bg-[#F1F5F9] rounded-[100px_0_0_100px] text-[#4F46E5] font-bold relative
-  after:content-[''] after:block after:w-[15px] after:h-[78px] after:absolute after:right-0 after:top-[-14px] after:z-30 after:bg-[url('~/assets/img/layout/sidebar-after.png')] after:bg-left-top
+  after:opacity-100;
 }
 
 /* 축소 상태에서 부모 활성 표시 */
