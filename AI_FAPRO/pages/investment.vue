@@ -2,10 +2,12 @@
   <div class="investment-page">
     <!-- Page Header -->
     <header class="investment-page__header">
-      <h1 class="investment-page__h1">투자정보pro</h1>
-      <p class="investment-page__h1-desc">
-        AI가 분석한 실시간 투자 인사이트 및 시장 정보
-      </p>
+      <div class="investment-page__title-box">
+        <h1 class="investment-page__h1">투자정보pro</h1>
+        <p class="investment-page__h1-desc">
+          AI가 분석한 실시간 투자 인사이트 및 시장 정보
+        </p>
+      </div>
     </header>
 
     <!-- Main Content -->

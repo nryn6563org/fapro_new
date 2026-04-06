@@ -1,7 +1,7 @@
 /* Tailwind directives container */
 
 .settings-page {
-  @apply min-h-screen p-10;
+  @apply pt-8 pb-12 w-full flex flex-col space-y-6 bg-slate-50 dark:bg-slate-950;
 }
 
 .settings-page__container {
@@ -9,11 +9,11 @@
 }
 
 .settings-page__title-wrapper {
-  @apply mb-10;
+  @apply fapro-page-header border-b-0;
 }
 
 .settings-page__title {
-  @apply text-3xl font-black text-slate-900 dark:text-white m-0;
+  @apply fapro-page-header__title;
 }
 
 .settings-page__card {

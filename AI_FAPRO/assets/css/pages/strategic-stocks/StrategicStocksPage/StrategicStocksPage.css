@@ -1,6 +1,6 @@
 /* Tailwind directives container for component */
 .strategic-page {
-  @apply p-6 space-y-6 w-full pb-12;
+  @apply pt-8 pb-12 w-full flex flex-col space-y-6;
 }
 
 /* Header */

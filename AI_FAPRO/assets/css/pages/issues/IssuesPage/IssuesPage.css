@@ -1,6 +1,6 @@
 /* Main Container */
 .issues-page {
-  @apply p-6 w-full flex flex-col gap-6;
+  @apply pt-8 pb-12 w-full flex flex-col space-y-6;
 }
 
 /* Header */

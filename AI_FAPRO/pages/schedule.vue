@@ -14,30 +14,32 @@
       @unsync="showUnsyncModal = true"
     />
 
-    <div class="schedule-page__body">
-      <!-- 사이드바 (Modularized) -->
-      <schedule-sidebar
-        :current-date="currentDate"
-        :selected-date="selectedDate"
-        :calendars="calendars"
-        :events="events"
-        @update:selectedDate="handleSidebarDateSelect"
-        @prev-month="navigateMonth(-1)"
-        @next-month="navigateMonth(1)"
-        @toggle-calendar="toggleCalendar"
-      />
+    <div class="schedule-page__container">
+      <div class="schedule-page__body">
+        <!-- 사이드바 (Modularized) -->
+        <schedule-sidebar
+          :current-date="currentDate"
+          :selected-date="selectedDate"
+          :calendars="calendars"
+          :events="events"
+          @update:selectedDate="handleSidebarDateSelect"
+          @prev-month="navigateMonth(-1)"
+          @next-month="navigateMonth(1)"
+          @toggle-calendar="toggleCalendar"
+        />
 
-      <!-- 메인 콘텐츠 영역 (Modularized) -->
-      <SchedulePageMain
-        :is-synced="isSynced"
-        :view-mode="viewMode"
-        :selected-date="selectedDate"
-        :current-date="currentDate"
-        :events="filteredEvents"
-        @select-date="selectedDate = $event"
-        @change-view="viewMode = $event"
-        @sync="showSyncModal = true"
-      />
+        <!-- 메인 콘텐츠 영역 (Modularized) -->
+        <SchedulePageMain
+          :is-synced="isSynced"
+          :view-mode="viewMode"
+          :selected-date="selectedDate"
+          :current-date="currentDate"
+          :events="filteredEvents"
+          @select-date="selectedDate = $event"
+          @change-view="viewMode = $event"
+          @sync="showSyncModal = true"
+        />
+      </div>
     </div>
 
     <!-- 동기화 모달 (Modularized) -->

@@ -1,18 +1,21 @@
 /* Tailwind directives container for component */
 
 .investment-page {
-  @apply min-h-screen bg-slate-100 dark:bg-slate-950 p-6;
+  @apply pt-8 pb-12 w-full flex flex-col space-y-6 bg-slate-100 dark:bg-slate-950;
 }
 
 /* Header */
 .investment-page__header {
-  @apply mb-8;
+  @apply fapro-page-header;
+}
+.investment-page__title-box {
+  @apply fapro-page-header__title-box;
 }
 .investment-page__h1 {
-  @apply text-3xl font-black text-slate-900 dark:text-white mb-1 m-0;
+  @apply fapro-page-header__title;
 }
 .investment-page__h1-desc {
-  @apply text-slate-500 dark:text-slate-400 m-0;
+  @apply fapro-page-header__subtitle;
 }
 
 /* Card General */

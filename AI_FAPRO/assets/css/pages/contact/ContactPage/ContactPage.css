@@ -5,7 +5,7 @@
 */
 
 .contact-page {
-  @apply flex flex-col gap-[20px] items-start w-[1440px] pt-0 px-6 pb-12;
+  @apply pt-8 pb-12 w-full flex flex-col space-y-6;
 }
 
 .contact-page__header {
@@ -13,7 +13,7 @@
 }
 
 .contact-page__title-box {
-  @apply fapro-page-header__title-box justify-center pb-[12px];
+  @apply fapro-page-header__title-box justify-center;
 }
 
 .contact-page__title {

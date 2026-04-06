@@ -1,22 +1,25 @@
 /* Tailwind directives container */
 
 .customers-page {
-  @apply min-h-screen bg-slate-100 dark:bg-slate-950 p-8;
+  @apply pt-8 pb-12 w-full flex flex-col space-y-6 bg-slate-100 dark:bg-slate-950;
 }
 
 /* Header */
 .customers-page__header {
-  @apply flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-400 dark:border-slate-800 pb-4 mb-6 w-full;
+  @apply fapro-page-header;
+}
+.customers-page__header-left {
+  @apply fapro-page-header__title-box;
 }
 .customers-page__h1 {
-  @apply text-3xl font-bold text-slate-900 dark:text-white m-0;
+  @apply fapro-page-header__title;
 }
 .customers-page__h1-desc {
-  @apply text-sm text-slate-500 mt-1 m-0;
+  @apply fapro-page-header__subtitle;
 }
 
 .customers-page__header-actions {
-  @apply flex items-center gap-3;
+  @apply fapro-page-header__action-box;
 }
 
 .customers-page__btn-amber {

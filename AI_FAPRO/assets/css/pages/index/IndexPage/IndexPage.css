@@ -1,6 +1,6 @@
 /* Tailwind directives container for component */
 .index-page {
-  @apply p-6 pb-12 w-full flex flex-col gap-5;
+  @apply pt-8 pb-12 w-full flex flex-col space-y-6;
 }
 
 /* Header */

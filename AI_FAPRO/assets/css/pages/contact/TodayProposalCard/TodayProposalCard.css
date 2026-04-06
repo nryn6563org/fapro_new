@@ -9,7 +9,7 @@
 }
 
 .today-proposal__header {
-  @apply flex items-end justify-between w-full pt-[16px] px-[4px];
+  @apply flex items-end justify-between w-full px-[4px];
 }
 
 .today-proposal__header-title {
