@@ -23,7 +23,7 @@
 
 /* ── 전송 대상 섹션 ── */
 .ai-report-send__target-section {
-  @apply mb-4;
+  @apply mb-4 overflow-hidden;
 }
 .ai-report-send__target-header {
   @apply flex items-end justify-between mb-4 pb-3 border-b border-slate-200 dark:border-slate-700/50;
@@ -51,11 +51,12 @@
 
 /* ── 고객 그리드 ── */
 .ai-report-send__target-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-3 overflow-y-auto pr-2 pb-2;
-  max-height: 480px; /* Approximately 3 rows with the new card height + gaps */
+ @apply grid grid-cols-1 md:grid-cols-2 gap-3 overflow-y-auto pr-2 pb-2;
+  max-height: 480px;
+  grid-auto-rows: min-content; /* ✅ 빈 트랙이 공간 차지 못하게 */
 }
 .ai-report-send__client-card {
-  @apply border border-[#9EAAFF] bg-[#F6F7FF] dark:bg-slate-800 dark:border-slate-700 p-3 rounded-lg cursor-pointer transition-all flex items-start gap-3;
+  @apply border border-[#9EAAFF] bg-[#F6F7FF] dark:bg-slate-800 dark:border-slate-700 p-3 rounded-lg cursor-pointer transition-all flex items-start gap-3 min-w-0 overflow-hidden;
 }
 .ai-report-send__client-card--active {
   @apply !border-primary bg-[#F0F2FF] dark:bg-slate-700 shadow-sm;
@@ -72,7 +73,7 @@
   @apply flex items-center justify-between mb-2 px-1;
 }
 .ai-report-send__client-name-wrap {
-  @apply flex items-center gap-2.5;
+  @apply flex items-center gap-2.5 min-w-0 overflow-hidden;
 }
 .ai-report-send__client-checkbox-custom {
   @apply w-[18px] h-[18px] border border-[#9EAAFF] bg-white rounded-sm shrink-0 flex items-center justify-center text-transparent transition-all;
@@ -85,7 +86,7 @@
   @apply text-osm font-bold text-slate-900 dark:text-slate-100;
 }
 .ai-report-send__client-email {
-  @apply text-xs font-medium text-slate-500 dark:text-slate-400;
+  @apply text-xs font-medium text-slate-500 dark:text-slate-400 truncate;
 }
 
 /* ── 고객 유형 배지 ── */
