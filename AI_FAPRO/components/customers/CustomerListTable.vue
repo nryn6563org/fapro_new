@@ -4,12 +4,12 @@
       <table class="customer-table__main">
         <thead class="customer-table__head">
           <tr>
-            <th class="customer-table__th">고객명</th>
-            <th class="customer-table__th">투자유형</th>
-            <th class="customer-table__th">총자산</th>
-            <th class="customer-table__th">보유종목</th>
-            <th class="customer-table__th">특이사항</th>
-            <th class="customer-table__th">고객 정보</th>
+            <th class="customer-table__th" style="width: 18%">고객명</th>
+            <th class="customer-table__th" style="width: 15%">투자유형</th>
+            <th class="customer-table__th" style="width: 18%">총자산</th>
+            <th class="customer-table__th" style="width: 18%">보유종목</th>
+            <th class="customer-table__th" style="width: 21%">특이사항</th>
+            <th class="customer-table__th" style="width: 10%">고객 정보</th>
           </tr>
         </thead>
         <tbody class="customer-table__body">

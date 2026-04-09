@@ -10,6 +10,7 @@
 
 .customer-table__main {
   @apply w-full text-osm border-collapse;
+  table-layout: fixed;
 }
 
 .customer-table__head {

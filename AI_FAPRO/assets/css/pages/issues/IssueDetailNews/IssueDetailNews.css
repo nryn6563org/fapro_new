@@ -28,6 +28,10 @@
   @apply text-sm font-medium text-slate-700 dark:text-slate-300 leading-relaxed;
 }
 
+.issue-detail__news-text a {
+  @apply text-buy;
+}
+
 /* AI 뉴스 요약 박스 */
 .issue-detail__news-summary-box {
   @apply fapro-section !p-4 !shadow-none bg-blue-50/50 dark:bg-blue-900/10 border-0;
