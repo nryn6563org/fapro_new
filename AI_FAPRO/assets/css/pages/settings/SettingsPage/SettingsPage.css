@@ -46,7 +46,15 @@
 
 /* 구독 상태 바 */
 .settings-page__subscription-bar {
-  @apply flex items-center justify-between p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800;
+  @apply flex items-center justify-between p-5 bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-100 dark:border-slate-800 transition-colors;
+}
+
+.settings-page__subscription-bar--pro {
+  @apply border-amber-500 bg-amber-50/50 dark:bg-amber-900/20;
+}
+
+.settings-page__subscription-bar--basic {
+  @apply border-teal-500 bg-teal-50/30 dark:bg-teal-900/20;
 }
 
 .settings-page__subscription-info {
@@ -54,11 +62,27 @@
 }
 
 .settings-page__subscription-icon {
-  @apply w-5 h-5 text-amber-500;
+  @apply w-5 h-5;
+}
+
+.settings-page__subscription-icon--pro {
+  @apply text-amber-500;
+}
+
+.settings-page__subscription-icon--basic {
+  @apply text-teal-500;
 }
 
 .settings-page__subscription-text {
-  @apply text-obase font-bold text-amber-500;
+  @apply text-obase font-bold;
+}
+
+.settings-page__subscription-text--pro {
+  @apply text-amber-500;
+}
+
+.settings-page__subscription-text--basic {
+  @apply text-teal-500;
 }
 
 .settings-page__payment-btn {
@@ -70,7 +94,7 @@
 }
 
 .settings-page__payment-btn--basic {
-  @apply bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400;
+  @apply bg-teal-500 text-white shadow-lg shadow-teal-200/50 dark:shadow-teal-900/30;
 }
 
 /* 플랜 변경 버튼 */

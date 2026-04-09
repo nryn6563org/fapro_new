@@ -34,10 +34,32 @@
         <!-- 버튼 영역 -->
         <div class="mt-8">
           <!-- 미결제 상태: 구독 상태 바 + 결제하기 버튼 -->
-          <div v-if="activePlan === 'none'" class="settings-page__subscription-bar">
+          <div
+            v-if="activePlan === 'none'"
+            :class="[
+              'settings-page__subscription-bar',
+              selectedPlan === 'pro'
+                ? 'settings-page__subscription-bar--pro'
+                : 'settings-page__subscription-bar--basic',
+            ]"
+          >
             <div class="settings-page__subscription-info">
-              <award-icon class="settings-page__subscription-icon" />
-              <span class="settings-page__subscription-text">
+              <award-icon
+                :class="[
+                  'settings-page__subscription-icon',
+                  selectedPlan === 'pro'
+                    ? 'settings-page__subscription-icon--pro'
+                    : 'settings-page__subscription-icon--basic',
+                ]"
+              />
+              <span
+                :class="[
+                  'settings-page__subscription-text',
+                  selectedPlan === 'pro'
+                    ? 'settings-page__subscription-text--pro'
+                    : 'settings-page__subscription-text--basic',
+                ]"
+              >
                 {{ selectedPlan === 'pro' ? 'Pro' : '일반' }} 플랜을 구독 합니다.
               </span>
             </div>
