@@ -1,14 +1,24 @@
 <template>
   <div class="issue-proposal-clients">
-    <div class="issue-proposal-section__header">
+    <div class="issue-proposal-section__header issue-proposal-section__header--with-btn">
       <h3 class="issue-proposal-section__title">고객 선택</h3>
+      <button
+        v-if="clients.length > 0"
+        type="button"
+        class="issue-proposal-clients__all-btn"
+        @click="toggleSelectAll"
+      >
+        {{ isAllSelected ? "선택 해제" : "전체 선택" }}
+      </button>
     </div>
     <div class="issue-proposal-clients__list">
       <div
         v-for="client in clients"
         :key="client.id"
         class="issue-proposal-clients__item"
-        :class="{ 'issue-proposal-clients__item--selected': internalSelectedClients.includes(client.id) }"
+        :class="{
+          'issue-proposal-clients__item--selected': internalSelectedClients.includes(client.id),
+        }"
       >
         <div class="issue-proposal-clients__row">
           <input
@@ -57,6 +67,21 @@ export default {
       set(val) {
         this.$emit("update:selectedClientIds", val);
       },
+    },
+    isAllSelected() {
+      return (
+        this.clients.length > 0 &&
+        this.internalSelectedClients.length === this.clients.length
+      );
+    },
+  },
+  methods: {
+    toggleSelectAll() {
+      if (this.isAllSelected) {
+        this.internalSelectedClients = [];
+      } else {
+        this.internalSelectedClients = this.clients.map((c) => c.id);
+      }
     },
   },
 };
