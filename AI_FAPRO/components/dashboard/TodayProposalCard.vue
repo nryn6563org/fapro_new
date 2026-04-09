@@ -30,11 +30,11 @@
             <div class="today-proposal-item__top">
               <div class="today-proposal-item__info">
                 <div class="today-proposal-item__name-row">
-                  <span class="today-proposal-item__name">{{ item.name }}</span>
-                  <span :class="item.action === 'buy' ? 'today-proposal__badge-buy' : 'today-proposal__badge-sell'">
-                    {{ item.action === "buy" ? "매수제안" : "매도제안" }}
-                  </span>
-                </div>
+                   <span class="today-proposal-item__name">{{ item.name }}</span>
+                   <span :class="item.action === 'buy' ? 'today-proposal__badge-buy' : 'today-proposal__badge-sell'">
+                     {{ item.action === "buy" ? "매수제안" : "매도제안" }}
+                   </span>
+                 </div>
                 <div class="today-proposal-item__meta">
                   {{ item.portfolio }} · {{ item.investmentStyle }}
                 </div>
@@ -78,9 +78,9 @@
             <div class="today-proposal-item__top">
               <div class="today-proposal-item__info">
                 <div class="today-proposal-item__name-row">
-                  <span class="today-proposal-item__name">{{ item.name }}</span>
-                  <span class="today-proposal__badge-buy">매수제안</span>
-                </div>
+                   <span class="today-proposal-item__name">{{ item.name }}</span>
+                   <span class="today-proposal__badge-buy">매수제안</span>
+                 </div>
                 <div class="today-proposal-item__meta">
                   <span class="today-proposal-item__price">{{ item.price }} <span>원</span></span>
                   <span :class="item.change.startsWith('+') ? 'today-proposal-item__change--up' : 'today-proposal-item__change--down'">
@@ -127,9 +127,9 @@
             <div class="today-proposal-item__top">
               <div class="today-proposal-item__info">
                 <div class="today-proposal-item__name-row">
-                  <span class="today-proposal-item__name">{{ item.name }}</span>
-                  <span class="today-proposal__badge-sell">매도제안</span>
-                </div>
+                   <span class="today-proposal-item__name">{{ item.name }}</span>
+                   <span class="today-proposal__badge-sell">매도제안</span>
+                 </div>
                 <div class="today-proposal-item__meta">
                   <span class="today-proposal-item__price">{{ item.price }} <span>원</span></span>
                   <span :class="item.change.startsWith('+') ? 'today-proposal-item__change--up' : 'today-proposal-item__change--down'">

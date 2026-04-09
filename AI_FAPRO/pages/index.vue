@@ -70,16 +70,37 @@
         </p>
       </div>
 
-      <div class="index-page__grid">
-        <a-i-report-card
-          v-for="report in filteredReports"
-          :key="report.id"
-          :report="report"
-          @open-report="openReport"
-          @open-analysis="openAnalysis"
-        />
-        <div v-if="filteredReports.length === 0" class="index-page__empty">
-          해당 시간대의 리포트가 없습니다.
+      <div class="index-page__columns">
+        <!-- 매수 신호 컬럼 -->
+        <div class="index-page__column">
+          <div class="index-page__grid">
+            <a-i-report-card
+              v-for="report in buyReports"
+              :key="report.id"
+              :report="report"
+              @open-report="openReport"
+              @open-analysis="openAnalysis"
+            />
+            <div v-if="buyReports.length === 0" class="index-page__empty">
+              해당 시간대의 매수 리포트가 없습니다.
+            </div>
+          </div>
+        </div>
+
+        <!-- 매도 신호 컬럼 -->
+        <div class="index-page__column">
+          <div class="index-page__grid">
+            <a-i-report-card
+              v-for="report in sellReports"
+              :key="report.id"
+              :report="report"
+              @open-report="openReport"
+              @open-analysis="openAnalysis"
+            />
+            <div v-if="sellReports.length === 0" class="index-page__empty">
+              해당 시간대의 매도 리포트가 없습니다.
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -149,6 +170,14 @@ export default {
         const rMin = rh * 60 + rm;
         return rMin >= slotMin && rMin < slotMin + 20;
       });
+    },
+    /** 매수 리포트 분류 */
+    buyReports() {
+      return this.filteredReports.filter(r => r.signalBadge === '매수신호');
+    },
+    /** 매도 리포트 분류 */
+    sellReports() {
+      return this.filteredReports.filter(r => r.signalBadge === '매도신호' || r.signalBadge === '중립신호');
     },
   },
   mounted() {

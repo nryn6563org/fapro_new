@@ -138,3 +138,15 @@ export default {
 };
 </script>
 
+<style scoped>
+/* 8글자 제한 말줄임 처리 (::v-deep 활용) */
+::v-deep .today-proposal-item__name,
+::v-deep .customer-intelligence-item__name {
+  display: block;
+  max-width: 145px; /* 8글자 표현을 위해 약 9글자 너비 (16px * 9) */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+</style>
+

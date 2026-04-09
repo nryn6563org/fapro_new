@@ -87,12 +87,21 @@
   @apply text-[16px] font-bold text-primary dark:text-white;
 }
 
-/* 2열 그리드 */
+/* 2열 컬럼 레이아웃 */
+.index-page__columns {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-8 items-start;
+}
+
+.index-page__column {
+  @apply flex flex-col gap-4;
+}
+
+/* 리포트 그리드 (컴포넌트 내 그리드) */
 .index-page__grid {
-  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+  @apply flex flex-col gap-4;
 }
 
 /* Empty State */
 .index-page__empty {
-  @apply col-span-full p-8 text-center text-sm text-slate-400 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl;
+  @apply p-8 text-center text-sm text-slate-400 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl;
 }
