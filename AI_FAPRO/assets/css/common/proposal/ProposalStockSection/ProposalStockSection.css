@@ -40,12 +40,12 @@
 
 /* ── 종목별 제안 사유 블록 ── */
 .proposal-item__stock-reason {
-  @apply mt-2 text-oxs leading-relaxed px-3 py-2 rounded-lg flex items-start gap-1 border;
+  @apply mt-2 text-xs leading-normal px-3 py-2 rounded-lg border block;
 }
 
 /* 탭 테마별 배경/색상 */
 .proposal-item__stock-reason--emerald {
-  @apply proposal-item__stock-reason bg-emerald-50 text-emerald-600 border-emerald-100 dark:bg-emerald-950/40 dark:text-emerald-400 dark:border-emerald-800 w-full !items-center !leading-[18px];
+  @apply proposal-item__stock-reason bg-emerald-50 text-emerald-600 border-emerald-100 dark:bg-emerald-950/40 dark:text-emerald-400 dark:border-emerald-800 w-full;
 }
 
 .proposal-item__stock-reason--neutral {
@@ -53,8 +53,7 @@
 }
 
 .proposal-item__stock-reason-label {
-  @apply font-bold whitespace-nowrap;
-  margin-top: 1px; /* Fine-tune emoji alignment with text */
+  @apply font-bold inline-block mr-1;
 }
 
 .proposal-section__icon {
