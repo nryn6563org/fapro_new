@@ -1,7 +1,7 @@
 /* ── 전략 유망주 카드 스타일 (Figma 259:5820) ── */
 
 .strategic-card {
-  @apply bg-white dark:bg-slate-900 border border-[#e5e7eb] dark:border-slate-800 rounded-[8px] p-[16px] flex flex-col gap-[16px] w-full shadow-sm;
+  @apply bg-white dark:bg-slate-900 border border-[#e5e7eb] dark:border-slate-800 rounded-[8px] p-[16px] flex flex-col gap-[16px] w-full shadow-sm break-inside-avoid mb-4;
 }
 
 /* Header Section */

@@ -40,5 +40,5 @@
 
 /* Card List */
 .strategic-page__card-list {
-  @apply grid grid-cols-1 lg:grid-cols-2 gap-4 items-start;
+  @apply block columns-1 lg:columns-2 gap-4;
 }
