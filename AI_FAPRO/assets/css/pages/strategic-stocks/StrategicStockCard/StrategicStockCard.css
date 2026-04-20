@@ -1,12 +1,12 @@
 /* ── 전략 유망주 카드 스타일 (Figma 259:5820) ── */
 
 .strategic-card {
-  @apply bg-white dark:bg-slate-900 border border-[#e5e7eb] dark:border-slate-800 rounded-[8px] p-[16px] flex flex-col gap-[16px] w-full shadow-sm break-inside-avoid mb-4;
+  @apply bg-white dark:bg-slate-900 border border-[#e5e7eb] dark:border-slate-800 rounded-[8px] p-[16px] flex flex-col w-full shadow-sm break-inside-avoid mb-4;
 }
 
 /* Header Section */
 .strategic-card__header {
-  @apply flex items-center justify-between w-full h-[34px];
+  @apply flex items-center justify-between w-full h-[34px] gap-2;
 }
 .strategic-card__info-group {
   @apply flex items-center gap-[20px] flex-1 min-w-0;
@@ -47,9 +47,35 @@
   @apply h-[34px] px-[16px] py-[10px] bg-primary hover:bg-[#4052e6] text-white text-[14px] font-bold rounded-[8px] flex items-center justify-center transition-colors shrink-0;
 }
 
+.strategic-card__btn-toggle {
+  @apply w-[34px] h-[34px] rounded-[8px] border border-[#5368ff] flex items-center justify-center transition-all bg-white hover:bg-slate-50;
+}
+.strategic-card__btn-toggle svg {
+  @apply transition-transform duration-200;
+}
+.strategic-card__btn-toggle--collapsed svg {
+  @apply rotate-180;
+}
+
 /* Analysis Areas */
+.strategic-card__analysis-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.strategic-card__analysis-wrapper--open {
+  grid-template-rows: 1fr;
+}
+
 .strategic-card__analysis {
-  @apply flex flex-col gap-[12px] w-full;
+  @apply flex flex-col gap-[12px] w-full min-h-0;
+  transition: padding 0.3s ease-in-out;
+}
+
+.strategic-card__analysis-wrapper--open .strategic-card__analysis {
+  @apply pt-[16px];
 }
 
 .strategic-card__section {
