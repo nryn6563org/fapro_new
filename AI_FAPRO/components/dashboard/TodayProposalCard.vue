@@ -39,7 +39,7 @@
                   {{ item.portfolio }} · {{ item.investmentStyle }}
                 </div>
               </div>
-              <button class="today-proposal__btn" @click="openProposalModal('target-customer', item)">
+              <button class="today-proposal__btn" disabled @click="openProposalModal('target-customer', item)">
                 제안하기
               </button>
             </div>
@@ -88,7 +88,7 @@
                   </span>
                 </div>
               </div>
-              <button class="today-proposal__btn" @click="openProposalModal('target-stock', item)">
+              <button class="today-proposal__btn" disabled @click="openProposalModal('target-stock', item)">
                 제안하기
               </button>
             </div>
@@ -137,7 +137,7 @@
                   </span>
                 </div>
               </div>
-              <button class="today-proposal__btn" @click="openProposalModal('target-stock', item)">
+              <button class="today-proposal__btn" disabled @click="openProposalModal('target-stock', item)">
                 제안하기
               </button>
             </div>

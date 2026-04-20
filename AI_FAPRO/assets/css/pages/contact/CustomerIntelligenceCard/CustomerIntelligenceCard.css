@@ -98,6 +98,9 @@
 .customer-intelligence-card__btn {
   @apply bg-primary h-[34px] flex items-center justify-center px-[16px] py-[10px] rounded-[8px] shrink-0 leading-[normal];
 }
+.customer-intelligence-card__btn:disabled {
+  @apply bg-[#cbd5e1] dark:bg-slate-700 cursor-not-allowed opacity-70;
+}
 .customer-intelligence-card__btn-text {
   @apply text-[14px] text-white font-bold font-['Spoqa_Han_Sans_Neo'] tracking-[0.28px] whitespace-nowrap;
 }

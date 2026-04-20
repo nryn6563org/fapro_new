@@ -20,9 +20,15 @@
   @apply text-indigo-500;
 }
 
-.proposal-editor--sms { @apply proposal-editor; }
-.proposal-editor--kakao { @apply proposal-editor; }
-.proposal-editor--email { @apply proposal-editor; }
+.proposal-editor--sms {
+  @apply proposal-editor;
+}
+.proposal-editor--kakao {
+  @apply proposal-editor;
+}
+.proposal-editor--email {
+  @apply proposal-editor;
+}
 
 /* ── 미리보기 컨테이너 (테마별 배경) ── */
 .proposal-editor__preview-container {

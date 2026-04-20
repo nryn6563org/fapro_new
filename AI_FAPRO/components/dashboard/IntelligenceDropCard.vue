@@ -29,6 +29,7 @@
             <h4 class="customer-intelligence-item__name">{{ item.name }}</h4>
             <button
               class="customer-intelligence-card__btn"
+              disabled
               @click="$emit('propose', 'CustomerIntelligence', item)"
             >
               <span class="customer-intelligence-card__btn-text">제안하기</span>

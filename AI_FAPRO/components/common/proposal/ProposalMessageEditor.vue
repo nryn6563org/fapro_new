@@ -7,19 +7,12 @@
 
     <div :class="['proposal-editor__preview-container', `proposal-editor__preview-container--${deliveryMethod}`]">
       <div class="proposal-editor__preview-card">
-        <textarea
-          v-model="internalValue"
-          class="proposal-editor__textarea-message"
-          placeholder="전송할 메시지를 입력하세요..."
-        ></textarea>
+        <textarea v-model="internalValue" class="proposal-editor__textarea-message"
+          placeholder="전송할 메시지를 입력하세요..."></textarea>
       </div>
 
       <div class="proposal-editor__action-row">
-        <button
-          type="button"
-          class="proposal-editor__send-btn"
-          @click="sendProposal"
-        >
+        <button type="button" class="proposal-editor__send-btn" @click="sendProposal">
           전송하기
         </button>
       </div>
