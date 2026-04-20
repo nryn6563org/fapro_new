@@ -1,18 +1,10 @@
 <template>
-  <modal-vanilla
-    v-if="internalIsOpen"
-    :is-open="internalIsOpen"
-    custom-dialog-class="guidance-modal__dialog"
-    @close="handleClose"
-  >
+  <modal-vanilla v-if="internalIsOpen" :is-open="internalIsOpen" custom-dialog-class="guidance-modal__dialog"
+    @close="handleClose">
     <template #header>
       <div class="guidance-modal__header">
         <h2 class="guidance-modal__title">투자 제안 책임 및 유의사항 안내</h2>
-        <button
-          type="button"
-          class="guidance-modal__close-btn"
-          @click="handleClose"
-        >
+        <button type="button" class="guidance-modal__close-btn" @click="handleClose">
           <x-icon size="24" />
         </button>
       </div>
@@ -26,18 +18,10 @@
       </div>
 
       <div class="guidance-modal__footer w-full flex gap-3">
-        <button
-          type="button"
-          class="guidance-modal__btn-confirm"
-          @click="handleConfirm"
-        >
+        <button type="button" class="guidance-modal__btn-confirm" @click="handleConfirm">
           확인
         </button>
-        <button
-          type="button"
-          class="guidance-modal__btn-cancel"
-          @click="handleClose"
-        >
+        <button type="button" class="guidance-modal__btn-cancel" @click="handleClose">
           취소
         </button>
       </div>
@@ -63,6 +47,7 @@ export default {
     return {
       internalIsOpen: false,
       onConfirmCallback: null,
+      onCancelCallback: null,
     };
   },
   mounted() {
@@ -72,18 +57,24 @@ export default {
     this.$bus.$off("open-proposal-guidance", this.handleOpen);
   },
   methods: {
-    handleOpen({ onConfirm }) {
+    handleOpen({ onConfirm, onCancel }) {
       this.onConfirmCallback = onConfirm;
+      this.onCancelCallback = onCancel;
       this.internalIsOpen = true;
     },
     handleClose() {
+      if (this.onCancelCallback) {
+        this.onCancelCallback();
+      }
       this.internalIsOpen = false;
       this.onConfirmCallback = null;
+      this.onCancelCallback = null;
     },
     handleConfirm() {
       if (this.onConfirmCallback) {
         this.onConfirmCallback();
       }
+      this.onCancelCallback = null;
       this.handleClose();
     },
   },

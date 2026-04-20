@@ -2,20 +2,12 @@
   <div class="issues-page">
     <div class="issues-page__top-section">
       <IssuesPageHeader :formatted-time="formattedTime" @refresh="refreshData" />
-      <IssuesPageStats
-        :small-cap-stats="smallCapStats"
-        :large-cap-stats="largeCapStats"
-      />
+      <IssuesPageStats :small-cap-stats="smallCapStats" :large-cap-stats="largeCapStats" />
     </div>
 
     <!-- 메인 차트 및 간단 분석 섹션 -->
-    <IssuesPageMainGrid
-      :issues="issues"
-      :issue-type.sync="issueType"
-      :selected-id="selectedIssueId"
-      :selected-issue="selectedIssue"
-      @select="handleIssueSelect"
-    />
+    <IssuesPageMainGrid :issues="issues" :issue-type.sync="issueType" :selected-id="selectedIssueId"
+      :selected-issue="selectedIssue" @select="handleIssueSelect" />
 
     <!-- 하단 상세 분석 섹션 -->
     <transition name="fade-slide">
@@ -24,13 +16,8 @@
       </div>
     </transition>
 
-    <issue-proposal-modal
-      :is-open="isProposalModalOpen"
-      :issue="selectedIssueForProposal"
-      :clients="sampleClients"
-      @close="isProposalModalOpen = false"
-      @send="handleProposalSend"
-    />
+    <issue-proposal-modal :is-open="isProposalModalOpen" :issue="selectedIssueForProposal" :clients="sampleClients"
+      @close="isProposalModalOpen = false" @reopen="isProposalModalOpen = true" @send="handleProposalSend" />
   </div>
 </template>
 
@@ -132,4 +119,3 @@ export default {
   },
 };
 </script>
-

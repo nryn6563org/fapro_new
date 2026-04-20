@@ -1,63 +1,31 @@
 <template>
-  <modal-vanilla
-    v-if="isOpen"
-    :is-open="isOpen"
-    custom-dialog-class="proposal-modal-dialog"
-    @close="$emit('close')"
-  >
+  <modal-vanilla v-if="isOpen" :is-open="isOpen" custom-dialog-class="proposal-modal-dialog" @close="$emit('close')">
     <template #header>
-      <ProposalHeader
-        :title="config.title"
-        :description="config.description"
-        :icon-type="config.iconType"
-        :theme="config.theme"
-        @close="$emit('close')"
-      />
+      <ProposalHeader :title="config.title" :description="config.description" :icon-type="config.iconType"
+        :theme="config.theme" @close="$emit('close')" />
     </template>
 
     <div class="proposal-container">
       <div class="proposal-body--spaced">
         <!-- Customer Section -->
-        <ProposalCustomerSection
-          v-if="showCustomerSection"
-          :mode="config.customerMode"
-          :context-mode="mode"
-          :customers="customers"
-          :selected-ids.sync="internalSelectedCustomerIds"
-          :single-customer="singleCustomer"
-          :badge-text="config.badgeText"
-          :badge-type="config.badgeType"
-        />
+        <ProposalCustomerSection v-if="showCustomerSection" :mode="config.customerMode" :context-mode="mode"
+          :customers="customers" :selected-ids.sync="internalSelectedCustomerIds" :single-customer="singleCustomer"
+          :badge-text="config.badgeText" :badge-type="config.badgeType" />
 
         <!-- Stock Section -->
-        <ProposalStockSection
-          v-if="showStockSection"
-          :mode="config.stockMode"
-          :title="config.stockTitle"
-          :description="config.stockDescription"
-          :stocks="stocks"
-          :selected-tickers.sync="internalSelectedTickers"
-          :single-stock="singleStock"
-        />
+        <ProposalStockSection v-if="showStockSection" :mode="config.stockMode" :title="config.stockTitle"
+          :description="config.stockDescription" :stocks="stocks" :selected-tickers.sync="internalSelectedTickers"
+          :single-stock="singleStock" />
 
         <!-- Strategic Card (Design 5) -->
-        <ProposalStockDetailCard
-          v-if="showStrategicCard"
-          :stock="singleStock"
-        />
+        <ProposalStockDetailCard v-if="showStrategicCard" :stock="singleStock" />
 
         <!-- Delivery Method -->
-        <ProposalDeliveryMethod
-          :selected-method.sync="internalDeliveryMethod"
-        />
+        <ProposalDeliveryMethod :selected-method.sync="internalDeliveryMethod" />
 
         <!-- Message Editor -->
-        <ProposalMessageEditor
-          v-model="internalMessage"
-          :delivery-method="internalDeliveryMethod"
-          @copy="handleCopy"
-          @propose="handlePropose"
-        />
+        <ProposalMessageEditor v-model="internalMessage" :delivery-method="internalDeliveryMethod" @copy="handleCopy"
+          @propose="handlePropose" />
       </div>
     </div>
   </modal-vanilla>
@@ -217,9 +185,9 @@ export default {
       const stocksText =
         this.internalSelectedTickers.length > 0
           ? this.stocks
-              .filter((s) => this.internalSelectedTickers.includes(s.ticker))
-              .map((s) => s.name)
-              .join(", ")
+            .filter((s) => this.internalSelectedTickers.includes(s.ticker))
+            .map((s) => s.name)
+            .join(", ")
           : this.singleStock?.name || "추천 종목";
 
       const type = this.mode === "today-sell" ? "매도" : "매수";
@@ -249,7 +217,7 @@ export default {
     handlePropose() {
       // 1. Close current modal immediately
       this.$emit("close");
-      
+
       // 2. Open global guidance modal
       this.$bus.$emit("open-proposal-guidance", {
         onConfirm: () => {
@@ -260,6 +228,9 @@ export default {
             deliveryMethod: this.internalDeliveryMethod,
           });
           alert("투자 제안이 전송되었습니다.");
+        },
+        onCancel: () => {
+          this.$emit("reopen");
         },
       });
     },

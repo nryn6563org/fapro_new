@@ -14,13 +14,8 @@
     <div class="investment-page__content">
       <!-- Rotating Intelligence Card -->
       <section class="investment-page__section">
-        <investment-intelligence-card
-          :summaries="faSummaries"
-          :index.sync="summaryIndex"
-          :current-time="formattedTime"
-          @pause="isSummaryPaused = $event"
-          @next="nextSummary"
-        />
+        <investment-intelligence-card :summaries="faSummaries" :index.sync="summaryIndex" :current-time="formattedTime"
+          @pause="isSummaryPaused = $event" @next="nextSummary" />
       </section>
 
       <!-- Broker Reports Section -->
@@ -37,24 +32,17 @@
           </div>
           <div class="investment-page__card-content">
             <div class="investment-page__reports-grid">
-                <broker-report-card
-                  v-for="(report, idx) in brokerReports"
-                  :key="idx"
-                  :report="report"
-                  @show-report="openReportModal"
-                />
-              </div>
+              <broker-report-card v-for="(report, idx) in brokerReports" :key="idx" :report="report"
+                @show-report="openReportModal" />
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+    </div>
 
     <!-- AI 리포트 상세 모달 -->
-    <a-i-report-modal
-      :is-open="isReportModalOpen"
-      :data="selectedReport"
-      @close="closeReportModal"
-    />
+    <a-i-report-modal :is-open="isReportModalOpen" :data="selectedReport" @close="closeReportModal"
+      @reopen="isReportModalOpen = true" />
   </div>
 </template>
 
@@ -133,9 +121,6 @@ export default {
     },
     closeReportModal() {
       this.isReportModalOpen = false;
-      setTimeout(() => {
-        this.selectedReport = null;
-      }, 300);
     },
   },
 };

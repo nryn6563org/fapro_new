@@ -1,31 +1,15 @@
 <template>
-  <modal-vanilla
-    v-if="isOpen"
-    :is-open="isOpen"
-    custom-dialog-class="proposal-modal-dialog"
-    @close="$emit('close')"
-  >
+  <modal-vanilla v-if="isOpen" :is-open="isOpen" custom-dialog-class="proposal-modal-dialog" @close="$emit('close')">
     <template #header>
-      <ProposalHeader
-        :title="issue ? issue.name + ' 이슈 제안서' : '이슈 제안서'"
-        description="선택한 이슈를 바탕으로 고객에게 전송할 제안서를 작성해보세요."
-        icon-type="star"
-        theme="green"
-        @close="$emit('close')"
-      />
+      <ProposalHeader :title="issue ? issue.name + ' 이슈 제안서' : '이슈 제안서'"
+        description="선택한 이슈를 바탕으로 고객에게 전송할 제안서를 작성해보세요." icon-type="star" theme="green" @close="$emit('close')" />
     </template>
 
     <div class="proposal-container">
       <div class="proposal-body">
         <!-- Main Form Sections -->
-        <IssueProposalForm
-          :issue="issue"
-          :form-data.sync="formData"
-          :clients="clients"
-          :selected-client-ids.sync="selectedClientIds"
-          @send="handleSend"
-          @download="handleDownload"
-        />
+        <IssueProposalForm :issue="issue" :form-data.sync="formData" :clients="clients"
+          :selected-client-ids.sync="selectedClientIds" @send="handleSend" @download="handleDownload" />
       </div>
     </div>
   </modal-vanilla>
@@ -90,6 +74,9 @@ export default {
             method,
           });
           alert("투자 제안이 전송되었습니다.");
+        },
+        onCancel: () => {
+          this.$emit("reopen");
         },
       });
     },

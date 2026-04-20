@@ -77,6 +77,9 @@ export default {
           alert("투자 제안이 전송되었습니다.");
           console.log("Send request with data:", eventData);
         },
+        onCancel: () => {
+          this.$emit("reopen");
+        },
       });
     },
   },

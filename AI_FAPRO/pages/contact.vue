@@ -23,22 +23,14 @@
     </div>
 
     <!-- ── 오늘의 제안 카드: AI가 추천하는 오늘의 제안 목록 ── -->
-    <today-proposal-card
-      :current-date="currentDate"
-      @propose="openProposalModal"
-      @refresh="refreshData"
-    />
+    <today-proposal-card :current-date="currentDate" @propose="openProposalModal" @refresh="refreshData" />
 
     <!-- ── 고객 인텔리전스 카드: AI 분석 기반 고객 정보 ── -->
     <customer-intelligence-card @propose="openProposalModal" />
 
     <!-- 오늘의 제안 통합 모달 -->
-    <today-proposal-modal
-      v-if="isModalOpen"
-      :proposal-type="selectedProposalType"
-      :proposal-data="selectedProposalData"
-      @close-modal="isModalOpen = false"
-    />
+    <today-proposal-modal :is-open="isModalOpen" :proposal-type="selectedProposalType" :proposal-data="selectedProposalData"
+      @close-modal="isModalOpen = false" @reopen="isModalOpen = true" />
   </div>
 </template>
 
@@ -143,10 +135,10 @@ export default {
 ::v-deep .today-proposal-item__name,
 ::v-deep .customer-intelligence-item__name {
   display: block;
-  max-width: 145px; /* 8글자 표현을 위해 약 9글자 너비 (16px * 9) */
+  max-width: 145px;
+  /* 8글자 표현을 위해 약 9글자 너비 (16px * 9) */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 </style>
-

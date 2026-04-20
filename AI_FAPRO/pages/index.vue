@@ -110,6 +110,7 @@
       :is-open="isReportModalOpen"
       :data="activeReport"
       @close="closeReport"
+      @reopen="isReportModalOpen = true"
     />
 
     <!-- Analysis Modal -->
@@ -199,9 +200,6 @@ export default {
     },
     closeReport() {
       this.isReportModalOpen = false;
-      setTimeout(() => {
-        this.activeReport = null;
-      }, 300);
     },
     openAnalysis(report) {
       this.activeAnalysisReport = report;

@@ -5,39 +5,20 @@
 
     <div class="signals-page__grid">
       <!-- 매수 신호 컬럼 -->
-      <signals-page-signal-column
-        type="buy"
-        :signals="buySignals"
-        :open-keys="openKeys"
-        @toggle-detail="toggleDetail"
-        @open-report="openReport"
-        @open-analysis="openAnalysis"
-      />
+      <signals-page-signal-column type="buy" :signals="buySignals" :open-keys="openKeys" @toggle-detail="toggleDetail"
+        @open-report="openReport" @open-analysis="openAnalysis" />
 
       <!-- 매도 신호 컬럼 -->
-      <signals-page-signal-column
-        type="sell"
-        :signals="sellSignals"
-        :open-keys="openKeys"
-        @toggle-detail="toggleDetail"
-        @open-report="openReport"
-        @open-analysis="openAnalysis"
-      />
+      <signals-page-signal-column type="sell" :signals="sellSignals" :open-keys="openKeys" @toggle-detail="toggleDetail"
+        @open-report="openReport" @open-analysis="openAnalysis" />
     </div>
 
     <!-- AI 리포트 상세 모달 -->
-    <a-i-report-modal
-      :is-open="isReportModalOpen"
-      :data="activeReportSignal"
-      @close="closeReport"
-    />
+    <a-i-report-modal :is-open="isReportModalOpen" :data="activeReportSignal" @close="closeReport"
+      @reopen="isReportModalOpen = true" />
 
     <!-- 종합 의견 및 대응 전략 상세 모달 -->
-    <a-i-analysis-report-modal
-      :is-open="isAnalysisModalOpen"
-      :data="activeAnalysisSignal"
-      @close="closeAnalysis"
-    />
+    <a-i-analysis-report-modal :is-open="isAnalysisModalOpen" :data="activeAnalysisSignal" @close="closeAnalysis" />
   </div>
 </template>
 
@@ -124,10 +105,6 @@ export default {
      */
     closeReport() {
       this.isReportModalOpen = false;
-      // 트랜지션 완료 후 데이터 초기화 (선택적)
-      setTimeout(() => {
-        if (!this.isReportModalOpen) this.activeReportSignal = null;
-      }, 300);
     },
     /**
      * @description 종합 분석 리포트 모달을 엽니다.
@@ -148,4 +125,3 @@ export default {
   },
 };
 </script>
-

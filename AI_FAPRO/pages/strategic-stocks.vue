@@ -21,20 +21,11 @@
 
     <!-- Stock Cards -->
     <div class="strategic-page__card-list">
-      <strategic-stock-card
-        v-for="stock in stocks"
-        :key="stock.id"
-        :stock="stock"
-        @propose="openProposalModal"
-      />
+      <strategic-stock-card v-for="stock in stocks" :key="stock.id" :stock="stock" @propose="openProposalModal" />
     </div>
 
-    <strategic-proposal-modal
-      v-if="selectedStock"
-      :is-open="isProposalModalOpen"
-      :stock="selectedStock"
-      @close="closeProposalModal"
-    />
+    <strategic-proposal-modal :is-open="isProposalModalOpen" :stock="selectedStock"
+      @close="closeProposalModal" @reopen="isProposalModalOpen = true" />
   </div>
 </template>
 
@@ -91,9 +82,6 @@ export default {
     },
     closeProposalModal() {
       this.isProposalModalOpen = false;
-      setTimeout(() => {
-        this.selectedStock = null;
-      }, 300);
     },
   },
 };

@@ -1,16 +1,9 @@
 <template>
-  <ContactProposalModal
-    :is-open="true"
-    :mode="computedMode"
-    :customers="internalCustomers"
-    :stocks="internalStocks"
+  <ContactProposalModal :is-open="isOpen" :mode="computedMode" :customers="internalCustomers" :stocks="internalStocks"
     :single-customer="proposalData.customer || (['target-customer', 'smart-client'].includes(proposalType) ? proposalData : {})"
     :single-stock="proposalData.stock || (proposalType === 'target-stock' ? proposalData : {})"
-    :selected-customer-ids.sync="checkedCustomerIds"
-    :selected-tickers.sync="checkedTickers"
-    @close="$emit('close-modal')"
-    @copy="handleCopy"
-  />
+    :selected-customer-ids.sync="checkedCustomerIds" :selected-tickers.sync="checkedTickers"
+    @close="$emit('close-modal')" @reopen="$emit('reopen')" @copy="handleCopy" />
 </template>
 
 <script>
@@ -32,6 +25,7 @@ export default {
     proposalType: { type: String, default: "target-customer" },
     // proposalData: { customer?, stock?, action?, list? }
     proposalData: { type: Object, default: () => ({}) },
+    isOpen: { type: Boolean, default: false },
   },
   data() {
     return {
