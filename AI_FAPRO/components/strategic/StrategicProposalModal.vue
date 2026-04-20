@@ -67,13 +67,14 @@
         <!-- Send Actions -->
         <div class="strategic-modal__actions">
           <button class="strategic-modal__btn-outline" @click="$emit('close')">취소</button>
-          <button class="strategic-modal__btn-primary" :disabled="!selectedClients.length" @click="handleSend">
+          <button class="strategic-modal__btn-primary" :disabled="!selectedClients.length" @click="handleConfirmSend">
             <send-icon class="w-4 h-4 mr-2" />
             전송하기
           </button>
         </div>
       </template>
     </div>
+
   </modal-vanilla>
 </template>
 
@@ -115,7 +116,7 @@ export default {
       transmissionMethod: "kakao", // 'sms', 'kakao', 'email'
       selectedClients: [],
       clientsList: clients,
-      messageSample: ""
+      messageSample: "",
     };
   },
   watch: {
@@ -140,13 +141,17 @@ export default {
     generateMessageSample() {
       this.messageSample = `[AI 추천 전략 유망주]\n${this.stock.name} (${this.stock.code})\n\n안녕하세요. 고객님을 위한 AI 분석 중장기 유망주 정보를 안내해 드립니다.\n\n▶ 종목명: ${this.stock.name}\n▶ 현재가: ${this.stock.currentPrice}원 (${this.stock.changePercent})\n▶ 의견: ${this.stock.characteristic}\n\n■ 투자 전략 및 분석\n${this.stock.rationale.map((r) => `- ${r}`).join("\n")}\n\n상세 분석 리포트는 아래 링크에서 확인하실 수 있습니다.\n[상세보기 링크]\n\n감사합니다.`;
     },
-    handleSend() {
-      alert("준비중 입니다");
-      console.log(`전송 시도:\n${this.messageSample}`);
-      console.log(`선택된 고객: ${this.selectedClients.length}명`);
-      console.log(`전송 방식: ${this.transmissionMethod}`);
+    handleConfirmSend() {
       this.closeModal();
-    }
+      this.$bus.$emit("open-proposal-guidance", {
+        onConfirm: () => {
+          alert("투자 제안이 전송되었습니다.");
+          console.log(`전송 시도:\n${this.messageSample}`);
+          console.log(`선택된 고객: ${this.selectedClients.length}명`);
+          console.log(`전송 방식: ${this.transmissionMethod}`);
+        },
+      });
+    },
   }
 };
 </script>

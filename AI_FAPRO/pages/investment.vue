@@ -37,16 +37,24 @@
           </div>
           <div class="investment-page__card-content">
             <div class="investment-page__reports-grid">
-              <broker-report-card
-                v-for="(report, idx) in brokerReports"
-                :key="idx"
-                :report="report"
-              />
+                <broker-report-card
+                  v-for="(report, idx) in brokerReports"
+                  :key="idx"
+                  :report="report"
+                  @show-report="openReportModal"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+
+    <!-- AI 리포트 상세 모달 -->
+    <a-i-report-modal
+      :is-open="isReportModalOpen"
+      :data="selectedReport"
+      @close="closeReportModal"
+    />
   </div>
 </template>
 
@@ -57,6 +65,7 @@
 import { FileTextIcon } from "vue-feather-icons";
 import InvestmentIntelligenceCard from "~/components/investment/InvestmentIntelligenceCard.vue";
 import BrokerReportCard from "~/components/investment/BrokerReportCard.vue";
+import AIReportModal from "~/components/modal/AIReportModal.vue";
 import { faSummaries, brokerReports } from "~/utils/investmentMockData.js";
 import "~/assets/css/pages/investment/InvestmentPage/InvestmentPage.css";
 
@@ -65,6 +74,7 @@ export default {
   components: {
     InvestmentIntelligenceCard,
     BrokerReportCard,
+    AIReportModal,
     FileTextIcon,
   },
   layout: "default",
@@ -76,6 +86,8 @@ export default {
       faSummaries,
       brokerReports,
       rotationTimer: null,
+      isReportModalOpen: false,
+      selectedReport: null,
     };
   },
   computed: {
@@ -107,6 +119,23 @@ export default {
     },
     nextSummary() {
       this.summaryIndex = (this.summaryIndex + 1) % this.faSummaries.length;
+    },
+    openReportModal(report) {
+      this.selectedReport = {
+        ...report,
+        name: report.title.split(":")[0],
+        ticker: "KRX:005930", // Placeholder for mock data
+        aiScore: 85,
+        category: "증권사리포트",
+        signalBadge: "리포트분석"
+      };
+      this.isReportModalOpen = true;
+    },
+    closeReportModal() {
+      this.isReportModalOpen = false;
+      setTimeout(() => {
+        this.selectedReport = null;
+      }, 300);
     },
   },
 };

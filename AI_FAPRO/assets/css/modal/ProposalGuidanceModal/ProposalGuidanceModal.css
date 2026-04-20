@@ -1,0 +1,64 @@
+/*
+  ============================================================
+  ProposalGuidanceModal.css
+  컴포넌트: components/modal/ProposalGuidanceModal.vue
+  역할: 투자 제안 책임 및 유의사항 안내 모달 스타일
+  ============================================================
+*/
+
+.guidance-modal__dialog {
+  @apply max-w-[430px] w-full mx-auto; /* 좁은 폭 (image look) */
+}
+.guidance-modal__dialog .modal-header{
+  @apply border-b-0
+}
+.guidance-modal__dialog .modal-body{
+  @apply p-[30px_20px_20px]
+}
+
+.guidance-modal__header {
+  @apply flex w-full h-[44px] items-center justify-between p-5 pb-0 !border-0 !border-b-0;
+}
+
+.guidance-modal__title {
+  @apply text-lg font-bold text-[#25252C] dark:text-slate-100 leading-tight;
+}
+
+.guidance-modal__close-btn {
+  @apply text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors;
+}
+
+.guidance-modal__body {
+  @apply text-slate-600 dark:text-slate-300;
+}
+
+.guidance-modal__content {
+  @apply text-[15px] leading-relaxed pb-[30px] flex flex-col gap-2;
+}
+.guidance-modal__content p{
+  @apply text-[#333B4A] text-[15px] leading-[19px]
+}
+
+.guidance-modal__highlight {
+  @apply font-semibold text-slate-900 dark:text-white;
+}
+
+.guidance-modal__footer {
+  @apply flex items-center gap-2.5 p-0 border-0;
+}
+
+.guidance-modal__btn-confirm {
+  @apply flex-1 p-[10px_0] text-obase font-bold rounded-xl bg-[#5368ff] text-white hover:bg-[#4355db] transition-all shadow-sm;
+}
+
+.guidance-modal__btn-cancel {
+  @apply flex-1 p-[10px_0] text-obase font-bold rounded-xl border border-[#5368ff] text-[#5368ff] bg-white hover:bg-slate-50 transition-all;
+}
+
+.dark .guidance-modal__btn-cancel {
+  @apply bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700;
+}
+
+.dark .guidance-modal__title {
+  @apply text-white;
+}

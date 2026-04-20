@@ -56,6 +56,7 @@
           v-model="internalMessage"
           :delivery-method="internalDeliveryMethod"
           @copy="handleCopy"
+          @propose="handlePropose"
         />
       </div>
     </div>
@@ -246,14 +247,21 @@ export default {
       this.$emit("copy", content);
     },
     handlePropose() {
-      this.$emit("propose", {
-        customerIds: this.internalSelectedCustomerIds,
-        tickers: this.internalSelectedTickers,
-        message: this.internalMessage,
-        deliveryMethod: this.internalDeliveryMethod,
-      });
-      alert("투자 제안이 전송되었습니다.");
+      // 1. Close current modal immediately
       this.$emit("close");
+      
+      // 2. Open global guidance modal
+      this.$bus.$emit("open-proposal-guidance", {
+        onConfirm: () => {
+          this.$emit("propose", {
+            customerIds: this.internalSelectedCustomerIds,
+            tickers: this.internalSelectedTickers,
+            message: this.internalMessage,
+            deliveryMethod: this.internalDeliveryMethod,
+          });
+          alert("투자 제안이 전송되었습니다.");
+        },
+      });
     },
   },
 };

@@ -21,7 +21,7 @@
         <button
           class="issue-proposal-action-btn issue-proposal-action-btn--email"
           :disabled="localSelectedClients.length === 0"
-          @click="$emit('send', { method: 'email', clients: localSelectedClients })"
+          @click="handleConfirmSend"
         >
           <mail-icon class="issue-proposal-action-icon" />
           <span class="issue-proposal-action-text">선택한 고객에게 이메일 전송</span>
@@ -117,6 +117,11 @@ export default {
         this.$emit("update:formData", newVal);
       },
       deep: true,
+    },
+  },
+  methods: {
+    handleConfirmSend() {
+      this.$emit("send", { method: "email", clients: this.localSelectedClients });
     },
   },
 };

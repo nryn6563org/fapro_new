@@ -40,7 +40,10 @@
 
       <!-- Section 6: Customer Send (Maintain as is) -->
       <div class="ai-report-content__row">
-        <a-i-report-customer-send :signal="processedSignal" />
+        <a-i-report-customer-send
+          :signal="processedSignal"
+          @send="$emit('send', $event)"
+        />
       </div>
     </div>
   </div>

@@ -56,7 +56,7 @@ v-for="(client, idx) in clients" :key="idx" class="ai-report-send__client-card" 
 
           <!-- 전송 버튼 영역 -->
           <div class="ai-report-send__action-group">
-            <button class="ai-report-send__btn-primary" :disabled="selectedClients.length === 0" @click="handleSend">
+            <button class="ai-report-send__btn-primary" :disabled="selectedClients.length === 0" @click="handleConfirmSend">
               <send-icon size="20" class="mr-2" />
               선택한 고객에게 이메일 전송
             </button>
@@ -174,8 +174,13 @@ export default {
         return "ai-report-send__client-badge--shortterm";
       return "ai-report-send__client-badge--neutral";
     },
+    handleConfirmSend() {
+      this.$emit("send", {
+        clients: this.selectedClients,
+      });
+    },
     handleSend() {
-      alert("준비중입니다");
+      alert("투자 제안이 전송되었습니다.");
     },
   },
 };

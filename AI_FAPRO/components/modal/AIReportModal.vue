@@ -31,7 +31,7 @@
     </template>
     <div class="ai-report-modal__content">
       <template v-if="data">
-        <a-i-report-content :signal="data" />
+        <a-i-report-content :signal="data" @send="handleSendRequest" />
       </template>
     </div>
   </modal-vanilla>
@@ -64,6 +64,20 @@ export default {
     data: {
       type: Object,
       default: null,
+    },
+  },
+  methods: {
+    handleSendRequest(eventData) {
+      // 1. Close the current modal
+      this.$emit("close");
+
+      // 2. Open global guidance modal
+      this.$bus.$emit("open-proposal-guidance", {
+        onConfirm: () => {
+          alert("투자 제안이 전송되었습니다.");
+          console.log("Send request with data:", eventData);
+        },
+      });
     },
   },
 };

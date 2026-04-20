@@ -44,7 +44,7 @@
       </div>
 
       <div class="broker-report__footer">
-        <button class="broker-report__btn broker-report__btn--primary">
+        <button class="broker-report__btn broker-report__btn--primary" @click="$emit('show-report', report)">
           <eye-icon class="w-4 h-4" />
           리포트 보기
         </button>

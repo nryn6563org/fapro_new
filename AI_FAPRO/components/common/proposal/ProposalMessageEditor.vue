@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     sendProposal() {
-      alert("준비중 입니다.");
+      this.$emit("propose");
     },
   },
 };

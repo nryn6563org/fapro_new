@@ -77,14 +77,21 @@ export default {
   },
   methods: {
     handleSend({ method, clients }) {
-      this.$emit("send", {
-        issue: this.issue,
-        formData: this.formData,
-        clients,
-        method,
-      });
-      alert("준비중입니다.");
+      // 1. Close current modal immediately
       this.$emit("close");
+
+      // 2. Open global guidance modal
+      this.$bus.$emit("open-proposal-guidance", {
+        onConfirm: () => {
+          this.$emit("send", {
+            issue: this.issue,
+            formData: this.formData,
+            clients,
+            method,
+          });
+          alert("투자 제안이 전송되었습니다.");
+        },
+      });
     },
     handleDownload() {
       this.$emit("download", {

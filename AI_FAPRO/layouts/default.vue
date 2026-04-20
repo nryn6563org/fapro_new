@@ -12,6 +12,7 @@
     <landing-view v-else />
 
     <global-modal-manager />
+    <proposal-guidance-modal />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import { mapState } from "vuex";
 import AppSidebar from "~/components/layout/AppSidebar.vue";
 import LandingView from "~/components/auth/LandingView.vue";
 import GlobalModalManager from "~/components/modal/GlobalModalManager.vue";
+import ProposalGuidanceModal from "~/components/modal/ProposalGuidanceModal.vue";
 import "~/assets/css/layout/default/default.css";
 
 /**
@@ -32,6 +34,7 @@ export default {
   components: {
     AppSidebar,
     GlobalModalManager,
+    ProposalGuidanceModal,
     LandingView,
   },
   data() {
