@@ -1,7 +1,7 @@
 /* ── 전략 유망주 분석 모달 스타일 ── */
 
 .strategic-analysis-modal__dialog {
-  @apply max-w-[560px] !important;
+  @apply max-w-[780px] !important;
 }
 
 .strategic-analysis-modal__header {

@@ -9,7 +9,7 @@
 
 /* ── 모달 다이얼로그 크기 조정 ── */
 .strategic-modal__dialog {
-  @apply max-w-2xl max-h-[90vh];
+  @apply max-w-[780px] max-h-[90vh];
 } /* ── Header (모달 전용 스타일) ── */
 .strategic-modal__header {
   @apply fapro-modal-header items-center gap-4 overflow-hidden;
