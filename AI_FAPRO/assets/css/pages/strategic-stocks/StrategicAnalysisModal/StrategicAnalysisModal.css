@@ -1,0 +1,93 @@
+/* ── 전략 유망주 분석 모달 스타일 ── */
+
+.strategic-analysis-modal__dialog {
+  @apply max-w-[560px] !important;
+}
+
+.strategic-analysis-modal__header {
+  @apply flex items-center justify-between w-full px-[20px] py-[15px] border-b border-slate-100 dark:border-slate-800;
+}
+
+.strategic-analysis-modal__header-info {
+  @apply flex items-center gap-[10px];
+}
+
+.strategic-analysis-modal__title {
+  @apply text-[18px] font-bold text-[#333] dark:text-slate-100 font-['Spoqa_Han_Sans_Neo'];
+}
+
+.strategic-analysis-modal__code {
+  @apply text-[13px] text-[#66738c] dark:text-slate-500 font-normal;
+}
+
+.strategic-analysis-modal__close-btn {
+  @apply w-[24px] h-[24px] flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors;
+}
+
+.strategic-analysis-modal__body {
+  @apply p-[20px] flex flex-col gap-[12px] bg-white dark:bg-slate-900;
+}
+
+/* Analysis Sections (Reused from card design) */
+.strategic-analysis-modal__section {
+  @apply border border-solid rounded-[8px] p-[12px] flex flex-col gap-[8px] w-full;
+}
+
+/* Upside Section */
+.strategic-analysis-modal__section--upside {
+  @apply bg-[#fff4f5] border-[#fdabaf];
+}
+.dark .strategic-analysis-modal__section--upside {
+  @apply bg-buy/10 border-buy/30;
+}
+.strategic-analysis-modal__icon-wrapper--upside {
+  @apply bg-buy;
+}
+
+/* Downside Section */
+.strategic-analysis-modal__section--downside {
+  @apply bg-[#f4f8ff] border-[#acf];
+}
+.dark .strategic-analysis-modal__section--downside {
+  @apply bg-[#2773ff]/10 border-[#2773ff]/30;
+}
+.strategic-analysis-modal__icon-wrapper--downside {
+  @apply bg-[#2773ff];
+}
+
+/* Rationale Section */
+.strategic-analysis-modal__section--rationale {
+  @apply bg-[#f4fdfa] border-[#b7edd2];
+}
+.dark .strategic-analysis-modal__section--rationale {
+  @apply bg-[#1ea389]/10 border-[#1ea389]/30;
+}
+.strategic-analysis-modal__icon-wrapper--rationale {
+  @apply bg-[#1ea389];
+}
+
+/* Section Common Header */
+.strategic-analysis-modal__section-header {
+  @apply flex items-center gap-[8px] w-full;
+}
+.strategic-analysis-modal__icon-wrapper {
+  @apply w-[24px] h-[24px] rounded-full flex items-center justify-center text-white shrink-0;
+}
+.strategic-analysis-modal__section-title {
+  @apply text-[14px] font-bold text-[#333] dark:text-slate-100;
+}
+.strategic-analysis-modal__section-subtitle {
+  @apply text-[12px] font-bold text-[#333] dark:text-slate-300;
+}
+
+/* Point List */
+.strategic-analysis-modal__list {
+  @apply flex flex-col gap-[4px] w-full m-0 p-0 list-none;
+}
+.strategic-analysis-modal__item {
+  @apply relative text-[14px] text-[#66738c] dark:text-slate-400 font-normal leading-[1.5] pl-[12px];
+}
+.strategic-analysis-modal__item::before {
+  content: "•";
+  @apply absolute left-0 text-[#66738c] dark:text-slate-500 font-bold;
+}

@@ -21,11 +21,20 @@
 
     <!-- Stock Cards -->
     <div class="strategic-page__card-list">
-      <strategic-stock-card v-for="stock in stocks" :key="stock.id" :stock="stock" @propose="openProposalModal" />
+      <strategic-stock-card 
+        v-for="stock in stocks" 
+        :key="stock.id" 
+        :stock="stock" 
+        @propose="openProposalModal"
+        @open-analysis="openAnalysisModal" 
+      />
     </div>
 
     <strategic-proposal-modal :is-open="isProposalModalOpen" :stock="selectedStock"
       @close="closeProposalModal" @reopen="isProposalModalOpen = true" />
+
+    <strategic-analysis-modal :is-open="isAnalysisModalOpen" :stock="selectedStockForAnalysis"
+      @close="closeAnalysisModal" />
   </div>
 </template>
 
@@ -36,6 +45,7 @@
 import { RefreshCwIcon } from "vue-feather-icons";
 import StrategicStockCard from "~/components/strategic/StrategicStockCard.vue";
 import StrategicProposalModal from "~/components/strategic/StrategicProposalModal.vue";
+import StrategicAnalysisModal from "~/components/strategic/StrategicAnalysisModal.vue";
 import { stocks } from "~/utils/strategicStocksMockData.js";
 import "~/assets/css/pages/strategic-stocks/StrategicStocksPage/StrategicStocksPage.css";
 
@@ -45,6 +55,7 @@ export default {
     RefreshCwIcon,
     StrategicStockCard,
     StrategicProposalModal,
+    StrategicAnalysisModal,
   },
   data() {
     return {
@@ -53,7 +64,9 @@ export default {
       currentTime: new Date(),
       timer: null,
       isProposalModalOpen: false,
+      isAnalysisModalOpen: false,
       selectedStock: null,
+      selectedStockForAnalysis: null,
     };
   },
   computed: {
@@ -82,6 +95,13 @@ export default {
     },
     closeProposalModal() {
       this.isProposalModalOpen = false;
+    },
+    openAnalysisModal(stock) {
+      this.selectedStockForAnalysis = stock;
+      this.isAnalysisModalOpen = true;
+    },
+    closeAnalysisModal() {
+      this.isAnalysisModalOpen = false;
     },
   },
 };

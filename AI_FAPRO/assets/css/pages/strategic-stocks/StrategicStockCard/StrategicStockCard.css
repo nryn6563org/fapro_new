@@ -1,7 +1,7 @@
 /* ── 전략 유망주 카드 스타일 (Figma 259:5820) ── */
 
 .strategic-card {
-  @apply bg-white dark:bg-slate-900 border border-[#e5e7eb] dark:border-slate-800 rounded-[8px] p-[16px] flex flex-col w-full shadow-sm break-inside-avoid mb-4;
+  @apply bg-white dark:bg-slate-900 border border-[#e5e7eb] dark:border-slate-800 rounded-[8px] p-[16px] flex flex-col w-full shadow-sm break-inside-avoid mb-4 transition-colors cursor-pointer hover:bg-[#e8f0ff] dark:hover:bg-blue-900/30;
 }
 
 /* Header Section */
@@ -45,98 +45,4 @@
 
 .strategic-card__btn-propose {
   @apply h-[34px] px-[16px] py-[10px] bg-primary hover:bg-[#4052e6] text-white text-[14px] font-bold rounded-[8px] flex items-center justify-center transition-colors shrink-0;
-}
-
-.strategic-card__btn-toggle {
-  @apply w-[34px] h-[34px] rounded-[8px] border border-[#5368ff] flex items-center justify-center transition-all bg-white hover:bg-slate-50;
-}
-.strategic-card__btn-toggle svg {
-  @apply transition-transform duration-200;
-}
-.strategic-card__btn-toggle--collapsed svg {
-  @apply rotate-180;
-}
-
-/* Analysis Areas */
-.strategic-card__analysis-wrapper {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease-in-out;
-  overflow: hidden;
-}
-
-.strategic-card__analysis-wrapper--open {
-  grid-template-rows: 1fr;
-}
-
-.strategic-card__analysis {
-  @apply flex flex-col gap-[12px] w-full min-h-0;
-  transition: padding 0.3s ease-in-out;
-}
-
-.strategic-card__analysis-wrapper--open .strategic-card__analysis {
-  @apply pt-[16px];
-}
-
-.strategic-card__section {
-  @apply border border-solid rounded-[8px] p-[12px] flex flex-col gap-[8px] w-full;
-}
-
-/* Upside Section */
-.strategic-card__section--upside {
-  @apply bg-[#fff4f5] border-[#fdabaf];
-}
-.dark .strategic-card__section--upside {
-  @apply bg-buy/10 border-buy/30;
-}
-.strategic-card__icon-wrapper--upside {
-  @apply bg-buy;
-}
-
-/* Downside Section */
-.strategic-card__section--downside {
-  @apply bg-[#f4f8ff] border-[#acf];
-}
-.dark .strategic-card__section--downside {
-  @apply bg-[#2773ff]/10 border-[#2773ff]/30;
-}
-.strategic-card__icon-wrapper--downside {
-  @apply bg-[#2773ff];
-}
-
-/* Rationale Section */
-.strategic-card__section--rationale {
-  @apply bg-[#f4fdfa] border-[#b7edd2];
-}
-.dark .strategic-card__section--rationale {
-  @apply bg-[#1ea389]/10 border-[#1ea389]/30;
-}
-.strategic-card__icon-wrapper--rationale {
-  @apply bg-[#1ea389];
-}
-
-/* Section Common Header */
-.strategic-card__section-header {
-  @apply flex items-center gap-[8px] w-full;
-}
-.strategic-card__icon-wrapper {
-  @apply w-[24px] h-[24px] rounded-full flex items-center justify-center text-white shrink-0;
-}
-.strategic-card__section-title {
-  @apply text-[14px] font-bold text-[#333] dark:text-slate-100;
-}
-.strategic-card__section-subtitle {
-  @apply text-[12px] font-bold text-[#333] dark:text-slate-300;
-}
-
-/* Point List */
-.strategic-card__list {
-  @apply flex flex-col gap-[4px] w-full m-0 p-0 list-none;
-}
-.strategic-card__item {
-  @apply relative text-[14px] text-[#66738c] dark:text-slate-400 font-normal leading-[1.5] pl-[12px];
-}
-.strategic-card__item::before {
-  content: "•";
-  @apply absolute left-0 text-[#66738c] dark:text-slate-500 font-bold;
 }
