@@ -30,8 +30,11 @@
       </div>
     </template>
     <div class="ai-report-modal__content">
-      <template v-if="data">
-        <a-i-report-content :signal="data" @send="handleSendRequest" />
+      <template v-if="processedData">
+        <div class="ai-report-modal__content-inner">
+          <a-i-report-content ref="reportContent" :signal="processedData" @download-pdf="downloadPdf"
+            @send-email="sendEmail" />
+        </div>
       </template>
     </div>
   </modal-vanilla>
