@@ -43,6 +43,7 @@
         <a-i-report-customer-send
           :signal="processedSignal"
           @send="$emit('send', $event)"
+          @download-pdf="$emit('download-pdf')"
         />
       </div>
     </div>

@@ -32,8 +32,8 @@
     <div class="ai-report-modal__content">
       <template v-if="processedData">
         <div class="ai-report-modal__content-inner">
-          <a-i-report-content ref="reportContent" :signal="processedData" @download-pdf="downloadPdf"
-            @send-email="sendEmail" />
+          <a-i-report-content ref="reportContent" :signal="processedData" @send="handleSendRequest"
+            @download-pdf="downloadPdf" @send-email="sendEmail" />
         </div>
       </template>
     </div>
@@ -69,6 +69,14 @@ export default {
       default: null,
     },
   },
+  computed: {
+    /**
+     * @description 상위에서 전달받은 데이터를 내부에서 가공하여 사용합니다.
+     */
+    processedData() {
+      return this.data;
+    },
+  },
   methods: {
     handleSendRequest(eventData) {
       // 1. Close the current modal
@@ -84,6 +92,14 @@ export default {
           this.$emit("reopen");
         },
       });
+    },
+    downloadPdf() {
+      console.log("PDF download triggered");
+      alert("리포트 PDF 다운로드를 시작합니다.");
+    },
+    sendEmail(eventData) {
+      console.log("Email send triggered", eventData);
+      this.handleSendRequest(eventData);
     },
   },
 };

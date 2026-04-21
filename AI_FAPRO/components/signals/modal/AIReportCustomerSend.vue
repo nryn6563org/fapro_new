@@ -60,7 +60,7 @@ v-for="(client, idx) in clients" :key="idx" class="ai-report-send__client-card" 
               <send-icon size="20" class="mr-2" />
               선택한 고객에게 이메일 전송
             </button>
-            <button class="ai-report-send__btn-secondary">
+            <button class="ai-report-send__btn-secondary" @click="$emit('download-pdf')">
               <download-icon size="20" class="mr-2" />
               PDF 다운로드
             </button>
